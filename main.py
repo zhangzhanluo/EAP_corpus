@@ -5,13 +5,16 @@ import pandas as pd
 file_home = 'Txts/'
 file_paths = os.listdir(file_home)
 
+# records the encoding information for later file reading
 encodings = []
 for file_path in file_paths:
     encodings.append(chardet.detect(open(file_home + file_path, 'rb').read())['encoding'])
 encodings = ['utf-8' if i == 'Windows-1254' else i for i in encodings]
 encoding_dic = {x: y for x, y in zip(file_paths, encodings)}
 
-subject_ids = set([x[:6] for x in file_paths])
+# create the corpus for each subject and for all the subjects
+subject_ids = list(set([x[:6] for x in file_paths]))
+subject_ids = sorted(subject_ids)
 all_all_lines = []
 for subject_id in subject_ids:
     all_lines = []
@@ -30,6 +33,7 @@ with open('Results/text for all subject.txt', mode='w', encoding='utf-8') as f:
     for line in all_all_lines:
         f.write(line)
 
+# create the documentation for the corpus
 file_home = 'Xlsxs/'
 file_paths = os.listdir(file_home)
 
@@ -42,7 +46,7 @@ all_files['所属一级学科（代码）'] = all_files['所属一级学科（�
 all_files['所属一级学科（代码）'] = all_files['所属一级学科（代码）'].apply(lambda x: '080700' if x in ['080701', '080702'] else x)
 all_files['英语班级'] = 'M31'
 all_files['学院代码'] = all_files['学院代码'].apply(lambda x: '020' if x == 20 else x)
-all_files['学院代码'] = all_files['学院代码'].apply(lambda x: '020' if x == 20 else x)
+all_files['学院代码'] = all_files['学院代码'].apply(lambda x: '440' if x == 440 else x)
 grouper = all_files.groupby('所属一级学科（代码）')
 for subject_id, group in grouper:
     group.index = ['RA'+str(x) for x in range(1, group.shape[0]+1)]
