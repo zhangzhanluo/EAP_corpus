@@ -1,0 +1,597 @@
+ABSTRACT
+An interconnected energy hubs (EHs) framework aims to enhance the efficiency of the multicarrier
+energy system through realizing optimal coordination among existing players. In this paper, EH concept
+is studied in networked microgrids (MGs) structure to exploit the potential capabilities of microgrids in
+satisfying various types of energy demands. In the proposed model, MGs and distribution network are
+independent entities which have their local scheduling problem. To coordinate the operation of entities,
+a distributed algorithm based on the alternating direction method of multipliers (ADMM) is exploited to
+resolve the conflict of exchanged power between multi-MGs and distribution network. Considering the
+uncertainties, a distributed robust model is employed to precisely analyze the performance of multi-
+carrier energy networked MGs in different robustness levels. The efficiency of the ADMM model on
+integrated energy systems is tested on a networked MGs. The achieved results can ensure the light
+computational burden and convergence of proposed distributed algorithm. The proposed EH optimiza-
+tion problem is solved via Gurobi optimizer packages. According to the results, the ADMM converges to
+the final solution after 5 iterations, and with increasing the robustness level, the operation costs of EHs
+increases. The obtained results by Gurobi is more optimal than heuristic algorithms.
+1. Introduction
+1.1. Motivation and significance
+The development of dispatchable and non-dispatchable
+renewable energy sources has affected the energy networks and
+introduced brand new energy concepts. The energy hub (EH)
+concept is one of the important consequences of renewable energy
+utilization. The energy hub is a concept by which the energy con-
+version, storage and generation can be realized in a higher effi-
+ciency. The EH integrates a wide range of energy sources aiming at
+increasing a network efficiency and decreasing the energy wasting.
+Besides, deployment of distributed energy resources (DERs) can
+lead a system towards an economical, environmentally friendlyand
+flexible network [1]. According to the energy hub concept, various
+energy carriers are exploited to satisfy a range of energy demands
+at any given time slot [2]. Today’s energy hubs take advantage of
+modern technologies such as storage systems, and optimal control
+centers for energy management and energy trading purposes.
+Considering this capability, the size of EHs can include a wide range
+of the energy system depending on demands, infrastructures and
+financial budget [3].
+The necessity of energy hubs is realized when the optimal
+operation of integrated energy systems leads the network toward
+efficient utilization of existing energy sources to satisfy different
+demands with minimum economic and emission costs [4]. To
+achieve optimal operation of multiple EHs, different methods have
+been already proposed. In Ref. [5], a mixed integer nonlinear pro-
+gramming (MINLP) model is applied for the sake of direct inter-
+plant heat integration to make the controllability of energy hubs
+flexible when accidentally shutdowns happen; however, the coor-
+dination between EHs is not discussed and guaranteed for the large
+networks. In Ref. [6], three different schemes are discussed. In the
+first one, energy hubs operate independently without any energy
+sharing with other entities. In the second scheme, EHs can share
+energy with each other through pool-market concept, while the
+impact of aggregator can be observed in last scheme in which the
+game-theoretic approach based on Stackelberg game is proposed to
+solve the energy hub problem in a bilevel scheme. The conditional
+value-at-risk (CVaR) algorithm is employed in Ref. [7] to ensure the
+optimal operation of smart EHs when it comes to a potential risk in
+energy hub dailyscheduling. To simplifya complicated EH, Liu et al.
+[8] have divided the complicated model to several simple EHs, and
+then an approach based on virtual nodes insertion is employed to
+solve the EH problem. To ensure the optimal costs of energy hubs, a
+probabilistic approach based on Monte Carlo method is used totake
+variations of renewable sources into account [9]. Benders decom-
+position (BD) algorithm is employed to address the environmental
+and social objectives of EHs and decrease the computational
+burdenof EH problem [10]. In Ref. [11], the uncertainty dealing with
+plug-in hybrid electric vehicles (PHEVs) is modeled using
+information gap decision theory (IGDT) to exactly determine the
+risk-averse and risk-seeking strategies of the EH. To model the
+optimal bidding strategy of energy hub, a stochastic optimization
+model is adopted in Ref. [12] to handle the uncertainties associated
+with market price and wind energy.
+Smart grid technology specifically microgrids (MGs) concept has
+changed the reconfiguration of distribution networks and made the
+power system sustainable, reliable, and economical [13]. The U.S.
+Department of Energy (DOE) clearly defines the microgrid as a key
+component of smart grid aiming at enhancing reliability, resiliency,
+energy efficiency, and quality [14]. Although microgrids have many
+technical benefits, they may have some environmental issues,
+which should be considered. In Refs. [15], the authors have dis-
+cussed the fuel-based and renewables microgrid in Canada.
+Nowadays, in Canada, the experts and organizations try to consider
+social and environmental benefits of microgrids along with
+economical aspects. Besides, the authors in Ref. [16] have consid-
+ered the environmental aspects of islanded microgrids by propos-
+ing an optimal planning model aiming at decreasing the
+environmental issues of microgrids. The concept of the micro en-
+ergy grid is employed in Ref. [17] to realize the main goals of EHs
+considering the optimal coordination between energy carriers. It
+should be mentioned that MGs were previously utilized as a
+framework for satisfying the electrical power scheduling in distri-
+bution networks. The most important objectives of electrical MGs
+are to minimize the operation cost of small-scale energy zones [18],
+enhance the resiliency of the grid in case of natural disasters [19],
+and increase the reliability [20]. Moreover, in Ref. [21], the stability
+issue of microgrids in both interconnected and islanding mode is
+improved using large-signal-based control topology for distributed
+generator (DG) power converter. The power quality is another
+important issue in power systems, which is improved in inter-
+connected DC microgrids [22]. In Ref. [23], the authors have used a
+two-stage stochastic optimization problem to solve optimal oper-
+ation of energy hubs. The proposed solution ensures the optimal
+scheduling of energy resources and reserve capacity. Moreover, the
+authors have assumed that the limits for energy flows, voltage
+magnitudes, and nodal natural gas pressures are in acceptable
+range so that the security of the network is guaranteed. In Ref. [24],
+EH takes advantage of the generation-storage framework of a
+microgrid to ensure the optimal scheduling of multi-energy car-
+riers; however, the proposed structure of the MG and EH formu-
+lation is simple and the proposed model can face with significant
+challenges in larger and multiple interconnected energy entities. In
+Ref. [25], AC/DC microgrid is employed to increase the energy
+trading between energy providers and consumers through
+ensuring efficient energy conversion using a two-stage chance-
+constrained bidding scheme. Interconnected MGs are used in
+Ref. [26] aiming to optimally coordinate the energy performance of
+entities, and a distributed stochastic method is used to solve the
+daily scheduling problem which requires a minimum range of in-
+formation; however, the performance of proposed method is not
+precisely discussed the optimal coordination between MGs in en-
+ergy interaction.
+1.2. Related works
+Several studies have been carried out so far to address the co-
+ordinated operation of multiple MGs in which microgrids have
+energy interactions with each other through the distribution
+network [27]. In Ref. [28], a decent study has been reported on
+various energy management systems (EMS) applicable to multi-
+MGs, and a new structure based on nested energy management is
+presented to ensure the security of each entity and fix the existing
+drawbacks of conventional EMSs. In centralized energy manage-
+ment system of MGs, EMS aims to optimize the existing objective
+function for the entire network [29]. In this type of management
+system, all available entities should send their local and private
+data and information to the central EMS operator or distribution
+network operator (DNO), and then the operation cost of each MG is
+optimized by external decision-maker. Therefore, the centralized
+energy management system not only cannot guarantee the security
+of the entities but also cannot ensure the optimal coordination
+between MGs. On the other hand, decentralized energy manage-
+ment system of MGs is offered to fix the drawbacks of centralized
+EMS when it comes to interconnected operation of networked MGs
+[30]. To solve the optimization problem in decentralized mode of
+networked MGs, distributed algorithms are needed. In Ref. [31], a
+model predictive control (MPC) is employed to optimally manage
+the interaction of power among microgrids. Nevertheless, this
+technique strongly needs to identify the system model. Besides, the
+alternating direction method of multipliers algorithm is employed
+in Ref. [32] to satisfy optimal power trading between MGs and
+distribution network. In Ref. [33], Lagrangian relaxation is used for
+decentralizing the isolated MGs so that power exchanging is real-
+ized. A non-cooperative game-theoretic approach is employed in
+Ref. [34] to guarantee the optimal coordinating control among
+multi-MGs. Nevertheless, a few studies have been carried out in
+multiple energy carriers networked MGs. The existing studies have
+tremendously focused on electrical energy in networked MGs and
+paid less attention to other types of energy carriers.
+In [35], the authors have utilized an iterative algorithm to
+optimally manage the existing DERs. In the proposed algorithm, the
+main input data consist of prices, efficiencies, forecasted power
+generation of distributed energy resources and load. In other
+words, the local controllers should keep the main controller of the
+network informed of all data of existing local control centers to
+minimize the operation cost of the system. Therefore, the proposed
+structure is centralized. In Refs. [23], the authors have taken
+advantage of a two-stage stochastic optimization to address the
+operation planning of multi-carrier energy systems. In the pro-
+posed architecture, a simple microgrid structure without consid-
+ering the complicated function of control centers is used in
+coordinating the microgrid and main grid. In Ref. [36], an isolated
+MG providing the electricity and heating demands is considered.
+The proposed structure cannot guarantee the efficiency of the
+isolated microgrid in case of lack of electrical and heating energies.
+Moreover, meta-heuristics algorithms are employed to optimize
+the operation cost of the energy hub. Therefore, the optimal solu-
+tion obtained by heuristic algorithms can be doubtful due to local
+answers. Similarly, in Ref. [37], a single MG architecture is deployed
+to provide the electrical and heating loads of the network. The
+proposed energy management system is centralized, which means
+that the microgrid operator has access to all data of network loads
+and generation level of generators. Therefore, this type of frame-
+work can be challenging even after a simple cyberattack, in which
+some communication signals can be manipulated to mislead the
+optimal scheduling of the microgrid. It should be noted that the
+proposed heuristic algorithm may not be able to guarantee the
+global minimum for the problem. In Ref. [3], there exists an energy
+sharing between energy hubs. The proposed EMS is based on
+centralized operation mode. Besides, the authors have utilized a
+numerical method, called interior-point to overcome the conver-
+gence of the proposed heuristic algorithm to a local minimum.
+1.3. Contributions
+In this paper, the energy hub concept is realized in a networked
+MGs environment. As it was mentioned in the related works, all
+studies have been carried out in a centralized operation mode of
+energy management system. In other words, the EMS should have
+access to data and information of all entities to fulfill an optimal
+scheduling of the network. Therefore, the privacy of the entities are
+not important in centralized EMS. Besides, the most works in en-
+ergy hubs are studied either in regular distribution network
+without presence of microgrids or a single microgrid structure in
+islanded mode, while in this paper, a networked microgrids
+structure is presented, inwhich all MGs are interconnected and can
+share energy in a secure and safe environment with least data and
+information sharing with distribution network operator.
+According to the U.S. Department of Energy reports, microgrids
+are the future of smart distribution grids. Additionally, according to
+IEEE 1547 Standard, the interconnection and coordination of
+distributed resources is critical to create the networked microgrids
+structure [38]. Hence, the necessity of power systems studies in
+networked microgrids is inevitable. In this paper, multiple energy
+carriers networked microgrids is studied to satisfy various energy
+demands of the customers. The interdependence of different en-
+ergy infrastructures is an inevitable part of modern power systems.
+In this regard, networked microgrids can provide a secure, efficient,
+reliable, and resilient opportunity to various energy infrastructures
+to satisfy the energy demands. Besides, the secured optimal coor-
+dination between existing entities can guarantee the energy
+preparation at any given time. Due to conventional structure of
+distribution grids, providing energy is much more expensive than
+networked microgrids framework. In networked microgrids, each
+entity can connect to other entities to supply its energy re-
+quirements in a distributed operation mode to guarantee the pri-
+vacy and optimal energy trading, while in centralized mode or
+conventional structures, the main network supervisor has to collect
+all data from all existing entities and then optimize the energy
+scheduling without considering the privacy of them. To sum up, the
+networked microgrids as the future generation of distribution grids
+can lead the power systems toward efficient and resilient energy
+management, and in this regard, energy hubs concept can be
+realized in this architecture considering the optimal operation of
+natural gas and electricity infrastructures.
+As the power and gas networks are interdependent, the optimal
+energy trading between microgrids are inevitable. Compared to the
+previous works in interconnected energy hubs, this paper proposes
+a distributed method to manage the energy demands in a decen-
+tralized operation mode. Therefore, the energy trading will flow
+safely between entities, while in centralized mode the control
+center of microgrids share all information and data with distribu-
+tion network operator. To clarify the main contributions of this
+paper, Table 1 is provided to list the most recent published papers
+in the energy hub field, and compare the contributions with the
+proposed paper.
+In the proposed architecture, each MG has its objective function
+including electricity, heating, and cooling demands, and each MG
+coordinates its operation with the distribution network and other
+MGs. Alternating direction method of multipliers (ADMM) is
+employed to decentralize the daily operation of networked MGs
+using a robust optimization method. Therefore, the main contri-
+butions of this paper can be categorized as the following:
+In this paper, networked microgrids are considered as multi-
+energy hubs to satisfy various energy demands. The micro-
+grids operate in an interconnected mode to realize the optimal
+energy interaction among existing entities. Therefore, this study
+exploits the multi-energy interconnection through a decen-
+tralized operation mode of MGs, whereas previous studies have
+focused more on electrical power interaction among MGs.
+A new model is proposed to consider the energy interactions
+among microgrids and distribution network. In this regard, a
+decentralized energy management system is exploited to opti-
+mally respect the ownership of all entities, while the private
+information and security of them are realized.
+The ADMM is introduced to ensure the privacy and indepen-
+dence of the entities. The ADMM-based decentralized solution is
+applied to interconnected operation mode of MGs and distri-
+bution network to take the various energy interaction among
+entities into account. According to the previous studies, the
+ADMM model has been employed in those networks in which
+only electricity is assumed to be provided.
+A distributed robust model is applied to networked MGs
+embedded energy hubs. The proposed robust ADMM model
+tremendously decreases the computational burden and enjoys
+higher convergence.
+1.4. Organization
+In section 2, the networked MGs structure for interconnected
+energy hubs is presented. In section 3, the problem description is
+described. In section 4, the distributed robust model of ADMM is
+discussed. Finally, in section 5, the simulation results are depicted.
+2. Networked microgrids description embedded energy hubs
+In the proposed model, there exist two different decision-
+makers. The first decision-maker has to do with distribution
+network (DN). In this stage, distribution network operator mini-
+mizes the cost of the system including generation cost, power
+trading cost with the wholesale market, exchanging power cost
+with microgrids, energy storage systems, and load interruption
+costs considering wholesale market price and distributed energy
+resources. The second decision makers are microgrids, in which
+each microgrid is informed of the exchanging power of distribution
+network with the MG through the existing communication links.
+Then, each MG gathers data from the local controllers to optimize
+its costs, and finally, the MG informs the distribution network of the
+exchanging power between MG and distribution grid. Here, it will
+be conflicts between MGs and distribution network in the amount
+of exchanging power between the two identities, which this issue is
+resolved by ADMM method. The structure of MGs and DN is
+depicted as Fig. 1:
+In this paper, a multi-carriers energy microgrids are considered
+to satisfy the electricity and thermal loads. The proposed energy
+hub model enables the sharing of different types of energy between
+MGs and distribution network. In the presented model, there are
+two entities: multi-microgrids and distribution network. The en-
+tities in addition to generating energy through various energy
+sources, can share different types of energy with each other to
+address the energy demands of costumers. In Fig. 2, a typical
+scheme of an EH can be shown.
+3. Problem formulation
+In this section, the deterministic-based objective function of
+each entity is discussed separately.
+3.1. Distribution network
+As it is shown in Fig. 2, each entity includes two energy inputs to
+address the different energy demands of the costumers. The
+objective function of distribution network includes two different
+parts: electricity, and heating costs. Therefore, the following
+objective function can be utilized for distribution grid operation
+cost:
+The electricity part of distribution network objective function is
+affected by electricity input of the energy hub. To supply the elec-
+tricity demand of the EH, the objective function consists of elec-
+tricity interaction of DN with MGs and wholesale (WS) market, and
+charging/discharging state of batteries. Therefore, the electricity
+interaction and charging/discharging, load interruption costs along
+with the cost of provided electricity for electric chiller are included
+in the objective function as following:
+In aforementioned equations, the cost dealing with electricity
+transaction is mentioned in (3), in which distribution network can
+exchange electricity with wholesale market and microgrids. The
+purchasing power increases the economic costs of the entity, while
+distribution network can get profit through selling surplus elec-
+tricity to the MGs and wholesale market. Similarly, battery bank
+cost comprises the charging and discharging costs in (4). The
+interruption cost is described in (5).
+The electrical constraints of the problem for DNare as following:
+In (6) and (7), the range of transacted electricity between dis-
+tribution network and wholesale market is determined. Similarly,
+the electricity interaction limit between distribution network and
+each MG is specified in (8) and (9). The charging and discharging
+constraints are described in (10) and (11).The constraints dealing
+with generation units can be seen in (12)-(15). Finally, constraint
+(16) describes the supply-demand balance of distribution network,
+which should be guaranteed at any time slot.
+It is worthwhile to be mentioned that the energy level of battery
+storage system at any given time can be described as follows:
+The second term of the proposed objective function for distri-
+bution network has to do with gas-related cost. In addition to
+electricity, existing EHs have gas input, in which the thermal and
+cooling demands are supplied by gas network. Gas input provides
+electricity, heating and cooling energies to the EHs. The output of
+micro turbines, fuel cells, and diesel generator is electricity while
+theyare supplied bygas network input. Besides, combined heat and
+power (CHP) units canproduce heating energyas well as electricity,
+and the input energy for CHP units is gas as well. Moreover, there
+are several gas boilers inside each entity to supply the heating for
+the thermal demands. According to the presented energy hub
+structure, cooling demands of the entities can be supplied by both
+electric chillers which has electricity input, and absorption chiller
+which the input energy is gas. Therefore, the objective function
+associated with gas energy input can be formulated as below:
+In (18), all terms of objective function are shown. As micro
+turbines (MTs), fuel cells (FCs), and CHPs are supplied by gas
+network, the generation cost of these units is considered in gas
+objective function. In this paper, it is assumed that all outputs of
+MTs and FCs are electricity. In other words, according to (20) and
+(21), the input gas energy is entirely converted to electricity. There
+is a diesel generator in distribution network which its generation
+cost is described by a quadratic function in (23). The cost dealing
+with heating storage systems is shown in (24). In each EH, gas
+boilers play an important role in supplying the thermal loads, and
+the generated heat cost by gas boilers is formulated as (25). Each
+energy hub can interact heating energy with gas network to
+guarantee the supply-demand balance. The cost of the heating
+transaction is formulated in (26). The heating interruption is
+considered in case of lack of enough heating energy, which has the
+cost as (27). On the other hand, CHP units have two energy outputs,
+electrical energy and heating energy. Therefore, each output of the
+CHP can be obtained as follows:
+In (28), the electrical contribution of CHP is the value of total
+energy output of the unit, while the heating portion of CHP is of the
+total output energy in (29).
+The heating-related inequality constraints of the problem for
+distribution network are similar to electrical part. The inequality
+constraints of heating section includes the generation limits of gas
+boilers, charging and discharging state of heating storage, heating
+energy trading of the entity with the external gas network, and
+absorption chiller limits.
+The supply-demand balance of heating hub is shown by (30).
+3.2. Multi-microgrids
+In this paper, each microgrid is considered as an EH which tries
+to supply different type of energy demands in any given time.
+Similar to distribution network, MGs can address the electricityand
+thermal demands using local energy sources, energy storage sys-
+tems, and energy interaction with upper level supplier. Microgrids
+and distribution network are operating in decentralized mode
+meaning that each entity optimizes its objective function without
+interference of other entity. So, this operation mode greatly helps
+the entities to protect the important data and information and
+guarantee the security of them. Likewise, the distribution network,
+MGs have to address the electricity and thermal loads at any time
+slot.
+The electricity part of each MG objective function is influenced
+by electricity input of the energy hub. To supply the electricity
+demand of each MG, dispatchable and dispatchable generation
+units, electrical energy storage systems, and power transaction
+between entities are considered. On the other hand, other output of
+electricity hub is provided energy for electric chillers. The electrical
+objective function of MGs is exactly like distribution network as
+mentioned in (2). The costs dealing with electricity transaction,
+electrical energy storage, and interruption are formulated like
+distribution network (3-5). However, in case of transaction elec-
+trical power of each MG, it should be noted that each MG has only
+energy interaction with distribution network. Therefore, the elec-
+trical power transaction of each MG can be defined as below:
+Similar to distribution network inequality constraints, each MG
+has the same constraints as (6)-(15). The equality balance of each
+MG can be written as below:
+The heating-related objective function of each MG is similar to
+distribution network mentioned in (18)e(27).The equality heating
+balance of each MG can be written as follows:
+4. Distributed robust model based on ADMM
+4.1. Robust approach
+In this paper, the uncertainty dealing with wholesale market
+price is modeled using robust optimization. The proposed objective
+function can be described as follows:
+The proposed objective function considering the robust model
+can be formulated as below:
+4.2. ADMM model
+The prevalent form of objective function and constraint set
+which is optimized by ADMM algorithm is as follows:
+The augmented Lagrangian function associated with proposed
+ADMM algorithm is as below:
+As ADMM method is iterative approach, the corresponding it-
+erations can be denoted as following:
+As it is seen both x and z variables are separately minimized in
+an iterative procedure. Therefore, according to (49) and (50), it can
+be concluded that ADMM method is appropriate for decentralized
+optimization problems. Due to iterative instinct of ADMM, the
+approach should be stopped when the following convergence
+criteria is fixed:
+4.3. ADMM model for networked MGs embedded energy hubs
+In this paper, microgrids and distribution network are consid-
+ered as separate entities which are willing to interact with each
+other from energy standpoint. It should be mentioned that variable
+x consists of distribution network variables at any given time spot
+as follows:
+Similarly, the variable z includes the following variables for each
+MG at any given time spot:
+In this regard, the augmented Lagrangian function can be
+formulated as (54):
+As it was mentioned, microgrids and distribution network can
+operate in decentralized mode, which means that the operation
+cost can be minimized by each entity considering the energy in-
+teractions. Considering the decentralized operation of entities,
+ADMM is utilized to fix the conflicts of transacted electricity be-
+tween each MG and distribution network. The steps of ADMM are
+denoted as follows:
+In Fig. 3, the flowchart of proposed decentralized model using
+ADMM is depicted.
+5. Numerical results
+The ADMM method is tested in a distribution grid including
+networkedmicrogrids with three MGs shownin Fig.1. Each MG and
+distribution network operate as an EH which is shown in Fig. 2.
+In Table 2 and Table 3, the performance parameters of devices
+are listed. The hourly electrical, heating, and cooling demand of all
+entities are depicted in Fig. 4.
+In the distribution network, diesel generator, MT, FC, CHP,
+photovoltaic panel (PV), and wind turbine (WT) are responsible to
+provide electrical energy to the entity, while PV, WT, and CHP are
+suppliers of electrical power for MG1, and MT, CHP, WT are in
+charge of producing electricity for MG2. Besides, PV and CHP are
+utilized in MG3 to supply the electricity. In Fig. 5 and Fig. 6, the
+contribution of each power generation unit is shown. In Fig. 5, the
+generation level of distribution network and MG1 is depicted. As it
+can be observed the diesel generator is utilized when either the
+generation level of wind turbine and PV panel is lower or the
+electrical demand is higher especially in peak hours. Moreover, in
+both distribution network and microgrids entities, the non-
+dispatchable generation units including wind turbine and PV
+panel have priority in power production. Then, the dispatchable
+units are contributed to supply the required power. In other words,
+the priorities for power generation are non-dispatchable, dis-
+patchable, and diesel generators due to generation costs.
+In addition to electrical sector, there exist different units which
+are responsible to supply heating for consumers. Gas boilers and
+CHP units are considered in heating generation process. The
+contribution of gas boilers, CHP, and solar thermal units can be
+observed in Fig. 7 and Fig. 8 for the entities. It should be mentioned
+that MG1 and MG3 can take advantage of solar thermal, as well.
+Similar to electrical part, for the heating production, the solar
+thermal units are the first priority of entities.
+In Fig. 9, the contributions of cooling generation units can be
+seen. Absorption chillers (AC) and electric chillers (EC) which are
+supplied by gas and electricity, respectively, are utilized to supply
+the cooling demand of MGs and distribution network.
+Fig. 10 shows the transacted power between MGs and distri-
+bution network. As it was mentioned in previous sections, the
+ADMM approach is used to coordinate the electrical power inter-
+action between entities in a decentralized operation mode. The
+optimal results are achieved after 5 iteration which shows the fast
+convergence of ADMM.
+According to Fig. 10, it can be seen that MGs are willing to
+purchase power from distribution network instead selling power to
+that entity. It is due to this fact that the internal power generation
+units are not able to supply electrical power to their customers.
+Also, the Fig.10 describes that the MG2 provides more powers from
+energy trading with distribution network compared to other
+microgrids due to higher electrical demand of this microgrid. On
+the other hand, it is seen that MG1 sells the surplus power to the
+distribution network at hour 6 because of surplus generated power.
+Totally, the cost of energy trading of MG2 should be more than
+other entities.
+In Fig.11, the optimal results of distribution network is depicted
+for both electrical and heating sectors. Similarly, the optimal out-
+puts of microgrids are shownin Figs.12e14. It should be mentioned
+that the negative value for exchanged power describes that the
+entity is willing to sell power to other entity.
+In Fig. 11, In case of electrical operation, the generation level in
+distribution network is depicted along with electrical demand. The
+amount of energy trading of distribution network with wholesale
+market, as well as other microgrids are depicted. In this regard, the
+negative amount of energy trading with MGs describes the amount
+energy selling to those entities. It is observed that the distribution
+network is willing to sell more power to MG2 compared to other
+microgrids. Besides, the charging and discharging level of batteries
+are shown. From heating point of view, the heating energy gener-
+ation using gas network is shown along with heating demand. In
+Fig. 11, considering the heating demand, the distribution network
+has to connect to external gas company to provide the required
+heating energy to the clients. The negative amount of exchanged
+heating means that the entity sells heating energy to the gas
+company, while the amount of purchased heating energy is
+described by positive numbers. It should be mentioned that in peak
+hours, the entity requires to purchase energy rather than selling to
+gas company. Also, the charging and discharging level of heating
+storage systems are shown. Similarly, in Figs.12e14, the generation
+level, energy trading, and state of charging are described for elec-
+trical and heating purposes of all microgrids.
+In Fig. 15, the optimal results for cooling goal of entities are
+depicted.
+As it is seen in Fig. 15, cooling load interruption can occur in
+some hours, which is due to lack of input energy for both electric
+chiller and absorption chiller. It is observed that the cooling load
+shedding is prevalent in peak hours. It should be noted that cooling
+interruption is directly depends on heating and electricity sections.
+As an example, there is no cooling load interruption in MG3, which
+means that either the load profile is lower or is there enough
+electricity and heat in electric and heating hubs.
+To analyze the operation cost of entities, Fig. 16 shows the total
+operation cost of entities, which is the sum of electricity and gas
+inputs. In this figure, the total operation cost is shown for robust-
+ness level G 0 ¼ 12. It is seen that the operation cost of distribution
+network is more than each microgrid because of higher electrical
+and heating demands compared to other entities.
+In Table 4, the total operation cost of distribution network is
+described considering different robustness level.
+As it was estimated, the operation cost increases with increasing
+the robustness level. In other words, the system is more conser-
+vative once the robustness level goes up. Therefore, when the
+robustness level is getting twice, the operation cost of distribution
+network increases by 19% which is a significant cost. Besides, to
+compare the obtained results by the commercial package, a heu-
+ristic algorithm, namely particle swarm optimization (PSO) is
+employed to validate the optimal solution of proposed method. In
+this paper, the obtained results are achieved and optimized by
+commercial package (Gurobi optimizer package) and then
+compared with PSO in centralized and distributed operation
+modes. The achieved operation cost by Gurobi optimizer package is
+reliable and optimal compared to PSO. The reason is that the
+heuristic algorithms obtain local optimal solutions rather than
+global answers.
+To show the performance of ADMM, the operation cost of dis-
+tribution network is depicted in Fig. 17 for each iteration at
+robustness level 12.
+According to Fig. 17, the fast convergence of ADMM can be seen
+for the operation cost of distribution network. ADMM can reach to
+the optimal cost after 5 iterations. Besides, In Fig. 18, the residual
+value of problem which is described as step 4 of ADMM in (57) is
+depicted. The rapid convergence of the method can be clearly seen.
+6. Conclusion
+In this paper, optimal operation of networked MGs embedded
+interconnected energy hubs was discussed. A distributed robust
+model was proposed to optimally coordinate the power trading
+between microgrids and distribution network. A robust optimiza-
+tion method is employed to analyze the impact of uncertainty
+associated with wholesale market price. In this study, networked
+MGs and distribution network were assumed to be independent
+entities aiming at minimizing their own operation cost while the
+privacy and security of entities are realized. To coordinate the
+exchanged energy between MGs and distribution network, ADMM
+is exploited to settle the conflicts of entities. The main goal of this
+study was applying ADMM model to interconnected energy hubs to
+show the strength of this distributed algorithm in coordinating the
+existing conflict between entities. The achieved results proved this
+fact that the convergence of ADMM model is significant and can
+rapidly reach the optimal results in less iterations. Comparing the
+obtained result by the proposed distributed algorithm with
+centralized model shows the accuracy of the presented method.
+Also, the optimality of proposed optimization method solved by
+Gurobi solver is compared with a heuristic algorithm tovalidate the
+accuracy. In the proposed problem, the obtained results by Gurobi
+solver is better than heuristic algorithm. Distributionally robust
+optimization model based on ADMM considering demand response
+programs can be considered for optimal operation analysis of net-
+worked MGs embedded EHs in future works.

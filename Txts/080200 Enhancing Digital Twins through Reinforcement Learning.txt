@@ -1,0 +1,110 @@
+Abstract
+
+Digital Twins are core enablers of smart and autonomous manufacturing systems. Although they strive to represent their physical counterpart as accurately as possible, slight model or data errors will remain. We present an algorithm to compensate for those residual errors through Reinforcement Learning (RL) and data fed back from the manufacturing system. When learning, the Digital Twin acts as teacher and safety policy to ensure minimal performance. We test the algorithm in a sheet metal assembly context, in which locators of the .xture are optimally adjusted for individual assemblies. Our results show a fast adaption and improved performance of the autonomous system. 
+
+INTRODUCTION 
+
+The emergence of Internet of Things, Big Data and cloud computing has given rise to the concept of the Digital Twin in manufacturing. The Digital Twin is seen as a core enabler for smart and autonomous manufacturing systems [1]. In essence, it is an ultra-realistic digital model of the product or system with bidirectional automated data exchange used for simulation, optimization and control. Irregardless of its accuracy, slight model or data errors will remain, due to limitations in modelling and data capturing. These resid-ual errors create an improvement potential. As repeatedly pointed out in the literature on Digital Twins, machine learning and Arti.cial Intelligence (AI) could realize those improvements through learning expressive nonlinear models. However, to the best of our knowledge only few publications address how that could be achieved. Jaensch et al. [2] present a generic concept for incorporating learning methods into Digital Twins. Wang et al. [3] and Sapronov et al. [4] tune parameters of the Digital Twin through machine learning. We are interested in generic algorithms that leverage and adapt Digital Twins in the context of control, though. 
+In this context, we study requirements on an AI solution to compensate for remaining model or data errors. We propose an algorithm based on Reinforcement Learning to adapt the Digital Twin¡¯s control policy derived from erroneous models. To that end, we require minimal performance of the learning algorithm to address safety and quality concerns. We show its application to a case of industrial size. Our results indicate a fast realization of the improvement potentials, and overall an increased performance (see Figure 1). The main contributions of this paper are: the discussion and demonstration of using
+
+
+Fig. 1. The performance of the proposed EDiT Reinforcement Learning algorithm applied to an industrial problem. Two sheet metal parts of varying geometry need to be joined through spot welding. The 12 locators of the .xture can be adjusted for each individual assembly to improve the resulting part geometry. The performance of the Digital Twin¡¯s default control policy is based on optimizing a Finite Element model and used as a baseline (black) in this plot. Our EDiT agent can not perform worse than 0.5% of the default control policy at any time, depicted as the exploration constraint (red). After an initial exploration phase, our EDiT agent improves upon the Digital Twin¡¯s default policy, leading to an enhanced overall performance. 
+deep learning to enhance Digital Twins; and a novel deep Reinforcement Learning algorithm for enhancing Digital Twins. 
+The paper is structured as follows: Section II elaborates on the concept of Digital Twins and the identi.ed research gap; furthermore, Reinforcement Learning and its reduced formulation of Contextual Bandits are discussed; Section III presents necessary considerations on, and our solution to, enhancing Digital Twins through RL; Section IV gives results of our experimental test case; and Section V concludes the paper. 
+II. PRELIMINARIES 
+
+A. Digital Twins 
+The term Digital Twin originates from a NASA technology report, in which a Digital Twin is de.ned as: ¡°an integrated multiphysics, mulitscale simulation of a vehicle or system that uses the best available physical models, sensor updates, .eet history, etc. to mirror the life of its corresponding .ying twin [5].¡± As such, the Digital Twin is both a collection of algorithms and a data structure of high .delity. In the manufacturing context, researchers are yet to agree on a common de.nition of the concept [6]. This may be due to most publications being either conceptual work or case studies [6]. Another reason may be the broad application area of Digital Twins to all phases of the product life cycle: design, engineering, manufacturing, operation and service [7], [8]. In manufacturing, the application to production planning and control dominates the available literature [6]. We, too, focus on production planning and control in this paper. 
+A number of challenges present themselves in realizing a Digital Twin. One is understanding and modelling all relevant physical phenomena, as well as exploring their potentially massive state space to uncover any undesired behaviors [9]. Another is the automatic and continuous update of models and model parameters needed over the life cycle of the system [1], [10]. A third is to identify and utilize incon-sistencies between model and real system [10]. Lastly, how deep learning methods can be employed and continuously improved in the context of Digital Twins is a key challenge that needs to be addressed [8]. 
+For the remainder of this paper, we assume the Digital Twin to be a high-.delity, but ¨C due to above¡¯s challenges 
+¨C ultimately inaccurate digital model, used for simulation, control and optimization, with a bidirectional, automated data exchange to the physical counterpart. We hypothesize what types of data are exchanged. If the Digital Twin contains algorithms for optimization, decision making and control, data that in.uence the state of the physical system represent the sole sensible type of data sent from the Digital Twin to the physical system. We refer to this type of data as control actions. In the opposite direction, sent data are either state updates or feedback signals. Since the Digital Twin tracks all information about the physical system, changes in the state of the system must be transmitted to the twin to keep them synchronized. Feedback signals that re.ect the goodness of control actions may be viewed as a sub-type of state updates. 
+Due to the characteristics of the data link, any control method would suit the concept of Digital Twins. However, a method, capable of leveraging the comprehensive informa-tion available in the Digital Twin and capable of handling potentially nonlinear behavior of the system, is preferred. Reinforcement Learning lends itself as such method and also as a deep learning method that could address the key challenge of enhancing Digital Twins through learning. 
+B. Reinforcement Learning 
+Reinforcement Learning is inspired by the way humans learn. The learning agent observes the state xt ¡ÊX of the environment, decides on a control action ut ¡ÊU that alters the state of the environment, possibly receives a reward r according to some reward function R(x,u), and observes the new state xt+1 ¡ÊX of the environment. Over time, it will learn to distinguish good from bad actions. 
+More formally, the underlying model is a Markov Decision Process, or MDP in short. An MDP is de.ned through the tuple X,U,R,T,¦Ã, where X is the space of states, U is the space of actions, Ris the function of rewards rt = R(xt,ut), T is the transition probability function T(xt,ut,xt+1)= p(xt+1|xt,ut), and ¦Ã ¡Ê[0,1) is the discount factor. An important property of the state is the Markov Property, meaning the state must contain all information necessary to predict the associated reward and next state. 
+
+C. Contextual Bandits 
+For many learning tasks in manufacturing, the full Rein-forcement Learning setting does not apply. When considering tasks per part basis, the problem formulation may be free of dynamics. In other words, if the system state depends on the particular part that is being processed, but, irregardless of the selected action for that part, the next state is already decided -for instance by the production schedule -, the transition probability function T(xt,ut,xt+1) is obsolete. And with that, the discount factor ¦Ã is also no longer required. This setting is referred to as a Contextual Bandit in literature. 
+A Contextual Bandit is de.ned by the tuple X,U,R, where X is the space of states, U is the space of actions, R is the function of rewards rt = R(xt,ut). At each round t, the environment prepares a state xt (also called context), the learner selects and action ut and receives a reward rt. The next state xt+1 prepared by the environment is unrelated to xt and ut. The agent aims to learn learn a policy ¦Ð : X
+
+that satis.es the optimal value function: 
+
+
+In continuous control problems the policy ¦Ð maps states to probability distributions of actions: ¦Ð : X,U
+¡úp(U). The value function of a particular action ut in state xt is de.ned by 
+Q(xt,ut)= E [R(xt,ut)] . (2) 
+
+D. Function Approximation 
+We consider problems of industrial size with high-dimensional continuous state and action spaces. In such cases, the number of states and actions is intractable and too large for a discrete, tabular representation of the value functions V and Q, and the policy ¦Ð. To handle that problem, function approximation has been proven successful [11]. More speci.cally, we consider arti.cial neural networks for our context, due to their expressiveness. 
+Neural networks a class of nonlinear function ap-proximators, consisting of M linear combinations of input variables ¦Õ1,...,¦ÕD (e.g. parameters of the state xt) and weights ¦È1,1,...,¦ÈM,D. The linear combinations are com-plemented by a nonlinear, differentiable activation function h(¡¤) 
+
+
+where j =1,...,M, and ¦Èj,0 is the bias [12]. The outputs y1,...,yM of the network layer can be in turn the inputs to a subsequent layer. The neural network learns via minimizing a loss function L(¦È). The gradients of the loss function are back propagated through the network to tune its weights. 
+Digital Twin 
+
+Fig. 2. The architecture of our EDiT algorithm. The Digital Twin observes a state xt and decides on a control action dt based on its default policy ¦Ðd. Our RL algorithm EDiT observes, both, xt and dt. It decides then whether to apply dt or ut = ¦Ða(xt) to the physical system G. The system then generates a feedback signal (reward) rt and a next state xt+1 that is observed by the Digital Twin. rt is used to improve the EDiT policy ¦Ða. 
+III. ALGORITHM 
+Based on the reduced Reinforcement Learning problem formulation of Contextual Bandits, we propose the deep learning algorithm EDiT for Enhancing Digital Twins. While introducing the algorithm, we elaborate on key re-quirements on an AI solution aiming at compensating for model inaccuracies of the Digital Twin in control and op-timization. For ease of understanding, Figure 2 depicts the schema of the algorithm¡¯s architecture. 
+A. Policy Function 
+Deep Reinforcement Learning allows for continuous con-trol policies1, needed for our application case. Assuming a normally distributed policy distribution, we propose a neural network to approximate mean ¦Ì and standard deviation ¦Ò of the policy function ¦Ða, such that 
+
+where Nis a multivariate Normal distribution in U. This can be interpreted as the network outputting deterministic values of the action (¦Ì) and adding some normally distributed exploration noise ¦Ò to it. 
+For better training stability and sample ef.ciency, we use a trust region policy optimization method [13], [14]. In particular, we apply Proximal Policy Optimization [15] and update ¦Ða by minimizing the loss 
+where A.t = Q.(xt,ut) .V.(xt) is the advantage function estimate, E is a small trust region parameter, and ft(¦È) is the fraction 
+
+ft is used as a replacement of the logprobability of the policy that is used in policy gradient methods. Clipping 
+1Although we present only the continuous case here, the EDiT algorithm can easily be adapted to the discrete case, in which the policy would be a discrete probability distribution. 
+
+ft at a lower or higher bound has the effect of bounding the loss. In the minimization step, that bound limits the gradients, resulting in smaller policy updates such that the policy remains proximally in the trust region. Intuitively, this method mitigates the risk of destructive policy updates that move ft too far away from 1. For further details on this method, we refer the reader to [15]. 
+B. Value Functions 
+To estimate the advantage of an action under the current policy that is required for updating the policy, we need to approximate its value function V.(xt). As loss function for the value function network, we choose the mean square error 
+
+
+where N is the batch size of training data, and c a small regularization constant for the L2-norm of the weights ¦È. Similarly, the loss of the advantage function A.¦È(xt,ut) is 
+
+
+(8) Since the network V¦ÈV is, both, being updated as well as being used to compute the target values for A¦ÈA ,we 
+
+maintain a copy V¦ÈVÂ¬ of the network V¦ÈV used for the target 
+computations. The weights ¦ÈVÂ¬ of the copy are updated using 
+
+
+a soft target update ¦ÈV¡û¦Ó¦ÈV +(1 .¦Ó)¦ÈV, where ¦Ó is a small value. This has been shown to stabilize the convergence during training [16], [17] -an important property when learning online. 
+C. Safe Exploration 
+In a manufacturing context, performance of the control policy at any time is paramount. When learning, the agent must explore the action space to improve its potentially sub-optimal policy. This process may lead to catastrophic errors. While this is undesirable in any real-world context, in manufacturing it causes an additional economic cost. We are thus interested in safe exploration strategies that maintain on average with high probability a given level of performance during learning. 
+Garcia and Fernandez [18] identi.ed Teacher Advice as common approach to incorporate external knowledge in the exploration process to make the same safer. With the availability of the Digital Twin, have to 
+default policy ¦Ðd that can be regarded as such teacher advice. The default policy ¦Ðd is the original control policy of the Digital Twin, before we apply deep learning to compensate for model inaccuracies. This default policy may be sub-optimal, but arguably superior to the agent¡¯s policy ¦Ða in the initial learning period. A problem formulation similar to Wu et al. [19] then suits our manufacturing case. Accordingly, 
+de.ne a cumulative performance constraint for safe exploration: For all rounds t, the sum of rewards ru of the agent¡¯s policy ¦Ða can at most be worse by a fraction ¦Áof the sum of rewards rd of the default policy ¦Ðd, formally written as
+
+..
+D. Bayesian Neural Networks 
+By themselves, neural networks do not compute con.-dence bounds on their predictions. However, Gal and Ghahra-mani [20] have shown that dropout can be used as a Bayesian approximation. Dropout refers to the technique of randomly disabling units of a neural network layer. Originally used as a method to mitigate over-.tting, it can be used to approximate a Gaussian Process. Con.dence bounds can then be derived from the statistics of a Monte Carlo sample. The intuition behind using dropout as a Bayesian approximation is that the variance ¦Ò.2 of the sample will be high in regions of low data density and lower in regions with an abundance of available data. 
+We propose to apply this technique to the advantage network A to compute the required values of Q.UCB and Q.LCB. For that purpose, we sample S times from A(xt,ut) 
+and compute 
+Q.LCB/UCB(xt,ut)= V.(xt) .3.¦ÒS A.(xt,ut), (15) 
+
+where ¦Ò.S is the standard deviation of the drawn samples S. 
+E. Sample Ef.ciency 
+In the context of manufacturing, each data sample may represent a particular physical part. Given that the num-ber of samples is limited, we wish to be ef.cient with the data and learn quickly. We store all collected data samples xt,ut,rt,¦Ða(ut|xt)in a data structure D and repeatedly retrain a random subset of D to improve sampleef.ciency.Intonhat, we take inspiration from [21] and keep demonstrations of the Digital Twin¡¯s default policy ¦Ðd separate. When sampling a minibatch from D, we ensure that a small percentage of the samples originates from those demonstrations. Through that mechanism, the default policy is constantly kept present in the learner, helping with training stability. 
+F. EDiT Algorithm 
+Drawing on the previous subsections, the full EDiT al-gorithm presents itself as listed in Algorithm 1. In eachroundt,EDiTobservenows the state xt, and the action dt proposed by the default policy. We then sample K-times from the policy distribution ¦Ð to build up a set of possible actions ut,1,...,ut,K for which we compute the mean action u¡¥t. This results in a sample bias for u¡¥t that allows for exploration. u¡¥t will be applied to the system as long as the lower bound on the expected reward Q.LCB(xt,u¡¥t) is within the exploration budget. Otherwise, dt will be applied. We store the resulting data and update our neural networks on a minibatch sample of the replay buffer D. 
+
+EXPERIMENTAL RESULTS 
+
+
+computes adjustments of the .xture locators based on a Finite Element Analysis; and the adjustments are applied to the physical system to improve the geometrical quality of the .nal assembly. A pre-study to using Reinforcement Learning for adapting the Digital Twin policy to the real system in this context can be found in [23]. 
+Our particular test case consists of two sheet metal parts of a car body shown in Figure 3. The geometry of the parts is given by their point clouds of ¡«2.5k points each and represent our state xt. We evaluate our algorithm on 250 part instances. Each of the .xture¡¯s 12 locators are adjustable along their axis in the range [.2,2] and represent our action space U. As reward function R, we de.ne the relative perfor-mance of the agent compared to the default policy in terms of the root mean square error of the resulting assembly from the nominal assembly: rt ¡«RMSE(xt,ut)/RMSE(xt,dt). The default policy of the Digital Twin is derived from the outcome of a Genetic Algorithm on the nominal model [24]. To emulate the real system, we use a slightly perturbed version of the nominal model. 
+A. Implementation Details 
+We .rst transform the point cloud of the parts through a Principal Component Analysis, and choose the 128 points as new state representation that explain most of the point cloud¡¯s variance. The size of the neural networks and related parameters are given in Table 1. To enable distributed pro-cessing for Digital Twin, EDiT and system emulation, we use Apache Kafka as asynchronous publish/subscribe messaging bus. 
+
+
+Fig. 3. The test case of our algorithm. Two sheet metal parts (green and yellow) are clamped into position for a subsequent spot welding operation. The 12 locators of the .xture, shown in red here, can be adjusted along their axis to improve geometry of the welded assembly. Our EDiT agent must .nd adjustments for all 12 locators simultaneously that improve upon the optimal adjustments calculated by the Digital Twin¡¯s default policy ¦Ðd for the nominal model. 
+
+B. Results 
+We test the proposed EDiT algorithm over 10k rounds and track the cumulative improvement over the twin¡¯s default policy ¦Ðd in terms of accumulated rewards. Figure 1 depicts the outcome of 10 repetitions of the experiment. Overall, we see an improvement over the default policy. In the best case, this improvement is realized just after a few rounds. In the worst case, EDiT requires up to 2k rounds of exploration until improving upon the default policy. In average, though, we see an improvement after a few hundred rounds. 
+The mean reward of EDiT over all 10k rounds and 10 repetitions is about 1.0025 as listed in Table II. This corresponds to an average improvement of 0.25%.Wedo not expect EDiT¡¯s learned policy to be the optimal one, yet. The state-action space is rather large in our case, due to the 
+12-dimensional actions. We expect EDiT to take many more rounds in this case, before the optimal policy is fully learned. 
+We further notice a number of violations of the safety constraints (see Table II). Most notably, the per part con-straint (Eq. 13) is violated 207 times in average over 10k rounds, meaning the received reward ru was below 95% of the Digital Twin¡¯s expected performance. This is due to two inaccuracies in Q: the estimation error of inter-/extrapolating, and the approximation error of the lower con.dence bound (LCB) through dropout (refer to Subsection III-D). An al-ternative implementation of Bayesian neural networks (e.g. ensembles) might reduce the number of per part violations. The cumulative performance constraint (Eq. 9), on the other hand, is in average only twice violated and often not at all. 
+V. CONCLUSIONS 
+This paper has shown that Digital Twins, used for con-trol of manufacturing processes, can be adapted through Reinforcement Learning. It has also been demonstrated that Contextual Bandits, a reduced formulation of Reinforcement Learning, are suitable for applications within the manufactur-ing context. Based on that, we have introduced the learning algorithm EDiT for enhancing the control policy of Digital Twins in continuous domains. It utilizes the Digital Twin as safety policy to maintain a constraint imposed on the learners performance. EDiT combines recent safe RL and deep learning methods, such as Bayesian neural networks and Proximal Policy Optimization. 
+Future research directions include extensions of the algo-rithm to improve safety and sample-ef.ciency. The behaviour of deep neural network estimates can be unpredictable while learning. Although we employ a performance constraint and Bayesian neural networks to estimate uncertainty, we see further safety guarantees needed for the application of deep Reinforcement Learning in industry. 

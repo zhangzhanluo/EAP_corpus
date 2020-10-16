@@ -1,0 +1,265 @@
+
+Keywords:
+Fault detection Wind turbine SCADA data
+Non-singleton fuzzy inference system Expanded linguistic terms and rules
+
+Abstract
+
+Wind power generation e?ciency has been negatively a?ected by wind turbine (WT) faults, which makes fault detection a very important task in WT maintenance. In fault detection studies, fuzzy inference is a commonly- used method. However, it can hardly detect early faults or measure fault severities due to the singleton input and the limited linguistic terms and rules. To solve this problem, this paper proposes a WT fault detection method based on expanded linguistic terms and rules using non-singleton fuzzy logic. Firstly, a generation method of non-singleton fuzzy input is proposed. Using the generated fuzzy inputs, non-singleton fuzzy inference system (FIS) can be applied in WT fault detection. Secondly, a mechanism of expanding linguistic terms and rules is presented, so that the expanded terms and rules can provide more fault information and help to detect early faults. Thirdly, the consequent of FIS is designed by the expanded consequent terms. The defuzzi?ed result, which is de?ned as the fault factor, can measure fault severities. Finally, four groups of experiments were conducted using the real WT data collected from a wind farm in northern China. Experiment results show that the proposed method is e?ective in detecting WT faults.
+
+
+1. Introduction
+
+The rapid development of wind energy has boosted the installations of wind turbines (WTs) [1]. Meanwhile, an increasing demand for higher power generation e?ciency has put more pressure on the op- eration and maintenance (O&M) of WTs [2]. One of the essential tasks of O&M is to deal with WT faults, which have negatively a?ected power generation e?ciency and caused a heavy economic loss [3]. If WT faults are detected in time, it would greatly reduce O&M costs [4]. Therefore, due to its signi?cant role in the O&M of WTs, there have been increasing studies on WT fault detection, such as the detection methods based on signal processing [5], image processing [6], machine learning [7], deep learning [8], etc.
+
+
+Fault detection based on condition monitoring (CM) is one of  the most commonly-used methods. The main principle of the method is to examine whether the collected on-line data are within  the  normal range. If the data are out of the normal range, there might be  an anomaly or a fault. Furthermore, WT faults can be detected and diag- nosed according to di?erent anomaly data. Fault detection based on CM is e?ective and easy to operate. In [9], an unsupervised anomaly de- tection approach for WT condition monitoring was proposed. In [10], a temperature-based real-time aging monitoring method was  presented for power converter modules. In [11,12], CM-based fault detection methods were put forward to detect the WT faults in gearbox and generator respectively.
+In fault detection methods based on CM, many types of data can be used, including Supervisory Control and Data Acquisition (SCADA) data [13], vibration data [14], strain data [15], acoustic data [16], and lu- brication oil data [17]. However, the acquisition of the vibration data and other types of data requires additional sensors, which increases the maintenance cost [18]. Fortunately, modern wind farms (WFs) usually install SCADA system, which collect hundreds types of on-line WT data at a certain interval. SCADA data are cost e?ective, as no additional sensors are needed [19]. A lot of research based on SCADA data has been put forward to realize the fault diagnosis and fault prognosis. In [20], machine learning models based on domain knowledge were proposed to realize fault detection. In [21], deep neural network (DNN)-based framework was put forward to detect WT gearbox faults. In [22], many data-mining approaches for wind power prediction were evaluated, which can be used for fault detection. In [23], a fault de- tection method based on multiclass support vector machine algorithms was proposed. Meantime, fault prognosis has gained a rapid develop- ment in recent years [24]. Based on SCADA data, an on-line fault and help to detect early faults. Moreover, the defuzzi?ed  fault  factor can tell fault severities.
+
+The rest of this paper is organized as follows. Section 2 introduces the related work and the problem description. Section 3 describes the proposed method in detail. Experiments and comparisons are listed in Section 4. Section 5 is the conclusion of the present work.
+
+2. Related work and problem description
+
+2.1. Review of the FIS method in WT FAULT detection
+
+FIS method of WT fault detection based on SCADA data generally consists of the following three steps [30,31].
+Step 1: Data prediction. First, the original normal SCADA data
+Dorg (x) (consisting of n variables) are collected, as shown in Eq. (1).
+
+
+prognosis method [25] and a prior knowledge-based prognosis method of WT pitch faults were proposed.
+Among the CM and fault detection approaches, one of the com- monly-used method is the fuzzy inference system (FIS). FIS evaluates inputs with °∞if-then°± rules based on fuzzy logic. There are two parts in  the rule: °∞if°± part gives the evaluation of the input and °∞then°± part returns a fuzzy output according to the rule [27]. Based on FIS, many  fault detection methods have been proposed. In [28], FIS was estab- lished   with  rare  association   rule  to  predict   the  spatiotemporal   dis-
+tribution  of  energy  security  weaknesses  in  transmission  networks.   
+
+In where, Di (x) is the ith variable in Dorg (x). The SCADA data usually consist of various variables [34,35], including wind speed (m/s), active power (kw), generator temperature (°„C), and bearing temperature (°„C), etc.
+Then, fault-related variables of SCADA data are chosen. These variables are predicted by their relevant data (including current data, historical data and current data of other WTs [31]), as indicated in Eq.  (2).
+
+
+[29], an adaptive neuro-fuzzy inference system and hybrid models were developed. In [30], a system  for WT condition  monitoring using where, Dk is the fault-related variable and Dd (j) is the jth relevant data adaptive neuro-fuzzy interference systems was proposed, and it has achieved good experiment results. In [31], an e?ective generalized model for WT anomaly identi?cation method based on fuzzy synthetic
+evaluation was put forward. In [32], a development of a fault diagnosis of Dprd. fpredict is the prediction method, which mainly includes time series method [36], neural network method [37], etc.
+Step 2: Anomaly detection by the prediction error. With the collected data Dk (x) and its predicted data Dk (x), the prediction error scheme based on identi?ed fuzzy models was presented. In [33], a  monitoring strategy of short-circuit fault between turns of the stator can be calculated by Eq. (3).
+
+windings and open stator phases by fuzzy logic technique was proposed.
+
+However, several problems remain in the WT fault detection based on FIS: (1) Early faults cannot be detected using conventional FIS methods due to the averaged singleton input. The widely-applied methods usually use daily averaged data as the input to reduce false alarms of WTs. However, the details of the data are omitted. (2) Fault severities cannot be measured by conventional FIS methods due to the limited number of FIS consequent terms (for example, only °∞normal°± and °∞fault°±).
+In order to tackle the above problems, this paper proposes a WT   fault detection method with SCADA data based on expanded linguistic terms and rules using non-singleton fuzzy logic. First, a method of generating non-singleton input is proposed. The non-singleton  inputs can be obtained by transforming probability density functions (PDFs) of the grouped prediction errors, which enables the application of non- single FIS in WT faut detection. Second, more antecedent and con- sequent terms are expanded by the proposed method. The rules of fault detection are also expanded accordingly. Consequently, the  fuzzy system can detect the fault at an early stage and provide more in- formation about fault severities. Third, the FIS consequent  is designed by the expanded consequent terms, and the defuzzi?ed output is de- ?ned as the fault factor, which can tell the severity of the fault.
+The contributions of this paper include:
+
+(1) A generation method of non-singleton fuzzy input is proposed, and non-singleton FIS is applied to detecting WT faults. To the authors°Ø knowledge, it is the ?rst time that non-singleton FIS has been ap- plied to detecting WT faults.
+(2) A method of expanding linguistic terms and rules in FIS is proposed. The expanded terms and rules can provide more fault information,
+
+Then, probability distribution function (PDF) of the prediction errors can be obtained. Also, the upper bound Bup and the lower bound Bdn of the PDF are calculated as follows: (1) A con?dence interval is set, and
+(2) the value of the left endpoint of the con?dence interval is de?ned as the lower bound and that of the right endpoint as the upper bound. For example, if   is set as 99%, the value corresponding to 0.5% in the PDF    is the lower bound and the value corresponding to 99.5% in the PDF is  the upper bound. Therefore, if the collected on-line prediction error dr   is greater than Bup, it is marked as °∞high°±, whereas if dr  is less than Bdn,  it is marked as °∞low°± (in some researches, more bounds are introduced, such as °∞very high°± and °∞very low°± [30]).
+Step 3: Fault detection based on FIS. In order to detect a certain fault, prior knowledge is extracted as rules to detect WT faults [38]. According to certain combinations of data anomalies, WT faults can be diagnosed. Fig. 1 shows an example of the WT fault detection with the conventional FIS method. Two variables of WT SCADA data (Data 1 and Data 2) are collected and predicted. Then, PDFs of the two prediction errors are calculated and the lower bounds and the upper bounds are obtained. At a certain moment, Data 1 is marked as °∞high°± and Data 2 is marked as °∞low°± (as illustrated by red points in Fig. 1). Then, it is de- termined as Fault X according to Rule 001.
+
+2.2. Problem description
+
+There are several problems that prevent the conventional FIS method from detecting the early fault. The ?rst problem is the limita- tion of singleton input in FIS. In order to reduce false alarms, daily averaged data, rather than the 10-min data, are often used by FIS methods, which would result in the lack of data details. Fig. 2 shows an example. In this case, the gearbox oil temperature is monitored at an interval of 10 min. The blue dot region is a time window T, in which the data points are averaged as one value. It can be found that although the averaged value in T is lower than the upper bound, many data points in T are higher than the upper bound. Such case can be regarded as a potential anomaly, which cannot be detected by the conventional sin- gleton-based FIS.
+The second problem is the limited number of linguistic terms of a fault. Linguistic terms in WT fault detection are extracted from the prior knowledge and experts°Ø experience. The number of linguistic terms is small due to the limited prior knowledge and experts°Ø experience. In practice, the consequent of rules usually include only two terms of °∞Normal°± and °∞Fault°±. Consequently, it prevents FIS from detecting  early faults and telling fault severities.
+
+3. Method
+
+3.1. Architecture of the proposed method
+
+The architecture of the proposed method is designed based on the process of conventional FIS, as shown in Fig. 3. There are six phases in this architecture (The red dotted parts are the originalities of the pro- posed method).
+Phase 1: Data prediction. As discussed in [30], according to the commonly-used FIS methods, the original data are collected and pre- dicted. In this study, the current data and the historical data are se- lected to predict the target data. Many approaches can be used to predict data [39,40]. In this paper, the widely-applied neural network (NN) method is used to realize the prediction. The prediction error can be obtained by Eqs. (1)®C(3).
+   
+Phase 2: Non-singleton input transformation. Di?erent from the conventional FIS method, the proposed method introduces non-sin- gleton FIS input in WT fault detection. The prediction errors are divided into groups. The PDF of each group is calculated. Then each PDF is transformed to a non-singleton input. With the non-singleton input, non-singleton FIS can be applied in WT fault detection. Details are discussed in Section 3.2.
+Phase 3: Linguistic terms and rules acquisition. Similar to the con- ventional FIS method [41], linguistic terms and rules are extracted from prior knowledge and experts°Ø experience. First, rules for detecting WT faults, such as °∞IF A is High AND B is Low THEN Fault 01 (Fault)°±, are acquired. Second, linguistic variables and terms are extracted from the rules, such as °∞A°± is extracted as a linguistic variable, whereas °∞High°±, °∞Normal°±, °∞Low°± are extracted as the linguistic terms of °∞A°±. Conse- quently, the original membership functions (MFs) can be calculated by fuzzy statistics method [42]. There are many types of MFs, such as Gaussian MF [43] and interval type-2 MF [44]. In this paper, the tri- angular/trapezoid MFs are adopted. These MFs can be easily obtained by data-driven method, and many similar methods [30,31] have achieved good results using this type of MFs in detecting WT faults.
+Phase 4: Linguistic terms and rules expansion. Linguistic terms of antecedent are expanded, with the aim of enabling the FIS  to detect early faults and measuring fault severities. Then according to di?erent combinations of expanded antecedent terms, consequent terms at dif- ferent fault levels are generated. Accordingly, the expanded rules  are also obtained. Details are described in Section 3.3.
+Phase 5: Fuzzy inference. In this phase, fuzzy inference engine [45]     is applied to processing fuzzy input sets into fuzzy output sets. First, ?ring levels are calculated by the non-singleton fuzzy inputs and antecedent MFs. Then, output sets are obtained by the calculation of
+
+consequent MFs and levels.Phase 6: Fault factor. Normally, the conventional FIS method only
+uses the output of the rule as the ?nal result of the fault detection. In this paper, benefitted from the expanded linguistic terms and rules, the
+   
+The designed process is shown in Fig. 4. First, each obtained pre- diction error Dk is regarded as a linguistic variable. Then, Dk is divided into groups by Eq. (4). fault detection can go a step further. The fuzzy output sets are de
+ to a crisp output (fault factor), which is designed to measure fault severities. Details are described in Section 3.4.
+
+3.2. Non-singleton input TRANSFORMATION
+
+Compared with singleton FIS, fuzzy logic based on non-singleton  input proved to be a more e?ective method in theory [45]. However, in practice, it has not been applied in the fault detection ?eld. In  this  paper,  the fuzzy number  of non-singleton  input is correlated  to the PDF
+of prediction  errors, which realizes  the application  of non-singleton  
+
+where, t is the group number and P is the number of data points in each group (in this paper, P is set as 144). Next, each Dk is converted to a  fuzzy number. Di?erent from singleton FIS, which uses a single value as the input, non-singleton FIS uses fuzzy number as the basic input unit.
+To qualify as a fuzzy number, a fuzzy set A must possess the following properties [41]: (1) A must be a normal fuzzy set; (2) A¶¡  must  be  a closed interval for every ¶¡ °  (0, 1] and (3) the support of A must be bounded.
+Normally,  the  distribution  of   is  considered  as  a  normal  distribution in this method. 
+
+a closed interval for every ¶¡ °  (0, 1]; (3) By setting an appropriate con?dence interval, the support of f k is bounded. This means fk
+completely meets the requirements of a fuzzy number. Thus, it can be used in non-singleton FIS.
+Therefore,   the   non-singleton   input   transformation   can   be   implemented. First, the mean ¶Ãk  and the standard deviation ¶“k  of each Dk are calculated by Eq. (5) and Eq. (6) respectively.
+
+Then, the fuzzy number of non-singleton input can be obtained by transforming each f k , as shown in Eq. (7).
+
+where, t is the group number of Dk and P is the number of data points in each group. The fuzzy number of non-singleton input is brie?y marked as ¶Ãk (x) in Eq. (8).
+
+MFs before the expansion. (b) Terms and their MFs after the expansion.
+
+distribution of the input data set. The non-singleton input makes the calculated membership degree more accurately reflect the actual WT
+
+condition, which could help to detect early faults that are undetected by
+
+Therefore, the input data set ¶Ã? (x1, x2°≠xq) of the lth Rule Rl (with q
+linguistic terms) can be calculated by Eq. (9).
+
+3.3.  EXPANDING  linguistic  terms  AND  rules
+
+where, °Ô is the minimum t-norm operator [46].
+
+   
+In this section, a method of expanding linguistic terms and rules is proposed.
+The limited linguistic terms is a problem in FIS. In order to solve this problem, Jerry M. Mendel ?rstly proposed a basic theory on linguistic
+
+terms expansion [47]. The main idea is to extract new linguistic terms from the original ones according to their features. Inspired by this
+
+where, ¶ÃFl is the antecedent MF. Then, ?ring levels Fll are calculated with ¶Ã? (x1, x2°≠xq) and ¶ÃFl (x1, x2°≠xq) by Eq. (11).
+
+theory, a mechanism of expanding linguistic terms and rules for WT fault detection is designed in this paper.
+PART 1: The expansion of antecedent linguistic terms. Theoretically,
+
+the expanded terms should be generated from the existing ones.
+
+
+Therefore, in this paper, every two existing adjacent terms are used to generate a new term.
+
+
+
+where, X is the domain of the input sets.
+Fig. 5 shows an illustration of the computing process of non-sin- gleton membership degrees. It can be found that the membership de- gree is no longer determined by a single input value, but by the
+
+statistical method. Then, the crossing points of MFs and their x-values are marked (PSL and PSH in Fig. 6(b)). The crossing point is the fuzziest point (take PSL for example, it is neither °∞Low°± nor °∞Normal°±). Thus, its membership degree in the new term is de?ned as 1. Finally, the vertical
+
+
+Fig. 5. Illustration of the computing process of non-singleton membership degrees. (a): The non-singleton fuzzy input and MFs of the antecedent. (b) and (c): The calculated membership degree (the red dot) of the antecedent terms. (d) Calculation results.
+
+
+
+line through the crossing points is made and the original critical points are connected. The obtained triangles (pink dotted lines in Fig. 6(b)) are the MFs of the expanded terms.
+Operator  is de?ned as the above generation process. Thus, a new
+linguistic term can be obtained by Eq. (12).
+
+where, Tmnew is the expanded new term. Tmleft and Tmright are its two adjacent terms.
+PART  2:  Expanding  rules  and  consequent  linguistic  terms.  With  the expansion   of   antecedent   linguistic   terms,   rules   are  accordingly   ex- panded. Supposing that the original rule R of a fault has N antecedents, each term in the antecedent is expanded to more new terms according to the expansion method described in PART 1. Thus, each antecedent in R has two types of terms, the original term Tmorg  and the expanded term Tmexp. Through di?erent combinations of Tmorg  and Tmexp, new rules are generated. If the new rule has m original terms (accordingly, there will be  N ? m  expanded  terms),  the  consequent  of  the  rule  is  de?ned  as Error  Level  m.  Consequently,  there  is  only  one  error  result  before  the expansion,  whereas  N + 1  Error  Levels  after  the  expansion,  with  the most serious fault Error Level N and the least serious fault Error Level 0. Next, consequent linguistic terms are expanded. Each Error Level is de?ned  as  a  new  consequent  linguistic  term.  Thus,  there  would  be N + 1 consequent linguistic terms of the fault. The linguistic terms and
+rules expansion algorithm is summarized in Algorithm (1).
+Algorithm 1. Linguistic Terms and Rules Expansion
+
+Fig. 7. The designed consequent and the process of calculating the fault factor.
+(a) The designed consequent and the calculated ?ring levels. (b) The gravity center of the intercepted consequent.
+
+Then, the triangular MF, which has been e?ectively used in con- sequent de?nition, is applied in all consequent terms, as shown in   Fig. 7(a).
+To get the output data set of the lth rule, the lth consequent is calculated by the lth ?ring level obtained by Eq. (11), as shown in Eq. (14).
+
+its linguistic variable), 
+
+3.4.  Design  of  the  consequent  AND  FAULT  FACTOR
+
+In the conventional FIS method, the process of WT fault detection ends once the fuzzy consequent (for example, °∞fault°± or °∞normal°±) is obtained. However, this result could neither help to ?nd early faults nor tell fault severities due to its limited consequent terms. In this section, defuzzi?cation is applied and the fault factor (used to measure fault severities) is designed. Fig. 7 is an illustration of the designed con- sequent and the process of calculating the fault factor.
+First, original consequent terms Tmcsq and the expanded consequent terms Tmexp?csq are combined, as shown in Eq. (13).
+   
+In summary, the technologies of the proposed method are described as follows: NN-based data predictions and non-singleton transformation (Section 3.2) are used to obtain non-singleton inputs. Expanded lin- guistic terms and rules are obtained by prior knowledge and the ex- panding method (3.3). Then, the non-singleton FIS is applied in fault detection. The defuzzi?ed fault factor (3.4) can tell the severity of the fault. Moreover, multiple types of faults can be detected by one FIS of the proposed method with su?cient rules.
+
+4. Experiments and discussion
+
+4.1. Experiment settings
+
+In order to verify the e?ectiveness of the proposed method, four groups of experiments are conducted using real WT SCADA data collected in a wind farm (WF) in northern China. There are altogether 22 WTs in this WF. All the WTs are of the same type. The capacity of each
+
+WT is 2 MW. The SCADA data collected in two years (with a time in- terval  of  10  min)  are  used  in  the  study.  The  commonly-used back
+propagation  neural  network  (BPNN)  method  is  adopted  to  make  the prediction. Moreover, similar to the previous studies [30,31,33], the number of data points in a group is set too large, the condition would be monitored at a long time interval. (2) If the number is set too small, the statistical characteristics of the data would be weakened. Therefore, the number of data points in each group is set as 144 in this paper. In the following experiments, the faults used for evaluation are all real faults, and they undergo the development from early faults to serious faults. The earlier these faults are detected, the more conducive it is for WT maintenance.
+Experiments are designed as follows: the proposed non-singleton input is veri?ed to detect the early anomaly in Section 4.2. The e?ec- tiveness of the proposed method for detecting early faults is tested in Section 4.3 (with multivariate input) and Section 4.4 (with one-variable input), respectively. Finally, the robustness of the method is veri?ed in experiments in Section 4.5.
+
+
+4.2. Experiment 1: electiveness of the non-singleton FIS
+
+This experiment is conducted to verify the e?ectiveness of the proposed non-singleton input in WT fault detection.
+In June 2015, the gearbox oil temperature of WT 12 started in- creasing due to the aging of the oil. The high temperature of gearbox oil is a sign of a potential fault. In order to detect this anomaly, the data of gearbox oil temperature is used in this experiment. First, BPNN method is used to predict data and prediction errors are obtained. Fig.  8(a)  shows the prediction errors of the historical data and Fig. 8(b) shows    the PDF of the prediction errors. Then, the upper bound (3.71 °„C) and the lower bound (?3.28 °„C) are calculated.
+Then, the corresponding MFs are obtained by the fuzzy statistics method [42]. The mathematical description of the MFs are listed as follows:
+
+where, ¶Ãlow (x), ¶Ãnml (x) and ¶Ãhigh (x) are the MFs of °∞low°±, °∞normal°± and
+°∞high°±, respectively.
+ In this experiment, the conventional FIS method, such as the method in [33], is selected to make comparison with the proposed method. In order to make a better comparison, the setting of the pro- posed method in this experiment is the same as that of the conventional FIS method except for the fuzzy input part. The conventional FIS method uses singleton input, while the proposed method uses the non- singleton input.
+Fig. 9 shows the experiment results. Fig. 9(a) and (c) show the averaged prediction errors in one day (APE-D) and in every 10 min (APE-M) respectively. (1) Using the conventional FIS method, APE-D exceeds the upper bound on 2015-06-24, triggering an alert, as shown in Fig. 9(b). However, from 2015-06-19 to 2015-06-23, although APE-D does not exceed the upper bound due to the high data variance, many APE-M exceed the upper bound, which could be considered as a po- tential anomaly. As can be seen, the conventional FIS method cannot capture these early anomalies. (2) Using the proposed non-singleton FIS method, the anomaly detection is improved, as shown in 9(d). It can be noted that the anomaly is detected on 2015-06-19, ?ve days earlier than the conventional FIS method.
+Some details of the anomaly detections are shown in Fig. 10. On 2015-06-15, both the data calculated by the conventional FIS method (DTM) (the blue point in Fig. 10), and the data calculated by the pro- posed method (DPM) (the red point in Fig. 10) are below the upper bound, which indicates that the WT is in normal condition. On 2015- 06-19, DTM is below the upper bound while DPM is above the upper bound. It can be found that due to the large data variance, DPM in- creases. As a result, the anomaly can be detected in advance by the proposed method. It is not until 2015-06-24 that DTM  exceeds  the  upper bound, which is ?ve days later. From this experiment, it can be concluded that the proposed non-singleton FIS method can e?ectively detect early WT anomalies.
+
+4.3. Experiment 2: COMPARATIVE experiment with MULTIVARIATE input
+In this section, two groups of experiments are carried out to verify the e?ectiveness of the proposed method in WT fault detection with multivariate FIS input. Similar to Experiment 1, the conventional FIS method, such as the method in [33], is selected to make comparison with the proposed method.
+
+
+Fig. 8. The prediction errors and their PDF of gearbox oil temperature (WT 12).
+(a) Prediction errors of the historical data. (b) PDF of the prediction errors.
+4.3.1. 
+Experiment 2.1: detecting cooling system FAULT
+In early 2015, the cooling systems of WTs were improved to en- hance their heat dissipation capability. However, several WTs were poorly updated. The converter fan was improperly installed, leading to  an increase of converter temperature. As there are no sensors that can directly measure the converter temperature,the converter choke coil temperature (CCCT) and converter controller top  temperature  (CTT)  are monitored instead. The rule of the fault from the prior knowledge is summarised as: IF (CCCT is high) AND (CTT is high)  THEN  (the  con-  verter temperature is high and there are faults in WT°Øs cooling system), which is listed as the ?rst rule in Table 1.
+First, the prediction errors and their PDFs of CCCT and CTT are calculated. Also, the corresponding MFs are obtained by the fuzzy statistics method. Second, the original MFs and rules are expanded. (1)  As has been described in Section 3, the antecedent terms are expanded
+Fig. 9. The anomaly of gearbox oil temperature (WT 12) and the detection results. (a) Averaged prediction errors in one day. (b) Anomaly detection result using the conventional FIS method. (c) Averaged prediction errors in every 10 min. (d) Anomaly detection result using the improved non-singleton input.
+Fig. 10. The fault detection based on non-sin- gleton fuzzy input. (a), (b), (c) and (d) are four cases in the fault detection. (a): 2015-06-15. (b): 2015-06-19. (c): 2015-06-24. (d): 2015-06-30.
+The blue point indicates the data calculated by the conventional FIS method and the red point indicates the data calculated by the proposed non-singleton FIS method.
+
+
+
+
+
+
+
+Fig. 11. The consequent of converter high-temperature fault.
+
+from three (low, normal and high) to ?ve (low, sub-low, normal, sub- high and high). (2) Accordingly, the original rules are expanded from one to four, as shown in Table 1. As can be seen, the expanded MFs and rules enrich the outputs.
+ Then, the FIS consequent  is designed according to the descriptions in Section III, as shown in Fig. 11. The designed consequent has four terms: Normal, Warning (2 sub-highs), Minor error (1 sub-high and 1 high) and Major error (2 highs). It can be found that  the  original method has a consequent of two terms whereas the proposed method has four.
+ Fig. 12 shows the monitored data during the fault and the detection results using the conventional FIS method and the proposed method. It can be found that during this period, both the prediction errors of CCCT and CTT increases.
+In the conventional FIS method, on 2015-05-01, CCCT exceeds its upper bound, but CTT remains normal. On 2015-05-03 CTT also ex- ceeds its upper bound, triggering an alarm (as shown in Fig. 12(a), (b) and (c)). However, it can be found that from late April to early May, there are tendencies of increasing temperatures in both the prediction errors of CCCT and CTT. The conventional FIS method fails to detect such early faults.
+Di?erent from the conventional FIS method, the proposed method
+uses non-singleton input, expanded terms and rules in WT fault detec- tion. Moreover, the conventional FIS method depends on upper and lower bounds, while the proposed method uses fuzzy areas to determine membership degrees. From the experiment results, it can be found that:
+(1) The fault is detected 5 days earlier by the proposed method. (2) On 2015-04-28, the fault factor rises above zero and a warning is triggered. From 2015-04-28 to 2015-05-10, the fault factor keeps increasing, in- dicating that the fault is getting worse.
+ From the results of the experiment, it can be concluded that com- pared with the conventional FIS method: (1) the proposed method can detect faults at an early stage, and (2) it can tell the severity of the fault.
+
+4.3.2. Experiment 2.2: detecting BLADE ANGLE sensor FAULT
+In August 2014, the output active power of WT 16 decreased. After a shutdown inspection, a fault of blade pitch angle sensor was found. The measured angle is inconsistent with the actual angle, leading to a misjudgment of the control system. Consequently, the output active power is lower than it should be. According to this fault type, a rule can be summarized: °∞IF (wind speed is normal) AND (output active power is low) AND (pitch angle is normal) THEN (possible  fault:  pitch  angle  sensor fault)°±. Then, (1) the conventional method (such as the method  in [33]) and (2) the proposed method are used to detect this fault.
+Similar to Experiment 2.1, ?rst, the PDFs of the prediction errors of
+wind speed, output active power, and pitch angle are estimated. Then, the upper bounds and the lower bounds of these PDFs are obtained, and MFs are established by the fuzzy statistics method. The prediction er- rors of wind speed, active output power and pitch angle are shown in Fig.  13(a),  Fig.  13(b),  and  Fig.  13(c)  respectively.  The  experiment
+
+Fig. 12. The monitored data and detection results of Experiment 2. (a) The averaged prediction errors of CCCT in one day. (b) The averaged prediction errors of CTT  in one day. (c) Detection result of the conventional FIS method. (d) The averaged prediction errors of CCCT in every 10 min. (e) The averaged prediction errors of CTT in every 10 min. (f) Detection result of the proposed method.
+
+Fig. 13. The monitored data and detection results of Experiment 2.2. (a) Prediction errors of wind speed. (b) Prediction errors of active output power. (c) Prediction errors of pitch angle. (d) Detection result of the conventional FIS method. (e) Detection result of the proposed method.
+results are shown in Fig. 13(d) and Fig. 13(e).
+It can be found that the proposed method detects the fault (on 2014- 08-15) two days earlier than the conventional method (on 2014-08-17). From the experiment results, it can be concluded that the proposed method is e?ective in detecting WT faults with multivariate inputs.
+
+4.4. Experiment 3: COMPARATIVE experiment with single-input
+
+ This experiment is designed to show the e?ectiveness of the pro- posed method in WT fault detection with one-variable FIS input. Similar to Experiment 1, the conventional FIS method, such as the method in [33], is selected to make comparison with the proposed method.
+In July, 2015, due to the aging of the generator front bearing of WT 06, its temperature rose rapidly within a few days. On July 20th, WT 06 had a sudden breakdown. In this experiment, the monitored generator front bearing temperature (GFBT) is used. The same as that in the above experiments, GFBT is predicted and the prediction errors are obtained. The  upper  bound  and  the  lower  bound  of  the  predicted  errors  are
+
+ As can be seen in Fig. 14(a) and (b), the prediction errors of GFBT increases rapidly from 2015-07-17 to 2015-07-19. The fault detection results of the conventional FIS method and the proposed method are shown in Fig. 14(c) and (d). It can  be found that: (1)  The conventional FIS method does not detect the fault until 2015-07-19, only one day before the breakdown. (2) Using the proposed method, the fault is detected on 2015-07-17, three days before the breakdown, giving more time for maintenances. (3) From 2015-07-17 to 2015-07-19, the fault factor is increasing, which indicates that the fault is getting worse.
+It can be concluded that: (1) the proposed method is e?ective in
+detecting early WT faults with one-variable input. (2)  The  proposed  fault factor can also tell the severity of the fault.
+ Furthermore, in order to make a good comparison of the proposed method with more di?erent FIS methods. Another group of experiments is  conducted.  The experiment  setting is  the same  as that in Experiment
+3. The following methods are compared with the proposed method: (1) the FIS method with a single prediction model (such as the method in [30]), (2) the FIS method with multiple prediction models (such as the method  in [31]), (3) the proposed  method  without  non-singleton input,
+(4) the proposed method without rule expansion.
+ Table 2 shows the experiment results. It can be found that con- ventional FIS methods cannot e?ectively detect early faults, either with
+
+a single prediction model or with multi-prediction models. The pro- posed method can detect the fault at an early stage. Therefore, it can be concluded that: (1) The proposed method can e?ectively detect the early fault. (2) Both the proposed non-singleton input and the proposed expansion of terms and rules are e?ective in WT fault detection.
+
+
+
+Robustness has always been an important factor for evaluating the methods in industrial applications [48,49]. In this section, experiments are conducted to verify the robustness of the proposed method.
+The experiment settings are the same as those in Experiment 3. The normal data  of 300  days  are added  in the experiments. All  the data of 300 days are used to test the false alarm rate of the proposed method. In order  to  further  verify  the  robustness  of  the  proposed  method,  noises are  added  to  the  experiment  data.  First,  through  the  measurement,  it can  be  found  that  the  normal  data  themselves  have  a  signal-to-noise ratio (SNR) of 40 dB. Then, di?erent Gaussian white noises are added to the  data  to  test  the  robustness  of  the  method.  As  a  result,  the  experi- ment data have the ADDITIONAL SNR from 45 dB to 25 dB. Fig. 15 shows some examples of the experiment  data (has a SNR of 40 dB itself)  and the data with the added noise.
+Table 3 shows the result of the experiments. It can be found that: (1) When the experiment data of 300 days (before adding noise) are used, there is no false alarm. Therefore, it can be concluded that the proposed method has a low false alarm rate in WT fault detection. (2) Moreover, the proposed method has no false alarm when the noise (no less  than  35 dB) is added. The experiment result shows that the proposed method has certain anti-noise capability. (3) In reality, in most cases, the noise which a?ects the data is not as intense as that in the experiments. Thus, it can be concluded that the method could keep robust and maintain a low false alarm rate in practice. (4) The missing detection rate is zero in all the experiments. Therefore, it can be concluded that the proposed method is robust in detecting WT faults.
+
+4.6. Discussions
+
+ Four groups of experiments have been conducted in this section, and the experiment results show that: (1) The real faults in experiments have been successfully detected at an early stage and their severities are told by the proposed method. (2) No false alarms occur using the normal data of 300 days. It can be concluded that the detection results
+
+Fig. 14. The monitored data and detection results of Experiment 3. (a) The averaged prediction errors of GFBT in one day. (b) The averaged prediction errors of GFBT in every 10 min. (c)®C(f): Detection results. (c) The conventional FIS method. (d) The proposed method. (e) The proposed method without non-singleton input. (f) The proposed method without terms & rules expansion.
+
+
+Table 2
+Experiment results of di?erent types of FIS.
+
+Table 3
+The Results of the Robustness Experiments.
+Fig. 15. The experiment data (has a SNR of 40 dB itself) and the noise-added data of generator phase 3 temperature (one of the data used for predicting GFBT). (a) 40 dB. (b) 35 dB. (c) 30 dB. (d) 25 dB. are correct and the proposed method can e?ectively detect early WT faults and provide more information on fault severities.
+ Similar to other FIS methods, linguistic variables and terms are used in the proposed method. In fault detection, each linguistic term is in- volved in calculating the fuzzy output according to the rules, and the detection result is obtained by combining all the fuzzy outputs. The fuzzy process makes the fault detection more ?exible.
+ Moreover, the proposed method has the advantage of detecting multi-class faults. In the FIS of the proposed method, there could be many rules (for multi-class fault) in the rule base. Therefore, if more  rules are added to the rule base, more fault types could be detected. In the experiments of the paper, four di?erent types of WT faults are de- tected by only one FIS of the proposed method.
+In conventional methods, if the upper bound is adjusted as a very low value, or the lower bound is adjusted as a very high value, the early fault can also be detected. However, in such case, many °∞Normal°± samples can be misjudged as °∞Abnormal°±, which could result in higher false alarm rate. In comparison, using the proposed method, early faults can be e?ectively detected without adjusting the upper bound and the lower bound.
+
+5. Conclusion
+This paper presents a WT fault detection method based on expanded linguistic terms and rules using non-singleton FIS. Di?erent from the conventional FIS methods, the proposed method is improved to detect early WT faults and to tell fault severities. There are two main con- tributions of this paper. First, this paper proposes an e?ective WT fault detection method based on FIS. For the ?rst time, a fuzzy number transformation method is introduced to convert the PDFs of the pre- diction errors of the WT SCADA data into fuzzy numbers, so that the non-singleton FIS can be applied to detecting WT faults. Second, this paper presents a method of expanding linguistic terms and rules gen- erated from the original ones. With the expansion, FIS could detect WT faults at an early stage and fault severities could be told with the de- fuzzi?ed fault factor. Four groups of experiments are conducted, using the SCADA data collected in a real wind farm. The experiment results show that the proposed method can e?ectively detect early WT faults and provide more information on fault severities.
+

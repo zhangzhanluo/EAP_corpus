@@ -1,0 +1,220 @@
+Abstract¡ª Underwater Gliders (UGs) are a type of 
+Autonomous Underwater Vehicle (AUV) that uses buoyancy 
+engines, an energy efficient locomotion, primarily for 
+oceanography. In this paper, control strategies for existing 
+underwater gliders are reviewed. A total of 50 papers indexed by 
+Scopus with keywords control and underwater gliders were 
+reviewed from 1989 to 2014. The majority of gliders use classical 
+controllers, which cannot dynamically compensate for unmodeled 
+hydrodynamic forces and unknown variations in water 
+current and wind. With increasing operational depths and larger 
+payloads, control strategies will become an increasingly 
+important aspect for these gliders. Control strategies 
+implemented in underwater gliders were reviewed and 
+alternative control strategies are proposed. 
+Keywords¡ª Control strategy, underwater gliders, review; 
+I. INTRODUCTION 
+An underwater glider is a type of autonomous underwater 
+vehicle (AUV) that uses buoyancy control in conjunction with 
+wings to convert vertical motion to horizontal motion in a sawtooth 
+pattern and thereby propelling itself in forward direction 
+with very low power consumption [1]. They use buoyancy and 
+wings to produce forward motion for long duration ranging 
+from weeks to months and cover distances over 3000 km 
+[2].There are more than 50 different AUGs developed for 
+research and commercial purposes. Much theoretical and 
+experimental analysis has been carried out on glider dynamics 
+[3, 4], glider design and development for payload and 
+maneuverability [5, 6], performance and stability analysis [7, 
+8], trajectory control analysis [9, 10] and path planning [9, 11] 
+based on different controller techniques[12].The majority of 
+these gliders use classical controllers such as ProportionalIntegral-
+Derivative (PID) and Linear Quadratic Regulator 
+(LQR). However, These control methods cannot provide 
+simultaneously easy control implementation and fast 
+convergence speed for stabilization in the presence of 
+continuously varying water current [13]. 
+In this paper, existing underwater glider control strategies 
+are reviewed with emphasis on their actuation system that 
+includes wings and rudder control, followed by external effects 
+of water current and variable loads which influence their 
+motion. 
+No work to date achieved the control of fully under actuated 
+vehicles via dynamic modelling with the presence of external 
+varying forces such as water current and advanced controller 
+design to compensate these problems and then implement them 
+to underwater gliders. In order to overcome these issues, 
+serious design and implementation considerations are required 
+for robust control approach. 
+II. UNDERWATER GLIDER MOTION CONTROL 
+The motion of an underwater gliders depends upon a 
+buoyancy control system combined with a set of wings and 
+rudder to move in vertical and horizontal direction through a 
+water column [14]. The glider descends and ascends in water 
+column due to control of buoyancy engine, which consists of 
+oil filled bladder or piston evacuated cylinder. Buoyancy is 
+controlled to be slightly positive or negative due to which a 
+glider can move with almost zero power consumption with 
+limited speed [15]. For example, the Spray glider as shown in 
+Figure 1, has a maximum speed of 0.35 m/sec but can operate 
+for up to six months. 
+Regardless of the design, gliders depend on vertical space to 
+operate efficiently but cannot resist with strong currents, which 
+ultimately creates a problem to control motion and trajectory. 
+On the other hand, the average horizontal speed of underwater 
+gliders is about 0.3 m/s. The low speed limitation has created 
+challenges in controller performance such as control of vehicle 
+orientation, position and velocity [14]. There is a direct effect 
+of environmental forces including winds, wave and surface 
+currents upon the motion of underwater gliders and AUVs [21]. 
+These effects may be compensated through an effective control 
+strategy. Therefore the control strategy should be chosen to 
+reduce the effect of these disturbances. However, the 
+challenges associated with control of underwater gliders 
+include a highly nonlinear dynamic system and complex 
+hydrodynamic effects. Different control strategies for 
+laboratory scale and commercial scale have been implemented 
+to underwater vehicles which are discussed in table 1. 
+The ALBAC glider used its payload to glide downward and 
+upon releasing its payload, glided upward [2]. However most 
+gliders such as SLOCUM [22], Spray [23] and Seaglider [18] 
+use a buoyancy engine instead. These three gliders are fixed 
+winged buoyancy propelled gliders which shift their internal 
+ballast mass to control their attitude [1]. 
+Leonard and Graver [1] developed a laboratory scale 
+ROGUE glider to implement a model based feedback open 
+loop approach. Another laboratory scale glider , the ALEX 
+glider, developed by Arima et al [7] designed an independently 
+controllable wings and rudder. 
+III. CONTROL STRATEGIES 
+Several control strategies have been proposed to control the 
+position, velocity and trajectory of UGs such as PID controllers 
+by Bhatta and Noh [24, 25], Linear Quadratic Regulator 
+(LQR)by Nina and Graver [9, 26], Sliding Mode Controllers 
+(SMC) by Yang and Song [27, 28], Neural Network (NN) by 
+Isa[19] and Dong[29], Fuzzy logic for self-tuning by Loc [30] 
+and Model Predictive Controllers by Cooney [31] and Steenson 
+[32].PID control loops used for pitch and roll control by Panish 
+[16] allows their UG to be guided in a variety of ways. In such 
+control strategies, vertical and horizontal modes are decoupled 
+to control the pitch, angle of attack and depth of the glider. The 
+robustness of PID controller using nonlinear time invariant 
+aspects of glider designs is investigated by Bender [33]. AUG 
+dynamics are nonlinear but PID controllers are based-on linear 
+control law. Therefore, PID controller cannot dynamically 
+compensate for un-modeled vehicle hydrodynamic forces and 
+unknown disturbances. As such, combinations of control 
+strategies to form hybrid controllers are used to handle the 
+complexity that is produced due to nonlinearity and 
+hydrodynamics effect. 
+Sliding mode control(SMC) for underwater trajectory 
+tracking control has been used by Yang and Bessa [27, 34] ; 
+and Liu [21]. SMC is a robust system with low sensitivity to 
+environmental disturbances. However, chattering is a well-
+known downside of this control strategy, which can degrade 
+the performance of gliders and may lead to instability. 
+A multivariable Multiple input Multiple Output (MIMO) 
+control system have been proposed for AUVs and ROVs 
+including self-tuning and position control by Goheen [35]. The 
+dynamic model using LQR technique was implemented in a 
+laboratory scale ROGUE glider in order to examine its motion. 
+However, LQR has poor switching performance between 
+upward and downward glide paths [26]. 
+In a comparative study, Nag [36] discussed the use of an 
+adaptive fuzzy control strategy for tracking trajectory system 
+combined with PID controller. However, they considered the 
+glider as a SISO system only and neglected nonlinearities. A 
+recurrent NN based on MPC control strategy for motion 
+control problem in longitudinal plane is proposed by Shan [37] 
+for convergence to optimal solution. However, in this approach 
+the effect of water current has not been considered. 
+Due to the inherent non-linearity in the dynamics, and hence 
+difficulties in determining an accurate mathematical model of 
+the vehicle, an adaptive fuzzy logic based control strategy 
+coupled with dynamic compensators have been designed. The 
+effect of fuzzy logic for depth controller has been implemented 
+on KAUV-1 which has the advantage of fast self-tuning [30]. 
+The simulation results showed satisfactory performance but 
+again, the effect of external disturbance and nonlinearity were 
+not investigated. The nonlinearity of the Odyssey IV for the 
+purpose of disturbance rejection using Model predictive 
+controller was discussed by Cooney [31] and a hybrid PIDMPC 
+controller is suggested for improving and predicting 
+future values. However, a communication problem between 
+commanded input and actual input was observed during 
+implementation of this strategy in Odyssey IV. In [27], Yang 
+addressed the robustness issue produced due to nonlinearities 
+and proposed the adaptive sliding mode controller. However, 
+the resulting chattering effect lead to instability. 
+Neural network (NN) control strategy [19] have been 
+proposed as a solution to the lack of robustness due to 
+nonlinear effect in dynamic models. Due to the ability to 
+handle nonlinearity and adapt to changing conditions as is the 
+case of varying currents in glider dynamics, NN has been 
+implemented in USM hybrid underwater glider [19]. In 
+proposed model, all glider parameters e.g. pitch, speed, 
+maneuverability, sliding mass, wing, rudder and propeller were 
+controlled. A neural network self-tuning PID controller [29] for 
+a spherical AUV was proposed for the purpose of controlling 
+the vehicle velocity and tracking the desired target in the 
+vehicle fixed coordinate system. 
+IV. HYBRID CONTROL STRATEGY 
+The performance of individual control strategies can be 
+improved by combining it with another control strategy to form 
+a hybrid control strategy. Different implementations of this 
+concept have been applied successfully in AUVs such as 
+Adaptive fuzzy sliding mode control strategy. 
+A. Combining fuzzy logic and sliding mode 
+Fuzzy logic has been used to design a sliding mode 
+controller[28, 38]. However, the FLC was implemented in a 
+SISO system only. Alternatively, PID and FLC have been 
+combined to design a new controller. To eliminate the 
+chartering effect of sliding mode, a boundary layer is 
+introduced around the sliding surface by Song [28]. A general 
+block diagram of adaptive fuzzy sliding mode controller is 
+shown in Figure 3. 
+B. Sliding mode fuzzy controller 
+In this approach, sliding mode is used to design functions of 
+the fuzzy logic controller and a switching function is formed 
+which can eliminate the chattering effect. This type of 
+approach was experimentally applied to OEX series AUVs for 
+pitching and heading control. The inputs to SMFC heading 
+controller were defined as heading error while the output for 
+heading controller was to control the rudder.[39]. 
+The control strategy can be further improved using a
+combination of nonlinear controllers for the motion of
+autonomous underwater gliders based on added mass and
+inertia, effect of external varying disturbances and rudder
+control inputs[40] . However the effectiveness of an adaptive
+fuzzy sliding mode controller has only been investigated for
+the Snorkel AUV [38]. Recent work concerning different
+control techniques for AUVs and AUGs is summarized in
+Table 2.
+V. MAJOR LIMITATION AND CHALLENGES 
+Very few control schemes are proposed to measure the 
+sensitivity analysis of environmental disturbances such as 
+Isa[12] and Fan [50], but this is a new idea in undersea 
+vehicles to consider both water current estimation and 
+payload factor in dynamic modelling and control for UGs. 
+The main attempt is to choose a controller that can guarantee 
+the suppression or at least the limitation of the overshoot in 
+the system response. An appropriate control strategy is 
+required that will damp out the external disturbances and will 
+follow trajectory with minimum error for varying payloads. 
+VI. CONCLUSION 
+Different control strategies have been demonstrated for 
+acceptable control performance in different AUVs and 
+AUGs, but they still have limitations in compensating for the 
+high nonlinearity of underwater gliders including external 
+disturbances and carrying large payloads which are the main 
+reasons that make it a challenging problem to control the 
+underwater glider. Due to this it is highly desirable to design 
+a controller that is robust and will give real time response. 
+For this, combinations of two or more controllers have been 
+developed by some researchers for AUVs to form a hybrid 
+controller which can minimize the negative effect and will 
+improve the performance.
+ACKNOWLEDGMENT 
+Authors are thankful to Universiti Teknologi PETRONAS 
+for providing the resources required for this work. 
+

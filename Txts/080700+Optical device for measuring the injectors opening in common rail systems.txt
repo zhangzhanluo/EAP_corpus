@@ -1,0 +1,679 @@
+OPTICAL DEVICE FOR MEASURING THE INJECTORS OPENING INCOMMON RAIL SYSTEMS
+Riccardo Amirante, Carlo Coratella, Elia Distaso, Gianluca Rossini and Paolo Tamburrano*
+Department of Mechanics, Mathematics and Management, Polytechnic University of Bari, Bari 70125, Italy
+
+ABSTRACT−Since the needle displacement exerts a fundamental influence on the operation of Common Rail injection
+systems, accurate measurements of the control piston position can be crucial for a more thorough analysis of the behaviour
+of injectors, in particular when multiple injections are employed. Eddy current sensors have traditionally been used in lab
+activities to measure the control piston position inside injectors; apart from the high cost, the scientific literature clearly shows
+their inadequacy, which is mainly due to the presence of electromagnetic disturbance: the current pulse, which controls the
+opening of the injector, generates electromagnetic fields which strongly affect the acquisition of data. Many attempts have
+recently been made either to solve the interference occurring during such measurements or to propose alternative displacement
+transducers whose operation is not influenced by electromagnetic interference. In this paper, a new device for measuring the
+injector opening is proposed: it is an optical transducer characterized both by simple and very cheap construction and by a
+reliable physical principle for measuring the control piston lift. The reliability of the proposed sensor is assessed by a thorough
+experimental campaign and by comparing the experimental results with the numerical predictions achieved by a Common Rail
+injector model. Since the assembly of the optical sensor does not affect the injector operation, it can efficiently be used both
+for experimental tests and for on-board diagnosis and monitoring of the injector operation.
+KEY WORDS : Common rail, Injector, Diesel engine, Optical sensor, Displacement measurement
+
+1. INTRODUCTION
+The advent of the electronic Diesel engine control plays an important role in the development of diesel engines, in
+terms of performance improvement and optimization of consumptions. As is well known, the Common Rail (CR)
+MultiJet system has replaced the previous UniJet system, allowing Diesel engines to satisfy all the environmental
+targets (euro 3 and euro 4 standards) concerning the reduction in exhaust emissions and combustion noise
+(Tanaka et al., 2002; Celikten, 2003; Vanegas and Peters, 2009). However, in order to satisfy the stricter limits
+imposed by new European emission standards (Euro 5 and, after 2014, Euro 6), reliable predictions of the engine
+behaviour, including all the parameters affecting it, are required. Current research studies have been focused on the
+injection process. The effects of different parameters upon the quantity of fuel injected by a common rail injector was
+thoroughly analyzed by Bai et al. (2016).
+An effective one-dimensional spray model was developed by Xu et al. (2016), in order to understand the effect of gas
+flow on the penetration of diesel sprays. The impact of different injection types and after-treatment systems on
+particulate emissions of light-duty vehicles was deeply investigated by Oh and Cha (2015). Nanoparticles and
+other harmful exhaust emissions in accordance with injection strategies and air-fuel ratio changes for small
+diesel engines were analyzed by Eom et al. (2017). All the abovementioned papers along with other relevant
+research papers (e.g., the studies developed by Lim and Lee (2016) and Wang et al. (2015)) have provided
+advancements in modelling, predicting and understanding some important aspects regarding the injection process.
+In this scenario, this paper is focused on a very important aspect of the injection process, which is the measurement
+of the needle lift inside an injector. Infact, since the displacement of the needle exerts a strong influence on the
+injection performance, accurate measurements of the needle position can be instrumental in achieving a more
+thorough analysis of the behaviour of injectors. Precise knowledge of the needle lift during injections
+can also help researchers better investigate misfire in Diesel engines (which is due, as is well known, to injection
+problems) in order to improve current methods for detecting the phenomenon (Chang et al., 2002; Hu et al., 2011; Liu et
+al., 2013; Fan et al., 2014).
+Significant improvements must still be done as far as the measurement of the needle lift is concerned, in spite of the
+several advancements achieved in measuring systems for internal combustion engines, such as highly-effective
+measurement techniques for the characterization of particle emissions (see, e.g., the studies developed by Amirante et
+
+al. (2015a), Myung et al. (2014) and Choi et al. (2014)) or
+novel solutions for the in-cylinder pressure measurement
+(see, e.g., the cost-effective solution proposed by Amirante
+et al. (2015b), and novel NOx prediction methods based on
+the in-cylinder pressure measurement developed by Chung
+et al. (2016).
+To the authors’ knowledge, all the commercially available
+displacement transducers cannot be used in serial application
+for on-board measurements of the needle lift because of the
+complexity of their assembly which in turn affects the
+normal operation of injection systems. In laboratory
+applications, eddy current sensors have traditionally been
+used to measure the displacement of the control piston,
+which is equal to that of the needle because they are always
+in contact inside the injector; however, in spite of their
+widespread use, the scientific literature clearly shows their
+inadequacy for such applications, because of the presence
+of electromagnetic disturbances (generated by current
+pulses controlling the opening and closing phases of
+injectors) which strongly affect signal acquisition. As far as
+this issue is concerned, very complex and expensive
+solutions have been proposed to date in an attempt to avoid
+the electromagnetic interference that usually occurs during
+measurements (Sienkiewicz and Shukla, 1997; Prelle et al.,
+2006; Virdee, 2004). Among these solutions, the possibility
+of mounting the eddy current sensor directly in the nozzle
+to obtain a much higher signal quality could be very
+promising; however, apart from its high cost, the extension
+of this technique to on-board measurements seems
+unfeasible because of its complexity.
+In contrast, this paper proposes the design of a new and
+cheap sensor for reliable measurements of the control
+piston lift, namely an optical transducer that guarantees
+lower manufacturing costs and times in comparison with
+all the solutions proposed recently. The choice of using an
+optical measurement system is justified by its capability of
+ensuring high standards of signal cleanliness even during
+measurements affected by high interference.
+Apart from its simplicity and cost-effectiveness, the
+optical sensor has the potential to outperform the previous
+solutions because its implementation in a commercial
+injector does not affect the injector operation; therefore, for
+the first time, the proposed sensor can efficiently be used
+also for on-board diagnosis and monitoring of the injection
+process.
+2. MATERIALS AND METHODS
+2.1. Operating Principles and Assembly of the Optical
+Sensor
+Figure 1 shows two cross sectional views of a typical CR
+injector. The position of the needle (1) and the control
+piston (2), which are kept in contact by the nozzle spring
+(3) and an intermediate element (4), is determined by both
+the fuel pressure in the delivery chamber (5) and the fuel
+pressure in the control chamber (6). When the solenoid (7)
+
+is energized, the check ball (8) lifts from its seat and the
+fuel pressure in the control chamber drops because the fuel
+is discharged through hole A (9). The pressure in the
+control chamber cannot rise quickly because of hole Z (10),
+therefore the higher pressure acting on the needle forces the
+needle to lift from its seat, thus commencing the injection.
+The measurement of the needle displacement is not a
+trivial task because the needle is placed in the engine head,
+which operates at very high temperatures. Another issue is
+the mechanical resistance of the needle, which is surrounded
+by fuel at high pressure and an eventual drilling operation
+aimed at placing a sensor on the needle could affect its
+mechanical resistance.
+To overcome these issues, technical solutions provided
+to date are based on the use of displacement transducers
+positioned in the injector body in order to measure the
+position of the control piston, rather than the needle position.
+Specifically, eddy current sensors are traditionally used to
+accomplish this task. However, the development of this
+solution needs to face up several technical difficulties,
+which are still unresolved. First of all, the installation of an
+eddy current sensor requires material removal from the control piston by means of machining operations in order
+to realize the conical surface on which its components are
+usually placed (see Figure 2). Despite removing material
+from the control piston is less critical than removing the
+same amount of material from the needle, such a conical
+part can introduce a point of mechanical weakness even in
+the control piston and alter its total deformation when
+subjected to the compression forces.
+This technique is very expensive and its application is
+only used in laboratory tests. Moreover, measurements
+provided by an eddy current sensor are disturbed by the
+electromagnetic interference generated by the current that
+circulates in the solenoid of the injector, resulting in
+degradation and partial loss of data that make the signal
+less accurate.
+To overcome the interferences and high costs arising
+from the employment of eddy current sensors, the device
+presented here is an optical sensor. It is mainly composed
+of a cheap light emitting diode and a compatible photo
+receiver, which are positioned opposite each other. As
+shown in Figure 3, the two photo elements are placed
+outside the injector body and in correspondence of the
+control piston.
+A beam of infrared light (λ ≈ 900 nm) is generated by the
+photo diode and then reaches the photo receiver by virtue
+of both the two holes (d = 4 mm) machined in the injector
+body and the hole (d = 1.5 mm) machined in the control
+piston.
+The hole in the control piston, because of its great
+hardness, was achieved by means of a drilling operation
+with cemented carbide (Widia) tools.
+The motion of the control piston during the injector
+opening and closing causes the variation in the overlap
+between the holes of the injector body, which are motionless,
+and the hole of the control piston, which can move
+perpendicularly to the light beam (see Figure 4). As a
+result, the receiver is reached by a light beam whose
+intensity is proportional to the area of the intersection
+between the fixed circles and the moving one, and such
+intensity variations are indicative of the displacement of
+the control piston.
+Figure 5 shows the geometrical characteristics of the
+emitter and the receiver used in this work. Both the emitter
+and the receiver require a power supply of 5 V. The emitter
+consists of a photodiode, made of gallium arsenide which
+works in the infrared, emitting a light beam whose
+wavelength is around 900 nm. In the circuit emitter, a
+limiting resistor of the value of 40 ohms ± 5 % is placed in
+series with the photodiode in order to limit the current
+flowing through it, since the maximum allowable value is
+100 mA (with +5 V supply voltage). The receiver is a NPN
+silicon Photodarlington and is loaded with a resistance of
+100 Ω placed between the emitter and the ground potential.
+During a light pulse, the receiver is turned on and provides
+an output voltage signal indicative of the piston
+displacement. The time delay (rise and fall time) of the
+receiver is 75 ns, which is much shorter than the duration
+of the signal. Cheap receivers with higher dynamic
+response are also available and could be employed to
+further increase the system response.
+As shown in Figure 6, two plates of polycarbonate
+(capable of transmitting infrared light, stemming the
+phenomena of the beam dispersion), whose pins are forced
+
+into the aforementioned holes, were utilized to support the
+diodes (Figure 6).
+The dimensions of the plates did not constitute an issue
+for the experimental test rig; therefore, for simplicity
+reasons, large plates (compared to the dimensions of the
+diodes) were used in the prototype to support the diodes.
+However, it should be noted that the supports of the diodes
+must be manufactured as small as possible in the case of
+on-board measurements; considering that the diodes have
+very short dimensions (see Figure 5), also their supports
+can be designed very small. Even the layout of the supports
+could be changed in order to better adapt the device to the
+engine on which it is mounted.
+Figure 7 reports the voltage-overlap relationship (blue
+line), which was retrieved experimentally in a preliminary
+test carried out to setup the device. The graph shows the
+convenience of working in the middle part (approx. from
+40 % to 70 %), in order to have both a linear trend (see
+orange line) and the maximum voltage gradient (approx. 1
+Volt) which increases the sensitivity of the sensor (the
+voltage gradient could further be increased by acting on the
+shape of the hole and employing an effective optimization
+process based on genetic algorithms (Amirante et al., 2014;
+Amirante and Tamburrano, 2014).
+The proposed sensor does not affect the normal behaviour
+of the injector on which it is mounted, because the emitter
+and the receiver can be placed externally to the injector
+body, and because the hole drilled in the control piston does
+not alter its total deformation under compression. Figure 8
+shows a drawing with dimensions of the control piston
+used in the experimental campaign; in the case of the most
+critical compression load of 2000 bar (the maximum
+achievable injection pressure in typical CR systems)
+applied both to the reference control piston (without the
+hole) and to the same control piston with the hole, one can
+easily verify that the percentage difference between their
+deformations is less than 0.01 ‰ and hence absolutely
+negligible. As a result, the drilled control piston does not
+undergo any significant variations in its behaviour with
+respect to the normal configuration (without the hole).
+Similarly, the fatigue resistance is not significantly
+changed. In fact, one can verify that, in the case of the most
+critical fatigue loading cycle (alternate loads ranging from
+the minimum pressure of 1 bar to the maximum achievable
+pressure of 2000 bar), the coordinate given by the
+intersection between the mean and the amplitude of the
+stress cycling calculated in the critical section (in
+correspondence of the hole) lies under the limit curve of the
+Haigh diagram.
+In conclusion, since the total deformation under
+compression and the fatigue resistance of the control piston
+are not changed significantly, the optical sensor can
+successfully be used for on board application in addition to
+typical lab tests.
+2.2. Minor Modifications to the Injector Body
+During the common operation of a CR injector, a little
+amount of fuel, flowing through the internal channels of
+the injector, goes back from the high pressure zone
+surrounding the needle to the fuel tank (see Figure 9
+leakage zone). Since the leakage reaches the optical device
+Figure 7. Signal vs Overlap relationship.
+Figure 8. Drawing with dimensions (mm) of the control
+piston.
+Figure 9. Leakage flow through the internal channels of the
+injector.
+zone and the presence of fuel in the measuring chamber
+can prevent the transit of the light signal, the injector
+system needs a few modifications to isolate the volume
+inside which the light passes, keeping the fuel away from
+the measuring ambient.
+In the prototype, this problem was easily solved by using
+two elastomer rings, forced on the control piston and used
+as mechanical seals, and by drilling two additional holes
+above and below the measuring zone to allow drainage of
+the oil, which was discharged from this zone to the fuel
+tank by means of external tubes (see Figures 10 and 11). To
+guarantee a greater tightness of the measuring ambient, the
+zone comprised between the two elastomer rings was fed
+with compressed air entering through another hole drilled
+in the body of the injector (see Figure 11 n.1). In such a
+way, the generated air cushion protected the measuring
+zone from the reflux of the oil.
+It is important to highlight that the pressure of the
+supplied air can be kept slightly greater than 1 bar, and it
+can be supplied by the turbocharger mounted in the vehicle
+even without energy loss because there is no air consumption
+in the measuring zone.
+It should be noted that the absence of fuel in the
+metering chamber does not increase friction between the
+external surface of the control piston and the internal
+surface of the injector body because, as shown in Figures 1,
+9 and 11, these surfaces are not in contact in this zone and
+here lubricating action is not required. In addition, all the
+modifications shown in Figure 1 do not alter the regular
+reflux of fuel towards the zones in which the surfaces are in
+contact and require to be lubricated, so the overall
+lubricating action is certainly not influenced.
+2.3. Test Bench
+The validity of the proposed solution was assessed by
+several tests carried out on the Common Rail test bench of
+the Polytechnic University of Bari.
+The test bench, shown in Figure 12, is engine-free and is
+composed of some commercial automotive components
+Figure 10. Two gaskets placed above and below the hole of
+the control piston (on the left); Holes drilled in the external
+body for oil drainage (on the right).
+Figure 11. Devices to avoid reflux of fuel in the measuring
+zone: (1) Pipe delivering pressurized air; (2) Hole to
+insufflate air; (3) Holes for housing the optical sensor; (4)
+Hole on the control piston; (5) Two gaskets; (6) Sealed
+chamber for the optical measurement; (7) Holes to drain
+fuel from the high pressure zones; (8) Injector body
+(device patented in October 2012, with PCT extension
+numbered PCT/IB2013/000815)
+along with additional instrumentation which were properly
+assembled in order to reproduce the main working
+conditions of a typical Common Rail Injection system
+(Catalano et al., 2002; Amirante et al., 2006; Carlucci et
+al., 2008; Papagiannakis et al., 2007). Figure 12 also shows
+a scheme of the test rig. There are two fuel circuits,
+working at high (dark line) and low pressure (outlined
+line), respectively. The mineral oil ISO 4113, which has the
+same properties of Diesel fuel, was used during the
+experimental tests. The high pressure pump (2) is equipped
+with an electrical discharge valve (3) to regulate the rail
+pressure. The fuel is injected into a cylindrical capacity,
+charged with air at 20 bar, which replaces an engine
+cylinder and also avoids cavitation inside the nozzle (6).
+The injector is opened by a power supply equipment (12),
+which provides the current to the coil. A low pressure
+pump is installed inside the fuel tank (5) and supplies fuel
+to the high pressure pump (2), driven by an electrical
+engine. High pressure pipes connect the pump to the rail
+(9) and the rail with the injector (14). A high frequency
+transducer measures the pressure inside the nozzle (8). The
+opening of the injector is driven by the current waveform,
+which is constituted by a high current pulse (peak current)
+to overcome the inertia of the injector, and a lower current
+(hold current) to hold the injector opened.
+Figure 13 shows the injector that was used to test the
+optical sensor (identifiable by the code 0 445 110 183).
+A piezo-resistive high pressure sensor was also adopted
+to measure the time history of the injection pressure, which
+represents a valid indication of the dynamic behaviour of
+the injector. In fact, since the first experimental
+investigations carried out by Fiat Research Centre and
+successively by Bosch (Stumpp and Ricco, 1996),
+measurements of the nozzle pressure have been used to
+study the injector opening. The reliability of this approach
+has been confirmed by other investigations that have
+demonstrated the clear correlation among injector opening,
+fuel spray across the nozzle and nozzle pressure
+(Heimgärtner and Leipertz, 2000; Catania et al., 2008).
+In the first experiences, the nozzle pressure was measured
+indirectly by means of strain-gages fixed on the nozzle
+(Stumpp and Ricco, 1996), while nowadays it is measured
+directly by a pressure transducer placed on the nozzle
+(Amirante et al., 2006).
+The sensor employed in this work is the Kistler 4067
+A2000 A2, with 2000 bar full scale and a precision of 0.5
+% in the temperature range 20 ~ 200 °C. To allow the
+placement of the pressure transducer, a hole of 1.5 mm was
+drilled in the sprayer; the assembly is shown in Figure 14.
+Such a modification does not affect the injector behaviour
+as demonstrated in Amirante et al. (2006).
+3. RESULTS AND DISCUSSION
+3.1. Experimental Results
+The experimental tests on the Common Rail bench were
+performed to assess the effectiveness of the proposed
+sensor in measuring the control piston displacement during
+UniJet and MultiJet injections. To that end, the parameters
+of the injection process were properly set so as to
+reproduce each possible scenario on the test bench. Figure
+15 shows a first example reporting the time histories both
+of the voltage signal from the optical sensor (red line) and
+of the current supplied to the coil (blue line), both obtained
+during a main injection. It is noteworthy that the trend of
+the voltage signal traces the expected needle lift; in fact, the
+voltage curve suddenly decreases when the peak of current
+occurs (approx. at 3300 µs) and, as expected, the injector
+starts opening (approx. at 3500 µs). Afterwards, as a
+consequence of the increasing lift of the needle, the voltage
+curve decreases until the maximum lift is reached (approx.
+at 4800 µs) and the voltage assumes a constant value.
+Similarly, the increase in the voltage from 5200 µs to 5800
+µs indicates the transient during the injector closure. The
+time delay between the start of the peak phase and the
+injector opening is equal to about 200 microseconds, which
+is a typical value for a CR injector (Stumpp and Ricco,
+1996).
+The reliability of the optical sensor was further assessed
+by several experimental tests during which the coil of the
+injector was provided with different current profiles that
+are typical both of pilot injections and of main ones. The
+pressure acting on the needle was measured by means of
+the pressure transducer shown in Figure 14 and its time
+history was recorded and used to validate the proposed
+optical sensor.
+Figures 16 ~ 18 report the time histories of the lift
+voltage signal, of the nozzle pressure and of the current in
+the coil obtained during three injections with the rail
+pressure being set to 400 bar, 900 bar and 1050 bar,
+respectively. Figure 16 refers to a main injection with a
+peak current of 19 A, while Figures 17 and 18 refer to two
+pilot injections with a peak current of 16 A and 17 A,
+respectively.
+The comparison among the curves of the current,
+pressure and lift reported in Figures 16 ~ 18 confirms the
+effectiveness of the proposed optical sensor. In fact, it is
+possible to observe the correspondence between the large
+decrease in the voltage, which indicates the needle lift, and
+the large pressure drop in the nozzle, caused by the sudden
+opening of the injector. Furthermore, as expected, the
+voltage drop that indicates the opening phase increases
+with the rail pressure (see Figures 17 and 18). In fact, the
+greater the rail pressure, the higher the needle lift and, as
+shown by the voltage curves, the longer the closing phase.
+It is also possible to observe the typical pressure
+oscillations occurring in the nozzle after the closing of the
+injector.
+Similarly, Figures 19 ~ 21 refer to three Main injections
+that differ from one another because different values of
+energizing time (peak + hold), peak & hold currents and
+rail pressure, whose values strongly affect the opening of
+the injector, were employed.
+The different duration of the opening phase (from 3600
+µs to 6700 µs in Figure 20 and from 3500 µs to 7200 µs in
+Figure 21) is due to its strong dependence on the overall
+energizing time, which was changed from 1100 µs (Figure
+20) to 1500 µs (Figure 21).
+Figures 22 and 23 report other measurements obtained
+with two main injections, performed with quite similar
+current profiles and energising time but with a large
+difference in the rail pressure (400 bar and 900 bar,
+respectively). As shown by the comparison of the two
+graphs, the higher rail pressure makes the voltage fall (i.e.
+starting lift) faster, because of the bigger force acting on the
+needle. In both cases, the voltage signal is again consistent
+with the expected behaviour of the needle, evidencing the
+reliability and accuracy of the proposed optical sensor once
+more. As additional information, it is also possible to
+observe the typical pressure oscillation in the nozzle
+(Catalano et al., 2002; Amirante et al., 2006) which is due
+to the propagation of the compression waves that are
+created by the opening and closing of the injector, e.g. see
+Figure 16 (the pressure increases from 4500 µs to 5000 µs
+and decreases from 5000 µs to 6000 µs and so on).
+As visible in Figures 16 to 23, the signal of the control
+piston displacement does not maintain a constant value but
+presents small fluctuations around a mean value; this can
+be attributed to the corresponding pressure oscillations
+shown in the same figures. These pressure oscillations can
+also be fed by downstream cavitation processes from
+which reverse pressure waves may be propagated. The
+pressure trends shown in Figures 16 to 23 are consistent
+with the expected behaviour of the pressure inside the
+nozzle; in fact, the pressure trends are very similar to those
+registered in a previous experimental campaign (Amirante
+et al., 2006), in which the goal was to demonstrate the reliability of the nozzle pressure measurement in a
+commercial injector (without implementing the proposed
+optical system). More explanations for the pressure trends
+and associated phenomena are provided by Amirante et al.
+(2006).
+Similar oscillations both in the lift of the control piston
+and in the injected mass flow rate were also encountered by
+other authors during tests of commercial injectors (Seykens
+et al., 2004; Suh and Lee, 2008); their explanation for such
+oscillations is the occurrence of cavitation associated with
+a rapid opening and closing of the injector which induce
+pressure waves (Seykens et al., 2004, 2005).
+In order to evaluate whether the optical sensor is capable
+of providing reliable measurements even for different
+injector geometries, the control piston was replaced with
+another one, having a smaller diameter of the upper part
+(the difference from the original one is two hundredths of
+millimetres). Figures 24 and 25 report the signals recorded
+during two injections, which were characterized by a
+similar current profile but with different rail pressures (650
+and 850 bar, respectively), both performed with the
+modified control piston. The comparison shows that, as
+mentioned earlier, the higher rail pressure causes both the
+faster lift of the needle and the longer duration of the
+closing phase: it is noteworthy that both are accurately
+predicted by the optical sensor. Furthermore, the smaller
+diameter of the upper part of the new control piston causes
+leakage losses in the control chamber and hence the
+slowdown in the filling process through the “Z” orifice (see
+Figure 1); as a result, a slowdown in the needle closure is
+also expected. Even this behaviour is well reproduced by
+the optical sensor, in fact it is seen that the slope of the
+voltage signal during the closing phase of Figures 24 and
+25 is lower than that of the previous figures.
+Finally, additional tests were successfully performed by
+simulating multiple injections, in order to demonstrate the
+reliability of the proposed sensor in each possible scenario
+of the injection process. Even in this case, the optical
+sensor provided the same excellent results; as an example,
+Figure 26 reports the signals recorded during multiple
+injections (3 injection strategy) performed with the second
+control piston.
+With regard to the multiple injections technology, the
+importance of the optical sensor must further be remarked
+because such reliable measurements can allow the values
+of dwell times to be accurately chosen in order to optimize
+the performance of Multi-jet injection systems
+3.2. Numerical Validation of the Experimental Tests
+Although it has widely been demonstrated that the nozzle
+pressure is strongly connected to the needle position
+(Stumpp and Ricco, 1996), and hence the previous analysis
+(based on the comparison between time histories of the
+nozzle pressure and lift measurements) can be considered a
+reliable tool for the validation of the optical sensor, the
+reliability of the sensor was further assessed by the
+comparison between the experimental data and the
+numerical predictions provided by a numerical model of
+the injector.
+In the last years, several accurate models for the
+simulation of high pressure Diesel injection systems were
+proposed in the scientific literature (Marcer et al., 2010;
+Seykens et al., 2005; Liu and Wang, 2012) in order to
+predict the dynamic behaviour of injectors. Also in this
+case, the numerical model of the Common Rail injector
+was developed by means of the AMESim Software
+(Advanced Modelling Environment for Simulation
+(AMESim, 2004) with the aim of accurately reproducing
+the hydraulic and mechanical layout, since it is well known
+that the layout of the system and its geometrical features
+strongly affect the injection process. The choice of
+AMESim is justified by its capability of reproducing
+physical phenomena with great accuracy, allowing the
+realization of a model as similar as possible to the real
+system (Marcer et al., 2010; Seykens et al., 2005; Liu and
+Wang, 2012).
+The injector behaviour is assumed one dimensional, and
+a lumped parameter model is considered. The model also
+accounts for the cavitation phenomenon, since cavitation
+influences the control piston lift (Ficarella et al., 1999;
+Giannadakis et al., 2008).
+With regard to the cavition model, AMESim uses the
+same approach as that described by Seykens et al. (2005),
+which takes into account the occurrence of cavitation by
+only reducing the discharge coefficient (defined as the ratio
+of the actual flow rate to the maximum theoretical flow
+rate). In particular, the discharge coefficient within a
+metering section is changed according to the cavitation
+number, which is a non-dimensional parameter indicating
+the expected cavitation intensity. The AMESim cavitation
+model has proved to be very accurate, as shown by
+different studies present in the literature (Seykens et al.,
+2004, 2005).
+Both the combustion chamber pressure, downstream of
+the nozzle, and the rail pressure are held constant. The
+latter was set constant since it is subjected to variations
+whose duration is much longer than the injection time
+(Amirante et al., 2006).
+With regard to the forces acting during the injection
+process, the model takes into account the electromagnetic
+forces (relevant to the activation and control of the
+injector), the internal forces between the needle and the
+control piston, the pressure forces exerted by the oil in the
+control and delivery chambers and, finally, the external
+elastic force generated by the centring spring of the
+solenoid valve. The good accuracy of the model, according
+to the common scientific approach (Marcer et al., 2010;
+Seykens et al., 2005; Liu and Wang, 2012), allows the
+above listed actions to be reproduced with good precision.
+Figure 27 shows a sketch of the AMESim model of the
+Common Rail injector employed in the experimental
+campaign to test the optical sensor; the correspondence
+between the mechanical and electrical parts and their icons
+is also depicted in detail.
+The “piecewise linear” submodel was employed to
+achieve the same current profiles used in the experimental
+campaign for ease of comparison. The electro-hydraulic
+valve was modelled by means of a solenoid, a “Mass block
+with stiction and coulomb friction and end stops”, a “Ball
+valve with conical seat” and a “Piston with spring”.
+With regard to the control piston - needle system, the
+needle (13) and the control piston (11) are considered as
+two different elements separated by a spring-damper (12)
+in order to account for the possible relative motion between
+them, although they are expected to have the same
+displacement.
+Moreover, the model takes into account the fuel
+compressibility during the injection.
+The ducts inside the injector and the pipe connecting the
+rail with the injector are modelled as undeformable by
+means of the “Simple wave equation hydraulic pipe” sub
+model. The rail is modelled by a “constant pressure source”
+sub model.
+In order to increase the accuracy of the model, the
+geometrical data of the injector and the properties of the oil
+(type ISO 4113) used in the experimental campaign were
+considered in the simulations.
+Since the numerical investigation aims at further proving
+the reliability of the sensor, the comparison against the
+experimental results is mainly focused on the control piston
+displacement.
+Figures 28 ~ 31 show the comparison between the
+numerical predictions and the experimental measurements.
+The red line denotes the measurement of the control piston
+lift, while the green one denotes the simulated lift of the
+control piston; the trend of the current (experimental
+measurement) is plotted as a blue line. Figures 28 ~ 30
+refer to three Main injections while Figure 31 refers to a
+Pilot injection.
+All these Figures show good agreement between the
+experimental measurement and the simulated lift in terms
+of both the rise time and the value of the lift at full opening,
+and this confirms the accuracy and reliability of the optical
+sensor. The numerical predictions of the lift are very
+regular, following an ideal behaviour; instead, the
+measured lift shows some small oscillations both during
+the transient phase and at full opening. As discussed earlier,
+such oscillations of the lift must be attributed to highfrequency fluctuations in the upstream pressure and
+cavitation occurrence. These phenomena are not captured
+by the AMESim simulations, which therefore predicted a
+regular and constant lift at full opening.
+The agreement between numerical predictions and
+experimental values also suggests that the numerical model
+can effectively be used to correctly predict both the lift at
+full opening and the rise time
+
+4. CONCLUSION
+Accurate measurements of the instantaneous position of the
+control piston can be instrumental in predicting the real
+behavior of Common Rail injectors, in particular when
+multiple injections are employed. In this paper, a cheap and
+reliable optical sensor suited to measure control piston
+position has been proposed and experimentally tested with
+the aim of overcoming the unresolved problems
+(interferences and high costs) arising from the employment
+of eddy current sensors which deeply affect measurement
+accuracy. The proposed optical sensor is mainly composed
+of a cheap light emitting diode and a compatible photo
+receiver, and it can easily be implemented in a typical
+injector assembly by using simple drilling operations that
+do not affect the operation of the injector and its
+mechanical resistance. The injector system also needs a
+few modifications to avoid the presence of fuel in the
+measuring zone which could alter the accuracy of the
+measurements. These modifications consist of two
+additional holes and two elastomer rings, which are
+necessary to avoid the presence of fuel in the optical
+chamber by generating an air cushion inside the measuring
+zone. The small amount of air serving as air cushion is
+taken from the turbocharger; there is no reduction in the
+flow rate delivered by the compressor, because the air is
+“blocked” inside the metering zone. As a result, there is no
+compressed air consumption and the operating conditions
+of the turbocharger are not changed. These modifications,
+which can be easily implemented in the manufacturing
+process of a commercial injector, are not as intrusive as
+those required by typical measurement systems present in
+the literature. For example, the installation of an eddy
+current sensor (the most used measurement system in
+laboratory tests) is very complex and requires removal of
+much material from the control piston, thus increasing the
+mechanical weakness of the control piston (subjected to
+high compression forces), in addition to being affected by
+electromagnetic interference. The optical sensor was
+mounted on a commercial injector and several experimental
+tests were performed on a test bench to validate the
+solution proposed. Different current profiles, typical of
+pilot and main injections, were supplied to the coil of the
+injector; the time history of the pressure acting on the
+needle was recorded and was used to evaluate the validity
+of the displacement signal. Similar experimental tests were
+carried out with a different control piston to assess the
+reliability of the measurements even for different
+characteristics of the injector geometry. In all the tests, the
+voltage signal from the optical sensor was consistent both
+with the expected lift of the needle and with the transients
+of the pressure acting on the needle, evidencing the
+reliability and accuracy of the solution proposed. The
+reliability of the sensor was further demonstrated by
+comparing the experimental data with the numerical
+predictions provided by the AMESim numerical model of
+the injector. The experimental results and numerical
+predictions show excellent agreement and also suggest the
+possible use of the simulation model as a reliable tool for
+predicting the needle lift.
+The proposed optical sensor is very innovative because
+its characteristics can also make its use profitable for realtime on board controls and because it is cost-effective, in
+fact the overall cost of its components amounts to about
+twenty Euros, while common eddy current sensors can cost
+as much as a few thousand Euros.
+ACKNOWLEDGEMENT−The authors thank Michele Mizzi
+and Vito Mele for their support in the experimental campaign.
+The study described in this article is the subject of a patent
+application (Patent filing October 2012, under submission for
+PCT extension)

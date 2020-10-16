@@ -1,0 +1,770 @@
+Abstract
+We present a linear controller and observer design
+for autonomous underwater gliders based on a
+model of glider dynamics that we have derived. Our
+focus is on buoyancy-propelled, fixed-wing gliders
+with attitude controlled by means of internal mass
+distribution. In cases when some states cannot be
+directly measured, such as with oceangoing gliders,
+the design of an observer offers possible improvements
+over current glider control methods.
+1 Introduction
+Initially conceived by Henry Stommel [16], autonomous
+underwater gliders offer many advantages
+in ocean sensing: superior spatial and temporal
+measurement density, longer duration missions and
+greater operational exibility. Several oceangoing
+gliders are operational or under development, including
+the SLOCUM glider [18], the "Spray" glider
+[14] and the "Seaglider" [3]. These are all buoyancypropelled,
+fixed-winged gliders which shift internal
+ballast to control attitude.
+On SLOCUM, the ballast tanks are configured
+within the vehicle to provide the proper pitching
+moment during upwards and downwards glides
+[17, 18]. A sliding battery mass is used for fine adjustments
+in pitch and roll. Sensors measure depth,
+pitch, roll, and compass heading. Vehicle position
+at the surface is determined through GPS fix. The
+pitch angle, an assumed angle of attack, and a vertical
+speed computed from depth measurements are
+used to estimate the horizontal speed of the glider.
+The glider control system periodically checks the
+glider attitude and adjusts the position of the sliding
+battery mass. Switching between downwards
+and upwards glides is performed open loop, i.e., the
+ballast is changed and the sliding mass is moved to
+a new position.
+Sensing and control on other gliders is similar.
+For example, Spray performs active control of pitch
+and roll every 40s using measured pitch and heading
+errors. In the case of pitch, a low-gain proportional
+control law is used, and in the case of heading, proportional
+plus integral control is used [14].
+The goal of our work is to improve upon currently
+implemented glider control strategies. Our aim is
+to develop a widely applicable approach, complementing
+efforts on SLOCUM, Spray and Seaglider.
+Toward that end we have developed a nonlinear
+glider dynamic model and examined the use of linear
+controllers and observers. A model-based approachmay
+also prove useful in determining optimal
+glider motions (see [2] for early work in this direction).
+Our glider dynamic model is derived in [10],
+where we examine steady glides, controllability and
+observability in the vertical plane.
+In this paper we review the derivation from [10]
+and present a controller design that uses a linear
+observer. Because of space and power constraints,
+and because of the diffculties of underwater sensing,
+many operational gliders do not carry the sensors
+necessary to determine the full glider dynamic
+state. In particular, glider position and velocity are
+costly to measure directly. We design a dynamic
+observer to estimate the glider state from a limited
+set of measurements. These estimated states can be
+used to determine horizontal glider motion instead
+of the current methods which rely on assumptions
+of constant angle of attack.
+Our dynamic glider model describes a glider with
+simple body and wing shape. Control is applied to
+two point masses inside the vehicle: we control the
+mass of a point with fixed position and the forces on
+a mass with variable position. The model describes
+the nonlinear coupling between the vehicle and the
+shifting and changing mass. Analysis and control
+law design is performed for the dynamics specialized
+to the vertical plane.
+In related work with colleagues, we address issues
+in optimal path planning for underwater gliders
+[2] and in coordinating control for a network of
+autonomous underwater vehicles [1, 9, 15].
+In Section 2 we describe our laboratory-scale
+glider ROGUE, see Figure 1.1. ROGUE controls
+buoyancy and CG position by means of a distributed
+array of independently actuated ballast tanks (syringes).
+In Section 3, we derive the equations of motion
+for a buoyancy-driven, fixed-wing underwater
+glider. Controllability and observability of steady
+glide paths in the vertical plane are studied in Section
+4. Linear observers and linear control laws are
+developed in Section 5 for stabilizing these glide
+paths in the presence of disturbances. A simulation
+of the controlled glider modelled to resemble
+ROGUE is also presented. We give final remarks in
+Section 6.
+2 The ROGUE gliding vehicle
+ROGUE is a laboratory-scale gliding vehicle designed
+for experiments in glider dynamics and control.
+The vehicle consists of a water-tight body,
+modular wings and tail, internal ballast actuators,
+and on-board electronics and batteries. Using its
+on-board computer and sensors the vehicle is capable
+of autonomous or remote operation. ROGUE's
+ellipsoidal body has axes of length 18, 12 and 6
+inches. The vehicle body contains the vehicle actuators,
+power, computer and sensors, and has mounts
+for the modular vehicle wings and tail. Different sets
+of wings and tail can be attached to perform experiments
+with different vehicle hydrodynamic profiles.
+We note that the body and wings have not been designed
+for optimal gliding performance but rather in
+consideration of available facilities and other manufacturing
+constraints. Experiments are currently
+planned using the ROGUE vehicle in our twentyone-
+foot diameter laboratory tank and in an olympic
+sized pool at Princeton University.
+In the configuration shown in Figure 2.1, each
+wing has span of 28 inches with aspect ratio 9.3.
+The wings are symmetric airfoils from [13] for low
+Reynolds number. The tail was sized using standard
+aircraft rules as in [4] and [11] . The vertical
+tail is designed to give yaw stability in forward glides
+and is modular, allowing tail volume to be changed.
+The glider body, wings and tail are all machined
+from UHMW (ultra-high molecular weight) plastic.
+In Figure 2.1 the top half of the vehicle is separated
+from the bottom so the internal components
+are visible. The metal box at the center of the vehicle
+contains the vehicle on-board computer. Two
+syringe-type ballast tanks are visible, one on each
+side of the computer housing. Visible to the left of
+each ballast tank is its driving servo (they appear as
+black squares). To the right of the computer housing
+are two white battery packs.
+ROGUE contains three Nickel-Cadmium battery
+packs to provide power to the vehicle actuators,
+computer and sensors. Two "8-packs" of AA batteries
+power the computer, sensors and signal conditioning
+electronics. A "4-pack" of AA batteries
+powers the servos and vehicle optional R/C receiver.
+ROGUE contains four independently actuated
+syringe-style ballast tanks aligned along the vehicle
+long axis, two mounted on each side of the vehicle
+centerline. The two ballast tanks in the upper half
+of the vehicle point forwards, while the two in the
+lower half point to the aft of the vehicle. Each tank
+is made of a clear plastic cylinder with an internal
+plunger. Ball screw mechanisms with a high torque
+modified RC servo drive each ballast tank. The tank
+connects to the vehicle exterior via tubing. Moving
+the plunger inside each ballast tank transfers water
+from the tank to outside the vehicle or the reverse.
+Filling the tanks with different amounts of water
+causes ROGUE to become positively or negatively
+buoyant and moves the CG relative to the vehicle
+centroid. Each tank has a 100 mL capacity for .4"
+of plunger travel. Together the four tanks have a
+400 g capacity. The relative positions of the four
+tanks allows for moderate adjustments in the vehicle
+CG position. The high torque servos driving
+the plungers connect to linear potentiometers and
+use feedback control to regulate the tank's plunger
+position. The tanks are filled completely with water
+before ROGUE is deployed to eliminate any air
+bubbles in the tanks.
+ROGUE's on-board computer is a TattleTale
+Model 8. The TattleTale Model 8 is based on the
+Motorola 68332 chip and also includes a PIC 16C64
+chip for low-power operation. The TattleTale allows
+up to 8 analog inputs and up to 25 digital input/
+output signals. The Motorola 68332 chip contains
+a central processor as well as a "time processing
+unit (TPU)" capable of performing simple
+clock functions independently of the main processor.
+There are 12 TPU channels available to the Tattle-
+Tale user, each of which can generate a clock signal,
+measure the duty cycle of a square wave signal,
+etc. Electronics have been added to multiplex the
+analog input signals doubling the computer's analog
+input capacity to 16 channels. The TattleTale
+Model 8 includes 256 kilobytes of RAM (temporary
+memory) and 256 kilobytes of ash EEPROM (permanent
+memory). The memory can be expanded to
+any size available on a PCMCIA memory expansion
+card.
+ROGUE's computer serves three major purposes:
+to store sensor data, process sensor data according
+to a pre-defined feedback control law, and apply
+command signals to ROGUE's actuators according
+to a feedback control law or to a remote command
+from a modified R/C transmitter.
+TattleTale programs are written in C and compiled
+on a host computer. Programs may be downloaded
+from PC to TattleTale via serial link to the
+RAM or to EEPROM. The TattleTale is housed
+within a metal box to shield it from interference.
+Also mounted within the metal box is an optional
+R/C receiver for remote operation of the vehicle.
+ROGUE's sensor suite includes the following elements:
+two depth sensors, two single-axis inclinometers
+mounted to measure pitch and roll angles,
+and three angular rate sensors mounted to measure
+pitch, roll and yaw rates. The vehicle also contains
+analog preamplifiers for each of the sensors.
+The amplifiers and angular sensors are mounted in
+a metal box in the lower half of the vehicle. The
+two pressure sensors are differential wet/wet sensors
+located at the fore and aft of the vehicle hull and
+are connected to the vehicle exterior and interior by
+tubing. The pressure sensors are used to measure
+depth. All sensors are connected to the on-board
+computer for logging data and performing feedback
+control using sensor data.
+3 Glider Dynamics
+The variables used in this paper are defined in Table
+3.1.
+3.1 Equations of Motion in 3D
+We first review the derivation of the equations of
+motion for our underwater glider. For a more detailed
+derivation see [10]. Our choice of glider body
+and wing configuration is motivated by the designs
+of ROGUE, SLOCUM, Spray and Seaglider. We
+model the underwater glider as a rigid body with
+fixed wings (and tail) immersed in a uid with buoyancy
+control and controlled internal moving mass.
+We take the hull to be ellipsoidal with wings and tail
+attached so that the center of buoyancy (CB) is at
+the center of the ellipsoid. We assign a coordinate
+frame fixed on the vehicle body to have its origin at
+the CB and its axes aligned with the principle axes
+of the ellipsoid. Let body axis 1 lie along the long
+axis of the vehicle (positive in the direction of the
+nose of the glider), let body axis 2 lie in the plane
+of the wings and body axis 3 point in the direction
+orthogonal to the wings as shown in Figure 3.1.
+The total stationary mass, ms, (also referred to
+as body mass) is the sum of three terms: mh is a
+fixed mass that is uniformly distributed throughout
+the ellipsoid, mw is a fixed point mass that may be
+offset from the CB, and mb is the variable ballast
+point mass which is fixed in location at the CB.
+The vector from the CB to the point mass mw is
+rw. The vector from the CB to the center of mass
+of the stationary mass ms = mh +mw +mb is rs.
+The moving internal point mass is m. The vector
+rp(t) describes the position of this mass with respect
+to the CB at time t. The total mass of the vehicle
+is then
+The mass of the displaced uid is denoted m and
+we define m0 = mv-m so that the vehicle is negatively
+(positively) buoyant if is negative (positive).
+The different masses and position vectors are
+illustrated in Figure 3.2.
+Let Jh denote the inertia matrix, with respect to
+the body frame, for the uniformly distributed mass
+mh. Define the operator ^ so that for a vector x =
+(x1; x2; x3)T ,
+Equivalently, for vector y = (y1; y2; y3)T , ^xy =
+xy. The inertia matrix for the stationary (body)
+mass expressed with respect to body frame coordinates
+is
+Since the variable ballast mass mb is a point mass
+located at the CB, it does not contribute to Js, and
+in particular Js is a constant.
+The orientation of the glider is given by the rotation
+matrix R. R maps vectors expressed with
+respect to the body frame into inertial frame coordinates.
+The position of the glider b = (x; y; z)T is
+the vector from the origin of the inertial frame to the
+origin of the body frame (vehicle CB) as shown in
+Figure 3.3. The vehicle moves through the uid with
+translational velocity v = (v1; v2; v3)T and angular
+velocity 
+ = (
+1;
+2;
+3)T , expressed with respect
+to the body frame. (Note that we have diverged
+from the notation typical of the submarine literature
+where v = (u; v;w)T and 
+ = (p; q; r)T . The
+notation that we use here is taken from texts in classical
+mechanics such as [5] and is more convenient
+for the derivation and analysis.) In this notation,
+the kinematics of the glider are given by
+Let P be the momentum of the vehicle-fluid system
+expressed with respect to the body frame. Let
+ be the total angular momentum about the origin
+of the body frame. Let Pp represent the point mass
+momentum with respect to the body frame. We differentiate
+the expressions relating the momenta P,
+, and Pp to the momenta in the inertial frame.
+Applying the kinematic expressions (3.2) and (3.1),
+then applying Newton's laws, gives the following dynamic
+equations in body coordinates:
+where all vectors are expressed with respect to the
+inertial frame. The vector xi locates the point of
+application of the force fexti with respect to the inertial
+coordinate frame. fexti is an external force
+applied to the system and extj is a pure external
+torque. k is a unit vector pointing in the direction of
+gravity. These external forces and torques include
+those due to gravity and buoyancy; however, gravity
+is included explicitly in the third set of equations
+as it is the only external force acting on the movable
+point mass. is the internal force applied from the vehicle
+body onto the point mass (a control force) in body coordinates.
+Define the control vector
+To derive expressions for P, , and Pp, we determine
+the total kinetic energy of the glider-uid
+system. Let Ts be the kinetic energy of the rigid
+body with mass ms and inertia matrix Js. Let vp
+be the absolute velocity of the movable point mass
+m expressed in body coordinates. Given that the
+velocity of m relative to the body frame is r_p, we
+compute
+The kinetic energy Tp of the movable point mass is
+then computed to be
+Kirchhogff [8] showed that the kinetic energy of an
+unbounded volume of ideal uid due to the motion
+of an immersed rigid body takes the form
+whereMf is the added mass matrix, Jf is the added
+inertia matrix and Df is the added cross term.
+These matrices depend upon the external shape of
+the body and the density of the uid. We assume
+that at low angle of attack, the contribution of the
+wings is dominated by lift and drag forces. Thus,
+we make the simplifying assumption that the added
+mass and inertia terms can be computed solely from
+the vehicle hull.
+The total vehicle uid kinetic energy T = Ts +
+Tp + Tf is computed to be
+Since the vehicle hull is ellipsoidal (we neglect the
+wings in this instance), Mf and Jf are diagonal
+and Df = 0. Let Mf = diag(mf1;mf2;mf3) and
+Jf = diag(Jf1; Jf2; Jf3). Define
+where I is the 3 * 3 identity matrix. Let M =
+diag(m1;m2;m3) and J = diag(J1; J2; J3). Furthermore,
+assume that mw = 0 so that rs = 0.
+We can then compute the momenta as
+Inverting these relationships then gives the body
+velocities in terms of the body momenta. To get
+the equations of motion in terms of body velocities,
+we differentiate the equation for the body velocities
+with respect to time. We assume that buoyancy
+is changed in a symmetric way (e.g., ballast
+is pumped on and off board in streams with the
+appropriate symmetry) so that there is negligible
+associated thrust or moment on the glider. Let the
+ballast control input u4 be defined as
+Dififerentiating the body velocities
+then substituting for the derivatives and substituting (3.9)
+for the relationship between momenta and velocity, the
+complete equations of motion for the underwater glider moving 
+in threedimensional space are refer to external forces and moments, in this case
+lift and drag, with respect to the body frame.
+3.2 Equations of Motion in the Vertical Plane
+We now specialize the model to the vertical plane,
+the i-k plane in inertial coordinates and the e1-e3
+plane in body coordinates. The elements of R, b, v,
+
+, rp, Pp, and u corresponding to the e2 direction
+are set to zero. The equations of motion (3.11) for
+space are the gliding vehicle restricted to the vertical plane
+are then
+Here, is pitch angle,  is the angle of attack, D
+is drag, L is lift and MDL is the viscous moment as
+shown in Figure 3.4. These forces and moment are
+modelled as
+where the K's are constant coeffcients. This model
+is a standard one, derived using airfoil theory and
+potential ow calculations and then verified using
+experimental observations, see for example [4, 11].
+The method for determination of the coeffcients is
+described in Section 4.3.
+As shown in Figure 3.4, we denote the glide path
+angle by  where
+We also denote the glider speed by V where
+We will typically specify a glide path by desired glide
+path angle  and desired speed . We define inertial
+coordinates such that  coincides with
+the desired path:
+Then, measures the vehicle's perpendicular distance
+to the desired path. We define two gliding objectives:
+GO1 The objective is to control only the direction
+and speed of the vehicle's glide path. In this
+case we need not consider x and z at all.
+GO2 The objective is to control gliding along a prescribed
+line (see Figure 3.5). In this case we will
+include (but exclude) in our analysis and
+we aim to make
+In several glider designs the moving mass is restricted
+to one degree of freedom in the planar case.
+This case is addressed in [10].
+4 Controllability of Steady
+Glide Paths
+In this section we compute steady glide paths. We
+then study controllability and observability of these
+glide paths.
+4.1 Gliding Equilibria
+We prescribe a desired glide path by specifying the
+desired glide path angle and the desired speed
+Vd. We denote with subscript "d" the value of all
+dynamic variables at the glide equilibria. To get
+the conditions for such planar gliding equilibria, we
+set the left hand side of equations (3.24) and (3.14)
+through (3.22) to zero.
+With their left hand sides set to zero and given
+, equations (3.16) and (3.17) may be solved for
+. We can then compute
+mbd can then be solved again using (3.16) and
+(3.17). Finally, equation (3.15) with left hand side
+set to zero gives a one-parameter family of solutions
+for (rP1d; rP3d )T .
+First, we compute from equations (3.16) and
+(3.17) with left hand sides zero. This yields a
+quadratic equation for. 
+2, we have
+Equation (4.1) may be solved for a realizable fid
+provided the discriminant of the quadratic equation
+is greater than or equal to zero. Evaluating the
+condition on the discriminant in the range (will 
+give a range of possible glide path angles d
+depending on the glider hydrodynamic parameters.
+See [10]. Since the drag model is valid only at small
+angles of attack, we take  as the solution of (4.1)
+with smaller magnitude.
+The special case of is covered in [10].
+We may determine mbd from (3.16) and (3.17),
+Finally, we may solve for a one-parameter family
+of sliding mass locations (rP1d; rP3d )T which satisfy
+equation (3.15). The family of solutions is
+and where  is a real number. The vector 
+is a particular solution of equation (3.15). Since
+is the direction of gravity
+in body coordinates, is orthogonal to the
+direction of gravity and  measures the vehicle's
+"bottom-heaviness" as shown in Figure 4.1.
+For an experimental vehicle, rP3 may be a more
+physically relevant choice of parameter than .
+Equilibrium mass locations in this case are addressed
+in [10].
+4.2 Linearization
+We determine the linearization for the planar
+glider about a steady glide path. Let 
+Then the linearized system is
+where we have abbreviated and
+The notation  indicates that the quantity is to
+be evaluated at the desired equilibrium.
+4.3 Controllability
+In this section we describe controllability and observabililty
+of steady glide paths for a model of
+our experimental vehicle ROGUE, described in Section
+2. Mass and inertia properties were measured
+directly. Added mass and inertia properties can be
+found, for example, in [7]. Lift and drag for the
+body were found experimentally as described in [6].
+Lift and drag for the wings were taken from the data
+in [13]. Lift for the body plus wings was then computed
+using Schrenk's method [12], and drag was
+computed as the sum of the drag on the wing and
+the body. The lift moment was approximated by 
+taking into account the tail. The vehicle mode
+l parameters are given as follows
+The first three masses, m, mh and m were measured
+with a high degree of accuracy. The other terms
+have less precision because they are based on lookup
+tables and approximation methods.
+Four steady glide paths are calculated using the
+method of Section 4.1. The glide paths are at glide
+angles 30, 45, 30 and 45. We compute the
+glib de path at 30 by choosing a desired glide speed
+Vd = 0:30 m/s and a desired vertical location of the
+movable mass given by rP3d = 4 cm. This results in
+an equilibrium variable mass given by mbd = 1:36
+kg. The glide path at 45 is computed for these
+same values of rP3d and mbd . The corresponding
+equilibrium speed for this glide is computed as Vd =
+:37 m/s.Similarly, we computed the two steady
+upward glide paths, for the same value of rP3d and
+the same buoyant force magnitude, i.e., the value of
+jm0d j is held constant. Recall that m0 is the mass of
+the vehicle mv less the mass of the displaced uid
+m. The full description of each of the four glide
+paths is given in Table 4.1.
+Local properties of these steady glide paths can
+be studied using the linearization of Section 4.2. By
+plugging in the equilibrium values, we can examine
+the linearization for stability, controllability and observability.
+The four glide paths listed in Table 4.1
+all have a relatively slow unstable mode. They are
+all, however, locally controllable. That is, A and B
+as given by (4.6) and (4.7), when evaluated at any
+of the four equilibria, satisfy the controllability rank
+condition. Note that the linearization includes the
+state z meaning that controllability extends to the
+variable z. Accordingly, we can successfully design
+a linear controller that will locally accomplish not
+only glide objective GO1 but also GO2.
+It is of interest to check the controllability rank
+condition in the case that the movable mass m can
+only move in one direction (i.e., rP3 is fixed). To do
+this we have linearized the equations of motion for
+the single degree-of-freedom moving mass derived in
+[10]. Again the new A and B matrices for this case,
+when evaluated at any of the above four glide paths,
+satisfy the controllability rank condition. Thus, it
+seems that at least for linear type control action, not
+much is lost in restricting the degrees of freedom of
+the movable mass from two to one. Several operational
+gliders have moving masses that translate in
+the vehicle long axis and rotate in the roll direction,
+corresponding to a design with one degree of
+freedom when considering only the vertical plane.
+The movable mass m for ROGUE is approximately
+1/6 of the vehicle displacement m. This is of
+the same relative order as the movable mass in the
+gliders SLOCUM, Spray and Seaglider. Variations
+in this mass or its location will not in principle affect
+local controllability of a feasible glide path, but
+may affect the range of feasible glide paths and the
+switching between them.
+4.4 Observability and State Estimation
+Observability of the linearized model about the four
+glide paths listed in Table 4.1 was also investigated.
+If GO1 is our objective, i.e., if we are interested in
+controlling only the direction and speed of the vehicle's
+glide path, then we need not measure z
+0. The nine-dimensional dynamic model (which excludes
+z) is completely observable with measurements limited
+to movable mass position rp1, rp3 and variable
+mass mb. In this case, pitch angle , pitch rate 
+2,
+linear velocity components v1 and v3 and the momentum
+of the movable mass Pp1, Pp3 need not be
+sensed. Observability means that with the measurements
+of rp1, rp3 and mb, a dynamic observer could
+be designed to give an estimate of the unmeasured
+states , 
+2, v1, v3, Pp1 and Pp3. Of course,  is
+typically already measured and 
+2 is not so hard to
+measure, so the real advantage is in the estimation
+of v1, v3, Pp1 and Pp3 which are more difficult to
+measure. The nine-dimensional dynamic model is
+also completely observable with measurements limited
+to , rp1 (or rp3) and mb. Again this means
+that using these three measurement signals, an observer
+could be designed to estimate the rest of the
+states.
+We note that the use of a dynamic observer to
+estimate the glider states has the potential to improve
+the accuracy of horizontal motion determination
+over current methods which are based on assumptions
+of constant angle of attack, etc. For example,
+on SLOCUM, the horizontal motion of the
+glider during the glide is estimated from GPS fixes
+taken at the surface, measured pitch angle, an assumed
+angle of attack and vertical speed computed
+from depth measurements [17]. Similarly, on Spray,
+horizontal ight distance is calculated based on a
+constant pitch, heading and angle of attack to which
+the vehicle is being controlled [14].
+If GO2 is our objective, i.e., if we want to control
+the glider to a prescribed line in the plane, then
+we need a measurement of z. Recall from (3.23)
+that z depends on both depth z, which is easily
+measured, and horizontal position x, which is not
+so easily measured. The measurements rp1, rp3 and
+mb, together with a measurement of z (or alternatively
+, rp1, mb and z), do not render x observable.
+This means that without an initial condition measurement
+x(0), the trajectory x(t) cannot be computed,
+and so z is not observable. That is, using
+any combination of the other nine states, it is not
+possible to design a dynamic observer to estimate
+the z state. However, with an initial measurement
+of x given say from a GPS fix taken when the glider
+is at the surface, the horizontal motion of the glider
+can be dead reckoned using velocity estimates from
+the observer. This introduces some error z ded
+into the estimate of the z state. Using the deduced
+ded in the feedback control, the glider can perform
+GO2, gliding along or parallel to the desired glide
+path with some offset in the z direction due to dead
+reckoning error.
+The dead reckoning approach involves calculating
+horizontal velocity, then integrating to obtain
+a deduced.
+This can then be used to calculate 
+ded. The pitch angle and depth z can be measured directly.
+Estimates of the velocities, v1est and v3est, are provided
+by the observer, while is determined by the desired glide.
+The equation for the dead reckoned is then
+The nine observable states include v1 and v3 so our
+observer estimates v1est and v3est will converge to
+the actual states when we are close enough to the
+equilibrium glide path for the linearization to be
+valid. When there is some error in the observer
+estimate of the velocities, integrating (4.8) to find
+xded and using (4.9) will result in some error. 
+This error depends on the observer state
+estimate error, which will vary with different state
+trajectories and disturbances.
+5 Controlled Planar Gliding With Observer
+In this section we demonstrate, in simulation, controlled
+gliding in the vertical plane by designing
+and testing a linear controller and observer for the
+glide path moving 30 downward as described in Table
+4.1. Since the controller is linear, we expect that
+it should take initial conditions nearby to the 30
+downward glide path. We demonstrate this result
+by starting the glider at the  45 downward steady
+glide and using the linear controller to move it to
+the 30 downward glide solely by feedback.
+5.1 Controller Design
+We address the case where only a limited set of the
+states are measured, depending on the sensors on
+the glider. We design the controller and then, given
+the limited set of state measurements, design a dynamic
+observer to determine the full state of the
+glider. The controller is designed for the linearization
+about the 30 downward glide using the LQR
+(linear quadratic regulator) method. This is a standard
+linear optimal control design method which
+produces a stabilizing control law that minimizes a
+cost function that is a weighted sum of the squares
+of the states and input variables.
+The cost function to be minimized is defined as
+where Q and R are state and control penalty matrices.
+Q and R were chosen to ensure well-behaved
+dynamics and to prevent large motions in the movable
+mass position and variable mass that would exceed
+physical limitations. Taking into account real or 
+desirable maximum state values, the states associated
+with vehicle and movable mass velocity and
+variable mass and pitch angle were weighted most
+heavily. No significant tuning was performed. The
+weight selections are given by
+Q = diag(:05; :5; 1; 2; 2; :1; :1; 1; 1; :5);
+R = diag(1; 1; 1):
+The corresponding control law is  where
+K is computed using MATLAB as the solution to
+the Riccati equation given A;B; Q;R.
+5.2 Observer Design
+In the case that some states are not provided by
+sensor data, as is likely to be the case with velocities
+v1 and v3 in an autonomous glider, it is possible
+to construct a linear optimal observer to estimate
+the unavailable states. As described in Section 4.3
+the nine dimensional dynamic model excluding is
+completely observable. If is not directly sensed, it
+is an unobservable state but can be dead reckoned.
+The construction of an optimal linear observer for
+the nine dimensional system proceeds in a similar
+manner to the construction of the LQR controller.
+Our linear system is described by A and B, de-
+fined above. The system output is y = Cx + v,
+where C is the system output matrix determined
+by the available sensors and v is noise. Given a linear
+time invariant system subject to additive process
+disturbance w(t) and measurement noise v(t)
+which are zero mean, gaussian, white noise processes,
+an observer which minimizes variance in the
+estimate error is derived in a manner similar to the
+LQR. The cost function to be minimized is
+where is the system zerostate
+response to plant disturbance 
+and is the zero-state response
+to measurement noise. Let and  represent the
+white-noise processes w(t) and v(t) , where the
+Dirac Delta Function represents the fact that
+white noise is uncorrelated in time. Let W =
+and  be the disturbance and
+noise covariance matrices. Then choosing observer
+feedback  minimizes the cost function
+J0, where P is the solution to the observer matrix
+Riccati equation given A; C;W; V .
+In this observer design the W and V matrices
+are chosen according to reasonable estimates of the
+disturbances and noise. The covariance matrix W
+is a diagonal matrix whose elements are the square
+of the standard deviation of the state disturbances.
+The standard deviation is taken to be ten percent of
+the desired value at the equilibrium glide for each
+state. In the cases where a state xi has desired
+value zero, we determined a maximum deviation
+4xi from equilibrium by simulating several switches
+between equilibrium glides under full state feedback
+control. Ten percent of 4xi is then used as the
+standard deviation for the i
+th state. The noise covariance
+matrix V depends on the noise properties
+of the sensors used in the vehicle. In this design
+they are taken to be of the same or smaller order of
+magnitude as W:
+When determining the cost function to be minimized,
+if V is large then computed gain L will be
+small, so direct measurements have smaller impact
+on the state estimate. A large W implies disturbances
+dominate the plant dynamics. In that case
+computed gain L is large, resulting in an observer
+state estimate which depends more heavily on sensor
+measurements than the plant model.
+5.3 Glider Simulation
+In Figures 5.1-5.3 we show a MATLAB simulation
+of the glider switching from a 45 downward glide
+to a 30 downward glide path. This is accomplished
+by turning off the controller for the first glide at
+t = 5 seconds and turning on the linear controller
+for the second glide. In each figure we show results
+using full state feedback and using an observer to
+estimate the state used in the control law.
+When calculating the controller gain matrix K
+and the observer gain matrix L, some plant parameter
+error is incorporated into the design. When calculating
+the gain matrices using the respective Riccati
+equations, the parameters which determine the
+A and B matrices are varied by up to ten percent.
+Changing the A and B matrices used as the system
+model in the controller and observer design represents
+imperfect knowledge of the glider dynamic coeffcients.
+In Figure 5.1 we show the glide path before and
+after the switch. In Figure 5.2 we show plots of position,
+pitch, linear and angular velocity as a function
+of time and in Figure 5.3 we show the position of
+the movable mass, the net buoyant force as well as
+the control inputs as a function of time. The figures
+show that the 45 downward glide path is in the region
+of attraction of the linear controller designed
+for the 30 downward glide path. Furthermore, the
+transient is well behaved.
+6 Final Remarks
+Laboratory experiments of controlled gliding with
+ROGUE will be described in a future publication.
+Experiments with ROGUE are planned to provide
+verification of our dynamic model and to test the
+controller and observer designs. We also plan to
+realize these and future results on sea-worthy gliders
+such SLOCUM in collaboration with our colleagues
+who build and operate these vehicles.
+Other future work includes extending the glider
+control design to motions in the horizontal plane
+such as waypoint following, control of unsteady motions,
+and three dimensional motions such as gliding
+in a spiral. We intend to develop the glider control
+methodology further by investigating nonlinear
+feedback control laws, feedforward control and path
+planning. Work with colleagues on optimal control
+theory which is applicable to glider path planning
+appears in [2].
+Work is underway to develop decentralized control
+laws to produce underwater vehicles that school
+like fish [9, 15]. By developing control schemes for
+coordinated group motion of underwater vehicles,
+we hope to produce a network of gliders that can
+serve as a fast and effective ocean sensing platform.
+For example, in [1], decentralized control algorithms
+are described that allow a pair of vehicles to climb
+a spatially distributed gradient. In support of this
+effort we are building an experimental, underwater
+test-bed for multiple-vehicle control [1]. Vehicle systems,
+including control systems, hardware and software,
+and new sensors developed for the experimental
+grouping vehicle in [1] may also be incorporated
+into the design of future laboratory gliders.
+7 Acknowledgements
+We would like to thank Monique Chyba, Kristin
+Pettersen, Ralf Bachmayer and Craig Woolsey for
+helpful discussions on this work.

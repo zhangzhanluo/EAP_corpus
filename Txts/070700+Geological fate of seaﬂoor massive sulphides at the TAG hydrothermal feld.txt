@@ -1,0 +1,803 @@
+Title: 
+Geological fate of sea?oor massive sulphides at the TAG hydrothermal feld (Mid-Atlantic Ridge)
+
+Author:
+Bramley J. Murtona, Berit Lehrmanna, Adeline M. Dutrieuxb, Sofa Martinsc,d,
+Alba Gil de la Iglesiaa,f, Iain J. Stobbsb, Fernando J.A.S. Barrigac, J?rg Bialasd, Anke Dannowskid,
+Mark E. Vardya,g, Laurence J. Northa, Isobel A.L.M. Yeoa, Paul A.J. Lustye, Sven Petersen
+
+Abstract:
+Deep-sea mineral deposits potentially represent vast metal resources that could make a major contribution to
+future global raw material supply. Increasing demand for these metals, many of which are required to enable a
+low-carbon and high-technology society and to relieve pressure on land-based resources, may result in deep sea
+mining within the next decade. Sea?oor massive sulphide (SMS) deposits, containing abundant copper, zinc,
+gold and silver, have been the subject of recent and ongoing commercial interest. Although many sea?oor
+hydrothermally systems have been studied, inactive SMS deposits are likely more accessible to future mining and
+far more abundant, but are often obscured by pelagic sediment and hence difcult to locate. Furthermore, SMS
+deposits are three dimensional. Yet, to date, very few have been explored or sampled below the sea?oor. Here,
+we describe the most comprehensive study to date of hydrothermally extinct sea?oor massive sulphide (eSMS)
+deposits formed at a slow spreading ridge. Our approach involved two research cruises in the summer of 2016 to
+the Trans-Atlantic Geotraverse (TAG) hydrothermal feld at 26～N on the Mid-Atlantic Ridge. These expeditions
+mapped a number of hydrothermally extinct SMS deposits using an autonomous underwater vehicle and remotely operated vehicle, acquired a combination of geophysical data including sub-sea?oor seismic re?ection
+and refraction data from 25 ocean bottom instruments, and recovered core using a robotic lander-type sea?oor
+drilling rig. Together, these results that have allowed us to construct a new generic model for extinct sea?oor
+massive sulphide deposits indicate the presence of up to fve times more massive sulphide at and below the
+sea?oor than was previously thought.
+
+Introduction
+Demand for mineral raw materials is increasing as a result of population growth, 
+rising living standards, urbanisation and, more recently, the transition to a low-carbon economy (Zepf et al., 2014). Yet
+the mining industry faces numerous challenges including rising costs,
+reducing ore grades and declining discovery rates of new deposits
+(Calvo et al., 2016). As a result, alternative sources of these minerals
+are being considered, including the deep-ocean.
+Sea?oor massive sulphide deposits, formed through hydrothermal
+venting, are considered to be the modern analogous of ancient volcanogenic massive sulphide deposits preserved on land. Although the
+number of hydrothermal vent discoveries has been steadily increasing
+since the frst discovery at the Galapagos Rift in 1977 (Corliss et al.,
+1979), and more than 600 sites are known today (Beaulieu et al., 2015),
+the economic importance of the associated SMS deposits is poorly
+known. Recent estimates suggest modern hydrothermally active sites
+account, globally, for at least 650 million metric tonnes (Mt) of massive
+sulphides containing 10 Mt of copper (Cu), 29 Mt of zinc (Zn), 1 Mt of
+lead (Pb), 33 Mkg silver (Ag), and 750,000 kg gold (Au) (Hannington
+et al., 1999, 2011). Published bulk geochemical data from 95 of these
+modern SMS deposits suggest a median grade of 3 wt.-% Cu, 9 wt.-% Zn,
+2 g/t Au and 100 g/t Ag (Hannington et al., 2011; Monecke et al.,
+2016). However, these analyses are mainly derived from easily recoverable surface grab-samples, such as high-temperature sulphide
+chimney and related talus material, and may not be representative of
+the average composition of the deposits at depth. It is likely that the
+vast majority of SMS deposits are no longer hydrothermally active and
+are increasingly covered by pelagic sediment as they age. It remains
+unknown what low temperature geological and environmental processes a?ect hydrothermally extinct SMS (eSMS) deposits once the ?ow
+of chemically reduced hydrothermal ?uid ceases, whether the metal
+tenor becomes enriched, depleted or disappears with time, and what
+the structure and composition of these deposits is beneath the sea?oor.
+To enhance our understanding of modern eSMS deposits, two research expeditions (M127 on RV Meteor and JC138 on RRS James
+Cook) were conducted at the TAG hydrothermal feld at 26～09∩N,
+49～30∩W, on the Mid-Atlantic Ridge, in 2016, as part of the EU-funded
+Blue Mining project. The objectives were to determine the sub-sea?oor
+morphology, mineralogy, composition and extent of the sulphide mineralisation in eSMS deposits. Here, we report the results of that work
+and combine observations based on surface geology, sub-sea?oor drilling and seismic imaging, to yield a new model for eSMS deposits at
+slow-spreading ridges.
+
+Geological setting
+The Mid-Atlantic Ridge is a slow-spreading (22 mm/year) ridge
+(Kleinrock and Humphris, 1996), and the associated TAG hydrothermal
+feld is one of the most intensively studied sea?oor hydrothermal systems (e.g. Rona et al., 1975, 1984, 1986; 1993a,b; Humphris et al.,
+1995, 2015; Humphris and Kleinrock, 1996; Evans, 1996; Tivey et al.,
+1995, 1996; Petersen et al., 2000; DeMartin et al., 2007; Zhao et al.,
+2012). It lies at water depths ranging from 3,430 to 3,670 m on the
+eastern and shallowest part of a 75 km-long, second-order spreading
+segment bounded by two right-lateral non-transform discontinuities at
+25～58∩N and 26～17∩N (Fig. 1A). The TAG segment is characteristic of
+most slow-spreading ridge segments, having a fault-bounded graben,
+bound by abyssal hills and faults (here oriented NNW-SSE) forming a
+deep axial valley that hosts a neovolcanic zone comprising young lavas,
+hummocky volcanic ridges and isolated volcanoes (White et al., 1998).
+The active TAG mound is the current locus of venting of high
+temperature (up to 363 ～C) hydrothermal ?uids, that has resulted in the
+formation of a 200 m diameter, 50 m high circular deposit topped by a
+number of 12 m-tall black-smoker chimneys (Humphris et al., 2015).
+During ocean drilling programme (ODP) Leg158, in 1994, seventeen
+holes were drilled at fve locations into the active TAG mound
+(Humphris et al., 1995). The maximum depth of penetration was 125 m
+below sea?oor (mbsf). The holes intersected massive pyrite breccia in
+the upper part of the mound overlying anhydrite-rich breccia, below
+which a silicifed, pyritised, altered basaltic stockwork was encountered. The lowermost part of the drill holes intersected highly-altered basaltic host rock. Metals of economic interest such as Cu, Zn, Ag
+and Au were only found to be enriched in the upper 5 m of the mound
+(Hannington et al., 1998) whereas mainly barren massive pyrite body
+was identifed below this depth.
+Radiometric dating indicates hydrothermal activity at the active
+TAG mound frst started 50,000 years ago with episodic periods of activity of tens to hundreds of years (Lalou et al., 1990) characterised by
+accumulation and recrystallisation of sulphides, precipitation of substantial amounts of anhydrite, and remobilisation of metals. Intervening
+periods of hydrothermal inactivity lasted 3,000 to 5,000 years, during
+which mass wasting, anhydrite dissolution and interior brecciation
+occurred. The current period of hydrothermal activity at the active TAG
+mound commenced about 80 years ago (Lalou et al., 1998).
+In addition to the active TAG mound, at least seven other hydrothermally inactive or eSMS deposits have previously been identifed
+(Fig. 1B) in an area of ‵2.5 km2 (Rona et al., 1993a,b). The largest
+cluster of deposits is known as the Alvin Zone and lies ‵1.5 km northnortheast of the active TAG mound, at a depth of 3,400 to 3,600 m. It
+consists of a number of roughly circular individual mounds (Fig. 2A)
+that are typically up to 60 m high, 100 to 300 m in diameter, formed
+from weathered sulphide talus, variably covered in pelagic and hydrothermal sediment (Humphris et al., 2015 and references therein),
+and are between 6,000 to 75,000 years old (Lalou et al., 1990, 1993,
+1998). These mounds include Double, Shinkai and Southern (Fig. 2B,C).
+Another 200 m diameter area of iron-oxide and weathered sulphide
+material, called Shimmering Mound, occurs 1 km to the north of
+Shinkai Mound where low temperature ?uids (≒22 ～C) di?use through
+iron-bearing silicates, iron-oxyhydroxides (FeOOH) and iron-manganese oxides (Humphris et al., 2015). During cruise M127 (Petersen and
+Shipboard Scientifc party, 2016), further hydrothermal structures were
+discovered including a 30 m high, 100 m diameter, dome-shaped
+mound, named Rona Mound (Fig. 2D) after the late Peter Rona, who
+was the frst to discoverer hydrothermal activity at the Mid-Atlantic
+Ridge (Rona et al., 1975, 1984). Two smaller mounds (~20每30 diameter) on the north-eastern and south-eastern side of Shinkai Mound,
+are called New Mound #2 and New Mound #3 (Fig. 2A-B).
+In addition to the extensive Alvin Zone, a second hydrothermally
+inactive site occurs, called the MIR Zone (Fig. 2E). This site is located
+two kilometres to the east-northeast of the active TAG Mound in water
+depths of 3,430 to 3,575 m. In comparison to the Alvin Zone, this area
+lacks mound-like features, and instead comprises a raised area of irregular and undulating sea?oor, several 100∩s m in diameter and a few
+10∩s m high, composed of an accumulation of weathered sulphide material and iron-rich sediments with a discontinuous pelagic sediment
+cover (White et al., 1998). Rona et al. (1993a) divide the MIR Zone into
+three distinct areas. The western part comprises weathered sulphide
+debris and hydrothermal sediments that are underlain by hydrothermal
+breccia. In contrast, the central zone is dominated by toppled and
+standing relict chimneys. No sulphides are recorded from the eastern
+zone where FeOOH, iron-rich clays and manganese oxy-hydroxide
+(MnOOH) crusts occur. Radiometric dating indicates that hydrothermal
+activity commenced 140,000 years ago with the last active episode
+ceasing only 600 years ago (Lalou et al., 1993; Humphris and Tivey,
+2000).
+The TAG hydrothermal feld is a basalt-hosted system (Rona et al.,
+1993a,b) and the composition of the vent ?uids and their mineral deposits are consistent with ?uid interaction with a mafc host rock
+(Campbell et al., 1988). As such, the TAG hydrothermal feld can be
+considered a classic example of a modern, volcanogenic massive sulphide deposit and is distinct from deposits formed in intra-continental
+rift zones, back-arc basins and volcanic arcs. Recent studies have shown
+that the TAG hydrothermal feld is formed on the hanging wall of an
+active detachment fault (Tivey et al., 2003), with seismic data indicating the footwall comprises lower-crustal or serpentinised uppermantle lithologies (DeMartin et al., 2007).
+No accurate resource estimates are available for the whole TAG
+hydrothermal feld, although attempts have been made using bulk
+geochemical data from the literature and combining them with the
+volume of the mounds above the surrounding sea?oor under the premise that Alvin and MIR zones consist of similar lithologies to those
+observed in the sub-sea?oor beneath the TAG mound. Based on these
+data, the mass of sulphides in the active TAG Mound is thought to be up
+to 3.9 million tons (Hannington et al., 1998) and the Alvin and MIR
+zones each range between 1 to 4 million tons. However, many of the
+samples used to estimate the composition of the eSMS mounds are
+surface grab material, such as chimney fragments enriched in Cu, Zn,
+Au and Ag, and may not be representative of the three-dimensional
+deposit at depth.
+Until now, the focus of the majority of research in the TAG hydrothermal feld has been on the high-temperature active TAG mound.
+Here, we focus on the hydrothermally eSMS deposits in the Alvin and
+MIR zones, with the aim to characterise their structure and composition
+at depth, and determine common processes a?ecting their evolution,
+degradation and preservation on and below the sea?oor.
+
+Method
+The data reported here were collected during the EU-funded Blue
+Mining programme expeditions M127 (RV Meteor) and JC138 (RRS
+James Cook) in May to August 2016. An important and novel aspect of
+our study was the collection and integration of geological and geophysical data acquired from the same area. The study area was initially
+mapped using the ship＊s multibeam echosounder, followed by autonomous underwater vehicle (AUV) missions for high resolution mapping
+of the eSMS mounds. These were then imaged using a variety of geophysical methods, that occupied the same profle lines across eSMS
+mounds, followed by surveys using a robotic underwater vehicle (RUV)
+and drilling by a robotic lander-type sea?oor drilling rig (RD2). From
+this body of complementary data we are able to describe the common
+features of the eSMS deposits, starting from the surface geology (including exposures of basement in fault scarps) and progressing through
+drilled core to a maximum depth of 12.5 mbsf. Whole-rock material
+from the core was geochemically and petrologically analysed for major
+and trace element variations and sulphide mineralogy. To obtain information on the deeper subsurface, i.e. below the maximum drilling
+depth, geophysical methods were used including seismic data acquired
+by 25 ocean bottom seismometers placed on and around the eSMS
+mounds. These mainly recorded internal re?ections from within the
+deposits and the underlying crust, down to depths of ‵400 mbsf.
+Refractions from deeper in the crust, down to 3.5 km, were also acquired. Controlled source electromagnetic surveys were also conducted
+but the results are presented elsewhere.
+3.1. AUV, RUV mapping and surface sampling
+Given their water depth (3,600 m) and relatively small size
+(100每300 m diameter), high-resolution bathymetry data were acquired
+from near the sea?oor using an AUV operated by GEOMAR (Petersen
+and Shipboard Scientifc party, 2016) during M127. Multibeam swath
+sonar data were acquired from a RESON Seabat 7125 operated at 200/
+400 kHz frequencies and processed to a resolution of between 2 and
+0.5 m. The AUV was navigated using a long-baseline acoustic system,
+and later dead-reckoning using Doppler velocity logging and an Inertial
+Navigation System. Multiple missions were undertaken over the TAG
+hydrothermal feld, from a variety of altitudes, and the data geographically merged for internal consistency, gridded, and geographically co-registered by locating the images to the 3 m-diameter
+steel re-entry cones left by the ODP drilling sites on the active TAG
+mound, which have well-known locations. High-resolution maps of the
+individual eSMS mounds were generated at a resolution of 0.5 m and
+reveal details of the deposits including fault scarps, collapse structures
+and extinct chimneys.
+The surface geology of the eSMS mounds was studied during the
+second cruise (JC138) by videography and sampling from the RUV
+HyBIS (Murton et al., 2012), focussing on the Shinkai, Southern and
+Rona mounds (Murton and Shipboard Scientifc Party, 2018). Missions
+were planned on the basis of the AUV-derived bathymetry maps and
+RUV navigation used ultra-short baseline (USBL) with a precision
+of ㊣ 5 m and an accuracy of ㊣ 10 m. In total, 52 h of HD video imagery
+were obtained during seven dives. A total of twenty-nine HyBIS surface
+samples were obtained mainly from Southern Mound, with a few
+samples from Rona and Shinkai mounds. These provide information on
+the near-sea?oor composition and allowed validation of observations
+made from the video images.
+3.2. Coring of sediments
+Sediment samples were largely collected by 3 m-long gravity coring
+to characterise the superfcial sea?oor geology. The thickest sediment
+accumulations were identifed from the multibeam bathymetry (being
+smooth and having low acoustic backscatter) and shipboard sub-bottom
+profler data. Gravity cores were navigated subsea by USBL and acquired from the top and base of the eSMS mounds, and up to several
+kilometres away, targeting sediment ponds and areas with thinner sediment. The sediments are classifed as being hydrothermally in?uenced when iron and base metals, such as copper and zinc, exceed the
+value found in the background pelagic sediments (carbonate ooze).
+Variation in iron and manganese content relate to hydrothermal plume
+fall-out, and high-sulphide concentrations are the result of massive
+sulphide erosion, transport and deposition.
+3.3. Drilling
+Following the mapping phase, JC138 deployed the RD2, operated
+by British Geological Survey. The RD2 system is capable of coring up to
+55 mbsf in water depths up to 4,000 m. Several sensors allow real-time
+monitoring of drilling parameters such as revolutions per minute,
+torque, bit weight, feed force, feed pressure, feed speed, water ?ow and
+water ?ush rates. Landing RD2 on surfaces on the mounds that were ?at
+enough and could support the weight of the rig to ensure a fnal inclination of less than 5～ proved difcult. Despite the relatively precise
+navigation provided by our USBL system, these ?at target benches were
+no more than 10 m in diameter. To facilitate the fnal landing, ?ashing
+beacons were placed on the sea?oor by the RUV HyBIS, following drill
+site selection.
+3.4. Petrological and geochemical analyses
+Full drill cores and sediment gravity cores were described, photographed, split and subsampled on board. Polished thin (30 米m) and
+thick sections (200 米m) were made from selected pieces for petrological
+and micro-analytical studies using transmitted and re?ected light microscopy.
+Bulk geochemical data were obtained from individual or composite
+quarter-core pieces of the same lithology. These were crushed, powdered and homogenised with 10 g of each sample being analysed by
+Activation Laboratories Ltd. (Actlabs, 2017) in Canada, using: Instrumental Neutron Activation Analysis (INNA), sodium peroxide fusion
+with Inductively-Coupled Plasma Optical Emission Spectrometry (ICPOES) & Mass Spectrometry (ICP-MS) analyses, total sulphur infrared
+spectroscopy, and cold vapour ?ow-injection atomic absorption spectrometry. Sediment analysis performed on approximately 100 mg of
+acid-digested dried and ground material, after applying an internal
+spike of Be, Re and In. Analysis was performed by ICP-OES for major
+elements (e.g. Ca, Cu, Fe, Mn and Zn) and by ICP-MS for minor elements and trace element (e.g. Cu for some depths). Precision and accuracy were determined for each analytical run by repeat analysis
+(n = 3) of the two Certifed Reference Materials: (i) marine sediments
+MESS-1 (National Research Council of Canada) and (ii) sulphide ore
+mill tailings RTS-1 (National Research Council of Canada). Elemental
+precision for each run was less than 4% and 2.7%, respectively, except
+for Zn which was up to 13% by ICP-OES due to a low concentration in
+RTS-1 and MESS-1. Silica concentrations in jasper samples were determined by X-Ray Flourescence (XRF) using approximately 0.5 g of
+dried, ground and homogenised material, mixed with Lithium Tetraborate ?ux and fused into a glass beads. These were analysed on a
+Philips? MagiX-Pro 4 kW using a Rh X-ray tube.
+Mineral identifcation in sediment was performed on homogenised
+dried powder samples using an X-Ray di?ractometer (MiniFlexII,
+Rigaku, Japan) equipped with MiniFlex2 + goniometer and detector.
+CuK汐1 radiation (1.541 ?) was applied at 30 kV, with 15 mA of beam
+current. The 2牟 incidence angle spanned from 5～ to 60～ with a scan
+speed of 1.2～/min using a continuous scan mode. Quartz standards were
+also run to ensure calibration. The data were analysed using the
+※Panalytical Highscore§ software with reference to the ICDD minerals
+database 2018.
+3.5. Geophysics
+To assess the dimensions and structure of the deep interior of the
+TAG eSMS mounds, active seismic experiments were performed using
+two di?erent air-gun source arrays: a G-gun array (760 cubic-inch, 2 m
+depth, 12 s shot interval) for lines up to 10 km-long, and a GI-gun array
+(210 cubic-inch, 6 m depth, 9 s shot interval) for the shorter lines up to
+5 km-long, respectively. Twenty Ocean Bottom Seismometers (OBS) and
+fve Ocean Bottom Hydrophones (OBH) recorded the airgun shots. To
+obtain the internal velocity and gross geometries of the deposits, 10 of
+the 20 OBS were placed on top of the Shinkai and Southern mounds by
+the RUV HyBIS, with an o?set between instruments of about 75 m for
+the central part of the mounds. The other instruments (10 OBS and 10
+OBH) were deployed by free-fall along crossing seismic profles with
+o?sets of 350每750 m between instruments.
+Following acquisition, the OBS records were processed by separating the di?erent shot lines, accurately locating the ocean bottom instruments on the sea?oor, fltering to remove source ringing and ?attening of the records to the frst arrival for easier arrival identifcation/
+picking. P-wave velocity-depth models for the profles were then generated by forwarding modelling the travel-times using the RAYINVR
+ray-tracing software (Zelt and Smith, 1992). Starting conditions, used
+to set the initial boundary conditions in the inversion modelling, were
+based on laboratory measured seismic velocities for materials recovered
+during ODP drilling of the active TAG mound (Table 1). The model was
+iterated to establish new velocities for the eSMS mounds that minimise
+the misft between the observed and modelled arrivals. Fig. 3 shows
+examples for OBS #04, located on the ?ank of Shinkai mounds, and the
+best-ft solutions (in black) between the velocity model and the arrivals
+picked from the seismic records
+
+Result
+4.1. Geology of the TAG hydrothermal feld
+Multibeam swath bathymetry mapping of the TAG hydrothermal
+feld shows signifcant variability in tectonic and volcanic processes.
+The central part of the TAG hydrothermal feld is characterized by
+hummocky volcanic lavas that coalesce into mounds, 100每500 m in
+diameter, forming a neovolcanic zone ‵1 km to the west of the eSMS
+mounds (Fig. 1B). The westernmost part of the area generally comprises
+unfaulted hummocky lava mounds and ridges, including a frozen lavalake ‵500 m to the east of the active TAG mound. In the centre of the
+TAG hydrothermal feld, a zone of extensional faulting is dominated by
+NNE-SSW strikes (Fig. 2A). At ‵29～09.5∩N, these fault traces bend towards a N-S trend southward, indicative of left-lateral shear. The convergence of these fault orientations coincides with the Alvin Zone,
+where the most prominent eSMS mounds are located, and they are
+thought to control hydrothermal ?uid pathways from deep within the
+crust (Karson and Rona, 1990; Kleinrock and Humphris, 1996).
+4.2. Morphology of eSMS mounds
+The highest resolution bathymetry reveals changes in slope and
+mass wasting features that indicate relative ages for the eSMS mounds
+in the Alvin Zone (Fig. 4). Of these, the Shinkai Mound and the adjacent
+New Mounds appear to be younger, based on their steeper slopes and
+sharp conical shapes with meter-high pinnacles on the summits, indicative of relict hydrothermal chimneys. Double, Southern and Rona
+mounds appear to be older, despite being located only 500 m further to
+the east, having much smoother and more rounded features, more dome
+like than conical, and being intensely dissected by curved faults. The
+gentle slopes and smoothness of these older eSMS mounds re?ects the
+presence of a thicker sediment cover and the lack of relict chimney
+structures. Shinkai and the New Mounds have average slope gradients
+(height/radius) of about 0.5 with average slope angles of 27 ㊣ 3～. In
+contrast, Southern, Double and Rona mounds have average slope gradients of about 0.34每0.39, with average slope angles of 20 ㊣ 1～, respectively (Table 2). Although there is some uncertainty ( ㊣ 10%) in
+these slopes due to asymmetry of the mounds and the true extent of the
+edge of the sulphide apron, the di?erences are consistent with the relative age of the mounds, described above.
+The MIR Zone lies in the south-east corner of the TAG hydrothermal
+feld, on an elevated block formed by a west-facing fault that runs for
+over a kilometre in a N每S direction (Fig. 2E). It comprises a
+(450 m ℅ 300 m), oval-shaped zone of inactive sulphides and relict
+chimneys, and the constructive feature is smaller than previously
+thought (Rona et al., 1993b). Small mound-like features are arranged
+around the circumference of the MIR Zone that is incised by slump
+structures and scours on both the SE and NW sides where mass-wasted
+blocks and rubble appear to have ?owed down-slope.
+4.3 Surface geology of the eSMS mounds
+Five of the eSMS mounds (Shinkai, the New Mounds, Southern and
+Rona) were surveyed by the RUV HyBIS in detail, and the geological
+map produced for Southern Mound is the most comprehensive (Fig. 5).
+The majority of Southern and Rona mounds are covered by thin pelagic
+sediment. NE每SW trending, conjugate inward dipping and arcuate, low
+4.4. Surface lithologies from the eSMS mounds
+Surface samples from the eSMS mounds comprise both chimney
+fragments and massive sulphide blocks (Fig. 7A每C). Chimney fragments
+were only recovered from Shinkai Mound and the New Mounds and
+include intact ?uid conduits lined by marcasite, idaite, covellite with
+chalcopyrite closer to the outside. Other chimney fragments are composed of chalcopyrite with traces of isocubanite, marcasite and pyrite
+hosted in a matrix of amorphous silica.
+At Southern Mound, the surface material includes massive pyrite
+breccia and layered massive sulphides comprising pyrite and/or marcasite, chalcopyrite and minor chalcocite. The external surfaces of these
+samples are coated by a thin FeOOH layer and associated atacamite,
+jarosite and minerals of the quartz-group or opal, indicating low-temperature seawater-related weathering. The interiors comprise mainly
+porous massive pyrite, with either cubic or coarse-grained subhedral
+textures with the latter resulting from high-temperature recrystallization (Fig. 7G). Locally, micro-sized inclusions of sphalerite and/or
+chalcopyrite occur within massive, porous, colloform and coarsegrained subhedral pyrite (Fig. 7N,O). Sometimes, this pyrite is overgrown by chalcopyrite,
+ that has altered to chalcocite along micro-
+fractures, or is surrounded by marcasite (Fig. 7N).
+At Rona Mound, surface samples comprise mainly massive sulphide
+breccia and material from extinct hydrothermal chimneys. These samples contain colloform and recrystallised pyrite, also overgrown by
+chalcopyrite and with chalcocite replacement along zones of microfracturing. Here the matrix of the sulphide breccia consists of quartz
+with, locally developed, acicular needles of barite.
+4.5. Metalliferous sediments
+Sediment thickness varies signifcantly across the TAG hydrothermal feld (Fig. 8). Gravity coring, using a 3 m-long corer, recovered
+either the full thickness of the sediment column where the basement
+was intersected, or penetrated sediments in excess of 3.1 m, based on
+recovery from overshoot by the corer where the basement was not intersected. Sediment thickness (Fig. 8A), facies (based on hydrothermal
+in?uence) and Cu concentration across the TAG hydrothermal feld is
+shown on maps derived from analyses of the core material (Fig. 8B).
+The variation in sediment thickness re?ects a combination of topographical and sea?oor age variation. For example, on the summits of
+the eSMS mounds, pelagic and hydrothermal sediment thicknesses
+range from being largely absent on the summit of Shinkai Mound, to
+between 1.67 and 2.78 m on top of Southern Mound, reach up to 2.78 m
+on top of Rona Mound, and between 0.7 and 2.0 m on top of the MIR
+Zone. This variability correlates with the relative ages of the mounds, as
+discussed above.
+The mineralogy of the sulphide-rich sediments, closest to the base of
+the mounds, consists mainly of pyrite and chalcopyrite, with subordinate sphalerite and seawater alteration products (e.g. paratacamite). These sediments contain up to 39 wt.-% Fe, 17.2 wt.-% Cu
+and 203 ppb Au. In a proximal channel, extending to the south-east of
+Southern Mound, a thickness of at least 10 m of metalliferous sediment
+was found exposed in fault scarps several hundred metres from the base
+of the mound. Here, the sediments comprise alternating centimetrescale layers of fning-upward, fne-grained FeOOH and sulphide (pyrite
+and chalcopyrite) sands intercalated with pelagic carbonate ooze enriched in iron oxides (Fig. 9). These mineralogically and texturally
+immature sediments indicate rapid deposition as a result of mass
+wasting of weathered and oxidised hydrothermal chimney materials
+that are rapidly buried by further sediment deposition. Copper concentrations in these sediments are relatively high, reaching up to
+10 wt.-%. Pelagic carbonate layers indicate pauses in hydrothermal
+sediment deposition. The dip of layers within some of these cores decreases from ‵30～ at the base to near zero at the top, re?ecting local
+and progressive tilting of the basement, probably in response to NW
+dipping faults that dissect the channel. Coring and sea?oor video surveys traced the channel for at least 1 km to the south-east of the eSMS
+mounds.
+In summary, the surface geology reveals a similar structure for a
+number of eSMS mounds in the TAG hydrothermal feld. The tops and
+?anks of the mounds are composed of unsorted sulphide-talus with
+iron-oxide sediment, and often largely draped in a veil of pelagic carbonate ooze. The extent and thickness of the pelagic sediment, the
+presence of relict hydrothermal structures, and the aspect ratios and
+slopes of the mounds re?ects their relative age. The lower slopes and
+margins of the mounds are covered by hydrothermal sediments forming
+upwards-fning layers of sulphide sands and iron oxides. Some of these
+are intercalated with pelagic carbonates indicating pauses in hydrothermal sediment deposition. The presence of inward dipping, arcuate
+faults appears to be a common feature and also correlates with increasing age and size of the mounds, with the oldest and largest having
+the most prominent fault structures. Exposure of the interior of the
+mounds is limited to these fault scarps and reveals a sequence of pelagic
+sediment overlying metalliferous turbidite sediments that in turn overly
+massive sulphide breccia that on-laps a basaltic basement of pillow
+lavas.
+4.6. Drilling results
+A total of eight holes were drilled on the top of the eSMS deposits at
+Southern, Rona and MIR (Fig. 2C每E), yielding a total core recovery of
+9.51 m, with an average recovery of 29.2%, and a maximum penetration of 12.5 mbsf (Table 3). A general down-hole stratigraphy is shown
+in Fig. 10, with depths of lithologies reconstructed by correlating recovered core with drilling telemetry (e.g., weight on bit, torque, rotation speed and penetration rate). Geochemical compositions are reported for averages of quarter core sections, and discrete facies, up to
+0.25 m long. A common lithological sequence was observed at all three
+eSMS mounds including: a layer of pelagic and metalliferous sediment
+overlying a layer of dense jasper, several metres thick, that transitions
+downwards into massive brecciated sulphide dominated by pyrite with
+chalcopyrite overgrowths and veins.
+4.6.1. Southern Mound
+At the summit of Southern Mound, core was obtained from three
+drill holes (stations 022, 031 and 050) (Fig. 10A). The uppermost layer
+comprises pelagic carbonate sediment, up to 20 cm thick, underlain by
+2.5每3.5 m of orange-brown to reddish coloured, soft and
+unconsolidated hydrothermal sediment with oxidised, relict chimney
+fragments, confrming observations and samples obtained by the RUV
+HyBIS. This material mainly comprises iron-rich clays and rare, centimetre-thick, blackish MnOOH layers, e.g., at 1.8 mbsf. Beneath the ironrich sediments, a layer up to 3.1 m thick of jasper (silica-rich iron
+stained material) occurs. This merges downwards into an intercalated,
+0.6 m-thick layer of brecciated jasper at around 5.40每5.85 mbsf. The
+jasper is quite heterogeneous in appearance, showing a range of colours
+from orange (upper layers 每 Fig. 11A-B), to dark red (main portion 每
+Fig. 11C-D), to mottled red每orange and grey (e.g. near the base 每
+Fig. 11E), and it has variable porosity of 5每20%, measured from thin
+sections. The upper-most portion of the jasper layer has vuggy and
+sponge-like texture (Fig. 11G) and contains trace quantities of disseminated pyrite that become increasingly massive with depth
+(Fig. 11I). The main minerals in the red jasper and jasper breccia are
+quartz (‵55每90%) and hematite (‵5每40%), whereas the more massive
+orange coloured jasper is typically composed of opal-CT, quartz, and
+goethite, with minor hematite. The lower-most parts of the jasper layer
+are composed of silicifed breccia containing disseminated pyrite and
+rare grains of chalcopyrite (Fig. 11F,K, L). Massive sulphide was encountered at the bottom of the hole (6.7 mbsf) and consists of colloidal
+pyrite surrounded by recrystallised pyrite that is locally surrounded by
+traces of chalcopyrite (Fig. 7D,M)
+4.6.2. Rona Mound
+At the summit of Rona Mound, cores were obtained from three drill
+holes (stations 057, 065, 068 (Fig. 10B). Although the unconsolidated
+pelagic and hydrothermal sediments observed from the RUV HyBIS
+images were not recovered, drill telemetry data (rapid penetration rate
+and low torque) suggest these are about 2.80 m thick. RUV HyBIS observations indicate they are composed of ‵ 30 cm pelagic ooze overlying 2.5 m of iron-rich sediment. Beneath this, a layer up to 2.5 m thick
+of dark red, massive textured jasper was encountered, similar to that
+found at Southern Mound, but with a lower total porosity of 5%. The
+predominant minerals in the jasper are cristobalite/tridymite
+(‵80每90%), with subordinate hematite (‵5每10%) and the deepest
+part of the jasper contains patches of intermixed goethite and haematite
+with traces of pyrite. This transitions into a zone of mixed red and orange-jasper-silica breccia that consists of cristobalite/tridymite with
+minor hematite, goethite, disseminated pyrite and (rare) sphalerite.
+Beneath this transitional zone, brecciated massive sulphide was encountered down to a depth of 12.5 mbsf. The upper (6每9 mbsf) part is
+composed of porous (5每15%) and silicifed marcasite with minor pyrite,
+sphalerite and traces of barite (Fig. 7N). The sulphides have a brownish,
+colloidal core of coliform pyrite with overgrowths of marcasite and
+sphalerite. The lower (9每12.5 mbsf) part is composed of massive colloidal textured pyrite, frequently surrounded by recrystallised pyrite
+that, in turn, is surrounded by chalcopyrite overgrown by sphalerite
+(Fig. 7L,O)
+4.6.3. MIR Zone
+At the MIR Zone, two holes were drilled (stations 073, 076) on a
+small platform on the inner north-eastern side of the deposit (Fig. 10C).
+Pelagic sediments, with a thickness of 18 cm, are underlain by hydrothermal iron-rich sediments extending down to a depth of 70 cm,
+overlying a ‵10 cm thick layer of FeOOH. This is underlain by a 2.8 m
+thick zone of jasper, similar to that encountered at Southern and Rona
+mounds. Here, the jasper ranges from red to orange and has a mean
+porosity of 15每5%. The red jasper consists of quartz (‵55每85%) and
+hematite (‵5每35%), with traces of pyrite. The orange jasper is mineralogically distinct, containing quartz (‵60每70%), hematite
+(‵5每15%) and FeOOH (‵10%) but no sulphides. At about 3.6 mbsf,
+slightly porous massive sulphide breccia is present, dominated by pyrite
+with minor chalcopyrite occurring in veins and as overgrowths.
+4.7 Metal distribution
+Although the three SMS mounds drilled have similar lithostratigraphy, the metal distribution between the mounds is variable (Fig. 10,
+Table 4). With the exception of Mn-rich horizons or encrustations, both
+on the surface and within the sediments, in which Cu concentrations
+can reach 1.42 wt-%, the Fe-rich sediments from the summits of the
+three sulphide mounds typically have low concentrations of Cu and Zn
+(i.e. less than 0.5 wt-%). At Southern Mound, the Fe-rich sediments
+have a Mn-rich horizon (14.9 wt-%) at 1.8 mbsf. At the MIR Zone,
+Mn〞rich horizons are found at the top (2.47 wt-%) of the Fe-rich sediments and at its base (3.38 wt-%). The Mn-rich horizon deeper in the
+sediment profle coincides with a peak in Cu (1 wt-%), which otherwise
+remains low (< 0.2 wt-%) until encountering the massive sulphide
+zone. At Southern Mound and MIR Zone, the jasper appears to be
+barren of metals of economic interest, whereas at Rona Mound, just
+above the brecciated transition zone, it displays some enrichment in Zn
+(0.98 wt-%).
+At all the eSMS mounds we drilled, the massive sulphide zone has
+the highest base metal concentrations. For example, at Southern
+Mound, Cu concentrations increase to 0.98 wt.-% at the base of the hole
+(6.6 mbsf). At Rona Mound, Cu and Zn concentrations also increase
+towards the base of the hole, with two peaks in Cu occurring at
+8每9 mbsf (5.8 wt.-%) and 12 mbsf (3.2 wt.-%), while Zn concentrations
+reach a peak of 8.4 wt.-% between 7.4 and 9 mbsf. At the MIR Zone, Cu
+concentrations in the massive sulphide increase downwards, reaching
+16.1 wt.-% (at 4每4.5 mbsf), and then remain high, but variable,
+reaching a peak of 20.4 wt.-% at 6.4 mbsf (Fig. 10). Covariation of
+metals in samples from both the drill core and the surface material is
+summarized in Fig. 12. The manganese-rich horizons are distinguished
+by having < 1 wt.-% Zn, < 10 wt.-% Si and S, up to 28 wt.-% Cu, and
+up to 35 wt.-% Fe. The jaspers and silicifed jasper breccia have up to
+45 wt.-% Si and up to 42 wt.-% Fe, but low S, Cu, and Zn. Surface
+massive sulphides have low Zn and S concentrations, but some samples
+contain elevated values of Cu and Fe, with a clear trend indicating a
+mixture of pyrite and Cu-sulphides (Fig. 12). These sulphides contain
+the highest concentrations of Cu (up to 42 wt.-%) re?ecting both the
+presence of chalcopyrite and possibly bornite. The sub-sea?oor
+sulphides are dominated by pyrite with low Zn (one sample has up to
+8.6 wt.-%) and low Si concentrations. Some samples contain up to
+20 wt.-% Cu, especially those from the greatest depth below sea?oor. A
+single sample has up to 8.6 wt.-% Zn.
+4.8. Geophysics 每 seismic results
+To assess the dimension, structure and lithology of the deep interior
+of the eSMS mounds, coincident geophysical lines were occupied including active seismic studies. Here, we focus on the result of one of the
+shorter, 5 km-long (NW-SE) seismic lines shot using GI-guns over both
+Shinkai and Southern mounds, with re?ections and refractions recorded
+on a number of ocean bottom seismometers placed on and around the
+mounds (see Fig. 2A for the orientation of the line and locations of the
+OBS＊s discussed here). Fig. 13 shows examples of processed arrivals (see
+Methods for details) from record sections from four OBS sensors (OBS-
+01, 04, 08, 09) located along the Line 1 (the NW-SE profle line (white
+dashed-line in Fig. 2A). The record sections show similar basement and
+intracrustal re?ections (PbP and PmP), from within the altered upper
+oceanic crust and from the within the unaltered oceanic crust, respectively, which informs us of the geometry and thickness of each layer. In
+addition, a crustal refraction (Pb) yields information about the velocity
+of the deeper layers. OBS-04 and OBS-08 (located on the crest of the
+mounds) have an additional re?ection horizon (PeP), which corresponds to a P-to-P re?ection from immediately beneath the eSMS
+mounds.
+OBS sensors located on top of the mounds reveal a P-wave velocity
+model, derived using the iterative method to best ft the observed arrivals (described in the Methods section above) for the eSMS mounds
+and their sub-sea?oor geometry (Fig. 14 and inset detailed panels). The
+deeper structure was obtained from 10 km-long G-gun profles. The
+shallow structure reveals a ‵350 m wide, 150每210 m thick downward
+narrowing cone, with inward-dipping boundaries between relatively
+higher and lower velocities that we interpret as corresponding to the
+mineralised zone and altered basaltic host, respectively. Our travel-time
+inversion indicates the average P-wave velocity within the high-velocity sub-sea?oor mineralised zone beneath the mounds is c.
+5.0 ㊣ 0.4 km/s. Additional, very shallow PeP arrivals from within that
+zone (Fig. 13B,C) suggest a potential 2-layer architecture, composed of
+a higher velocity (4.2每6.6, average 5.4 km/s), 50每100 m thick upperlayer (zone 1) and lower velocity (4每5.5 average, 4.75 km/s), ‵100 m
+thick deeper root (zone 2). This transitions into a lower velocity
+(3.65 km/s) material (zone 3), which we interpreted as the host rock.
+Outside the eSMS mounds, the crustal structure appears as two
+distinct layers forming a 2每2.5 km thick section with upper crustal velocities of 3.5每4.7 km/s (See refraction Pb, Fig. 13A,C,D) and a lower
+crustal velocity of 5.7 to 7.2 km/s (Fig. 14). The upper crustal layer
+thins towards the southeast where it is separated from the lower crustal
+section by a marked velocity change with the higher velocities (7.0 km/
+s) almost emerging at the sea?oor.
+In summary, the seismic data yield signifcant details about the
+geometry of the eSMS mounds and their associated velocity, and hence
+lithological, structure at depth. Both Southern and Shinkai mounds
+have a similar high velocity, cone-shaped body that narrows
+downwards, host within a lower velocity surrounding basement.
+Shinkai mound has a maximum height of 65 m, a basal radius of 130 m,
+a maximum depth for zone 1 of 80 mbsf ㊣ 10% and a maximum depth
+for zone 2 of 220 mbsf ㊣ 10%,. Southern mound has a maximum
+height of 55 m, a basal radius of 160 m, a maximum depth for zone 1 of
+150 mbsf ㊣ 10%, and a maximum depth for zone 2 of 270 mbsf ㊣
+10%. The ratio between mound radius, zone 1 and zone 2 maximum
+depths for both these examples is ‵0.61 and 1.4每1.7, respectively.
+
+Discussion
+5.1. Towards a generic model for eSMS deposits at a slow spreading ridge
+Combining the surface geology information and drill core with the
+geophysical data from across the TAG hydrothermal feld allows us to
+construct a composite model for the structure of the eSMS mounds
+(Fig. 15A). The three eSMS mounds have many similarities; they are
+draped in a veil of pelagic sediment, underlain by 1每3 m of barren, ironoxide/oxyhydroxide-rich sediments, with intercalated thin layers of
+manganese oxyhydroxide. The iron-oxide/oxyhydroxide-rich sediments
+have low base metal content, but appear to be derived from weathering
+of hydrothermal sulphides from the summits of the mounds (e.g.
+chimneys), which have been variably altered through interaction with
+seawater. Sediments at the base of, and distal from, the mounds are
+composed of sulphide sands and iron oxides, and often have a fning
+upwards sequence, typical for turbidite deposits resulting from mass
+wasting of the eSMS mounds. The preservation of higher Cu contents,
+and pyrite, chalcopyrite and sphalerite grains indicates that seawater
+penetration is restricted in these sediments, possibly due to their rapid
+burial, lower permeability, and the absence of residual hydrothermal
+?ow. Pelagic layers, intercalated with the metalliferous sediments, record hiatuses in the hydrothermal activity. The Mn-rich horizons on
+and within the pelagic sediments are likely derived from hydrothermal
+plume fall-out, while those within the shallow metalliferous sediment
+sequence, and their elevated copper concentrations, are probably the
+result of precipitation at a radox front. Tilting of some of the sediments,
+with dip decreasing up section, indicates syn-depositionary deformation, probably in response to rotation of the basement by faulting in the
+TAG hydrothermal feld. Together, these metalliferous sediments may
+present a resource potential in their own right, with a mixture of Cuand Zn-rich material dispersed over an area of several square kilometres, and deserve further investigation.
+The formation of a ubiquitous and 2.5每3.5 m thick layer of jasper at
+the top of the eSMS mounds, below the sediments, is unusual and has
+not previously been reported from hydrothermally active SMS systems.
+However, the jasper material has many textural similarities to minor
+occurrences at modern hydrothermal vent sites, including the flamentous and sponge-like micro-textures that are possibly the result of
+bacterial involvement (Juniper and Fouquet, 1988; Hannington and
+Jonasson, 1992; Duhig et al., 1992; Little et al., 1999; Hofmann and
+Farmer, 2000; Trewin and Knoll, 2000). The presence of overgrowths of
+sulphides in the jasper, often comprising euhedral pyrite and minor
+chalcopyrite, combined with the change in colour from dark red to a
+lighter shade of red, with bleached mottled areas towards the base of
+the layer, associated with a change from hematite to goethite, indicate
+the infusion of late-stage, chemically reduced, sulphidic ?uids. It is
+thought that jasper formation is a result of silica precipitation from lowtemperature, di?use hydrothermal venting that has resulted in silicifcation of pre-existing iron-rich sediments (Alt, 1988; Sto?ers et al.,
+1993). This implies that the formation of the thick jasper layers at the
+TAG eSMS sites is a result of late stage, low-temperature, hydrothermal
+?uid ?ow, focused on the summits of the waning hydrothermal systems.
+The thickness and relative impermeability of the jasper layer is also
+signifcant. The rapid transition into fresh, unoxidised pyrite and
+chalcopyrite (and copper-rich) massive sulphides immediately below
+the jasper layer suggests it acts as an impermeable barrier to the ingress
+of seawater. The jasper layer bears some resemblance to occurrences of
+silica encountered below the active TAG mound, in stockwork breccia
+at depth (Fig. 15B; Humphris et al., 1995). It is also similar to the siliceous layer found above a copper-rich zone, deep within the sedimenthosted Bent Hill deposit (Fig. 15C; Zierenberg et al., 1998). The IRINA
+II Mound at the ultramafc-hosted Logatchev vent site (Fig. 15D) also
+has a silicifed sulphide breccia cap, although the interior of the deposit
+is heterogeneous with sulphide formation restricted to the immediate
+vicinity of the active vent sites and the majority of the mound＊s interior
+being composed of altered, chloritised and serpentinised ultramafc
+lithologies (Augustin, 2007; Petersen et al., 2009). Similar jasper materials are found elsewhere, in the geological record. For example, in
+the Iberian Pyrite Belt they are considered vectors to massive sulphide
+ore deposits, especially when the jasper is altered into grey chert containing pyrite and chlorite, which grow at the expense of hematite,
+attesting to the contribution of reduced ?uids at elevated temperatures
+(Barriga and Kerrich, 1984; Barriga and Fyfe, 1988; Carvalho et al.,
+1999).
+At Southern and Rona mounds, the japers transition in to a weakly
+mineralised zone of silicifed breccia. The brecciation is interpreted to
+result from volume reduction and collapse, possibly related to anhydrite dissolution at depth. Below the breccia, the deposits are composed
+of low-porosity, massive sulphide with little or no gangue material. The
+upper 3每6 m of the massive sulphides contains minor amounts of barite,
+indicating interaction with seawater at temperatures up to ‵250 ～C
+(Jamieson et al., 2016). At Rona mound, a shallower zinc-rich zone also
+occurs (at 7.4每9 mbsf). Copper concentrations generally increase with
+depth where primary pyrite is overgrown, and cut by, chalcopyrite
+veins, interpreted as evidence for later mobilisation and recrystallisation of copper at elevated temperatures above 300 ～C. This is probably a
+result of high-temperature hydrothermal ?uids mobilizing copper upwards as the mounds grow, similar to that proposed for the active TAG
+mound (Humphris et al., 1995). Whether higher grades of copper
+continue below 12.5 mbsf, or are restricted to the depths encountered
+here, remains unknown.
+In contrast to the active TAG mound (Humphris et al., 1995), where
+anhydrite dominates the interior, anhydrite is not present in any of the
+eSMS cores. This is expected for hydrothermally extinct deposits where
+the retrograde solubility of anhydrite at temperatures below 140 ～C
+(Blount and Dickson, 1969) causes it to dissolve once hydrothermal
+?uids cease circulating. The inward dipping, arcuate faults that dissect
+the oldest and largest eSMS mounds (e.g. Southern, Rona and Double
+mounds) are unusual in that they curve around the mounds, have a low
+angle (20每30～), and form graben structures centred on the summits of
+the mounds. We interpret their presence as the result of volume reduction and collapse within the mounds caused by anhydrite dissolution, 
+and is probably a common phenomenon in the older eSMS deposits where interior temperatures have fallen below 140 ～C 
+(Humphriset al., 1995; Petersen et al., 2000). Shinkai Mound and the New
+Mounds, which have little pelagic sediment cover and host many
+standing but inactive chimneys, do not show these features, and we
+speculate volume reduction within these younger mounds has not
+commenced due to higher temperatures maintaining the stability of
+anhydrite. The signifcance of the curved faults is in terms of the potential for seawater ingress and alteration of the sulphide at depth. As
+we did not drill on the ?anks of the mounds, this possibility remains
+untested.
+5.2. Estimates of the mass of the sulphide resource
+The combined geological and seismic data for each of the eSMS
+mounds indicate the deposits extend to depths of up to ‵200 mbsf
+where they comprise a layered structure with higher velocity layers
+(zones 1 and 2) embedded in a lower velocity host (zone 3). The following description is based on Southern and Shinkai mounds: Zone 1
+has rapidly increasing seismic velocity with an average of 5.4 km/s that
+extends to ‵100 mbsf and is consistent with the presence of a mainly
+sulphide-rich ore body of the type intersected by our drilling. Zone 2
+also has a moderately high average velocity, of 4.75 ㊣ 0.3 km/s, and
+extends to ‵200 mbsf. We interpret it as a ＆stockwork＊ composed of a
+mixture of lithologies potentially including altered basalt, silica and
+sulphide (e.g. similar to the TAG active mound stockwork). Zone 3 has a
+lower average velocity of 3.65 ㊣ 0.2 km/s and is consistent with an
+altered and brecciated basaltic host.
+We can estimate the proportion of lithologies forming the di?erent
+zones identifed from the seismic model by assuming a mixture of pure
+end-member lithologies, (sediment, sulphide (pyrite), jasper (silica) and
+chloritised altered basalt) using their seismic velocities measured on
+core material recovered from the SMS (Table 5). For example, the
+proportion of massive sulphide (XS) in zone 1, can be estimated as:
+X (V V )/(V V ) S 1 Z S Z = (1)
+where: XS = proportion of massive sulphide; VS = P-wave velocity of
+massive sulphide (6.1 km/s); VZ = average P-wave velocity of nonsulphide phase; V1 = average P-wave velocity of zone 1 (5.4 km/s)
+Although we do not know the actual composition of zone 1, we can
+estimate the maximum and minimum proportions of sulphide by assuming the non-sulphide component is either the highest velocity (silica) or lowest velocity (water-flled pore space) material encountered
+during the drilling. This assumption yields an envelope for the upper
+and lower estimates of the sulphide present, respectively.
+Assuming the non-sulphide in zone 1 is silica (i.e. 4.5 km/s), then
+the estimated proportion of sulphide is 56%. Alternatively, assuming
+the non-sulphide is pore-water flled porosity, (i.e. 1.5 km/s) then the
+proportion of sulphide is 85%. Alternatively, assuming the non-sulphide is altered basalt, (i.e. 3.47 km/s), which we did not encounter in
+the drilling but that surrounds the eSMS mounds, then the proportion of
+sulphide is 73% (Table 6). Hence in zone 1, the proportion of massive
+sulphide may vary between 56 and 85% by volume. The drill core indicates that silica, in the form of jasper, occurs as a 3每5 m-thick layer at
+the top of the massive sulphide and then decreases rapidly where it
+appears to be absent 3 m below the base of the jasper layer, whereas
+open pore space remains present. In addition, and in contrast to the
+active TAG mound, there was an absence of anhydrite in the drill core
+(i.e. having already dissolved), meaning the non-sulphide component is
+most likely to represent water-flled porosity in a brecciated massive
+sulphide layer. Hence the proportion of massive sulphide in zone 1 is
+likely skewed towards the higher-end of the estimated range.
+Repeating this for zone 2 (with an average P-wave velocity,
+V3 = 4.75 km/s), and assuming options for the non-sulphide as either
+(a) silica, (b) pore water, and/or (c) altered basalt, yields the following
+proportions of sulphide: (a) 16%, (b) 71%, (c) 49%, respectively
+(Table 6). Using all three non-sulphide options yield signifcantly less
+sulphide than in zone 1. Porosity in zone 2 might be assumed to be
+closer to zero, because it is greater that 100 mbsf, making the upper
+estimate of the amount of sulphide unrealistic. Instead, the concentration of sulphide is likely to be closer to the lower estimate of 16%, given
+that a silicifed stockwork containing up to 46% pyrite was encountered
+during drilling beneath the TAG active mound (Humphris et al., 1995).
+While our calculations suggest this could be achieved for our eSMS
+deposits assuming a 1:1 mixture of altered basalt and silica as the nonsulphide matrix to a sulphide breccia, it is also possible to reproduce the
+average velocity in zone 2 from a barren mixture of 26% silica and 74%
+altered basalt (i.e. no sulphide).
+While our new data do not permit predictions about the chemical
+composition, or metal tenor, of the interior of the mounds at depths
+greater than 12.5 mbsf, the model does predict the total mass of sulphide in the eSMS mounds in the TAG hydrothermal feld (excluding
+MIR Zone and Shimmering Mound).
+The volume of zone 1 comprises the volume of the eSMS mound
+(calculated from its bathymetric expression above the surrounding
+sea?oor) plus the volume of an inverted cone that extends below the
+base of the mound. Similarly, for zone 2 we can calculate its volume as
+an inverted cone extending below the base of the mound, minus the
+volume of zone 1 that lies below the base of the mound. Applying the
+same geometry to the other eSMS mounds in the area, we can also make
+an estimate of the total mass of sulphide in the ore body and stockwork
+(Table 7).
+Zone 1 for Shinkai Mound has an estimated volume of 1.2 million
+cubic metres, including the topographic expression of the mound itself,
+and for Southern Mound it is 2.4 million cubic metres. Zone 2 for
+Shinkai Mound has an estimated volume of 2.5 million cubic metres
+and for Southern Mound it is 3.2 million cubic metres. Assuming the
+lower limit for sulphide contents, based on the minimum P-wave velocities and thickness of the zones, and a density of pure sulphide of
+5 g/cc, then we estimate the total mass of sulphide for zone 1 (56%) in
+and below Shinkai Mound of 3.1 Mt, and for Southern Mound of 9.4 Mt.
+This assumes the sulphide in zone 1 is in the form of a silicifed breccia,
+similar to that encountered during the TAG active mound drilling
+(Humphris et al., 1995). Zone 2 is devoid of any sulphide, if we assume
+it is and composed of silicifed altered basalt. Assuming the upper limit
+for sulphide content (85%), based on the maximum P-wave velocities
+and thicknesses of the zones in and below the mounds, yields an estimated sulphide mass for zone 1 of 5.9 Mt for Shinkai Mound and
+17.7 Mt for Southern Mound. Zone 2 has a maximum sulphide content
+of 71%, which yields corresponding masses of sulphide of 9.7 Mt and
+12.6 Mt for Shinkai and Southern mounds, respectively. In this scenario,
+zone 1 and 2 would be composed of massive sulphide breccia with open
+pore space, and zone 2 having a larger proportion of void space than
+zone 1, which is unlikely given its depth below the sea?oor.
+We propose a more realistic scenario for the mass of sulphide, based
+on a mean value for the seismically determined P-wave velocities and
+thicknesses of the zones, our shallow drilling results and drawing a
+comparison with lithologies encountered during the full penetration
+during drilling of the active TAG mound (Humphris et al., 1995). In this
+scenario, we assume zone 1 is composed of brecciated massive sulphide
+with open pore space at the top (as encountered by our drilling), with
+an increase in silica flling the open pore space with depth (as encountered by the active TAG mound drilling 每 Humphris et al., 1995)
+but with anhydrite being absent. This yields an average proportion of
+sulphide in zone 1 of 70%, corresponding to a mass of 3.2 Mt and
+10.5 Mt in Shinkai and Southern mounds, respectively. Zone 2 we assume is composed entirely of a silicifed breccia and disseminated sulphide forming a stockwork (as encountered by the TAG drilling 每
+Humphris et al., 1995), but with an average proportion of sulphide of
+only 16% (compared with 46% beneath the active TAG mound)
+yielding 2.0 Mt and 2.6 Mt of sulphide in zone 2 at Shinkai and
+Southern mounds, respectively. Together, zones 1 and 2 yield a total
+mass of sulphide at Shinkai and Southern mounds of 6.3 Mt and
+15.8 Mt. This is approximately 3 times greater than the mass of sulphide
+calculated from the topographic expression of the eSMS mounds alone
+(Table 7 and Fig. 16). It also indicates that mounds with a radius of
+50 m or less are likely to represent deposits of < 1 Mt.
+Extrapolating these results to the other eSMS mounds studied in the
+TAG area, our estimates yield a range in total tonnage of sulphide in
+and below the mounds of between 14 Mt and 54 Mt. Our preferred estimate, based on the assumptions above, yields a total tonnage of 26 Mt.
+While these estimates are considerably larger than previous estimates
+for the TAG massive sulphide deposits, we stress that there remains an
+absence of information about the metal grades below 12.5 mbsf at the
+eSMS deposits we have studied. It remains possible that the subsurface
+sulphides are barren pyrite, and as such their resource potential is
+minimal.
+
+Conclusions
+Sea?oor massive sulphides provide a modern analogue of volcanic
+massive sulphide deposits found throughout the geological record. They
+also have the potential to be a resource for base metals, especially
+copper, zinc and precious metals such as gold and silver. This paper
+brings together four years of data collection including survey design,
+instrument development, deployment across 10 weeks of ship time, and
+deep-sea?oor drilling. The geological and geophysical data and their
+interpretation described here form, to date, the most detailed, threedimensional characterisation of hydrothermally extinct, sea?oor massive sulphide deposits, hosted by volcanic systems, at a slow spreading
+mid-ocean ridge. This research clearly demonstrates a distinct difference between the structure and composition of hydrothermally active
+SMS deposits on slow spreading ridges, and hydrothermally extinct
+eSMS systems. The main differences are found in the change from active
+SMS deposits, where anhydrite dominates an interior comprising massive sulphide overlying a silicifed altered basalt-hosted sulphide
+stockwork (Humphris et al., 1995), compared with the eSMS deposits
+that have a 1每5 m thick carapace of iron-rich oxide sediments overlying
+a 3每6 m thick impermeable silica cap that in turn overlies a dense
+massive sulphide ore body of about 100 m thickness, that overlays a
+moderate density silicifed sulphide stockwork zone, surrounded by
+lower density host rocks of altered basalt. Our combined geological and
+geophysics data show that the main ore body is composed of brecciated
+and partially silicifed sulphide that extends to a sub-sea?oor depth of
+about 100 m with an average sulphide content of about 70% that increases with depth. The underlying stockwork extends to another 100 m
+depth and likely comprises ‵16% sulphide in a silicifed matrix that
+grades into an altered basalt host rock. These data indicate a resource
+that is 2 to 5 times larger than that predicted from the surface expression of the deposits alone. This estimate is even larger if the metal
+rich sediment-aprons that surround the eSMS mounds are included.
+Our results also give insights into the processes leading to the formation of the eSMS deposits, and especially those that occur at the
+closing stages of the hydrothermal cycle. High-resolution AUV-bathymetry (0.5 m resolution) and RUV HyBIS surveys show that the eSMS
+mounds have partially collapsed, probably due to anhydrite dissolution
+and the resulting volumetric contraction within the main ore body. The
+upper ore body is protected from seawater penetration by late stage,
+low-temperature hydrothermal silicifcation of iron-rich hydrothermal
+sediments, generating a silica cap. Remobilisation and recrystallisation
+of the massive sulphide, especially the copper-rich phases such as
+chalcopyrite, have led to an enrichment in the upper ten metres of the
+ore body, but the impact on metal tenor at depth remains unknown.
+The implication of this work is a signifcant upward revision of the
+sulphide volume for eSMS deposits at slow-spreading ridges. Whereas a
+global database of SMS deposits indicates the majority are relatively
+small (Hannington et al., 2011), this study indicates that many of these
+are actually larger and extend sub-sea?oor. Depending on their, as yet
+undetermined, metal tenor at depth, these deposits may represent more
+economically attractive targets than their resource estimates, based on
+the volume of the mound alone, would suggest.

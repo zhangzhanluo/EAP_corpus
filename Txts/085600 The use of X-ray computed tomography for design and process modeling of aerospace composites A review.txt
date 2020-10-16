@@ -1,0 +1,728 @@
+1. Introduction 
+Inrecenttimes,XCThasbeenwidelyusedforqualitativeandquan-titativeassessmentsinthe.eldsofaerospace,automotive,defense,and medicalapplications[1每3].Inparticular,theuseofXCTfornon-destructiveinspectioninaerospacecompositeshasincreasedconsider-ably[4,5].Thisisduetoitshighspatialresolutionandtheabilitytopre-ciselycapturethemultiscalestructurenon-destructively[6].XCT providesinformationontheinternalcompositestructureinboth2D and3Dformats.ThisisoneofthemainadvantagesofusingXCTcom-paredtootherdestructiveand2Dvisualizationtechniques,suchas scanningelectronmicroscopy,opticalmicroscopy,etc.,[7].Moreover, othernon-destructivetechniques,suchasultrasonicC-scanandinfra-redthermography,cannotcapturethehigh-resolutiondamagemecha-nismsthatcanbedetectedusingXCT[8]. 
+ThedevelopmentofXCTforobserving.ber-reinforcedpolymer (FRP)compositesiscrucial.ThisisbecauseFRPcompositesareaniso-tropicandheterogeneous,sincethepropertiesofindividualconstitu-entsaredifferent,andthedeformationbehavioroftheseisdirection dependent[9].TheaccumulationofdefectsinFRPcompositestakes theformofcomplex3Dpatterns.Therefore,investigatingmicrostruc-turalchangesinFRPcompositesduringmanufacturingandunderload-ingscenariorepresentativeofin-serviceconditionsisdif.cult. Furthermore,thereisatendencyfortheformationofprocess-induced defectsduringthemanufactureofFRPcomposites,particularlywhen manufacturingcomplexgeometries[10].These.awscanbeinthe formoffabricwrinkles,resinpockets,inter-andintra-towvoids,matrix microcracks,delaminationanddebonding,etc.,[11,12].Manyofthese defectsarebarelyvisibleorinvisibletothenakedeye[13].Asaconse-quence,themechanicalperformanceofcompositecomponentsmay besigni.cantlyreduced.Hence,obtaininginformationduringthe 
+differentstagesofmanufacturingandpost-processingofcomposites usingXCTisinvaluable[3,14,15].TheinformationobtainedfromXCT imagescanbeusedtocreategeometricalmodelsoffabricsandprepregs forperformingnumericalsimulations[16].Thereareseveralnumerical simulationtoolsavailable,suchasGeodict,Avizo,Voxtex,etc.,topredict processparametersfromthecreatedgeometricalmodelsoftherein-forcements[17每19].Inthisway,theXCTcanbevaluableforunder-standingandimprovingthemanufacturingprocess. 
+Inrecenttimes,FRPcompositeshavebeenwidelyused,notonlyin primaryandsecondarystructuralaircraftapplications,butalsoinen-ginenacellesandcowlings,duetotheirhighstrengthtoweightratio comparedtometals[20每22].TheAirbusA350,Boeing787and,Bombar-dierC-SeriesaircraftarefabricatedwithFRPcompositeshavingN53%, 50%,and47%ofcompositesbyweight,respectively[23每25].Itisclear fromFig.1thatallofthecompositecomponentsintheAirbusA380in-volvetheuseofadvancedcompositemanufacturingtechniques,suchas autoclave,resintransfermolding(RTM),resininfusion(RI),resin.lm infusion(RFI),automated.berplacement(AFP)andautomatedtape laying(ATL)[26每28].Also,inrecenttimes,AFPandATLtechniques havebeenwidelyusedtomanufacturethewingstructureoftheMS-21aircraftasanalternativetousinghand-laidprepregs[29,30].More-over,mostunmannedaerialvehicles(UAVs)anddronesarecurrently beingfabricatedusingFRPcomposites[31,32].Thisincreaseduseof compositesisduetoadvancesincompositesmanufacturingtechniques, enablingcomplexshapedstructuralcomponentstobefabricatedeasily andrapidly. 
+Inthisreview,wefocusprimarilyontheuseofXCTincommonly-usedaerospacemanufacturingtechniques(i)OoAprocessing,suchas VacuumBagOnly(VBO)andLiquidCompositeMolding(LCM),and (ii)theautoclaveprocessing.TheOoAtechniquesrequirelowcapitalin-vestmentsandprovide.exibilityindesignandsize[35].However, 
+K. Naresh et al. / Materials and Design 190 (2020) 108553 
+Rudder  
+Vertical Tail Plane  (ATL/Autoclave)  
+(ATL/Autoclave)  Radome  
+Glare (Autoclave)  (RFI/RTM)  
+Flaps  
+(ATL/Autoclave)  
+Stringers  
+Horizontal Tail  (ATL/Autoclave)  
+Plane  
+(ATL/Autoclave)  
+Engine Cowlings  
+(AFP/Autoclave)  
+Rear pressure bulkhead (RFI/RTM)  Tail cone  Ailerons (ATL/Autoclave)  
+Fig. 1. Airbus A380 aircraft components produced using advanced composite manufacturing techniques [26]. 
+there are issues of the void generation that are directly associated with low-pressure processing. In contrast, the autoclave process enables original equipment manufacturers (OEMs) to fabricate components with a low void content (b2%) by applying suf.cient pressure and tem-perature to the laminate during consolidation. However, there are size limitations, and capital investment and maintenance costs associated with this process are also high. [36,37]. 
+There are some challenges in achieving high-quality parts using liq-uid composite molding (LCM) techniques. The .ow through the dual scale porous media (dry reinforcement) is often challenging [38,39]. As a result, complete saturation of the reinforcement is vital in conven-tional LCM techniques. Incomplete saturation may lead to dry spots and high void content in the part [40,41]. However, complete saturation with a low void content can be achieved by further enhancing LCM tech-niques [42每47], through the use of advanced processing and character-ization techniques [48每50], and enhancing the permeability of .ber preforms using .ber surface treatment and ultraviolet (UV) curable resin [51], leading to successful injection with low void content. In such processes, the visualization of microstructural variations in the .ber preform at different stages of resin infusion (before, during or after) is a challenging task. 
+OoA prepreg possessing offers good control over .ber alignment and enables the use of high viscosity toughened resins. However, thermoset prepregs have a low shelf-life, therefore, the protection of thermoset prepregs against environmental conditions in accordance with the manufacturer's data sheet is important. On the other hand, thermoplas-tic prepregs offer a range of bene.ts over thermoset prepregs, such as recyclability, room temperature storage, long shelf-life, weldability, high fracture toughness, fast production rate, good chemical resistance, etc., [52]. Nevertheless, the melting temperatures and viscosity of typi-cal thermoplastic prepregs are comparatively high, requiring high pres-sures and temperatures for consolidation [53,54]. On the other hand, resin movement cannot be tracked during laminate consolidation in au-toclave and VBO prepreg curing techniques. 
+The issues mentioned above and the challenges associated with aerospace composite manufacturing techniques can be resolved through the use of in-situ XCT techniques [55,56]. Recently, the use of in-situ XCT for studying the LCM process parameters at every stage of the manufacturing cycle (before, during, and after resin infusion) has in-creased 
+[57每59]. Further, the data is used to develop XCT-based numer-ical models for studying the OoA and autoclave process parameters, which can potentially reduce characterization time, cost, and the associ-ated number of experiments. The literature related to composites manufacturing using OoA (LCM and VBO curing) and autoclave, partic-ularly process modeling approaches using XCT are limited. Some recent studies have discussed void generation in FRP composites [60], and in prepregs 
+during 
+OoA 
+processing 
+[61]. However, it is important to inves-tigate further the fabricating quality using XCT imaging for faster pro-cess characterization with lower costs. 
+In this review, XCT-based modeling approaches are discussed for the complete understanding of the OoA and autoclave manufactur-ing processes, and the associated challenges during the different stages of manufacturing. The procedure to optimize the process pa-rameters via numerical modeling is given for minimizing the number of experiments. The scope of this article is shown in Fig. 
+2 
+with the aim of reviewing the effect of various process conditions on key pro-cessing parameters in OoA and autoclave manufacturing processes. In the .rst section, we discuss the working principle, advantages, and challenges associated with the XCT procedure. The signi.cance of synchrotron and laboratory-based XCT for time-lapse studies to generate numerical models for reducing the processing time and cost is discussed. In the second section, XCT data-driven model gen-eration techniques are discussed. In the third and fourth sections, the application of XCT in understanding and improving the OoA and au-toclave manufacturing processes are reviewed. The role of XCT in characterizing the compaction behavior, resin permeability through reinforcing fabric, the air permeability of prepregs, and void forma-tion and removal are discussed. Finally, we highlight the potential areas in different composites manufacturing processes, where ex-situ and in-situ XCT techniques could be useful in better understand-ingand improvingthe process. 
+2. X-ray computed tomography of FRP composites 
+2.1. Working principle and data processing 
+The XCT technique is commonly used as a non-destructive evalu-ation (NDE) tool. A laboratory-scale XCT usually consists of an X-ray source that converts electrical input power to X-rays, a rotary stage where the specimen is mounted, and a detector, as shown in Fig. 
+3 
+(a, b). The resolution achieved with XCT is relatively high compared to other NDE techniques (e.g., ultrasonic C scan), due to its high 
+K. Naresh et al. / Materials and Design 190 (2020) 108553 
+OoA 
+Prepreg Hand layup 
+. Prepreg Air 
+XCT 
+Permeability 
+. Fabric Compaction . Fabric Permeability Machine . Prepreg Compaction 
+. Degree of Impregnation . Resin Flow Patterns . Porosity . Void characterization 
+Fig. 2. Schematic representation of the aerospace manufacturing techniques and the potential role of XCT in characterization of the process parameters. 
+frequency [62,63]. The XCT principle is based on generating 2D ra-receives a large number of radiographic (projection) images at dif-diographs by impinging a beam of X-rays from the X-ray tube ferent angular positions during a 360～ rotation of the sample. After through a sample. Further, a CCD (Charge Coupled Device) detector that, these XCT scanned images are reconstructed using 
+(a) X-ray beam (b) 
+Specimen X-ray tube 
+X-ray tube focal spot 
+Detector 
+Specimen 
+X-ray tube 
+Rotary stage 
+Lx Ly 
+(c) 
+Fig. 3. (a) A typical laboratory XCT setup, (b) schematic representation of the setup and (c) stepwise XCT data analysis procedure. 
+K. Naresh et al. / Materials and Design 190 (2020) 108553 
+reconstruction algorithms (matrix inversion, .ltered back-projection algorithm, etc.) and software such as CT Pro [64], Phoenix datos|x [2], NRecon, Octopus Reconstruction, etc. A .ltered back-projection algorithm is a commonly-used procedure [4,65]. The .eld of view is initially cropped to reduce the size of the .le for re-construction. The reconstruction methods for XCT are reported in detail elsewhere [66]. 
+2.1.1. Voxel geometry creation and data analysis procedure 
+The procedure to generate the voxel geometry for running simula-tions to study various composite process parameters is shown in Fig. 
+(c). The overall XCT data analysis procedure can be divided into three fundamental steps: (i) pre-processing, which includes .ltering and smoothing of the XCT data to enrich image quality. These reconstructed XCT images are then used as input data to create a 3D structure using software packages such as, VGStudio Max, Geodict, Fiji, VoxTex, Avizo, etc., (ii) Analysis, which includes the segmentation and feature extrac-tion (component analysis), etc. The segmentation procedure is the es-sential step in data analysis that distinguishes the different constituents in FRP composites, such as the .bers, resin, air, etc., based on their greyscale values. The .ber orientations in unidirectional, woven, and 3D fabrics such as warp, weft, and Z-binder yarns can be ob-tained from the segmentation method. After segmentation, the model can run in Abaqus, Ansys, LS-Dyna, etc., to predict the compaction re-sponse of the fabric numerically. The permeability simulation can run in .ow modeling software packages, such as Fluent, Geodict, Ansys/ CFX, etc., based on computational .uid dynamic (CFD) techniques [67], and the mold .lling, dry spot prediction, and cure simulation can run in Liquid Injection Molding Simulation (LIMS), PAM RTM and Con-vergent Compro software [68]. 
+(iii) Visualization of data, which includes mapping and rendering of the results and then verifying the results with reference methods [6]. Further details related to the XCT data analysis process are reported elsewhere [69]. 
+2.1.2. In.uence of process parameters on XCT image quality 
+The XCT image quality can be reduced due to issues such as artifacts, noise, and image blur. Some of the common types of artifacts are beam drift, beam hardening, ring, and partial volume artifacts. Beam drift can be caused by the thermal expansion of the X-ray tube. Beam hardening can be caused due to the mismatch in real and assumed X-ray attenua-tion coef.cients of the material, which results in streak and cupping ar-tifacts [70]. These issues can be overcome through the use of pre and post-processing 
+techniques 
+and 
+the 
+dual-energy 
+method 
+[71]. Ring arti-facts may occur due to the mechanical misalignment between the X-ray source and the detector or the low sensitivity of the detector. Partial vol-ume artifacts are due to the limited .eld of view, i.e., only part of the specimen is projected. Noise is mainly induced by photon noise, whereas image blur is associated with geometric or motion blurring ef-fects [72]. Realistic XCT projections without any artifacts, noise, and image blurring can be obtained by using the SimCT software package [73]. SimCT is an X-ray imaging simulation tool which enhances the image quality by optimizing the scan parameters automatically [74]. 
+Image resolution and contrast have to be optimized for obtaining high-quality images of FRP composites. In order to do that, the XCT pa-rameters, such as X-ray voltage and current, spatial resolution, image acquisition time, rotation steps, .lters, etc. need to be studied [75]. 
+(a) Voltage and current 
+X-ray characteristics can be controlled by the applied voltage and current to the X-ray tubes. The wavelength of the X-rays emitted can be reduced by increasing the voltage, while the X-ray intensity can be increased 
+by 
+increasing 
+the 
+current 
+at 
+a 
+constant 
+voltage 
+[76]. 
+(b) Spatial resolution 
+The ability to show .ne structural details or the least separation at which two points are distinguished in a scanned image is de.ned as the spatial resolution. It depends on several factors, such as the perfor-mance of the X-ray tube and its focal spot size, detector characteristics (sensitivity, dynamic range, noise, quantum ef.ciency, etc.), capacity of the computer, data enhancement techniques, etc. The nano-sized focal tube is used for lighter samples, owing to its smaller spot size, while the micro-sized focal tube is used for highly absorbing materials, where the same voltage and .lament current are used. The exposure time can be adjusted from 33 milliseconds to 5 s in the former case to obtain a good spatial resolution by obtaining a high signal to noise ratio [77]. However, the tube power cannot increase, due to the smaller focal size of the nano-sized tube. The spatial resolution can be measured using either the Rayleigh or the Sparrow criteria [78,79]. 
+(c) Acquisition time and rotation steps 
+In general, a higher image acquisition time (scan time) gives high contrast images, which vary for each XCT system. Some scanners use a stepwise scanning approach, while some use a continuous scanning ap-proach, which includes continuous rotation and image acquisition. There is a tendency for slight vibrational moments to occur in the spec-imen in the step-wise rotation approach. It is advisable to use a skip function to avoid this effect, by not considering the .rst image in each step. However, a continuous scanning approach may not introduce any 
+vibrational 
+moments 
+[80]. Multiple images can be captured and av-eraged to reduce the noise and improve the image quality in each step in the stepwise rotation approach. The number of steps depends on the size of the sample based on the magni.cation. A greater number of steps, involving a larger quantity of images, is bene.cial for a good re-construction, only if a higher magni.cation is required. 
+(d) Filtration 
+Filters are used for minimizing image artifacts. There are two types of .ltering approaches commonly employed during image acquisition: 
+(i) 
+beam .ltering and (ii) detector .ltering. If .lters can be applied be-tween the X-ray tube and the specimen, referred to as beam .ltering, or between the specimen and the detector, referred to as detector .lter-ing. The function of beam .ltering is to protect the specimen from the beam hardening effect, such that streak artifacts can be ignored. Detec-tor .ltering is used to reduce the noise from the remitting secondary X-rays, which may be produced when the specimen is denser or nano-structured 
+[77]. 
+(e) 
+Image binarization 
+Image binarization is an essential step in the .eld of optical character recognition (OCR) [81]. Within binarization, thresholding is an impor-tant step for identifying different materials in the XCT images based on their grayscale values [82]. Otsu's and Gaussian Ostu's methods are widely used thresholding algorithms for measuring the grayscale values in XCT images [83,84]. It is widely recognized that between the two methods, Gaussian Ostu's method provides more accurate results than Otsu's method [85]. 
+2.2. Classi.cations of XCT 
+There are three types of commonly-used XCT system that are based on frame rate, namely (a) medical XCT (up to 10 projections/s), 
+K. Naresh et al. / Materials and Design 190 (2020) 108553 
+(b) synchrotron XCT (up to 10,000 projections/s) and (c) laboratory XCT (approximately 1 s 每 10 
+min/projection) 
+[86]. In medical XCT, the X-ray source and detector rotate around the patient. In contrast, the specimen rotates while the X-ray source and detector are stationary in the synchrotron and laboratory XCT. In the .eld of engineering, the lat-ter two are mainly used, and therefore, their use in understanding and improving aerospace composite manufacturing techniques will be discussed in this manuscript. 
+2.2.1. Synchrotron XCT vs. laboratory XCT 
+A synchrotron XCT (SXCT) offers a relatively high resolution, ranging from 30 nm to 20 米m, which can be attributed to the use of a coherent source with a parallel monochromatic beam. It is more expensive than the laboratory XCT (LXCT). It also offers a better signal to noise ratio, al-though limitations in the sample size (between 20 米m and 50 mm) is a major drawback. In contrast, the maximum sample size possible with the LXCT varies from 50 米m to 300 mm, and the resolution range varies from 50 nm to 100 米m[8]. The lower resolution and higher acquisition time are due to the use of a polychromatic light source and cone beam. The LXCT technique can further be categorized into two based on the focal spot size of the X-ray tube: (i) low-.ux re.ection type with a focal spot size of b1 米m, and (ii) high-.ux re.ection type with the focal spot size N1 米m[87]. However, compared to SXCT, the LXCT tech-nique has a low X-ray .ux [88]. As a result, the specimen scanning time using SXCT is fast. Also, SXCT provides a higher brightness than LXCT. Further, resin .ow tracking inside .ber tows is dif.cult with the LXCT technique due to its low spatial resolution. However, it could be possible to 
+view 
+this, 
+to 
+some 
+extent, 
+in 
+the 
+SXCT 
+[59,89]. 
+2.2.2. In-situ vs. ex-situ loading 
+XCT can be further classi.ed as in-situ and ex-situ for time-lapse studies. In-situ imaging can be performed inside the XCT, and the scan-ning process can be interrupted or uninterrupted. The application of LXCT is mostly limited to interrupted scans, due to its low .ux and high acquisition characteristics; otherwise, high image contrast is not possible 
+[3]. 
+For fracture mechanics, ex-situ imaging can be performed after re-moving the specimen from a mechanical test machine and placing it in-side the XCT for further analysis. There are two major drawbacks to this approach. For example, consider the case of understanding crack behav-ior: 
+(i) 
+a 
+crack 
+may 
+close 
+after 
+unloading 
+the 
+specimen 
+[90]. (ii) Contrast agents are usually added to improve the detectability of cracks, which may change the mechanical performance of the composite during fur-ther testing [91]. However, the crack closure effect can be quanti.ed using in-situ XCT [92]; therefore, the contrast agents are not usually used here. 
+2.3. Advantages and limitations of XCT 
+The ability to generate a 3D voxel geometry based on 2D radial slices is the main advantage of using XCT. The 3D information includes .ber waviness, .ber orientation, individual volume fractions of the constitu-ents in FRP composites, morphological information regarding voids, such 
+as 
+their 
+shape 
+and 
+roundness, 
+etc., 
+[88]. The XCT provides detailed 3D information even for complex 3D geometries as compared to other destructive and non-destructive methods. However, apart from these advantages, there are certain disadvantages of the XCT. These are mainly related to high capital costs, the need for skilled operators, and the time required for post-processing. One of the reasons for the high costs of the XCT machine is due to the custom-built X-ray tube, which is the major component in the XCT setup. The function of the X-ray tube is to accelerate the electrons to high energies for generating X-rays. In doing this, the machine consumes a lot of electrical energy, out of which only a fraction of its energy is converted to X-rays and the remainder is turned into heat. To deal with the high heat, the X-ray tubes need to be designed to accommodate this effect [93]with periodic maintenance after the operation. Otherwise, X-ray tubes are prone to failure, such as normal aging (.lament burnout, arcing, etc.), process failures, application mismatch, improper drive by the power supply and tube enclosure considerations, etc., [94]. These failure modes result in extra costs. 
+The other signi.cant disadvantage of XCT is that a high capacity computer data storage device is required to store the XCT scanned and reconstructions data since the .le size for each scanned specimen is usually several gigabytes (GB) [95]. In particular, the quantity of data (sum of experimental data and images) for in-situ XCT scans is usually greater than that for ex-situ scans. However, the former gives more ac-curate results. Also, SXCT scans consume more data than LXCT scans [96]. 
+2.4. Challenges associated with XCT of FRP composites and remedies 
+(a) Low X-ray attenuation coef.cient 
+The major challenge associated with XCT of composites, mainly when using LXCT during acquisition and post-processing, is achieving a high contrast image (a high X-ray attenuation coef.cient), particularly for those materials which have a low density and a low atomic number. Such materials exhibit a low X-ray attenuation coef.cient (米) when the X-ray impinges on it, as 米 is directly proportional to these two parame-ters [14]. For example, the attenuation coef.cient of a carbon/epoxy composite is low since it has a low density. Also, the difference in den-sity between the carbon .ber 
+and 
+the 
+epoxy 
+matrix 
+is 
+small 
+[97]. As a re-sult, it is dif.cult to identify intra-tow voids at low resolutions in such types of composites. A high resolution can be obtained using a small sample [98]. 
+(b) Dif.culties in capturing the .nest damage mechanisms 
+Another challenge is identifying transverse ply (90～) cracks in com-posites using ex-situ XCT. It is dif.cult to identify such damage since transverse ply cracks result in only a slight reduction in the overall stiff-ness of the structure, and tend to change its failure mechanisms while handling and placing the specimen in the XCT for scanning [12,99]. For example, the NASA X-33 launch vehicle program was interrupted due to a leakage found in the liquid nitrogen tanks induced by trans-verse ply cracking [100]. However, these narrow cracks can be seen via 
+a 
+combination 
+of 
+phase 
+contrast 
+and 
+in-situ 
+XCT 
+loading 
+[101,102]. 
+The .nest damage mechanisms or defects (matrix micro-cracks, transverse ply cracks, .ber breaks, etc.) can be detected by employing propagation-based phase contrast in the SXCT [7,103,104]. The propagation-based phase-contrast method is suited only to coherent or semi-coherent sources. Phase-contrast can be enhanced by maintain-ing the greatest distance between the detector and the sample, or the smallest 
+distance 
+between 
+the 
+sample 
+and 
+the 
+X-ray 
+source 
+[105]. This distance depends on the sample size and the wavelength of the X-rays [3]. Another way to enhance image contrast and render micro-cracks more visible is through the use of gratings [106,107] and by staining [65]. However, staining could induce defects in the form of matrix crack growth, etc., such details are reported elsewhere in the literature [3]. 
+(c) Sample size restrictions 
+A good spatial resolution can be achieved with a smaller sample size, as mentioned earlier. It is dif.cult to measure the yarn volume fraction in a larger sample, due to lower spatial resolution. This is the reason in most of the cases, solid inter-tow regions are considered for .ow 
+K. Naresh et al. / Materials and Design 190 (2020) 108553 
+modeling [108,109]. A remedy for accurately measuring the yarn vol-ume fraction is to choose a smaller voxel size. 
+XCT machines struggle to scan large .at, or planar composite panels, due to sample size restrictions. However, a modi.ed XCT technique called computed laminography, can be used to scan these types of panels 
+[100,101]. 
+3. Modeling using XCT generated material models 
+XCT data contains valuable information that can be generated at dif-ferent stages of the manufacturing process, and that information can be extracted in the form of a material model and applied to better under-stand and improve the process. The potential of the XCT for generating numerical models to predict the effect of varying LCM process parame-ters on the dry .ber compaction behavior, the permeability, and voids may lead to a reduction in the processing time and an enhancement in 
+the 
+component 
+quality 
+[17,110每112]. Three-dimensional geometrical models are well-suited to perform simulations, characterization, and modeling 
+operations 
+[16]. Fig. 
+4 
+shows the key steps required to develop XCT-generated material models for virtual design and processing. 
+In the .rst step, reconstructed XCT images of fabric/prepregs are converted into a three-dimensional voxel geometry. As a result, a voxel-based micro-/meso-scale geometrical model is created. The size of the voxel geometry depends on the selected representative volume elements (RVE). Several RVEs at different locations in the fabric/Prepreg are chosen before taking the average. In the next step, XCT based mate-rial model is generated and the segmentation procedure is performed on the geometrical model to identify the anisotropic-threshold value, density, etc., based on the gray values of each constituent in dry fabric or prepregs. The obtained information from the segmented volume can be used to create a computational model. The computational model can be used to perform simulations (such as compaction, .ow, curing, etc.) for virtual manufacturing. Here, it should be emphasized that real XCT generated materials models have not been widely used in the literature. Instead, pseudo-material models are commonly uti-lized to understand the design and process modeling. Pseudo-material models ignore some of the microstructural features, such as .ber diam-eter, distribution, and orientation within the yarn and assume that the tows are solid. In this review, we mainly focus on reviewing how these pseudo-material models can be used in understanding and im-proving the design and modeling process. 
+3.1. Compaction models based on XCT 
+Recently, several researchers 
+[17,113] have developed realistic unit cell models based on tow data obtained from the XCT and used them for simulating the compaction behavior of real textile composites. Such models are based on the multi-chain digital element method (MCDEM) or the digital element method (DEM) [114,115]. This ap-proach has great potential for predicting the compaction behavior of fabrics. In this method, each yarn is represented as multiple frictionless 1D digital chain elements. These chain elements act like .bers in a real fabric. The advantage of the DEM approach is that the .nal fabric con.g-uration is independent of the choice of the initial cross-sectional shape [18,115]. However, unlike the real yarn, which has several thousand micro-.bers, offering resistance to tow spreading in the form of friction and .ber entanglement, the FE modeled yarn has few macro-.bers. Consequently, frictional forces between the .bers are ignored. This leads to the spreading of the tows, attributed to a lack of resistance to deformation 
+[116]. Besides, the DEM approach is feasible only for cap-turing periodic deformations (constant unit cell) due to its high compu-tational cost. Variations in inter-tow and intra-tow pore geometries can also be more accurately simulated for different loading conditions using this approach. Any errors are because the number of .bers in a simu-lated yarn is different (lower) compared to experimental results from the XCT. 
+The Virtual Textile Morphology Suite (VTMS) [17] or LS-Dyna [18] can be used to run the DEM based simulations. In general, the area of each .lament is greater in the simulated yarn than in the experiment to match the local intra-tow .ber volume fraction, since the simulated tow has a smaller number of .bers. 
+DEM does not accurately predict the mechanical response of the fab-ric, due to the smaller number of beam element chains in the yarn and the absence of any interaction between them. However, it accurately predicts the deformation of the fabric architecture during compaction. This can be overcome by using the same number of digital element chains as the number of .bers in the yarn. However, this leads to a high computational cost and a longer run time. In contrast, high .delity modeling 
+[117] successfully captures both the kinematic and mechani-cal behavior of the fabric. In this method, a meso-geometry is initially adopted from the DEM and meshed with hexahedral elements. Further, the micro-scale yarn properties obtained from the experiment are used as an input in the .nite element modeling (FEM) software using a 
+Preprocessing Block of XCT Generated Material Models 
+Characteris cs Building Block 
+Virtual Design and Processing Block 
+Simulaon Results 
+Fig. 4. Virtual design and processing models using XCT generated material models. 
+K. Naresh et al. / Materials and Design 190 (2020) 108553 
+hyperelastic constitutive model. XCT data-driven compaction models are not extensively studied in the literature, and there is still a need to develop compaction models to better understand the tow behavior and associated geometrical and process parameters at different levels of compaction. Besides, there is also a need to develop a strain-rate de-pendent XCT based compaction model for understanding the fabric be-havior from quasi-static to dynamic loading conditions. Strain rate dependent compaction modeling will be useful to predict the global and localized failure regions in a fabric. These failure mechanisms occur when sudden loads (e.g., tool drops) act on the fabric structure. 
+3.2. Permeability models based on XCT 
+The Geometric Permeability Estimator (GPE) [111] and the hybrid (XCT 
+and 
+CFD) 
+[118,119] approaches are commonly used for predicting permeability numerically. GPE requires different stages of resin infusion data as input through in-situ XCT. Hence, employing GPE is expensive, 
+Table 1 
+though it provides closer results to CFD. On the other hand, the hybrid approach can run in Math-to-Market's Geodict software or any .ow analysis software after generating the voxel mesh using XCT recon-structed images. Such software predicts the inter-yarn permeability using the Navier-Stokes approach and intra-yarn permeability using ei-ther Darcy's approach or the Brinkman approach [120]. The hybrid ap-proach is CFD-based and has recently demonstrated an ability to compute fabric permeability [56]. 
+3.3. Void prediction models based on XCT 
+Unlike several numerical models used in the case of compaction and permeability of .ber preforms, numerical models, using XCT data as input for predicting the void formation, movement and characterization are very limited. However, the LIMS and PAM RTM software packages are well suited to predicting dry spots using a hybrid approach (exper-imental data, including XCT, and FEM) [68,121,122]. The geometry of 
+Process parameters in OoA and Autoclave manufacturing techniques References 
+Dry .ber Compaction Prepreg Compaction Permeability Air Permeability Void formation and characterization 
+Thompson et al. [117] Desplentere et al. [112] Naouar et al. [125]RTM----
+
+Green et al. [18, 113] Yousaf et al. [17, 170] Yan et al. [179, 230] Zeng et al.[120] --RTM --Tahir et al. [231] Straumit et al. [109] RTM -RTM --Salvatori et al. [197] RTM ---RTM Schell et al. [122] --RTM -RTM Schell et al. [68] Sisodia et al. [62]
+----RTM Suzuki et al. [223] Zeng et al. [232]RTM-RTM --Ali et al. [56, 108, 119] Soltani et al. [129, 130] Laghaei et al. [118]--RTM --
+Caglar et al. [208] Bodaghi et al. [39, 233] RI ----Saidet al.[19] RI -RI --Hemmer et al. [57, 58] Vila et al. [59]
+--RI -RI Larson et al. [111, 194] Bossio et al. 
+Awaja et al. [234] ----RFI Leonard et al. [235] --AFP/RTM/RI --Endruweit et al. [110] AFP/RTM/RI -AFP/RTM/RI --Aziz et al. [29] Zhang et al. [236, 237] ---HLU/VBO HLU/VBO Schechter et al. [238] Centea et al. [239] ---HLU/VBO -Kratz and Hubert [240] -HLU/VBO -HLU/VBO HLU/VBO Kratz and Hubert [241] -HLU/VBO -HLU/VBO -Cender et al. [242] Torres et al. 
+[243] Centea and Hubert [244, 245] ----HLU/VBO Grunenfelder et al. [246] Little et al. [247] Lambert et al. [248] AFP 
+----Belnoue et al. [249]
+/Autoclave 
+AFP 
+---AFP/Autoclave Pearson et al. 224, 250]
+/Autoclave Stamopoulos et al. 
+[124, 251] Tserpes et al. [252] ----HLU/Autoclave Aratama et al. [253] Landro et al. [254] Plessix et al. [255] Mehdikhani [131, 222]
+----ATL/Autoclave 
+Comer et al. [256] AFP/RI and ATL Nguyen et al. [257, 258]--AFP/RI and ATL/Autoclave -
+/Autoclave Straumit et al. [259] 
+K. Naresh et al. / Materials and Design 190 (2020) 108553 
+the micro-pores and longitudinal .ber bundles can be created using 1D and 2D elements, respectively. Gourichon et al. [123]usedLIMSto gen-erate models for micro-void prediction. In contrast, several post-processing tools that support the XCT images, such as VGStudio Max, Avizo, Simpleware, ImageJ, iAnalyse, etc. [4,105,124] in analyzing voids. Using XCT images as input data, some of the recent compaction, permeability, and void characterization models are presented in Table 
+1. 
+4. The application of XCT based material models in OoA processing 
+4.1. Liquid composite molding (LCM) 
+LCM techniques have been commonly used in the manufacture of aircraft structural components, such as wing box structures [133,134] and the Mitsubishi Regional Jet (MRJ) empennage box structure [133], automotive components for example doors, roofs and side panels, etc. [135,136], helicopter unitized structure (aerodynamic beanie) [137] and marine applications [138]. 
+In the LCM process, during preforming (draping and compaction), geometrical variations, such as changes in the fabric internal architec-ture and cross-sectional shape of the tows are known to occur. These variations are much more likely to occur in dry fabrics than in prepregs, due to absence of resin. As a consequence, nesting of the layers is more signi.cant, leading to a reduction in permeability [139]. 
+For observing void generation and transportation in both the RTM and resin infusion techniques, the tracking of the .ow front is important as the resin .ows through the micro and macro gaps in the .brous pre-forms. In particular, the tracking of the .ow-through 3D fabrics is dif.-cult due to their complex internal structure. Some in-situ techniques, such as direct .ow 
+observation 
+using 
+a 
+camera 
+[63,140], dielectric sen-sors [141], digital image correlation (DIC) [142], and ultrasonic C-scan 
+[143] are effective in capturing the .ow through the macro-pores in a fabric. However, these techniques fail to monitor the .ow through the micro-pores, due to their insuf.cient spatial resolution. X-ray radiogra-phy is capable of capturing the resin .ow front, however, it is not suit-able for capturing micron level porosity [144]. In contrast, Magnetic Resonance Imaging (MRI) is a useful technique for studying .ow prop-agation in .ber tows [145,146]. The advanced in-situ SXCT technique not only facilitates tracking the .ow in both micro-and macro-pore re-gions, but it also measures the size, shape, and spatial distribution of the voids [91]. 
+Therefore, understanding the compaction, permeability, and void distribution of fabrics in the LCM process is essential with the aid of XCT. Using numerical modeling, a number of attempts have been made 
+that 
+involve 
+changing 
+various 
+process 
+parameters 
+[147] to attain an 
+autoclave 
+quality 
+component, 
+in 
+less 
+time 
+and 
+for 
+less 
+cost 
+[148,149]. 
+4.1.1. Compaction characterization 
+An understanding of transverse compaction response of the rein-forcement in the RTM or resin infusion process is essential, given that it directly in.uences the resin permeability through the fabric, the .ber volume fraction, the thickness of the laminate, and ultimately the mechanical properties of the composite [150]. Several researchers [55,151,152] have studied the compaction response of preforms and re-ported that the degree of compaction depended on the weave architec-ture of the fabric (2D and 3D), the thread density in stitched fabrics, mesoscale geometrical features of yarns, the number of layers, dry and wet fabrics, and most importantly, the nesting of the layers within the fabric. 
+Despite previous use of several 2D visualization techniques for ob-serving the microstructural changes of preforms after compaction and resin infusion [136,153], there has been little focus on the 3D response of preforms during or after compaction using XCT. The XCT is a promis-ing tool for capturing variations in the yarn-geometry in-situ. Further, a number of software packages (Avizo, Geodict, VoxTex, etc.) are avail-able for creating the 3D geometry from XCT sliced images, as discussed earlier in [29,108]. In particular, relevant information, such as the de-gree of anisotropy, .ber orientation, average gray value (AGV), etc., can be obtained using the VoxTex software package after the voxel model is generated using the XCT images [154]. The anisotropy-thresholded value is the precise border between the different materials (e.g., .ber, air, etc.) in the scanned image, which can be obtained from the anisotropy curve in a 1D histogram or the anisotropy vs. density curve from a 2D histogram. The position of the .bers and air gaps in a dry fabric and the matrix in addition to the .berand airgaps incompos-ites can also be obtained in 3D, based on the anisotropy-thresholded value, after exporting the voxel geometry in the ParaView software package, which is in-built in VoxTex. 
+4.1.1.1. Mesoscale compaction models. Determining the compaction be-havior of preforms experimentally is expensive, as it requires man-power, several specimens for carrying out a suf.cient number of trials and advanced instruments. Moreover, it is a lengthy process. To avoid this, it is important to accurately model the compaction behavior of fab-rics numerically. In 
+doing 
+so, 
+some 
+researchers 
+[125,155] have generally used three different mesoscale unit cell models based on the textile ge-ometry. One is directly created using textile geometrical modeling soft-ware packages, such as TexGen [156] or WiseTex [157], by making several assumptions, such as straight warp and weft yarns (no crimp), a constant cross-section (no waviness), etc., thereby creating an ideal-ized geometry. The second model (realistic model) is a simulated geom-etry by DEM, which can also be created using textile geometrical modeling software. However, the geometry is considered the same as those of actual geometry obtained from XCT scanning after reconstruc-tion. The third technique is an analytical approach, where the geometry created from the theoretical approach can be re-created after de.ning the center points, and section points based on the cross-sections of the warp and .ll yarns using sinusoidal functions and measurements from the actual fabric. The methodology for creating the analytical geometry and its formulation are reported elsewhere [158每160]. The simulation time for an idealized geometry is less than that associated with the DEM and analytical methods. However, the idealized solution is less ac-curate and ignores realistic features, such as yarn waviness and yarn pinching [125]. A superposition of the ideal, DEM, and analytical model results (scanned specimens from a 3D woven orthogonal carbon fabric) is shown in Fig. 
+5(i)(a-c), respectively. 
+It is clear from Fig. 
+5(i) that the idealized approach gives poor results compared to the other models. The DEM and analytical models offer re-sults that are closer to the experimental (XCT) results. A comparison of the deformed cross-sectional area between XCT and for different meso-scale models in each section [.ll (ZX1 and ZX2) and warp (ZY1 and ZY2)] including the global (sum of ZX1, ZX2, ZY1, and ZY2) are shown in Fig. 
+5(ii). It is clear that the predicted cross-sectional areas from the DEM and analytical approaches correlate well with the XCT results. 
+4.1.1.2. Meso-macro-scale compaction models. The use of mesoscale models is restricted to the unit cell level, particularly for complex inter-action geometries and 3D fabrics, due to their high computational cost and inability to capture tool geometry effects at this scale during the compaction step in an LCM process. A meso-and macro-scale model was proposed by Said et al. [19] to overcome the limitations of meso-scale models and, for numerically capturing the deformation of fabrics, at both the meso-and macro-scales during LCM, based on a tessellation algorithm. In this process, the mesoscale DEM geometry was used as an input in the .nite element modeling (FEM) software to create the macro-scale geometry 
+[126]. 
+Unlike the periodic conditions in the case of a single unit cell meso-scale model, large structures can be modeled using hundreds of unit cells to simulate non-periodic deformations based on tessellation. In this case, the slave and master yarn concepts are used for creating a non-periodic unit cell from one layer to another layer throughout the stack 
+[127]. This approach predicts the same results as those found in 
+K. Naresh et al. / Materials and Design 190 (2020) 108553 
+(a) XCT vs. Ideal approach (b) XCT vs. DEM (c) XCT vs. Analytical approach 
+ii 
+Fig. 5. (i) 
+Superposition 
+of 
+warp, 
+weft 
+and 
+binder 
+yarns 
+of 
+different 
+mesoscale 
+models 
+on 
+the 
+XCT 
+results 
+[155], Note: ZX1 and ZX2 are .ll, ZY1 and ZY2 are warp. (ii) Comparison of the cross-sectional area for each section between XCT and for different mesoscale modeling approaches. 
+the XCT, such as empty spaces (resin pockets) at the apex (1) and tool macro-modeling, and a hyperelastic constitutive law [163]for corners (2), yarn overlaps (3), etc., as shown in Fig. 
+6. meso-modeling by importing the yarn properties obtained from 
+Common defects, such as wrinkling, yarn buckling, and distor-the experiments. Despite the shorter running time of the macro-tions, occur when the textile fabric is draped over the mold. Most im-draping model compared to MMZ, it failed to capture the local distor-portantly, these defects typically occur when placing the fabric over tions. The authors did not use XCT data as an input for MMZ simula-a 3D mold due to the presence of corners, edges, and curvatures. In a tions. However, XCT offers great potential for reducing the modeling recent study, Iwata et al. [161,162] proposed a coupled meso-macro time and gives more information related to defects that occur during zoom (MMZ) simulation method to simulate these features, includ-the draping process. Moreover, XCT images can be used for validat-ing local distortions, and observed good agreement with experi-ing the MMZ results. Therefore, further studies are required to inves-ments. They used a membrane-shell continuous approach for tigate the use of XCT for MMZ. 
+K. Naresh et al. / Materials and Design 190 (2020) 108553 
+Fig. 6. Defects in vacuum infused carbon/epoxy composite (XCT) vs. macro-scale 
+model 
+[19]. 
+4.1.1.3. Compaction of .ber reinforcements. The compaction behavior of .brous preforms in the LCM process, speci.cally the compaction of the .bers from the vacuum bag to the tool side, can be simulated using the viscoelastic response of the fabric [150]. The viscoelastic re-sponse of the fabric depends on the applied pressure, temperature, lu-brication, strain-rate, creep, relaxation (single and multiple loading), and cyclic 
+loading 
+[164每166]. A higher load is required for compacting a dry preform due to more gaps being available compared to wet (lubri-cated) 
+preforms 
+[167]. 
+Fig. 
+7(a) and (b) show the change in warp and weft tow areas re-spectively in a single layer plain-woven E-glass fabric, as the pressure is increased from 10 kPa 每 100 kPa, for experimental (XCT) and numer-ical (DEM) approaches. The area of the warp and weft tows decreases in the experimental results with increasing pressure, due to a decrease in tow thickness, though the tow width remains constant. The area of the warp and weft tows is smaller in the DEM simulations than the ex-perimental results. Furthermore, the decrease in tow area in the DEM data over this pressure range is not only in.uenced by the change in thickness, but also by a slight decrease in tow width [17]. 
+In general, structural components for use in most engineering appli-cations, especially aerospace and automotive structural members, are fabricated using more than one layer or ply. Therefore, understanding the compaction behavior of multi-layer preforms is important. Nesting and shifting of layers are the main factors for differences in the compac-tion 
+response 
+of 
+dry 
+single 
+and 
+multi-layer 
+preforms 
+[168]. 
+The compaction behavior of single and multilayer fabric preforms was studied [169] by performing in-situ compaction tests inside the XCT. It was found that the number of nesting increases in multilayer preforms if the .oat length of the yarn decreases and the yarn spacing and the number of layers increases. There may be an absence of nesting in some layers in multi-layer preforms when an insuf.cient load is ap-plied, in this case, the channels remain open for void transportation, this can be seen in the XCT image in Fig. 
+8. It is worth noting from the .gure that the larger channels in the non-nested layers are associated with the regions of higher permeability. The ability of the XCT to capture this nesting effect is attractive. Differences in the order of magnitude exist between the permeability of fabrics exhibiting nesting and zero-nesting [39]. The nesting effect was numerically studied through a high .delity model by Thompson et al. [117]. XCT images were used as input for developing the high .delity model. This model requires minimum input data compared to other macro-scale models. This model can predict both the kinematic and mechanical properties of the fabric. These results were found to be in agreement with the exper-imental results (XCT). 
+When manufacturing structural components for high-performance applications, a fabric should have high permeability for fast processing, adequate drapability and should exhibit good mechanical properties, which is possible with a high .ber volume content. However, the per-meability decreases with increasing .ber volume fraction (Vf)as shown by Eq. (1) 
+[171]. 
+.汕Vf
+K . 汐 e e1T 
+where 汐 and 汕 are permeability constants; The lower permeability of multi-layer 2D fabrics that is associated with nesting can be overcome by using 3D fabrics. However, further studies are required to understand the compaction behavior of 3D fabrics. 
+The need to use multiple thin 2D fabric plies for achieving the target thickness can be eliminated, and the fabrication time can be reduced by using 
+3D 
+fabrics 
+[136]. The 3D fabrics have through-thickness .bers (Z-
+Fig. 7. Comparison of tow widths between experimental results (XCT) and DEM for different compaction levels: (a) Warp tows and 
+(b) 
+Weft 
+tows 
+[17]. 
+K. Naresh et al. / Materials and Design 190 (2020) 108553 
+Fig. 8. Effect of nesting and non-nesting on the resin .ow channels in multilayer stack using XCT [170]. 
+binder yarns) running through at different interlocking angles. These binder yarns prevent the fabric from nesting and increase the trans-verse compaction properties (strength and stiffness) and permeabil-ity by maintaining a high Vf [172]. 3D fabrics also offer a high intra-laminar shear strength and impact resistance, which is attributed to stiffer binder yarns protecting the structure from delamination [173每176]. Therefore, 3D fabric composites are being increasingly used in the manufacture of aerospace structural components, partic-ularly for fabricating engine fan blades, due to their excellent out-of-plane properties [150,177]. The maximum applied pressure of 1 atm in resin infusion leads to a lower Vf in 3D fabrics. Therefore, manufacturing 3D composites by RTM is bene.cial compared to resin infusion [178]. 
+Blunt 
+The main factors that govern the compaction behavior of 3D fabrics are yarn stack shifting, tow .attening, and bending [172]. These geo-metrical variations were observed using an XCT by Yan et al. [179]. The XCT is a versatile tool for investigating both the compaction behav-ior of 3D fabrics and its composites and for generating numerical models [112,180,181]. Liu et al. [154] studied the linear and non-linear behavior of 3D orthogonal woven fabric composites with the help of XCT. Saleh et al. [182] developed a micro-mechanics based damage mechanics model for 3D orthogonal woven fabric composites using a mesoscale voxel model created through XCT. 
+In general, a structure tensor approach is used for 2D fabrics, since the yarns are positioned in all directions [125]. However, the Texture Analysis for Image Segmentation method is well suited to 3D fabrics [128]. This method is used to split and analyze the warp, weft, and Z-binder yarns separately in XCT images. The numerical model based on DEM is well suited for predicting the .nal geometry and compaction re-sponse of 3D fabrics, as shown in Fig. 
+9. The geometric variability of 3D fabrics in DEM simulations agrees well with XCT experiments for differ-ent compaction levels based on their target .ber volume fractions. How-ever, there was a slight deviation found in the compacted geometry of the Z-binder yarn between these two cases, particularly for low com-paction (Vf =45% andVf = 48.75%) levels. In Fig. 
+9,the topsurface of the Z-binder yarn was found to be .at and the shape of the tows under this top surface was elliptical in XCT scans. In contrast, the top surface of the Z-binder yarn was found to be sharp and the circular shape of tows under this top surface was seen, in DEM simulations. However, yarn crimping and waviness followed the trends that were observed in the experiments [18]. 
+4.1.2. Permeability characterization 
+The XCT technique can play an essential role in permeability predic-tions of dry fabrics during the injection stage of LCM manufacturing. Permeability is an essential parameter in the LCM process, and its value depends on the .ber architecture/volume fraction, resin viscosity, porosity, and the other processing parameters (injection pressure, .ow rates, temperature, etc.) [183]. In particular, the permeability of UD .-brous structures depends on several parameters, such as the thickness of the fabric, .ber randomness in the fabric, .ber diameter, and the 
+Elliptical Circular Sharp 
+K. Naresh et al. / Materials and Design 190 (2020) 108553 
+Dimensionless Permeability(K11/r2) 
+Permeability ratio (non-uniform/hexagonal) 
+Tomadakis & Robertson (Overlapping-Analy cal) Tomadakis & Robertson (Non-overlapping-Analy cal) Drummond & Tahir (Analy cal) Westhuizen & Plesis (Analy cal) Sangani &Yao (Analy cal) Roy et al. (Experimental) Anderson & Warburton (Experimental) 
+Sullivan & Hertel (Experimental) 
++ Williams et al. (Experimental) Tomography-based method (Moderately Aligned -CFD) Current work (Experimental) Current work (CFD) 
+Porosity (汍) 
+Fig. 10. Comparison of axial permeability of randomly UD .brous structure between experimental, numerical (CFD), hybrid (XCT and CFD) and analytical approaches [118]. 
+porosity 
+[129,130]. On the one hand, for a known porosity, the perme-ability decreases with increasing .ber diameter. On the other hand, the permeability increases with increasing porosity for a constant .ber diameter 
+[118]. Fig. 
+10 
+shows the variation of the axial permeability of random UD .brous structures with porosity for different approaches, namely experimental, numerical (CFD), hybrid (XCT and CFD) and ana-lytical 
+[184每187]. 
+It can be observed from Fig. 
+10 
+that the CFD results agree very well with the experimental results and the tomography-based method. However, the relative standard deviation of experimentally measured permeability from the literature is N30%, due to the adoption of non-standard experimental setups. On the other hand, the analytical methods do not fully agree with the experimental results and CFD. This may be due to the underlying assumptions adopted in deriving the equations. 
+The Geometric Permeability Estimator (GPE) is a new computational tool for predicting the permeability of .ber 
+beds 
+[111]. Fig. 
+11 
+indicates that the predicted permeability ratio using GPE compared with CFD 
+[188] and unit cell models based on an area-weighted average, available in the literature [189每192]. The detailed modeling approach for Voronoi KC 
+and 
+Shou 
+were 
+reported 
+elsewhere 
+[191,193]. Good agreement with b6% deviation was obtained between the GPE and CFD approaches. In contrast to the GPE and CFD methods, unit cell models, such as Voronoi KC, Voronoi Shou, and sliding cell Shou underestimate and Delaunay KC method overestimates the GPE predictions. The drawback associated with these methods is that they assume that the .ber arrangements are either square or hexagonal. 
+However, the problems associated with GPE are complicated since it requires inputs (.ow channeling and .ber positions before, during, and after impregnation, void, and resin information) in the form of images from in-situ XCT. In-situ XCT studies for permeability measurements are limited due to the high cost of the .xture and space limitations in-side the XCT. As a consequence, this restricts sample size [194,195]. 
+Recently 
+[57,58], and for the .rst time, continuous capturing of the deformation behavior of quasi-unidirectional (UD) non-crimp fabrics during resin infusion was achieved with the aid of the in-situ SXCT. The downsized setup is designed inside the XCT, such that the dry state of the fabric before infusion and saturated state after infusion are successfully captured. It is worth noting that the geometry changes that have been captured through this setup, include the vertical dis-placement of the tows, through-thickness tow swelling, and the in-crease in stack thickness. 
+Vila et al. [59] examined tow level impregnation using in-situ SXCT. The ability of in-situ SXCT to capture detail at the tow level is highly valuable, due to its high resolution compared to LXCT. Fig. 
+12 
+represents the transverse .ow perpendicular to the E-glass tow captured simulta-neously at three different locations. A high local .ber volume fraction is seen in the regions of high capillary pressure. The wet region is highlighted in navy blue (Fig. 
+12a). Transverse .ow is reduced in re-
+3.5 3.0 2.5 2.0 1.5 1.0 0.5 0.0 
+
+Sliding cell Shou Sliding cell KC Delaunay Shou Delaunay KC Voronoi Shou Voronoi KC GPECFD 
+Fig. 11. Comparison of Permeability ratio with CFD, GPE and area-weighted average six 
+gions where high local .ber volume fraction is apparent in the .gure, this leads to a decrease in permeability. It is worth noting that the per-meability and capillary pressures are contradicting each other. 
+In general, for viscous resins, the optimum capillary number (Ca) can be obtained when the .ow propagates at an extremely low velocity, which leads to a high impregnation time. A high impregnation time is a major concern in composites manufacturing. To produce a high-quality product in a low impregnation time, further studies are required. A low impregnation time can be achieved through a detailed XCT analysis of the .brous preform. Figs. 
+13 
+(i) and (ii) correspond to unsaturated and saturated .ow through quasi-unidirectional non-crimp fabrics dur-ing resin infusion captured using in-situ SXCT. The capillary number in-creases from 4 ℅ 10.5 to 2 ℅ 10.3 as the applied pressure increases from 0 to 552 kPa. As a result, the impregnation time decreases from 
+11.3 min (when both capillary forces drive the .ow and no pressure is applied) to 5.4 min (when the .ow is driven by both capillary forces, and 552 kPa applied pressure), as indicated in Fig. 
+13(ii). Complete sat-uration occurs in the latter case 
+[111]. 
+For most aerospace and defense applications, 2D fabric composites are frequently used due to their high energy absorption capability com-pared 
+to 
+unidirectional 
+composites 
+[196]. Hence, there is a need to study the permeability of 2D fabrics. The saturated permeability of G-Ply (NCF) is one order of magnitude higher than G-weave (woven fabric) 
+different unit 
+cell 
+models 
+[111]. [197]. Hence, the former is better suited for high-viscosity resins, 
+K. Naresh et al. / Materials and Design 190 (2020) 108553 
+especially to thermoplastic resins [198]. Differences in the mesoscale geometries of the two fabrics are the reason for the higher permeability of G-ply. Three different mesoscale geometries are observed in G-ply, based on variations in the number of layers as the level of compaction is different for each case, which can be seen from XCT and binary con-verted images shown in Fig. 
+14. The meso-channel shapes in the unit cells are rectangular, hybrid (the combination of rectangular and trian-gular) and triangular, for 4, 5, and 6 layers, respectively. The shape change from rectangular to triangular occurs with an increase in the number of layers from 4 to 6. This is attributed to a combination of shrinkage and bending of the .ber bundles in the transverse direction. The rectangular pores cover a wider area than their hybrid and triangu-lar counterparts, and as a result, the saturated permeability is higher in this case. Such studies can be conducted on virtually any type of fabric with the aid of XCT geometric modeling to better understand the satu-ration behavior of laminates. 
+Auniform .ow front is usually not possible with woven fabrics [38]; therefore, further studies are needed to attain a uniform .ow front and, most importantly, enhance the permeability of woven glass fabrics. Thin random fabrics (isotropic .ber preforms) have a single macro or bulk permeability as the micro-tows contain hundreds of .bers, which are loosely packed. As a result, the .ow through the preform is considered as homogeneous, i.e., the gaps (micro and mesopores) behind the .ow front are assumed to be .lled. Therefore, the continuity equation and Darcy's law are suf.cient to determine the macro-permeability [41]. For such cases, low-resolution XCT data is suf.cient to predict the permeability. 
+In contrast, the .ow through tows cannot be ignored in the case of woven fabrics, due to their multi-scale .brous structure [199]. An XCT data-driven geometrical model can be developed using Geodict or VoxTex software packages. Having detailed features of the structure of the dual-scale fabric is desirable to compute the permeability accu-rately. Dual-scale .brous media rely on a sink effect at high capillary numbers, while the sink effect is negligible at low capillary numbers. As a consequence, .ow through a dual-scale .brous media resembles a single-scale 
+medium 
+[200]. However, to exactly model .ow through woven fabrics, the Navier-Stokes equation can be used for open regions to predict the macro permeability, and Darcy's equation can be used to model .ow through the .ber tows (micro-permeability). In the partic-ular case of a low pore Reynolds number, which is common in compos-ites, the model can be further simpli.ed to the Stokes equation. However, such coupling is inappropriate for solving the system of equa-tions when one uses Darcy's equation for analyzing the tow regions, since this equation does not have a shear stress term. Therefore, for modeling tows, researchers have replaced Darcy's equation with the Brinkman equation 
+[201,202]. Shou et al. [189] proposed an analytical 
+K. Naresh et al. / Materials and Design 190 (2020) 108553 
+(i) Capillary number of 4x10-5 and zero (ii) Capillary number of 2x10-3 and the applied pressure applied pressure of 522 kPa 
+model for the quick prediction of in-plane permeability in a dual-scale .brous media. The input parameters such as .ber volume fraction, number of .laments, and .lament diameter are required for this model. Several researchers [16,119,203,204] have used the Kozeny-Carman equation for predicting the permeability of fabrics. More details about the modeling approaches are reported elsewhere 
+[205]. 
+A number of researchers [206,207] have also used experimental techniques to study resin .ow through dual pore .brous assemblies and determine the permeability with the help of a camera. XCT data-driven geometrical modeling was recently adopted to enhance the per-meability of fabric by introducing glass beads of different diameters and volume fractions (Vp) in between the .ber preform layers, which also enhances the mechanical properties. However, there is a critical size (100每200 米)and Vp = 10%, or optimum value (Fig. 
+15c) below which, there is not much change in permeability, though the mechanical prop-erties 
+increase 
+compared 
+to 
+pristine 
+fabric 
+composite 
+(Fig. 
+15a). Above this value (Fig. 
+15d) the mechanical properties decrease due to exces-sive out-of-plane tow bending and pore opening, although the perme-ability was increased. Such observations were made by Caglar et al. 
+[208] using a laboratory XCT with the region of interest (ROI) of 1244 ℅ 1244 ℅ 304 voxels and smaller crop size of 304 ℅ 304 ℅ 304 voxels. 
+Compared to experimental and analytical approaches, numerical ap-proaches are somewhat cheaper and require less time to calculate the permeability. The unit cell geometry for a numerical approach can be generated automatically (ideal approach) [209] or through XCT (realis-tic 
+approach), 
+using 
+textile 
+software 
+packages 
+[210], as mentioned ear-lier. The overall process, ranging from textile model creation to .ow simulation, requires little time (4.7 min or 282.37 s) for a woven roving of a single layer of E-glass fabric shown in Fig. 
+16(a), which con.rms the advantage of the numerical approach over the experiment. 
+As previously discussed, incomplete saturation of the micro-tows is the major drawback of 2D woven fabrics, due to their dual scale nature. As a result, there is a compromise between high permeability and .ber volume fraction (Eq. 1). However, permeability can be enhanced by the use of 3D fabrics. In contrast, the cost of 3D fabrics is high, and experi-mentally measuring the permeability is time-consuming and tedious, due 
+to 
+their 
+complex 
+geometry 
+[212]. 
+However, in recent times, there has been a growing interest in predicting the permeability of 3D fabrics using the hybrid approach, which is a combination of experimental and numerical approaches to create 3D fabric digital twins [16]. The hybrid approach requires XCT images as input to create the voxel geometry using software, such as Geodict, VoxTex, etc. and run the simulations using the same or any 
+Fig. 14. XCT (left-hand side) and binary-converted (right-hand side) images indicating cross-section views of meso-channel shapes for different layers of G-ply fabric stack: (a, b) 4, (c, d) 5 and 
+layers 
+[197]. 
+K. Naresh et al. / Materials and Design 190 (2020) 108553 
+(d) 400每800 米m[208]. 
+other .ow analysis software, such as Fluent, Ansys/CFX, etc., with a CFD method [120]. Ali et al. [119] studied the in-plane permeability of 3D fabrics with different approaches, as shown in Fig. 
+17(a, b), namely ex-perimental and hybrid modeling (XCT-numerical based). The hybrid method was performed in Math-to-Market's Geodict software, after creating the unit cell geometry in a digital twin format using XCT im-ages. The predicted permeability values from the hybrid approach agreed well with the experimental results. The permeability in the warp direction (K22) was found to be lower than in the weft direction (K11) in their case. 
+4.1.3. Void characterization 
+The formation of voids during the LCM process depends on several parameters, such as resin degassing procedure, volatiles in the resin, the .ow front velocity, mold clamping pressures, temperature, areal density of fabric and stacking sequence, resin viscosity, insuf.cient cur-ing, 
+and 
+surface 
+tension, 
+etc. 
+[213]. The voids act as stress concentrations and crack initiators in the composite [214], causing the mechanical properties to reduce signi.cantly. The voids can be reduced by correctly 
+Texle image 
+positioning the injection and vent gates, degassing the resin before in-jection, increasing the packing pressure during curing, optimizing the .ow velocity, etc. [215,216]. 
+Void formation between the tows and inside the tows in the LCM process was predicted 
+by 
+Park 
+et 
+al. 
+[217] using theoretical modeling and simulations. These predictions were correlated with the experi-mental results from the literature [218], and good agreement was ob-tained. It was found that the void content relies not only on resin velocity but also on vacuum pressure. Further details regarding void size, 
+shape, 
+and 
+distribution 
+can 
+be 
+found 
+in 
+[219]. In general, optical mi-croscopy, scanning electron microscopy (SEM) and ultrasonic C-scan are widely used for characterizing void morphology in composites, since they are less expensive techniques [143,220每222]. However, as discussed earlier, the XCT gives better 3D information about voids than 2D imaging [14,55,124]. Suzuki et al. [223] introduced the dual-energy XCT concept for determining the size, shape, and distribution of voids in FRP composites. Nikishkov et al. [14] developed the density-based void contouring method to quantify the void dimensions (shape and porosity content) even in low contrast materials (e.g. 
+Tex le Model Dry Fiber Mesh Compac on simula on Create Voxel Mesh 
+Prepare Mesh Flow Simula ons 
+(b) shows the step by step procedure for the permeability prediction of a single layer fabric unit cell. The textile model takes 2.77 s to run, followed by the dry .ber mesh creation phase (38. 8 s) using Texgen software after uploading the textile .le from Matlab. The compaction simulation can be performed in Abaqus software using a Python script. Following this, the voxel Mesh can be created using Matlab, and then the mesh size was reduced using Hyper Mesh software. Finally, .ow simulations can be performed using Ansys CFX software to predict the permeability with an overall computation time of 282.37 s. 
+K. Naresh et al. / Materials and Design 190 (2020) 108553 
+(a) In-plane weft permeability (K11) (b) In-plane warp permeability (K22) 
+carbon/epoxy) investigated by XCT. The robustness of this method was evident, which minimized the error in void estimation. The porosity maps can be obtained from XCT data visualization software packages such as VGStudio Max, Avizo, Simpleware, ImageJ, etc. [4], after reconstructing 
+the 
+XCT 
+images 
+in 
+CT 
+Pro 
+[64] or Phoenix datos|x [2]. In particular, VGStudio Max and Avizo software packages offer great po-tential for segmentation, surface determination, and porosity/inclusion analysis of XCT images [224,225]. The voids in XCT images can also be segmented using a trainable segmentation tool known as Fiji [226]. 
+XCT is not generally employed for tracking voids during the resin in-fusion process, owing to dif.culties (sample size restriction and high cost) associated with the in-situ setup. Little work has been performed on void characterization using in-situ XCT, except for a small number of papers [57每59,111]. However, the Synchrotron-Radiation Computed Laminography (SRCL) setup can be used to capture void generation and transportation, even in large-sized samples [227]. SRCL enables one to capture the images with different phase contrasts in different materials (e.g., air, .ber, resin, etc.) during resin in.ltration. However, the use of XCT has increased rapidly in efforts to identify and analyze both macro and micro-voids and their content in composites processed using LCM [62,228,229]. 
+The transportation of voids in LCM relies on void size, shape, and lo-cation. The equivalent diameter (De) of each void is represented based on its area (A) which can be measured using ImageJ software or any other 
+image 
+analysis 
+software 
+packages 
+and 
+is 
+given 
+by 
+[104,105]. 
+r...... 
+4A
+De .e2T
+羽 
+The voids can be classi.ed in Eq. (2) 
+as small (De b 50米m), medium (150 b De ≡ 50 米m) or large (De ≡ 150 米m) voids [48]. The void shape can be classi.ed as spherical or irregular. Spherical void shapes can be further classi.ed based on their shape roundness (Sr) which is de.ned as, 
+De 2 
+Sr .e3Tdmax 
+where dmax is the maximum diameter of the void. Spherical voids can be categorized using Eq. (3) 
+as circular (1 ≒ Sr N 0.9), elliptical 
+(0.2 b Sr ≒ 0.9) or highly elongated (Sr ≒ 0.2). The assessment of voids using XCT can help to predict the failure region and enhance the resid-ual properties of the composite [60]. 
+4.2. OoA processing using vacuum bag only (VBO) 
+The placement of prepregs on the mold surface during VBO prepreg curing can be achieved in two ways: (i) Hand-layup (HLU) which is a method in which prepregs are placed manually and (ii) Automated Fiber Placement (AFP) and Automated Tape Laying (ATL) 每 in these two techniques, prepregs can be placed automatically and oriented as desired using a computer-controlled poly-articulated robot. AFP is used for placing narrow prepreg strips (width between 3.175 mm and 
+12.175 mm) while ATL is used for placing wide prepreg tapes (width be-tween 75 mm and 350 mm) [249,260]. Stacked prepregs produced using HLU and automated techniques can be cured using a hot air oven. The maximum applied pressure possible in the case of VBO pre-pregs is 1 atm. The major difference between the consolidation process of VBO prepregs and autoclave prepregs is the applied pressure. The OoA VBO processing parameters, such as air permeability and the devel-opment of porosity/voids during and after processing, are discussed in Section 
+5, along with the autoclave processing parameters. Also, Table 
+2 
+represents a comprehensive summary of the literature available on determining process parameters associated with OoA and autoclave techniques using XCT. 
+5. Application of XCT based material models in autoclave processing 
+It is well known that the void content in a component fabricated by autoclave molding is low, due to the high applied pressures as com-pared to that applied to OoA grade prepreg systems. However, OoA con-solidation of prepregs can produce void-free components (b 1%) 
+[52], if the correct cure cycle and air evacuation procedures are adopted [261,262]. Moreover, the cost of autoclave-fabricated components using both HLU and automated prepreg placement techniques is signif-icantly higher when compared to OoA fabricated components [263]. Therefore, a comprehensive discussion of HLU and automated tech-niques in terms of cost, production time, and ef.ciency is necessary. Fig. 
+18 
+presents the product cost for fabricating two types of CFRP pre-pregs (intermediate modulus (IM) and high strength (HTA)) compos-ites manufactured by the autoclave process. From the .gure, it is clear that the labor and material costs (including material wastage) are high in the HLU process, while equipment costs (capital investment) are high in the automated (AFP and ATL) technique. The tooling cost (including cooling of the equipment) is almost the same in both cases. However, automated techniques offer the advantage that the material wastage and manpower are lower as compared to HLU. The ATL place-ment head cost is higher than the AFP head, as a consequence, the equipment and material costs associated with ATL is higher than AFP [260]. 
+As compared to the HLU technique, AFP and ATL are widely used in high production industries due to their ability to reduce part cost, pro-duction time, [30] and yield a low void content in fabricated compo-nents [264]. In particular, ATL is used for manufacturing aircraft structural components, such as ribs, spars, I-beam stiffeners, etc. Though ATL is very effective in manufacturing large .at parts, it is dif.cult to use for manufacturing more complex geometries (double curvature sur-faces) such as wing spar C, fuselage barrels, engine cowls, etc. [249,265,266]. In contrast, AFP can be used for manufacturing complex-shaped components [267]. The layup rate for ATL is in the range of 25每50 kg/h for producing simple .at geometries [268]and 12 kg/h for manufacturing relatively complex pro.les [269]. In contrast to ATL, the layup rate for AFP is slow i.e., approximately 5.54 kg/h, which 
+
+K. Naresh et al. / Materials and Design 190 (2020) 108553 
+Table 2 
+Key process parameters in OoA and Autoclave using XCT, as reported in the literature. 
+Manufacturing Technique Process parameters in OoA and Autoclave References 
+Dry .ber compaction Prepreg compaction Permeability Air permeability Void formation and characterization 
+Thompson et al. [117] Desplentere et al. [112] Naouar et al. [125]
+can be attributed to predominantly accelerating/decelerating the head movement 
+in 
+curved 
+surfaces 
+or 
+interfaces 
+[270]. 
+Although AFP and ATL techniques are widely used in high produc-tion applications, the challenges associated with these techniques such as, tow gaps and overlaps occurred in the part, which can be attrib-uted to .ber placement head movement/backlash, tow width varia-tions, dif.culties in steering the tows [249,260]. To overcome this, process parameters, such as lay-up temperature, compaction roller pressure, lay-up speed, etc., need to be studied with the use of in-situ defect monitoring NDT techniques. Further, the development of FEM-based XCT aided geometrical models of the material using images ex-tracted from the XCT is a topic of great interest, and can help in develop-ing cure simulation models of the complete cure cycle for understanding the material behavior at each stage during processing [271]. 
+The curing behavior of prepregs can be often treated using two .ow models, namely, percolation [272] and shear stress models [273]. The resin .ows through the .ber bed in the former case, whereas both the resin and .bers .ow together in the latter case, as a result of deviatoric stresses. Percolation models are generally used for predicting the con-solidation behavior of thermoset prepregs, and shear .ow models are used 
+to 
+predict 
+the 
+curing 
+behavior 
+of 
+thermoplastic 
+prepregs 
+[274,275]. 
+It is important to consider the magnitude of the compaction force acting on the .ber bed and the .uid pressure during consolidation of FRP composites. Gutowski et al. [276] applied the effective stress theory developed by Terzhaghi [277] and Biot [278], to the consolidation of laminated composites using Eq. (4) 
+[279], 
+e4T
+考a . 考 f t Presin 
+where 考a and 考 f are the applied stress and .ber bed effective stress; Presin is the hydrostatic resin pressure. 
+Therefore, to study autoclave and VBO prepreg curing processes, three characterization parameters, namely compaction, air permeability 
+K. Naresh et al. / Materials and Design 190 (2020) 108553 
+
+and porosity/void characteristics of prepregs can be determined through XCT characterization setups. 
+5.1. Compaction of prepregs 
+The prepreg compaction process is important for the consolidation of laminates fabricated using autoclave/VBO processes. Inter-ply and intra-ply porosities can be eliminated by reducing the thickness of the stack during the compaction process [250,280]. Wang and Gutowski 
+[281] developed analytical models to remove gaps in a stack, based on an idealized geometry. However, removing the gaps is not suf.cient, since accounting for other defects associated with vacuum consolida-tion of prepreg is also important. Bleeding and squeezing effects are also important parameters to consider during compaction, which have asigni.cant impact on air permeability, as the through-thickness com-paction 
+of 
+prepregs 
+dictates 
+the 
+part 
+thickness 
+. Belnoue et al. [249] deliberately created gaps and overlaps when laying down IM7/8552 prepreg using AFP and consolidated the prepreg stack under vacuum. The specimen geometry was then analyzed using XCT. The FEM geome-try was created using Abaqus and validated with the XCT geometry. The thickness variation and defect area predicted by the FEM model corre-lated well with the experiments. 
+Fiber misalignment is a common cause of defects and occurs mainly during the compaction process due to applied pressure. The degree of .ber misalignment in carbon/epoxy prepreg laminates fabricated using ATL followed by the autoclave process was investigated by Nguyen et al. [258] with the help of XCT, and they found that the max-imum ply disorientation was approximately 1.2～. The maximum in-plane .ber misalignment was in the range of 2～每4～, and the out-of-plane .ber misalignment was 1.25～. The ImageJ software can be used to measure tow and .ber misalignments in a woven 
+fabric 
+[181] after curing. However, the degree of .ber misalignment can also be measured by performing in-situ compaction experiments using XCT. 
+Similar to dry fabrics, the compaction response of prepregs follows a viscoelastic, non-linear, stress-strain relationship. Any increase in the compaction load leads to an increase in .ber volume fraction, which can be attributed to the domination of .ber bed compaction compared to resin [275]. Therefore, the compaction response of the un-cured pre-preg relies on the viscoelastic or inelastic properties (stress relaxation, creep, and cyclic properties), studying these properties is very impor-tant. In general, the viscoelastic or inelastic properties of the prepreg can be studied using a dynamic mechanical analyzer (DMA), differential scanning calorimetry (DSC), and a universal testing machine (UTM) [282每285]. The tracking of resin .ow is not possible with these instru-ments, which is a major drawback of these characterization techniques. In contrast, the overall process can be adequately characterized and vi-sualized with the aid of in-situ compaction using XCT, by incorporating a compaction .xture with an environmental chamber inside the XCT machine. 
+There are challenges associated with studying the viscoelastic re-sponse of prepregs using in-situ XCT. The relaxation behavior of pre-pregs depends on temperature, .ber orientation or stacking sequence, rate effects, strain amplitude, sample size, frequency, etc. The stress re-laxation response of prepregs decreases with increasing temperature and decreasing % strain. Also, temperature has a signi.cant effect on the thickness of prepregs during stress relaxation tests [250]. Besides, unidirectional fabrics undergo higher compaction than cross-ply fabrics, which can be attributed to more friction between the .bers in the latter case 
+[286]. Nevertheless, XCT can help to better understand rate effects in the compaction behavior of prepregs and associated parameters. 
+To mimic the autoclave process, numerous compaction tests need to be performed at different pressures, therefore, un-interrupted in-situ XCT is ideal, but achieving good image contrast using LXCT is dif.cult, due to its high acquisition time and low .ux. On the other hand, performing such experiments using SXCT is very expensive, and there are sample size limitations. Further, SXCT may also damage the speci-men during continuous temporal studies, due to the high .ux. 
+5.2. Air permeability through prepregs 
+OoA/Autoclave prepregs can be fabricated by applying the resin .lm on both sides of the fabric, such that the dry fabric areas (partial impreg-nation) are maintained at the center in most of cases for removing the entrapped air during lay-up at room temperature. Air permeability is the primary parameter in prepregs that determines the component void content. Air permeability mainly depends on the degree of impreg-nation (DOI). The DOI is de.ned as the ratio between the .ber saturated volume to the total volume of the stack [61]. DOI can be measured by two methods; (i) manual method by performing the water pick-up test, and (ii) non-destructive testing (NDT) method with the help of two instruments, namely XCT and infrared (IR) thermography. Out of these two methods, the water pick-up test is the simplest and avoids the use of costly NDT instruments and post-processing tools. In this method, prepreg specimens are immersed in water; DOI is measured 
+K. Naresh et al. / Materials and Design 190 (2020) 108553 
+based on the weight change of the specimen before and after immer-sion. Measured DOI based on the XCT approach using Otsu's method and water pick-up test correlates well than IR thermography based ap-proach [287]. 
+The higher the degree of impregnation, the lower is the air perme-ability. As a result, the entrapped air locks within the plate. On the con-trary, the lower degree of impregnation results in unsaturated areas in the .ber bed, due to insuf.cient time to cover all areas before resin ge-lation 
+[61]. Hence, there should be a balance between these two. How-ever, the latter is less cumbersome than the former, since it can be controlled by choosing a proper dwell time. 
+Compaction pressure and temperature play a vital role in determin-ing the air permeability of prepregs. Determination of the air permeabil-ity is the .rst step for developing process models to predict the evacuation of entrapped air and the vacuum hold time [288]. Air perme-ability is higher at room temperature de-bulking, where the molecules in the resin are immobile in that state. However, the air permeability starts to decrease at elevated temperatures as the resin starts .lling the gaps due to the higher mobility of molecules at just slightly below or above the glass transition temperature (Tg). This can be attributed to a lower resin viscosity at this temperature. The .rst isothermal dwell period in a cure cycle is usually designed slightly below or above the Tg value of the resin for possible air removal from the compo-nent 
+[243]. Further, any increase in temperature beyond the .rst dwell, the molecules again have become immobile due to resin starting to gel. However, there is no change in air permeability at the end of the curing process 
+after 
+resin 
+gelation 
+[289,290]. Xin et al. [291] compared the air permeability of prepregs fabricated through autoclave and VBO pro-cesses. It was found that the percentage of voids are independent of the air permeability in autoclave-fabricated parts, due to the high com-paction pressures. Conversely, entrapped air is naturally dif.cult to evacuate completely during debulking at 1 atm pressure in VBO pro-cessing prepregs. Therefore, voids in this process rely on the air perme-ability, particularly in the case of thick laminates. The lack of air permeability leads to a high void content in the VBO process. 
+The falling pressure method has been used by a number of re-searchers [289,292] for measuring the in-plane and through-thickness air permeability of prepregs. In-plane air permeability can be measured using this method by using the vacuum bag consumables, mainly plac-ing the edge breathing dams around the prepreg stack to ensure air ex-traction in the in-plane direction and using a non-perforated release .lm to prevent air.ow in the through-thickness direction [288]. On the other hand, vacuum bag assembly, including the porous release ply or perforated release .lm, can be used to perform through-thickness air permeability experiments [240]. However, measuring the air permeability using the current experimental methods is time-consuming and labor-intensive. The movement of voids is challenging to track during the experiment. Instead, the uncured prepregs can be compacted dynamically using in-situ XCT. Further, voxel-based material modeling approaches can be developed by using XCT images of compacted uncured prepregs as an input in .ow simulation software, such as Geodict, VoxTex, etc., to predict the air permeability of prepregs. 
+The air permeability of prepregs varies with .ber architecture and orientation effects. Kratz and Hubert [240] investigated the air permeability of three different OoA prepregs, these being unidirec-tional, plain weave, and satin weave, based on their porosity net-works and dry tow area using XCT. Out of three prepreg systems, the plain weave prepreg exhibited higher in-plane and transverse air permeabilities, owing to their high crimp, which can be attributed to the interlacement of every warp tow with a weft tow or vice-versa. In contrast, unidirectional prepregs do not possess any crimp, resulting in the lowest air permeability amongst the three prepregs. The interlayer air permeability of carbon/PEEK (AS4/ APC2) thermoplastic prepreg stacks based on different orientations, namely 0～/0～, 0～/90～ and 90～/90～ was studied using XCT by Zhang and Gillespie [293]. It was found that the air permeability was higher for the 0～/0～orientation (.bers and .ow direction are same) and least for 90～/90～ orientation. 
+Moreover, it is well known that the transverse air permeability of prepregs is lower than the in-plane air permeability, due to the anisot-ropy of prepregs [294]. Several researchers [266,295,296]madeat-tempts to enhance the transverse air permeability of prepregs. As compared to continuous .lm prepreg, the semi-prepreg (partially resin-impregnated areas throughout the .ber bed surface) exhibit three orders of magnitude higher transverse air permeability [297]. This is because the volatiles can escape through the air evacuation chan-nels in the semi-prepreg. However, semi-prepreg materials require a low viscosity resin, due to the large dry areas. As a result, resin bleed out is dif.cult to control. 
+Enhancing the transverse air permeability and reducing surface po-rosity issues in OoA, which are the major issues in woven prepregs, could be possible by using USCpreg, developed by the University of Southern California (USC) research group [298]. The USCpreg (Fig. 
+19a) can be fabricated by creating dry gaps over the fabric using a pair of resin-coated rollers [299]; with this, through-thickness air transport is possible. Moreover, zero surface porosity and defect-free components are possible without the need for edge breathing dams. Fig. 
+19(b) presents the through-thickness air permeability values for different prepregs, namely, control, one-sided, USCpreg and traditional VBO prepreg. It is clear from the .gure that the USCpreg exhibits a higher through-thickness air permeability, irrespective of the number of plies compared to the other prepregs. 
+As with the USCpreg approach, a polymer .lm dewetting method 
+enhances the transverse air permeability of the prepreg by dewetting the resin below the cure temperature on a substrate. It leads to a discontinuous resin pattern, which creates additional path-ways in the through-thickness direction for gases to evacuate, resulting in porosity-free laminates, even at low pressures associated with the VBO curing process. The transverse air permeability of dewetted pre-preg (Prepreg-104-120) was 36每52 times higher than that for the UD control prepreg. Therefore, the former exhibited only .ow-induced po-rosity (intra-ply voids), while the control prepreg exhibited both air (gas) induced (interply voids) and .ow-induced porosity, which can be seen in the XCT images in Fig. 
+20. The intra-ply voids are due to in-complete wet-out, which can be attributed to the adoption of either im-proper cure cycle, i.e., an insuf.cient dwell time at low viscosity, or air that is not entirely removed between the .bers inside the tows during the initial stage. 
+5.3. Void characterization in prepregs 
+Void characterization is usually done at different stages of the manufacturing cycle to understand the effects of process conditions on the development and movement of the voids. Moreover, it is also very important to characterize the spatial distribution of voids in cured com-posites and to understand the performance of the manufactured part. The size and shape of voids depend on .ber architecture, type of resin used, and stacking sequence [300]. The void volume fraction (Vv)is a commonly-used void characterization parameter in FRP composites [261], which can be determined for layer-wise and global sample using VGStudio Max software, after post-processing XCT images [124,224,254]. The ability of VGStudio Max software to obtain layer-wise void distribution is highly valuable. 
+Extensive studies have been performed on post-cured samples using XCT 
+to 
+characterize 
+the 
+presence 
+of 
+voids 
+[14,132,244]. Detailed discus-sions on void characterization and its effect on the performance of the composites can be found in recent literature reviews [60,243]. Kastner et al. [301] studied different types of void content in carbon/epoxy pre-preg samples ranging from 1 to 10% by volume, using XCT. Spherical-shaped voids were found in samples having a void volume content of b3%, while .at-shaped voids were observed in samples with a void vol-ume content of above 3%. Such voids degrade the mechanical properties 
+K. Naresh et al. / Materials and Design 190 (2020) 108553 
+(a) Manufacturing process of USCpreg (b) Through-thickness air permeability 
+of composites and reduce component ef.ciency. The effect of voids on the mechanical property degradation of autoclave fabricated compos-ites has been studied by many researchers [124,132,253,302,303] using XCT. Tserpes et al. [252] developed a progressive damage model based on data obtained from XCT scans to analyze the effect of void con-tent effect on the transverse tensile properties of carbon/epoxy prepreg composites fabricated using the autoclave process. The results highlighted a small decrease in stiffness, and a signi.cant decrease in tensile strength, as the void content increases from 1.56% to 3.43%. 
+In general, four possible causes of void formation in prepregs are: 
+(i) 
+air entrapment between or in .ber tows during prepreg manufactur-ing, (ii) moisture absorption in the prepreg during storage, (iii) air en-trapment between the plies during lay-up, and (iv) volatiles generated during resin cure [36,304,305]. Approaches to minimize issues (ii) to 
+(iv) 
+during prepreg manufacturing are discussed below. 
+Absorbed moisture can be predicted using a diffusion-based void model [306] and removed by optimizing the effect of prepreg out time [261]. Void growth takes place only when the concentration of moisture in the resin (Cresin) is higher than the concentration of moisture at the void surface (Cvoid). The parameter Cvoid is directly proportional to the square of the pressure [261,307]. Therefore, void growth would not take place during autoclave consolidation of prepregs, due to their high operating pressures, when compared to the VBO consolidation of prepregs. Air entrapment can be eliminated by choosing an optimum DOI during prepreg production and interrupted debulking during lay-up, 
+which 
+relies 
+on 
+the 
+thickness 
+of 
+the 
+plate 
+[308,309]. However, com-plete void removal is not possible at room temperature; for that, under-standing the effect of heating rate, degree of cure, resin viscosity, applied pressure, temperature ramp, dwell time, and post-cure time on cure cycle is important. In particular, choosing the appropriate dwell temperature is essential to enable resin .ow into the porous areas 
+[310]. 
+These 
+details 
+can 
+be 
+found 
+in 
+[311]. The cure cycle is usually designed in such a way that a lower resin viscosity and, therefore, a lower degree of cure are maintained until the end of the .rst dwell cycle for possible void transport [243]. The resin viscosity can be mea-sured using a rheometer, whereas the degree of cure (汐) can be mea-sured using differential scanning calorimetry. These are given by [312,313], 
+G0 iG}
+米 .e5T
+肋 
+忖Hresidual 
+汐 . 1. e6T
+忖Htotal 
+Prepreg type  2D Visualization  3D Visualization  
+Control Prepreg  
+Prepreg 104-120  
+Fig. 20. Visualization of microstructure in 2D and 3D for different UD prepregs treated with ammonia using XCT prior to cure 
+[238].                          
+where 米 . is the complex viscosity; G∩ and G" are the storage and loss moduli, respectively; 肋 is the angular frequency; 忖Hresidual and 忖Htotal are the residual and total reaction heat, respectively. 
+The effect of these parameters can be studied on un-cured prepregs at different pressures and temperatures by performing in-situ experi-ments using XCT to mimic the complete cure cycle. For example, the vacuum bag mold closing process can be replicated by performing com-paction and stress-relaxation experiments while the dwelling process can be mimicked by performing compaction creep experiments. The consideration of residual stress/strain before designing the cure cycle is also essential, since these properties can be affected by the aforemen-tioned 
+cure 
+cycle 
+parameters 
+[314]. 
+XCT is a promising tool for measuring all four possible ways of voids discussed above. However, the in-situ XCT can be effectively used only to monitor the fourth possible void type during composite laminate cur-ing. Plessix et al. [255] performed in-situ ultra-fast SXCT experiments to study the porosity behavior of carbon/epoxy prepregs by varying the pressure to replicate the autoclave cure process. They used two cure cy-cles with one of them, similar to the OoA prepreg process performed at a constant pressure of 0.1 MPa, and the other is shown in Fig. 
+21(d). The dramatic decrease in void content with the increase in pressure from 
+0.1 MPa to 0.8 MPa is evident in Fig. 
+21(b). The void content increases again when the pressure decreases from 0.8 MPa to 0.1 MPa (Fig. 
+21c). These results emphasize the value of using XCT for in-situ real-time monitoring of the voids in laminates. 
+Post-cured laminates generally contain two types of porosity: 
+(i) surface porosity and (ii) internal porosity. The reason for the forma-tion of these porosities and possible ways to minimize or eliminate them during the consolidation of the composite from placing the pre-preg on the mold surface to the end of the composite curing process are discussed below. 
+5.3.1. Surface porosity 
+Air entrapment between the interface of the .rst prepreg ply and the mold surface causes surface porosity. There are several parameters, such as prepreg out-time, freezing, and process effects, which cause surface porosity. Amongst these, vacuum hold time plays an important role in determining the level of surface porosity, since longer vacuum hold time gives lower levels of porosity. Details about these effects are re-ported in [315]. However, the effect of surface porosity on the structural capability of a component is less compared to internal porosity, al-though it reduces the aesthetic appearance of the product. Conse-quently, it may result in the extra costs for the surface .nishing of the component. These surface porosities can be estimated and then mini-mized using statistical analysis tools and with the help of VGStudio Max software, after reconstructing the XCT images [124,225]. 
+Extensive surface porosity in woven prepreg components leads to surface roughness (58.6 米m). In contrast, UD prepregs typically exhibit a smooth surface (12.7 米m). This is attributed to different .ber architec-tures of the woven and UD prepregs [316]. The weaving patterns of woven fabrics are such that there are regions (overlaps and underlaps) for easy air entrapment; this phenomenon has been studied using XCT [240]. Surface porosity in woven prepregs can be minimized using a sil-icone rubber contoured roller instead of a conventional hard rubber roller 
+At the same time, this porosity can be entirely eliminated by 
+the 
+usage 
+of 
+USCpreg, 
+as 
+discussed 
+earlier 
+[299]. 
+5.3.2. Internal porosity 
+Unlike surface porosity, internal porosity occurs between adjacent plies and .ber tows. Centea and Hubert developed a representa-tive model to predict tow impregnation and validated the model with the results from scanned prepreg samples using XCT. It was reported that if the cure cycle involves a high initial resin degree of cure and a low temperature, .ow-induced voids can occurr, particularly for tows with more circular geometries (high .ber volume fraction) due to the long tow .ow region. Voids between .ber tows as a function of prepreg out time were studied using XCT by Grunenfelder et al. [246]. They found that the .ber tow porosity of a prepreg increases, as the room temperature aging time increases than the prepreg stated out life ac-cording to the manufacturer datasheet. Besides, such porosity remains in the .ber tow when using a high degree of cure resin. The internal po-rosity degrades the mechanical properties of the component. Therefore, understanding resin cure kinetics and rheology is important when try-ing to eliminate internal porosity. 
+5.3.2.1. Resin cure kinetics and rheology. OoA prepreg processing requires a long cure cycle to ensure that the resulting properties are equivalent to autoclave quality. This is due to the fact that a lower consolidation pres-sure is applied [318]. However, it is clearly desirable to reduce the manufacturing time without compromising the product quality when using OoA resins. These resins should normally react (high viscosity) at room temperature for the air evacuation channels remain open and to prevent ※cold .ow,§ on the other hand, these should have low viscos-ity and less volatile generation at elevated temperatures for complete saturation of the porous areas before gelation and .nal cure. ※Cold .ow§ is also induced by long debulking cycles, which leads to intra-tow voids [304]. However, it is clear from the XCT images that one hour debulking signi.cantly reduces the presence of inter-ply voids in prepregs compared to samples without any vacuum hold, as indicated in Fig. 
+22 
+[244]. The inter-ply voids are represented by a gray color. This decrease is attributed to tow nesting and ply adhesion, due to compaction. 
+To date, the majority of resins used in aerospace-grade prepregs are toughened epoxy resins [284], which induce exothermic reactions at high temperatures. Consequently, localized heat (thermal overshoot) occurs in the center of the laminate, or where the thickness of the lam-inate is high [319]. Besides, there is a tendency for components to fail catastrophically owing to less impact energy of aerospace-grade epoxy resins compared to thermoplastic polymers. Therefore, researchers should focus on other resin systems as well, to overcome this. Prepregs manufactured based on a hybrid resin (thermoset and thermoplastic) system possess excellent impact energy compared to thermoset pre-pregs [320]. 
+The bleeder geometry also determines the resin volume fraction in a laminate, which possesses a signi.cant effect on the cure cycle. The in-.uence of pore gaps in the bleeder, and its thickness on the degree of cure, and thermal overshoot of graphite/epoxy prepreg composites was studied by Ganapathi et al. [321]. A thin bleeder generally has fewer pores and absorbs less resin, which exhibit a high thermal over-shoot at the center of the laminate while the thick bleeders cause lower thermal overshoot and delay the degree of cure. For further de-tails about the voids induced by the thermal gradients during prepreg consolidation 
+studied 
+using 
+XCT, 
+is 
+given 
+elsewhere 
+[239]. An decrease in void content with increasing temperature from 30 ～C to 90 ～C during the consolidation of aerospace-grade prepreg systems (Hexcel) was found using XCT, coupled 
+with 
+VGStudio 
+Max 
+software 
+[224]. 
+5.3.3. Effect of cure cycle on void formation/removal 
+The entrapment of voids in the micro and macro-regions of a com-posite are dif.cult to control. These parameters rely on the compaction mechanism 
+(room 
+temperature 
+vacuum 
+hold) 
+and 
+the 
+cure 
+cycle 
+[305]. A comparison of interply and intraply voids for different cured condi-tioned laminates (fresh, t1,t2,t3,t4, and cured) by hand-layup and auto-mated .ber placement (AFP) is shown in Fig. 
+23 
+[243]. It can be seen from the .gure that most of the voids in the fresh state are intraply voids, due to the air evacuation channels in both HLU and AFP. These intraply voids are completely removed after the .rst ramp (t1) in AFP processing and after .rst dwell (t2) in HLU. Most of the interply voids are eliminated after the .rst dwell phase in AFP while the interply voids are removed after the .rst dwell in HLU, though complete interply void removal is not possible. The resin starts gelling after the .rst dwell; therefore no residual voids can be removed after this stage [322]. The 
+(a) No vacuum hold (b) 1 hour vacuum hold 
+increase in interply voids after t2 in both AFP and HLU is due to a change in pressure. Therefore, changing the pressure after the .rst dwell is not desirable in the OoA process. The overall void content is lower in the case of AFP than in HLU, though the intraply void content in the fresh state is slightly higher for AFP (6.01%). Hence, it emphasizes the robust-ness of AFP over HLU. 
+Fig. 
+24(a) shows the void spatial distribution in unidirectional car-bon/epoxy prepreg laminates fabricated according to four different cur-ing cycles. Fig. 
+24(b) shows the rod-like structure, which includes the coalescence of voids along the .ber direction (Z-axis) [313], since the air permeability is higher in the .ber direction relative to perpendicular to the .ber direction [323]. Amongst these four laminates, LAM-C2 (Fig. 
+24a) is optimum in terms of achieving a low void volume fraction (Vv = 0.4%), due to maintaining a lower viscosity for a longer time, be-fore resin gelation. However, the time available for void suppression or mitigation in LAM-C1 is less, due to the higher viscosities that lead to a higher Vv (2.9%), compared to the other laminates. However, the resid-ual porosity (1.1%) is lower in LAM-C3 compared to LAM-C1 and LAM-C0 (Vv = 2.7%), due to higher .rst dwell (130 ～C) after the initial .ash. The void content in LAM-C1 can be reduced by varying the pres-sure instead of maintaining it constant and reducing the initial dwell temperature, which is equivalent to LAM\\C2. 
+K. Naresh et al. / Materials and Design 190 (2020) 108553 
+The XCT is a powerful tool for analyzing voids, not only in thermoset leads to higher levels of void formation (Vv = 3.81%). On the other prepreg composites but also in thermoplastic prepreg composites. In hand, no voids were present when the laminate edges are open to vac-contrast to thermoset prepregs, the void characterization of thermo-uum [236]. plastic prepregs mainly relies on (i) through-thickness air diffusion and (ii) a combination of air diffusion to a single layer and through the permeable interlayer regions. Such void reduction mechanisms in 6. Future directions carbon/poly-ether-ether-ketone (PEEK) composites can be seen in the XCT images in Fig. 
+25. It is clear from the .gure that through-thickness XCT studies are useful in designing and developing material models/ air diffusion only occurs when the laminate edges are sealed, which twins for manufacturing advanced aerospace composite structures. 
+(a) 72-layer with edge sealed  (b) 72-layer with perimeter open to vacuum  
+3D volume  Voids in sample  3D volume  Voids in sample  
+Fig. 25. Void distribution in Carbon/PEEK composites: (a) Edge sealed and (b) Perimeter open to vacuum 
+[236]. 
+K. Naresh et al. / Materials and Design 190 (2020) 108553 
+However, there are speci.c challenges that need to be addressed during composites manufacturing and modeling, which are discussed below. 
+Several XCT parameters during image acquisition and post-processing parameters (including reconstruction, voxel geometry crea-tion, and analysis, segmentation) need to be optimized, given that they play a vital role in accurate process characterization and modeling. Moreover, these XCT based approaches deal with mesoscale geometries based on RVE. XCT-aided material modeling approaches for under-standing the process behavior of macroscale geometries are very lim-ited, owing to dif.culties in achieving a high resolution and the high computational cost. As a result, it is challenging to mimic the exact pro-cess behavior of real structures. The following lists further areas of im-provement and potential future directions. 
+Further studies are required to explore several in-situ XCT set-up to continuously monitor .ow in three dimensions and generate the as-sociated numerical models. 
+Creep compaction studies using XCT to characterize un-cured pre-pregs at different rates of loading and temperatures. 
+Further studies on hybrid prepregs using in-situ XCT are also needed to clearly understand temperature and pressure effects. 
+The microstructural variation of .ber tows and ply distortion charac-teristics, resin bleed void coalescence, and their movement during dif-ferent stages of creep can be investigated with the help of XCT. 
+A combination of arti.cial intelligence (AI) tools and XCT technology can resolve issues associated with handling big data during compos-ites characterization and process modeling. 
+7. Conclusions 
+In this review, procedures for improving different characterization stages of aerospace composites manufacturing processes using XCT generated material models have been discussed. The review demon-strates that modern XCT equipment and procedures can provide useful information about reinforcing fabrics and prepregs during process char-acterization that can potentially reduce the number of experiments, time, and manpower. The in.uence of XCT parameters on image quality during scanning and post-processing, including data enhancement for reconstruction and voxel geometry creation, has been reviewed. The computation procedure based on reinforcement image segmentation and boundary condition assignment for simulations has also been discussed in detail. The limitations of meso models over the meso-macro and macro models and vice versa have been highlighted. Under-standing the effect of nesting during compaction on single and multi-layer dry fabrics using XCT for LCM characterization has been shown to be useful for predicting mold clamping forces and the .nal part thick-ness. A comparison of different CFD approaches with analytical and XCT based hybrid methods for predicting reinforcement permeability has also been reviewed in detail. A review of literature has highlighted promising results can be obtained from XCT based material models, suc-cessfully predicting the permeability of several types of reinforcement. The effective cure cycle design procedures for VBO prepregs and auto-clave techniques based on optimization of several processing parame-ters (debulking time, heating rate, degree of cure, dwell period, etc.) showed that void generation and mitigation can be better understood using XCT-based models. The technical aspects required to enhance the through-thickness air permeability and the void reduction mecha-nisms in both the thermoset and thermoplastic prepregs have been rig-orously reviewed. 
+Recent developments in aerospace manufacturing techniques coupled with advances in the modeling approach through the use of XCT and commercial FEM and CFD software packages were discussed in this study. These show that XCT based material models will help de-sign better materials for the next generation aerospace components. 
+CRediT authorship contribution statement 
+K. Naresh:Writing -original draft, Software, Validation, Formal anal-ysis, Visualization, Investigation, Resources.K.A. Khan:Conceptualiza-tion, Methodology, Data curation, Writing -review & editing, Visualization, Resources, Investigation, Supervision, Project administra-tion, Funding acquisition.R. Umer:Conceptualization, Methodology, Data curation, Writing -review & editing, Resources, Visualization, In-vestigation.W.J. Cantwell:Resources, Writing -review & editing. 
+Acknowledgment 
+This publication is based on work supported by the Khalifa Univer-sity of Science and Technology under Award No. CIRA-2018-15. 
+

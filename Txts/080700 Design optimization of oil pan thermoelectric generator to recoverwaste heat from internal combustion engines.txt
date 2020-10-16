@@ -1,0 +1,625 @@
+Energy 200 (2020) 117547
+Contents lists available at ScienceDirect
+Energy
+journal homepage: www.elsevier.com/locate/energy
+Design optimization of oil pan thermoelectric generator to recover
+waste heat from internal combustion engines
+*
+Mutabe Aljaghtham , Emrah Celik
+Department of Mechanical and Aerospace Engineering, University of Miami, USA
+article info abstract
+Article history:
+Nearly 75% of fuel energy is rejected to the environment and ultimately becomes waste heat in motor
+Received 1 June 2019
+vehicles. To recover some of this waste heat and enhance fuel efﬁciency, thermoelectric energy gener-
+Received in revised form
+ators(TEGs)possesshighpotential.WeinvestigatedthefeasibilityofutilizingTEGsintermsofoilpansto
+5 March 2020
+recover waste heat generated in internal combustion engines. Hot oil at the top surface of TEG and air
+Accepted 2 April 2020
+cooling at the bottom create a high thermal gradient for the thermoelectric conversion. An extensive
+Available online 13 April 2020
+multi-physics simulation framework was introduced to accurately simulate conversion of heat into
+electricitytakingintoaccountthermoelectricity,jouleheating,heatconductionandturbulentaircooling.
+Keywords:
+To maximize the thermoelectric power, dimensions and the total number of thermoelectric modules
+Thermoelectric generator
+wereoptimizedunderdifferentoilpangeometriesanddrivingconditions.Oursimulationsshowthatthe
+Simulation
+2
+
+maximum power density of 5.77 kW m is achieved with multi-step oil pan geometry under a 76 C
+Energy harvesting
+IC Engine temperaturedifference between the hot and cold sides. This powerdensity surpassed those reported for
+Fuel efﬁciency
+the previous, conventional (exhaust and radiator) thermoelectric applications and indicated that har-
+Oil pan
+vesting thermal energy from combustion engines using oil pans is a feasible energy recovery method-
+ology to enhance fuel efﬁciency in automotive vehicles.
+© 2020 Elsevier Ltd. All rights reserved.
+1. Introduction et al. [5] and Baatar et al. [6] replaced the conventional radiator
+withseventy-twoTEmodulesandwithoutaddingextradevicesor
+The majority of fuel energy in vehicles is ejected into the envi- changing the engine water cooling system, which generated a
+ronment in the form of waste heat through the exhaust and the maximum power of around 75 Watts. Hsiao et al. [7] showed that
+engine cooling systems. Therefore, thermoelectric (TE) materials integratingaTEgeneratoronanexhaustsystemcanperformbetter
+which convert heat directly into electric power possess a great than radiators. As a result, many studies followed this work,
+potential to recover some of this waste heat, improve the fuel ef- implementing TEG into exhaust system to generate electrical po-
+ﬁciency of the vehicle engine and reduce carbon dioxide emission wer [8]. Exhaust TE systems were employed in different conﬁgu-
+into the atmosphere [1]. Thermoelectric generators (TEGs) are rations including attachment into exhaust pipe [9], in a form of
+attractive energy conversion systems because they are durable, shell [10] or a rectangular block [11]. Fernandez et al. produced
+silent in operation, reliable, lightweight, vibration free and envi- 106.2 W [12] whenTEG was installed immediately downstream of
+ronmentally friendly [2]. catalytic converters, and 270 W [13] when TEG prototype was
+AccordingtoFiatResearchCenter,productionof800e1000Wof tested in the exhaust system of a spark-ignition and compression-
+TEG power would reduce CO by 12e14 g/km [3]. Automotive ignition engines. Durand et al. [14] placed TEGs at the manifolds
+2
+companies have recently increased attention to TEG systems to and after the exhaust after-treatment system (ATS) to generate
+convert wasted fuel energy in terms of heat, into electricity [4]. In 100 W and 30 W of electricity, respectively. Similarly, the Hi-Z
+theseapplications,theexhaustpipeandtheradiatorwereselected Technology, Inc [15]. Designed seventy-two HZ-13 bismuth-
+as the implementation sites for TEGs. In the radiator system, Kim telluride (Bi Te ) modules to generate 1 kW power directly from
+2 3
+the exhaust of a diesel engine at 300 HP and 1700 RPM.
+To summarize the recent TE studies in automotive applications
+discussedaboveandcomparetheirefﬁciencytogenerateelectrical
+* Corresponding author.1251 Memorial Drive Coral Fables, FL, 33146, USA.
+power, we prepared Fig. 1 where power density (power per unit
+E-mail address: e.celik@miami.edu (E. Celik).
+https://doi.org/10.1016/j.energy.2020.117547
+0360-5442/© 2020 Elsevier Ltd. All rights reserved.
+2 M. Aljaghtham, E. Celik / Energy 200 (2020) 117547
+Nomenclature H module height (m)
+d gap distance between p and n elements (m)
+S Seebeck coefﬁcient for p-type element (V/K)
+p
+Symbols
+S Seebeck coefﬁcient for n-type element (V/K)
+n
+c speciﬁc heat (J/kg K) N total number of TE modules
+2
+*
+q heatﬂux (watt/m )
+Z optimalﬁgure of merit
+3
+_
+q heat generation (watt/m )
+R total electric internal resistance (U)
+k thermal conductivity (watt/m K)
+R load resistance (U)
+0
+
+T temperature ( C) ’
+m optimum resistance ratio
+opt
+
+T top surface average temperature ( C)
+h
+P thermoelectric output power (watts)
+
+T bottom surface average temperature ( C)
+c Q the thermal input to the hot junction (watts)
+h
+
+T ambient air average temperature ( C)
+air
+2
+Greek symbols
+h air average heat transfer coefﬁcient (watt/m K)
+air
+3
+r density (kg/m )
+I electric current (A)
+s electrical conductivity (U m)
+W width of p-type element (m)
+p
+a Seebeck coefﬁcient (V/K)
+W width of n-type element (m)
+n
+f electric potential (V)
+t p-n type thickness (m)
+2
+h efﬁciency of thermoelectric generator
+TEG
+A surface area of p-element (m )
+p
+2
+A surface area of n-element (m )
+n
+recovery of an IC engine oil pan made out of TE modules using
+advanced ﬁnite element methods. More speciﬁcally, we deter-
+mined the amount of useable electrical energy converted from
+waste engine oil heat in automobiles by incorporating outside
+temperature, vehicle speed, size and shape, and TE modules.
+Manufacturabilityoftheinvestigatedsystemandthecomparisonof
+existing TE applications are also discussed in this study.
+2. Methodology
+Inthissection,theﬁniteelementsimulationtechniquesusedto
+investigate TE device application within IC engines are described.
+ThesimulationparameterssuchasTEmodulegeometry,TEmodule
+quantity, oil pan shape and temperature difference across the oil
+pan are optimized to achieve maximum output power. The details
+of this optimization procedure are also described in this section.
+2.1. Thermoelectric energy conversion simulation
+Fig. 1. Performance of TEGs implemented in automotive applications in the past
+decade. If the TEGs are stacked, power density was calculated as the power divided by
+A thermoelectric module typically comprises of pairs of the
+the number of stacks to ﬁnd power density per single layer [18e38].
+alternating p-n type semiconductor elements (generator legs),
+whicharestructuredasthermallyparallelandelectricallyinseries
+area)dataforasinglelayerofTEmodulesaregivenforeveryyearin
+as shown in Fig. 2. The heat ﬂow, which is partly converted into
+thepastdecade.Asthisﬁgurepresents,thepowerdensityshowsa
+electricalpower,isinducedbyheatingonesideofthearrangement
+gradually increasing trend over the years with the advancing TE
+(hot surface) while the opposite side is cooled (cold surface). The
+technology.TheonlystudystandingoutofthistrendisZhangetal.
+Seebeck effect and Joule heating are the two phenomena taking
+2
+[16]wherehigh powerdensityof5.26 kwatts. m was generated
+place in TEG operation. Under steady state conditions, the contri-
+
+with 500 C temperature difference between hot and cold sides.
+bution into energy ﬂow can be described by two main equations,
+Unlike the radiator and exhaust system applications of thermo-
+heat ﬂow equation (Eq. (1)) and continuity equation (Eq. (2)), to
+electricity described above, in this study, we present a novel
+represent temperature gradient and electric variation ﬁeld,
+implementation of TE systems within the oil pans of internal
+respectively, which are expressed as follows:
+combustion (IC) engines, where a higher amount of heat is gener-
+atedandlosttotheenvironment. Asshown inFig.1, applicationof vT
+_
+rc þVq ¼ q (1)
+TE systems in the oil pans of IC engines is feasible, and it can pro-
+vt
+vide superior performance compared to the exhaust and radiator
+ 
+implementations. Unlike the exhaust systems which require a
+vE
+V Jþ½ε ¼0 (2)
+water supply, heat exchanger and by-pass (backpressure) as
+vt
+describedbyEderetal.[17],anengineoilpanintegratedTEsystem
+does not need a supplementary system and therefore is cost _
+where, r, cq,q and ε represent the density, speciﬁc heat, heat ﬂux,
+effective to implement on any motor vehicle. To demonstrate the
+heatgenerationandthedielectricpermittivitymatrix,respectively.
+performance of oil pan integration, we simulated the energy
+Above equations can be coupled together by the following
+M. Aljaghtham, E. Celik / Energy 200 (2020) 117547 3
+analytical model. Details of the validation process for the thermo-
+electric simulations is given in the supplementary section of this
+study. After validating the numerical model on the single TE
+module, we extended the simulation for multiple modules based
+on the geometry of an oil pan as described in the next section.
+Bismuth telluride (Bi Te ) was selected as the TE material in the
+2 3
+simulations. The material properties (i.e. Seebeck coefﬁcient, elec-
+trical conductivity and, thermal conductivity) were input as
+boundary conditions and estimated at the average temperature of
+hot and cold surfaces as shown inTable 1.
+Poweroutputwascalculatedfrom(Eq.(6))fordifferentexternal
+(load) resistance values and an electric current which was deter-
+mined at temperature gradient for hot and cold surfaces. The
+maximum power was achieved when the external resistance
+became identical to the internal resistance of the thermoelectric
+system between metal and a p-n type element.
+2.2. Optimization of TE module dimensions
+Thedimensionsofasinglemoduleheightandplanedimensions
+(width and thickness) were optimized for the integrated oil pan
+geometry to achieve the highest value of thermoelectric power.
+Fig. 2. Single module of thermoelectric generator.
+FiniteelementsimulationwasperformedonasingleTEmoduleby
+varyingthese geometricaldesignparameterstoachievemaximum
+equations: output power. Geometrical design parameters of height, H, plane
+dimensions (width W ,W and thickness t), and the gap distance
+p n
+q¼½k:VT (3) between p-n element, d are shown in Fig. 2.
+ReducingthemoduleheightisdesirablesinceTEpowerrapidly
+increases as the module height decreases; however, as the TE
+J¼½s:ðE½a:VTÞ (4)
+module becomes thinner by reducing z-height, the difﬁculty of
+modulefabricationarises.supplementaryFig.S2demonstratesthe
+E¼Vf (5)
+variation of thermoelectric power of a single module with the
+module height (H). The height of 2 mm was considered to be the
+where, k, s and a denote thermal conductivity, electrical conduc-
+optimalheightforeachsingleTEmoduleconsideringthedifﬁculty
+tivity, and Seebeck coefﬁcient matrices for p-n type, respectively.
+of fabrication below this module height. 2 mm was used for the
+Symbolfrepresentselectricpotential.TheperformanceofTEGcan
+remaining investigation of the TE design parameters in this study.
+be described through the Seebeck coefﬁcient, electrical resistivity,
+The height was an independent designparameter to obtain the
+andthermalconductivity.Substituting(3e5)into(1e2)andsolving
+highest power. However, in optimization of plane dimensions, the
+thegoverningequationsyieldsthesolutionfortemperature(T),an
+gap distance between p and n elements was selected to be one
+electric potential (f) and current (I).
+fourthofthetotalmodulewidth(d¼0.25(w þw )).Likewise,the
+p n
+Wesolvedthegoverningequationsdescribedabovenumerically
+ratio of p-element width (W ) to that of n-element (W)was
+p n
+by using ANSYS Mechanical (APDL) ﬁnite element software. The
+dependedupontheratioofSeebeckcoefﬁcients(S ,S )asfollows:
+p n
+model was constructed starting with a single thermal electric
+module containing p- and n-typeof elementsas shown inFig. 2.A
+W S
+p p
+¼ (7)
+3-D 20-node hexahedron SOLID226 coupled ﬁeld elements with
+W S
+n n
+structural,thermal,andelectricaldegreesoffreedomatnodeswere
+We determined the optimal plane dimensions of an individual
+used in the simulation to determine thermoelectric current and
+2
+TEmoduletobeWp¼1.96cm,Wn¼1.5cm,Ap¼2.9410-2cm ,
+voltage as a function of internal load resistance. The power gener-
+2 2
+An ¼ 2.96  10-2 cm and d ¼ 8.97  10 cm. Since the Seebeck
+ated from a TEG was calculated using current and the external
+coefﬁcientvalueofp-typebismuthtelluride(Bi Te )ishigherthan
+2 3
+resistance (R ) according to the following power equation:
+0
+that of n-type, width and area of the p-sectionwas designed to be
+larger than the n-section of the module to achieve maximum
+2
+P¼I R (6)
+0
+output power. Similar to the z-height, plane dimensions of the TE
+Validation of the simulations were compared to the previous modules attached to the oil pan were also optimized regarding
+work by Antonova and Looman [39] where power output for the maximum power output. As the plane dimensions of TE modules
+single module was obtained to be 1.44 W, nearly identical to this decreased, the number of modules increased since more TE mod-
+study (1.43 W). The simulations were also compared against the ulescanbeﬁtatthesameoilpanareaasmarkedinFig.3.However,
+Table 1
+Properties of n- and p-type TE materials.
+Thermoelectric Seebeck coefﬁcienta (V/K) Thermal conductivity k (W/m.K) Electrical conductivitys (U:m)
+Material
+6 7
+n-type [40] 230 x 10 1.2 1:75 x 10
+6 7
+p-type [40] 195x 10 1.4 1:35 x 10
+4 M. Aljaghtham, E. Celik / Energy 200 (2020) 117547
+increasing the number of modules further does not contribute
+signiﬁcantly to the power output.
+2.3. Thermoelectric simulation of oil pans with different geometries
+In addition to the height and the plane dimensions of TE mod-
+ules, surface area of the oil panwas also considered to be a design
+parameterto optimizethetotal numberof modules. Wesimulated
+three oil pan geometries; 1) Flat plate oil pan, 2) Oil pan with a
+single step, 3) Oil pan with multi-steps. The bottom surface of the
+oilpanisreplacedbyTEmoduleswhichcorrespondtoeachoilpan
+geometry as displayed on Fig. 5
+2.4. Numerical simulation of air cooling under the oil pan
+Thetemperatureatthetop(hot)andthebottom(cold)surfaces
+Fig. 3. Different plane dimensions of TE modules at the same surface area of oil pan.
+were input as boundary conditions in the thermoelectric simula-
+tions to obtain the output power (see Fig. 6). As shown in
+Supplementary Fig. S3, signiﬁcantly higher thermoelectric power
+asthenumberofTEmodulesincreases,thecostandthedifﬁcultyof
+can begenerated if thetemperature gradient is increased between
+fabricationtendtoincrease.Therefore,optimalnumberofmodules
+hot and cold surfaces The maximum temperature in the cylinder
+was determined to be the number obtained for 95% of the
+
+wall of an IC engine is around 2200 C [41]. Although the engine
+maximum power output to be achieved. As demonstrated in Fig. 4
+temperature can reach to high levels, engine oil temperature is
+fortheﬂatplateasanexample,afterthe95%moduleselectionline,
+determined based on the type and cycle of the engine [42]aswell
+Fig. 4. A) TE modules simulation for ﬂat shape. B) optimal number of TE modules used in ﬂat shape.
+Fig. 5. Different TE oil pan geometries, A) ﬂat plate shape, B) single step, and C) multi steps shape.
+M. Aljaghtham, E. Celik / Energy 200 (2020) 117547 5
+astheheattransferefﬁciency[43].Theheattransferisalsoaffected analytical convective heat transfer calculations for ﬂat oil pan ge-
+bytheworkingﬂuidtypeandtheaveragewalltemperature[44].A ometryas detailed in the supplementary section of this study. The
+coolantjacketisusedtocoolthecylinderwall,whilethecirculation deviation of temperature calculations between the analytical so-
+oilaroundtheengineisusedtocoolandlubricatetheotherengine lution and the CFD simulations was around 2%. Heat convection
+parts. In this study, the hot side temperature was assumed to be transfercanbesigniﬁcantlyimprovedbyeitherincreasingtheheat
+constant and equal to the average oil engine temperature. Oper- transfercoefﬁcient,h,orincreasingtheheattransferarea,A,which
+ating temperatures of engine lubrication are given in literature can be achieved by assuming multi-steps oil pan shapes. Another
+ 
+withintherangefrom100 Cto120 C[45].Hence,inthisstudythe method to remove the heat from the oil pan bottom wall can be
+hot side average temperature is assumed at the steady state oil achievedbyconstructingﬁnsontothebottomsurfaceoftheoilpan
+
+operatingtemperatureof110 C .Thetemperatureofthecoldsideis to enhance the convective air-cooling process. The cooling of the
+however determined by the cooling performance of the air ﬂow bottom surface with ﬁns reduces the bottom surface wall temper-
+around the bottom surface of the oil pan. Air cooling depends on ature which leads to an increase in the output TE power. As illus-
+the surface geometry, the outside temperature, and the velocity of trated in Fig. 7 for different oil pan geometries, 28 pin ﬁns with a
+thevehicle.Inordertodeterminethebottomsurfacetemperature, 2cmdiameterand6cmlengthareattachedontoaﬂatplateoilpan
+ANSYS Fluent computational ﬂuid dynamics (CFD) software was shape. For the single step geometry, the same number of ﬁns are
+used to simulate airﬂow under the oil pan at different vehicle usedbutwithalengthof6cmand12cm.Thelengthwas selected
+speeds,differentambientairtemperaturesandsurfacegeometries. considering the clearance between the bottom surface of the oil
+The COUPLED algorithm was used to solve the steady-state heat pan and the ground.
+transfer problem. SSTk u turbulence model was adopted to
+simulatetheairboundarylayerﬂowsaroundbottomsurfaceofthe
+3. Results
+oil pan and to determine the bottom surface temperature. As dis-
+played in Figs. 6 and S1, the boundary conditions for airﬂow are
+3.1. Temperature ﬁeld at the bottom surface of oil pan
+governed by the airﬂow velocity, and air temperature. By varying
+these parameters (air velocity and temperature) in CFD simula-
+To generate maximum thermoelectric output power, the tem-
+tions, bottom surface temperature of the oil pan was determined.
+perature gradient between the hot and cold surfaces needs to be
+The accuracy of the CFD simulations was validated by performing
+large.CFDsimulationresultsshowthestrongrelationshipbetween
+the air velocity and bottom surface temperature of the oil pan. In
+addition to the effect of air ﬂow velocity, the ambient air temper-
+ature also affects the bottom surface temperature. Thus, in a cold
+climate, ambient air will create a lower air stream temperature on
+the bottomwall of the oil pan than those vehicles in a hotclimate.
+CFDSimulationsdemonstratethatatthevehiclespeedof120km/h
+
+and ambient temperature 0 C, the average surface temperature
+alongthebottomwallsurfaceareaoftheoilpanforﬂat,singlestep
+ 
+and multi-steps geometries can be estimated around 68 C,64 C,
+
+and 55 C, respectively, as shown in Fig. 8.
+Inadditiontoincreasingthecoolingairvelocity,theattachment
+of ﬁns onto the bottom surface of the oil pan reduces the bottom
+surface temperature and increases the difference temperature.
+Therefore,byconstructingﬁns,thebottomsurfacetemperaturesin
+
+the same driving conditions (120 km/h and 0 C ) were further
+
+decreased to 50, 45, and 34 C forﬂat, single step and multi-steps
+geometries, respectively, as displayed in Fig. 9.
+3.2. Thermoelectric power generation
+Aftersimulating thetemperatureﬁeld on thebottomsurface of
+theoilpanconsideringthevehiclemovingat120km/h,theoutput
+thermoelectric power can be obtained via thermoelectric simula-
+Fig. 6. Schematic of TEG integrated single stepped oil pan (conventional oil pan). tions. Fig.10 displays the maximum power generated for different
+Fig. 7. Pin ﬁns attached to the bottom surface of ﬂat and single stepped oil pan geometries.
+6 M. Aljaghtham, E. Celik / Energy 200 (2020) 117547
+
+Fig. 8. Temperature distribution for bottom surface of the oil pan at 120 km/h and 0 C for (a) ﬂat plate shape, and (b) single step, and (c) multi steps shape.
+
+Fig. 9. Temperature distribution for bottom surface of the pin ﬁns oil pan at 120 km/h and 0 C for (a) ﬂat plate shape, and (b) single step, and (c) multi steps shape.
+ 
+Fig.10. TE power generated from different shaped oil pan geometries at 120 km/h, a) outside temperature of 0 C b) outside temperature of 25 C.
+  
+oil pan shapes for 0 C and 25 C outside temperature. The power multi-step oil pan shape (at 120 km/h and 0 C ) generated 78.3%
+extractedfromthe192TEmodulesattachedtoaﬂatshapedoilpan and 71.3% output power higher than ﬂat plate and single step oil
+
+was around 84 W with the temperature gradient of 43 C . On the pan,respectively.ThevariationofoutputpowergeneratedfromTE
+other hand, 216 TE modules were attached onto the single step oil pans as a function of different vehicle speed are given in the
+shaped oil pan which generated 108 W and the corresponding supplementary section Figs. S4 and S5. The external (load) resis-
+
+temperature difference of 46 C. In the multi-step shape, the in- tance(R Þisoptimizedtomatchtheinternalresistance(RÞinorder
+0
+creaseinthesurfaceareainadditiontotheincreaseoftemperature to obtain maximum output power as displayed in Figs.12e15. The
+gradient, the output power drastically increased to 393 W with a thermoelectric current corresponds to power generated and ther-
+
+temperature difference of 55 C, and 552 TE modules. At the same moelectric energy conversion are demonstrated in Figs.16 and 17,
+
+vehiclevelocityof120km/hand25 C ambientairtemperature,the respectively. The efﬁciency of thermoelectric generator may be
+generated output power decreased to 73, 90 and 287 W, calculated by application of the law of thermodynamics, which is
+respectively. deﬁned as the ratio of the electrical power output to the thermal
+
+For ﬁnned structures operating at 120 km/h and 0 C air tem- power input to the hot junction as follows:
+perature, the power generated has signiﬁcantly increased for all
+three shapes (ﬂat, single step and multi-step) to 163, 215 and
+P
+out
+
+h ¼ (8)
+751W,respectively,atatemperaturedifferenceof60,65and76 C. TEG
+Q
+h
+
+Similarly, at 120 km/h and 25 C in aﬁnned oil pan, the power has
+raisedupto104,130and453W.ImplementingTEmodulesintothe
+where, Q is the thermal input to the hot junction and deﬁned as:
+h
+M. Aljaghtham, E. Celik / Energy 200 (2020) 117547 7
+Fig.14. Thermoelectric output power generated at optimum load resistance for (ﬁns)
+
+TE modules in oil pan at 120 km/h and 25 C.
+Fig.11. TEG performance for different oil pan shapes geometry.
+Fig. 15. Thermoelectric output power generated at optimum load resistance for TE
+
+modules in oil pan at 120 km/h and 25 C.
+Fig.12. Thermoelectric output power generated at optimum load resistance for (ﬁns)
+
+TE modules in oil pan at 120 km/h and 0 C.
+3.3. Energy harvesting in larger sized oil pans
+Oil pans of large duty heavy engines are also considered to
+determine the effect of oil pan size onTE power generation in this
+study. Increase of the surface area results in generating more
+output power due to the larger number of TE modules that can be
+ﬁttedintotheoil pan.Thesurfaceareaof theoilpanforlargeduty
+heavyengines is larger than the standard passengerautomobile IC
+engine oil pan as shownin Fig.18. Fig.18 shows the dimensions of
+the Inline (straight)-6 diesel Cummins ISX engine which was cho-
+sen for this simulation. Optimizations demonstrate that 776, 972
+and 2100 modules were obtained as the optimal number of TE
+modulesthatcanbedesignedandattachedintoﬂat,singlestepand
+multi-step shapes, respectively. Considering the truck is operating
+
+at 110 km/h and a 0 C outside temperature, the maximum output
+thermoelectric power generated was 622, 797 and 2713 W for the
+
+ﬂat, single step, and multi-stepﬁn oil pan. At 25 C and 110 km/h,
+Fig. 13. Thermoelectric output power generated at optimum load resistance for TE
+385, 486 and 1636 W can be used foraﬂat, single step, and multi-
+
+modules in oil pan at 120 km/h and 0 C.
+stepsﬁnoilpan,respectively.ImplementingTEmodulesintolarger
+scale oil pan generated nearly 3.6 times higher output power than
+in the TE modules implemented into standard passenger automo-
+bile IC engine oil pan as shown in Fig.19.
+4. Conclusion
+ 
+2
+Q ¼ K DTþaT Iþ0:5I R (9)
+h h
+In this study, we explored the feasibility of TE module-
+TE module efﬁciency ranges from 5% to 9% at temperature dif- integrated internal combustion engine oil pan with the goals of
+ 
+ferenceof43 C to76 C.Fig.11demonstratestheTEGperformance reducing fuel consumption, carbon dioxide (CO2) footprint in the
+for different oil pan shapes. air, and generating power from the waste oil heat. TE module
+8 M. Aljaghtham, E. Celik / Energy 200 (2020) 117547
+
+Fig.16. TE current corresponds to output power for multi-steps oil pan shapes geometry at 120 km/h and 0 C.
+Fig. 17. TEG energy conversion efﬁciency for different oil pan shapes geometry at
+
+120 km/h and 0 C.
+Fig.19. Thermoelectric power generated within TE oil pan.
+dimensions, TE modules quantities, size and shape of the oil pan
+wereoptimizednumericallytoachievetheidealTE-oilpandesign.
+Temperaturegradientisanessentialparameterdeterminingthe
+harvested TE power. If higher oil temperature is used in an IC en-
+gine or if the bottom surface of the oil pan is cooled effectively, TE
+power is maximized. Using ﬁns to enhance the heat transfer from
+thebottomsurface,drivingatcolderclimatesandathighspeedsall
+enhance the temperature gradient and therefore harvested TE en-
+ergy. Cooling efﬁciency can be enhanced even further using a
+nozzle setup where air can be forced through the nozzle channel
+toward the bottom surface of the oil pan which increases the air
+ﬂow velocity due to the conservation of mass of the air ﬂow.
+Increased air velocity results in reduction in the bottomwall tem-
+perature of the oil pan, thus, generation of higher thermoelectric
+power.
+
+In ideal driving conditions (120 km/h, 0 C) and optimized TE
+module geometries, we determined that the multi-step, ﬁnned oil
+pan generates thermoelectric power of 751 W for a standard pas-
+senger IC engine oil pan and 2713 W fora largeduty heavyengine
+
+multi-stepﬁnnedoilpanatdrivingconditions(110km/h,0 C).The
+2
+TE power density of 5.77 kW m was achieved which is higher
+than the previously reported TE power densities designed for
+Fig. 18. Conventional single-step truck engine oil pan and comparison with the
+automobile radiators and exhaust systems as shown in Fig.1. The
+automobile engine.
+M. Aljaghtham, E. Celik / Energy 200 (2020) 117547 9
+the art light duty vehicles with thermoelectric elements. Fuel 2018;224:
+net TE powerharvestedfromthewasteoil-pan heat would reduce
+271e9.
+CO by11gCO /kmperpassengervehicleandaround38gCO /km
+2 2 2
+[15] Bass JC, Elsner NB, Leavitt FA. Performance of the 1 kW thermoelectric
+per large duty heavy vehicle.
+generator for diesel engines. In: AIP conference proceedings. AIP; 1994.
+[16] Zhang Y, et al. High-temperature and high-power-density nanostructured
+Inadditiontotheenhancedenergyharvestingperformanceand
+thermoelectricgeneratorforautomotivewasteheatrecovery.EnergyConvers
+the environmental beneﬁts regarding the reduced CO emission,
+2
+Manag 2015;105:946e50.
+generatingelectricityfromtheoilpandoesnot requireredesignof
+[17] Eder A, Linde M. Efﬁcient and dynamicethe BMW group roadmap for the
+anyexistingvehiclesystemsuchasradiatororexhaust;instead,the application of thermoelectric generators. In: Second thermoelectric applica-
+tions workshop; 2011. San Diego.
+conventional oil pan can easily be replaced with the TE oil pan
+[18] Hsu C-T, et al. Experiments and simulations on low-temperature waste heat
+designedinthisstudyforanycartype.Therefore,weenvisionthat
+harvesting system by thermoelectric power generators. Appl Energy
+easy implementation, enhanced performance and the low-cost oil 2011;88(4):1291e7.
+[19] Love N, Szybist JP, Sluder C. Effect of heat exchanger material and fouling on
+TE oil pan systems will help car manufacturers adopt this tech-
+thermoelectric exhaust heat recovery. Appl Energy 2012;89(1):322e8.
+nologytodevelopmoreenergyefﬁcientvehiclesinthenearfuture.
+[20] Liang X, et al. Comparison and parameter optimization of a two-stage ther-
+The fabrication method of thermoelectric modules in this
+moelectric generator using high temperature exhaust of internal combustion
+engine. Appl Energy 2014;130:190e9.
+intricate geometry is difﬁcult using conventional manufacturing
+[21] Liu X, et al. Experiments and simulations on heat exchangers in thermo-
+techniques, therefore, advanced manufacturing technologies such
+electric generator for automotive application. Appl Therm Eng 2014;71(1):
+as additive manufacturing, should be considered to fabricate these
+364e70.
+[22] Liu X, et al. Performance analysis of a waste heat recovery thermoelectric
+materials in complex shapes. Additively manufactured multi-step
+generation system for automotive application. Energy Convers Manag
+oil pans could minimize the fabrication difﬁculty and allows con-
+2015;90:121e7.
+version of a higher amount of waste heat into electricity.
+[23] Kim TY, Negash AA, Cho G. Waste heat recovery of a diesel engine using a
+thermoelectric generator equipped with customized thermoelectric modules.
+Energy Convers Manag 2016;124:280e6.
+CRediT authorship contribution statement
+[24] Wang Y, et al. The inﬂuence of inner topology of exhaust heat exchanger and
+thermoelectric module distribution on the performance of automotive ther-
+moelectric generator. Energy Convers Manag 2016;126:266e77.
+Mutabe Aljaghtham: Data curation, Formal analysis, Writing -
+[25] HeW,WangS,YueL.Highnetpoweroutputanalysiswithchangesinexhaust
+original draft. Emrah Celik: Project administration, Supervision,
+temperature in a thermoelectric generator system. Appl Energy 2017;196:
+Writing - review& editing, Writing - original draft.
+259e67.
+[26] Orr B, Akbarzadeh A, Lappas P. An exhaust heat recovery system utilising
+thermoelectric generators and heat pipes. Appl Therm Eng 2017;126:
+Appendix A. Supplementary data
+1185e90.
+[27] Massaguer A, et al. Transient behavior under a normalized driving cycle of an
+Supplementary data to this article can be found online at
+automotive thermoelectric generator. Appl Energy 2017;206:1282e96.
+[28] Li B, et al. Heat transfer enhancement of a modularised thermoelectric power
+https://doi.org/10.1016/j.energy.2020.117547.
+generator for passenger vehicles. Appl Energy 2017;205:868e79.
+[29] Cao Q, Luan W, Wang T. Performance enhancement of heat pipes assisted
+Declaration of interests
+thermoelectric generator for automobile exhaust heat recovery. Appl Therm
+Eng 2018;130:1472e9.
+[30] Wang Y, et al. Performance evaluation of an automotive thermoelectric
+The authors declare that they have no known competing
+generator with inserted ﬁns or dimpled-surface hot heat exchanger. Appl
+ﬁnancial interests or personal relationships that could have
+Energy 2018;218:391e401.
+[31] Zhao Y, et al. Performance analysis of automobile exhaust thermoelectric
+appeared to inﬂuence the work reported in this paper.
+generatorsystemwithmediaﬂuid.EnergyConversManag2018;171:427e37.
+[32] Kim TY, Kwak J, Kim B-w. Energy harvesting performance of hexagonal sha-
+References
+ped thermoelectric generator for passenger vehicle applications: an experi-
+mental approach. Energy Convers Manag 2018;160:14e21.
+[1] Bell LE. Cooling, heating, generating power, and recovering waste heat with
+[33] Lan S, et al. A dynamic model for thermoelectric generator applied to vehicle
+thermoelectric systems. Science 2008;321(5895):1457e61.
+waste heat recovery. Appl Energy 2018;210:327e38.
+[2] KimTY,KimJ.Assessmentoftheenergyrecoverypotentialofathermoelectric
+[34] Zhao Y, et al. Performance investigation of an intermediate ﬂuid thermo-
+generator system for passenger vehicles under various drive cycles. Energy
+electric generator for automobile exhaust waste heat recovery. Appl Energy
+2018;143:363e71.
+2019;239:425e33.
+[3] Champier D. Thermoelectric generators: a review of applications. Energy
+[35] Mohamed ES. Development and performance analysis of a TEG system using
+Convers Manag 2017;140:167e81.
+exhaust recovery for a light diesel vehicle with assessment of fuel economy
+[4] Huang K, et al. A novel design of thermoelectric generator for automotive
+and emissions. Appl Therm Eng 2019;147:661e74.
+waste heat recovery. Automotive Innovation 2018;1(1):54e61. [36] Kim TY, Negash AA, Cho G. Experimental study of energy utilization effec-
+[5] Kim S, et al. A thermoelectric generator using engine coolant for light-duty tiveness of thermoelectric generator on diesel engine. Energy 2017;128:
+internal combustion engine-powered vehicles. J Electron Mater 2011;40(5): 531e9.
+812. [37] RamírezR,etal.Evaluationof theenergyrecoverypotentialofthermoelectric
+[6] Baatar N, Kim S. A thermoelectric generator replacing radiator for internal generators in diesel engines. J Clean Prod 2019;241:118412.
+combustion engine vehicles. Telkomnika 2011;9(3):523. [38] Kim TY, Kwak J, Kim B-w. Application of compact thermoelectric generator to
+[7] Hsiao Y, Chang W, Chen S. A mathematic model of thermoelectric module hybrid electric vehicle engine operating under real vehicle operating con-
+with applications on waste heat recovery from automobile engine. Energy ditionsvol. 201. Energy Conversion and Management; 2019. p. 112150.
+2010;35(3):1447e54. [39] Antonova EE, Looman DC. Finite elements for thermoelectric device analysis
+[8] Elankovan R, et al. Evaluation of thermoelectric power generated through in ANSYS. In: Thermoelectrics, editor. Ict 2005. 24th international conference
+waste heat recovery from long ducts and different thermal system conﬁgu- on. 2005. IEEE; 2005.
+rations. Energy 2019;185:477e91. [40] Angrist SW. Direct energy conversion. 1976.
+[9] He W, et al. Performance optimization of common plate-type thermoelectric [41] Noroozian A, et al. Thermodynamic analysis and comparison of performances
+generator in vehicle exhaust power generation systems. Energy 2019;175: of air standard Atkinson, Otto, and Diesel Cycles with heat transfer consid-
+1153e63. erations. Heat Tran Asian Res 2017;46(7):996e1028.
+[10] Weng C-C, Huang M-J. A simulation study of automotive waste heat recovery [42] Ahmadi MH, et al. Optimal design of an Otto cycle based on thermal criteria.
+using a thermoelectric power generator. Int J Therm Sci 2013;71:302e9. Mechanics & Industry 2016;17(1):111.
+[11] EddineAN,etal.Effectofengineexhaustgaspulsationsontheperformanceof [43] Ahmadi MH, et al. New thermodynamic analysis and optimization of perfor-
+a thermoelectric generator for wasted heat recovery: an experimental and manceofanirreversibledieselcycle.EnvironProgSustainEnergy2018;37(4):
+analytical investigation. Energy 2018;162:715e27. 1475e90.
+ ~
+[12] Fernandez-Yanez P, et al. Thermal analysis of a thermoelectric generator for [44] Ahmadi MH, et al. Thermodynamic analysis and optimization of the Atkinson
+light-duty diesel engines. Appl Energy 2018;226:690e702. engine by using NSGA-II. Int J Low Carbon Technol 2016;11(3):317e24.
+ ~
+[13] Fernandez-Yanez P, et al. A thermoelectric generator in exhaust systems of [45] Roberts A, Brooks R, Shipway P. Internal combustion engine cold-start efﬁ-
+spark-ignition and compression-ignition engines. A comparison with an ciency: a review of the problem, causes and potential solutions. Energy
+electric turbo-generator. Appl Energy 2018;229:80e7. Convers Manag 2014;82:327e50.
+[14] Durand T, et al. Potential of energy recuperation in the exhaust gas of state of

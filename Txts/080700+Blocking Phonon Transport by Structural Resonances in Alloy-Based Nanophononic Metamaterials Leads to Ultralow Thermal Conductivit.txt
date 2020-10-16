@@ -1,0 +1,291 @@
+Molecular dynamics simulation of thermal conductivity of silicon nanowires
+ABSTRACT
+We investigate the thermal conductivity of silicon nanowires based on molecular dynamics (MD) simulations. 
+The simulated thermal conductivities of nanowires with square cross sections are found to be about two orders of magnitude smaller than those of bulk Si crystals in a wide range of temperatures (200–500K) for both rigid and free boundary conditions. 
+A solution of the Boltzmann transport equation is used to explore the possibility of explaining the MD results based on boundary scattering.
+
+1 Instroduction
+Although a number of studies have been carried out on the thermal conductivity of thin films/superlattices, 
+it is only recently that the investigation of heat conduction in one-dimensional structures such as nanowires has been initiated.
+In two-dimensional structures, the effective thermal conductivity is a function of both boundary and internal phonon scattering. 
+As a consequence of the boundary scattering, the thermal conductivity values may be reduced by one order of magnitude. 
+The small cross section in nanowires implies a more significant reduction of the thermal conductivity than in thin films because of a higher surface to volume ratio. 
+Furthermore, quantized thermal conductance has been predicted theoretically for the lowtemperature regime. 
+Experimental work has thus focused exclusively on this temperature regime.
+The thermal behavior of nanowires at moderate temperatures is little understood at this stage, both from an experimental and a theoretical point of view.
+A study of the thermal conductivity in nanowires is reported here using the molecular dynamics ~MD! method. 
+In a MD simulation, all the particle trajectories for a given system with a reasonably small number of atoms are calculated, which allows the derivation of the thermodynamic and transport properties of the system.
+Direct MD simulation of infinite length nanowires is feasible because the boundaries of the wire provide realistic limitations on the phonon mean free path. 
+Accordingly, we showed that the MD results are independent of the longitudinal wire size. 
+Because of the surface reorganization, however, it is difficult to obtain convergent results for free boundary conditions. 
+To overcome this difficulty, the computation is carried out such that the surfaces reorganize and stabilize before the commencement of the thermal conductivity calculation. 
+The results show that the simulated thermal conductivity values of nanowires are about two orders of magnitude smaller than those of bulk crystals. 
+Although there may be a number of reasons for this reduction, we explore the possibility of explaining the MD results with the Boltzmann transport equation ~BTE!, assuming a partly diffuse-scattering interface.
+
+2 Method
+Using the MD technique and the Stillinger–Weber interatomic potential model for Si, the trajectories, i.e., 
+the time-dependent positions ri(t) and velocities vi(t) of the nanowire atoms, are computed. 
+The temperature T can be readily calculated from the velocity vi of the atoms in the simulation domain since the Boltzmann distribution function allows the straightforward derivation of the mean kinetic energy ^Ec&
+where kB is the Boltzmann constant, N the number of particles in the system, and M the atomic mass. However, Eq.
+~1! holds only if the specific heat is not temperature dependent, which is true for temperatures above the Debye temperature. Between 200 and 500 K, if the simulated MD temperatures are compared to the Debye temperature u D
+5645 K of Si, a quantum correction to both the MD temperature and the thermal conductivity must be carried out as described in previous publications.13 The heat flux expression is derived from the integration of the energy balance
+equation combined with the definition of the total instantaneous heat flux in a statistical ensemble of constant energy. For the computed two- and three-body potentials, the heat flux can be calculated from
+where Fi j and Fijk are the two- and three-body forces and V is the system volume. We perform the thermal conductivity simulations based on the equilibrium fluctuations of the heat flux q0(t)  since the Green–Kubo formula can be derived
+from q0(t) according to the fluctuation-dissipation theorem is the heat flux autocorrelation function and T0 is the equilibrium temperature.
+To perform MD computations of the nanowire thermal conductivity, we construct the simulation domain from unit cells forming a face-centered cubic lattice with two Si atoms as basis. Systems with cross sections ranging from 434 to
+10310 unit cells and 16 unit cells in the longitudinal direction are computed. These simulations correspond to atom
+numbers ranging from 2048 to 12 800 since a diamond-like unit cell includes eight atoms. The silicon density is imposed by setting the lattice constant to 0.543 nm and periodic boundary conditions are applied in the longitudinal direction.
+A 0.766 fs time step is taken in the integration of the equations of motion, which is a hundredth of the reference time scale tu50.0766 ps in Si. It is considered reasonable to extend the time of the simulation to one phonon mean relaxation time '20 ps.
+The rigid transverse boundaries are first imposed by freezing surface atoms. The initial potential energy was applied to the system by placing atoms at the lattice nodes. A Gauss thermostat9 is used to fix the temperature and the final
+results are checked to ensure that they are not modified by a change in the thermostat parameters. Once the temperature reaches the required value, the thermostat is removed and the heat flux calculation executed. We also check that the total
+energy is well conserved throughout the thermal conductivity simulation. 
+To verify that the longitudinal length Lx of the wire does not affect MD results, the sensitivity of the thermal conductivity to the simulated wire length is probed and representative results are illustrated in Fig. 1. The figure shows that the
+thermal conductivity is not Lx dependent when Lx is larger than 16 lattice constants for wires with cross-sectional areas smaller than 28.62 nm2 . On the contrary, using the same approach in bulk Si crystals12 has led to thermal conductivity
+values that increase with increasing simulation domain size, which confirms the hypothesis that the mean free path in nanowires is short and the Green–Kubo expression can be applied.
+When systems with free transverse surfaces, i.e., free standing nanowires, are computed, surface atoms follow a rearrangement process so that a long relaxation takes place during which the kinetic energy increases while potential
+energy fades to its minimal value. Due to the atomic diffusion, neighbor lists of each atom are frequently updated and the time step is reduced to t50.005tu in the computation instead of 0.01tu for rigid boundaries. For a
+2.14 nm32.14 nm36.42 nm wire with 1536 atoms and rigid boundary conditions, the average computation time is 5 h using a HP9000-C180 workstation. For the same system with free boundaries, the computational time triples.
+
+3 Results and discussion
+In Fig. 2, the temperature dependence of the thermal conductivity is plotted for different nanowire cross sections with free or rigid boundary conditions in the transverse directions. The difference between data from both types of
+boundary conditions remains small, i.e., less than 10%. We observe that the thermal conductivity is slightly temperature dependent and increases with increasing cross-section area of the wires. Another striking feature is that thermal conductivity values are in the interval of 1–5 W/mK, which is one to
+two orders of magnitude smaller than the corresponding data for bulk Si (lBulk5241 W/mK at 200 K and lBulk 581 W/mK at 500 K!.
+There are several possible explanations for the reduction of the nanowire thermal conductivity found in the MD numerical experiments ~Fig. 2!: ~i! the change of phonon spectrum in 1D structures, which modifies the phonon group velocity and the scattering mechanisms,20,21 and ~ii! the
+boundary inelastic scattering which increases diffuse reflections on the surfaces. Although a few studies have reported the effects of phonon group velocity reduction on the thermal conductivity of thin films,20 many experimental data can be
+explained by classical size effects based on the Boltzmann transport equation.1,2,6 Here, we will explore the second point based on a general solution of the Boltzmann transport equation for phonon distribution function inside a thin wire
+where g is the deviation of the phonon occupation number n from equilibrium g5n02n, LBulk is the average phonon mean free path and m is the cosine of the angle between the phonon group velocity and the longitudinal direction. In Eq.
+~4!, the term inside the brackets includes ~i! the unity corresponding to the bulk material contribution and ~ii! a ratio representing the correction implied by the size effect. In this ratio, the phonon-phonon scattering of heat carriers starting
+from boundary point rB and ending at the position r, along the direction defined by m, is included in the exponential terms. If Eq. ~4! is introduced into the expression of the heat flux perpendicular to the cross section S
+where n is the frequency and D the phonon density of states, we find out the ratio of the thermal conductivity lnw of the nanowire to the bulk thermal conductivity lBulk where G(r) represents the ratio in Eq. ~4!.
+Numerical results of Eq. ~3! are plotted as lines in Figs. 2 and 3. The latter shows the thermal conductivity as a function of the cross-sectional area. We note that the BTE and MD data are in good agreement when the interface specularity parameter p value is about 0.45. Figure 3 reveals that the
+cross-sectional section dependency of the thermal conductivity follows a power law. Although the boundary scattering can explain the MD results, we should caution that other phenomena such as group velocity reduction may occur and
+be responsible for the reduced thermal conductivity.
+
+4 Conclusion
+In conclusion, we have calculated the thermal conductivity of silicon nanowires using a MD technique based on the Green–Kubo formula. For nanowire cross sections ranging
+from 2.58 to 28.62 nm2 , we computed the thermal conductivity for different longitudinal sizes and found that the thermal conductivity values become length independent when
+the wire is longer than 8.56 nm, suggesting that the results approach those of infinite wires. The MD results reveal a one to two orders of magnitude reduction in the thermal conductivity of nanowires compared to those of corresponding bulk
+Si crystals. We solved the Boltzmann transport equation to explore the possibility of diffuse boundary scattering causing the thermal conductivity drop as observed in the MD simulation. With an interface specularity parameter value of 0.45,
+the MD results match the BTE solutions reasonably well. However, other mechanisms, such as the phonon group velocity and the scattering mechanism changes, may also be responsible for the thermal conductivity reduction.
+
+
+
+Blocking Phonon Transport by Structural Resonances in Alloy-Based Nanophononic Metamaterials Leads to Ultralow Thermal Conductivity
+ABSTRACT
+Understanding the design rules to obtain materials that enable a tight control of phonon transport over a broad range of frequencies would aid major developments in thermoelectric energy harvesting, heat management in microelectronics, and information and communication technology. Using atomistic simulations we show that the metamaterials approach relying on localized resonances is very promising to engineer heat transport at the nanoscale. Combining designed resonant structures to alloying can lead to extremely low thermal conductivity in silicon nanowires. The hybridization between resonant phonons and propagating modes greatly reduces the group velocities and the phonon mean free paths in the low frequency acoustic range below 4 THz. Concurrently, alloy scattering hinders the propagation of high frequency thermal phonons. Our calculations establish a rationale between the size, shape, and period of the resonant structures, and the thermal conductivity of the nanowire, and demonstrate that this approach is even effective to block phonon transport in wavelengths much longer than the size and period of the surface resonant structures. A further consequence of using resonant structures is that they are not expected to scatter electrons, which is beneficial for thermoelectric applications.
+
+1 Instruction
+Controlling heat flow using nanophononic materials and devices is growing more and more appealing due to its broad applications in energy conversion and modern computations, including thermoelectrics, thermal cloaks, thermal logic gates, and thermal diodes [1–8]. For thermoelectric applications, one needs materials with a high electronic power factor, as in crystals, but a low thermal conductivity (TC) as in a glass [9]. Designing the TC of a crystalline system to approach or even be lower than the corresponding amorphous limit remains an open challenge both conceptually and technically [10]. The most common route to reduce TC is to exploit phonon scattering at interfaces in nanostructured composites or superlattices [11–14]. In general, only a limited range of phonon frequencies gets scattered efficiently, typically at a relatively high frequency, above 1–2 THz. Nevertheless, low frequency modes also have a significant contribution to the total TC due to their long mean free path (MFP) [15,16]. The best results along this line were obtained using hierarchical structures in heavy element materials, which introduce scatterers from the mesoscale to the atomic scale [17]. In silicon based materials this approach was followed by synthesizing SiGe nanocomposites [18], superlattices [13], and silicon nanomeshes [19,20]. However, in most cases grain boundaries, inclusions, and pores have a negative impact on electronic transport, thus hampering the thermoelectric performance.
+As an alternative, the phonon resonant effect in metamaterials [21,22] has been recently proposed for TC design [23–25]. With a careful design of resonant structures, a set of resonant frequencies can be obtained, evidenced by a set of flat bands in the phonon dispersion. Because of the band anticrossing, the resonances interact with the propagating modes and reduce their phonon group velocities. This method allows for manipulating waves with wavelengths much larger than the structural features of the system [26]: low frequency resonances can be easily introduced with small resonant structures.
+Branched nanowires (NWs) have been synthesized by the dislocation-driven mechanism [27] and the vapor-liquid-solid process [28–30]. Standing waves (resonances) can be generated inside the branches due to the total reflection of waves at the end of branches. As a result, branched NWs provide an ideal platform for phonon resonance studies and for low TC design. In this work, we report a systematic study on heat transport in Si based resonant structures. Our molecular dynamics simulations show that branched NWs can indeed produce numerous resonances in a broad frequency range. Those resonances interact with phonons in the main NW and reduce their group velocities. The heat flow in the main NW can be manipulated through the design of adequate resonators. We propose a promising methodology to block phonon transport at both low and high frequencies: an extremely low TC of 
+0.9W/m⋅K in SiGe alloy crystalline NWs has been achieved with a combination of the phonon resonant and scattering effects.
+We first created NWs in the ⟨100⟩ orientation with a periodic set of branches outside the NWs. The cross section of the main NW is a square with an edge length Le=4.34nm. The branches also have a squared cross section with an edge length 
+Lbs=1.09nm and the height of the branches is set to Lh=1.63nm. To investigate the effect of the number of branches on thermal transport, we designed a set of NWs with branches on one side, two sides, and four sides of the main NW. Sketches of a two-side branched NW are shown in Figs. 1(a) and 1(b). Simulations are carried out with the lammps code [31]. The atomistic 3D models of the NWs and simulation details can be found in Ref
+
+2 Method
+We calculated the TCs from equilibrium molecular dynamics simulations. The TC of the one-side, two-side, and four-side branched NWs as a function of the period length is depicted in Fig. 1(d). For reference, the TC of the pristine NW computed with the same approach is 
+19.8W/mK. This value is comparable to those obtained in former simulations of a square-section Si NW with a similar small diameter [40]. Experimental estimates for so thin NWs are currently not available, and it is worth stressing that our pristine reference model exhibits perfect flat surfaces, which may not be attainable in experiments [41,42] (see the discussions in Ref. [32]). The TC of branched NWs is much smaller than that of the pristine NW, especially at short period lengths. With the increase of the period length, the TC increases gradually for all cases. Besides, the TC is also reduced when more sides of the NW are branched due to the increased hybridization, which further reduces the group velocity as will be discussed later.
+Since more branches produce stronger hybridization, we extend the branched structure to square wall surrounded structures [hereafter referred as “surrounded NWs,” see Fig. 1(c) and Fig. S1 [32] ], to further promote the TC reduction. The thickness of the walls is 1.09 nm while their height is 1.63 nm, i.e., the same dimensions as the studied branches. This structure can be fabricated by the vapor-liquid-solid method with the catalysis diffusion technique [43]. As expected, the TC is further reduced at all periods when compared to all other cases [Fig. 1(d)]. The TC reduction can reach up to 67% at the period of 2.17 nm compared to the one of the pristine NW. The increased anharmonicity at high temperature will reduce the relative TC reduction in resonant NWs. However, due to the strong hindering of low frequency phonons, the relative TC reduction in the surrounded Si NWs with respect to the value of the pristine Si NW can still be 50% at 800 K (Fig. S5 [32]). It is worth noting that the shape of the resonant nanostructures does not affect the TC significantly: the same TC is found in the square and circle wall surrounded Si NWs (Fig. S4 [32]). The TC reduction achieved solely by introducing the resonant structures is comparable to the one achieved in surface engineered NWs
+To more deeply understand the origin of the phonon resonant effect, we calculated the phonon dispersion relations and the group velocities 
+vg of different structures based on harmonic lattice dynamics [44,45]. The comparison of phonon dispersion relations between the pristine structure and the two-side branched structures with 
+Lp=2.17nm is illustrated in Figs. 2(a)–2(c), where Lh in Fig. 2(c) is twice Lh in Fig. 2(b). With the addition of periodic branches on the main NW surfaces, a series of resonant flat bands crossing the entire Brillouin zone is generated. The resonant modes hybridize with the modes of the main wire due to the band anticrossing effect, which occurs when two modes with the same polarization located on different objects are coupled at the same frequency. Specifically, in our case, if a resonant mode from the pillars has the same polarization as a propagating mode in the main NW, they will hybridize and form two new modes (up and down branches) when their frequencies converge. This mechanism leads to the formation of mini band gaps, the widths of which depend on the coupling or hybridization strength as observed both in theoretical models [46–49], and experimentally [50,51] in acoustic metamaterials.
+To provide a picture of how propagating modes hybridize with the resonant modes, we have visualized the modes indicated by the symbols in Fig. 2(b). The hybridization effect between the longitudinal acoustic (LA) mode and the lowest resonance is examined by the eigenvectors. Starting from the mode far away from the resonant frequency (circle), a pure LA mode can be identified from Fig. 2(e): all atoms vibrate along the phonon transport direction 
+z with the same amplitude, following the feature of the LA mode. For the mode on the resonant flat band (triangle, a bending mode), it only distributes on the resonant branches; no atoms in the main NW participate in the vibration [Fig. 2(g)]. A hybridized mode resulting from the coupling between the LA mode and the resonant phonon can be identified near to the resonant frequency [square, Fig. 2(f)], where the mismatch in the vibrational amplitudes in the main NW and in the resonator results in a reduced 
+vg. The effect on the upper side of the resonance is similar to that on the lower side but the atom vibrations in the main NW and on the branches are in opposite phase [Fig. 2(h)]. The enhanced hybridization effect produced by increasing the number of branches is evidenced by the reduced 
+vg when more surfaces are branched [Fig. 2(d)]. A stronger hybridization enlarges the resonant minigaps as can be seen from the group velocities by polarization in Fig. S3
+The proposed resonant structures offer several advantages in manipulating phonon transport. First, the resonators can produce numerous resonant frequencies in almost the entire frequency range. As a result, the phonon group velocity can be dramatically suppressed at both superwavelength and subwavelength frequencies [Fig. 2(d)]. Second, the resonant frequency can be tuned by altering the branch size and material. The comparison between Figs. 2(b) and 2(c) provides a clear picture of the size effect: when the branch height doubled from 1.63 nm to 3.26 nm, the lowest resonant frequency shifts from 0.2 to 0.06 THz. The increased size of the resonators will also increase the number of resonances. One can therefore adjust the number and the frequency of the resonances by modifying the size of the resonant structures. Consequently, the TC can be easily designed and the heat flow in the main wire can be controlled in a more accurate way. Another important feature of this structure is that the low frequencies can be easily manipulated with small branches, which yields the third advantage of the structure. As discussed above, the lowest resonant frequency can reach down to 0.2 THz with a branch height 
+Lh=1.63nm and even to 0.06 THz with Lh=3.26nm. The ability to manipulate such low frequencies with small branches is the key advantage of the resonant mechanism over the scattering mechanism, where the size of scattering sources has to be larger than or comparable to the phonon wavelength. Generally, the phonon scattering mechanism provides an efficient way to block the high frequency phonons while it remains challenging in dealing with phonons with, for example, 
+f≤2THz in Si NWs [53] and carbon nanotubes [54]. In contrast with scattering strategies, where the scattering source is located inside the material, the resonant mechanism applies the wave nature of phonons and is produced from a position outside from the main structure. As a result, the resonators are not supposed to scatter electrons. Although there is a substantial modification of the phonon band structure by the resonances, first principles calculations on core-shell NWs [55,56] and elastic theory studies on superlattices [57] have shown that phonon band modifications also have a minor effect on the electrical conductivity.
+To achieve the most effective reduction of the TC, one should design a material in which contributions from both the high and low frequency modes are reduced. Since the scattering mechanism is efficient to block high frequency modes and resonances can stop low frequency phonons promisingly, the combination of both effects provides the possibility to block phonons in the full frequency range. Alloying is one of the most efficient ways to scatter high frequency phonons. As a consequence, we have designed a set of surrounded 
+Si1−xGex NWs with Ge concentrations ranging from 0 to 1.
+
+3 Results and discussion
+Figure 1(e) reveals the Ge concentration dependent TCs for the pristine and surrounded NWs. The TC of the amorphous Si NW of the same size ( 1.7W/m⋅K) calculated at 300 K with the same method is shown as the dashed line for comparison. The TC of pure Si/Ge can be extensively reduced down to 2.5 W/m⋅K with a Ge concentration in the range of 0.3–0.7. Although extremely low TCs have already been obtained via alloy scattering, those values can still be reduced by a factor of 2 with the introduction of surrounded walls 1.63 nm in height. The simulated surrounded alloy NWs have TCs below the amorphous Si NW limit except in the case with 
+x=0.1. This indicates that adding resonant structures could be crucial for improving the thermoelectric performance of SiGe alloys. Since the height of the walls can modify the resonant frequency, we also simulated the surrounded SiGe NWs with a doubled wall height. Because of the modification of the low frequency resonances, the TC is further reduced and a value of 
+0.9W/m⋅K is obtained. This extremely low value is about half the corresponding amorphous Si NW TC and 36% of the SiGe alloy NW minimum. In other words, the combination of phonon resonant and scattering mechanisms produces a 22-fold decrease of the pristine Si NW TC.
+To quantitatively clarify the respective role of phonon scattering and resonant effects on the TC reduction, we calculated the length dependent phonon transmission functions (Fig. 3) from nonequilibrium molecular dynamics [58,59] (details in Ref. [32]). The ballistic transmission, which is essentially the number of modes in the leads, is shown in all cases to facilitate the comparisons. Because of the anharmonic effect, the transmission of the high frequency phonons in the pristine Si NW decreases when the sample length increases [Fig. 3(a)]. However, ballistic transport can be clearly observed below 1 THz, where the transmission is only slightly decreased even for the NW length of 
+1μm. In the surrounded Si NW [Fig. 3(b)], the most noticeable difference with the pristine Si NW case is that the transmissions at frequencies smaller than 4.5 THz are significantly suppressed. This phenomenon demonstrates the importance of the resonant effect at low frequencies, where the number of phonon branches is small but the group velocities are large. Contrary to the features in surrounded Si NWs, the transmission in the 
+Si0.5Ge0.5 NW is dramatically reduced at high frequencies even at a very short length [Fig. 3(c)]. However, similar to the pristine Si NW case, ballistic transport is preserved below 1 THz. The strong transmission reductions at low frequencies caused by the resonant effect and at high frequencies due to the scattering effect finally result in reduced transmissions in the whole frequency range in the surrounded 
+Si0.5Ge0.5 NWs [Fig. 3(d)]. Note that in the alloyed cases (both pristine and surrounded), the modes at high frequencies (typically above 10 THz) are not propagating modes due to the introduction of heavy Ge atoms. This is evidenced by the extremely low transmission even with a sample length of only 3.8 nm.
+From the length dependent transmission functions, we evaluated the frequency resolved phonon MFPs [54,59] using Eq. S4 [32]. As revealed in Fig. 4, the MFP of the pristine Si NW increases rapidly as the frequency shifts below 4 THz. When adding the resonant structure on the surface of the Si NWs, the MFP above 4 THz is reduced roughly by one half. The MFPs of the low frequency phonons are even more reduced by orders of magnitude. Instead, if the scattering sources (Ge atoms) are embedded in the Si NW, the MFP is greatly reduced above 2 THz, while it is not significantly affected below 2 THz. The comparisons among the three samples provide additional evidence that the scattering and resonant mechanisms appear as an ideal combination to design extremely low TCs. This statement is supported by the MFP of surrounded 
+Si0.5Ge0.5 NWs, where the MFP in the entire frequency range is reduced by orders of magnitude. The frequency response of the MFPs on resonances and alloys is also revealed by the TC cumulative functions [60] (Fig. S6 [32]).
+
+4 Conclusion
+In conclusion, we have performed molecular dynamics simulations on the TC of Si based resonant NW structures, i.e., branched and wall surrounded NWs. The results reveal that phonon resonance is a powerful TC reduction mechanism. Differing from the commonly adopted scattering method, low frequency phonons can be easily manipulated with small resonators. Both the resonant frequency and strength can be tuned by changing the resonator size, offering the freedom in controlling the heat flow more accurately. The combination of phonon resonant and scattering mechanisms yields a TC of 
+0.9 W/m⋅K, which is only 53% of the corresponding Si NW amorphous TC limit and 4.5% of the value of the pristine Si NW. This achievement relies on the hindering of phonon transport in the whole frequency range. The extremely low TC here obtained also supports the potential impact of resonator based structures on thermoelectric conversion.
+
+Interface diffusion-induced phonon localization in two-dimensional lateral heterostructures
+ABSTRUCT
+We report that the interface composition diffusion, which often  occurs  in the synthesis of  two- dimensional lateral heterostructures, can significantly suppress the thermal transport property. Our molecular dynamics simulations show that the thermal conductivity of graphene/h-BN lateral heterostructures can be largely tuned by varying the interface composition diffusion length. The under- ling mechanism is explained by Anderson localization of phonons, which is corroborated by the exponen- tial decay of the phonon transmission with composition gradient length. Phase breaking interactions are shown to delocalize the modes at elevated temperatures. The findings in this work suggest that compo- sition graded interfaces can be used to tune the thermal transport of heterostructures via phonon local- ization, which is important for their applications in electronics, thermoelectrics and thermal insulators
+
+1 Instruction
+Two-dimensional (2D) materials such as graphene, hexagonal boron nitrides (h-BN), and transition metal dichalcogenides (TMDs, e.g., MoS2) have intrigued experimental and theoretical workers for their exceptional electrical, thermal, and optical properties. These different 2D materials can be integrated into lateral 2D heterostruc- ture. The resulting artificial 2D structures provide access to new properties and applications beyond their component 2D atomic crystals and therefore, they are emerging as a new exciting field of research [1].
+The synthesis of 2D lateral heterostructures has achieved signif- icant progress in recent years [2–15]. The composition diffusion at the interface, which can cause nonabrupt, graded boundaries, is a key issue of interface formation in conventional heterostructures as well as their monolayer analogs [4]. Notably, compositional transition is often reported at the interface of these 2D heterostruc- tures, which is typically in the range of 1 35 nm. Liu et al. [5] demonstrated the creation of graphene and h-BN (Gr/h-BN) in- plane heterostructures by using lithography patterning and sequential chemical vapour deposition (CVD) growth steps. The
+sharpness of lateral interface between the h-BN and graphene layers was observed to be within 1 nm. Levendorf et al. reported the synthesis of Gr/h-BN lateral heterostructures with a patterned regrowth technique [6]. The obtained heterojunction has a compo- sitional transition width of no more than 10 nm. Sutter et al. [4] report that high-temperature growth leads to intermixing near the interface of Gr/h-BN lateral heterostructures, similar to interfa- cial alloying in conventional heterostructures. Duan et al. [7] designed a thermal CVD process to synthesis WS2-WSe2 lateral heterostructures. The junction shows a transition from WS2 to WSe2 phases over a length scale of 35 nm. Slight inter-diffusion of transition-metal elements is also often observed along the arm- chair interfaces of WS2 and MoS2 lateral heterostructures, typically over a width of 1–3 unit cells
+There are several factors that lead to the composition-graded interface, including the temperature of the growth [4], the switch- ing rate of the vapour-phase reactants and (or) ion diffusion across the interface [7], and the edge stability during the epitaxial growth [8], etc. The Gr/h-BN interface can even be tuned from compara- tively sharp to graded by controlling the duration of a preheating period of the BN source [10]. While clean and sharp interfaces of  2D heterostructures are essential for preserving their optoelec- tronic properties [8], composition graded interface may have significant impact on the heat transport of 2D heterostructures. Unfortunately, little is known about the thermal property of 2D heterostructures with composition-graded interfaces, which is urgently needed for evaluating their potentials in the applications of electronics and thermoelectrics.
+In this work, we report that the interface composition diffusion, even with a width of several nanometers, can significantly hinder the thermal transport property of Gr/h-BN lateral heterostructures. Our molecular dynamics (MD) simulations show that the thermal conductivity j of Gr/h-BN heterostructures can be largely tuned
+by the interface composition diffusion length. Phonon localization is identified to be the cause of heat transfer suppressing in such structures at room temperature. The findings in this work suggest that introducing nonabrupt, graded interface to materials can be beneficial for their applications in thermoelectrics and thermal insulators, where low thermal conductivity is desired.
+
+2 Method
+We started from a 4.2  111.2 nm Gr/h-BN lateral heterostructure with an abrupt interface. The interface was built with C-B zigzag linking edges in our models, since the zigzag edges were reported to be more preferably formed than the armchair counterparts
+[9]. The CAC, CAB, and BAN bond lengths were all set as 1.42 Å in the simulation with a lattice mismatch of  2:1% for h-BN, which has negligible effects on its thermal properties. The structures with composition-graded interfaces were
+then generated by randomly switching the C (B/N) atoms by their B/N (C) counterparts across the interface. Within a distance L, the number of atoms ratio for C:B/N gradually decreases from 90%:10% to 10%:90%, as shown in Fig. 1(a). We studied the systems
+where L equals 8 nm, 16 nm and 24 nm, respectively. Here we define L as the compositional transition width. At the same composition proportion, the heterogeneous atoms (for example, carbon atoms in h-BN matrix) can appear individually, alternatively, several C atoms can aggregate and form a ‘‘particle”. Thus in our study, models with four different sizes of the heterogeneous particles in
+the composition grading were built, each respectively consists of one, two, six and ten atoms (Fig. 1(b)).
+Models shown in Fig. 1 were used in the non-equilibrium MD (NEMD) simulations, for the phonon transmission spectra calculations.
+Because of the non-linear temperature gradient in the composition graded structures, it is difficult to obtain the thermal conductivity (j) from the direct method in NEMD. We thus resort to equilibrium MD (EMD) simulations and the Green–Kubo method.
+The initial structures shown in Fig. 2 were relaxed using a conjugate gradient energy minimization algorithm. 
+Periodic boundary conditions were used in all directions. To mimic the free-stand structures, a vacuum of 20 nm is used in the direction perpendicular to the sheets. The MD time step was set to 0.5 fs. An MD run of
+200 ps in the canonical ensemble (NVT) was performed to impose a temperature of 300 K. Then, the microcanonical ensemble (NVE) was applied for another 200 ps to achieve thermal equilibrium.
+Finally, the instantaneous heat fluxes along the armchair axis jAðtÞ were collected from MD runs with lengths equal to 2 ns. The Green–Kubo formula [24] was used to evaluate the thermal conductivity (jA) along the armchair direction:
+where kB is the Boltzmann constant, T the temperature, and V the system volume. The angular brackets denote the ensemble average, performed here over twenty independent MD simulations
+To quantitatively clarify the respective role of phonon scattering mechanisms, we calculated the composition transition width (L) dependent phonon transmission functions (T(x)) from NEMD.
+T(x) was calculated based on the method developed by K.Saaskilahti et al. [25,26]. The frequency resolved heat flux between any atom iand jcan be expressed as:
+where tsimu and x are the simulation time and the frequency, respectively. ^vai ðxÞ and ^vbj ðxÞ are the Fourier transformed atomic velocities of atom i in direction a and atom j in direction b, respectively. For calculating the flux spectra, the force constant
+matrix is calculated with the finite displacement method by LAMMPS, i.e., after relaxing the structures to the potential minimum, atom i is moved in the directions x;y; and  z with a small
+value (D = 0.01 Å). After each displacement, the forces F of each atoms are calculated. As a result, the element of the force constant matrix can be evaluated as:
+Here Fb j and Fbþ j denote the force on atom j in b direction when atom i is displace to -a and +a directions, respectively.
+The heat current across any interface separating adjacent atom sets L and R can be obtained by summing over atoms in each set:
+The phonon transmission function can thus be defined according to the spectral heat current as
+where DT is the temperature difference of the two thermal baths in NEMD simulations. The atoms at the two ends of the structures shown in Fig. 1 are
+fixed. The atoms located within the distance Lbath = 30 nm from left and right adjacent to fixed areas are coupled to hot and cold Langevin heat baths at temperatures L þ DT=2 and L  DT=2, respectively.
+The MD time step was set to 0.5 fs, and the coupling time constant of the Langevin thermostat was chosen as stime = 1 ps.
+The mean thermal bath temperature was fixed as T = 300 K, and DT was set as 60 K.
+
+3 Results and discussion
+Fig. 3 shows the calculated thermal conductivity of Gr/h-BN
+with different composition diffusion lengths and different sizes
+of heterogeneous particles. The j of Gr/h-BN with abrupt interfaces
+is calculated as 324 W/mK, and the structures with composition
+graded interfaces clearly possess much lower j. In general, j
+decreases against L for all the models, indicating that the composition
+transition width is an influential factor in tuning the thermal
+transport property. This result can be understood as that when
+the spatial extent of the composition diffusion is larger, phonon
+scattering will occur in a broader spatial range along the structure
+and results in a shorter phonon mean free path, which is corroborated
+in the next section. Similar phenomenon was observed in
+SiGe superlattice nanowires with composition graded interfaces
+[27]. Note that j of the BNC hexagonal structures with random
+composition distributions is calculated as 58 W/mK, indicating the
+lower limit of j in Gr/h-BN lateral heterostructures.
+At L = 8 nm, the size of the heterogeneous particle has obvious
+impact on j: smaller particles lead to lower j. It can be seen from
+Fig. 1(b) that at the same position along the structure, smaller
+heterogeneous particles are more scattered, which leads to a
+greater chance for phonon scattering. Indeed, the phonon mean
+free path of graphene with h-BN domains was reported to decrease
+with decreasing domain size [28]. As L increases, the particle size
+impacts j less because L predominates the j reduction.
+Fig. 4 depicts the composition transition width-dependent phonon
+transmission spectra at 300 K. Here we focus on the systems
+with heterogeneous particles consist of one atom and six atoms
+(Fig. 4(a) and (b), respectively). For a comparison, the system with
+uniform interface intermixing (no composition grading) is also
+studied. In general, the investigated systems exhibit similar behavior:
+the phonon transmission decreases with L for most of the frequencies.
+A lower phonon transmission indicates more hindrance
+in thermal transport, which is in accordance with the
+L-dependent thermal conductivity shown in Fig. 3. The ballistic
+transport can be observed below 1 THz for the composition
+graded structures, where the transmission is insensitive to L.
+For higher frequencies, the crossover from the ballistic to the
+diffusive regime is expected to occur, where a power law decay
+with composition grading length (T(x)/ L1) should be observed
+[29]. As L increases, the heterogeneous particles-induced backscattering
+effects may become increasingly important, and the localization
+regime can be established, featured by the exponential
+decay of phonon transmission [30] as T(x)/ eL=n. Here n denotes
+the phonon localization length, which indicates the typical length
+needed for the occurrence of phonon localization in disordered systems.
+Phonon localization has been previously observed in
+graphene-based systems such as amorphous graphene [31], disordered
+graphene phononic crystals [32] and graphene nanomesh
+[33], etc. It was also found in silicon nanowires [34,35]. To identify
+the phonon suppressing mechanism in our systems, we fit T(x)
+with both power law decay (Eq. (6)) and exponential decay ((Eq.
+(7)) with different L for each frequency:
+where A is a fitting parameter, and T0ðxÞ is the phonon transmission
+coefficient of the structure with abrupt interface. We used
+the coefficient of determination, R2, to evaluate the goodness of
+the fit [36]. An R2 of 1 indicates that the model perfectly fits the
+data.
+Interestingly, fitting TðxÞ to Eq. (6) gives low values of R2
+(below 0.7) over the whole frequency range of the three structures,
+suggesting that the diffusive regime in our structures is not distinct
+and phonon mean free paths (lmfp) and n are not well-separated. In
+contrast, fitting TðxÞ to Eq. (7) can give very high values of R2,
+depending on the frequency, which provides the evidence of
+Anderson localization for the modes of these frequencies. From
+the well-fitted curves (R2 P0.96), we can obtain the frequency
+dependent phonon localization length, as plotted in Fig. 5(a). It
+can be clearly seen that more phonon modes (especially with frequencies
+below 10 THz) are localized in the models with
+composition-graded interfaces, with respect to the one with uniform
+intermixing section. It also shows that larger scatter size (larger
+heterogeneous particle) traps more phonons due to Anderson
+localization.
+Anderson localization for a certain phonon frequency will happen
+only if incoherent effects are weak. At higher temperatures
+where the anharmonic relaxation length (l/) is comparable to or
+smaller than the localization length (i.e. l/ 6 n), the localization
+effects will not take place. In other words, the anharmonicity will
+destroy phonon localization at elevated temperatures [37,38]. To
+gain more insights, we calculated n at higher temperatures
+(500 K and 800 K), and the results are shown in Fig. 5(b), (c) and
+(d). Indeed, for all the three models, the population of localized
+modes obviously decreases with temperature, over the whole frequency
+range.
+From the L-dependent phonon transmission spectra, we evaluated
+the frequency resolved lmfp [39] from the relationship
+TðxÞ ¼ NðxÞ 1 þ L lmfp 1, where NðxÞ is the number of phonon
+modes at a given frequency in pure graphene. The calculated lmfp
+for the model with 6-atom heterogeneous particles and the one
+with abrupt interface are plotted in Fig. 6(a). Also plotted is the
+anharmonic relaxation length (l/) in graphite materials, which is
+roughly estimated [40] from l/ ¼ BT1x2; B ¼ 3:35  1023 mKs2.
+As revealed in Fig. 6(a), lmfp of Gr/h-BN lateral heterostructure
+decreases with composition diffusion width, which complies with
+our thermal conductivity calculations. l/ is estimated to be orders
+of magnitude larger than lmfp in Gr/h-BN lateral heterostructures,
+which confirms that the incoherent effects are weak in our systems
+at 300 K.
+In addition, we calculated the Thouless length [41,42]
+n0 ¼ NðxÞlmfp, which is a crude estimation of the localization length.
+According to Fig. 6(b), n0 is larger than n, suggesting that the Thouless
+relation does not hold in our case. There are two possible reasons
+for this discrepancy: firstly, the Thouless relation is under the
+assumptions of weak disorder and isotropic scattering. Our systems
+with interface diffusion has an anisotropic feature in composition
+through the graded interface, which may cause anisotropic
+scattering. Secondly, the Thouless relation requires the diffusive
+and localized regimes are clearly separated [43]. However, the failure
+of fitting TðxÞ to Eq. (6) (R2 60.7) indicates that the diffusive
+regime in our particular system is indistinct, thus the separation
+of transport regimes is not so clear-cut. The relatively small number
+of transport channels (NðxÞ  20) also verifies this argument
+for the occurrence of phonon localization in the systems under
+investigation remains in the length scale of tens of nanometers,
+which is not quite affected by the phonon frequency.
+The interface roughness is reported to slightly increase the
+interface thermal conductance by changing the contact area [44–
+46]. It is interesting to note that the interface diffusion introduces
+disorders over large spatial extent (to tens of nanometers) around
+the interface rather than local topography change, which severelly
+scatters phonons over the whole disordered structure.
+
+4 Conclusion
+In summary, we report that the thermal conductivity of
+graphene/h-BN lateral heterostructures is largely dependent on
+the structure of the interfaces. Our molecular dynamics simulations
+show that the length of the interface composition diffusion
+can be used to tune the thermal conductivity of the heterostructures.
+The analyses of phonon transmission function prove the
+existence of the localized phonons, which is identified to be the
+primary cause of the phonon suppressing. Phase breaking interactions
+are shown to delocalize the modes at elevated temperatures
+due to the increased anharmonicities. This work suggests that the
+interface formation of 2D lateral heterostructures has significant
+impact on the thermal transport, and nonabrupt, graded interface
+can be beneficial for their applications in thermoelectrics and thermal
+insulators, where low thermal conductivity is desired.

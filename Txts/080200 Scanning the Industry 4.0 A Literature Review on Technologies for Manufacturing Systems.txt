@@ -1,0 +1,353 @@
+Introduction 
+
+Global recession over the last years changed the overview on the industrial sector, now looking at the real value-added that it creates. Companies that followed the trend to relocate activities by looking for low cost labor, are now committed to recover their competitiveness. 
+German manufacturing strategy played a key role on this shift-ing, launching initiatives to maintaining and promoting its impor-tance as a ＆＆forerunner§ in the industrial sector [1]. The buzz word ＆＆Industry 4.0§ has been presented and with it big promises arose to face the latest challenges in manufacturing systems. The impeller Industry 4.0 (I4.0) is enabling and reinforcing this trend using its technologies, changing the way of living, creating new business models and new ways of manufacturing, renewing the industry for the so-called digital transformation. 
+In 2011, the German government have brought into the world a new heading called Industrie 4.0 (I4.0), assumed as the fourth indus-trial revolution [2每6]. I4.0 aim is to work with a higher level of automatization achieving a higher level of operational productivity and ef.ciency [3,7],connecting the physical to the virtual world[8每 9].It will bring computerization and inter-connection into the tra-ditional industry [3]. According to several authors [3,5每6], I4.0 can be assumed as Cyber-Physical Systems (CPS) production, based on heterogeneous data and knowledge integration and it can be summed up as an interoperable manufacturing process, integrated, adapted, optimized, service-oriented which is correlated with algo-rithms, Big Data (BD) and high technologies such as the Internet of Things (IoT) and Services (IoS), Industrial Automation, Cybersecu-rity (CS), Cloud Computing (CC) or Intelligent Robotics [3,7,9]. From the production approach, Martin and Sch.ffer [8] de.ne I4.0 as the intelligent.owofthe workpieces machine-by-machineinafactory, ona real-time communication between machines.On this environ-ment, I4.0 will make manufacturing become smart and adaptive using .exible and collaborative systems to solve problems and make the best decisions [7].It bringsa good development for the industrial scenario focusing on creating smart products, smart pro-cesses and smart procedures [5]. Companies expected to increase the level of digitalization, working together in digital ecosystems with customers and suppliers [10]. 
+Since I4.0 boom, the research community has experienced differ-entapproachestoI4.0 concept;however,thegeneralsocietymaybe confused basedonthelackof understandingonthis area. Thereisa needfor clari.cationofI4.0 related conceptsand technologies. 
+This paper deals with the research of I4.0 in manufacturing environments on a literature review over the enabling technolo-gies, focusing on the state-of-the-art and future trends. The approach of I4.0 for manufacturing systems in this paper is based on the Smart Factory (SF) concept. The SF concept makes use of components such as IoT, IoS, the systems integration and Cyber-Physical Production System (CPPS) that is formed by several linked CPS (CPS may use up until nine key enabling technologies, widely assumed by research community). 
+The paper is structured as follows: section 2 presents the Refence Architecture Model Industrie 4.0 (RAMI4.0) as the guid-ance for the I4.0 technologies implementation, section3 presents key enabling technologies of I4.0, section4reviews the Smart Fac-tory (SF) concept of the I4.0 structured with its components, and the .nal remarks are in section5 which introduces the summary and gives future outlooks. 
+2. 
+Reference Model of I4.0 
+Several German associations and institutions cooperated on the creation of the reference model for I4.0. This 3D model in Fig.1 is the development of a shared language and a structured framework [11每12] that describes the fundamental bases of I4.0. It is intended to assist on the I4.0 technologies implementation [13]. 
+Unlabelled image
+The Reference Architecture Model Industrie 4.0 (RAMI4.0) should enable to identify the existing standards and among it, identify and close the gaps, loopholes and identify the overlaps [14]. 
+On the left horizontal axis from the IEC 62,890 standard, facili-ties and product lifecycle with the correspondent value stream are showed [15]. RAMI4.0 clearly describes the difference between instance and type. When the design and prototyping is completed, the type becomes an instance, ready for production [14]. 
+The hierarchy levels from the IEC 62264 standard are showed in the right axis, representing the different grouped entities by func-tional properties, de.ned to represent all hierarchical levels of the enterprise, from the ＆＆Product§ (e.g., a workpiece) to the ＆＆Connect World§ level. The ＆＆Connect World§ is the last stage of the I4.0 development enterprise environment using IoT and IoS to connect enterprises, customers and suppliers [13每14]. The hierarchy levels are discussed further insidetheSFin section4throughthe Fig.25. 
+The layers on the vertical axis represent a reminder to integrate all aspects on the enterprise digitalization [11]. The functionallay-ers of the organized vertical axis describe: 
+. 
+＆＆Asset Layer§ represents reality, for instance, physical compo-nents including linear axes, robots, conveyor belts, PLC＊s, metal parts, documents, archives also persons that form a part of con-nection to the virtual world via the ＆＆Integration Layer§ [12,14每 15]. Also, non-physical objects such as software or ideas; 
+
+. 
+＆＆Integration Layer§ provides processed information for the dig-itization of the assets. Elements connect to Information Tech-nologies (IT) such as sensors, Radio Frequency IDenti.cation (RFID) readers, integration of Human-Machine Interface (HMI) and computer-aided controls the technical processes [12,14]. Persons via HMI also participate on this layer. In the virtual domain, each signi.cant event is mirrored through the enabler [12]; 
+
+. 
+＆＆Communication Layer§ with the function of communication standardization. It makes use of uniform data format and prede-.ned protocols, providing services for the ＆＆Integration Layer§ [12,14每15]; 
+
+. 
+＆＆Information Layer§ to process and integrate consistently the different available data into useful information [14]. Also receives and transforms events to match the data which are available for the next layer [15]; 
+
+. 
+＆＆Functional Layer§ to enable formal descriptions of functions. It creates an horizontal integration platform of several functions that can be with remote access, resulting of the necessity of data 
+
+. ＆＆Business Layer§ enables mapping of the business model and links between different business models. It ensures, within the value stream, the integrity of the functions [14每15]. 
+It＊s possible to map all crucial aspects of I4.0, allowing the clas-si.cation accordingto the model,of objects such as machines. This model allows the step-by-step migration from the actual to the future manufacturing environments [13]. 
+The I4.0 essential technological elements are compiled at the .rst time as RAMI4.0 and it is registered in Germany in the DIN SPEC 91345 standard [14]. 
+3. The Key Technologies of I4.0 
+I4.0 is characterized on manufacturing and services by highly developed automation and digitalization processes, electronics and IT [3]. From the production and service management perspec-tive, I4.0 focus on establish intelligent and communicative systems such as Machine-to-Machine and Human-Machine Interaction, dealing with the data .ow from intelligent and distributed system interaction [16]. Among other features, I4.0 promotes autonomous interoperability, agility, .exibility, decision-making, ef.ciency or cost reductions [17]. 
+The I4.0 implementation should be interdisciplinary in a closely between different key areas. Several authors [5,18每19] described nine pillars (also called the building blocks) of the I4.0 framework as follows in the subsections.A fundamental key point to achieve the integration of I4.0 framework is the human contribution that will be improved with the development of professional skills of the stakeholders. 
+3.1. The Industrial Internet of Things 
+On the IT, the IoT is the connection oftwo words i.e. ＆＆internet§ and ＆＆things§. ＆＆Internet§ as the network of the networks. A global system serving users worldwide with interconnected computer networks using Standard Internet Protocol suit (TCP/IP). As individ-ually distinguishable by the real world, the ＆＆things§ can be any-thing like an object or a person [20]. Today, IoT is widely used for instance, in transportation, healthcare or utilities [21]. Thing-to-Thing, Thing-to-Human and Human-to-Human form a network inside IoT, connected to the internet. Individually identi.able objects exchange information inside this network. [22每23]. 
+IoT has been increase with the advancement of mobile devices. IoT can be achieved with connected RFID, Wireless Sensor Net-works (WSN), middleware, CC, IoT application software and Soft-ware De.ned Networking (SDN) as the key enabling technologies [23]. Fig.2 presents the associated technologiesin IoT. 
+One simple de.nition of IoT described by Sezer et al. [21] is: ＆＆IoT allows people and things to be connected anytime, anyplace, with 
+Unlabelled image
+anything and anyone, ideally using any path/network and any ser-vice§. In other words, Bortolini et al. [24] de.ned IoT as an ubiqui-tous presence for a common purpose of various things or objects interacting and cooperating each other, digitalizing all physical systems. For different aims, the digitalized information can be used to adjust production patterns, with the use of a virtual copy of the physical world and using sensor data [7]. The entire production systems such as machinery and related resources can be the ＆＆things§ managed and virtualized by I4.0 [4,7]. In addition, the IoT nature as to be decentralized and heterogeneous [25]. 
+Regarding to IoT design architecture, Trappey et al. [26] estab-lished a logical framework by layers to classify IoT technology and used to characterize and identify CPS. According to several authors [25,27每28], IoT architecture most common layering in a typical network, includes four main layers as represented in the Fig.3 as follows: 
+1) ＆＆Sensing Layer§ to sense the ＆＆things§ status with a unique identity and to integrate, e.g., actuators, sensors, RFID tags as several types of ＆＆things§; 
+2) ＆＆Network Layer§ to support the transferred information through wired or wireless network from the ＆＆Sensing Layer§ to ＆＆Service Layer§, being the support＊s infrastructure. This layer determines and maps ＆＆things§ automatically in the network enabling to connect all ＆＆things§ for sharing and exchange data; 
+3) ＆＆Service Layer§ makes use of a middleware technology sup-porting services and applications, required by the users or applications. The interoperability among the heterogeneous devices is ensured by this layer, performing useful services, e.g., information search engines and communication, data storage, exchanging and management of data as well as the ontology database; 
+4) ＆＆Interface Layer§ to make the interconnection and manage-ment of the ＆＆things§ easier and to display information allow-ing a clear and comprehensible interaction of the user with the system. 
+Differing from IoT based users, regarding to industrialenviron-ments needing real-time data availability and high reliability [29], the Industrial InternetofThings(IIoT)isthe connectionof industrial products such as components and/or machines to the internet. For instance, linkingthe collected sensingdatainafactorywithIoTplat-form, IIoT increases production ef.ciency with the BD analysis [22]. 
+AtypicalIIoTis showedinFig.4,withwireand wireless connec-tions, increasing value with additional monitoring, analysis and optimization. 
+As a natural evolution of IoT, the IoS can be seen as the connec-tivity and interaction of the things creating valuable services and is one of the fundamental basis of the SF. IoS is discussed further in section 4. 
+
+3.2. Cloud Computing 
+Cloud Computing (CC) is an alternative technology for compa-nies who intent to invest in IT outsourcing resources [30]. Assante et al. [31] characterized CC for Small and Medium Enterprises (SMEs) as a resource pooling with rapid elasticity and measured service, on-demand self-service and broad network access. The adoption of CC has several advantages related to cost reduction, e.g., the direct and indirect costs on the removal of IT infrastructure in the organization, the resource rationalization service by the dynamically scalable users consuming only the computing resources they actually use or portability when using any type of device connected to the internet such as mobile phones or tablets accessing from any world location [30].Bythis, the cloud can have 
+
+V. Alc芍cer, V. Cruz-Machado / Engineering Science and Technology, an International Journal 22 (2019) 899每919 
+
+Fig. 3. Generic Service-oriented Architecture (SoA) for IoT [25]. 
+Unlabelled image
+Unlabelled image
+Fig. 4. Typical IIoT network [137]. 
+any of the four types of access: public (usually on a data center location, managed by vendors and available for all public [32]), pri-vate (same organization location and offering special bene.ts [32]), hybrid (combination of public and private clouds [32])and com-munity (shared by multi organizations and supported by a speci.c sharing of interests and concerns community [33]). Everything is treated as a service in CC. These services de.ne a layered system or types of service models structured for CC as in Fig. 5 and the management overviewis shownin Fig.6,as follows [31,33每34]: 
+. Infrastructure as a Service (IaaS) is where cloud service provi-ders supply users with fundamentalcomputingresources, with virtual infrastructures, e.g., virtual servers, networks or storage and where users into the cloud can deploy and run arbitrary software, which can include, for instance, operating systems applications; 
+. 
+Platform as a Service (PaaS) is where users develop and run applications using programming languages on the cloud infras-tructures. Therefore, it can be achieved scalability, high speed server and storage. Users can build, run and deploy their own applications with the use of remote IT platforms. On this layer, there is no concern on the resource＊s availability and mainte-nance [35]; 
+
+. 
+Software as a Service (SaaS) is where applications reside and runs in a cloud infrastructure [34]. Accessible from various cli-ent devices through an interface such as a web browser and programs. The focus is to eliminate the service applications on local devices of individual user, achieving an high ef.ciency and performance for the users. This category enables software applications such as Computer-Aided-Design (CAD) software and Enterprise Resource Planning (ERP) software, with a lower total cost of ownership [35]. 
+
+
+
+V. Alc芍cer, V. Cruz-Machado / Engineering Science and Technology, an International Journal 22 (2019) 899每919 
+
+All underlying Everything as a Service (XaaS) layers allows direct interactions with the user interface layer at the top. 
+On manufacturing environments, Cloud Manufacturing (CMfg) concept was proposed to make use of CC technology, in order to improve the current manufacturing systems [36]. Cloud-related manufacturing has two approaches: 
+1) CC in manufacturing industry as a manufacturing version of CC -using cloud applications in manufacturing industry directly, web-based manufacturing applications or computer-aided are examples of possible deployments in the CC system. These applications are implemented at two service levels of CC system, matching SaaS and PaaS levels [37]; 
+2) CMfg systems as an entire new type of cloud service, based on Service-orientedArchitecture (SoA) in the cloud environ-ment that provides manufacturing capabilities [36].It re.ects the IaaS level on CC system [37]. 
+With the combination of advanced technologies, it arises a new computing and service-oriented manufacturing mode as CMfg [38]. A solution such as CMfg enables users to request services fromall stagesofa product lifecycle rangingfrom design, manufac-turing, management and so on [38每39].Bythis meaning, the main characteristics of CMfg is the service-oriented approach [40] and its trend on shifting manufacturing approach from production-oriented to service-oriented [33,41].Abrief CMfg model is shown in Fig.7, consisting on three categories of stakeholders: providers, operators and consumers, with their cooperation to maintain sus-tainable operation of a CMfg system [42每43]: 
+. 
+Providers 每 own and provide the abilities and the manufactur-ing resources [43].Within the entire product lifecycle, for shar-ing purposes, providers publish manufacturing resources to the CMfg platform and also receive manufacturing tasks from the cloud platform. Everything is transformed into services, under the exclusive management ofthe operator [42]; 
+
+. 
+Operator/s -to operate CMfg platform and to deliver services to providers, consumers and even third parties [43]. In an on-demand manner, consumers from the cloud platform can achieve high-quality and sustainable manufacturing services. Providers have permission to publish their resources and capa-bilities with the use of tools provided by the cloud platform [42]; 
+
+. 
+Consumers -to subscribe the manufacturing computing ser-vices availability in a CMfg service platform [43]. Under the exclusive management of the operator, consumers, including enterprises consumers and individual consumers, submit their 
+
+V. Alc芍cer, V. Cruz-Machado / Engineering Science and Technology, an International Journal 22 (2019) 899每919 
+Unlabelled image
+Fig. 7. CMfg model [42]. 
+requirement tasks to the CMfg platform, e.g., design, manufac-turing, test or simulation tasks and also receive the execution results of their orders [42]. 
+CMfg is a manufacturing paradigm based on Knowledge. In the running process, the knowledge plays as the central role [44], e.g., models, standards, protocols, rules and algorithms as knowledge, indispensable in many process and activities within entire lifecycle services as service generation, service management and service applications [42]. 
+The concept of CMfg makes use of CC, BD, IoT, CPS, the net-worked manufacturing, service-oriented manufacturing, virtual manufacturing and virtual enterprise [45每46]. Cooperation can be enabled and supported by CMfg, sharing and management of manufacturing resources such as fabrication capabilities, equip-ment, applications, software tools, know-how, etc., of companies [47每48] and these companies can be included into the cloud, becoming accessible to potential consumers, in a pay-as-you-go manner [39]. CMfg enables the recommendation and execution, intelligent mapping and search of a service [33]. CMfg can provide in a form of service scalable, .exible and cost-effective solutions with lower maintenance costs and supports. Manufacturing tasks can be obtained also as services into the CMfg service platform [41]. Cloud data center owns the computational resources and the different organizations, e.g., manufacturing enterprises, owns the manufacturing resources [45]. There is no need for manufac-turers and users to invest in high-tech computers, computer licenses or worrying about software updates or upgrades [48]. Mai et al. [46] in Fig. 8 discussed a CMfg platform integrating resources and services related to 3D printing, including, e.g., design, 3D printers, assembly, simulation, models, software, etc. It is important to consider model library management and the online-device integration on the construction of the 3D printing service CMfg platform, due to the close relation between 3D print-ing and 3D models. 
+Usually with a short budget for the initial investment, lack of experience and related technical support, SMEs are seeking novel technologies such as cloud technologies. According to Wang et al. [49], SMEs needs high level of safety and security regarding their customer＊s requirements, i.e., all data and results as to be maintain within the boundaries of the own company. These facts indicate that public or community cloud services probably are not suitable in this scenario. To ful.ll this need, Wang et al. [49] proposed a CMfg system tailored to meet the requirements of SMEs, consider-ing a hybrid cloud structure. Within this, the sensitive data stays inside a private cloud, with integrated and managed hardware and software. Moreover, the data interoperability presence of the public and private clouds is identi.ed on the multiple levels in the CMfg. 
+3.3. Big Data 
+Huge amount of generated data from different types, can come from interconnected heterogeneous objects [24]. This huge amount of structured, semi-structured and unstructured data can describe Big Data (BD). In order to obtain the correspondent value, these data would need too much time and money to be store and to be analyzed [50]. Bringing value opportunities to industries in the era of Internet of Everything can be achieving with the connection of more physical devices to the internet and with the use of a gen-eration of novel technologies. 
+Data collection or storage characterize BD, but the core charac-teristic of BD is the data analysis and without it, BD has no much value [51]. Systematic guidance can be provided by BD for related production activities within entire product lifecycle [52], achieving cost-ef.cient running of the process and fault-free [53], and help managers on decision-making and/or to solve problems related to operation [52]. The use of BD provides a business advantage through the opportunity of generated of value-added [54]. 
+V. Alc芍cer, V. Cruz-Machado / Engineering Science and Technology, an International Journal 22 (2019) 899每919 
+
+Fig. 8. Various services in CMfg [46]. 
+Cemernek et al. [55] presentedBDde.nition of the TechAmer-ica Foundation, as ＆＆a ＆＆term§ describing large volumes of high velocity, complex and variable data requiring advanced techniques and tech-niques to enable the capture, storage, distribution, management and analysis of the information§. BD demands a cost-effective, innova-tive forms of information processing for enhanced insights. Accord-ing to the researched de.nitions of BD, differing from the traditional data processing [21], the .rst suggestion to characterize BD was related in terms of Volume, Variety, and Velocity, also named as the Three V＊s. These was the three dimensions that emerged as a common framework of challenges in data manage-ment [56].To 
+process continuously large amounts of unstructured heteroge-neous data collected in formats such as video, audio, text, or others [51], additionally, other dimensions have also been attempted to assign for a better characterization such as: Veracity, Vision, Volatility, Veri.cation, Validation, Variability and Value [56]. According to several authors [21,51,56每57], the description of the dimensions as follows: 
+. 
+Volume 每 great data volume size consuming large storage or consist of enormous number of collections. BD sizes are men-tioned in multiple terabytes and petabytes; 
+
+. 
+Variety 每 various types of data, generated from a large sources and formats variety, and multi-dimensional data .elds contents. It refers to the structural heterogeneity in a dataset; 
+
+. 
+Velocity 每 rapid production. Generation, analysis, delivery, and data creation measured by its frequency. It refers to the data generation rate and the speed for analyzing and acting upon; 
+
+. 
+Veracity 每 represents the unreliability in some data sources. Some data requires BD analysis to gain reliable prediction; 
+
+. 
+Vision 每 only a purposeful process should send data generation. The likelihood of data generation process is addressed in this dimension; 
+
+
+. 
+Volatility 每 a limited useful life can characterize data generated. The data lifecycle concept is addressed by this dimension. It ensures the replenishment ofthe outdated data with new data; 
+
+. 
+Veri.cation 每 conformity of the data generated by a speci.ca-tion set. It ensures the conformity of the engineering measurements; 
+
+. 
+Validation 每 the vision conformity of the data generated. Behind the process, the transparency of assumptions and connections are ensured; 
+
+. 
+Variability 每data.ow rates measuredbyits variation. Variability and Complexity was added as two additional dimensions of BD; 
+
+. 
+Value 每 through extraction and transformation, de.nes how far BD generates economicallyworthy insights and bene.ts. Value as a de.ning BD attribute. 
+
+
+On manufacturing domain and at the BD process comprehen-sion, it is the engineering aspects that give value to the BD analysis using its dimensions [51]. These dimensions are dependent from each other, related with the relativity of BD volumes applied to all dimensions [56]. 
+To explore data, advanced data analysis is required. Using CC through the advanced analytics, methods and tools, off-line and real-time data are analyzed and mined, e.g., machine learning, forecasting models, among others. Knowledge is extracted from the huge data number enabling manufacturers on understanding the product lifecycle various stages [50]. Moreover, the advanced analytics of BD can be used as a facilitator, identifying and over-coming bottlenecks created by IoT generated data [58]. 
+The mutation opportunity from today＊s manufacturing para-digm to smart manufacturing is offered by BD [59]. Therefore, BD can help manufacturers on more rational, informed and responsive decision-making way. Manufacturing competitiveness in the global market is enhanced by these BD characteristics. Various stages in data lifecycle where manufacturing data is exploited are depicted in Fig.9 consisting on the complete manufacturing data journey. 
+
+V. Alc芍cer, V. Cruz-Machado / Engineering Science and Technology, an International Journal 22 (2019) 899每919 
+
+Fig. 9. Manufacturing data lifecycle [59]. 
+According to Mourtzis et al. [58],ina framework structuredby levelsofa manufacturing enterprise,the lower level generatesdata directly from machine tools and operators. For an enterprise, this data is very important, providing precious information when used and analyzed enabling adaptivity and .exibility on the higher levels of the enterprise. 
+BD analytics is an essential key to digital manufacturing, play-ing as an enabler for technologies. Moreover, the scope of mass customization focusing on the needs of individualized markets, use BD analytics as foundation [58]. 
+As mentioned above, IoT data converges to BD in order to ana-lyze it and take conclusions from collected datasets. In other words, IoT data will be a part of BD [21] and BD cannot be explored further without the IoT [57]. Furthermore, CC and BD are consid-ered as a coin with its two faces: BD is seen as the absorbent appli-cation of CC, while CC provides the IT infrastructure of BD [57]. 
+3.4. 
+Simulation 
+For the successfulimplementation of the digital manufacturing [60], an indispensable and powerful tool, the computer simulation, is becoming a technology to better understand the dynamics of business systems [61]. Manufacturing industry current challenges can be approached by this technology [62], dealing with the com-plexity of the systems, with elements of uncertain problems that cannotbe resolvedwith usual mathematical models [63].Ona cus-tomized product manufacturing environment, the value of simula-tion is remarkable and evident. Simulation allows experiments for the validation of products, processes or systems design and con.g-uration [60]. Simulation modeling helps on cost reduction, decrease development cycles and increase product quality [61]. In order to analyze their operations and support decision-making, manufacturers have been using modeling and simulation [64]. Simulation technologies already proved its effectiveness in the approach of several practical real-world problems in manufac-turing sector [65]. Mourtzis et al. [60] presented on their research, the domain areas of simulation as shown in Fig. 10 with the focus on simulation methods and tools. Simulation is de.ned as an oper-ation imitation, over time, of a system or a real-world process. It uses a system＊s arti.cial history and its observation, drawing infer-ences over the operational features of the representation of the real system. 
+V. Alc芍cer, V. Cruz-Machado / Engineering Science and Technology, an International Journal 22 (2019) 899每919 
+
+Simulation modeling is the method that makes use of a real models or imagined system models or imagined process models. It helps ona better estimating and understanding the modeled sys-tems or process through its behavioural analysis [61]. A model is an entity (generally a simpli.ed abstraction) used to represent other entity with a particular de.ned purpose [66]. Simulation modeling allows to gain insights into complex systems by the development ofcomplex and versatile products and make possible to test new concepts or systems, resource policies and new operat-ing before its real implementation, allowing to gather information and knowledge with no interference on the actual running system [60]. The Fig. 11 shows types of simulation models discussed by Mourtzis et al. [60] regarding to the classi.cation, dimensions, and differences. 
+Choose and develop the best suitable type of simulation model to represent the real system is a multiparameter decision, e.g., sta-tic models for modelling a structure without activity and dynamic models for investigating the behaviour of a system evolving through time [67]. 
+Simulation have been playing a spotlight role in design evalua-tion (referred to as off-line) and operational process performance (referred to as on-line) during a manufacturing system [65,67]. 
+Its usual the existence of making long-term decisions on the design process [67] in, e.g., facility layouts, system capacity con.g-urations, material handling systems, .exible manufacturing sys-tems and cellular manufacturing systems [65]. Simulation runtimein off-lineisnot signi.cantonthe simulation process, offer-ing the advantages to study and analyze the what-if scenarios [67]. 
+On the operational process of the manufacturing system, e.g., manufacturing operations planning and scheduling, real-time con-trol, operation policies and maintenance operations [65], the decision-making is short-term, making the simulation runtime a very important aspect. On-line simulation relates the number of entities belonging to the production system, the number of its gen-erated events, the activities complexity and simulation time hori-zon. If the IT system is integrated with the on-line simulation, for instance, it＊s possible to own the capacity to estimate the future shop .oor behaviour and to emulate and/or determinate the man-ufacturing system logic control [67]. 
+Optimal or near-optimal system design is the goal for decision makers. This optimization is possible due a systematically search on a wide decision space without restrictions or pre-speci.ed requirements. This simulation optimization tool will search for the optimal design within a given system, according to the com-
+
+
+V. Alc芍cer, V. Cruz-Machado / Engineering Science and Technology, an International Journal 22 (2019) 899每919 
+puter simulation model. On dynamic and uncertain environments, this tool has the potential on optimizing control decisions and on supporting real-time decision-making. This can be possible when the required computational ef.ciency is reached [68]. Compared to conventional simulation, real-time simulation, on-line, can ana-lyze the behaviour of user and system in milliseconds, allowing the user to develop and produce ＆＆virtually§a prototype for the product or service [69]. According to Cede.o et al. [69], a real-time simula-tion is when a computer runs at the same rate as the physical sys-tem, so the simulation model needs to be feed with real-time data that can be reached using IoT. 
+Ahigh-.delity simulation of a manufacturing factory is de.ned as Virtual Factory (VF). An industrial collaboration environment focusing on Virtual Reality (VR) representation of a factory [70] or an emulationfacility [71] canbe consideredaVF.TheVF vision con-siders validated real factories simulation models to generate data andtobe workedin formatsofreal conditionsinareal factory [64]. 
+The new simulation modeling paradigm is based on the concept of Digital Twin (DT) [61].An ultra-high-.delity simulationis pro-vided by the DT concept and it plays an important role in I4.0. It extends simulation to all product lifecycle phases, combining real-life data with simulation models for better performances in productivity and maintenance based on realistic data [61]. 
+Technologies based on simulation are the core role in the digital factory approach, allowing experiments and validation upon differ-ent manufacturing system patterns, processes and products [72]. 
+3.5. 
+Augmented Reality 
+New challenges are coming with Augmented Reality (AR) usage in everyday [73]. Increase human performances is the aim of AR, supplying the needed information toa given speci.c task [74]. This novel technology provides powerful tools, acting as an HMI [75].AR technology can be found on a wide range of sectors, e.g., entertain-ments, marketing, tourism, surgery, logistics, manufacturing, main-tenance, etc. [76].Asa growing evolving technology, recently,AR usage is spreading to different manufacturing .elds [77]. The use of AR on manufacturing processes regarding to simulation, assis-tance and guidance has been proven to be an ef.cient technology helping on problems [78]. AR technology increase reality operator＊s perception by making use of arti.cial information about the environment,wheretherealworldis ful.lledbyitsobjects [79每 80].As long as it interacts with human senses, AR can make use of any kind of hardware [74]. Using AR can help on closing some gaps, e.g., between product development and manufacturing operation, due to the ability to reproduce and reuse digital information and knowledge at the same time that supports assembly operations [78]. Fig. 12 shows the most relevant tasks related to industrial environments and manufacturing .elds where the AR brings value. 
+The principle of AR is the combination of two scenarios: 1) dig-itally processed reality with2) digitally added arti.cial objects that could be 2D .at objects, or by other de.nitions that only considers 3D objects within the scene [73]. The authors [79每80] de.ned AR system features as: 1) the ability on combining real and virtual objects on a real environment, 2) the ability on align each other the real and the virtual objects, and 3) the ability on running inter-actively, in 3D, and on real-time. 
+Making use of conventional hardware, the use of AR has a big advantage that can be minimal or even zero purchase expense. Some cases, the see-through glasses component can be more expensive [73]. On industrial environment, other key advantage was pointed by Blanco-Novoa et al. [81] about the assets: AR pro-vides dynamic real-time information,soitcan suppress mostofthe paperwork. 
+The AR system software might be selected based on environ-ment＊s considerations, which obviosity differ among them, e.g., on the military environment the proper use is zero-connectivity to ensure CS, differing from commercial environment that requires providing remote assistance＊s connectivity [74]. 
+The essential parts of an AR system make use of electronic devices to directly or indirectly view a real-world combination with virtual elements. According to Fraga-Lamas et al. [75], these elements can be: 
+. 
+Image capture element 每 web camera is suf.cient [73]; 
+
+. 
+Display 每 for projection of the virtual information on the images acquired by the image capture element. Basically, three device types with optical options can be used [80,82]: 1) hand-held (video and optical), 2) head-worn (video, optical, and retinal), and 3) spatial (projector and hologram); 
+
+. 
+Processing unit 每 to generate virtual information to be projected; 
+
+. 
+Activating elements 每 to trigger the display of virtual informa-tion, e.g., sensors,QR markers, GPS positions,images, etc. 
+
+
+
+In order the user to visualize information, these AR devices use types of optics as follows [82]: 
+. Video 每 merged worlds (real and virtual) into the same digital view; 
+
+
+V. Alc芍cer, V. Cruz-Machado / Engineering Science and Technology, an International Journal 22 (2019) 899每919 
+
+
+
+. 
+Optical 每 real world with virtual objects overlaid directly on the view; 
+
+. 
+Retinal 每 direct projection of virtual objects onto the retina with the use of low-power laser light; 
+
+. 
+Hologram 每 real world mix with virtual objects using a photo-metric emulsion; 
+
+. 
+Projection 每 projection of virtual objects directly on real-world objects with the use of a digital projector. 
+
+
+Related to the quality of products, Segovia et al. [83] proposed an AR system solution to production monitoring, based on Statisti-cal Process Control (SPC) and Six Sigma methodology. It uses AR in realtime reportsto assist qualitydata reportingby monitoringCpk indexes to support the decision-making process. The AR system was linked to a Computer-Aided-Quality (CAQ) to receive data. The CAQ used was Quality Data Analysis (QDA) software that allows the user to verify quality goals. The used measurement device was wireless connected to QDA software. The QDA software generatedreports and exported them automatically in a .le to the AR application. The mobile device used to run the AR application was a tablet. Fig. 13 shows the AR technology with the inside of the facilities and the displayed Key Performance Indicators (KPI) of each workstation. According to Segovia et al. [83], one of the big-gest bene.ts of this tool is the reduction on audit times. 
+Maintenance is one of the most promising .elds of AR. It enhances human performances in technical maintenance tasks execution as also supports on maintenance decision-making [76]. One example of AR in maintenance is shown in Fig. 14 on a step-by-step assembly procedure of a consumer device, using Hand-Held Display (HHD) to carry out maintenance tasks. The AR appli-cation has text description of the task on the bottom, right and left arrows to go forward and backward on the procedure. 
+Other example in the use of AR technology is on the diagnostics .eld.Ameaningful example is shown in Fig. 15, also with the use of an HHD. The defects inspection and mapping on the pipe was madewitha3Dimage.The defects positionis indicatedonthepipe anditcanbeseenaclearerimageofthe natureandscaleof defects. At the end, the operator can detect, locate and mark defects using a tablet and a marker [84]. 
+
+3.6. Additive Manufacturing 
+Products and services innovations needs hard and long research work and development that I4.0 with the novel technologies such as simulation via virtual reality are enabling it. However, on the next step, there is a manufacturing process with its related costs that can be a barrier to competitiveness. Additionally, at the end, there is a dilation of product or service lead time for markets. 
+The Additive Manufacturing (AM) paradigm is being increas-ingly developed and it brings into real industry, high feasible appli-cations [85]. Jian et al. [86] discussed the potential of AM on the replacement of many conventional manufacturing processes. AM is an enabling technology helping on new products, new business 
+
+V. Alc芍cer, V. Cruz-Machado / Engineering Science and Technology, an International Journal 22 (2019) 899每919 
+
+models and new supply chains.A set of technologies that enables ＆＆3D printing§ of physical objects form the collective term AM [87]. Products such as one-of-a-kind, can be manufactured without the conventional surpluses, so it is a big advantage. AM technolo-gies can be referred also with other synonyms such as rapid proto-typing, solid freeform manufacturing, layer manufacturing, digital manufacturing or 3D printing [88]. With AM it＊s possible to create prototypes to allow value chain elements independence, and therefore, achieving time reduction on design and manufacturing process. 
+As follows in Fig. 16,AMprocesses are classi.ed into seven cat-egories according to the standard of the International Organization for Standardization (ISO)/American Society for Testing and Materi-als (ASTM) 52900:2015 (ASTM standard F2792). 
+AM technology is de.ned by Kim [85] as a process of creating a 3D object-based on the deposition of materials on layer-by-layer or drop-by-drop undera computer-controlled system. Some potential bene.ts of AM can be summarized as follows [89]: 
+. 
+Manufactured parts directly from CAD data .les (.nal or near .nal parts with minimal to no additional processing); 
+
+. 
+Greater customization without extra tooling or manufacturing cost; 
+
+. 
+Manufacturing of complex geometries (some geometries cannot be achieved on conventional processes, otherwise, it is achieved by splitting it into several parts); 
+
+. 
+Manufacturing of hollow parts (achieving less weight) or lattice structures; 
+
+. 
+Maximization of the material utilization for the ＆＆zero waste§ approach; 
+
+. 
+Smaller operational foot-print towards manufacturing a large variety of parts; 
+
+. 
+On-demand manufacturing and excellent scalability. 
+
+
+
+According to Shin et al. [90],AMwork.ow includes the geome-try design, computational tools and interfaces development, mate-rial design, process modeling and control tools, and it was also discussed the AM applications .elds such as nano-scale (bio-fabrication), micro-scale (electronics), macro-scale (personal prod-ucts, automotive), and large-scale (architecture and construction, aerospace and defense). 
+For the next generation of AM processes, Chang et al. [91] dis-cussed novel processes such as micro/nano scale 3D printing, bio-printing (AM of biomaterials), and 4D printing (combination of AM with smart materials (stimulus-responsive that change their shape or functional properties)) to fabricate within high resolution a complex 3D features, in multi-materials, or multi-functionalities. 
+On a near future, AM technology will expand eventually to super-advanced technology areas and substitute current technolo-gies [85]. 
+3.7. Horizontal and Vertical Systems Integration 
+Engineering, production, marketing, suppliers, and supply chain operations, everything connected must create a collaborative sce-nario of systems integration, according to the information .ow and considering the levels of automation [18].In general, the sys-tems integration of I4.0 has two approaches: horizontal and verti-cal integrations [10,92]. Real-time data sharing is enabled by these two types of integration [16]. 
+Horizontal integration is the inter-company integration [92] and is the foundation for a close and high-level collaboration between several companies, using information systems to enrich product lifecycle [16], creating an inter-connected ecosystem within the same value creation network [10,92]. It is necessary an independent platform to achieve interoperability on the devel-opment of these systems, based on industrial standards, enabling exchanging data or information [92]. 
+V. Alc芍cer, V. Cruz-Machado / Engineering Science and Technology, an International Journal 22 (2019) 899每919 
+Vertical integration is a networked manufacturing system [93], the intra-company integration [92] and is the foundation for exchanging information and collaboration among the different levels of the enterprise＊s hierarchy such as corporate planning, pro-duction scheduling or management [10,93]. Vertical integration ＆＆digitizes§ all the process within entire organization, considering all data from the manufacturing processes, e.g., quality manage-ment, process ef.ciency or operations planning that are available on real-time. By this, in a high level and .exible way, providing the small lot sizes production and customized products, the verti-cal integration enables the transformation to SF [16]. It＊s important to refer that standards must be the bases of the vertical integration [92]. 
+According to several authors [16,93每96], the paradigm of I4.0 in manufacturing systems has another dimension between horizontal and vertical integration considering the entire product lifecycle. This kind of integration is based on vertical and horizontal integra-tions[93].Ina visionof holistic digital engineering,asthe natural .ow of a persistent and interactive digital model, the scope of the end-to-end digital integration is on closing gaps between product design and manufacturing and the customer [94], e.g., from the acquisition of raw material for the manufacturing system, product use and its end-of-life. The phase of end-of-life product contains reusing, remanufacturing, recovery and disposal, recycling, and the transport between all phases [95]. Fig. 17 shows the relation-ship between the three types of integration on a manufacturing system, considering vertical integration as the corporation(s), hor-izontal integration between corporations, and end-to-end integra-tion linking design, production and logistics as an example. 
+3.8. Autonomous Robots 
+Manufacturing paradigm is shifting rapidly production from mass towards customized production, requiring robots, for instance, as a recon.gurable automation technology. The impact on the production systems of the manufacturing companies is that this trend leads to the production adaptation for a wider product variation, focusing ideally on batch size one. Nowadays, to reach the .exibility demanded level, robots are essential on production systems [97]. Towards that, abilities on computing, communica-tion, control, autonomy and sociality are achieved terms when combining microprocessors and Arti.cial Intelligence (AI) with products, services, and machines to make them become smarter. Robots with AI, adaptive and .exible, can facilitate different prod-ucts manufacturing and consequently providing decreasing pro-duction costs [16].In addition,a robot also canbe seen as oneof the forms of AI [98]. 
+Processes such as product development, manufacturing and assembling phases, are processes that adaptive robots are very use-ful on manufacturing systems [16]. It is important to refer that fully autonomous robots make their own decisions to perform tacks on a constantly changeable environments without operator＊s interaction [99]. Fig. 18 shows an overview, not strict, on the autonomous robot characterizations, considering industrial and non-industrial environments. 
+
+Dirty or hazardous industrial applications on unstructured envi-ronments can be improved by an Autonomous Industrial Robot (AIR) or multiple in a close collaboration. Hassan et al. [100] pre-sented a multiple autonomous robot＊s collaboration approach in Fig. 19, consisting on robots with different capabilities performing grit-blasting and spray painting. 
+According to Hassan et al. [100], with the deployment of multi-ple autonomous industrial robots working as a team, it＊s possible to have a larger range of manufacturing applications. Other approach in multi-robot systems can be seen in Fig. 20 during a 
+
+Fig.19.Autonomous industrial robots performing grit-blasting or spray painting [100]. 
+V. Alc芍cer, V. Cruz-Machado / Engineering Science and Technology, an International Journal 22 (2019) 899每919 
+
+sequence of collaborative assembly operations, dealing with robot con.gurations to grasp assembly parts and build complex struc-tures such as a chair [101]. 
+Collaborative robots concept also introduces the proximity of robotswith humans [102].Onthe visionofSF, collaborative robots (cobots) and humans will work closely together. Cobots are a cat-egory of robots specially designed to interact directly and physi-cally with humans, in a close cooperation [103每104]. This is possible due to the safety existing limits on speed and forces that automatically restarts the cobot allowing to guide the cobot by hand [103]. By this, for manufacturing companies, human-robot barrier is break down offering bigger affordability and .exibility on solutions [104]. 
+3.9. 
+Cybersecurity 
+Every year, increasingly, devices are connected to the global network: the internet. In a close future, the main source of data will be inanimate objects [105].Bythis, IoT, virtual environments, remote access, stored data on cloud systems, etc., are many open opportunities that represents increasing new vulnerabilities lead-ing to a compromised information for people and enterprises. The risk scenario becomes reality because the enterprise bound-aries are unclear and are vanishing [106]. Kannus and Ilvonen 
+[107] de.ned Cybersecurity (CS) as a new term on a high level of information security, and through the word ＆＆cyber§ it spreads to apply also on industrial environments and IoT. CS is a technology laying on protecting, detecting and responding to attacks [108]. 
+IoT has to be built based on safety communications on each point of the manufacturing process and safety interoperability has to be assured between facilities as basic elements of the supply chain value. I4.0 technologies must allow the creation of a safety cyber environment, bene.ting on CS. 
+Direct attacks from evil persons and/or software can be hard jeopardies to Industrial Control Systems (ICS). These ICS of the industrial sectors are basically control such as Supervisory Control and Data Acquisition (SCADA), process control systems, distributed control systems, CPS or Programmable Logic Controllers (PLC) [109]. The increasing of connected devices means more possibili-ties of cyber-attacks. Benias and Markopoulos [110] discussed why industrial devices get hacked, the main reasons as follows: 
+. 
+Devices running for too much time (weeks or months) without updating security or anti-virus tools; 
+
+. 
+Considerable number of old controllers used in ICS networks, designed when CS was not a concern; 
+
+. 
+CS threats can enter bypassing CS measures due to the existence of multiple pathways from several ICS networks; 
+
+
+. Quick spread of malware due to several ICS networks that still remains implemented as a .at network without physical or vir-tual isolation among other unrelated networks. 
+
+I4.0 creates valuable information that needs to be protected. Information and data security are critical for the industry success. It is important that data is available just for authorized persons. Integrity and information sources must be ascertained. I4.0 has raised two demands for CS in order to secure smart manufacturing systems: Security Architecture and Security by Design. Hence, attacks, threats and malware must be automatically detected with zero-installation by the systems [106]. Manufacturing operations can be shut down by a cyber-attack, therefore, companies have money losses, but the main issue are cyber-attacks targeting sys-tems requiring safety operations and representing a serious risk for the safety of the operators [111]. Elhabashy et al. [112] dis-cussed other approach on manufacturing environments regarding to some potential attacks such as modifying product designs (related to CAD .les, tolerances), modifying manufacturing pro-cesses (Computer-Aided-Manufacturing (CAM) .les, machine parameters, used tools, tool paths) or manipulating process/pro-duct data (inspection results, indicators of machine maintenance). These attacks can delay a product＊s launch, cause the production of modi.ed products, can ruin customer trust or increase warranty costs. 
+The cyber-attack could be internal and/or external source. According to Khalid et al. [113],in Fig. 21, a cyber-attack can come from an internal source such as an operator that physically access to a data port or an external source such as an outside communi-cation channel or also a wireless transmission. 
+The ICS safety is time-sensitive so an automatic incident response is need it. For a variety of industrial attacks, Software-De.ned Networks (SDN) and Network-Function Virtualization (NFV) can facilitate automatic incident response. The incident response in ICS can be achieved using a private-cloud architecture (cost-effective investment). SDN and NFV makes automatic inci-dent response possible to rapidly detect and temporarily replace the failing systems with virtual implementations of those systems. SDN and NFV are technologies to improve the following aspects:1) network visibility, 2) network capabilities (enables network traf.c .ows with better management), and 3) network functions deploy-ment and control using software, instead of speci.c hardware mid-dleboxes [108]. However, the combination of SDN with NFV shows a capable approach in new defense solutions in depth for ICS [114]. 
+The concept of defense-in-depth, as showed in Fig. 22, was dis-cussed by Jasen et al. [115], according to the international standard IEC/ISA-62433 with the incorporation of three measures as techno-logical, organizational, and human-centered, as multilayer approach for security ICS. Security controls at system level, net-work and plant must exist on this concept. 
+Updating the implemented security controls continuously is obligatory, keeping the protection up-to-date [115], such as fol-lows on: 
+. 
+Device level -with the installation of new security patches; 
+
+. 
+Network level -with the .rewall signatures of new threats updated; 
+
+. 
+Plant/factory level -with the analysis and monitoring of the actual log sources. 
+
+
+
+4. The Smart Factory of the I4.0 
+According to several authors [2,4每8,116], the framework of the I4.0 is the development of the Smart Factory (SF). In conceptual terms, the SF is the heart of I4.0 [117]. CPS, IoT and IoS were assumed as the main components of I4.0 [1]. 
+V. Alc芍cer, V. Cruz-Machado / Engineering Science and Technology, an International Journal 22 (2019) 899每919 
+
+
+These components have very closely linked each other, enabling the SF and built on the concept of decentralized production system with a social network connecting persons, machines and resources [1]. Using cloud-based manufacturing in SF, both IoT and CPS tech-nologies converges to IoS to create, publish and share the manufac-turing processes, represented in services that could be supply by virtual enterprises [118]. 
+Comparedto humans living in two worlds such as the physical and the cyber world, SF will work on the physical and on the DT, in the cyberspace. The DT will collect generated data from manual inputs and sensor networks, will process data on cyberspace and take the corrective actions on real-time to handle the physical world [29]. 
+Based on the manufacturing process digitalization, I4.0 is the development of a new generation of SF＊s [24]. According to several authors [2,4,8,10],in this new generation of SF, the main key tech-nology is CPS. SF is the key feature of I4.0 and the core concept component, where vertical integration occurs, the horizontal inte-gration occurs in the SF value network and across different SF＊s, enabling end-to-end engineering integration across the entire value chain [119]. Fig. 23 identi.es the transformation technolo-giesof the current industrial productioninaSF framework. 
+
+4.1. Cyber-Physical Systems 
+Cyber-Physical Systems (CPS) has the potential to change our life with concepts that already emerged, e.g., robotic surgery, autonomous cars, intelligent buildings, smart manufacturing, smart electric grid, and implanted medical devices [120] (e.g., a pace maker in a smaller scale [121]). CPS represents the latest and signi.cative developments of Information and Communication Technologies (ICT) and computer science [120]. 
+CPS is the merger of ＆＆cyber§ as electric and electronic systems with ＆＆physical§ things. The ＆＆cyber component§ allows the ＆＆physi-cal component§ (such as mechanical systems) to interact with the physical worldby creatinga virtualcopyofit.This virtualcopywill include the ＆＆physical component§ of the CPS (i.e., a cyber-representation) through the digitalization of data and information. By this, CPS can be assumed as a range of transformative technolo-gies to manage interconnected computational and physical capa-bilities [122]. CPS embraces smart elements or machines who has the augmented intelligence and ability to communicate each other to make part of planning, unique or non-repetitive tasks. These smart elements, for instance, can control the needs of workpieces, alter the manufacturing strategies for the optimal production, choose (if already exists) or .nd a new strategy all by themselves. These elements will build their own network [123].In other words, the CPS core is the embedded system to process information about the physical environment. This embedded system will perform tasks that were processed by dedicated computers. CPS model can be described as a control unit with one or more microcon-trollers, controlling sensors and actuators that interacts with the real world and processes the collected data [124每125].A commu-nication interface will enable this embedded system to exchange data with the cloud or with other embeddedsystems. CPS is asso-ciated with the IoT concept [126]. According to Humayed et al. [127], CPS mainly consists of three components such as: 1) com-munication; 2) computation and control and; 3) handling and monitoring. The CPS communication can be both wired or wireless 
+V. Alc芍cer, V. Cruz-Machado / Engineering Science and Technology, an International Journal 22 (2019) 899每919 
+
+
+and connects CPS to a higher level such as control systems, or lower-levels such as physical world components. The intelligence is embedded on the computation and control component with the exchange of control commands and received measures. CPS is connected to the physical world by the handling and monitoring component, using actuators to handle physical components and using sensors to monitor them [127]. 
+Referring a manufacturing system and according to Keil [128], Fig. 24 shows a schematic representation of a CPS, an embedded system integrated in physical systems such as production lots or machines. The sensors collect physical data and the electronic hardware and software will save and analyze it. The interaction between data processing and other physical or digital systems are the CPS bases. it＊s also possible to identify an HMI in this CPS schematics for supervision and exchange information. 
+Several CPS linked within digital networks formaCyber-Physical Production System (CPPS) [128],based on sub-systemsand autono-mous and cooperative elements linked across all levels of produc-tion [120]. According to Rojas et al. [129], CPS are the building blocksfortheSF, structuredasCPPS.The collecteddatawillbesent to BD and become accessible via CC. The CPPS interaction with the virtual world enables IoTin manufacturing [13,118].As the system are getting intelligence regarding to the so-called smart objects, the IoT creates the connect environment with smart objects to the glo-bal internet. Several authors [3,6,10,19,58,94,113,121,124,130] dis-cuss the level of cooperation and communication of CPPS in manufacturing. 
+The implementation of CPPS in the SF leads to a fundamental design principle as the real-time management in industrial pro-duction scenarios. CPPS will make the automation pyramid approach on a different manner. The traditional automation pyra-mid,as showsthe Fig.25,is partly breakatthe PLC＊s level.The .eld level and control remain including closest PLC＊s of the technical processes to improve critical control loops, and the highest levels of the hierarchy will be decentralized [131]. 
+In the CPS-based Automation of the Fig. 25, the squares repre-sent inputs/outputs devices, the lines represent service interac-tions and the blue, yellow, grey and black points represent the 
+V. Alc芍cer, V. Cruz-Machado / Engineering Science and Technology, an International Journal 22 (2019) 899每919 
+
+corresponding functionalities of the .ve-layer architecture of the traditional automation pyramid [126]. 
+Some researchers are developing a .ve C＊s structure for better analyzing I4.0. This .ve C＊s architecture can guide the development of I4.0 and it is dependent of CPS attributes. These .ve levels are: Connection Level (main attribute is self-con.gurable), Conversion Level (main attribute is early-aware), Cyber Level (main attribute is controllable), Cognition Level (main attribute is informational) and Con.guration Level (main attribute is communicable) [116,132每133]. 
+4.2. Internet of Services 
+Replacing physical things by services, the Internet of Services (IoS) is based on the concept that services are available through the internet so that private users and/or companies can create, combine and offer new kind of value-added services [1]. IoS can enable service vendors to offer their services on the internet. Thus, the manufacturing industry of product-oriented trend is rapidly shifting for service-oriented to enable gaining revenue through all lifecycle of a product service system. By this, high quality on products can be enable by SoA, and side-by-side, gives a strong competitive position for companies through the value-added ser-vices. IoS enables collecting product information, e.g., during its operation, for updates and for the development of new services, increasing the perceived product quality [29]. IoS is consider by Andulkar et al. [29] as the technology to monitor the product lifecycle. 
+
+CONCLUSIONS
+
+5. Conclusions and Outlooks 
+As aforementioned, the foundations of the I4.0 are the advanced technologies ofautomation, and the ICT present across this review. Key challenge of I4.0 is to make the production systems more .ex-ible and collaborative. For this purpose, the use of enabling tech-nologies is the strategy that is behind of I4.0 paradigm. On an industrial context, each implemented technology in an individual manner will present a lower impact. On the other hand, when implemented together, it offers new possibilities to embrace the future. For instance, one of the I4.0 impact will be the elimination of monotonous work as well as physically demanding jobs. 
+IoT is an in.nite world of possibilities on innovation and opti-mization, due to the combination of many advanced systems and technologies such as BD and analytics, AI, networks, clouds, intel-ligent objects, robotics, middleware, people, among others. 
+The development of a CMfg service integration platform is pro-posed by Mai et al. [46] as a promising concept. It is an online tool consistingon builda processwith several sub-taskswitha seriesof modules sequentially connected each sub-task. This concept allows consumers to have customized products or even make products in the cloud. Even more, through CMfg, producers can create smart solutions to save costs and improve pro.ts.Acrucial note is the improvement of the safety and security regarding to online services that was mentioned at all examples. The develop-ment of CS technology deserves maximum efforts from all actors, since individual, professional users, and organizations that need to be safe and secured to face these rapid technological advances. 
+The Systems integration of I4.0 has two major characteristics relying on vertical and horizontal integration. The vertical integra-tion of the manufacturing processes, breaks the traditional automation pyramid, focusing on distributed and collaborative architectures. The horizontal integration allows the creation of a new kind of value-added [129]. By this, there is an unavoidable surrounding of customers and suppliers that are involved just from the beginning of the product life cycle. 
+A challenging scenario with the deployment of I4.0 will be the extinction of the centralized applications used in common manu-facturing environments, that leads to decentralized systems as one of the main I4.0 goals. By this meaning, distributed computing systems also plays a key role on I4.0 paradigm. It allows to save time on computing runtimes, allows working with more accurate details on smaller systems and for the overall system, and decreases the fail reaction time, e.g., if one computing system fails the others can continuing on computing. 
+Providing a guideline for the interdisciplinary I4.0 technologies, the RAMI4.0 was developed, describingthe connection between IT, manufactures/plants and product lifecycle througha3Dspace. The integration of RAMI4.0 and I4.0 component (component as, e.g., a production system, an individual machine or an assembly inside the machine) close the gap between standards and I4.0 technolo-gies at the production level, leading to the emerge of CPPS [130]. 
+Interoperability is one of the I4.0 design principles and can be found between BD and simulation as discussed by Shao and Jain [64]; BD on its analytics supports simulation by estimating the unknown input parameters and performing data calibration for simulation and its validation results. The return is the support of simulationfor BD analytics on various roles. Data analytics applica-tion can summarize and report production trends (e.g., product 
+V. Alc芍cer, V. Cruz-Machado / Engineering Science and Technology, an International Journal 22 (2019) 899每919 
+
+variation cycle time or throughput average). Diagnostic data anal-ysis can respond to what has happened and what is happening, identifying causes. Diagnostic analysis can take advantage using of manufacturing system＊ simulation model that emulates the cur-rent operation. Predictive analytics estimates performance based on planned inputs, e. g., product cycle time and throughput estima-tion for several products based on current policies. It will take advantage from simulation models to execute the what-if scenar-ios. Prescriptive analytics can respond to how can we make it hap-pen and what will be the consequences.It uses simulation models to improve the production performancein future periodsby emu-lating operations under paralleled realities and these plans can be improved with the arrangement of simulation and optimization models. 
+In the VF level, simulation can be seen as data generator allow-ing VF to generate for instance, streams of production data and resource utilization, and feed data to analytics applications. Can be seen also as supporting evaluation and validation giving an advantage to the real factory. 
+Simulation technology on I4.0, using VR, is an integral process to simulate all industrial processes, from planning, design, manu-facturing, providing services, maintenance, try-outs or even quality controls. All processes can be simulated as modular [132]. It＊s pos-sible to simulate and virtual verifya factory manufacturing process before being realized. After approved, all physicals can be done. For instance, if it is considering the combination within simulation and AM, after product simulation, the production of prototypes allows the time reduction on design and production process, by reducing the value-added dependencies. These time reductions are particu-larly relevant on customized markets. 
+Grieco et al. [4] presented an interesting case study in fashion manufacturing where a decision support system as a software is developed under the I4.0 concept, aiming the minimization of: 1) orders delivered later than due date, and 2) resource overload cases. 
+Many researchers discuss that the data is the raw material of the XXI century and the real world will be a huge information sys-tem. According to this, Lu [3] discussed one of the major chal-lenges in I4.0 that will be the development of algorithms for dealing with data. 
+According to Salkin et al. [16], there is no speci.c I4.0 de.nition, and therefore, there is no de.nitive utilization of the enabling tech-nologies to initiate the I4.0 transformation. 
+But the fact that this fourth revolution is been announced before it takes place, opens several opportunities for co-working environments between academic researchers and industrial practi-tioners, shaping on the manufacturing future [134]. 
+
+
+5.1. Looking Forward 
+As mentioned by Rojas et al. [129], I4.0 is on its infancy and to make it a reality, several challenges and gaps must be addressed. By this, the roadmap for the I4.0 ful.llment is still not clear to date in both academia and industry [132]. Considering .ve fundamental manufacturing systems to conceive I4.0, Fig. 26 can represent the research gaps between the current manufacturing and the I4.0 requirements [132]. These .ve manufacturing systems are systems where is hard to achieve intelligent concepts, that are the goal of I4.0 development, neither I4.0 lower or upper levels. The closest to I4.0 is the Recon.gurable Manufacturing System. 
+5.2. Executing I4.0 in SMEs 
+Looking at European Union, SMEs represents the backbone of the economy and the key to competitivity. Inside this enterprise dimension, special approaches must be developed to introduce and apply I4.0 technologies [129]. The enabling technologies of I4.0 are the foundation for the integration of intelligent machines, humans, physical objects, production lines and processes to form a new kind of value chain across organizational boundaries, featur-ing intelligent, networked, and agile. By this, due to the increase level of complexity, manufacturing SMEs has doubts on the required .nancial effort for the transformation technologies and its impact on their business model [135]. 
+The implementation of I4.0 in SMEs can be facilitated, for instance, on a SaaS approach, enabling technology acquisition for digital services with appealing investments. A clear example can be an SME integration on the supply chain of a product, allowing collaborative of project development, collaborative working on product＊s launch and time to market reduction, shared innovation, and consequently, minimizing the related risks. 
+Acknowledgments 
+Authors would like to acknowledge to the reviewers for their valu-able feedback. Special thanks to Freepik for providing vectors/icons for some .gures, available at www..aticon.com. 
+Declaration of con.ict interests. 
+
+The authors declare no potential con.ict of interests at all in this paper. 

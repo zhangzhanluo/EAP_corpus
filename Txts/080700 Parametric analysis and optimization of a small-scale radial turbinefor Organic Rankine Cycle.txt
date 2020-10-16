@@ -1,0 +1,869 @@
+
+Parametric analysis and optimization of a small-scale radial turbine
+for Organic Rankine Cycle
+
+Kiyarash Rahbar , Saad Mahmoud, Raya K. Al-Dadah, Nima Moazami
+School of Mechanical Engineering, University of Birmingham, Edgbaston, Birmingham B15-2TT, UK
+article info abstract
+ In this methodology, the mean-line modelling coupled with real gas formulation is employed
+to perform parametric studies to identify the key variables that have signiﬁcant effect on the turbine
+Keywords:
+efﬁciency. Such variables are then used in the GA to optimise the turbine performance. Eight organic
+Organic Rankine Cycle
+ﬂuids are investigated to optimise the performance of the small-scale radial turbine in terms of efﬁ-
+Radial turbine
+ciency. Results showed that the achieved radial turbine efﬁciencies vary from 82.9% to 84%; which is
+Mean-line modelling
+Genetic algorithm optimization higher than the reported efﬁciency values of other types of expanders. R152a showed the highest efﬁ-
+Organic working ﬂuids
+ciency of 84% with seven degrees (K) of superheating. However, if the superheating is to be avoided,
+isobutane exhibited the most favourable characteristics in terms of efﬁciency (83.82%), rotor size
+(66.3 mm) and inlet temperature (89.2 C).
+
+1. Introduction exergyefﬁcienciesandminimumsolarcollectorareawiththedual
+pressurecycle.Delgado-Torresetal.[3]performedthermodynamic
+The ORC (Organic Rankine Cycle) is a promising technology for analysis of the ORC to determine the solar energy required for
+conversion of low temperature waste heat sources into useful po- reverse osmosis desalination using four stationary collectors and
+wer. The ORC utilizes organic ﬂuids such as hydrocarbons and re- twelve working ﬂuids. Liu et al. [6] conducted thermodynamic
+frigerants that boil at low temperature and pressure, with the modelling of a 2kWe micro-scale ORC using biomass heat and
+advantagesofsmallsize;lowcapitalandmaintenancecostandlow studiedtheeffectofsuperheatingandsub-coolingof threeorganic
+environmental impact. ﬂuids. They concluded that n-pentane has the highest efﬁciency
+SeveralstudieshavebeenconductedtoadopttheORCforawide andbothsuperheatingandsub-coolingaredetrimentaltothecycle
+range of low-grade heat applications, such as: solar energy [1e5], efﬁciency.Tchancheetal.[2],Drescheretal.[7]andSalehetal.[10]
+biomass heat [6e8], geothermal energy [9e12], WHR (Waste Heat carried out detailed studies for the selection of a proper working
+Recovery)ofIC(internalcombustion)engines[13e15],WHRofgas ﬂuid by modelling the thermodynamic properties and thermal ef-
+turbine exhausts [16e18] and bottoming of the water/steam ﬁcienciesof20,700and31differentﬂuidsrespectively.Cammarata
+Rankine cycle [19,20]. Tempesti et al. [1] and Guzovic et al. [11] et al. [12] performed thermodynamic analysis of the ORC for a
+carried out thermodynamic modelling of a single and a dual pres- geothermal primary source using ﬂow-chart numerical tool based
+sureORCwithsolarandgeothermalheat.TheyshowedthatR245fa onalumpedparametersapproachandhighlightedthepotentialof
+and isopentane exhibit the best performance in terms of cycle and numerical tools in predicting the cycle performance. Capata et al.
+[15] investigated the feasibility of an on-board innovative ORC
+system suitable for all types of thermally propelled vehicles to
+recover the heat from exhaust gases and produce extra power.
+Hettiarachi et al. [9], Rashidi et al. [19] and Wang et al. [20]
+optimized various performance indicators of the ORC such as the angle, the present study utilized a rotor blade geometry with non-
+exergyefﬁciency,speciﬁcworkandtheratioof theheatexchanger zeroinletblade angle to achievehigherspeciﬁc workoutputand a
+area to the net power output using various optimization methods more compact rotor.
+such as artiﬁcial bees colony, GA (genetic algorithm) and steepest
+descent method. Even though there have been several studies 2. Working ﬂuid selection
+[1e20] regarding the selection of working ﬂuid, thermodynamic
+modelling and optimization of the ORC, there has been relatively AnimportantfactorwhendesigninganexpanderfortheORCis
+fewer published work on the modelling of the expander. the selection of the working ﬂuid. The properties of the working
+Expanders are the key components of the ORCs and their per- ﬂuidhaveamajoreffectontheturbineperformanceandgeometry.
+formancehavesigniﬁcanteffectsontheoverallsystem'sefﬁciency. Due to the low temperature of the heat source, dry and isentropic
+Modelling and experimental study of the ORC using scroll ex- ﬂuids are more favourable for the ORC systems because of the su-
+panders was carried out in Refs. [21e25], with a maximum scroll perheated condition after the expansion in the turbine. This elim-
+efﬁciency of 67% reported in Ref. [22]. Compared to scroll ex- inatestheconcernsregardingtheexistenceofliquiddropletsinthe
+panders,radialturbinescanoffertheadvantagesofhighefﬁciency, rotor compared to the wet ﬂuids such as water and the need for
+light weight, mature manufacturability and high power capacity superheating equipment. Moreover, the working ﬂuids should
+[26]. Sauretet al. [27] performed the modellingof candidateradial satisfy the environment related issues and safety criteria. These
+turbine rotors for a geothermal power system using ﬁve organic includezeroozonelayerdepletion,minimalGWP(globalwarming
+ﬂuids. R143a showed the maximum turbine static efﬁciency of potential),lowatmosphericlifetime,non-ﬂammableandnon-toxic
+78.5%withtheturbineinlettotaltemperatureandpressureof413K characteristics.Table1showsthepropertiesoftheselectedorganic
+and 60 bars respectively. Kang [28] accomplished the design and workingﬂuids. The temperature - entropy diagram of the selected
+experimental study of a 30 kW radial turbine for the ORC using ﬂuids is shown in Fig.1.
+R245fa working ﬂuid and obtained the turbine static efﬁciency of
+75%withtheturbineinlettotaltemperatureand pressureof 353K 3. Radial turbine mean-line model
+and7.3barsrespectively.Peietal.[29]carriedouttheexperimental
+study of a small-scale ORC using R123 and radial turbine. They Mean-linemodellingisbasedonaone-dimensionalassumption
+examinedtheheattransferand powerconversionprocessthrough that there is a mean streamline through the stage, such that con-
+the ORC and achieved the turbine isentropic efﬁciencyof 71% with ditions on the mean streamline are the average of the passage
+the turbine inlet total temperature and pressure of 373 K and conditions [34]. Then the thermodynamic properties, geometry
+7.8 bars. Rahbar et al. [30,31] developed a procedure for the pre- parameters and ﬂow features are determined at key stations
+liminary and detailed design of radial turbines for low power ca- throughout the stage. Euler's turbomachinery equation, conserva-
+pacity systems such as ORC using mean-line modelling and CFD tion of mass, momentum and energy, are the basic equations that
+(computationalﬂuiddynamics)analysis.Panetal.[32]replacesthe form the mean-line model. Also, losses and blockage in the rotor,
+constant radial turbine efﬁciency with an internal efﬁciency to nozzle and volute, have been taken into account. Fig. 2 represents
+enhance the reliability of the ORC analysis results. R152a showed thecrosssectionoftheradialturbinestagewiththecorresponding
+the maximum turbine efﬁciency of 75.8% at the turbine inlet total enthalpyeentropy diagram that detailed the expansion process.
+temperature and pressure of 323 K and 11.8 bars respectively. Mean-line modelling is a highly iterative process as it requires
+Fiaschi et al. [33] built a model to design a 50kWe radial turbo- comprehensive studies of many different conﬁgurations by varia-
+expander for the ORC in which the ﬂuid dynamics design input tion of a large group of input variables in a speciﬁed range. Fig. 3
+data are computer-aided adjusted by the operator. The maximum shows the ﬂow chart of the mean-line model, detailing the over-
+total-to-staticturbineefﬁciencyof83%wasachievedbyR134awith all procedure.
+the turbine inlet total temperature and pressure of 420 K and Inputstothemean-linemodelconsistofpoweroutput;turbine
+38 bars respectively. In most of the studies [27e30,32,33] that inlet total temperature and pressure; non-dimensional design pa-
+carried out modelling of the radial turbine, the designer adjusted rameters, as loading and ﬂow coefﬁcients and geometry ratios.
+the turbine design parameters iteratively in order to achieve With the provided input parameters shown in Table 2 and the
+desirable results and if unacceptable the process was repeated. initial guess of stage total-to-static efﬁciency, the preliminary
+However, this procedure has several deﬁciencies as it does not design of the rotor is carried out. Based on the calculated velocity
+necessarily assure that the optimum combination of the turbine trianglesandbasicgeometryoftherotor,theoverallcharacteristics
+design parameter is achieved for the maximum turbine perfor- for the remaining components such as the nozzle and volute are
+mance and it is extremely reliant upon the designer experience. determined. Using these results and the loss correlations, the
+Moreover, it does not consider a broad range for the input param- model determines a more accurate estimate of the turbine stage
+eters which increases the possibility of overlooking the best solu- efﬁciency. This value is then used as an initial guess for the efﬁ-
+tion. In addition, the results should be manually checked by the ciency and the process is repeated until convergence is achieved.
+designertoensurethattheapplicationandgeometricalconstraints For high expansion ratios that can lead to a choked nozzle and/or
+are satisﬁed. rotorthroat, the mean-line code includes an additional subroutine
+Theaimofthisstudyistodeveloparobustmethodologyforthe toaddressthiseffect.Themean-linemodelisimplementedintothe
+true optimization of a small-scale radial turbine performance that EES(engineeringequationsolver)software[35].Thisallowstheuse
+can be used for ORC applications. This approach integrates the of its extensive and reliable thermodynamic property functions
+mean-line modelling, real gas formulation and GA to carry out the throughout the model and accurately predicts the real gas behav-
+modelling of the radial turbine for eight organic ﬂuids and allows iour of workingﬂuids during the expansion.
+the optimization of the radial turbine efﬁciency based on a wide
+range of turbine ﬂuid dynamics design parameters. Imposing the 3.1. Rotor modelling
+geometrical and aerodynamics constraints on the optimization
+process guarantees the manufacturabilityof the optimized turbine Themodellingofradialturbinerotorisoutlinedintheliterature
+geometry with minimum aerodynamic losses. In addition, unlike [36e40], based on the ideal gas relations and with very high tur-
+
+[27e30,32] that used a conventional rotor with zero inlet blade bine inlet temperatures (600e1000 C) suitable for gas turbine
+698 K. Rahbar et al. / Energy 83 (2015) 696e711
+Table 1
+Properties of the selected organic workingﬂuids.
+Fluid Molecular weight T (K) P (kPa) T (K) GWP (100 yr) ODP Atmospheric Safety data Reference
+cr cr nbp
+(g/mol) life time (yr) (ASHRAE 34)
+R245fa 134.05 426 3610 288.14 950 0 7.2 B [32]
+1
+R134a 102.03 374 4060 246.9 1430 0 14 A [32]
+1
+R123 152.93 456 3660 300.8 77 0.02 1.3 B [32]
+1
+R236ea 152.04 412 3410 279.34 1200 0 8 e [32]
+R152a 66.05 385 4450 249 124 0 1.4 A [32]
+2
+R236fa 152.04 397.9 3200 271.6 9810 0 240 A [32]
+1
+n-pentane 72.15 469 3360 309.1 ~20 0 0.01 A [2]
+3
+Isobutane 58.12 408 3640 261.3 ~20 0 0.019 A [32]
+3
+
+temperaturesofabout200 Corless,inwhichthesestressesarenot
+severeandageneralshapeoftheturbinerotorcanbeadoptedwith
+non-zeroinletbladeangle(b >0),aspresentedinFig.4b.This
+4,blade
+conﬁgurationobtainshighjvaluesinexcessofunitybylayingout
+the inlet velocity triangle with positive b while preserving the
+4
+optimum incidence. Comparing Fig. 4a and b illustrates that the
+latterconﬁgurationyieldsahigherlevel ofinlettangentialvelocity
+(C ) with the same wheel speed and consequently higher speciﬁc
+q4
+work output is obtained as expressed by Eq. (1).
+Dh ¼ U C U C (1)
+actual 4 q4 5 q5
+Dh (J/kg) is actual enthalpy drop, U (m/s) and U (m/s) are
+actual 4 5
+thewheelspeedsattherotorinletandexit,C (m/s)andC (m/s)
+q4 q5
+are the tangential absolute velocities at the rotor inlet and exit
+respectively.
+ThenthevelocitytrianglesshowninFig.4baredeterminedboth
+at the rotor inlet and exit using equations (1)e(3) and the input
+data given inTable 2.
+Fig.1. Temperature - entropy diagram of the selected ﬂuids.
+sﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+Dh
+actual
+U ¼ (2)
+4
+engines and turbochargers. In these applications the simultaneous
+j
+existence of high centrifugal and thermal stresses limited the
+design andgeometryof the rotor toberadial atthe inletwithzero
+C ¼fU (3)
+m5 4
+inletbladeangle(b ¼0),asdepictedinFig.4a.Thisconstrains
+4,blade
+the rotor inlet velocity triangle to be aligned with the negative
+j () is the loading coefﬁcient,4 () is theﬂowcoefﬁcient and
+relative ﬂow angle (b ), for the optimum incidence and with a
+4
+C (m/s) is the absolute meridional velocity at the rotor exit. The
+m5
+loading coefﬁcient (j) value of less than unity [36,37]. On the
+total and static thermodynamic parameters at the rotor inlet (S ,
+t,4
+contrary, the ORC turbine operates at much lower inlet
+T ,r ,P ,T ,h ,r )arecalculatedusingEq.(4)togetherwiththe
+t,4 t,4 t,4 4 4 4
+Fig. 2. Enthalpy-entropy diagram of the turbine expansion (left), stage cross section (right).
+K. Rahbar et al. / Energy 83 (2015) 696e711 699
+Fig. 3. Flow chart of the mean-line model.
+real gas EOS (equation of state), rotor inlet absolute and relative P (Pa) and P (Pa) are the total pressures at the turbine inlet
+t,1 t,4
+3
+ﬂow velocities (C ,W ) and the adiabatic assumption (h ¼ h ). and rotor inlet respectively, r (kg/m ) is the turbine inlet total
+4 4 t,4 t,1 t,1
+densityandh ()istheturbinestagetotaltostaticefﬁciency.
+stage,ts
+ !
+ 
+r Dh 1h Thetotal,relativetotalandstaticthermodynamicparametersatthe
+t;1 stage;ts
+actual
+P ¼ P  (4)
+t;4 t;1
+rotoroutlet (S , T ,r ,P ,P , h ,T ,h ,r ) are determined
+4h t,5 t,5 t,5 t,5 t,5,rel t,5,rel 5 5 5
+stage;ts
+using the isentropic expansion state point (h , S ¼ S ), actual
+5s 5s 1
+enthalpy drop, rotor outlet absolute and relative ﬂow velocities
+Table 2
+(C ,W ).Therotorexitﬂowareaisfoundbytheradiiratio(r /r )
+5 5 5hub 4
+Input variables of the mean-line model and their ranges/values.
+given inTable 2 and Eq. (5).
+Parameter Unit Range/value Reference
+Power output kW 15 e
+_
+m
+Loading coefﬁcient (j) e 0.6e1.4 [33,36,37]
+A ¼ (5)
+5
+r fU ð1BK Þ
+Flow coefﬁcient (4) e 0.2e0.5 [36,37]
+5 4 5
+Massﬂow rate (m) kg/s 0.55e0.85 [17,33]
+2
+_
+A (m ) is the rotor exit area, m (kg/s) is theworkingﬂuid mass
+5
+Rotational speed (u) rpm 35,000e65,000 [17,33]
+3
+Rotor exit hub to inlet e 0.4e0.65 [36,37] ﬂow rate, r (kg/m ) is the rotor exit density and BK () is the
+5 5
+radii ratio (r /r )
+5hub 4 blockage factor at the rotor exit.
+Rotor exit absoluteﬂow deg 1515 [36,37]
+The number of rotor blades is required for calculation of the
+angle (a )
+5
+rotor losses and is obtained by the Glassman correlation [40] as
+Inlet total temperature (T ) K 333e463 [17,27,33]
+t,1
+depicted in Eq. (6).
+Degree of superheating K0e20 [6,33]
+(DT )
+superheating
+Inlet total pressure (P ) kPa Corresponding saturated e
+t,1
+p
+Z ¼ ð110a Þtanða Þ (6)
+vapour pressure at the
+rotor 4 4
+30
+selected temperature
+Nozzle inlet to exit radii e 1.2e1.3 [36,37]
+Z () is the number of rotor blades and a (degree) is the
+rotor 4
+ratio (r /r )
+2 3
+rotor inlet absoluteﬂowangle with respect to the radial direction.
+700 K. Rahbar et al. / Energy 83 (2015) 696e711
+Fig. 4. Schematic of the blade proﬁles and velocity triangles, zero inlet blade angle (a), non-zero inlet blade angle (b).
+Therotorlossesareconsideredastotalenthalpydropandconsistof clearances respectively, C (m/s) is the absolute meridional ve-
+m4
+friction, secondary, tip clearance, exit kinetic, disk friction and locityattherotorinlet,b (m)andb (m)aretherotorinletandexit
+4 5
+incidence losses. The friction loss is determined by equations bladeheightsrespectively,l (m)istherotoraxiallength,r (m)
+rotor,x 4
+(7)e(8) with the Darcy friction coefﬁcient (f) modiﬁed to account and r (m) are the rotor inlet and exit tip radii respectively. The
+5tip
+for the curvature effects of radial turbines [39]. rotor exit loss is found by Eq. (11) [39].
+ 
+2 32
+2
+W þW C
+5tip 5hub
+5
+W þ
+4 Dh ¼ (11)
+2 exit
+6 7 l
+hyd
+2
+6 7
+Dh ¼ f (7)
+curve
+friction
+4 5
+2 d
+hyd
+Dh (J/kg) is the enthalpy drop due to the wasted energy of
+exit
+exhaust and C (m/s) is the absoluteﬂow velocityat the rotor exit.
+5
+Eq. (12) depicts the disk friction loss [37].
+sﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+" #
+    0:05
+2
+ d 
+d
+hyd
+0:25 4
+3 2
+f ¼ f 1þ0:075Re Re (8)
+curve
+k rU r
+f
+4 4
+2r 2r
+c c
+Dh ¼ (12-a)
+disk;friction
+_
+4m
+Dh (J/kg) is the enthalpy drop due to the blade friction,
+friction
+ 0:1
+f () and f () are the radial turbine friction coefﬁcient and
+curve
+ε
+b
+r
+4
+Darcy friction factor respectively, W (m/s), W (m/s) and W
+4 5tip 5hub
+5
+k ¼ 3:7 for Re<10 (12-b)
+f
+0:5
+(m/s) are the relativeﬂow velocities at the rotor inlet and exit, l
+hyd
+Re
+(m) and d (m) are the hydraulic length and diameter respec-
+hyd
+tively,r (m)isthemeanradiusofcurvature,d (m)istherotorinlet
+c 4  0:1
+ε
+b
+diameter and Re () is the Reynolds number. The secondaryloss is
+r
+4
+5
+k ¼ 0:102 for Re>10 (12-c)
+obtained from Eq. (9) [39]. f
+0:2
+Re
+2
+C d
+4
+4 Dh (J/kg)istheenthalpydropduetotheﬂowleakageat
+disk,friction
+Dh ¼ (9)
+sec ondary
+3
+Z r
+rotor c thebackplateoftherotor,r(kg/m )istheaveragedensitybetween
+therotorinletand exit and ε (m)is the rotorbackplate clearance.
+b
+Dh (J/kg)istheenthalpydropduetothesecondaryﬂows
+secondary
+The rotor incidence loss is obtained from Eq. (13) [39].
+and C (m/s) is the rotor inlet absolute velocity. The tip clearance
+4
+loss is calculated by Eq. (10) [36].
+2
+W
+q4
+Dh ¼ (13)
+incidence
+3
+2
+pﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+U Z  
+rotor
+4
+Dh ¼ 0:4ε C þ0:75ε C 0:3 ε ε C C
+x x r r x r x r
+tip;clearance
+8p Dh (J/kg)istheenthalpydropduetotheﬂowdisturbance
+incidence
+(10-a) (incidence angle) at the rotor inlet and W (m/s) is the relative
+q4
+tangential ﬂow velocity at the rotor inlet. However, the contribu-
+  tionoftheincidencelossisverysmallatthedesignpointoperating
+r
+5tip
+1
+r
+4 condition of radial turbines and can be neglected when evaluating
+C ¼ (10-b)
+x
+the turbine overall losses [36,37].
+C b
+m4 4
+3.2. Nozzle modelling
+r 
+l b
+5tip rotor;x
+4
+C ¼ (10-c)
+r
+r C r b
+4 m5 5 5
+For the modelling of the nozzle, constant blade height equal to
+Dh (J/kg) is the enthalpy dropdue tothe rotortipﬂow b was assumed along the length of vanes. The ﬂow absolute ve-
+tip,clearance 4
+leakage losses, ε (m) and ε (m) are the axial and radial tip locities and thermodynamic properties both at the inlet and exit
+x r
+K. Rahbar et al. / Energy 83 (2015) 696e711 701
+SCr C ¼ r C (17)
+1 q1 2 q2
+_
+m¼r A C ð1BK Þ (18)
+2 2 m2 2
+k () is the volute total pressure loss coefﬁcient, SC () is the
+vol
+swirlcoefﬁcient accounting for the effect of volutewall friction, A
+2
+2
+(m ) is the nozzle inlet area, C (m/s) is the absolute meridional
+m2
+velocity at the nozzle inlet. k , SC and BK are assigned to 0.1, 0.9
+vol
+and 0.1 respectively, as suggested in Ref. [36]. Assuming a circular
+cross section for the volute, the geometry and static thermody-
+namic properties are determined iteratively with the known inlet
+total thermodynamic properties given in Table 2 and equations
+(16)e(18).
+With the calculated turbine losses, the newestimate of turbine
+total-to-static efﬁciency is determined using Eq. (19). The mean-
+line model uses this new value as the initial guess of efﬁciency
+and the process is repeated until convergence is achieved.
+ 
+Dh
+actual
+h ¼ P (19)
+stage;ts
+new
+Dh þ ðDh Þ
+actual losses
+The stage total-to-total efﬁciency, h (), speciﬁc speed, Ns
+stage,tt
+(),andvelocityratio,y(),areobtainedwithequations(20)e(22)
+respectively.
+h h
+t;1 t;5
+h ¼ (20)
+stage;tt
+h h
+t;1 t;5s
+pﬃﬃﬃﬃﬃﬃ
+u Q
+5
+N ¼ (21)
+s
+0:75
+ 
+Dh
+actual
+h
+Fig. 5. Implementation of the GA optimization loop into the mean-line model. stage;ts
+U
+4
+n¼pﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ (22)
+2Dh
+are calculated iteratively using the conservation of mass and
+ideal
+angularmomentum,EOSandtheradiiratio(r /r )giveninTable2.
+2 3
+u (RPM (revolutions per minute)) is the rotor wheel rotational
+In addition, Eq. (14) is used to determine the nozzle exit radius
+3
+velocity, Q (m /s) is the volume ﬂow rate at the rotor exit and
+[37]. 5
+Dh (J/kg) is the ideal enthalpy drop across the turbine.
+ideal
+r ¼ r þ2b cosða Þ (14)
+3 4 4 3
+r (m)isthenozzleexitradiusanda (degree)isthenozzleexit
+3 3 4. Methodology for optimization with genetic algorithm
+absolute ﬂow angle. The nozzle friction loss is determined by Eq.
+(15) [37].
+GAisbasedonthebiologicalevolutioninwhichapopulationof
+individuals is chosen randomly from the range of independent
+l
+2
+hyd
+parameters and they are assessed based on their ﬁtness value. A
+Dh ¼ 4fC (15)
+friction;nozzle
+d
+new generation of individuals is generated in a stochastic manner
+hyd
+by breeding the selected members of the current population ac-
+Dh (J/kg) is the enthalpy drop due to the friction in
+friction,nozzle
+cording to their ﬁtness value. The GA can deal with complex
+nozzle passages and C(m/s) is the average of absolute velocities
+optimization problems such as multi-dimensional, non-contin-
+between the nozzle inlet and exit.
+uous, and non-linear problems. The GA locates the global optimal
+values reliably from a population of solutions even if many local
+3.3. Volute modelling
+optima exist and prevents the convergence to sub-optimal
+Theratioofthevoluteinletareatoinletradius(A /r )shouldbe
+1 1
+a linear function of the azimuth angle in order totransfertheﬂuid Table 3
+Turbine design parameters for validation.
+uniformlyaroundtheperipheryofthenozzlering.However,dueto
+the wall friction and boundary layer growth, the actual ﬂow de-
+Parameter Unit Glassman case [40] Jones case [42]
+viates from ideal and the mean-line model predicts the ﬂow
+Workingﬂuid e Argon Air
+considering pressure loss, swirl coefﬁcient and blockage using
+Rotational speed (u) rpm 38,500 106,588
+equations (16)e(18).
+Inlet total temperature (T ) K 1083 1056.5
+t,1
+Inlet total pressure (P ) kPa 91.01 580.4
+t,1
+Massﬂow rate (m) kg/s 0.2771 0.33
+P P
+t;1 t;2
+k ¼ (16)
+Pressure ratio (total-to-static) e 1.61 5.73
+vol
+P P
+t;2 2
+Number of nozzle vanes e 16 19
+Number of rotor blades e 12 16
+702 K. Rahbar et al. / Energy 83 (2015) 696e711
+Table 4
+Comparison of the developed mean-line model with the published data.
+Parameter Glassman case [40] Jones case [42]
+Glassman RITAL [43] Present model Jones RADTURB [44] Present model
+r [m] 0.09775 0.1033 0.09911 0.074 0.077 0.0748
+2
+b [m] e 0.01221 0.01219 0.00618 0.00554 0.0066
+2
+r [m] 0.07983 0.08268 0.08133 0.0635 0.06163 0.0643
+3
+b [m] e 0.01221 0.01219 0.00618 0.00554 0.0066
+3
+a [degree] 72 63.39 68.11 77.80 78.1 77.38
+3
+r [m] 0.0777 0.07874 0.07888 0.0582 0.0587 0.0588
+4
+b [m] e 0.01221 0.01219 0.00635 0.00554 0.0066
+4
+r [m] 0.01936 0.02362 0.02312 0.0152 0.01761 0.0154
+5hub
+r [m] 0.05542 0.05591 0.05546 0.0368 0.0445 0.0409
+5tip
+a [degree] 71.92 63.13 63.51 76.8 77.3 76.76
+4
+b [degree] 31.50 26.27 26.64 31.8 32.7 36.87
+4
+a [degree 0 0.01 0 0.03 0 0
+5
+b [degree] 54.90 55.58 53.76 57.40 57.3 55.8
+5
+h [%] 0.82 0.79 0.788 86 86 84.6
+stage,ts
+Power [W] 38,500 38,500 38,500 121,000 121,000 121,000
+4 [-] e 0.4 0.4 e 0.2 0.28
+j [-] e 0.8 0.8 e 0.85 0.85
+solutions. This distinguishes GA from the traditional optimization Inthisstudy,theGAisemployedtomaximizetheturbinestage
+techniques that reliant on the initial guesses, while the GA is far total-to-static efﬁciency (h ). Fig. 5 shows the implementation
+stage,ts
+less sensitive to the initial conditions enforced on it. The GA will of the GA optimization loop into the mean-line model. The initial
+eventually reject any solution that does not show enough promise estimatesoftheinputparametersofTable2andstageefﬁciencyare
+which helps to provide moreﬂexibility and robustness during the used to start the optimization, then the GA optimizes these values
+optimization [41]. Detailed description of the GA is discussed in for the maximum objective function (turbine stage total-to-static
+Ref. [41]. efﬁciency). The new optimized values of the input parameters
+_
+Fig. 6. Variation of 4 and j for 'R245fa', T ¼ 383 K, P ¼1570 kPa,m ¼ 0.8 kg/s, u ¼ 48000 rpm, r /r ¼ 0.4 and a ¼ 0.
+t,1 t,1 5hub 4 5
+K. Rahbar et al. / Energy 83 (2015) 696e711 703
+_
+Fig. 7. Variation ofm and u for 'R245fa', T ¼ 383 K, P ¼1570 kPa, 4 ¼ 0.35, j ¼ 1.2, r /r ¼ 0.4 and a ¼ 0.
+t,1 t,1 5hub 4 5
+
+and stage efﬁciency are used again as initial guesses and the pro-  b <65 .Thisvalueissetasanupperlimitformachinability.
+4,blade
+cess is repeated until convergence is achieved. Eq. (23) is used to calculate b with an optimum incidence
+4,blade
+
+angle (i)of 20 as suggested in Refs. [36,37].
+4.1. Optimization constraints
+The optimization algorithm is constrained so that the optimum
+b ¼ b i (23)
+turbinemeetsasetofcriticalaerodynamicandgeometricalcriteria 4;blade 4
+simultaneously. These ensure high aerodynamic performance and
+b (degree) and b (degree) are the rotor inlet blade angle
+4,blade 4
+manufacturability of the optimized turbine.
+and relativeﬂow angle respectively.
+
+ a < 82 . This value is established to allow for high loading co-
+4
+efﬁcients and a reasonable number of rotor blades. 5. Results and discussion
+ Ma <1.Thisvalueissettoavoidsupersoniclossattherotor
+5tip,rel
+exit. 5.1. Validation of the mean-line model
+
+ b > 73 . This value is established as the compromise be-
+5rms
+tween the minimum rotor exit absolute and relative Mach The developed mean-line model described in section 3 is vali-
+numbers and machining requirements [36]. dated against two published benchmark cases with well-deﬁned
+ b > 0.001 (m). This value is considered as the minimum size geometry and real test data for both real and ideal gases namely
+4
+technically achievable. theGlassmancase[40]andJonescase[42]respectively.Inaddition,
+ d /d > 0.4. This value is set to avoid the possibilityofﬂow each case was further compared with two commercial radial tur-
+5hub 5tip
+blockage due to closely spaced vanes, as suggested in Ref. [38]. bine design software as RITAL [43] and RADTURB [44] from the
+ d >0.015(m).Thisvalueisselectedastheminimumthreshold literature.Theturbinedesignparametersforbothcases[40,42]are
+4
+size for manufacturability. listedinTable3andaresetastheinputstothemean-linecodeand
+ b /d < 0.15. This value is established to limit the rotor tip the results are shown inTable 4. The results in terms of the global
+4 4
+clearance loss. performance parameters, ﬂow features and the turbine principal
+ r /r < 0.85. This limit is set to both accommodate the geometry are in a good agreement with the literature and the de-
+5tip 4
+expandingﬂuidwithsigniﬁcantdecreaseindensityandtoavoid viations are within the acceptable margin for both ideal and real
+excessive tip curvature and the associated secondary loss. gases. The turbine total-to static efﬁciencies predicted by the
+704 K. Rahbar et al. / Energy 83 (2015) 696e711
+Fig. 8. Variation of r /r and a for 'R245fa', T ¼ 383 K, P ¼1570 kPa, 4 ¼ 0.35, j ¼ 1.2,m _ ¼ 0.8 kg/s, u ¼ 38197 rpm.
+5hub 4 5 t,1 t,1
+developed model are slightly lower than the published literature Figs.6e9showtheoutputofsuchparametricstudiesusingR245fa
+due tothe effectof exhaust diffuser which is notconsidered in the as the workingﬂuid.
+present model. Thus the mean-line model is considered validated Fig.6showstheeffectofﬂow(4)andloading(j)coefﬁcientson
+for the preliminary design and modellingof radial turbines for the the turbine stage total-to-static efﬁciency (h ), the rotor inlet
+stage,ts
+ORC applications for both real and ideal gases. diameter(d ),therotortipradiusattheexittotherotorinletradius
+4
+(r /r )andtherotorbladeinletangle(b ).AsshowninFig.6a
+5tip 4 4,blade
+andb,increasingjleadstoanincreaseintheturbineefﬁciencyand
+5.2. Parametric studies and optimization results a reduction in the rotor size. This highlights the advantages of the
+proposed conﬁguration with a non-zero inlet blade angle rotor,
+The mean-line methodology shown in Fig. 3 and validated in whichallowslargejvaluesinexcessofunitytobeobtainedwhile
+section5.1wasusedtocarryoutcomprehensiveparametricstudies preserving the optimum incidence at the rotor inlet. In contrast,
+to investigate the effect of input variables listed in Table 2 on the increasing 4 is detrimental to the stage total-to-static efﬁciency,
+turbine performance and geometry. These studies are based on h , which is more sensitive to the variation of 4; where
+stage,ts
+simultaneous variation of the two input variables in the range increasing4from0.2to0.5leadstoareductioninh byabout
+stage,ts
+shown in Table 2, while keeping the other inputs as constants. 14%.Ther /r andb affecttheshroudcurvatureandpassage
+5tip 4 4,blade
+K. Rahbar et al. / Energy 83 (2015) 696e711 705
+_
+Fig. 9. Variation of T and DT for 'R245fa', 4 ¼ 0.35, j ¼ 1.2, m ¼ 0.8 kg/s, u ¼ 38197 rpm, r /r ¼ 0.5 and a ¼15.
+t,1 superheating 5hub 4 5
+Fig.10. Comparison of the GA with traditional optimization techniques using R245fa working ﬂuid.
+turning and the consequent friction and secondary losses. Fig. 6c
+and d presents the effects of 4 and j on r /r and b
+5tip 4 4,blade
+Table 5
+respectively. Higher values ofj results in larger r /r andb ;
+5tip 4 4,blade
+Control operators of the GA.
+while 4 has an adverse effect.
+Operator Value
+Fig. 7 shows the effects of mass ﬂow rate and rotational speed
+Maximum number of generations 500
+on h , d r /r and b . Fig. 7aec show that increasing
+stage,ts 4, 5tip 4 4,blade
+Number of individuals 20
+the mass ﬂow rate and rotational speed is advantageous in
+Maximum mutation rate 0.26
+enhancing the efﬁciency and reducing the rotor size; while they
+706 K. Rahbar et al. / Energy 83 (2015) 696e711
+ORC and with the constant power output the overall cycle efﬁ-
+ciency will be reduced.
+Fig. 8 shows the effects of the rotor exit absolute ﬂow angle
+(a )andtheratioof rotorhub radiusattheexittotherotorradius
+5
+at the inlet (r /r)on h , d r /r , b , rotor exit area
+5hub 4 stage,ts 4, 5tip 4 4,blade
+(A ) and the ratio of exit and secondary losses to the total loss
+5
+(Dh /Dh and Dh /Dh ). Fig. 8aed shows that
+exit loss,total secondary loss,total
+the effect of r /r is more signiﬁcant on h and r /r
+5hub 4 stage,ts 5tip 4
+while it has a limited effect on d and b . In addition, a has a
+4 4,blade 5
+signiﬁcant effect on increasing the efﬁciency and reducing the
+losses. As shown in Fig. 8a, better performance is achieved at
+smaller (negative) a . This is due to the fact that at smaller
+5
+(negative)a andwithﬁxedmassﬂowrateandpoweroutput,the
+5
+rotor exit area (A ) is reduced as presented in Fig. 8e. At smaller
+5
+A the absolute meridional velocityat the exit (C ) increases and
+5 m5
+leads to higher exit losses as illustrated in Fig. 8f. However, with
+Fig.11. Conversion history of the GA for the investigated ﬂuids.
+Table 6
+Optimized input variables of the mean-line model for 8 workingﬂuids.
+Parameter R245fa R134a R123 R236ea R152a R236fa n-pentane Isobutane
+T (K) 381.7 333 391.2 389.8 333 359.9 419 362.2
+t,1
+P (kPa) 1527 1677 1155 2224 1497 1454 1478 1610
+t,1
+DT (K) 0800 7 0 0 0
+superheating
+j () 1.034 1.064 1.072 1.041 1.004 1.181 1.079 1.215
+4 () 0.265 0.236 0.236 0.2226 0.237 0.2603 0.225 0.248
+m (kg/s) 0.844 0.85 0.763 0.85 0.789 0.7662 0.634 0.646
+u (rpm) 38,502 43,439 35,160 43,124 40,574 36,029 43,430 39,849
+r /r () 0.64 0.549 0.609 0.5949 0.616 0.6146 0.604 0.65
+5hub 4
+a (deg) 14.98 8.988 7.112 3.87 8.92 15 1.26 15
+5
+r /r () 1.3 1.2 1.238 1.227 1.24 1.201 1.203 1.241
+2 3
+an adverse effect on the r /r ratio. Fig. 7d shows that the blade smaller (negative) a the rotor exit relative ﬂow angle (b ) also
+5tip 4 5 5
+angle b is not affected by the changes in rotational speed decreases,resultinginlowerﬂowturningandconsequentlylower
+4,blade
+and ﬂow rate. Although increasing mass ﬂow rate results in secondarylosses, aspresentedin Fig. 8f. It is clear from thisﬁgure
+higher efﬁciency, it requires larger amounts of input heat to the that the secondary losses have a larger contribution to the total
+Table 7
+Results of the mean-line optimization of 8 workingﬂuids.
+Parameter R245fa R134a R123 R236ea R152a R236fa n-pentane Isobutane
+a (deg) 82.7 83.3 83.9 84.5 82.4 83.98 83.5 83.6
+2
+a (deg) 80.6 82.2 82.2 82.6 81.6 82.01 82.5 82.5
+3
+a (deg) 79.9 81.44 81.55 82 80.9 81.35 81.9 82
+4
+b (deg) 6.3 13.45 17.83 19.3 8.569 36.96 28.1 45
+4
+b (deg) 13.7 33.45 37.83 39.3 11.43 56.96 48.1 65
+4,blade
+b (deg) 72.2 72.47 72.91 72.7 73 72.21 72.9 73
+5,rms
+U (m/s) 131.1 128.8 135.4 130.2 137.6 128.8 148.1 138.3
+4
+U (m/s) 98.6 91.63 100.1 95.12 102 95.45 108.4 104.8
+5,rms
+C (m/s) 130.6 135.1 143.8 138.3 136.1 147.1 161.9 162.6
+4
+C (m/s) 35.9 30.85 32.27 29.1 33.03 34.7 33.3 35.5
+5
+W (m/s) 23.1 20.7 22.2 20.5 21.8 27.68 26 32.1
+4
+W (m/s) 113.4 101.1 108.9 97.6 111.9 109.7 112.7 119
+5,rms
+Ma () 1.004 0.939 1.11 1.181 0.743 1.221 0.89 0.867
+4
+Ma () 0.177 0.1437 0.1714 0.175 0.119 0.2298 0.144 0.171
+4,rel
+Ma () 0.262 0.2082 0.2411 0.229 0.178 0.2743 0.174 0.181
+5
+Ma () 0.915 0.7925 0.921 0.882 0.679 0.9722 0.673 0.669
+5tip,rel
+d (m) 0.1041 0.0876 0.1109 0.0853 0.1047 0.0988 0.0991 0.103
+1
+d (m) 0.0913 0.0748 0.0976 0.0755 0.0887 0.0874 0.0852 0.089
+2
+d (m) 0.0702 0.0623 0.0789 0.0616 0.0716 0.0728 0.0708 0.0717
+3
+d (m) 0.065 0.0566 0.0736 0.0577 0.0648 0.0683 0.0651 0.0663
+4
+d (m) 0.0489 0.0403 0.0544 0.0421 0.048 0.0506 0.0477 0.0502
+5,rms
+b (m) 0.0039 0.0051 0.0048 0.0037 0.0057 0.004 0.0053 0.0051
+4
+b (m) 0.0068 0.0083 0.0088 0.0072 0.0075 0.008 0.0077 0.0065
+5
+r /r () 0.8495 0.8432 0.8494 0.8448 0.8477 0.8494 0.841 0.849
+5tip 4
+Z () 18 202021 192021 21
+rotor
+N () 0.432 0.4586 0.4222 0.423 0.439 0.407 0.406 0.363
+s
+y () 0.6632 0.6252 0.6235 0.631 0.6467 0.5925 0.6228 0.5873
+h (%) 82.91 83.17 83.36 82.89 84 82.92 83.71 83.82
+stage,ts
+h (%) 85.45 85.04 85.21 84.54 86.02 85.05 85.37 85.75
+stage,tt
+K. Rahbar et al. / Energy 83 (2015) 696e711 707
+Fig.12. Expansion process and thermodynamic properties of all ﬂuids at the optimized conditions.
+losses(62%e68%)comparedtotheexitlosses(13%e16%)andwith efﬁciency;while increasingDT leadstoanincrease inthe
+superheating
+smaller (negative) a better performance is achieved. efﬁciency. However, increasing the degree of superheat requires
+5
+Fig. 9 presents the effect of turbine inlet temperature (T ) and larger amounts of heat input and with constant power output, the
+t,1
+the degree of superheating (DT )on h , d r /r and overall ORC thermal efﬁciency will be decreased. The effects of T
+superheating stage,ts 4, 5tip 4 t,1
+b . As shown in Fig. 9a, increasing T leads to a reduction in and DT are limited on the rotor geometry, as shown in
+4,blade t,1 superheating
+708 K. Rahbar et al. / Energy 83 (2015) 696e711
+Fig.13. Contribution of the rotor aerodynamic losses for all ﬂuids at the optimized conditions.
+Fig. 9b and d. It is only for r /r that the effects of these two pa- The GA optimization technique outlined in section 4 is then
+5tip 4
+rameters are considerable, as presented in Fig. 9c. employed to maximize h of eight organic ﬂuids with the
+stage,ts
+ItisclearfromFigs.6e9thattheinvestigatedvariablesshownin constraints shown in section 4.1. Three control operators, namely
+Table2havesigniﬁcanteffectson theturbineefﬁciency;therefore, the number of individuals, number of generations and mutation
+they have been used in the optimization process of the turbine rate, are used in the GAwith their values presented inTable 5.
+stagetotal-to-static efﬁciency(h ) usingthe GA.Superiorityof Fig. 11 shows the GA convergence history of the investigated
+stage,ts
+the GAoptimization techniqueis highlighted bycomparingit with ﬂuids, indicating the effect of the ﬂuid type on the number of
+threetraditionaloptimizationmethodsastheconjugatedirections, generations required to reach the optimum solution.
+variable metric and Nelder-Mead simplex which are described in Table 6 showsthe optimised input variables foreach individual
+Ref.[45] and the results areshown in Fig.10. With the same initial ﬂuidthatproducedthemaximumturbineefﬁciencyandtherelated
+guessesofinputvariablesinallmethods,theGAyieldshighervalue results are shown in Table 7. It is clear from Table 6 that all ﬂuids
+of the turbine stage efﬁciencycompared tothe other methods and have j values in excess of unity, leading to a highly loaded and
+can reliably ﬁnd the global optimum without converging to the small turbine. The values of4 are in the rangeof 0.22e0.26, which
+sub-optimal solutions. is the high efﬁciency region as shown in Fig. 6a. Almost all the
+Fig.14. Assessment of the investigated ﬂuids at the optimized conditions.
+K. Rahbar et al. / Energy 83 (2015) 696e711 709
+Fig.15. Comparison of the optimized h from the present study with the literature for various ﬂuids.
+stage,ts
+investigated ﬂuids have negative a values, leading to lower sec- The optimized turbine stage total-to-static efﬁciencies (h )
+5 stage,ts
+ondarylossesandhigherefﬁciencies,ashighlightedinFig.8aandf. shown in Table 7 are compared with the published literature
+Table7illustratesthatthemaximumtotal-to-staticandtotal-to- [17,27e29,32,33] which considered the modellingof radial turbine
+total efﬁciencies vary between 82.89% to 84% and 84.54%e86.02% forORCandtheresultsareshowninFig.15.Itcanbeseenthatthe
+respectively. Moreover, the values of the speciﬁc speed (N ) and proposed constrained optimization methodology produced signif-
+s
+velocity ratio (y) are close to 0.42 and 0.62 respectively. These icantly higher h compared to the other studies for a wide
+stage,ts
+values are in the optimal range of efﬁciency as suggested by the range of working ﬂuids. It is possible to achieve a maximum of
+generalizedperformancecorrelationchartsforN andyreportedin 14.7% higher turbine efﬁciency when comparing n-pentane from
+s
+Refs. [36,37,46]. This conﬁrms the validity of the optimization the current study with reference [33] considering that both have
+approach used in this work in order to achieve a highly efﬁcient similar turbine inlet total temperature of 420 K with inlet total
+turbine. Furthermore, the values of N in Table 7 justify the exclu- pressuresof14.8barsand10barsrespectively.Suchresultsexhibit
+s
+sion of the diffuser from the analysis. Following the discussion in the effectiveness of the constrained optimization of the radial tur-
+Ref.[36],forN valuessigniﬁcantlylowerthan0.7,whichisthecase bine to achieve high performance.
+s
+of present study, the gain of using the diffuser is much less and
+implementation of the diffuser requires an economic analysis 6. Conclusions
+which is beyond the scope of the present study.
+Fig. 12 presents the thermodynamic properties during the Limited literature is available regarding the design and perfor-
+expansion process of all investigated ﬂuids at the optimum oper- mance optimisation of small-scale radial turbines that can be used
+ating conditions. The turbine inlet conditions of all ﬂuids are in the ORC for power generation. This work presents an integrated
+saturated vapour and it is only for R152a and R134a that a mini- mathematical approach for the development of an efﬁcient and
+mumdegreeofsuperheatingisobtainedtoavoidsaturatedmixture compact small-scale radial turbine. This mathematical approach
+condition after the expansion. integrates the mean-line modelling with real gas formulation and
+Fig.13 shows the contribution of the rotor aerodynamic losses the GA optimisation technique. Such approach allows for con-
+included in the model at the optimized conditions. The proportion strained optimisation based on a wide range of geometrical and
+of the losses is almost similar forallﬂuids with the secondary loss operating parameters, such as: non-dimensional parameters,
+having the highest contribution, varying from 59% to 66%. This is rotational speed and inlet temperature in order to achieve highly
+due to the large passage turning obtained from high b and efﬁcient radial turbine.
+4,blade
+b values listed in Table 7. From the mean-line modelling investigation, it was found that
+5,rms
+Fig. 14 shows the variation of other critical geometry and the turbine geometry was more sensitive to the variation of the
+operatingparameters,suchas:the rotorinletMachnumber(Ma ), loading coefﬁcient (j), the rotational speed (u), the massﬂowrate
+4
+therotorinletdiameter(d ),overallsize(d ),theturbineinlettotal and the turbine exit geometry ratio (r /r ); while all input vari-
+4 1 5h 4
+temperature (T ) and the rotational speed (u) with organic ﬂuids ables have a considerable effect on the turbine's performance. The
+t,1
+at their optimum conditions. As shown in Fig. 14a, R245fa, R123, constrained GA optimization of the turbine stage total-to-static
+R236ea and R236fa have supersonic expansion at the rotor inlet, efﬁciency showed that a maximum efﬁciency of 84% can be ach-
+which can lead to undesirable shock losses and requires a ieved with R152a. However, R152a required some level of super-
+convergent-divergent nozzle arrangement. Fig.14b shows that the heating to prevent a saturated mixture condition after the
+minimum rotor and overall diameter are achieved by R134a and expansion.Ifsuperheatingistobeavoided,isobutaneexhibitedthe
+R236ea; while R123, R152a and R245fa have the largest size. As highestefﬁciencyof83.82%withahighstageloadingcoefﬁcientof
+illustratedinFig.14c,n-pentane,R123andR236eahavethehighest 1.215 and consequently a lower mass ﬂow rate compared to the
+inlet temperature and require larger amounts of heat input, other ﬂuids. These predicted efﬁciencies are considerably higher
+compared to the other ﬂuids. The minimum rotational speed is thanthoseoftheconventionalradialturbinesandscrollexpanders
+obtained by R123, R236fa, R245fa and isobutane, as shown in studied previously in the literature; which highlights the potential
+Fig.14d. ofthisapproach.Duetothelackofexperimentaldatafortheradial
+710 K. Rahbar et al. / Energy 83 (2015) 696e711

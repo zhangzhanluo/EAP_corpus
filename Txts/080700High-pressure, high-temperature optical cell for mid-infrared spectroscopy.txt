@@ -1,0 +1,599 @@
+﻿High-pressure,  high-temperature  optical  cell  for  mid-infrared spectroscopy 
+Abstract 
+The design, characterization, and operation of a new high-temperature, high-pressure optical cell for in- 
+frared spectroscopy is presented. The optical cell uses 16 cm CaF 2 window rods to penetrate the tem- 
+perature gradient between the heated optical path length and the ambient conditions surrounding the 
+system. Along the 21.3 cm optical path length, good temperature uniformity was measured with devia- 
+tions being less than 2.4% of the mean absolute temperature. Further characterization of the optical cell 
+revealed usable transmission up to ∼8 μm and pressure stability from vacuum to over 30 atm. More- 
+over, stable operation of the optical cell during simultaneous heating and pressurization to 800 K and 
+over 30 atm was demonstrated. To illustrate the utility of the new facility, high-resolution measurements 
+of the R-branch in the fundamental absorption band of nitric oxide near 5.2 μm were collected at several 
+pressures (1-34 atm) and temperatures (294–802 K) using an external cavity quantum cascade laser. The 
+measured spectra were compared with Voigt line shape simulations using the HITRAN/HITEMP databases. 
+At high gas densities, deviations from the Voigt line shape model are observed, emphasizing the need to 
+further study infrared molecular spectra at high temperatures and pressures. 
+1. Introduction 
+Laboratory  measurements  of  high-pressure,  high-temperature 
+molecular  spectra  are  desirable  for  their  utility  in  combustion 
+sensors  [1] ,  planetary  atmospheric  study  [2–4] ,  predicting  ra- 
+diative  heat  transfer,  chemical  sensing  in  industrial  processes 
+[5,6] , and sensing for other gas phase systems [7–9] . To that end, 
+high-pressure (5–100 atm)  and  high-temperature (650–2500 K) 
+spectroscopy has been performed in short-duration ( ∼ms) shock 
+tube experiments [8,10–12] . In these experiments, typically only a 
+few wavelength regions are studied at a time as traditional wide 
+spectrum devices (e.g. FTIR) cannot complete a measurement in 
+this time frame. Resolving full absorption bands or branches in 
+conditions generated behind reflected shock waves in shock tube 
+experiments  has  proven  difficult  until  a  recent  demonstration 
+by  Strand  et  al.  using  a  new  rapid-tuning,  broad-scan  ECQCL 
+measured  the  absorption  cross  sections  of  ethylene  and  other 
+molecules in the 8.5–11.7 μm region [13] . 
+The  spectroscopy  literature  contains  numerous  descriptions 
+of spectroscopic cells whose achievable temperature or pressure 
+conditions  overlap  with  the  range  of  conditions  achieved  in 
+shock  tube  experiments.  However,  simultaneously  heated  and 
+pressurized spectroscopic cells are relatively rare in the literature, 
+particularly in the mid-infrared (IR) region beyond 5 μm. Adding 
+this capability yields a more convenient, repeatable, and econom- 
+ical  means  to  measure  new  spectra,  test  current  spectroscopic 
+models and databases, and to calibrate sophisticated tunable diode 
+laser absorption spectroscopy (TDLAS) sensors. 
+In  this  paper,  we  present  the  design  and  construction  of  a 
+high-pressure, high-temperature optical cell (HPHT) designed for 
+mid-infrared spectroscopy via unique calcium fluoride (CaF 2 ) win- 
+dow rods. The maximum operating conditions successfully demon- 
+strated by the HPHT were simultaneous heating and pressurization 
+to 800 K and over 30 atmospheres. Furthermore, the temperature 
+non-uniformity of the cell is shown to be no greater than 2.4% 
+of the mean absolute temperature across the entire path length, 
+and the leak rate is insignificant in comparison to the data col- 
+lection time of a typical TDLAS system. To demonstrate and vali- 
+date the reported conditions, high-pressure and high-temperature 
+laser absorption spectra of nitric oxide (NO) measured in the HPHT 
+optical cell are presented and compared to simulations calculated 
+from the HITRAN [14] and HITEMP [15] databases. Evidence of col- 
+lisional effects beyond Lorentzian-type broadening are observed at 
+sufficiently high gas densities. These effects further emphasize the 
+need for facilities to perform high-temperature and high-pressure 
+spectroscopic experiments. 
+2. Absorption spectroscopy fundamentals 
+Laser absorption spectroscopy (LAS) is a well-known technique 
+used to study molecular structure, and it is also utilized in sensors 
+to  measure  the  concentration  of  particular  gaseous  species  as 
+well as their temperature, pressure, and even bulk velocity for 
+applications in combustion, propulsion, and hypersonics [1,16] . The 
+main advantages of LAS are its relatively simple operation in its 
+most basic form and its versatility especially in advanced variants 
+such as wavelength modulation spectroscopy (WMS) [10–12,17] . 
+The IR wavelength regions are of particular interest because un- 
+known molecules can be identified from absorption at different 
+wavelengths correlating to the bonds and functional groups of the 
+molecules. Furthermore, the strong fundamental absorption bands 
+of common combustion species (H 2 O, CO 2 , and CO) are found in 
+the mid-IR and are becoming increasingly utilized in sensor de- 
+signs as mid-IR light sources and optics continue to improve [16] . 
+The absorption of monochromatic light is defined by the Beer–
+Lambert Law [18] 
+which relates the ratio of transmitted to incident light,  II 0 , the 
+spectral absorbance, αν, which is the product of the spectral ab- 
+sorption coefficient at frequency ν, k ν, and the path length of the 
+absorbing medium, L . For an isolated absorption transition, j , the 
+spectral absorption coefficient can be further defined                                   
+where S is the line strength of the isolated transition, φ is the line 
+shape function of the isolated transition, T is the absolute temper- 
+ature, P is the absolute pressure, and X i is the mole fraction of the 
+absorbing species i . The line shape is often described by the Voigt 
+line shape function, which is the convolution of Gaussian ( φD ) and 
+Lorentzian ( φL ) line shapes. 
+The Gaussian line shape is a manifestation of the velocity distribu- 
+tion of the absorbing molecules and their associated distribution 
+of Doppler shifts, also known as Doppler broadening. Lorentzian 
+line shapes are manifestations of lifetime broadening of energy 
+states of the absorption transition; examples are natural broaden- 
+ing which is the result of spontaneous emission from the upper 
+and lower states of the transition and collision broadening which 
+alters the lifetime of a molecule in an energy state via energy ex- 
+changes during collisions with other molecules. In many situations, 
+Doppler and collision broadening dominate the line shape, neces- 
+sitating proper modeling of these two broadening mechanisms for 
+use in LAS-based sensors. 
+The Doppler broadening line shape can be determined ana- 
+lytically from the vacuum frequency of the absorbing transition, 
+the molecular weight of the absorbing molecule, and the absolute 
+temperature. The collision broadening line shape depends on the 
+collision partners present in the gas mixture, the pressure, and the 
+temperature. These dependencies are summed up in Eqs. (4) and 
+where νC is the collision broadening full width at half maximum 
+(FWHM), γB −A is the pressure broadening coefficient of absorbing 
+molecule B with collision partner A, T 0 is the reference tempera- 
+ture (typically 296 K or 10 0 0 K for high-temperature applications), 
+and n is the temperature dependence exponent. While analytical 
+collision models exist, 2 γ  and n are usually determined empir- 
+ically for each absorbing molecule and collision partner. In fact, 
+determination of these collision parameters for different absorbing 
+molecules over a range of conditions is a primary motivator for 
+the development of the HPHT. 
+The  previous  discussion  on  fundamental  absorption  spec- 
+troscopy  of  isolated  transitions  is  necessary  to  understand 
+collisional  effects  on  molecular  spectra.  As  pressure  increases, 
+typically νC follows. At moderate pressures, isolated transitions 
+begin overlapping, and typically a superposition of transition line 
+shapes sufficiently describes the observed spectrum. As a result, 
+a summation over all transitions must be added to the definition 
+presented in Eq. (2) . 
+At yet higher pressures, the spectrum loses its discrete nature in 
+favor of a continuum. Thus, TDLAS sensors designed to operate 
+at  high  pressures  require  accurate  knowledge  of  the  spectral 
+parameters for all transitions with significant contributions to the 
+absorption coefficient at the sensor’s optical frequency. However, 
+additional collision effects such as line mixing and the breakdown 
+of the impact approximation bring complications beyond the Voigt 
+profile and can introduce significant errors between measured and 
+simulated absorbance in both the peaks and wings of individual 
+transitions and the entire band [17,19,20] . Facilities such as the 
+high-pressure,  high-temperature  optical  cell  described  here  are 
+essential to better understand these phenomena as a function of 
+various thermodynamic conditions. 
+3. Previous experimental facilities and studies 
+A  number  of  experimental  facilities  have  been  reported  for 
+the study of high-pressure and/or high-temperature spectroscopy 
+of  various  gaseous  species.  For  the  purposes  of  improving  the 
+knowledge of NO radiation transport, Green and Tien performed 
+measurements of low-resolution NO spectra in a static cell capable 
+of reaching temperatures up to 1200 K and pressures up to 4 atm 
+[21] . The cell body was constructed of a zirconia ceramic tube 
+placed in a high-temperature furnace, and the windows protruded 
+to the more uniform central zone of the furnace via nitrogen- 
+cooled  stainless  steel  tubes  mounted  with  sapphire  windows. 
+Temperature uniformity was found to be acceptable as the tem- 
+peratures measured at the nitrogen-cooled windows and 1.5 cm 
+from the windows were 20% and 4% lower, respectively, than the 
+center temperature of the furnace [22] . 
+Motivated  by  TDLAS  sensor  development  for  high-pressure 
+combustion, Reiker et al. studied high-pressure, high-temperature 
+water vapor spectroscopy near 7204 and 7435 cm −1 in a static 
+cell that demonstrated operation up to 30 atm at 700 K [17] . The 
+window design used a tapered window housing mounted with a 
+matching tapered sapphire window that was compressed between 
+two copper seals by a compression nut. The entire cell was placed 
+in a uniform single-zone furnace, requiring the window seal to 
+survive all operating pressures and temperatures. The Inconel body 
+of the optical cell presented in this paper is similar to Reiker’s cell 
+body except with modifications made for the new window design. 
+More recently, Stefani et al. studied the spectrum of CO 2 from 
+60 0 0 to 10,0 0 0 cm −1 (1–1.67 μm) at pressures and temperatures 
+up to 20 atm and 560 K, respectively [23] . The reported con- 
+ditions were obtained in a commercial stainless steel (316) op- 
+tical cell capable of withstanding pressures up to 200 bar and 
+temperatures  up  to  650  K.  The  2  cm  optical  path  length  cell 
+used zinc sulfide (ZnS) windows which have good transmission up 
+to 12 μm. 
+Another example of sapphire’s utilization for high-temperature, 
+high-pressure  spectroscopy  was  reported  by  Christiansen  et  al. 
+who built and demonstrated an optical cell whose operation range 
+reached  simultaneous  heating  to  10 0 0  K  and  pressurization  to 
+100 atm [24] . The cell body was made of concentric, high-grade 
+aluminum oxide ceramic tubes, and the 3 mm thin sapphire win- 
+dows were glass-bonded to the internal ceramic tubes to form a 
+seal. A central heating coil heated the 3 cm optical path length 
+and was supplemented by two more heating coils on either side 
+to form a highly uniform path length. 
+A high-temperature, low pressure static cell with excellent tem- 
+perature uniformity at 1723 K was reported by Melin and Sanders 
+with sample high-temperature spectra of water vapor presented 
+[25] . This particular architecture also used concentric alumina ce- 
+ramic tubes to form the cell body. The windows were made from 
+sapphire tubes  with optically contacted sapphire windows that 
+formed a seal on the process side. The optical path length of this 
+cell was reported to be changeable, but for the demonstration pre- 
+sented a path length of 16 cm was used. 
+In many of the designs, penetration across the temperature gra- 
+dient from ambient temperatures to the uniform, high-temperature 
+zone was achieved, in one way or another, by mounting optical 
+windows to the end of a window mount that protrudes into the 
+center zone of a high-temperature furnace. For the applications 
+discussed, sapphire’s high strength and resistance to thermal stress 
+makes it the best solution. However, a limitation of sapphire is 
+that its usable transmission range is limited to ∼ 6 μm (depending 
+on  the  thickness),  and  to  complicate  matters  the  transmission 
+cut-off wavelength  of  sapphire  shortens  as  its  temperature  in- 
+creases  [26] .  This limits the number of species and conditions 
+available  for  spectroscopic  investigation,  particularly  for  hydro- 
+carbons and even NO if the window is too thick. Other window 
+materials with longer transmission like ZnS, ZnSe, and the fluoride 
+crystals (CaF 2 , BaF 2 , MgF 2 ) have their own design challenges (e.g. 
+brittleness, thermal stress, lower maximum temperature stability), 
+but  are  necessary  to  extend  the  transmission  range  of  static 
+cells. 
+The pressures reached by the optical cells described in this 
+section  are  representative  of  combustion  engine  pressures,  yet 
+there is a drive to reach higher temperatures and longer wave- 
+lengths. The need for spectroscopic studies at higher temperatures 
+is clear in that combustion temperatures can easily exceed 20 0 0 K. 
+The  need  for  measurements  of  high-temperature  and  pressure 
+spectra  at  longer  wavelengths  is  evident  in  pyrolysis  kinetics. 
+Recent combustion kinetics studies indicate that fuel fragments 
+from  pyrolysis  have  a  pronounced  effect  on  oxidation  kinetics 
+[27] . Beyond the C –H stretch near 3 μm, a number of hydrocarbon 
+(i.e. fuel fragment) identifiers are present in the mid to far-IR. 
+Accurate spectroscopic databases of pyrolysis fuel fragments can 
+improve time-resolved species measurements during pyrolysis and 
+combustion processes. Such measurements significantly improve 
+combustion models. In addition to combustion applications, mea- 
+surements of the mid-IR spectra of many molecules over a variety 
+of conditions up to 40 0 0 K and 10 0 bar are of interest for the study 
+of exoplanetary atmospheres [2] . The present optical cell provides 
+a  stable  environment  to  study  the  spectra  of  many  molecules 
+up  to  ∼8  μm  in  a  wide  range  of  relevant  thermodynamic 
+conditions. 
+4. Design of the high-pressure, high-temperature optical cell 
+The high-pressure, high-temperature (HPHT) optical cell was 
+initially designed for infrared spectroscopy of gases at high pres- 
+sures  and  temperatures  up  to  900  K.  In  previous  works,  such 
+conditions were reached using shock tube or static cell facilities 
+with windows made with robust optical materials such as sapphire 
+or  fused  quartz.  The  diminishing  transmission  of  longer  wave- 
+length light through these materials is problematic for infrared 
+spectroscopy  as  sapphire’s  transmission  begins  to  cut  off near 
+4.5  μm  and  fused  quartz’s  near  3.5  μm.  Infrared  spectroscopy 
+at  longer  wavelengths  requires  use  of  window  materials  with 
+superior  transmission  properties.  At  room  temperature,  use  of 
+materials such as zinc selenide, calcium fluoride, barium fluoride, 
+or germanium for infrared optics is common. Unfortunately, many 
+of  these  infrared  optical  materials  are  much  less  robust  than 
+sapphire or fused quartz and are more susceptible to a variety 
+of failure modes at elevated temperatures such as thermal shock, 
+oxidation, and opacity [28–30] . Although a compromise in trans- 
+mission wavelength range (up to  ∼8 μm) compared to other IR 
+materials, calcium fluoride (CaF 2 ) presents a stable alternative at 
+high-temperatures when care is used to prevent damage due to 
+thermal stress or exposure to moisture [29,30] . Additionally, CaF 2 ’s 
+low index of refraction mitigates back-reflection problems other 
+high index materials may cause. Thus, CaF 2 was selected as the 
+window material for the HPHT. 
+The body of the HPHT is made from Inconel 625 high-pressure 
+fittings (High Pressure Equipment Co.); its geometry and dimen- 
+sions are shown in Figs. 1 and 2 . SAE ports were machined into 
+the boss fittings at either end of the HPHT and are where the 
+window  assembly  and  o-ring  sit  to  form  a  vacuum  tight  seal. 
+Inlet and outlet tubes at opposite end of the optical cell provide 
+flexibility in setting up a flow configuration. The HPHT body sits 
+in a 40 cm wide single-zone tube furnace (Barnstead|Thermolyne 
+21100 Tube Furnace) that provides the primary heating load and 
+insulation.  Additional  high-temperature  insulation  is  added  to 
+cover the exposed ends of the metal body. Before being placed in 
+the tube furnace, the HPHT was fitted with a stainless steel sheath 
+that is used to translate a long K-type thermocouple along the 
+HPHT to measure the temperature at different points along the op- 
+tical axis. In this configuration, the HPHT temperature distribution 
+was found to be unacceptably non-uniform for spectroscopy mea- 
+surements (see Fig. 3 ). To overcome the non-uniform path length, 
+high-temperature  band  heaters  (Watlow)  were  secured  around 
+the center tube of the cell body (see Fig. 1 ). Independent control 
+was provided by temperature controllers (Omega CN7533) with 
+feedback from type-K thermocouples placed at the band heater 
+locations. Fig. 3 shows the improved temperature uniformity of 
+the HPHT with the band heaters. 
+The  window  design  consists  of  three  components;  namely, 
+the window housing, the window, and the sealing adhesive. To 
+minimize coefficient of thermal expansion (CTE) mismatch with 
+CaF 2 , aluminum SAE plugs were selected for the threaded window 
+housings that mated with the SAE ports on the cell body. The 
+plugs  were  given  a  clear  aperture  of  1  cm  for  optical  access. 
+Although the band heaters dramatically improved the uniformity 
+of a 22 cm region in the center of the furnace, a large temperature 
+gradient exists between the band heater and the window housing 
+locations.  To  penetrate  the  temperature  gradient,  16  cm  long, 
+1.168 cm diameter CaF 2 rods are used as the window material, 
+creating a gas path length of 21.3 cm between the internal faces 
+of the CaF 2 rods. The internal faces of the CaF 2 rods are wedged 
+to 1 ◦  to mitigate etalons due to constructive and deconstructive 
+interference of the laser beam intensity. Two adhesive materials 
+were examined to bond the CaF 2 rods to the aluminum window 
+housings.  A  high-temperature  epoxy  selected  for  its  close  CTE 
+match with CaF 2  and aluminum proved to be unsuitable as it 
+cured  significantly  harder  and  stronger  than  the  CaF 2  crystal. 
+After curing and upon installation into the HPHT cell, the CaF 2 
+rod  fractured  near  the  bonding  location  when  applying  torque 
+to  the  SAE  window  fitting.  A  successful  alternative  was  found 
+in  a  low-outgassing  silicone  adhesive  (ACC  Adhesives  AS1724) 
+with a maximum working temperature of 200 ◦C. Despite a larger 
+difference  in  CTE  compared  to  CaF 2 ,  the  softer,  more  elastic 
+silicone adhesive has continued to seal under many heating and 
+pressurization cycles. To further combat thermal stress at the bond 
+location, the boss ends of the HPHT were cooled by water-chilled 
+copper coil collars (see Fig. 1 ). With the HPHT temperature set to 
+900 K, the temperature at the bond location was measured to be 
+less than 80 ◦C, well within the adhesive’s limits. 
+5. Characteristics of the HPHT cell 
+5.1. Transmission 
+Depending on the sample thickness and data source, the re- 
+ported optical transmission of CaF 2 crosses 10% between roughly 
+8–13 μm (900–1250 cm −1 ) [28,31] . Since the CaF 2 rods used for 
+the HPHT are much longer than the specimens typically measured 
+in the literature, the authors felt it was worthwhile to measure 
+the transmission spectrum to better understand the limits of the 
+facility and to plan future experiments. The transmission spec- 
+trum of a 12 cm long CaF 2 rod from the same manufacturer of 
+the 16 cm long rods used in the HPHT was measured at room- 
+temperature with a Nicolet 6700 FTIR spectrometer. The measured 
+spectrum is shown in Fig. 4 from 2.5 to 8.3 μm with transmission 
+above 90% over much of the measured range until the transmission 
+transitions to 10% between 6 and 8 μm. Theoretical transmission 
+through the rod was calculated from the Fresnel equations and 
+the wavelength-dependent index of refraction and absorption co- 
+efficient of CaF 2 [32] . The theoretical simulation, plotted in Fig. 4 , 
+agrees with measurements at all measured wavelengths. 
+With increasing temperature, the transmission edge of many 
+infrared  optical  materials  becomes  shorter  [26,28] .  CaF 2  is  no 
+exception  and  its  infrared  transmission  edge  has  been  studied 
+from cryogenic temperatures to the elevated temperatures rele- 
+vant here [31,33,34] . Namjoshi et al. and Lipson et al. measured 
+the absorption coefficient of CaF 2 and other fluoride crystals at 
+temperatures between 295 and 800 K and found the temperature 
+dependence of the absorption coefficient in the infrared transmis- 
+sion edge to be described by a multiphonon absorption process. 
+During elevated temperature operation, the temperature gradient 
+across the window rods would limit the useful transmission range 
+of  the  HPHT  cell  to  ∼6.5–7  μm.  Additional  transmission  data 
+found in studies of the contamination of fluoride crystals after 
+heat treatment in oxidative and wet environments suggest great 
+care must be taken to limit the exposure to moisture and ox- 
+idative environments when performing experiments above 600 ◦C 
+[29,30,32] . Furthermore, published thermal dispersion coefficients 
+for  CaF 2  indicate  the  index  of  refraction  exhibits  little  change 
+with temperature ( d n/d T ∼ −10 −5 C1  ) [35] . Thus, the temperature 
+gradient  across  the  window  rods  during  elevated  temperature 
+operation of the HPHT is not expected to significantly alter the 
+refractive properties observed at room temperature. 
+5.2. Path length 
+The  path  length  of  the  HPHT  cell  was  calculated  to  be 
+21.3 cm based on the precisely measured geometry of the various 
+components used in the cell’s construction. Additionally, room- 
+temperature absorption measurements of NO at known pressure 
+and concentration confirmed the path length to within 2% (See 
+Fig. 7 (a)). Since the cell is a metal body, changes in path length 
+due to thermal expansion must be considered. At the maximum 
+operating condition, the change in path length due to thermal 
+expansion  was  estimated  to  be  less  than  1%  of  the  nominal 
+length due to most of the expansion of the Inconel metal body 
+(CTE = ∼ 14 × 10 −6 1/m) being countered by the expansion of the 
+CaF 2 rods (CTE = ∼ 20 × 10 −6 1/m). 
+5.3. Temperature uniformity 
+To measure the HPHT cell’s temperature distribution along the 
+optical path length, a type-K thermocouple with 1 cm graduations 
+was translated through the stainless steel thermocouple sheath. 
+The temperature measurements of the outer wall is equal to the 
+inner gas temperature as shown in the analysis of a similar gas cell 
+by Schwarm et al. [36] . The measured temperature distributions 
+at different conditions are shown in Fig. 3 . Without supplemen- 
+tary heating from the band heaters, the heat load supplied by 
+the single-zone furnace provided only a short region of uniform 
+temperature ( ∼5 cm). Furthermore, the inherent distribution of 
+the furnace was found to be biased to one side. To improve and 
+optimize  the  temperature  uniformity,  the  band  heater  settings 
+were  iteratively  adjusted  until  the  results  were  satisfactory.  A 
+22  cm  region  bounding  the  21.3  cm  optical  path  length  was 
+measured  at  1  cm  increments  for  each  of  the  profiles  shown. 
+At 802 K, the temperature profile saw a maximum deviation of 
+19 K or 2.37% from the mean. However, this maximum deviation 
+represents only a small fraction of the total path length. Perhaps 
+a more indicative metric of the temperature uncertainty along the 
+path length would be a standard deviation which is less than 1% 
+for each condition shown. 
+5.4. Pressure stability 
+Pressure  transducers  (Setra)  rated  to  67  and  1.7  atm  were 
+used to measure pressures above and below 1.7 atm, respectively. 
+Pressure loss was evaluated at different temperature and pressure 
+conditions. However, no significant change in leak rate was ob- 
+served at elevated temperatures. Under vacuum conditions, the 
+pressure was found to be very stable at all temperatures with a 
+pressure change of 1 mTorr/s which is negligible for the duration 
+of  a  TDLAS  measurement.  At  pressures  above  1  atm,  the  rate 
+of pressure change per minute was on the order of 0.01% of the 
+nominal pressure. For instance, the drop in pressure at 30 atm was 
+observed to be < 0.02 atm after two minutes at any temperature 
+condition. During the measurements discussed in the following 
+sections, the resolution of the 67 atm pressure transducer could 
+not resolve any pressure changes throughout the duration of the 
+external cavity quantum cascade laser measurement that lasted 
+roughly 6 seconds. Thus, the pressure stability was found to be 
+adequate for high-pressure spectroscopy.  
+6. Experimental setup and procedure 
+6.1. Gas system 
+The HPHT was connected to a high-pressure valve manifold that 
+controls the flow of gases to the HPHT facility, room-temperature 
+reference  cell,  gas  cylinders,  mixing  tank,  vacuum  pump,  and 
+exhaust ventilation. At several strategic locations in the manifold 
+matrix, pressure transducers monitor the system pressure. Before 
+making a measurement, the desired gas mixture of dilute nitric 
+oxide in nitrogen was allowed to slowly flow through both optical 
+cells for several minutes to allow saturation of NO wall adsorption. 
+Next,  the  room-temperature  reference  cell  was  filled  with  the 
+gas mixture to a low pressure ( < 0.1 atm), providing an absolute 
+wavelength marker during experiments. After isolating the refer- 
+ence cell, the HPHT was slowly filled to the desired pressure with 
+the NO mixture. 
+6.2. Optical system 
+An external cavity quantum cascade laser (ECQCL) (Daylight 
+Solutions), with a maximum continuous wave output power of 
+50 mW, was used to probe the R-branch of the NO fundamental 
+band. The laser’s output frequency range (1880–1943 cm −1 ) spans 
+most of the R-branch and can be tuned over that range via the 
+rotation of its diffraction grating. However, its mode-hop-free re- 
+gion spans only about one third of the total frequency range from 
+1924 to 1943 cm −1 . Out of the laser package, the beam displays 
+excellent beam quality and good collimation with little divergence 
+observed through the many laser paths. Its line width is specified 
+to be less than 10 MHz which qualifies as monochromatic light for 
+the purposes of this work. 
+Fig.  5  shows  the  optical  components  and  laser  beam  paths 
+through  the  HPHT  and  reference  cells.  After  exiting  the  laser 
+cavity,  the  laser  beam  was  split  with  a  zinc  selenide  (ZnSe) 
+window  wedge.  One  of  the  split  beams  was  directed  through 
+the HPHT and focused onto a thermoelectrically cooled mercury–
+cadmium–telluride (MCT) detector (Vigo Systems) with a parabolic 
+mirror. Before reaching the parabolic mirror, the remaining optical 
+power ( ∼70% after transmission through ZnSe) was attenuated by 
+collecting the reflection off a CaF 2 flat to ensure a maximum laser 
+power to thermal emission ratio. The second beam path from the 
+ZnSe beam splitter was split a second time to a reference detector 
+(IR Associates) and a third beam splitter. The third beam splitter 
+directs one beam through a solid germanium Fabry–Perot etalon 
+(FSR = 0.0163 cm −1 ) before it is focused onto a thermoelectrically 
+cooled MCT detector (Vigo Systems) with a CaF 2 lens. Lastly, the 
+final beam is directed through the reference cell after which the 
+beam is focused onto a thermoelectrically cooled MCT detector 
+(Vigo Systems) with another CaF 2 lens. 
+The grating tuning was controlled by the ECQCL controller with 
+no external inputs to the controller or laser head. Timing signals 
+from the ECQCL controller and signals from the four detectors 
+were  recorded  at  100  kHz  by  the  multi-channel  DAQ  system 
+(National Instruments PXI-6115 boards in a PXIe-1062Q chassis). 
+This  sampling  rate  provided  more  than  adequate  resolution  as 
+full scans from 1880 to 1945 cm −1 were complete in roughly 6 s. 
+For each measurement, a dark signal, a transmission background 
+signal,  and  a  transmission  signal  were  needed  for  proper  data 
+processing. The dark signals capture any systematic detector signal 
+offsets from the system without the laser passing through. The 
+transmission background signals represent the I 0 in Eq. (1) and are 
+recorded when no absorbing gas species is present in the HPHT 
+cell. Finally, the transmission signals are recorded with an absorb- 
+ing gas species present in the HPHT cell. The data processing steps 
+will be discussed in the next section. 
+7. Measurements and results 
+7.1. Data reduction process 
+Proper data reduction required the 4 detector signals and 3 
+measurement  types  described  in  the  previous  section.  The  EC- 
+QCL exhibits slight scan-to-scan intensity variations, and this is 
+mitigated through use of a common-mode rejection strategy. In 
+common-mode rejection, a ratio between the reference detector 
+and gas cell detectors is measured as a function of optical fre- 
+quency during the transmission background measurement. Thus, 
+any non-absorption intensity variations measured between I 0 and 
+I t are removed. The etalon signal was used as a high-resolution 
+wavelength calibration to ensure alignment between the I 0 and I t 
+measurement sets. To calibrate absolute wavelength, all measure- 
+ments sets were collected with a low pressure mixture of dilute 
+NO in N 2 in the reference cell. Fig. 6 displays transmission spectra 
+after implementing common mode rejection and an example of 
+the wavelength calibration procedure. 
+After implementing common-mode rejection and properly cali- 
+brating wavelengths, the absorbance baseline was measured from 
+two background transmission measurement sets. Many optical ma- 
+terials under mechanical stress exhibit birefringence. Although the 
+extent of the stress-induced birefringence in the long CaF 2 rods 
+was expected to be low, this effect was investigated at several 
+pressures. The top panel of Fig. 6 shows the measured absorbance 
+baseline when the HPHT cell was filled with 20 atm of oxygen. 
+The oxygen ensured any remaining NO in the gas system was ox- 
+idized, resulting in a true absorbance baseline measurement. No 
+significant changes in transmitted light intensity were observed, 
+and the measured baseline noise was found to be  ≈ ±0.01. Ob- 
+served temperature effects were negligible since all measurements 
+are recorded with the same heating load applied to the CaF 2 rods. 
+7.2. Room-temperature validation 
+Operation of the cell and performance of the ECQCL were first 
+evaluated in room-temperature (294 K here) experiments at sev- 
+eral  pressures  and  compared  to  simulations  using  the  HITRAN 
+database. Following the experimental procedure outlined in the 
+previous section, a mixture of 2.03% (Praxair certified grade with 
+X NO uncertainty of ±2%) NO in nitrogen was added to the HPHT 
+and reference cells. Fig. 7 (a) displays the validation measurement 
+at 1 atm superimposed by a HITRAN simulation at the same con- 
+ditions. Transition peak absorbances from the HITRAN simulation 
+are about 4% higher than the measured absorbance because the 
+collision-broadening coefficients ( γ) reported by HITRAN are ad- 
+justed for air whereas the current measurements are in nitrogen 
+[37] . Measurements of the oxygen broadening coefficient [38] in- 
+dicate that γNO –O 2  is about 20% smaller than γNO –N 2  leading to 
+γNO –air reported by HITRAN to be about 4% less than γNO –N 2 . With 
+this adjustment made, the measured and simulated spectra agree 
+more favorably with peak absorbances differing by less than 0.5%. 
+Room-temperature  measurements  at  higher  pressures  up  to 
+34 atm are shown in  Fig. 7 (b).  To  remain below the  optically 
+thick limit, a mixture of 3500 ppm NO in nitrogen was made 
+for these measurements. Since the uncertainty in this mixture is 
+much higher than that of the 2.03% NO mixture, Voigt line shapes 
+were fit to a 1 atm measurement to more accurately determine the 
+concentration of NO. The resulting best-fit concentration was then 
+used in high-pressure simulations for a better comparison with the 
+measurements. 
+Observed deviations from the HITRAN simulations grow with 
+pressure. Super-Lorentzian absorbance is observed at the lower 
+frequencies until a crossover to sub-Lorentzian absorbance occurs 
+near 1936 cm −1 . These observations are consistent with trends 
+found in line mixing studies [20,39,40] and in particular with ex- 
+periments and calculations by Abels and DeBall [41] and Hirono 
+and Ichikawa [19,42] , who reported a band-correction function for 
+the absorption coefficient in the troughs between adjacent transi- 
+tions at 296 K and below 1 atm in NO–N 2 mixtures. The band- 
+correction function, K ( ν), is defined in Eq. (7) as the ratio of the 
+observed absorption coefficient with line mixing and the absorp- 
+tion coefficient due to Lorentz-type broadening. 
+Measured and calculated band correction functions in [19,42] re- 
+ported peak values of about 1.1 near the R-branch center which 
+are  consistent  with  the  deviations  observed  here  between  1.1 
+and 1.2 in the troughs between absorption peaks. Additionally, 
+the reported super-to-sub Lorentzian transition frequency is near 
+1936 cm −1 as observed in this work. 
+7.3. High-temperature, high-pressure NO spectra 
+Using the methods outlined above, the spectrum of NO in N 2 
+was measured at 618 and 802 K at pressures up to 33 atm. These 
+measurements  are  shown  in  Fig.  8 .  For  comparable  pressures, 
+deviations  from  the  Voigt  model  using  the  HITEMP  database 
+are less pronounced in high-temperature measurements than in 
+room-temperature measurements. Studies have demonstrated that 
+line-mixing and the breakdown of the impact approximation are 
+primarily effects of gas density rather than simply gas pressure 
+[17,40] .  Observed  deviations  trend  similarly  at  comparable  gas 
+densities  with  the  room-temperature  measurements,  yet  the 
+transition  from  super-to-sub  Lorentzian  is  no  longer  observed 
+near  1936  cm −1  as  in  the  room-temperature  case.  To  the  au- 
+thors’ knowledge band-correction functions for NO as a function 
+of  temperature,  pressure,  and  collision  partner  have  not  been 
+reported. Line mixing studies of other small molecules reporting 
+band-correction  functions  at  several  temperatures  indicate  that 
+as  temperature  increases  the  super-to-sub  Lorentzian  transition 
+frequency  shifts,  like  the  rovibrational  intensity  distribution, 
+to  frequencies  near  higher  J ′′  transitions  [39,40] .  Therefore,  a 
+super-to-sub  Lorentzian  transition  is  expected  to  exist  outside 
+the  tuning  range  of  the  ECQCL  used  in  this  study.  Additional 
+observed deviations between the measured and simulated spec-  
+tra reveal that improvements to the HITEMP database collision 
+broadening  parameters,  particularly  for  high  J ′′  transitions  can 
+be  made.  Furthermore,  the  inconsistencies  between  simulated 
+and measured line shape broadening makes determination of the 
+super-to-sub  Lorentzian  transition  frequency  difficult.  The  need 
+to improve existing databases to properly account for collisional 
+effects  at  high-temperatures  is  evident  from  the  high-pressure, 
+high-temperature spectra presented here. 
+8. Summary and conclusions 
+The design, build, and operation of an optical cell for high- 
+temperature,  high-pressure  mid-IR  spectroscopy  was  presented. 
+For  optical  access  from  ∼ 0.15  to  8  μm,  the  optical  cell  uses 
+16 cm CaF 2 rods to penetrate the temperature gradient imposed 
+by  the  single-zone  furnace  used  as  the  primary  heating  load. 
+Penetration by the CaF 2 rods allows the optical cell’s gas-tight seal 
+to be maintained at much lower temperature during operation at 
+high-temperature set points. Temperature uniformity across the 
+optical path length of 21.3 cm is maintained by the temperature- 
+controlled  single-zone  furnace  and  temperature-controlled  band 
+heaters attached to the body of the optical cell. Good temperature 
+uniformity up to 800 K and pressure stability above 30 atm were 
+demonstrated. 
+Spectra of the R-branch in the fundamental rovibrational band 
+of nitric oxide at several temperatures and pressures up to 800 K 
+and 34 atm, respectively, were measured by an ECQCL for the op- 
+tical cell’s characterization and demonstration of utility. Deviations 
+between the measurements and a Voigt-based model using the 
+HITRAN/HITEMP databases were observed with increasing gas den- 
+sity. These deviations are attributed primarily to line-mixing, but 
+at elevated temperatures, inconsistencies between the observed 
+pressure broadening and that of the HITEMP/HITRAN databases 
+is evident. These findings emphasize the need for high-pressure 
+and  high-temperature  spectroscopy  experiments  to  characterize 
+high gas density phenomena, and this facility provides a practical 
+means to study the spectra of molecules into the mid-IR. 

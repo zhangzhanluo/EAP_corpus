@@ -1,0 +1,452 @@
+Title:
+Defning active, inactive, and extinct sea?oor massive sulfde deposits
+
+Author:
+J.W. Jamieson, A. Gartman
+
+Abstract
+Hydrothermal activity results in the formation of hydrothermal mineral deposits, including sea?oor massive
+sulfde deposits, at oceanic spreading ridges, arcs, and back-arcs. As hydrothermal systems age, the mineral
+deposits eventually become severed from the heat source and ?uid-?ow pathways responsible for their formation
+and become extinct. The timescales and processes by which this cessation of activity occurs, and the resultant
+distinction between hydrothermally active and inactive deposits has recently taken on policy implications related
+to the potential issuance of exploitation leases for sea?oor massive sulfde deposits by the International Seabed
+Authority in Areas Beyond National Jurisdiction. Here, we discuss the scientifc rationale behind designating
+hydrothermal systems as active, inactive, or extinct, with the aim of applying a scientifc underpinning to
+ongoing policy discussions, which often lack a common set of criteria and use the same descriptions for opposing
+phenomena. We apply the simple defnition that active vent felds currently exhibit ?uid ?ow above ambient
+seawater temperatures, inactive vent felds are not currently exhibiting ?uid ?ow but may potentially become
+active again, and extinct vent felds are not expected to become active again. We suggest these terms can only be
+correctly applied at the vent feld scale and defne a vent feld as a geologically continuous entity that may
+include both actively and formerly venting hydrothermal deposits. Finally, we propose criteria and techniques
+for determining activity and reasonably bounding the extent of a vent feld for classifcation purposes.
+
+Introduction
+Hydrothermal vents are sites of ?uid discharge on the sea?oor that
+occur along or associated with submarine tectonic boundaries such as
+mid-ocean ridges and subduction zones. In these geological settings,
+magmatic heat sources beneath the sea?oor drive convective circulation
+of hydrothermal ?uids along permeable pathways in the crust such as
+faults and fssures (Fig. 1) [1]. If the hydrothermal vents are discharging
+high-temperature (>~250 ?C), metal- and sulfur-rich ?uids, a sea?oor
+massive sulfde (SMS) deposit may develop over time on and/or
+immediately below the sea?oor from the precipitation and accumulation of metal-rich minerals that precipitate from the ?uid when it mixes
+with cold seawater [1,2]. In rare places, where these
+geologically-favorable conditions persist for an extended period of time,
+these deposits can grow to be large enough and contain high enough
+concentrations of Cu, Zn, Au, and/or Ag to be potentially economically
+viable sources for these metals and targets for the emergent industry of
+deep-seabed mining [3,4]. Eventually, hydrothermal ?uid venting at
+any given site will cease, and the site will become hydrothermally
+inactive and ultimately extinct. Currently, very little information is
+available for inactive or extinct SMS deposits. InterRidge maintains an
+online ※Vents Database§ of all known and inferred hydrothermal systems discovered to date [5]. The current version (v. 3.4) contains 707
+individual records of ※submarine hydrothermal activity§, with only 54
+of these records listed as ※inactive§. The paucity of documented inactive
+sites is largely because inactive deposits are diffcult to fnd as they do
+not have an associated hydrothermal plume, the detection of which is
+the primary exploration tool for SMS deposits [6]. The scientifc focus on
+active hydrothermal vent sites, which host unique chemosynthetic taxa
+and which are locations of scientifc interest beyond the economic interest driving SMS exploration further contributes to the low number of
+known inactive sites [7每9]. However, there is an increasing focus on
+inactive SMS deposits driven by the possibility of marine mining.
+In Areas Beyond National Jurisdiction (ABNJ), any mining of SMS
+deposits (also referred to as polymetallic sulfde deposits) will be
+managed by the International Seabed Authority (ISA). As the ISA moves
+closer toward fnalizing exploitation regulations for mining in ABNJ,
+discussion of environmental considerations, including what
+environmental protections are needed, has been a key component. A ban
+on mining of active SMS deposits has been suggested by parts of the
+scientifc community, due to the minimal areas of the sea?oor these
+vents occupy, their scientifc value, and low estimations of their resource
+potential [10每12]. This has been followed by assertions that mining of
+active hydrothermal vents would likely take place in a limited manner, if
+at all, and that inactive deposits will be the main target of this emergent
+industry [13]. However, all current ISA exploration contracts include
+areas of active hydrothermal venting and, while only a fraction of each
+10,000 km2 exploration area will be subject to exploitation, a workable
+defnition for active hydrothermal vents in a manner that could be legally applicable for mining regulations does not currently exist. Here we
+propose a classifcation similar to that used for volcanoes, which uses the
+designations active, inactive (dormant), and extinct. We consider how this
+classifcation can be reasonably applied to hydrothermal systems and
+associated SMS deposits, in order to ensure a consistent and meaningful
+geologic framework for the evolving regulations. Known active hydrothermal systems are diverse, and many do not result in SMS formation.
+Here we discuss those associated with high-temperature sub-sea?oor
+?uid circulation that has the potential to mobilize and deposit base and
+precious metals as sulfde minerals (e.g., temperatures above 250 ?C)
+[14]. We specifcally do not include systems that would not result in SMS
+formation, and so exclude low-temperature, low-?ux systems associated
+with off-axis areas and seamounts.
+
+Method
+2. Terminology
+For clarity, we use the following terminology when referencing hydrothermal mineral accumulations on the sea?oor at different scales
+(Table 1). Focused sources of high temperature hydrothermal venting
+typically emanate from chimneys, or individual, in places interlinked,
+vertical pipe-like mineral accumulations that have one or more orifces.
+Hydrothermal edifces or mounds are larger structures that form from the
+progressive accumulation of hydrothermal material on the sea?oor at
+vent sites. Edifces and mounds are defned by their morphology, with
+edifces generally having steeper sides, and mounds having a distinct
+conical shape. Both structures may host chimneys. The spatial clustering
+of chimneys, edifces, and/or mounds on the sea?oor defne a vent feld,
+which describes a discrete region that contains hydrothermal accumulations distributed over an area with dimensions that can vary from 10s
+to 1,000s of meters (Table 1).
+When referring to sea?oor hydrothermal deposits as a resource, we
+use well-established language typically used by the land-based mineral
+resource sector (Table 2) [15]. If a sea?oor hydrothermal site contains a
+spatially continuous accumulation of hydrothermal material of large
+enough size to be potentially mineable (i.e. a large edifce or mound), it
+is referred to as a deposit (e.g., the Solwara I deposit, in the Manus Basin)
+[16,17]. An SMS deposit refers to a subset of hydrothermal deposits that
+is composed dominantly of metal sulfde minerals (e.g., pyrite, chalcopyrite, sphalerite; note that the term massive in sea?oor massive sulfde is
+a mineralogical textural term to indicate a mass abundance of sulfde
+minerals of >~60% and is not a reference to deposit size) [18]. Therefore, the term SMS deposit should be applied only to large accumulations
+of hydrothermal minerals (deposits) that are known from sampling or
+other methods to be composed largely of massive sulfde material. In
+other words, although every SMS deposit is a hydrothermal deposit, not
+every hydrothermal deposit is necessarily an SMS deposit. Petersen et al.
+[4] estimated that, at probable minimum ore grades (e.g., ~5 wt% Cu,
+15 wt% Zn, 5 ppm Au), an SMS deposit would have to be at least 2 Mt to
+be an economically viable target for mining. This would correspond to a
+massive sulfde mound with a basal diameter of approximately 200 m
+and height of 60 m, similar to the active TAG mound [19]. Using these
+defnitions, a vent feld may contain no deposits, a single deposit, or
+several deposits, some or all of which may or may not be SMS deposits.
+Volcanoes are informally classifed as active, dormant, or extinct, where
+an active volcano has erupted in the past ~10,000 years, a dormant
+volcano has not erupted in the past 10,000 years, but is expected to erupt
+again, and an extinct volcano has not erupted in the past 10,000 years,
+and is not expected to erupt again [20]. This classifcation can serve as a
+guide for the activity of vents felds, where active felds will contain
+hydrothermal venting at temperatures above ambient seawater, inactive
+vent felds lack apparent activity but were recently active, remain near a
+heat source, and have the potential to become active again, and venting
+is unlikely to resume at extinct vent felds. The classifcation of a volcano
+as dormant, rather than extinct, is normally due to the presence of indicators of heat and/or magmatic activity in the subsurface, such as
+seismic events within the volcano, elevated heat ?ow, or presence of
+fumaroles. Several examples of the eruption of an ※extinct§ volcano (eg., Fourpeaked Volcano, Alaska) point to the lack of certainty associated
+with this informal classifcation, associated with an evolving understanding regarding deep-Earth processes. Likewise, the classifcation of a
+vent feld as extinct should not be considered an absolute certainty, but
+instead a low probability that hydrothermal venting will reactivate in
+the future.
+
+Result
+3. Indicators of hydrothermal activity
+Defning an individual hydrothermal vent, deposit or vent feld as
+active is conceptually simple enough: it is hydrothermally active when
+?uid with a temperature above that of ambient bottom water is venting
+from the sea?oor. Hydrothermal plume surveys use CTD (Conductivity,
+Temperature and Depth) casts that also include optical sensors
+(turbidity) and sensors for chemical anomalies (e.g., salinity, Eh, CH4)
+associated with the hydrothermal plume in the water column above and
+down-current from an active vent site, at distances of up to 100s of kilometers away from their source [6]. Collecting seawater on CTD casts
+also allows for the detection of 3He, an unambiguous tracer of hydrothermal activity. Once a plume is detected, the hydrothermal site is
+typically visually located using a camera tow or cameras on a Remotely
+Operated Vehicle (ROV) or Autonomous Underwater Vehicle (AUV).
+Visual signs of venting may be obvious, with vigorous discharge of
+high-temperature black or white smoker ?uid, often from multiple vents
+(Fig. 2A). Subsurface mixing of ascending hydrothermal ?uid with local
+seawater prior to venting also typically occurs, and results in cooler,
+diffuse-?ow ?uids that may be shimmering due to temperature and
+salinity differences relative to seawater. Both ※focused ?ow§ and
+※diffuse ?ow§ styles comprise active hydrothermal venting.
+Even when venting is not visibly obvious, the presence of live hydrothermal vent-endemic species is another clear indicator of active
+venting. Vent biota have a tendency to colonize even the most diffusely
+venting, low-temperature sites, and, due to the vivid colors these organisms may display against a dull sea?oor substrate, can be a particularly effective indicator of hydrothermal activity when ?uid ?uxes
+and/or venting temperatures are low (Fig. 2B).
+On sites that have been sampled by dredge and therefore lack visual
+information regarding sea?oor context, the presence of anhydride
+(CaSO4) can be used as a mineralogical indicator of recent hightemperature hydrothermal activity and indicates that the site may still
+be active. Anhydrite precipitates when Ca-rich hydrothermal ?uids mix
+with and/or heats up Ca- and SO4-rich seawater at temperatures of
+above ~150 ?C [21]. However, anhydride has retrograde solubility, and
+will dissolve back into seawater when it is no longer exposed to elevated
+temperatures. The rate of anhydride dissolution is not well constrained,
+and it is therefore not known for how long anhydride remains as a
+mineral phase within cold vent deposits. However, surfcial areas of old,
+inactive or extinct deposits will not contain anhydride, although it may
+remain in areas not in contact with seawater (e.g., at depth) as it is found
+occasionally in volcanogenic massive sulfde deposits (VMS, i.e. the
+ancient equivalent of SMS deposits) [22].
+4. Indicators of hydrothermal inactivity
+There are several sea?oor observations that indicate prolonged hydrothermal inactivity at a deposit or vent feld and can therefore be
+important criteria for distinguishing inactive sites from extinct sites.
+Over long time periods (e.g., 1000s of years) it is likely that inactive
+chimneys will eventually collapse. The oldest known vent felds (e.g.,
+>40,000 years old) are characterized by a notable lack of upright
+chimney structures, and instead are composed primarily of low-relief
+mounds (e.g., Peterburgskoe and Semyenov IV on the Mid-Atlantic
+Ridge) [23每25]. Chimney collapse occurs due to increasing structural
+instability as chimneys grow taller, the dissolution of thermodynamically unstable minerals in seawater, and because most hydrothermal
+systems occur in seismically active areas where ground motion can lead
+to collapse. However, timescales for chimney collapse may vary for
+different deposits according to tectonic and oceanographic setting (i.e.
+intensity and frequency of seismic activity; temperature and dissolved
+oxygen content in bottom waters), and the mineralogy and morphology
+of the deposits.
+Oxidation of sulfde minerals within hydrothermal deposits indicates
+exposure to seawater. Oxidation begins as soon as the minerals are in
+contact with oxygenated seawater and thus oxidation occurs even during periods of active venting. Likewise, the dissolution of anhydride
+begins once the precipitated mineral is no longer hot, and therefore
+dissolution can occur on cooler parts of otherwise high-temperature vent
+structures. Prolonged periods of exposure to ambient, low temperature
+seawater can lead to substantial oxidation of sulfde minerals and anhydride dissolution, and both processes may be considered qualitative
+indicators of deposit aging, with the important caveat that these transformations do not a priori indicate inactivity. However, over long time
+periods loss of these minerals may fundamentally reshape hydrothermal
+deposits.
+Inactive vents display an absence of chemosynthetic fauna and, if
+they have been inactive for long enough, will often host deep-sea slow
+growing sessile taxa such as sponges and corals (Fig. 2C). For a more
+detailed description of biological indications of activity and inactivity
+see Van Dover [26].
+When applied independently, the indicators of inactivity described
+above (lack of upright chimneys, extensive oxidation, and lack of vent
+biological communities) may not necessarily be diagnostic for classifcation of inactivity on their own. However, taken together, these observations provide a reliable, unambiguous indication of prolonged
+hydrothermal inactivity.
+5. Defning hydrothermal activity at the vent feld scale
+Although hydrothermal inactivity may be described at the scale of
+individual vents or deposits using the criteria in the preceding section,
+defning a vent feld as active, inactive, or extinct is much more complex
+because we do not yet fully understand the spatial scale of hydrothermal
+circulation cells in the sub-sea?oor. A vent feld is generally described as
+a cluster of hydrothermal vents or deposits on the sea?oor. The size,
+morphology, and distribution of hydrothermal deposits that make up a
+vent feld can vary signifcantly, largely according to tectonic environment, making a simple defnition based on deposit size or footprint
+impractical [2]. We use the concept of geological connectivity to defne
+the extents of individual vent felds based on a common magmatic heat
+source and subsea?oor permeability structure, such as normal faults or
+detachment faults associated with rifting along mid-ocean ridges, or ring
+faults associated with caldera collapse within arc volcanoes [27每29].
+Using this defnition, any spatially associated currently or formerly
+active vent sites and associated chimneys, edifces and/or mounds that
+are geologically connected would be considered part of a single vent
+feld. Each vent feld would be subject to a single classifcation of activity
+that would apply to the entire feld, and any active vent feld may
+contain more than one hydrothermal circulation cell. The evaluation of
+geological connectivity at a specifc site would be possible by interpretation of geological features on the sea?oor (e.g., faults, volcanic centers) identifed through ship-based and high-resolution bathymetric
+mapping (e.g., ~40 m and 1 m resolution, respectively). These datasets
+would commonly be generated as part of any exploration and resource
+evaluation program.
+The Endeavour Segment of the Juan de Fuca mid-ocean ridge provides an illustrative example of defning the limits of individual vent
+felds using the concept of geological connectivity. The Endeavour
+Segment is described as containing fve major active vent felds that
+occur along 15 km of the ridge axial valley, each separated by 1.5每2 km,
+with several smaller felds, and other sites of diffuse venting occurring
+near or between the major active felds (Fig. 3A) [30]. However, this
+current clustering of active venting represents only a present-day
+snapshot of the evolution of hydrothermal circulation along this 15 km
+length of ridge segment. This stretch of ridge axis also contains over 400
+inactive chimneys, edifces and mounds that occur outside of the active
+vent felds and record over 3000 years of spatially and temporally dynamic venting at Endeavour (Fig. 3A) [31,32]. Seismic imaging along
+the ridge axis reveals that this venting was, and continues to be, driven
+by a continuous axial magma chamber beneath the ridge segment [33].
+The vents occur in close proximity to the along-axis normal faults that
+defne the axial valley and are likely an important control on subsurface
+permeability and hydrothermal ?uid ?ow. Thus, although the active
+vent clusters each likely represent currently discrete hydrothermal circulation cells, the entire 15 km length of axial valley represents a
+geologically continuous zone of present or recent hydrothermal venting,
+driven by a common heat source and structurally controlled permeability regime. Endeavour should therefore be considered as a single
+continuous vent feld, and, consequently, since parts of Endeavour are
+hydrothermally active, the entire 15 km long vent feld should be
+considered active.
+The fve Semyenov vent felds associated with the 13?30＊ oceanic
+core complex on the Mid-Atlantic Ridge provide a contrasting example
+to Endeavour. Semyenov 1-5 are roughly equally spaced along the axis
+of the core complex (Fig. 3B) [34]. Apart from Semyenov 3 and 5, which
+are closely spaced and are geologically similar, these vent felds have
+different morphologies, compositions, and local tectonic controls and
+substrates. All vent felds are separated by stretches of substrate that
+show no indication of past hydrothermal activity. Here, it is appropriate
+that each vent feld be considered as separate from the others, and
+individually classifed as active, inactive, or extinct, as there is no
+indication of geological continuity between the fve Semyenov felds
+(again, except for Semyenov 3 and 5, which should be grouped
+together). Based on extensive plume surveys and several ROV dives,
+only Semyenov 2 is known to be active, and Semyenov 1, 3, 4, and 5
+appear to be extinct [35,36].
+The TAG hydrothermal feld presents a more challenging case study.
+The hydrothermal mounds that defne the TAG feld are distributed over
+a ~8 km2 area on the eastern edge of the axial valley (Fig. 3C) [38].
+Some of the mounds coalesce with adjacent mounds (e.g. Double
+Mound) or are directly next to each other (e.g., Shinkai Mound and New
+Mounds #2 and #3; Southern Mound and Rona Mound). Other mounds
+appear to be isolated deposits more than a kilometer away from other
+known mounds (e.g., Mir Zone, active TAG Mound, and Shimmering
+Mound). The TAG feld has been used as a case study for the exploration
+for inactive deposits and understanding their physical and chemical
+evolution [37]. With the exception of the active mound, which is
+vigorously venting black smoker ?uids, the mounds display characteristics of inactive deposits, including lack of venting or vent-related
+macrofauna, partial burial by sediments, paucity of upright chimney
+structures, partial dismemberment by faulting, and internal collapse,
+and Southern, Shinkai, and New Mounds have been described as ※eSMS§
+(extinct SMS) [37]. However, at Southern Mound, the presence of bacterial mats suggests that diffuse, low-temperature venting is occurring
+(Fig. 2B). The Shinkai and New Mounds lack evidence of bacterial mats,
+but host abundant upright chimney spires and do not display internal
+collapse features that characterize many of the other mounds. The lack
+of collapse features is interpreted to indicate that anhydride dissolution
+has yet to occur and heat is still retained within these mounds, suggesting that these mounds have only recently become inactive [37].
+Radioisotope dating of hydrothermal precipitates indicate that large
+deposits form on the order of 1,000s to 100,000 s years [32,39每41].
+Evidence from radioisotope dating of the active mound at TAG indicates
+that hydrothermal activity is cyclical, with prolonged periods of activity
+and inactivity [39], suggesting that, using the defnitions proposed here,
+Shinkai and New Mounds may not be extinct but only currently inactive,
+whereas Southern Mound appears to be active. Overall, the cluster of
+mounds that defne the TAG feld are interpreted to have formed
+through hydrothermal circulation driven by a common ridge axis heat
+source and channeling of ?uid along a common subsea?oor detachment
+fault system [42,43]. Based on this interpretation, the entire vent feld
+should therefore be classifed as hydrothermally active, as the individual
+mounds are linked by the same underlying hydrothermal permeability
+structure.
+The examples from Endeavour and TAG provide evidence that,
+although individual chimneys can in places be stable on decadal timescales, this is not universally true, and hydrothermal venting can be
+spatially variable over the lifespan of a vent feld. Results from deepdrilling projects reveal that, in some places, drilling into the sea?oor
+adjacent to an active black smoker does not intersect the system and
+results in no change to ?uid ?ow in the active smoker. Drilling by ODP
+leg 169 at Escanaba Trough, a sediment covered spreading center,
+resulted in no intersection of hydrothermal ?ow nor changes to the
+adjacent active vent, less than 10 m from the drill site (Fig. 4A) [45,46].
+In other places, however, drilling resulted in the creation of a new black
+smoker. In the Iheya North hydrothermal feld, in the Okinawa Trough,
+for example, drilling adjacent to active hydrothermal vents during IODP
+Expedition 331 resulted in the formation of artifcial, active hydrothermal vents, some of which persisted for more than 40 months and
+resulted in rapid hydrothermal chimney growth (Fig. 4B) [47]. Similar
+creation of artifcial hydrothermal vents and associated chimneys were
+also reported during ODP Legs 139 and 169 at Middle Valley on the Juan
+de Fuca (Fig. 4C) [48,49]. At Iheya North, the ?uids discharging from
+these artifcial vents were higher salinity than those forming the natural
+hydrothermal vents in the region prior to drilling, as a result of segregation of high and low salinity ?uids in the subsea?oor, with only low
+salinity ?uids venting in the absence of drilling [50]. This demonstrates
+that sea?oor penetration in an active region may release not only ?uids
+that are currently venting in other parts of the vent feld but may connect
+with existing subsurface ?uid reservoirs that are currently not venting.
+Given our current understanding of subsurface ?uid ?ow, the dynamic
+and unpredictable nature of hydrothermal systems indicates that drilling
+into an inactive deposit in an overall active vent feld has the potential to
+initiate ?uid ?ow.
+6. Global inventory of inactive SMS deposits
+The InterRidge Vents Database is a researcher-driven compilation
+that aims to provide an international standard for documentation of all
+sites of submarine hydrothermal activity and includes both hightemperature ※black smoker§ ore-forming systems discussed here, and
+low-temperature systems associated with seamounts and fracture zones.
+Only 8% of the sites documented in the InterRidge database are classifed as inactive [5]. Of the 54 sites classifed as inactive, 36 are
+low-temperature systems that occur on seamounts (e.g., Brown Bear
+Seamount; Dellwood Seamount), Fe- or Mn-oxide deposits (e.g., Carlsberg Ridge, 1.67 S; Shikurose Bank), or disseminated sulfdes in quartz
+veins in exposed crustal rocks (e.g., DSDP Hole 504B; Vema Fracture
+Zone) and are not considered high-temperature, ore-forming systems
+comparable to systems that could generate an SMS deposit and so are not
+considered here. Of the remaining 19 ※inactive§ sites, one site
+(Zenith-Victory, Mid-Atlantic Ridge) should be classifed as active due to
+a report of a hydrothermal plume at this location [23]. Another ※inactive§ site from the Mid-Atlantic Ridge, Ashadze 4, is also not considered
+because the only published description of this site is a report of an
+inactive sulfde boulder with a maximum dimension of about 1 m that
+was observed and sampled during an ROV transect ~1.5 km downslope
+from the active Ashadze 1 feld [52,53]. There are two sites classifed as
+※inactive§ for which we judge there to be not enough information for
+activity to be considered: the 24?N 30＊ site on the Mid-Atlantic Ridge;
+and the site on the EPR 14 N Seamount that was discovered and sampled
+by a single dredge that recovered hydrothermal material [54]. Finally,
+there is a record for an inactive site at Mata Nima in the Lau Basin;
+however, no published record of hydrothermal vents, either active or
+inactive, can be found for this specifc volcano.
+Among the list of ※active§ sites in the InterRidge database are also
+sites that are known to be inactive. The Petersburgskoe site (MidAtlantic Ridge) is listed as ※Active, inferred§, but no indications of activity at this feld have been reported [23]. Also, ※Semyenov§ (Mid--
+Atlantic Ridge) is listed as a single record, yet as discussed above,
+represents a grouping of 5 vent felds, with Semyenov 2 the only active
+feld. We know of two other inactive sites (Surprise and Yubileinoe,
+Mid-Atlantic Ridge; Bel＊tenev et al., 2017) that are not yet listed in the
+database [55].
+We therefore identify only 20 sites in the global InterRidge database
+that should be considered inactive using the criteria described above
+(Table 3). A detailed examination of all 707 records would be required
+to evaluate whether other potentially inactive sites are hidden or not
+individually listed in this dataset. However, from this initial analysis, the
+documented inventory of inactive deposits is very low, and points to 1)
+how little information we have on inactive deposits, including inactive
+SMS deposits; and 2) the need to improve our ability to locate inactive
+deposits.
+Within the current inventory of inactive deposits that formed along
+mid-ocean ridges (i.e. excluding deposits that formed on seamounts) all
+occur within or on the ?anks of the ridge axial valley (i.e. on-axis), which
+represents the neovolcanic zone, which can be tens of kilometers wide,
+and is associated with the locus of volcanic and hydrothermal activity
+along mid-ocean ridges [3]. For example, the Petersburgskoe deposit on
+the Mid-Atlantic Ridge is located on the western wall of the axial valley,
+16 km from the ridge axis [23]; Lost City, on the Mid-Atlantic Ridge is
+14 km from the ridge axis [8]; and the Penumbra deposit on the Central
+Indian Ridge is 14 km from the ridge axis [50]. As sea?oor spreading
+continues, deposits that form on-axis will eventually migrate off-axis,
+and away from the heat source that drives the hydrothermal circulation. Off-axis deposits are therefore likely extinct, and attractive
+exploration targets for contractors. In fact, since all oceanic crust formed
+at mid-ocean ridges, the entire ocean basins may be prospective for
+extinct SMS deposits. The preservation of such deposits, which is likely
+controlled by the interplay of sulfde oxidation rates and burial by
+sediment or lava, will be a major factor in understanding the off-axis
+resource potential, although the abundance of VMS found in abducted
+oceanic terrains on land indicates that at least some fraction of these
+deposits is preserved.
+
+
+Conclusions and implications for mining and exploration
+
+The classifcation of hydrothermal activity, inactivity, and extinction
+that we defne here is simple and geologically concise. Defning the
+extent of hydrothermal vent felds, which is necessary for delimiting the
+boundary to which a classifcation of activity would apply, however,
+presents a greater challenge. For the purposes of defning hydrothermal
+activity in relation to mining activities, it is important to note that,
+although mining will occur at the deposit scale, the geological connectivity that defnes a vent feld necessitates that the criteria used to
+classify the state of activity must extend beyond the limits of the deposit
+itself and be considered at the vent feld scale. If an inactive deposit
+occurs within a vent feld that is hydrothermally active (i.e. any regions
+within the feld show evidence of activity or recently activity), the
+overall feld must still be hydrothermally connected to its heat source,
+and all deposits within the feld have the potential to resume activity.
+Therefore, deposits within an active vent feld may be described as
+active or inactive, with the caveat that inactive sections of an active vent
+feld may be expected to resume activity; and the classifcation of any
+deposit as extinct requires that the entire vent feld be inactive and not
+geologically connected to any active venting. It is expected that any
+extinct hydrothermal feld would satisfy the following three criteria: 1)
+absence of ?uid discharge from the sea?oor at temperatures above that
+of ambient bottom water; 2) a lack upright chimneys; 3) extensive
+oxidation of hydrothermal material; and 4) absence of live vent-?uid
+dependent biological communities.
+Although designating areas or individual deposits within an overall
+active system as ※active§ or ※inactive§ may be biologically relevant over
+observed timescales, this approach lacks a connection to subsea?oor
+processes and the validity of these designations may not persist when the
+subsea?oor is disturbed by both natural events (e.g., magmatic or
+tectonic activity) and human modifcations (drilling, mining). This
+emphasizes that such designations must take place at the vent feld scale.
+Our simple defnition avoids ambiguities associated with other potential criteria for activity classifcation that would rely on continuous,
+non-discrete attributes such as vent ?uid temperature or ?ow rates, and
+is consistent with an understanding of hydrothermal activity that at the
+primary level is defned by the presence of hydrothermal ?uid ?ow. In
+the absence of a detailed sub-sea?oor understanding of the plumbing of
+hydrothermal systems, including the dynamism of reservoirs, surface
+parameters are described that can indicate cessation of hydrothermal
+activity at the vent-feld scale, including the lack of a hydrothermal
+plume and the absence of upright chimneys; as well as geological parameters that can be used to consider the extent of a vent feld and
+differentiate geologically discrete felds on a ridge segment. Generally,
+felds on faster spreading segments exhibit more dynamic variability and
+felds on slow spreading ridges may be stable over thousands of years.
+However, indicators that hydrothermal activity can cease and restart,
+with hiatus lasting between less than one and several thousands of years,
+as well as begin in ※inactive§ regions of an active feld as a result of
+drilling, demonstrate that we should label entire hydrothermal felds
+extinct with caution.
+The implication of this binary geologic defnition of activity is that,
+in the vast majority of cases where mineral exploration is occurring,
+both within EEZs and Areas Beyond National Jurisdictions, the main
+area of interest is an active hydrothermal feld. However, the small
+number of known inactive deposits does not necessary re?ect a low
+resource potential for inactive SMS deposits. Instead, it highlights our
+only cursory understanding of the distribution, preservation and ability
+to explore for these deposits. This provides abundant motivation for
+further research into the processes of SMS formation from hydrothermal
+?uids and reinforces the need to continue to explore the ocean basins,
+especially further away from the ridge crest.
+

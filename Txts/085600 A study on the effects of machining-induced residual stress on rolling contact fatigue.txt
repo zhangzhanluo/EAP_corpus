@@ -1,0 +1,274 @@
+International Journal of Fatigue 
+
+A study on the effects of machining-induced residual stress on rolling contact fatigue 
+Youngsik Choi * 
+Department of Mechanical and Aerospace Engineering, Florida Institute of Technology, Melbourne, FL 32901, USA 
+article info abstract 
+Article history: 
+Received 29 January 2009 Received in revised form 28 April 2009 Accepted 1 May 2009 Available online 9 May 2009 
+Keywords: 
+Rolling contact fatigue Residual stresses Hard machining Machining parameters Optimization 
+ABSTRACT
+This study investigates the effects of machining-induced residual stress on rolling contact fatigue of hard machined components. The rolling contact fatigue life predictions demonstrate that the fatigue life is influenced by residual stresses significantly and that tool nose radius can contribute to the optimization of machining parameters to enhance the fatigue performance of hard machined components. The rolling contact fatigue test results show that the prediction accuracy of the fatigue life model can be enhanced signi.cantly by incorporating residual stresses. It is further noted that residual stresses in.uence the roll-ing contact fatigue life by more than 40%. The results demonstrate that the rolling contact fatigue perfor-mance of hard machined 
+components can be enhanced signi.cantly by optimizing the residual stress distribution below the machined surface.
+﹝ 2009 Elsevier Ltd. All rights reserved. 
+INTRODUCTION
+1. Introduction 
+Hard turning is an alternative process for making precision components. Compared with grinding, it has many advantages in terms of the number of processes, processing time, material han-dling time, set-up time, equipment cost, and the .exibility of sys-tem. However, the implementation of hard turning as a .nishing process demands an extensive understanding of surface integrity aspects of hard turning. 
+It was reported that an increase in the depth of cut yields larger compressive residual stresses on the surface [1]. According to K.nig et al. [2], a larger in-feed increases the depth of the affected zone and the level of compressive residual stresses. An experimen-tal study [3] showed that hard turning induces more compressive residual stresses than grinding. Tool edge geometry was found to be the dominant factor deciding the residual stress pro.le [4]. Re-cently, Hua et al. [5] argued that an optimal tool edge geometry and aggressive feedrate increase compressive residual stresses. 
+Based on a residual stress model, an optimal residual stress dis-tribution was put forward by Mittal and Liu [6] 
+to enhance the roll-ing contact fatigue performance of super.nish hard turned surfaces. A .nite element simulation demonstrated that residual stresses of hard turned surface can be changed to a better state by optimizing the second cut [7]. Recently, Zhang et al. [8] demon-strated that a model based on back-propagation neural network can predict residual stress pro.les of hard turned surfaces more accurately than conventional linear regression method. 
+It was reported that the maximum modi.ed equivalent stress is a better predictor for the rolling contact fatigue life of hard ma-chined surfaces than the maximum Hertzian stress [9]. Guo and Yen [10] found that the slope of a compressive residual stress pro-.le is an important factor for rolling contact fatigue damage. Addi-tionally, a .nite element simulation [11] showed that multi-axial fatigue damage parameters can characterize the relative fatigue damage under the in.uence of machining-induced residual stress pro.les. 
+A rehardening burn layer was observed after cutting a steel of hardness 53 HRC by using a ceramic chamfered tool, but this layer was not found in the case of machining with a sharp tool [12,13]. The rehardening burn layer is resistant to the etching in contrast to the bulk material, hence called commonly as a ＆＆White Layer§. It was also noted that white layers were not formed if the tool wear was below 0.15 mm [14]. The alteration of the chemical composition of ASTM 5115 steel was investigated when white layers were produced by hard machining, and no element concentration transition from the over-tempered layer to white layers was found [15]. Recently, it was reported that white layer forms whenever the austenitisation temperature of the material is exceeded on the machined surface [16]. Surface .nish of hard turned surfaces was found to be at least as good as that of ground surfaces as a result of minimal plastic .ow and the absence of a built up edge due to the high hardness of material [17]. This .nding was further investigated in hard turning of AISI 52100 steel, and surface .nish was found to deteriorate with the increase of tool .ank wear [18]. 
+The feasibility of replacing abrasion-based super.nishing with hard turning was demonstrated [19,20]. Agha and Liu [21] found that the deterministic nature of hard turning results in more con-sistent repeatability of the fatigue life in rolling contact. It was fur-ther reported that the selection of machining parameters can greatly affect the rolling contact fatigue life [22]. 
+The .ndings are due to the deterministic nature of the residual stress distribution below hard turned surfaces. Since the fatigue life is in.uenced by the residual stress distribution, hard turned surfaces show more consistent repeatability of the rolling contact fatigue life. Furthermore, the machining parameters affect the roll-ing contact fatigue life signi.cantly as the residual stress distribu-tion is in.uenced by the machining parameters. 
+Although the in.uence of residual stresses on the fatigue life of hard machined surfaces has been investigated analytically [6,9每 
+11,22], an experimental and analytical study on the effects of resid-ual stresses induced at various machining parameters on the fati-gue parameters has not been explored. 
+This study aims to investigate the effects of residual stresses in-duced at various machining parameters on the fatigue parameters, such as crack initiation depth, maximum shear stress at crack ini-tiation depth, crack initiation life, crack propagation life, and fati-gue life, by both experimental and analytical work. The residual stress distributions below hard machined surfaces are investigated. The fatigue parameters are then computed based on the residual stress distribution to investigate the effects of machining-induced residual stress on rolling contact fatigue performance. Lastly, the rolling contact fatigue tests are performed to substantiate the computations. 
+METHOD
+2. Experimental 
+2.1. Specimen preparation 
+Specimens of through hardened AISI 1053 steel were prepared for the experiment, since this steel is used for bearing applications. The composition of AISI 1053 steel is given in Table 
+1. The dimen-sions of the specimen were selected to minimize de.ection by the chucking forces of a standard jaw and to be uniformly through hardened [23]. The selected dimensions are shown in Fig. 1. 
+2.2. Machining parameters 
+The cutting tool used in the experiment was a cubic boron nitride (CBN) tool with a tool nose radius of 0.79, 1.59, or 
+4.76 mm. Three different tool chamfer angles were used: 0～,15～, 20～. The machining parameters, such as cutting speed, feedrate, depth of cut, and coolant type, were selected according to Taguchi＊s orthogonal array [24] 
+that was employed to distribute the effect of machining parameters on surface integrity evenly. 
+Ten different combinations of machining parameters were determined, and the specimens were numbered sequentially according to the combinations of machining parameters (Table 2). 
+
+2.3. Residual stress measurement 
+X-ray diffraction method was used to measure the residual stress distribution in the subsurface of specimens. A Denver-Proto 
+Table 1 
+Composition (%) of specimens. 
+Material C Mn P S 
+
+Circumferential direction (Cutting direction) 
+Radial direction (Feed direction) 
+
+
+Dimensions in mm 
+
+Fig. 1. Dimensions of specimen and directions of residual stress measurement. 
+XRD 3000 residual stress analyzer was used with a Cr Ka radiation tube. The sin2 w technique, which is elaborated by Noyan and Co-hen [25], was applied to compute the residual stress value. Nine w angles were used for the computation: 20～, 15～, 10～, 5～,0～, 5～,10～,15～, and 20～. Residual stresses were measured in two direc-tions: circumferential and radial. Fig. 1 shows the directions of the residual stress measurement. Residual stresses were measured at the exposed surface and .ve different depths: 5.08, 12.7, 25.4, 50.8, and 127 lm. 
+A particular amount of a layer was removed with the help of an electrolytic etcher, saturated NaCl solution, to measure residual stresses at different depths. The machined surface was masked by using an etching mould made with a silicone rubber to avoid etching the whole surface. Since pure NaCl leaves a patterned appearance on the surface by a corrosive effect, a little amount of soap was added to the electrolyte to prevent this effect. The thick-ness of the specimen was measured to check the removed amount of a layer after each etching. 
+
+2.4. Rolling contact fatigue test 
+A special test rig was used to perform rolling contact fatigue tests. The tests were performed in a temperature-controlled room that was set to 25 ～C. The thrust ball bearing, which has Grade 25 balls of 3.69 mm diameter, was used in the test. This bearing was inserted between two specimens. The upper specimen was rotated at 1840 rpm, and the lower specimen was .xed in the test rig. An axial load that produces a maximum Hertzian stress of 2720 MPa was imposed on the upper specimen. 
+SAE-30 lubrication oil was circulated through a 0.25 lm .l-tered-pump feed system at a rate of 56.8 cm3/min. The bearing and the specimens were immersed in this lubricant while a test was run. Fig. 
+2 shows a schematic diagram of the rolling contact fa-tigue test rig. The experimental lives by this test rig showed less than 10每17% differences with those by the Falex multi-specimen rolling fatigue tester [21]. 
+The rolling contact fatigue test was monitored by an accelerom-eter connected to a vibration meter. The vibration signal, which is in.uenced by both the upper and lower specimens, was acquired by the data acquisition system during the test. The vibration 
+
+Table 2 
+Machining parameters. 
+Specimen  Tool nose radius (mm)  Tool chamfer angle (～)  Cutting speed (m/s)  Feedrate (mm/rev)  Depth of cut (mm)  Coolant type  
+
+MQL = minimum quantity lubrication. 
+
+threshold level was set to 0.2 g to detect the initiation of a fatigue spall. To enable a reliable comparison, this level was .xed for all the tests. 
+
+METHOD
+3. Prediction of rolling contact fatigue life 
+For properly lubricated conditions, rolling contact fatigue nor-mally begins with crack initiation in the subsurface. The cracks then propagate by a continued rolling, eventually reaching the ex-posed surface. Subsequently, surface fragments are dislodged, which results in the formation of a spall on the surface. The in-stance is generally de.ned as the initiation of a fatigue spall. 
+Choi and Liu [26] proposed a crack initiation life model and a crack propagation life model to predict the initiation of a fatigue spall, and veri.ed the models experimentally [27]. Liu and Choi 
+[28] later developed a crack initiation life model based on a dislo-cation model, and they found that this model shows better accu-racy than their previous model. In this paper, the crack initiation life model based on a dislocation model [28] and the crack propa-gation life model [26] are combined to predict the fatigue life. 
+3.1. Crack initiation life model Tanaka and Mura [29] proposed a dislocation model for fatigue crack initiation. The simpli.ed form of the model can be expressed as follows: 
+Load Shaft 
+
+
+Accelerometer 
+Upper Specimen 
+
+Lubricant In
+Bearing Retainer 
+Bearing Ball
+Lower Specimen 
+
+
+Lubricant Out 
+Fig. 2. Schematic diagram of a rolling contact fatigue test rig. 
+where Ni is the number of loading cycles to crack initiation, Wc the speci.c fracture energy for a unit area, Ds the range of local shear stress, sk the frictional stress, and A is a function depending on the material properties and the type of initial cracks. A can be writ-ten as [30]: 
+
+where Gh is the shear modulus of homogeneous media, Gi the shear modulus of inclusion, m the Poisson ratio, l the semi-length of slip band, m the semi-minor length of elliptical slip band area, and R is the radius of inclusion. 
+Subsurface cracks typically initiate from inclusions, which act as a stress raiser [31每34]. The inclusions intensify the local stress, and the periphery of the inclusion is strained, eventually initiating cracks [35]. Fractographic examination of high strength steels shows that the initiation sites for subsurface cracks are always inclusions located in the interior of the material [36]. 
+Accordingly, it is assumed that a crack initiates along the inter-face of the inclusion. To further simplify the model, the semi-length of a slip band is assumed to be equal to the semi-minor length of the elliptical slip band area [30,36]. With these assump-tions, the crack initiation life model can be rewritten as follows: 
+
+The local shear stress is replaced by the maximum shear stress, and the crack initiation point is assumed to be where the ratio of maximum shear stress to micro-hardness is highest based on the previous .nding [37]. Based on the measurement of inclusions in Fig. 3 [28], the crack initiating inclusion size is assumed to be 30 lm. Accordingly, the crack initiation life model can be simpli-.ed as follows: 
+where I is the initiation constant (I . GiR ) and Dsmax is the range of maximum shear stress during a cycle at the initiation point. Accordingly, the crack initiation life can be predicted by using the maximum shear stress at the initiation point, provided that the initiation constant and the frictional stress of the crack initiation life model are determined. 
+
+
+3.2. Crack propagation life model 
+The crack propagation life model was developed by using the modi.ed Paris＊ formula [26]. A formula was proposed by Paris 
+
+Fig. 3. Cross-sectional view of specimen. 
+
+and Erdogan [38] for the correlation between the crack propaga-tion rate and the stress intensity factor range: 
+
+where a is the half length of the crack, N the number of loading cy-cles, C the material constant, DK the stress intensity factor range, and n is the slope index. 
+Paris＊ formula, Eq. (5), is modi.ed, since the crack propagates relatively faster as the local hardness is lower if the stress .eld is identical [39]: 
+
+where Hb and Hl are the Knoop hardness number at the bulk mate-rial and the local Knoop hardness number, respectively. 
+Hearle and Johnson [40] 
+calculated the mode II stress intensity factors at each end of the crack in the half-space, where the stress .eld over the whole crack is known. The crack geometry used for the calculation of the stress intensity factor is shown in Fig. 4. The corresponding stress intensity factor at the leading tip (KL)is as follows: 
+where L is the crack length, sc the net shear stress, and xL is the po-sition of the leading tip. 
+The net shear stress (sc) is the stress available to cause stress intensities at the crack tip. The driving force for crack propagation in rolling contact has been postulated to be related to the maxi-mum shear stress, and it was experimentally veri.ed [39,41]. The maximum shear stress is thus assumed to be the net shear stress. 
+
+Fig. 4. Geometry of a crack moving under a stationary load. 
+
+The stress intensity factor range is calculated from the variation of KL at different crack tip positions. The crack propagation life can be calculated by integrating the crack propagation rate from the initial crack size to the .nal crack size. The .nal crack size is de-rived from the crack size when the crack reaches the surface. The crack propagation life model can then be written as follows: 
+Z a21
+
+
+where Np is the crack propagation life in loading cycles, a1 the half length of the initial crack size, a2 the half length of the .nal crack size, and n is the slope index, which is taken as three for bearing steels [42]. 
+The half length of the crack can be expressed by using the depth of the leading tip position and the crack propagation angle as follows: 
+
+where zi is the crack initiation depth, z the depth of the leading tip position, and h is the angle that the crack propagation direction makes with the surface, which is taken as 17.2～ based on the exper-imental observations [23,37]. 
+
+3.3. Rolling contact fatigue life model 
+The crack initiation life model is combined with the crack prop-agation life model to predict the fatigue life as follows: 
+
+where N is the fatigue life in number of loading cycles. 
+
+RESULT and DISSCUSSION
+4. Results and discussion 
+4.1. Residual stresses 
+Most specimens typically showed compressive stresses in cir-cumferential and radial directions, while specimen 9 showed ten-sile stresses around the surface in circumferential direction. The residual stress distributions of specimens 3 and 9 are shown in Figs. 5 and 6. 
+The peak compressive residual stress was typically located in the range of 5 and 25 lm, and compressive residual stresses were reduced as it goes deeper. The peak compressive residual stress ranged between 400 and 1600 MPa, while the residual stress below the depth of 100 lm ranged between 100 and 400 MPa. 
+Residual stresses of some specimens showed a similar distribu-tion between circumferential and radial directions. However, residual stresses of other specimens showed an appreciable differ-ence between circumferential and radial directions, especially around the surface. 
+
+4.2. Crack initiation depth 
+The crack initiation depth was computed based on subsurface stress distribution. First, the crack initiation depth is computed be-fore residual stresses are taken into account. The crack initiation depth is then computed after residual stresses are taken into ac-count. The computed crack initiation depths are listed in Table 3. 
+The crack initiation depth is changed to a deeper location up to 40.6 lm after residual stresses are taken into account, since com-pressive residual stresses move the crack initiation depth deeper by lowering stresses. The effect of residual stresses on crack initia-tion depth is shown to be signi.cant considering that the crack initiation depth is 18.6 lm before residual stresses are taken into account. 
+Since the crack initiation depth determines the initial spall size and the crack propagation length required to reach the exposed surface, it will affect the fatigue performance considerably. If the initial spall size is reduced, a greater number of continued loading cycles are required to increase the spall size until the .nal failure. If the crack propagation length required to reach the exposed surface increases, the crack propagation life increases as long as the stress .eld is identical. 
+
+4.3. Maximum shear stress at crack initiation depth 
+The maximum shear stress at crack initiation depth was com-puted. First, the maximum shear stress at crack initiation depth 
+Table 3 
+Crack initiation depth comparison. 
+Specimen  zi 
+zi = crack initiation depth before residual stresses are taken into account. 
+zi,r = crack initiation depth after residual stresses are taken into account. 
+is computed before residual stresses are taken into account. The maximum shear stress at crack initiation depth is then computed after residual stresses are taken into account. The maximum shear stresses at crack initiation depth are listed in Table 4. 
+The maximum shear stress is generally reduced after residual stresses are taken into account, while the maximum shear stress is increased for specimen 9 due to tensile residual stresses in cir-cumferential direction. The maximum shear stress is reduced up to 421.9 MPa, while the maximum shear stress is 853.8 MPa before residual stresses are taken into account, which demonstrates that about 50% of maximum shear stress can be reduced by residual stresses. The effect of residual stresses on crack initiation life is ex-pected to be signi.cant considering that the maximum shear stress is a key value for crack initiation life. 
+
+
+4.4. Crack initiation life 
+The crack initiation life was predicted by using the crack initia-tion life model. First, the crack initiation life is predicted before residual stresses are taken into account. The crack initiation life is then predicted after residual stresses are taken into account. The predicted crack initiation lives are listed in Table 5. The crack initiation life is generally increased after residual stresses are taken into account, while specimen 9 shows the con-trary, as expected from the maximum shear stresses at crack initi-ation depth. The crack initiation life is increased up to 4.73E+06, while the crack initiation life is 3.66E+05 before residual stresses are taken into account: residual stresses can increase the crack ini-tiation life by more than 12 times. 
+Since the crack initiation life is dominant for high strength steels, it is conceivable that the residual stress distribution should be controlled to maximize the crack initiation life of rolling contact components made of high strength steels. 
+
+
+4.5. Crack propagation life 
+The crack propagation life was predicted by using the crack propagation life model. First, the crack propagation life is predicted before residual stresses are taken into account. The crack propaga-tion life is then predicted after residual stresses are taken into ac-count. The predicted crack propagation lives are listed in Table 6. 
+The crack propagation life is generally increased after residual stresses are taken into account, while specimens 7 and 9 show the contrary. Since the crack propagation life is in.uenced by crack initiation depth and stress .eld, a deeper crack initiation depth does not always increase the crack propagation life. 
+The crack propagation life is increased up to 4.34E+05, while the crack propagation life is 4.92E+04 before residual stresses are ta-ken into account: residual stresses can increase the crack propaga-tion life by more than eight times. 
+Table 4 
+Maximum shear stress comparison. 
+Specimen  smax 
+
+Table 5 
+Crack initiation life comparison. 
+Specimen  Ni 
+
+
+Table 6 
+Crack propagation life comparison. 
+Specimen  Np 
+
+Np = crack propagation life before residual stresses are taken into account. 
+
+b 
+Np,r = crack propagation life after residual stresses are taken into account. 
+
+
+4.6. Prediction of rolling contact fatigue life 
+The rolling contact fatigue life was predicted by using the roll-ing contact fatigue life model. First, the fatigue life is predicted be-fore residual stresses are taken into account. The fatigue life is then predicted after residual stresses are taken into account. The pre-dicted fatigue lives are listed in Table 
+7. 
+The fatigue life is generally increased after residual stresses are taken into account. The fatigue life is increased up to 4.98E+06, while the fatigue life is 4.15E+05 before residual stresses are taken into account: residual stresses can increase the fatigue life by around 12 times. The results demonstrate that the rolling contact fatigue performance of rolling contact components can be en-hanced signi.cantly by optimizing the residual stress distribution at the subsurface. 
+Depending on the function of rolling contact component, crack initiation life or crack propagation life is dominant for the fatigue 
+Table 7 
+Predicted rolling contact fatigue life comparison. 
+Specimen  Na 
+
+N = predicted rolling contact fatigue life before residual stresses are taken into account. 
+b 
+Nr = predicted rolling contact fatigue life after residual stresses are taken into account. 
+Table 8 
+Predicted and experimental rolling contact fatigue lives. 
+Specimen  Na 
+
+a 
+N = predicted rolling contact fatigue life before residual stresses are taken into account. 
+b 
+Nr = predicted rolling contact fatigue life after residual stresses are taken into account. 
+c 
+Ne = experimental rolling contact fatigue life. 
+
+performance. Accordingly, an optimal residual stress distribution varies with the function of rolling contact components. 
+From this perspective, if a methodology to optimize the residual stress distribution depending on the function of rolling contact components is established, it will provide an ef.cient way to opti-mize machining parameters to produce an optimal residual stress distribution at the subsurface. 
+The fatigue lives of specimens 1, 2, 5, and 6 are shown to be longer than those of other specimens. The machining parameters show that those specimens were machined by using a tool with a tool nose radius of 0.79 mm (smallest tool nose radius in this study), while other machining parameters were not identical. It is thus conceivable that tool nose radius can contribute to the opti-mization of machining parameters to enhance the rolling contact fatigue performance of hard machined components. 
+
+4.7. Rolling contact fatigue test 
+The predicted and experimental rolling contact fatigue lives are listed in Table 
+8. The ratio of predicted life to experimental life was calculated for the predicted life before residual stresses are taken into account and the predicted life after residual stresses are taken into account (Table 8). 
+It is noted that the predicted life before residual stresses are ta-ken into account shows signi.cant under-predictions. The overall average in the ratios for the predicted life after residual stresses are taken into account is 0.80, while that for the predicted life be-fore residual stresses are taken into account is 0.38. 
+The assumptions used in the rolling contact fatigue life model contributed to a portion of the prediction inaccuracy. The non-uni-formity of the material properties and tribological conditions need to be addressed by further work to improve the prediction accuracy. 
+The .nding demonstrates that the prediction accuracy of the rolling contact fatigue life model can be enhanced signi.cantly by incorporating residual stresses. It is further noted that residual stresses in.uence the rolling contact fatigue life by more than 40% considering that the rolling contact fatigue life model shows rea-sonable accuracy. 
+
+CONCLUSION
+5. Conclusions 
+Generally, the residual stress distributions of hard machined specimens showed compressive stresses. The peak compressive residual stress was typically located in the range of 5 and 25 lm, and compressive residual stresses were reduced as it goes deeper. 
+Y. Choi / International Journal of Fatigue 31 (2009) 1517每1523 
+Residual stresses of some specimens showed a similar distribution between circumferential and radial directions, while residual stres-ses of other specimens showed an appreciable difference between circumferential and radial directions, especially around the surface. 
+The effect of residual stresses on crack initiation depth was shown to be signi.cant: the crack initiation depth was changed to a deeper location up to 40.6 lm after residual stresses were ta-ken into account, while the crack initiation depth was 18.6 lm be-fore residual stresses were taken into account. The maximum shear stress at crack initiation depth was reduced up to about 50% after residual stresses were taken into account. 
+Residual stresses could increase the crack initiation life by more than 12 times, while those could increase the crack propagation life by more than eight times. Consequently, residual stresses could increase the rolling contact fatigue life by around 12 times. 
+The predicted lives of specimens machined by using a tool with a tool nose radius of 0.79 mm were longer than those of other spec-imens, which demonstrates that tool nose radius can contribute to the optimization of machining parameters to enhance the rolling contact fatigue performance of hard machined components. 
+The rolling contact fatigue test results showed that the predic-tion accuracy of the rolling contact fatigue life model can be en-hanced signi.cantly by incorporating residual stresses and that residual stresses in.uence the rolling contact fatigue life by more than 40%. 
+The results demonstrate that the rolling contact fatigue perfor-mance of hard machined components can be enhanced signi.-cantly by optimizing the residual stress distribution below the machined surface. 
+References 
+[1] Brinksmeier E. Residual stresses in hard metal cutting. In: Conference on residual stresses in science and technology; 1986. p. 839每46. 
+[2] K.nig W, Klinger M, Link R. Machining hard materials with geometrically de.ned cutting edges 每 .eld of applications and limitations. Ann CIRP 1990;39(1):61每4. 
+[3] Abr.o AM, Aspinwall DK. The surface integrity of turned and ground hardened bearing steel. Wear 1996;196:279每84. 
+[4] Matsumoto Y, Hashimoto F, Lahoti G. Surface integrity generated by precision hard turning. Ann CIRP 1999;48(1):59每62. 
+[5] Hua J, Umbrello D, Shivpuri R. Investigation of cutting conditions and cutting edge preparations for enhanced compressive subsurface residual stress in the hard turning of bearing steel. J Mater Process Technol 2006;171(2):180每7. 
+[6] Mittal S, Liu CR. A method of modeling residual stress in super.nish hard turning. Wear 1998;218:21每33. 
+[7] Liu CR, Guo YB. Finite element analysis of the effect of sequential cuts and tool-chip friction on residual stresses in a machined layer. Int J Mech Sci 2000;42:1069每89. 
+[8] Zhang JY, Liang SY, Zhang G, Yen D. Modeling of residual stress pro.le in .nish hard turning. Mater Manuf Process 2006;21:39每45. 
+[9] Agha SR, Liu CR. On modeling the rolling contact fatigue performance based on residual stresses generated by super.nish hard turning. ASME Med 2000;11:1047每53. 
+
+[10] Guo YB, Yen DW. Hard turning versus grinding 每 the effect of process-induced residual stress on rolling contact. Wear 2004;256:393每9. 
+[11] Guo YB, Barkey ME. Modeling of rolling contact fatigue for hard machined components with process-induced residual stress. Int J Fatigue 2004;26:605每13. 
+[12] Matsumoto Y, Barash MM, Liu CR. Residual stress in the machined surface of hardened steel. High speed machining; 1984. p. 193每204. 
+[13] Matsumoto Y, Barash MM, Liu CR. Cutting mechanism during machining of hardened steel. Mater Sci Technol 
+[14] Ogata M. Einsatz von PCBN 	每 Werkzeugen in der production. VDI Berichie
+[15] Tonshoff 	HK, Wobker HG, Brandt D. Hard turning 每 In.uences on the workpiece properties. Trans 
+[16] Guo YB, Janowski GM. Microstructural characterization of white layers by hard turning and grinding. Trans NAMRI/SME 
+[17] Nakayama K, Aria M, Kanda T. Machining characteristics of hard materials. Ann CIRP  
+[18] Davies MA, Chou Y, Evans CJ. On chip morphology, tool wear, and cutting mechanics in .nish hard turning. Ann CIRP 
+[19] Liu CR, Mittal S. 	Single-step super.nish hard machining: feasibility and feasible cutting conditions. Robot Comput Integ Manuf 
+[20] Liu CR, Mittal S. Single-step super.nishing using hard machining resulting in superior surface integrity. J Manuf Syst  
+[21] Agha SR, Liu CR. Experimental study on the performance of super.nish hard turned surfaces in rolling contact. Wear 
+[22] Liu 	CR, Mittal S. Optimal pre-stressing the surface of a component by super.nish hard turning for maximum fatigue life in rolling contact. Wear 1998;219:128每40. 
+[23] Agha SR. Fatigue performance of super.nish hard turned surfaces in rolling contact. Ph.D. Thesis, Purdue University; 2000. 
+[24] Taguchi G. 	Taguchi on robust technology development: Bringing quality engineering upstream. ASME Press; 1993. 
+[25] Noyan 	IC, Cohen JB. Residual stress: measurement by diffraction and interpretation. Springer-Verlag; 
+[26] Choi Y, Liu CR. Rolling contact fatigue life of .nish hard machined surfaces: Part 1. Model development. 
+[27] Choi Y, Liu CR. Rolling contact fatigue life of .nish hard machined surfaces: Part 2. Experimental veri.cation
+[28] Liu CR, Choi Y. A new methodology for predicting crack initiation life for rolling contact fatigue based on dislocation and crack propagation. Int J Mech Sci 2008;50:117每23. 
+[29] Tanaka K, Mura T. Dislocation model for fatigue crack initiation. J Appl Mech 
+[30] Zhou RS, Cheng HS, Mura T. Micropitting in rolling and sliding contact under mixed lubrication. J Tribol 
+[31] Kaynak C, Ankara A, Baker TJ. Initiation and early growth of short fatigue cracks at inclusions. Mater Sci Technol 
+[32] Melander A. A .nite element study of short cracks with different inclusion types under rolling contact fatigue load. Int J Fatigue 
+[33] Nelias D, Dumont ML, Champiot F, Vincent A, Girodin D, Fougeres R, et al. Role of inclusions, surface roughness and operating conditions on rolling contact fatigue. J Tribol 1999;121:240每51. 
+[34] Bormetti E, Donzella G, Mazzu A. Surface and subsurface cracks in rolling contact fatigue of hardened components. Tribol Trans 
+[35] Harris TA. Rolling bearing analysis. New York: Wiley-Interscience; 
+[36] Wang QY, Bathias C, Kawagoishi N, Chen Q. Effect of inclusion on subsurface crack initiation and gigacycle fatigue strength. Int J Fatigue 
+[37] Leng X, Chen Q, Shao E. Initiation and propagation of case crushing cracks in rolling contact fatigue. Wear 
+[38] Paris P, Erdogan F. A critical analysis of crack propagation laws. J Basic Eng 
+[39] Chen Q, Leng X, Shao E. In.uence of microstructure and residual stress on the stages of case crushing. Wear 
+[40] Hearle AD, Johnson KL. Mode II stress intensity factors for a crack parallel to the surface of an elastic half-space subjected to a moving point load. J Mech Phys Solids 
+[41] Jiang B, Zheng X, Wang M. Calculation for rolling contact fatigue life and strength of case-hardened gear materials by computer. J Test Evaluat 
+[42] Averbach BL. Fracture of bearing steels. Metal progress; December 
+
+
+
+
+

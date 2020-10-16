@@ -1,0 +1,642 @@
+A new approach to estimate the aerosol scattering ratios for the atmospheric
+correction of satellite remote sensing data in coastal regions
+Aerosol scattering reflectance is the most uncertain term to be determined in the atmospheric correction of
+satellite remote sensing data. The values in the visible bands depend on the aerosol scattering ratios (the epsilon
+spectrum). The epsilon value in the Near-infrared (NIR) band is estimated on the dark pixel assumption
+of the water-leaving reflectance in the two NIR bands and then the epsilon spectrum is determined from the
+aerosol models. This assumption usually becomes invalid for turbid coastal waters, leading to lost regions in
+the satellite imagery masked by the failure of the atmospheric correction. A new approach was developed to
+accurately estimate epsilon from turbid coastal waters. This method is based on the idea that the aerosol scattering
+reflectance and the epsilon values can be obtained from the known water-leaving reflectance of in situ
+measurements. The water-leaving reflectance is determined from the choice of a look-up table of the
+water-leaving reflectance based on the Angstrom law of the candidate aerosol scattering reflectance using
+the best non-linear least squares fit function. In this approach, the entire epsilon spectra can be obtained
+and used to determine the two closest aerosol models which are used to interpolate the actual epsilon values.
+It is demonstrated that the results from matching the entire spectra are more robust than that obtained from
+using only one epsilon value. The performance of the approach was evaluated using the simulated reflectance
+at the top of the atmosphere, the Sea-viewing Wide Field-of-view Sensor (SeaWiFS) imagery, and in situ
+measured aerosol optical thickness. This approach is based on the assumption of the aerosol scattering reflectance
+following the Angstrom law instead of the standard dark pixel assumption, named as the ENLF model.
+This new assumption is valid for both Case 1 and Case 2 waters, even over terrestrial regions. Therefore, the
+ENLF model provides a potential approach for a universal algorithm of the atmospheric correction of satellite
+remote sensing data.
+1. Introduction
+While the Rayleigh scattering radiances can be accurately determined
+for use in the atmospheric correction of satellite ocean color
+remote sensing data, the aerosol scattering reflectance is the main uncertain
+term to be determined. Normally, measurements in two
+near-infrared (NIR) bands are used to retrieve the aerosol properties
+on the assumption of zero water-leaving reflectance at these bands.
+However, this assumption is not valid in either Case 2 or highly productive
+Case 1 waters, leading to the failure of the atmospheric correction
+(Mao et al., 2012; Wang & Shi, 2005). Several approaches
+have been developed to overcome this problem for relatively ideal
+satellite imagery over turbid waters. These include using the aerosol
+scattering reflectance over neighboring clear waters for Case 2 waters
+(Hu et al., 2000; Mao et al., 2001), assuming spatial homogeneity of
+the NIR band ratio (Ruddick et al., 2000), employing spectral shape
+matching methods (Shanmugan & Ahn, 2007), or using a regional
+empirical relationship between water reflectance at the red and NIR
+bands (Ahn et al., 2012). However, since the spatial and temporal distributions
+of aerosols usually vary greatly in the satellite imagery,
+these approaches have limited use in operational satellite data processing
+systems. The two short wave infrared (SWIR, 1.24 and
+1.64 μm) bands were used for atmospheric correction for Moderate
+resolution Imaging Spectroradiometer (MODIS) data because the
+dark pixel assumption (DPA) was valid in the SWIR bands over turbid
+waters (Wang, 2007; Wang & Shi, 2005). However, Knaeps et al.
+(2012) pointed out that slight radiance contributions in the 1.24 μm
+band were observed in extremely turbid waters and a modification
+of the SWIR algorithm was needed.
+The ratio of the aerosol scattering reflectance in two NIR bands is
+used to obtain the epsilon spectrum on the matchup of aerosol
+models. This spectrum is used to extrapolate the magnitudes of the
+aerosol scattering reflectance at visible bands from the value at NIR.
+According to Wang (2007), when the Sea-viewing Wide Field-ofview
+Sensor (SeaWiFS) Band 8 (0.865 μm) is used as a reference,
+the epsilon values at Band 1 (0.412 μm) vary between 0.9 (O99
+model) and 2.6 (T50 model), implying that the magnitudes of the
+aerosol scattering reflectance can vary about 3 fold depending upon
+the choice of aerosol models. Therefore, correctly estimating epsilon
+becomes one of the critical factors affecting the estimate of the
+water-leaving reflectance. More concerning, when the SWIR band
+(2.130 μm) is used as a reference band, the magnitudes of epsilon at
+0.340 μm vary between 0.7 and 22.6, leading to a more than 30 fold
+variation of the aerosol scattering reflectance for the same aerosol optical
+thickness (AOT). It should be noted that the accuracy of the atmospheric
+correction is much more sensible to epsilon values when
+SWIR bands are used and high signal to noise ratio of the sensor is
+needed for these bands. In fact, since SWIR bands have in general
+lower SNR values than visible and NIR bands (Knaeps et al., 2012),
+it obviously limits the accuracy of the atmospheric correction when
+the dark pixel assumption (DPA) method of SWIR bands is applied.
+The problemof the atmospheric correction in Case 2waters is caused
+by that both the aerosol scattering reflectance and thewater-leaving reflectance
+become unknown terms. If the water-leaving reflectance becomes
+a known term, the aerosol scattering reflectance can then be
+extracted and the epsilon values are accurately estimated. Therefore, it
+is critical to determine the water-leaving reflectance in the approach
+of epsilon estimation for Case 2 waters.
+In the standard atmospheric correction procedure, twelve aerosol
+models have been used to define the epsilon values for different geometric
+angles (Gordon & Wang, 1994). The epsilon value extracted
+from the aerosol scattering reflectance in the two SWIR (or NIR)
+bands is used to find the two closest aerosol models for interpolation.
+Due to amplifying effects of epsilon extrapolated from SWIR to visible
+bands, the aerosol scattering reflectance in the visible bands is sensitive
+to the small variations of epsilon in the SWIR band. For example,
+a small calibration error in MODIS data for the two SWIR bands will
+lead to a small error of the retrieval epsilon in those bands (Wang &
+Shi, 2005), but the error may be amplified by 10 times for other
+bands. If the epsilon spectra over all bands could be obtained and
+used to find the two closest aerosol models, the results would become
+much more robust.
+In this paper,we developed a newapproach to estimate epsilon that
+is suitable for both turbid coastal regions and oceanic waters. The AOT
+measurements from the Aerosol Robotic Network (AERONET) are
+used to analyze the relationship of the aerosol scattering reflectance
+among different bands in Section 3. A look-up table of the typical
+water-leaving reflectance is established using the in situ measurements
+fromthe East China Sea (ECS) in Section 4. A detailed description of the
+epsilon approach is given in Section 5. The performance of the approach
+is evaluated in Section 6, with the first subsection (Section 6.1) analyzing
+simulated reflectance data, the second subsection (Section 6.2)
+comparing results applied to SeaWiFS data with the standard method,
+and the third subsection (Section 6.3) comparing the match-up between
+SeaWiFS data and in situ AOT results, and the accuracy of epsilon
+is evaluated. Comparisons are made among different values of the
+water-leaving reflectance in the look-up tables presented in the Discussion
+section (Section 7).
+2. The epsilon problem of the standard atmospheric correction in
+Case 2 waters
+It is well known that the processing of satellite data using the
+standard atmospheric correction usually fails over turbid coastal regions.
+One of the main reasons is the difficulty in accurately determining
+the epsilon values because the water-leaving radiance in the
+two NIR bands are usually much higher than zero in the coastal waters.
+An example of epsilon computed from a SeaWiFS image using
+the DPA method is shown in Fig. 1.
+In coastal regions, the epsilon values in the NIR band are around
+1.4, which is roughly 30% higher than its mean value. If these values
+are used to extrapolate epsilon to the other wavelength bands, the
+value in SeaWiFS Band 1 (0.412 μm) becomes 7.63 which may overestimate
+the aerosol scattering reflectance by at least 4.5 times of its
+actual value. The overestimation of the aerosol scattering reflectance
+will lead to significantly underestimating the magnitudes of the
+water-leaving reflectance in visible bands, even generating some negative
+values (Shanmugan & Ahn, 2007; Shi &Wang, 2007). The failure
+of the atmospheric correction leaves lost regions in the satellite imagery,
+over 52,000 km2 in this image. These regions cover the estuary
+and coastal zones, very important for the interaction between the terrestrial
+and marine environments.
+This overestimation is easily detected and its primary cause is that
+the water-leaving reflectance is wrongly attributed as part of the
+aerosol scattering reflectance in the two NIR bands. There are also
+other factors that affect the estimation of epsilon in NIR band, such
+as the bias of satellite sensor calibration, uncertainty of the Rayleigh
+scattering reflectance, and absorption effects of atmospheric gases.
+For example, the O2 A-band absorption may reduce the SeaWiFS measured
+reflectance in Band 7 by more than 10–15% (Ding & Gordon,
+1995; Wang, 1999). These factors definitely affect the accuracy of
+the epsilon estimates, although they are usually difficult to be
+detected in satellite imagery. However, due to the amplifying effects
+of the extrapolation of epsilon, a small bias in epsilon in the NIR
+band may easily lead to a relatively large error in the water-leaving
+reflectance at shorter wavelengths. An uncertainty of 5% is assumed
+to exist in the NIR band. It then causes the choice of different aerosol
+models with a variation of epsilon 0.77 at Band 1, 34% higher than the
+true value. A poor selection of the aerosol models may also produce
+artifact errors in the processed products (Wang, 2003b). It is important
+to establish a suitable approach to accurately estimate the epsilon
+for the atmospheric correction.
+3. Nonlinear fit of the aerosol scattering reflectance from AOT of
+AERONET measurement
+As epsilon is used to extrapolate the aerosol reflectance to visible
+bands, it is important to understand the relationship of epsilon values
+over different bands. The Angstrom constant is usually used to estimate
+the epsilon relationship (Gordon & Castano, 1987). However,
+Wang and Gordon (1994) concluded that an exponential relationship
+would be more accurate for extrapolating epsilon to the other bands.
+It is necessary to precisely determine the relationship of epsilon in
+visible bands to the NIR band. The AOT dataset of AERONET was
+compiled from global distributed data, providing an excellent data
+source to analyze the aerosol properties.
+AERONET is a ground-based, optical aerosol monitoring network
+used to validate the remote sensing algorithmand to ensure the quality
+of aerosol products (Holben et al., 1998). The network hardware consists
+of automatic Sun–sky scanning radiometers to measure both the
+direct and diffuse radiance,which can be used to retrieve aerosol optical
+properties such as the AOT, aerosol particle size distribution, complex
+refractive index and single scattering albedo (Dubovik et al., 2000).
+Data quality control is employed to eliminate errors caused bymeasurement
+conditions, such as clouds and biomass burning events (Smirnov
+et al., 2000). AERONET has been extended to other applications. For example,
+the ocean color component of AERONET (AERONET-OC) has
+been used to support long-term satellite ocean color investigations of
+autonomous radiometer systems deployed on offshore fixed platforms
+(Zibordi et al., 2009a,b).
+We obtained AOT data from the AERONET project web page
+(http://aeronet.gsfc.nasa.gov). There are a total of 554 measurement
+sites in the world, with a total of 7.69 million AOT spectra having
+been obtained. Measurements are taken in 16 wavelength bands
+ranging from 0.340 to 1.640 μm, with 13 bands selected for wavelengths
+from 0.412 to 1.020 μm. Some sites started measurements
+from 1999 to now, whereas some just came on-line in 2010. The
+number of AOT spectra at each site varies widely, from a maximum
+of 65,530 spectra at one site down to a minimum of 12. Because several
+different types of instruments are used among these sites, the
+spectra bands of AOT measured are different from one site to another.
+The site locations are distributed over islands, coastal areas, inland
+sites and mountains. Because our focus is on the aerosol types around
+the ocean, the 165 sites selected are at altitudes less than 50 m above
+sea level with most located near the coastal regions. Some statistical
+information on the chosen sites is listed in Table 1.
+The mean of the AOT over all spectra is around 0.2, with values decreasing
+from0.265 to 0.112 as the wavelength increases. The standard
+deviation (STD) of AOT shows a similar pattern to themean values. The
+5% lower tail of the total spectral distribution occurs around 0.03 with
+minimaclose to zero. The 95% upper tail of the total spectral distribution
+occurs around 0.5 with the maxima exceeding 2.0. Since most sites
+measured the AOT at 0.440, 0.500, 0.675, 0.870 and 1.020 μm, a set of
+AOT collected from 120 sites was established with more than 1.48 million
+spectra in these five bands.
+According to Gordon and Castano (1989), the aerosol single scattering
+reflectance can be calculated from the AOT spectra as:
+where ρAS(λ) is the aerosol single scattering reflectance at the top of
+the atmosphere (TOA), τa(λ) is the aerosol optical thickness measured
+by AERONET, ωa(λ) is the aerosol single scattering albedo,
+and Pa(λ) is the aerosol scattering phase function. As many of the
+AOT values are higher than 0.1, multiple scattering effects need to
+be considered. The aerosol scattering reflectance can be obtained
+from where a, b and c are the coefficients of the least squares polynomial fit
+which depend on the aerosol models.
+As the spectral variations of the AOT of AERONET are quite similar,
+it is possible to find a simple equation to describe them. For example,
+ρA(λ) is usually assumed to follow the Angstrom law:
+where n is the wavelength independent Angstrom exponent, λi is the
+wavelength of AERONET band i and λ0 is the reference bandwavelength.
+Using the aerosol models from the LOWTRAN-6 models, Wang
+and Gordon (1994) concluded that the exponential equation provides
+more accurate results than the Angstrom law:
+where c is also a constant that depends on the aerosol models chosen
+and the viewing geometry.
+The extensive measurement set from AERONET provides an excellent
+data source for evaluating spectral variations of the aerosol scattering
+reflectance. To compare the quality of the spectral fitting functions
+for both the Angstrom law and an exponential equation, four aerosol
+scattering reflectance of the Mean, Mean plus STD (MS), 5% (P5) and
+95% (P95) are selected. The results based on the Angstrom law are
+shown in Fig. 2a and those based on the exponential equation are
+shown in Fig. 2b.
+There are some differences between the observed aerosol spectra
+and the fitted spectra for both the Angstrom law and the exponential
+equation. The mean relative errors of the P5, Mean, MS, and P95 for
+the Angstrom fit are 1.21%, 1.41%, 3.53%, and 0.95%, respectively,
+while those for the exponential fit are 4.02%, 4.05%, 6.32%, and
+3.71%, respectively. Comparing the fitted situations in Fig. 2, The Angstrom
+law is more suitable to describe the spectral shapes of the aerosol
+scattering reflectance than the exponential equation.
+The nonlinear fit is applied to individual spectrum of AOT and the
+mean relative error is calculated from every site, with the results
+shown in Fig. 3. The mean relative errors of the fitted aerosol scattering
+reflectance are relatively small with most values less than 0.5%.
+Half of the sites have errors that are less than 0.16% and 0.30% for
+the Angstrom and exponential fits, respectively, with the mean
+value of errors of 0.27% and 0.43%, respectively.
+When the fitting function is applied to individual spectra the mean
+errors become much smaller. The overall average error of the Angstrom
+fit is 0.29% and of the exponential fit is 0.47%. Therefore, both
+the Angstrom law and the exponential equations provide suitable
+fits to the aerosol scattering reflectance data, and because it has a
+slightly lower mean error the Angstrom law is used in the remainder
+of this paper.
+4. The look-up table of in situ water-leaving reflectance
+Four cruises were conducted to directly measure the water-leaving
+reflectance in the summer and winter of 2006 and in the spring and autumn
+of 2007. Each cruise employed two ships (Haijian 46 and Haijian
+49) and took about two months to complete the 514 pre-planned stations
+in the ECS. The reflectancewas measured by a hyper-spectral spectrometer
+manufactured by Analytical Spectral Devices Inc. (ASD). The
+ASD instrument was operated following the protocol of the abovewatermethod
+(Mueller et al., 2000). As the reflectance can only bemeasured
+in the daytime, the actual number of measurement stations was
+136, 48, 132, and 143 during the summer, winter, spring, and autumn
+cruises, respectively. The spatial distribution of stations is shown in
+Fig. 4.
+The ASD instrument measures the downward irradiance incident
+on the top of a gray plate, the reflected radiance from the sea surface,
+and the sky radiance. Each radiance measurement consists of a group
+of 20 continuous, simultaneous spectra which can be used to help detect
+and remove spectral results contaminated by changes in the environmental
+conditions. The methods of Hooker et al. (2002) were
+followed to obtain the water-leaving reflectance. The wavelengths
+measured by the ASD are from 0.325 to 1.075 μm and the reflectances
+in eight bands are computed by the spectral averaging method
+according to the SeaWiFS response functions (Mao et al., 2012). A
+total of 1496 spectra were measured and 100 spectra were selected
+to establish a look-up table of the water-leaving reflectance (Fig. 5).
+To make the water-leaving reflectance in the look-up table represent
+different types of water in the ECS, a method of selection was developed.
+The in situ measured spectra were sorted by the magnitudes
+of the reflectance and 100 spectra were selected according to their
+position in the magnitude distribution from 0.5% to 99.5% with a 1%
+increment. From Fig. 5, the range of the reflectance is large in all 8
+bands, even the two NIR bands. The reflectance in Bands 7 and 8
+ranges from 0 to 0.06 sr−1, which exceeds the variability of the reflectance
+even at visible bands. Obviously, the assumption of zero
+water-leaving reflectance is invalid for most of these spectra. These
+spectra are used to establish the look-up table of the water-leaving
+reflectance to determine the distribution of the actual reflectance in
+the ECS.
+5. A new approach to estimate the epsilon value from satellite data
+The Rayleigh scattering reflectance, the sun glint and whitecap reflectance
+can be computed in the atmospheric correction procedure
+of satellite data. When the water-leaving reflectance in the two NIR
+bands is assumed to be zero, the aerosol scattering reflectance can
+be obtained and used to compute epsilon. However, over turbid waters,
+this assumption is not valid and its use leads to errors in the estimation
+of the epsilon. On the other hand, if the water-leaving
+radiance can be determined, the epsilon can be estimated from the
+aerosol scattering reflectance over turbid waters.
+We define the aerosol–water reflectance, ρAW(λ), including the
+aerosol scattering reflectance and the water-leaving reflectance at
+TOA, as:
+where ρA(λ) is the aerosol scattering reflectance (including Rayleigh–
+aerosol interactions) and ρw(λ) is the water-leaving reflectance at
+TOA. The aerosol–water reflectance can be deduced from the following:
+where ρt(λ) is the satellite measured reflectance at the TOA, ρr(λ) is
+the Rayleigh scattering reflectance, T(λ) is the diffuse transmittance
+of the atmosphere, and t(λ) is the direct transmittance of the atmosphere.
+The term ρwc(λ) is the ocean whitecap reflectance, and
+ρg(λ) represents the effects of sun glitter off of the sea surface. The
+Rayleigh reflectance can be computed exactly from the Rayleigh lookup
+tables based on the vector radiative transfer theory (Wang,
+2003a). The whitecap reflectance can be modeled from the sea surface
+wind speed (Moore et al., 1999). The sun glint reflectance can
+be computed from the sea surface slope distribution (Cox & Munk,
+1954). Therefore, ρAW(λ) can be accurately estimated by Eq. (6).
+When the water-leaving reflectance is known, ρA(λ), which can be
+obtained from the aerosol–water reflectance using Eq. (5), can be
+used to estimate the aerosol single scattering reflectance from
+where a, b and c are the same coefficients as in Eq. (2). The epsilon spectrum
+of the aerosol single scattering reflectance is then defined as
+The approach to estimate the epsilon value from the reflectance at
+TOA can be summarized as follows:
+(1) The Rayleigh scattering reflectance is accurately computed from
+themultiple scatteringmethod and the reflectance caused by the
+sun-glint and whitecaps is estimated. Then, the aerosol–water
+reflectance is obtained from the satellite measured reflectance
+using Eq. (6).
+(2) A look-up table of the water-leaving reflectance is established
+from in situ measurements over the ECS to represent different
+types of reflectance.
+(3) The candidate aerosol scattering reflectance can be obtained by
+subtracting the aerosol–water reflectance from all water-leaving
+reflectance in the look-up table, fromwhich with negative values
+are removed. The number of the candidate aerosol scattering reflectance
+is the same as the reflectance in the look-up table if no
+spectra are removed.
+(4) The nonlinear least squares fit function based on the Angstrom
+lawis used to obtain the best fitted spectrumfor every candidate
+aerosol scattering reflectance to compute the difference. The one
+with the smallest difference is selected as the actual aerosol
+scattering reflectance.
+(5) The aerosol single scattering reflectance is estimated from the
+aerosol scattering reflectance using Eq. (7), which is then used
+in Eq. (8) to obtain the epsilon spectrum.
+(6) The epsilon spectrum is used to match the two closest aerosol
+models for interpolation to obtain the actual epsilon values.
+Matching of the entire spectrum instead of just one value in the
+NIR band provides a more stable estimate of epsilon.
+Overall, this approach to estimate the epsilon primarily relies on
+the assumption of the aerosol scattering reflectance following the
+Angstrom law by using the non-linear fit function of the reflectance
+under the help of the look-up table of the water-leaving reflectance,
+named as the ENLF model.
+6. Evaluation of the ENLF model
+6.1. Evaluating the ENLF model using the simulation method
+The sensor reflectance at the TOA can be simulated from the sum
+of its components (Mao et al., 2010). To evaluate the performance
+of the ENLF model, only the aerosol–water reflectance needs to be
+simulated. The water-leaving reflectance at the TOA can be estimated
+from the spectra of the look-up table using:
+ρwðλÞ ¼ tðλÞρwnðλÞ cos θs ð Þ; ð9Þ
+where ρwn(λ) is the normalized water-leaving reflectance from the
+look-up table, θs is the solar-zenith angle and t(λ) is the direct transmittance
+of the atmosphere which can be estimated by the method of
+Gordon and Wang (1992). The aerosol scattering reflectance in the
+reference band is calculated using Eq. (1) with an AOT of 0.12 and
+the reflectance in other bands are obtained using Eq. (3) with an Angstrom
+constant of 1.1. These parameter values are close to the mean
+of the AOT in the AERONET. This aerosol scattering reflectance and
+epsilon are taken as the reference to test the performance of the
+ENLF model for simulated data. The simulated aerosol–water reflectance
+at the TOA is obtained using Eq. (5).
+Following the procedure of the ENLF model, the aerosol single
+scattering reflectance is obtained from the simulated data using
+Steps 2 to 5, and then the epsilon is computed. A total of 1496 epsilon
+spectra were obtained, and it is infeasible to show them in one figure.
+Therefore, five typical epsilon spectra with different relative errors
+are selected and shown in Fig. 6, together with the reference epsilon.
+In general, most of the epsilon spectra (not shown) are relatively
+close to the reference one and are similar to Spectra 2 results. Still,
+there are some spectra with larger variability such as the result of
+Spectra 3. The aerosol–water reflectance at the TOA is sensitive to
+the settings of several parameters and these parameters become unknown
+when the reflectance is used to retrieve the epsilon with the
+ENLF model. For example, the water-leaving reflectance at the TOA
+simulated from the in situ measurements depends upon the transmittance
+of the atmosphere, which becomes difficult to be extracted exactly
+from the simulated reflectance. This situation will also happen
+when retrieving the epsilon from satellite remote sensing data using
+the ENLF model.
+Most of the retrieved epsilon spectra followthe Angstromlaw,while
+some shapes of epsilon modulate according to the wavelengths, for example,
+Spectra 1, 3 and 5 in Fig. 6. These spectra need to be corrected.
+Since the epsilon shapes in the aerosolmodels can be taken as the actual
+spectra distribution of the aerosol scattering reflectance, the retrieved
+epsilon spectra are used tomatch the two closest aerosol models for interpolation
+to obtain the actual values. The 12 aerosol models are defined
+as O99, M50, M70, M90, M99, C50, C70, C90, C99, T50, T90 and
+T99, where the symbol O, M, C, and T refer to oceanic,maritime, coastal
+and tropospheric models, respectively, and the numbers designate the
+relative humidity. These models produce the epsilon spectra in the
+SeaWiFS bands under different solar-sensor geometry. Normally,
+these epsilon spectra are used to extrapolate the values in visible
+bands depending on the selection of the aerosol models in the NIR
+band. The selections are based on the match-up conditions of epsilon
+between the measured values from the remote sensing data and the
+modeled values. As the spectra of epsilon are obtained, they can be
+used to match the two closest spectra of the aerosol models instead of
+one value in the NIR band. These two aerosol models are used to
+interpolate the actual epsilon values. The five spectra in Fig. 6 are used
+to test this match-up method and the results are shown in Fig. 7,
+superimposed on the original ones.
+Fig. 7 shows that the match-up method of epsilon can significantly
+modify the shape of the epsilon spectra and improve the accuracy of
+the retrieved epsilon. For example, the retrieved Spectrum 3 is obviously
+abnormal from the shape of epsilon and it becomes similar to
+the reference one after the use of the match-up method. The relative
+error of the retrieved Spectrum 3 is 12.5% and it is 2.3% for the
+matched epsilon. As the satellite data are affected by many different
+measured conditions, it is difficult to ensure that all reflectance are
+perfect. The retrieval spectra depend on many factors; such as the
+matched situation of the water-leaving reflectance between the actual
+values and the look-up table, the calibration accuracy of the satellite
+sensor, the Rayleigh scattering reflectance and the effects of
+atmospheric absorption. In fact, some abnormal spectra similar to
+Spectra in Fig. 6 are usually found in the satellite imagery. The
+match-up method is useful in removing some abnormal variations
+of the spectra. The results in Fig. 7 show that the matched epsilon
+does follow the Angstrom law closely and fit the epsilon spectra produced
+by the aerosol models. As a consequence, the accuracy of the
+epsilon estimate can also be improved.
+Normally, only one value of epsilon in the NIR band is used to determine
+the two closest aerosol models and to extrapolate to other
+values in the visible bands. However, the results depend directly on
+the accuracy of the aerosol scattering reflectance in the two NIR
+bands. For example, the matched epsilon value of Spectrum 3 at
+Band 1 (0.412 μm) will be 7.5, 3.4 fold of the true value by the one
+value matched method. The mean relative error of the spectrum is
+111.1%. The variations of the five spectra at Band 1 are between
+1.95 and 7.49, much higher than the results of spectra matched method
+which range from 1.54 to 2.34. A small error in the reflectance will
+easily lead to a bias of epsilon in the NIR band and an amplified error
+in reflectance at shorter wavelengths. If the entire epsilon spectrum
+instead of one value at the NIR band is used to determine the two
+closest aerosol models, the results are more robust. One advantage
+of the ENLF model is that it matches the two aerosol models by
+matching the entire epsilon spectrum and thus improves the accuracy
+of the epsilon values.
+6.2. Evaluating the ENLF model using SeaWiFS imagery
+The ENLF model was used to process the SeaWiFS imagery and an
+example of an epsilon image in the NIR band is shown in Fig. 8. This
+image is produced from the SeaWiFS data from March 27, 2007 and is
+the same data used in Fig. 1. To produce this image, first, the Rayleigh
+scattering reflectance was computed using a multiple scattering approach
+together with the reflectance components from the ocean
+whitecaps and the sun glitter off of the sea surface. The aerosol–water
+reflectance was obtained from the satellite measured reflectance using
+Eq. (6). Finally the aerosol scattering reflectance and the epsilon spectra
+were obtained from the ENLF model
+From the refined epsilon distribution in Fig. 8, we can see that the
+high values of epsilon in the coastal regions are significantly reduced,
+with values more closely matching to Case 1 waters. The values in the
+NIR band are reduced from around 1.4 to 1.05 in the coastal regions.
+To compare the differences of the epsilon spectra between Figs. 1
+and 8 in detail, the whole region of the image is classified into 4 classes
+according to the range of the epsilon values at Band 7 by the DPA
+method. Class 1 represents the range of 1.0 to 1.1, 2 is from 1.1 to 1.2,
+3 is from 1.2 to 1.3 and 4 is from 1.3 to 1.5. The epsilon spectra belonging
+to the same class are averaged to obtain the mean spectra
+of this class, which is shown in Fig. 9.
+From Fig. 9, the mean epsilon values between the ENLF model and
+the DPA method are large. The ranges of the epsilon values by the
+ENLF model are from 1 to 1.7, while those by the DPA method are
+from 1 to 5.7. The values by the DPA significantly increase when the
+wavelengths shift from the NIR to the blue band, while those by the
+ENLF keep much more stable. The spectra by the DPA are significantly
+different from Classes 1 to 4, while those by the ENLF are similar.
+Checking the true image (not shown in this paper) produced from
+SeaWiFS data of this day, the aerosol distributions in the image are relatively
+homogeneous. The epsilon values should be close to each other
+among the 4 classes. As a result,we conclude that the ENLFmodel is suitable
+for application in coastal regions to overcome the overestimation
+problem for the epsilon.
+Checking carefully the epsilon image in Fig. 8, we can see that this
+image shows some information on the spatial structure of the waterleaving
+reflectance. However, because the number of the waterleaving
+reflectance in the look-up table is limited, there may be a small
+difference between the actual water-leaving reflectance and the selected
+one from the look-up table. This difference will cause a small error
+in extracting epsilon. The match-up method of the ENLF model can improve
+the accuracy of epsilon in different bands, but it cannot remove
+the effects caused by this difference. It is important to build up a good
+look-up table of thewater-leaving reflectance to cover enough actual reflectance
+of the regions. It is also necessary to evaluate how the look-up
+table of the reflectance affects the accuracy of the epsilon values.
+6.3. Evaluating the ENLF model using in-situ measurements
+The globally distributed AERONET data can be used to validate the
+aerosol products derived from satellite ocean color remote sensing
+data such as SeaWiFS (Mélin et al., 2010). The epsilon can be estimated
+from the AOT data to validate the results from SeaWiFS data with the
+ENLF model. The AOT was measured during the 2006 winter and 2007
+autumncruises in the ECS using a handheldmulti-band sun photometer
+(MICROTOPS)manufactured by the Solar Light Company. Two different
+types ofMICROTOPS instrumentswere used. One is used tomeasure the
+total ozone column, the water vapor column and the AOT at 1.020 μm.
+The other measures the AOT at the five wavelengths of 0.380, 0.440,
+0.500, 0.670 and 0.870 μm. A total of 17 stations during the winter
+cruise and 18 stations during the autumncruisewere measured. The instrument
+was connected to a GPS system to record the locations and
+was used during the transit between stations, significantly increasing
+the number of AOT spectra. A total of 4233 spectra were measured at
+the locations shown in Fig. 2.
+To compare the epsilon values between SeaWiFS and AOT, a
+matched data set was assembled using a time window for the satellite
+overpass of ±2 h from the in situ measurements. A total of 263
+matching spectrawere obtained,withmany SeaWiFS reflectances missing
+due to excessive cloud or fog cover. After applying a data quality
+check, a set of 49 matched spectra was obtained under the cloud-free
+condition of SeaWiFS data. The SeaWiFS reflectances were processed
+to obtain the epsilon using the ENLF model and the results are shown
+in Fig. 10. The AOT spectra were used to calculate the aerosol scattering
+reflectance using the geometric angles of SeaWiFS, to estimate the single
+scattering reflectance and finally to obtain the epsilon values which
+are also shown in Fig. 10.
+Fig. 10 shows that the two types of epsilon are relatively comparable.
+While the magnitudes and the spectra shapes are similar to each
+other, there are some important differences. Four epsilon spectra of
+AOT with green color look abnormal because of their large slopes between
+band 1 (0.380 μm) and band 3 (0.500 μm), which are three
+times higher than the mean value. The other five spectra have the
+similar characteristics, but with relatively small slopes. The slopes of
+the AOT epsilon also show some difference from the SeaWiFS epsilon,
+especially for the shorter wavelengths.
+Because the processing of the data from AOT to epsilon is rather
+complicated with several estimated parameters, the accuracy of the
+AOT epsilon itself naturally exists some uncertainty. As the AOT data
+of AERONET are retrieved from the ground based radiance measurements,
+the data quality of AOT can also be affected by the instrument
+calibration and the measurement conditions (Dubovik et al., 2000;
+Smirnov et al., 2000). The translation fromAOT to the aerosol scattering
+reflectance is related to the parameters of the aerosol single albedo and
+its phase function, which are determined by the absorption, as well as
+the type and particle size distribution of aerosols. The coefficients in
+Eq. (3) are determined from the aerosol models, so they rely on different
+aerosol models. These parameters were not measured and typical
+values were used in the computation of epsilon from the AOT. Finally,
+horizontal distributions of aerosolsmay change and a 2-hour timewindow
+obviously brings some differences between SeaWiFS and in situ
+measurements. Considering these inherent limitations in obtaining
+both of the epsilon values, we are satisfied with the results of the comparison
+of the two epsilon spectra.
+7. Discussion
+We find that the epsilon values resulting from satellite data strongly
+depend upon the accuracy of the look-up table from the in situmeasured
+reflectance. The epsilon can be estimated accurately when the look-up
+table covers the actual water-leaving reflectance. Some errors are produced
+by the ENLF model when only the closest reflectance is searched
+out from the table with some difference between this reflectance and
+the actual value. To evaluate how the table affects the accuracy of the epsilon,
+a test wasmade. The test was designed to compute the accuracy of
+the epsilon using different look-up tables based on different quantities of
+the water-leaving reflectance. Seven tables were established including
+10, 20, 50, 100, 200, 500, and 1000 spectra from the same data set of
+the in situ reflectance. The method to establish these tables is that the
+spectra are randomly selected with unequal distribution, different from
+that in Section 4. All reflectance were used to obtain the aerosol–water
+reflectance at TOA using the simulation method in Section 6.1. The epsilon
+spectra were estimated from the aerosol–water reflectance by the
+ENLF model. The accuracy of the epsilon was computed on the reference
+epsilon in Fig. 6 to obtain the mean relative errors shown in Fig. 11.
+Fig. 11 is the result of relative errors of the epsilon from7 look-up tables.
+It is clear that the errors varywidely among different tables. For example,
+when the table only includes 10 spectra, most of the actual
+reflectance cannot be found from the table with some large differences
+fromthe selected spectra. The mean relative error of the retrieved epsilon
+is 64.4%, with the maximumerror of 89% at Band 5.When the numbers
+of spectra in the table increase, more actual reflectance can be
+found in the table and meanwhile the difference between the actual reflectance
+and the selected spectrumbecomes smaller, leading to smaller
+errors. The mean relative error is 2.34% when the table includes 1000
+spectra. Therefore, the accuracy of the epsilon depends on the look-up
+table of the water-leaving reflectance.
+The look-up table of the in situ reflectance is the basis for estimating
+the epsilon fromthe satellitemeasured reflectance at the TOA using the
+ENLF model. As the actual water-leaving reflectance is unknown before
+the epsilon is estimated, it is determined from the look-up table with
+the best nonlinear least squares fit function using the Angstrom law of
+the aerosol scattering radiance. If the actual reflectance exists in the
+table, the epsilon can be exactly estimated. Otherwise, a difference between
+the actual reflectance and the matched spectra introduces a
+bias of epsilon using the ENLF model. If the model is used in other regions,
+it is important to obtain enough in situ water-leaving reflectance
+data over different seasons in these regions to obtain good estimates.
+The atmospheric correction over land is still difficult to establish
+with high accuracy. The ENLF model provides a new practical method
+to estimate the epsilon spectra for the satellite imagery over land
+cover. It depends upon neither the two atmospheric correction bands
+nor the dark pixel assumption. It only assumes that the aerosol scattering
+reflectance follows the Angstrom law and this assumption is also
+valid over land. It depends on the look-up table of in situ reflectance
+to separate the aerosol scattering reflectance from the satellite measured
+reflectance. The accuracy of the model depends on the distribution
+of the reflectance in the look-up table. When a well designed
+look-up table is established with different reflectance to represent all
+land cover types in different seasons, the ENLF model can then be applied
+to the atmospheric correction of satellite remote sensing data
+over terrestrial regions.
+8. Conclusions
+Using awell designed look-up table of thewater-leaving reflectance,
+the aerosol scattering reflectance can be determined using the best
+non-linear least squares fit function based on the Angstromlaw. The reflectance
+is then used to estimate the aerosol single scattering reflectance,
+which is then used to determine the epsilon values. The ENLF
+model can improve the accuracy of the atmospheric correction of satellite
+remote sensing data over turbid coastal waters. The assumption of
+the atmospheric correction is changed from the dark pixel assumption
+to that the aerosol scattering reflectance following the Angstrom law.
+As this new assumption is valid for oceanic, turbid waters and the terrestrial
+regions, the ENLF model provides a new potential universal approach
+of the atmospheric correction of satellite remote sensing data.
+Furthermore, the two NIR atmospheric correction bands are not used
+for the ENLF model, which can then be used to estimate the total
+suspended matters over turbid waters.
+The epsilon spectra are used to determine the two closest aerosol
+models instead of relying on one epsilon value from the NIR band. The
+results show that this match-up method is more robust and overcomes
+the epsilon error caused by small variations of the aerosol scattering
+reflectance in the two NIR bands. Meanwhile, this method can
+also reduce some abnormal epsilon errors caused by factors including
+the data quality of satellite measured reflectance and the mismatch of
+the actual water-leaving reflectance with the spectra in the look-up
+table. Further, it can also make the shape of the epsilon spectrum
+more closely follow the Angstrom law.
+The performance of the ENLFmodelwas evaluated by using simulated
+reflectance at the TOA, SeaWiFS imagery, and in situ measured AOT
+in the ECS. The results show that it can work well under the help of a
+properly designed look-up table of the water-leaving reflectance. This
+approach can be applied in an operational satellite remote sensing
+data processing systemto improve the accuracy of the atmospheric correction
+over turbid coastal regions and terrestrial environments.

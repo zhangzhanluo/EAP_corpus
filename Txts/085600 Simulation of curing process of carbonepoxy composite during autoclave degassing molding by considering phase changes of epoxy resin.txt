@@ -1,0 +1,139 @@
+Simulation of curing process of carbon/epoxy composite during autoclave degassing molding by considering phase changes of epoxy resin 
+Strain monitoring of a carbon/epoxy composite cross-ply laminate during thermoforming was conducted by using .ber Bragg grating (FBG) sensors. The entire process was simulated by employing .nite element analysis (FEA) by taking into consideration the phase changes of the epoxy resin. For the precise simulation of the curing process, a dielectrometry sensor was used to detect the epoxy-resin dissipation factor, which in turn was used to identify the curing point. To investigate the phase changes and consolidation of the composite laminate by employing FEA, modulus changes with tem-perature were measured by dynamic mechanical analysis (DMA), and the permeability was estimated by measuring the .ber volume fraction according to the curing temperature. As the epoxy resin changed from a liquid to solid phase, the strain generated along the carbon .bers dynamically changed, and the analysis results generally predicted the strain variation quite well. To apply this simulation technique to practical structures, a composite-aluminum hybrid wheel was analyzed and experimentally verfied. 
+1. Introduction 
+The excellent mechanical properties of .brous composites have enabled them to be applied to the design of various structures, in which their performance has been closely investigated. However, a variation in some factors, particularly, residual stressda crucial factordduring the forming process may ultimately affect the performance of the .nal product. In order to investigate the effect of material behavior during a forming process on the per-formance of the .nal product, signi.cant research on thermo-forming processes has been conducted, e.g., on a smart cure cycle for controlling temperature overshoot [4], simulation techniques for composite laminates, incorporation of consolidation and thickness variation [5,6], and forming techniques that take the resin viscosity into account [7e9]. 
+In addition, intensive research into different forming processes has also been carried out. An optimal cure cycle to minimize residual stress and strain has been previously proposed, with strain variation during thermoforming being observed and closely 
+investigated using .ber Bragg grating (FBG) optical sensors. This cycle takes into account the effect of thermal property differences between the composite laminate and the mold, the micro-structures of fabric composites, boundary conditions, and differences in the coef.cient of thermal expansion between different materials. Health monitoring of composite structures
+and cure monitoring of composite-metal hybrid structures 
+using various sensors have also been conducted to detect any material failures during service or forming conditions. Recently, the .eld of application of FBG sensors has been broadened to include real-time health monitoring of structures such as airplanes and ships. The performance validation of FBG sensors, including their endurance limit, was also veri.ed by comparing them with conven-tional sensors by performing various mechanical tests. 
+This paper presents the simulation of the curing of a carbon/ epoxy laminate by taking into consideration the phase changes of the epoxy resin and the corresponding material property changes in the laminate. The strain and temperature change in the com-posite laminate was monitored during the curing process using FBG sensors, and the residual thermal strain also was measured. The simple technique for simulating the entire curing process with simple mechanical properties was developed using .nite 
+element analysis (FEA) with a user's subroutine, which predicted well the overall change in the generated strains in the composite laminate during the curing process. This technique may provide design guidance for composite structures, allowing durability to be enhanced by reducing the residual stress and strain of structures. 
+2. Experiments for determining parameters for the simulation 
+2.1. Materials and sensors 
+A carbon/epoxy prepreg (USN125, SK Chemical, Korea) was used to fabricate a laminate specimen. Vacuum bag degassing molding was then used to perform cure monitoring of the composite lami-nate, and all the materials used in the experiment are listed in Table 
+The material properties were obtained from a previous research. 
+Two types of sensors were used: FBG .ber optic sensors with an interrogator (Micron optics instrument, USA) were used for moni-toring the strain and temperature of composite laminates during curing, and a dielectrometry sensor 
+1a; [11]) was used for detecting the degree of cure of the laminate. In order to accurately measure the strain variation with temperature in the composite laminate during curing, the sensor's coef.cient of thermal expan-sion was compensated for in calculating equations: 
+2.2. Measurement of the .ber volume fraction 
+To estimate the amount of resin extracted during vacuum bag degassing molding, the .ber volume fraction according to tem-perature was measured. Darcy's law
+predicts the resin .ow during the curing of composites based on the permeability (ki)of the material, and it is closely related to the material void ratio
+strain change, temperature change of the FBG, Bragg grating's 
+thermo-optical coef.cient, sensitivity coef.cient of strain, and where rf and ci are the .ber radius and KozenyeCarman constant, sensitivity coef.cient of temperature, respectively. The respectively. The permeability of the composite laminate 
+Material properties and measured values of various materials. 
+Materials Thermal conductivity (W/mK) Speci.c heat capacity (J/kg K) Density (kg/m3) 
+Mechanical properties Epoxy 0.2 1740 1210 Fiber 85.0 700 1750 Steel 60.0 450 8000 Vacuum bag 0.24 1670 1140 Breather 0.007 1350 260 Te.on .lm 0.4 1050 2200 
+Materials Density (kg/m3) Young's Modulus (GPa) Poisson's ratio Elongation (%) 
+Mechanical properties USN125 1480 E1 131.0 n12 0.0226 1.8 E2 10.5 n23 0.0226 E3 10.5 n31 0.4700 
+Aluminum 2700 68.9 0.33 17.0 
+Materials 125C 105C 85 C 65 C 45 C 25 C 
+CTE for temperature (10 6/ C) USN125 L 2.21 1.85 1.66 1.49 1.31 1.09 T 62.82 48.42 37.44 29.79 25.20 23.80 Aluminum 23.76 23.49 23.29 23.09 22.91 22.86 Steel 12.82 12.40 12.24 12.02 11.72 11.56 
+Temperature ( C) Fiber volume fraction Permeability 
+Vf and permeability for temperature 25 0.55 0.8181 55 0.56 0.7857 80 0.58 0.7241 100 0.60 0.6666 125 0.61 0.6339 
+Image of Fig. 1
+Property variation of carbon/epoxy prepreg: (a) dielectrometry sensor and corresponding equivalent circuit and (b) variation of moduli and dissipation factor with temperature. 
+corresponding to the forming temperature was calculated using Eq. 
+2.3. Dynamic mechanical analysis (DMA) (5), and the values are listed in Table 
+1. 
+This permeability was used to simulate the thermoforming process of the composite laminates, Storage and loss moduli of the composite laminates at different based on previously identi.ed resin .ow behavior. The .ber temperatures were measured by a Dynamic Mechanical Analysis volume fraction was saturated at a value of 0.61 when the test (DMA) machine (Triton Technology, UK). A short beam specimen of temperature reached 125 C, generating a saturated permeability of stacked carbon/epoxy prepregs was mounted on the machine, and 0.6339. Beyond this point, the epoxy resin was regarded as having the test temperature was raised to 160 C at a rate of 1 C/min, with entered the gelation phase. a driving frequency of 1 Hz. The measured moduli are plotted in Fig. 
+1b, and this data was subsequently used to simulate the forming process. 
+2.4. Strain measurement of a carbon/epoxy laminate during thermoforming 
+Real time in-situ strain variation in a composite laminate dur-ing vacuum bag degassing molding was investigated experimen-tally using FBG .ber optic sensors. The stacking sequence of the laminate was [05/905]s, and sensors were inserted between the third and the fourth plies along the 0 .bers, and 10th and 11th plies along the 90 .bers, as illustrated in Fig. 
+2a. A dielectrometry sensor was also inserted at the edge of the laminate. A pair of steel plates was then applied to the laminate, and various accessories such as a Te.on .lm were applied to both surfaces as shown in Fig. 
+2a. In order to ensure easy demolding of the composite laminate, a releasing agent was sprayed onto the surfaces of the steel mold. Wavelength shifts, which can be used to calculate strain using Eqs. 
+(1) 
+and 
+(2), were measured for different forming time by an interrogator. In addition, the equivalent resistance and capacitance of the epoxy-impregnated dielectrometry sensor. 
+1a) were measured by an LCR meter, and these values were substituted in Eq. 
+(3) 
+to calculate DF. The temperature was also measured by the FBG sensor in the composite laminate. The rec-ommended cure cycle is shown in Fig. 
+2b. These measured strains were used for the veri.cation of the simulation technique and its accuracy. 
+3. Simulation of the curing process using .nite element analysis 
+To estimate the strain variation during the thermoforming of a carbon/epoxy laminate, FEA was conducted using the experimen-tally acquired data introduced in Section 
+2, such as the permeability (ki) and modulus at various forming temperatures. These results were later being compared against the cure monitoring test results for verifying the appropriateness of the simulation technique. The .nite element model of the laminate is shown in Fig. 
+3a. A com-mercial .nite element codedABAQUS 6.11 with C3D8HT ele-.ow based on Darcy's law was used to determine the material state when the composite laminate was in liquid state. According to the permeability variation of the epoxy resin at a certain temperature appropriate storage modulus was assigned in each FE element by VOIDRI code and the iterative calculation was carried out as shown in Fig. 
+3b. 
+In Phase III, changes in the coef.cient of thermal expansion and Young's modulus of the cured composite laminate were used in the FEA for precise estimation of strain as done in a related study. Simple Hooke's law was used to calculate material strains because in this phase the laminate was solid state. 
+A tie condition between the laminate and steel mold was imposed for Phase I and II analyses resulting in the same strain at the interface, and a contact condition with a friction coef.cient of 
+0.2 was applied at the interface between the laminate and steel mold, taking into account the partial demolding that occurred under abrupt temperature changes. And one node at the edge of the FE model was .xed in all directions for the convergence. As a loading condition hydrostatic compression of 0.1 MPa (vacuum) was applied to the FE model. 
+4. Veri.cation of the simulation technique 
+4.1. Experiments for strain monitoring during curing process 
+shows the results of cure monitoring experiments and analyses, in which the strain was measured in 0 and 90 plies along the .bers. To identify the epoxy-resin phase changes corresponding to the curing time, DF was plotted and analyzed along with the strain variation around the onset of phase change of the epoxy resin. The DF and the measured strain were subsequently used to classify the resin phases, as shown in Fig. 
+4aeb. The border between Phase I (liquid regime) and Phase II (gelation regime) is identi.ed by a peak in the DF value, which is indicative of large-scale cross-linking in the epoxy resin. 
+4.1.1. Phase I 
+In Phase I, the lique.ed epoxy resin shrinks under vacuum (hydrostatic compression of 0.1 MPa), generating a negative strain 
+mentdwas used, with the number of elements set to 14,400. The of 230m and 223m 
+analysis process itself was divided into three phases (Phases I, II, III) based on the different phases of the epoxy resin: Phase I (heating: 25 Cto125 C) is for the liquid phase, Phase II (holding: 125 C) is for the gelation of the epoxy resin, and Phase III (cooling: 125 Cto room temperature) is the solidi.cation phase of the epoxy resin, including vitri.cation. In Phase I, the deformation behavior of the composite laminate was investigated by taking into account the variation in permeability and the modulus of the laminate. To determine the change in permeability by employing FEA, the VOI-DRI code provided by ABAQUS was used. Iterative calculation of the generated strain. 
+3b) was carried out by varying the permeability and modulus of the composite laminates. The mate-rial properties and permeability corresponding to the forming temperatures were updated, and once the permeability reached a value of 0.6339, the gelation phase of the epoxy resin was consid-ered to have commenced and the iteration process was terminated. As gelation proceeded in Phase II, the Poisson's ratio of the epoxy follows a trend similar to that observed in previous studies [11,12]. The gradual reduction in the viscosity of the epoxy resin with increasing temperature induces a corresponding negative strain, and this trend abruptly reverses with the instantaneous curing of the epoxy resin; i.e., around the peak DF value, the strain exhibits a minimum value, as shown in Fig. 
+4aeb. 
+4.1.2. Phase II 
+In Phase II, the gelated epoxy resin behaves like rubber stuck to the mold surface, causing compressive strain in the thickness direction and in-plane tensile strain under vacuum conditions. At a constant temperature (125 C), the strain linearly increased with time up to the vitri.cation of the epoxy resin, as shown in Fig. 
+4aeb. Consolidation of the laminate continued to occur during this period, which reduced the thickness and resulted in extension along the in-plane direction due to the high Poisson's ratio (0.48). In experiments, maximum tensile strain values of 
+resins increased 
+to a point (0.48) at which they could be 300m and 330m were measured in the 0 and 90 
+regarded as a rubber-like hyperelastic material. The permeability and Young's modulus at a temperature of 125 C were used for calculating strains in the laminate. In those phases (Phase I and Phase II) MooneyeRivlin model was used to simulate the strains to cope with non-linear behavior of epoxy resin as a hyperelastic material and storage moduli according to temperature measured by DMA were used. The VOIDRI code which is able to express resin respectively. 
+4.1.3. Phase III 
+In Phase III, vitri.cation was observed around 15 min prior to the commencement of the cooling process. However, this short regime of vitri.cation was suf.cient for the epoxy resin to completely so-lidify and become hardened. During this phase, the rate of strain 
+Image of Fig. 2
+Fig. 2. Details of cure monitoring of a composite laminate and sensor con.guration: (a) preparation for thermoforming of a laminate and (b) recommended cure cycle. 
+increase .rst reduced and then abruptly decreased with the onset In Phase III, the thermal residual strain was de.ned by the dif-of cooling. This is presumably caused by stick-slip motion (partial ference between the peak strain in Phase II and the strain when the delamination) at the interface between the composite laminate and cooling process was terminated. As shown in Fig. 
+4, the laminate the steel mold, due to the signi.cant difference in thermal expan-strain decreased as the cooling process proceeded, eventually 
+sion coef.cients of both materials ( 0.9 mm/m C for 0 ply and reaching 157m and 72m in0 and90 
+33
+plies, respectively. 
+13 mm/m C for a steel mold) under abrupt cooling conditions Consequently, the generated thermal residual strain was 253m 
+Fig. 3. Finite element analysis of the curing process of a composite laminate: (a) .nite element model and (b) analysis procedure. Fig. 4. Strain monitoring results: (a) 0 ply along the .ber direction, (b) 90 ply along the .ber direction, and (c) strain variation in materials during cooling (Phase III). 
+4.2. Simulation of strain variation during the curing process 5. Engineering practice: simulation of thermoforming of a composite-aluminum hybrid wheel 
+4.2.1. Phase I Finite element analysis predicted well the behavior of the 5.1. Simulation 
+laminate under compression, showing the minimum strains of 210m and 154m in the 0 and 90 plies, respectively. The rela-To apply the simulation technique to a real composite structure, 
+tively substantial difference between the experimentally deter-mined and calculated strain values of the 90 ply that was located in the center of the laminate (see Fig. 
+2a), presumably comes from the large degree of deformation caused by resin .ow during this period when the analysis could not accurately simulate the precise mass transfer (see Fig. 
+4b). Consequently, FEA with a linear element underestimates the deformation of epoxy in this phase. 
+4.2.2. Phase II 
+In analyses, a maximum tensile strain of 221m and 172m was 
+a composite-aluminum hybrid wheel for a passenger car was selected and the strain variation during thermoforming was measured and evaluated. It is hoped that the results will provide a design guideline for reducing or optimally utilizing the residual stress and strain for realizing better performance in such structures [9,33]. The overall shape and dimensions of the structure are shown in Fig. 
+5, and the material properties are listed in Table 
+For the simulation of strain during the thermoforming of the hybrid wheel, only a quarter section of the wheel circumference was modeled with surface symmetry at the cutting surfaces. All simulation techniques and procedures were the same as those introduced in 
+section 
+for the composite laminate. measured in the 0 and 90 plies, respectively. The relatively large error (36% and 48%) between the experimentally measured and 
+analyzed results comes from the simpli.ed analysis that only considers the laminate's mechanical behavior corresponding to changes in permeability and does not consider factors such as the 
+chemical behavior of the epoxy resin and the interaction between 
+the mold and the laminate. However, the overall trends of 
+strain variation as per the simulation and measured results were 
+5.2. Experiments 
+For the experimental evaluation, 16 plies of carbon/epoxy pre-
+pregs (USN125, SK Chemical, Korea) were stacked inside the 
+aluminum part of a wheel along the hoop direction (0 ) along the 
+circumference, as shown in Fig. 
+5a. An FBG sensor was inserted 
+along the direction of the .bers between the 14th and 15th plies 
+similar. 
+4.2.3. Phase III 
+from the aluminum surface, and a dielectrometry sensor was also inserted into the composite part to monitor the strain and DF. 
+5aeb). The forming conditions were the same as those in the case of the composite laminate, with the composite and aluminum parts being bonded by co-cure bonding. The major differences be-
+In Phase III, the terminal strains calculated by FEA were 218m 
+and 170m in0 and90 
+plies, respectively. Consequently, the 
+simulated thermal residual strain was 229m and 188m in the tween these two cases were the topology of the structure and the 
+bonding characteristics; i.e., the hybrid wheel had a closed form 
+0 and 90 plies, respectively, which were quite well estimated by 
+the simulation. 
+with co-cure bonding between the composite and aluminum, while 
+the composite laminate had an open structure with a very weak 
+4.3. Evaluation of the simulation in terms of the residual strain 
+The 90 plies had a relatively low residual strain owing to their location in the center part of the laminate, which was little affected by steel molds having a much higher CTE (13 mm/m C); on the other hand, the CTE of the .ber direction of carbon/epoxy prepreg is 
+0.9 mm/m C. On the other hand, the 0 plies were signi.cantly affected by the mold, since they were in direct contact with it. 
+4c). The composite laminate with a stacking sequence of [05/ 905]s has an averaged CTE of 2.52 mm/m C in orthotropic directions; when this averaged CTE is used to calculate strains, it is expected to produce low magnitudes of strain in FEA, as shown in Fig. 
+4c. However, from a microscopic point of view, there was strain vari-ation along the thickness direction based on the stacking angle of each ply. 
+4c). Therefore, even though the FBG sensor embedded along the .bers tends not to deform the adjacent layers, a difference in CTE along a certain direction (including the steel mold) signi.cantly affects the interaction of certain plies with the sensor, thus resulting in the thermal residual strain in each ply that is shown in Fig. 
+From the results of this experimental work and the FEA, the type and level of generated strain during curing was identi.ed and this information may be used to develop a means to reduce thermal residual stress or strain of composite structures by modifying their cure cycle. Through this study, the validity of the simulation tech-nique based on FEA was veri.ed, and its suitability for application to the design of any composite structure was established. 
+bonding with the steel mold because of the releasing agent used. These differences generated different behaviors in the composite part during the cooling phase (Phase III). 
+5.3. Evaluation and discussion 
+6a shows the measured and analyzed strain during the thermoforming of the hybrid wheel, from which it can be seen that in Phases I and II, the trend of strain along .bers is the same as that in the case of composite laminate, as shown in Figs. 
+and 
+6. The analysis predicted well the generated strain by considering the variation in permeability with temperature. As consolidation of the stacked prepregs proceeds, the strain gradually increases due to the high Poisson's ratio of the gelated epoxy under vacuum conditions. In Phase III, the factors affecting the variation in the magnitude and type of strain generated were many, including contact conditions, anisotropic thermal properties of the com-posite, interactions with the aluminum part, and chemical re-actions such as the cure shrinkage of epoxy resin [34]. The initial strain peak in the cooling phase presumably comes from the negative CTE ( 0.9 mm/m C) of the composite, which was abruptly exposed to room temperature by opening of the auto-clave. Beyond this point, the strain gradually drops due to the shrinkage of the outer aluminum rim with a high CTE (23.76 mm/ m C), which generates radial pressure between the composite and rim parts. 
+6b). The strain peak at the beginning of the cooling phase (Phase III) was not accurately predicted by the analysis because the analysis could not predict the local micro-scopic deformation of the composite but simply estimated the macroscopic behavior by considering the interaction between the 
+Fig. 5. Cure monitoring of a composite-aluminum hybrid wheel: (a) shape and dimensions and (b) details of cure monitoring. 
+aluminum and composite parts. On the other hand, in experi-ments, an FBG sensor was inserted into the outer layers of the composite, thereby allowing local deformation of adjacent layers of the composite laminate to be detected with minimal effect on the aluminum part. This is currently a limitation of the current FE model, which needs to be resolved for accurate analysis especially in the case of complex structures. However, from a qualitative point of view the results reveal that the composite part exhibited tensile strain under a compressive stress environment, which means that the entire structure expanded while the outer aluminum rim still provided pressure to the composite part. Such conditions enhance the fatigue strength of the structure, and therefore this simulation technique can be used to predict the level of residual strain. Furthermore, it also allows for optimal forming processes to be developed, thus leading to better struc-tural design. 
+6. Conclusion 
+Strain variation in a carbon/epoxy composite laminate ([05/ 905]s) during thermoforming was simulated by .nite element analysis, and for veri.cation, the generated strain was also moni-tored by employing .ber Bragg grating sensors. The generated strain varied dynamically as the phase of the epoxy resin changed from liquid to solid via a gel. The onset of the gelation point was detected by a dielectrometry sensor and indicated by the variation in strain. To simulate the strain variation accurately, the modulus variation with temperature of carbon/epoxy prepregs was measured by a performing dynamic mechanical analysis, and the variation in .ber volume fraction with temperature was measured to calculate the permeability of the composite. Based on the vari-ation in strain and the dissipation factor, the cure process was classi.ed by the three phases: Phase I (liquid), Phase II (gelation), and Phase III (vitri.cation and solidi.cation). Overall, the simulated strain agreed well with the measured values, but a relatively big difference was observed at the phase changing points (liquid to gel), especially with the 90 ply. This difference is presumed to have come from the large deformation of the ply caused by resin .ow during this period, when the analysis could not simulate the exact mass transfer and substantial deformation. In addition, the sub-stantial difference observed between Phase II and Phase III (gel to solid) was because of the simpli.ed analysis that does not consider the chemical behavior of the epoxy resin or the interaction between the mold and the laminate. This is a drawback of the current FE model, which is yet to be addressed. 
+Applying the simulation technique to a composite-aluminum hybrid structure produced results similar to those for the com-posite laminate in Phases I and II; however, an abrupt increase in strain was observed from the beginning of cooling phase (Phase III), which is opposite to the trend observed in the laminate. This dif-ference in behavior came about from the difference in the topology of the two structures: i.e., an open shape for the laminate, and closed shape for the wheel. Again, the abrupt strain change at the beginning of cooling was not effectively simulated for the same reasons as those in the case of the composite laminate. However, the simulation did successfully estimate the trend of strain varia-tion and the level of residual strain, which affects the static and fatigue strengths of composite structures. This simulation tech-nique may therefore provide a useful means to reduce residual stress by changing the forming process, and enhancing the struc-tural integrity of composite structures. 

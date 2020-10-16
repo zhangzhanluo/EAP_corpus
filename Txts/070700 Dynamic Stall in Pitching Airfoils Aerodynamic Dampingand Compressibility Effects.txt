@@ -1,0 +1,858 @@
+Dynamic Stall in Pitching
+Airfoils: Aerodynamic Damping
+and Compressibility Effects
+Keywords
+stall hysteresis, unsteady aerodynamics, stall flutter
+Abstract
+Dynamic stall is an incredibly rich fluid dynamics problem that manifests
+itself on an airfoil during rapid, transient motion in which the angle of incidence
+surpasses the static stall limit. It is an important element of many
+manmade and natural flyers, including helicopters and supermaneuverable
+aircraft, and low–Reynolds number flapping-wing birds and insects. The
+fluid dynamic attributes that accompany dynamic stall include an eruption of
+vorticity that organizes into a well-defined dynamic stall vortex and massive
+excursions in aerodynamic loads that can couple with the airfoil structural
+dynamics. The dynamic stall process is highly sensitive to surface roughness
+that can influence turbulent transition and to local compressibility effects
+that occur at free-stream Mach numbers that are otherwise incompressible.
+Under some conditions, dynamic stall can result in negative aerodynamic
+damping that leads to limit-cycle growth of structural vibrations and rapid
+mechanical failure. The mechanisms leading to negative damping have been
+a principal interest of recent experiments and analysis. Computational fluid
+dynamic simulations and low-order models have not been good predictors
+so far. Large-eddy simulation could be a viable approach although it remains
+computationally intensive. The topic is technologically important owing to
+the desire to develop next-generation rotorcraft that employ adaptive rotor
+dynamic stall control.
+1. BACKGROUND
+Largely because of the helicopter application, dynamic stall has been an active research topic
+in fluid dynamics for more than 60 years. However, its foundation dates back nearly 90 years,
+with the origins of classical unsteady aerodynamics that include Wagner (1925), Glauert & Holl
+(1929), and Theodorsen (1935), who developed analytic solutions to incompressible flow around
+thin airfoils undergoing time-dependent motions. Other early contributions were from K¨ ussner
+(1936), von K´arm´an&Sears (1938), Sears (1941), and Lomax (1953), who analyzed unsteady aerodynamics
+problems associated with oscillating wings, sinusoidal vertical gusts, and compressible
+flow, respectively. Kramer (1932) was one of the first to experimentally document the augmented
+lift associated with dynamic stall. Bailey & Gustafson (1939) and Gustafson & Myers (1946) used
+tufts and a blade-mounted camera on an autogyro rotor blade to document dynamic stall, which
+they found to occur on the retreating blade during forward flight.
+Figure 1 illustrates the dynamic stall process that occurs on an airfoil oscillating about its
+quarter-chord location. Figure 1a shows the aerodynamic loads and pitch moment during the
+pitching cycle, and Figure 1b shows the flow field structure during the pitching cycle that was
+visualized with particle streak lines introduced at an upstream location.
+The conditions in Figure 1 exemplify deep dynamic stall, which occurs when the maximum
+angle of attack, α0 + α1, of the pitching motion exceeds the steady airfoil stall angle of attack, αss.
+Here α0 denotes the mean angle of attack, and α1 denotes the pitch amplitude. This results in a
+fully developed dynamic stall vortex-shedding phenomenon (McCroskey 1981) that produces large
+peak aerodynamic loads and severe cycle hysteresis. The nomenclature is intended to differentiate
+this condition from that of light dynamic stall, which occurs for lower peak angles of attack and
+for which the peaks in the aerodynamic forces and pitch moment are less severe.
+At the start of the pitch-up portion of the cycle (stage 1 in Figure 1), the boundary layer on
+the suction surface of the airfoil (upper surface in the flow visualization) is attached, and the lift
+force increases linearly with the pitch angle. This continues to the point at which the pitch angle
+reaches the steady airfoil stall angle of attack, αss. The lift then continues to increase beyond
+αss as a result of two mechanisms: (a) a delay in the boundary layer separation owing to the
+pitching motion and (b) the formation of a closed separation bubble near the leading edge of the
+airfoil.
+The delay in the boundary layer separation is attributed to two effects. One is an increase in
+the effective camber that is predicted from quasi-steady thin airfoil theory when α˙ > 0 (Leishman
+2000). The other is the acceleration of the boundary layer due to the Magnus effect produced by
+the motion of the leading edge (Ericsson & Reding 1984, 1988). Carta (1971) showed analytically
+that the adverse pressure gradient over the suction side of a pitching airfoil was less than that of
+a steady airfoil. The adverse pressure gradient is further attenuated as the pitch rate increases.
+Walker et al. (1985) added that increasing the pitch rate promoted a stronger static pressure
+suction peak at the leading edge that ultimately led to a more energetic dynamic stall vortex.
+Stage 2 of the flow development corresponds to the first appearance and subsequent growth
+of the dynamic stall vortex. This involves the spontaneous generation and ejection of vorticity
+from the boundary layer into the inviscid outer flow in a process detailed by van Dommelen &
+Shen (1980). The growth of the dynamic stall vortex results in additional aerodynamic loading
+that exceeds that of the steady airfoil.
+The onset of dynamic stall on a pitching airfoil can involve a number of mechanisms that depend
+on Reynolds and Mach numbers. These include (a) the bursting or breakdown of the separation
+bubble, (b) an abrupt breakdown of the boundary layer reverse flow within the separation bubble,
+and (c) boundary layer–shock interaction that causes flow separation.
+
+(a) Illustration of dynamic stall events based on air loads and pitch moment cycle. Characteristic stages of the flow development in the
+pitching cycle are denoted by the numbers next to specific flow visualization images and aerodynamic load and moment cycle maps.
+(b) Visualized flow about a pitching airfoil undergoing deep dynamic stall. Panel b adapted with permission from Corke et al. (2011).
+Certain stall situations, particularly on airfoils that coincide with thin airfoil theory, exhibit a
+sudden breakdown of the laminar separation bubble owing to turbulent transition ( Johnson &
+Ham 1972). McCroskey et al. (1976, 1981) extensively studied this process at lower Mach numbers
+at which shock waves were not in play. In these experiments, the authors documented two alternate
+scenarios for the onset of dynamic stall. The first involved trailing-edge stall in which separated
+flow originating at the trailing edge gradually moved forward as the airfoil pitched upward. In
+this case, the dynamic stall vortex formed aft of the maximum thickness point of the airfoil, never
+reaching the leading edge.
+The second scenario also originated at the trailing edge. It was manifest by a boundary layer
+flow reversal that moved forward over the suction side of the airfoil. The occurrence of reverse
+flow in the near-wall region of the boundary layer without the occurrence of large-scale separation
+emphasizes the importance of not using the criterion of zero-skin friction as a separation indicator
+in the pitching airfoil flow field (Reynolds&Carr 1985). The flow reversal was documented to have
+little effect on the turbulent boundary layer or aerodynamic behavior until the forward motion
+reached the maximum thickness point of the airfoil. Immediately thereafter, if not concurrently, the
+turbulent boundary layer separated and abruptly moved upstream and downstream. This initiated
+a dynamic stall vortex near the leading edge. McAlister & Carr (1979) and Lee & Gerontakos
+(2004) observed a similar scenario.
+Doligalski et al. (1994) comprehensively reviewed work focused on both the process leading to
+the development of the dynamic stall vortex and its subsequent detachment from the airfoil surface.
+The authors noted the proclivity of laminar boundary layers to develop a sharply focused eruption
+of vortical fluid from the surface in the presence of an adverse pressure gradient. In pitching
+airfoils at sufficiently high Reynolds numbers, several studies suggested that the initiation of the
+dynamic stall vortex appears to be associated with a similar viscous/inviscid interaction in the form
+of the sudden eruption of a thin plume of vortical fluid from the surface that subsequently deflects
+downstream and undergoes roll-up. Reynolds & Carr (1985) discussed the buildup of localized
+boundary layer vorticity preceding dynamic stall in terms of a balance between the self-induced
+upstream propagation of boundary layer vorticity and its downstream advection by the external
+flow. The strong favorable pressure gradient near the airfoil leading edge of a pitching airfoil
+introduces large amounts of vorticity into the boundary layer on the forward portion of the airfoil
+concurrent with a decreasing external velocity over the aft portion. This sets the stage for a critical
+localized accumulation of vorticity just aft of the suction peak.
+At higher free-stream Mach numbers, the locally supercritical levels over the pitching airfoils
+become the trigger for dynamic stall. This was evident from the experiments of McCroskey et al.
+(1981), who found that a group of airfoils that exhibited one of the two trailing-edge dynamic
+stall scenarios at lower free-stream Mach numbers showed leading-edge dynamic stall at a higher
+free-stream Mach number in which supersonic flow occurred over the suction surface (Carr et al.
+1982; McAlister et al. 1982; McCroskey et al. 1981, 1982). Chandrasekhara et al. (1998a) found
+that complex interactions between the separation bubble and weak shock waves in the supersonic
+region initiated the dynamic stall. At higher Mach numbers, M∞ > 0.45, the extent of the
+supersonic region over the pitching airfoil was found to considerably increase. Strong normal
+shock waves were observed to form. These led to an abrupt thickening and subsequent separation
+of the boundary layer flow. Chandrasekhara et al. (1998a) observed that an oblong vortical structure
+formed after the shock. Thus, the shock-induced flow separation was the origin of the dynamic
+stall vortex. The laminar separation bubble that formed near the leading edge was observed to be
+present but played no role in the development of the dynamic stall vortex.
+In stage 3 of the flow development shown in Figure 1, the fully formed dynamic stall vortex
+convects over the suction side of the pitching airfoil. This motion of the low-pressure vortex core
+shifts the airfoil center of pressure toward the trailing edge, resulting in an acute nose-down pitch
+moment, referred to as moment stall. This occurs shortly after the dynamic stall vortex forms
+(Harris et al. 1970). The moment stall precedes the lift stall. The time lag between the moment
+stall and lift stall correlates with the time needed for the dynamic stall vortex to convect past the
+trailing edge (Bousman 1998).
+The low-pressure core of the dynamic stall vortex also augments the aerodynamic suction
+on the airfoil, increasing the lift compared to a steady airfoil. The amount of lift enhancement,
+however, is decreased at compressible Mach numbers. The added lift drops sharply when the
+dynamic stall vortex convects off the airfoil and the flow is fully separated. This signifies stage 4
+of the flow development.
+In stage 5 of the flow development, the pitch-down motion of the airfoil causes the flow to
+begin to reattach. This begins at the leading edge and gradually proceeds to the trailing edge. As
+the flow attaches, there is a shift in the aerodynamic load distribution toward the leading edge,
+which restores the positive pitch moment.
+Recovery from dynamic stall is somewhat of a stochastic process in which significant differences
+in aerodynamic loading can occur from one pitch cycle to the next (Green & Galbraith 1995,
+Wernert et al. 1996, Young 1981). Liiva & Davenport (1969) proposed that these differences
+resulted from random features of the separated shear layer. This was later supported through
+particle image velocimetry measurements by Shih et al. (1992) and Wernert et al. (1996), who
+observed that the separated shear layer contained nonrepeated patterns of vortical structures from
+one cycle to the next. Werner et al. further remarked that the nonreproducible nature depended
+on the size of the separated shear region and the reduced frequency of the pitching motion. The
+cycle-to-cycle variations could be smoothed out through ensemble averaging correlated with the
+pitching motion. McAlister et al. (1982) observed that 50 pitch cycles were sufficient to yield
+converged statistics.
+Early rotor dynamic stall investigations focused on aeroelastic issues such as stall flutter (Brooks
+& Baker 1958, Ham 1966, Zvara & Ham 1960). Ham & Garelick (1968) were the first to realize
+the vortical nature of rotor blade dynamic stall. The signature of “very concentrated positive
+vorticity” was captured in surface pressure measurements that revealed a dynamic low-pressure
+region that formed near the leading edge and convected toward the trailing edge. Integrating
+the pressure distribution around the rotor section to obtain the aerodynamic forces revealed a
+severe hysteresis in the pitch moment that could couple with the pitching motion and result in
+negative aerodynamic damping. Ham (1968) later linked the dynamic stall phenomenon with the
+occurrence of stall flutter.
+Following Ham (1967), investigators sought to identify the underlying mechanisms for stall
+onset delay of a pitching airfoil that could lead to analytic or empirical models for predicting
+the aerodynamic loads. At the same time, theories for unsteady flow separation developed that
+highlighted fundamental differences between steady and unsteady boundary layers (Haller 2004,
+Sears & Telionis 1975, Telionis 1970, van Dommelen & Shen 1980).
+The early dynamic stall research almost exclusively focused on incompressible Mach numbers.
+However, McCroskey et al. (1981, 1982) showed that the local Mach number near the leading
+edge of pitching airfoils can be three to five times higher than that in the free stream. As a
+result, incompressible free-stream Mach numbers as low as 0.18 could result in supercritical Mach
+numbers over the airfoil. Carr & Chandrasekhara (1992) have particularly focused on the effect
+of compressibility on dynamic stall.
+1.1. Dynamic Stall Regimes
+As mentioned above, the conditions shown in Figure 1 correspond to deep dynamic stall. This
+follows the nomenclature set by McCroskey (1981), who divided dynamic stall into four categories:
+no stall, stall onset, light stall, and deep stall. Although the majority of dynamic stall research has
+focused on deep stall, it is avoided in normal rotorcraft operation owing to the severe forces
+and vibrations that occur in this condition (Carr & Chandrasekhara 1996). McCroskey (1981)
+delineated the stall regimes based on the maximum angle of attack, αmax = α0 + α1.
+1.1.1. No stall. In the no-stall regime, the airfoil trajectory remains below the static stall angle
+of attack, αss. Under these conditions, the aerodynamic loads are predicted well by quasi-steady
+aerodynamic theory.
+1.1.2. Stall onset. Stall onset is the regime in which the airfoil trajectory reaches the static stall
+angle of attack. This condition produces the maximum useful lift without excessive drag or pitch
+moment. Again, under these conditions, the aerodynamic loads are predicted well by quasi-steady
+aerodynamic theory.
+1.1.3. Light stall. The light-stall regime marks the first development of a dynamic stall vortex.
+The onset, growth, and convection of the vortex are sensitive to the airfoil chord Reynolds number
+and free-stream Mach number, as well as the unsteady parameters, including the pitching reduced
+frequency, k, and α0 and α1. Lift and moment stall peaks are less severe in this regime. The flow
+separation region is on the order of the airfoil thickness (McCroskey 1981). The boundary between
+stall onset and light stall is abrupt and can be identified by the first appearance of moment stall.
+1.1.4. Deep stall. In the deep-stall regime, the dynamic stall vortex is strongly developed. The
+aerodynamic loads fluctuate dramatically through the pitching cycle with large peak forces and
+strong hysteresis. The aerodynamic loads exhibit little sensitivity to Reynolds number, airfoil
+geometry, or pitching motion. The flow separation region in this case is on the order of the airfoil
+chord length (McCroskey et al. 1981).
+1.2. Compressibility Effects
+Compressibility affects the dynamic stall process of a pitching airfoil in a number of ways. This has
+been the topic of many research efforts, including those by Carr & Chandrasekhara (1991, 1992,
+1996), Carr et al. (1994), Chandrasekhara et al. (1993, 1998a), Dyken et al. (1996), and Bowles
+(2012). Below we summarize the major effects compressibility has on the different elements of the
+dynamic stall process.
+1.2.1. Stall delay. Typically at M∞ > 0.3, but possibly as low as M∞ = 0.18, the locally
+supersonic flow over the pitching airfoil reduces the flow acceleration around the leading edge,
+thereby reducing the flow separation delay and the peak lift and pitch moment coefficients. This
+is, however, a steady effect and is not related to the unsteady motion of the airfoil. For the same
+pitching motion reduced frequency, the stall penetration, αds − αss, remains nearly constant with
+increasing Mach number (Bowles 2012). Here αds denotes the dynamic lift stall angle.
+1.2.2. Aerodynamic damping. At higher Mach numbers, the attached flow significantly lags
+behind the pitching motion, so the hysteresis in the aerodynamic loads between pitch-up and pitchdown
+increases withM∞. As discussed in more detail below, this directly impacts the aerodynamic
+damping. In this way, compressibility acts in a similar manner as the pitching reduced frequency.
+1.2.3. Shock-induced stall. Local compressible Mach numbers over the pitching airfoil initially
+promote leading-edge dynamic stall through incipient separation bubble bursting. At higher freestream
+Mach numbers, shock-induced dynamic stall becomes the overriding mechanism.
+1.2.4. Stall vortex strength. Compressibility effects weaken the strength of the dynamic stall
+vortex. This reduces the vortex-induced suction pressures on the airfoil. This is closely related to
+Helicopter rotor disk in forward flight (a) and rotor-disk locations of dynamic stall events during in-flight maneuvers of a UH-60A
+helicopter (b). Figure adapted with permission from Bousman (1998).
+the decrease in the gestation period and residence time of the dynamic stall vortex. Although the
+magnitude of the induced pressures decreases with increasing Mach number, the dynamic range
+of pressure coefficients on the airfoil, Cp/Cpmin , increases with increasing Mach number. This
+generally has a marginal impact on the lift and drag forces. However, it has a significant effect
+on the pitch moment, with the outcome being an increase in the cycle-averaged aerodynamic
+damping with increasing Mach number (Bowles 2012).
+1.3. Helicopter Rotor Aerodynamics
+The helicopter rotor flow field features complex, time-varying blade angles of attack, out-of-plane
+mechanical and elastic rotor blade motion, unsteady boundary layers, massive flow separation,
+vortex blade interaction, and varying inflow velocity. Each of these affects the rotor aerodynamic
+performance and may contribute to excessive loading, mechanical vibration, and aerodynamic
+noise generation (Conlisk 2001). To compound the flow complexity, the rotor blade may experience
+instantaneous local Mach numbers, Ml , that are incompressible, Ml < 0.2, transonic,
+0.7 ≤ Ml ≤ 1, or supersonic, Ml > 1, within a single rotor rotation (Leishman 2000, Liiva &
+Davenport 1969, McCroskey et al. 1976).
+Figure 2a illustrates the rotor disk for a helicopter in forward flight with velocity, Uff. The
+rotor blade is considered to be rotating at a constant angular velocity of ω. The angular position of
+the rotor is denoted by ψ. For 0◦ ≤ ψ ≤ 180◦, the rotor blade is moving opposite to the direction
+of the relative airflow caused by forward flight and therefore is experiencing local velocities that
+are larger than Uff . This is referred to as the advancing blade. For the other half of the rotation,
+180◦ ≤ ψ ≤ 0◦, the motion is in the direction of the relative airflow caused by forward flight;
+therefore, the blade experiences local velocities that are less than Uff. This is referred to as the
+retreating blade. The lift generated on the advancing blade must be the same as on the retreating
+blade; therefore, the angle of attack on the retreating blade must be larger than that on the
+advancing blade. As a result, the rotor blade oscillates in pitch as it rotates from the advancing
+to retreating sides of the rotor disk. This provides one major motivation for the pitching airfoil
+research discussed above.
+The main parameter governing the unsteady nature of the pitching rotor blade is the reduced
+frequency, k = π f c /Uff, where f is the physical pitching frequency, and c is the rotor blade chord
+length. The reduced frequency of the pitching motion represents the ratio of timescales associated
+with the unsteady pitch motion to that of the free-stream convection (Leishman 2000). For k = 0,
+the flow is steady. For 0 < k < 0.05, the unsteady effects are generally small and can be neglected,
+provided the pitch amplitude is not too large. For k ≥ 0.05, the flow field is considered to be
+unsteady. If k ≥ 0.2, the flow field is considered to be highly unsteady. The reduced frequency
+can also be thought of as a phase lag parameter in which the fluid reaction lags behind the pitching
+motion owing to the inertial effects. Larger reduced frequencies correspond to an increased
+phase lag between the pitching and fluid motions. In general, the reduced frequency is constantly
+changing on the helicopter rotor because of the local inflow dependence on Uff. As a result, it is a
+somewhat ambiguous parameter with regard to the unsteadiness associated with helicopter rotor
+aerodynamics (Leishman 2000). However, in wind-tunnel experiments, the reduced frequency is
+a constant value for a fixed combination of pitching frequency and free-stream speed.
+Dynamic stall most commonly occurs on the retreating side of the rotor disk (Harris et al. 1970,
+Tarzanin 1972, Young 1981), although there is some evidence of dynamic stall on the advancing
+rotor (Bousman 1998). Bousman (1998) found that stall events occurred at multiple sites during
+flight tests of a UH-60A helicopter. Figure 2b shows a map of these events in the rotor disk plane.
+Although the majority of the rotor stall did occur on the retreating blade side, some stall events
+occurred in the first quadrant (0◦ ≤ ψ ≤ 90◦) of the advancing blade.
+The potential for dynamic stall depends on the rotor blade loading, which is the ratio of the rotor
+thrust coefficient to the rotor solidity,CT /σ , and the flight speed. Increased blade loading results in
+increased dynamic stall. However, at lower blade loading, increased forward flight speed promotes
+an increase in dynamic stall. Helicopter performance boundaries are defined by the rotor dynamic
+stall. The dependent variables are the blade loading, CT /σ , and the advance ratio, μ = Uff/R,
+which is the ratio of the flight speed to the rotor blade tip speed. At high advance ratios, dynamic
+stall can occur on the advancing blade owing to shock formation (Martin et al. 2008).
+The practical outcome of dynamic stall on the rotor is an increase in unsteady loads on the
+rotor that are subsequently transmitted to the rotor hub and control system. In some cases, the
+conditions of dynamic stall can lead to negative damping that results in a limit-cycle growth of
+rotor displacements. This phenomenon is referred to as stall flutter (Ham & Young 1966), which
+can lead to catastrophic mechanical failure of the rotor.
+2. AERODYNAMIC DAMPING AND STALL FLUTTER
+Stall flutter is a single-degree-of-freedom aeroelastic motion that results from negative system
+(combined aerodynamic and structural) damping. On a helicopter, it appears as a limit-cycle
+growth in amplitude of rotor torsional oscillations at the torsional natural frequency (Fung 2008).
+This can drive other modes of vibration of the rotor as well. For a helicopter, limit-cycle oscillations
+triggered on the retreating blade side are often damped as the flow reattaches on the advancing
+blade side (Ham & Young 1966). However, if the aerodynamic damping on the advancing side is
+near zero, successive rotations of the rotor through negatively damped retreating blade regions
+can lead to unchecked, additive limit-cycle growth to excessive amplitudes (Bowles 2012).
+The stability of the air load system has been traditionally quantified through the aerodynamic
+damping coefficient, 	cycle, derived by Carta&Niebanck (1969) and Oates (1989). The derivation
+considers a single-degree-of-freedom structure subject to harmonic forcing in a uniform airstream.
+The cycle aerodynamic damping is given as
+	cycle = −CW /(πα2
+1 ) = − 1
+πα2
+1
+
+Cmc /4dα, (1)
+where CW is the normalized energy transfer between the airstream and airfoil, and Cmc /4 is the
+moment coefficient about the quarter chord.
+Equation 1 can be experimentally computed from the area enclosed in the cycle variation in
+the pitch moment coefficient, Cmc /4 (α), namely,
+	cycle = 1
+πα2
+1
+ αmax
+αmin
+(CD
+mc /4
+− CU
+mc /4 )dα, (2)
+where the superscripts U and D denote the upward and downward angle of attack motion of the
+airfoil, respectively.
+For Theodorsen’s model of a thin airfoil (flat plate) undergoing pure pitch oscillations about its
+quarter-chord location in a potential flow field, the aerodynamic damping is (Carta & Niebanck
+1969)
+	cycle = πk/2. (3)
+When the maximum angle of attack in the pitching cycle is below the static stall angle of attack, αss,
+the aerodynamic loads and moments are predicted well by Theodorsen’s (1935) method. Under
+these conditions, the aerodynamic damping coefficient is always positive and linearly dependent
+on the reduced frequency, k, as given in Equation 3.
+If the airfoil pitching range is such that its maximum angle of attack exceeds αss by a few degrees,
+then light dynamic stall ensues (McCroskey 1982). Figure 3a depicts the moment coefficient
+during a pitch cycle for light stall. McCroskey et al. (1981) found that light dynamic stall had
+the largest tendency to produce unstable aerodynamic loading on helicopter rotor sections. As
+indicated in Figure 3, clockwise loops in the moment coefficient trajectory are associated with
+negative damping. Counterclockwise loops lead to positive damping.
+Deep stall occurs when the maximum angle of attack during the pitching cycle far exceeds αss
+(McCroskey 1982). Figure 3b illustrates the moment coefficient during a pitch cycle undergoing
+deep stall. Based on the cycle-averaged damping, deep stall is generally more aerodynamically
+stable than light dynamic stall. This is apparent in Figure 3 in which the clockwise moment
+coefficient loop for light stall is much larger than that for deep stall.
+Bowles (2012) and Bowles et al. (2012, 2014) developed a formulation for a time-resolved
+aerodynamic damping coefficient. This involved the use of the discrete Hilbert transform of the
+pitch moment and incidence time series. The integral Hilbert transform of a data series y(t),
+denoted here as ˜y(t), is defined as
+˜y(t) ≡ H[y(t)] = −1
+π
+P
+ ∞
+−∞
+y(τ )
+τ − t
+dτ, (4)
+where H is the Hilbert operator, and ℘ denotes the Cauchy principal value of the improper
+integral.
+The single-degree-of-freedom equation of motion (EOM) for a pitching airfoil semichord b
+in a uniform airstream is
+πρb4α¨ (t) + h∗(t)α˙ (t) + κ
+∗(t)α(t) = M(t), (5)
+where h∗(t) = hR(t) + ihI (t) = ¯h(t)eiγ1(t) is the viscous damping moment, κ
+∗(t) = κR(t) + iκI (t) =
+κ¯ (t)eiγ2(t) is the aerodynamic stiffness, and M(t) is the pitch moment. This EOM can account for
+nonlinearities inherent to the dynamic stall problem, unlike formulations that rely on constant
+amplitude, constant phase damping, or stiffness (Oates 1989). Both h∗(t) and κ
+∗(t) contribute to
+the total aerodynamic damping.
+Substitution of the polar representations of h∗ and κ
+∗ into Equation 5 yields
+α¨ + 2h0(t)eiγ1(t)α˙ + ω2
+0(t)eiγ2(t)α = 1
+πρb4 M, (6)
+where the damping coefficient, h0, is defined as
+h0 ≡ ¯h /2πρb4, (7)
+and the undamped natural frequency, ω0, is
+ω0 ≡
+
+κ¯ /πρb4. (8)
+In this formulation, the instantaneous pitch angle, α, its derivatives, and the instantaneous pitch
+moment, M, remain time dependent.
+To employ the Hilbert transform analysis, one replaces each term in Equation 6 by its analytic
+signal counterpart found through the Hilbert transform; this generates the new EOM
+A¨ + 2h0(t)eiγ1(t)A˙ + ω2
+0(t)eiγ2(t)A = 1
+πρb4
+M, (9)
+where A = α + i ˜ α = α1eiωt and M = M + i ˜M = A(t)eiφ(t) (Bowles 2012; Bowles et al. 2012,
+2014).
+Substituting A,M, and the first and second derivatives of A into Equation 9, and equating the
+imaginary parts, one obtains
+As defined by Carta&Niebanck (1969), the left-hand side of Equation 10 is the total aerodynamic
+damping, −ξ/πρb4. Therefore,
+ξ (t) = − 1
+α1
+( ˜M cos ωt − M sin ωt)   
+MI
+= −A(t)
+α1
+sin(φ(t) −   ωt
+ψ
+),
+(11)
+where MI denotes the quadrature (out-of-phase) pitch moment component.
+Nondimensionalizing Equation 11 provides the aerodynamic damping coefficient,
+	(t) = ξ/qc 2 = −ACm (t)
+α1
+sinψ(t), (12)
+where ACm (t) =
+	
+C2m
++ ˜C
+2m
+, and ψ(t) is the phase lead or lag between the pitch moment and the
+time-dependent angle of attack. Equation 12 illustrates how the phase lead or lag between the
+pitch moment and the prescribed angle of attack determines the sign of the aerodynamic damping;
+its form is identical to previous derivations of the aerodynamic damping (Bisplinghoff et al. 1955,
+Oates 1989, Rainey 1957). Furthermore, it remains that a phase lag, ψ(t) < 0, produces positive
+damping, whereas ψ(t) > 0 indicates negative damping or a local exchange of energy from the
+airstream to the airfoil.	reflects the stability of the pitch moment, which in turn is a manifestation
+of the developing pressure field. An unstable pitch moment, 	 < 0, implies unstable pressure
+loading and can be described as a necessary, aerodynamic condition to excite the stall flutter of an
+elastic body.
+The novelty of the approach, unlike previous investigations of aerodynamic damping that rely
+on 	cycle, is that Equation 12 allows one to calculate the intracycle aerodynamic damping. The
+average damping, 	avg, is then 	avg = 1
+T
+
+ T
+0 	(t)dt, where T is the period of a single oscillation.
+2.1. Attached Flow
+The cycle-integrated damping, 	cycle, for attached flow has been documented to increase with
+increasing Mach number (Lorber et al. 1992). In fact, this increase can be modeled by typical
+compressibility corrections, for example, the Prandtl-Glauert rule (Bowles 2012), up to the formation
+of shocks on the airfoil upper surface. When shocks form, the cycle-integrated damping
+rapidly increases. This cycle-averaged statistic, however, masks the complete physics that includes
+negatively damped portions of the pitch cycle that could promote unstable flutter.
+As an illustration of this behavior, Figure 4 depicts the Hilbert transform–based damping
+analysis for two experimental runs of nearly equal stall penetration (αmax − αss ≈ −1.1◦) but at
+low– and high–subsonic Mach number conditions. Figure 4a,d shows the pitch moment variation
+with incidence. In each of these panels, Cm denotes the data series obtained by spatial integration
+of the chordwise static pressures. These are ensemble-averaged quantities (≈100 cycles) chosen
+in lieu of the instantaneous pitching moment to remove the cycle-to-cycle variations common
+to the dynamic stall problem (Wernert et al. 1997). The Hilbert transform (˜Cm), in-phase (CmR ),
+and quadrature (CmI ) pitch moments are also displayed. At M∞ = 0.2, the elliptic, counterclockwise
+nature of the pitching moment is clearly seen. Figure 4b,e presents the polar representation
+of the intracycle damping coefficient. In this representation, the radial component indicates the
+magnitude of the damping, ACm (t)/α1, and the vector angle is the phase difference between the
+aerodynamic pitch moment and the pitch motion, ψ(t) = φ(t)−ωt. Recall from Equation 12 that
+	(t) ∝ −sinψ(t); therefore, when ψ(t) is in the third and fourth polar quadrants, the damping is
+Time-resolved damping analysis demonstrating unstable damping for cases in which αmax < αss. (a,d ) Data series, discrete Hilbert
+transform, and in-phase and quadrature moments. Arrows indicate the direction of increasing time. (b,e) Polar representation of the
+time-resolved damping coefficient. (c,f ) Transient damping coefficient over a single pitch cycle. The formation of normal shocks on the
+airfoil upper surface at M∞ = 0.6 (d–f ) results in unstable damping. (a–c) M∞ = 0.2, k = 0.052, and α = 5.2◦ − 5.1◦ cos ωt.
+(d–f ) M∞ = 0.6, k = 0.046, and α = 3.3◦ − 5.4◦ cos ωt. Figure adapted with permission from Bowles et al. (2012, 2014).
+positive, whereas in the first and second quadrants, the damping is negative. The polar representation
+of the intracycle damping coefficient at M∞ = 0.2 shown in Figure 4b traces out only a
+small region in the third quadrant, yielding the nearly constant (albeit noisy) positive intracycle
+damping coefficient shown in Figure 4c.
+At M∞ = 0.6, the pitch moment exhibits no crossovers, indicating no observable negative
+damping, although the ellipse is clearly distorted. The distortion is a consequence of shock development
+and the concomitant nose-up moment. This behavior causes the phase difference (Figure 4e)
+to decrease and become positive at ωt = 0.83π (α = 7.5◦). This leads to a brief period of negative
+aerodynamic damping. This negative damping is not observed in Figure 4d because of the much
+larger magnitude of the positive damping during pitch-down over the same range of angle of
+attack.
+The destabilizing effect of shock formation is further illustrated in Figure 5, which shows
+plots of the upper-surface pressures, pitch moment Cmc /4 , instantaneous angle of attack α, and
+time-resolved damping 	(t) at M∞ = 0.6 and α = 4.0◦ − 4.4◦ cos ωt. For this case, as in the
+M∞ = 0.6 case examined in Figure 4, localized, negative damping occurs during a portion of
+the pitching cycle. The mechanism for the negative intracycle damping stems from the growth of
+a λ shock during the pitch-up portion of the cycle. The position of the shock front was inferred
+from the brief increase in the pressure captured by the onboard sensors. This shock wave was
+Upper-surface pressures, α = 4.0◦−4.4◦ cos ωt. The zero-axis and nondimensional chord location of each
+pressure sensor is indicated on the right. Each pressure time series is offset by CS
+p
+≈ −1.5 and color coded to
+represent the local Mach number, Ml , on the airfoil surface. The position of the shock front is outlined.
+Figure adapted with permission from Bowles et al. (2012, 2014).
+also observed in high-speed schlieren images of the leading-edge flow field (Bowles 2012). The
+destabilizing portion of the motion occurs after the streamwise propagation of the shock front
+comes to a halt near the quarter-chord location. The destabilization results from a decrease in the
+pressure upstream of the shock front that increases the leading-edge suction. This couples with
+higher static pressure aft of the shock, which results in a nose-up pitch moment that is responsible
+a) Effect of dynamic stall regime, set by the maximum incidence, on the cycle damping coefficient, k ≈ 0.05, α1 ≈ 5◦. The static stall
+angles of attack for each Mach number are indicated by the colored arrows. (b) Measured pitch moment for light stall, αds − αss ≈ 2◦, at
+M∞ = 0.2, 0.3, 0.4, 0.5, and 0.6; k ≈ 0.05; and α1 ≈ 5◦. The solid lines are for pitch-up and dashed lines for pitch-down. For clarity,
+the moment plots at the five Mach numbers are offset by Cmc /4
+= +0.1 and color coded in accordance with panel a. Figure adapted with
+permission from Bowles et al. (2012).
+for a decrease in the aerodynamic damping at that phase in the pitching cycle. A similar decrease
+in damping occurs during pitch-down, just prior to the shock front retreating to the leading edge.
+Based upon examination of the minimum intracycle aerodynamic damping coefficient,	min, we
+can summarize the effect of reduced frequency and the Mach number on the aerodynamic damping
+characteristics of attached pitching flow as follows. (a) Regardless of the Mach number, increased
+reduced frequency has a stabilizing influence (increasing positive aerodynamic damping). (b) At
+any fixed reduced frequency, the effect of increasing the Mach number on the damping is minimal,
+except when shocks begin to form on the suction surface. (c) Shock waves can produce negative
+damping that could trigger stall flutter even in an attached pitching condition!
+2.2. Light and Deep Dynamic Stall
+As described above, dynamic stall occurs when the pitching motion exceeds the static stall angle
+of attack, αss. This leads to the eruption of surface vorticity and the formation and downstream
+convection of a dynamic stall vortex. The process results in large peak aerodynamic loads and
+pitch moments and strong cycle hysteresis that directly affects the aerodynamic damping.
+Figure 6a highlights the typical behavior of the cycle-averaged damping coefficient, 	cycle,
+under light- and deep-stall conditions for different free-stream Mach numbers. Figure 6b singles
+out five pitch moment cycles from the data set that have similar dynamic stall penetration at their
+respective Mach numbers.
+One can observe that the minimum damping in these cases occurred when the maximum angle
+of attack, αmax = α0+α1, was approximately 2–3◦ past αss. This level of stall penetration classically
+falls into the light dynamic stall regime described by McCroskey (1981). As the maximum incidence
+increases to enter the deep-stall regime, the cycle damping becomes more positive, which is a result
+of the strongly developed dynamic stall vortex (Carta & Niebanck 1969, Fung 2008). Similar
+damping and Mach trends are reported by Liiva (1969).
+One can observe the trend of increased damping with increasing Mach number in the accompanying
+pitch moment cycles. Beginning at M∞ = 0.2, the clockwise rotation of the pitch moment
+path for −2◦ ≤ (αds − αss) ≤ 2◦ is emblematic of an unstable damping coefficient (see Figure 3).
+At higher Mach numbers, the pitch moment path direction in the vicinity of αss is decidedly counterclockwise,
+which signifies positive damping. Moreover, the size of the moment hysteresis loop
+decreases with increasing Mach number, which is consistent with an increase in positive cycle
+damping with increasing Mach number, observed in Figure 6a.
+Based on this assessment of the cycle-averaged damping, one might conclude that there is less
+tendency for stall flutter under light and deep dynamic stall at higher Mach numbers. However,
+the cycle-averaged statistics can conceal important physics that can lead to localized, unstable
+damping during the dynamic stall process.
+To demonstrate this, investigators analyzed three of the pitch moment cycles at M∞ = 0.2,
+0.3, and 0.6 in Figure 6 using the Hilbert transform formulation to examine intracycle damping
+characteristics. Figure 7a,c,e shows the polar representation of the aerodynamic damping for
+the pitch cycle. Figure 7b,d,f simultaneously indicates the time-resolved damping, the ensemble
+pitching moment, Cmc /4 , and the position of the dynamic stall vortex based on tracking the local
+minimum in the suction-side surface pressure (Lorber & Carta 1988).
+At the lower Mach number in Figure 7a, M∞ = 0.2, the phase ψ(t) at the start of pitch-up
+(αmin) indicates that the aerodynamic damping is near zero or neutrally stable. As the airfoil pitches
+up, ψ(t) moves into the second quadrant, indicating negative aerodynamic damping. During this
+portion of the pitch-up cycle, the pitch moment amplitude, ACm (t), increases such that the polar
+representation of the damping sweeps out a large area in the second quadrant corresponding to
+negative damping.
+The phase lead indicated by ψ(t) during pitch-up is a consequence of the induced stall delay
+produced by a positive pitch rate (α˙ > 0) and an accompanying alleviation of the suction-surface
+adverse pressure gradient. This allows the aerodynamic pitch moment to remain nearly constant as
+the airfoil pitches up. The result is a steady increase in the negative damping throughout pitch-up,
+as documented in Figure 7b.
+The rate of negative damping is observed to accelerate at ωt = 3π/4. This portion of pitch-up
+coincides with the initial formation of the dynamic stall vortex near the leading edge at x = 0.006.
+The damping continues to become more negative up to the point at which the dynamic stall vortex
+arrives at the quarter-chord (pitching) location (x = 0.25). This corresponds to ωt = 0.8π, where
+(2	(t))/(πk) = −13.89.
+As the dynamic stall vortex convects downstream past the quarter-chord location toward the
+airfoil trailing edge, the aerodynamic damping begins to increase. The low (suction) pressure
+that follows the position of the vortex loads the trailing edge and thereby produces a negative
+(nose-down) pitch moment. For the M∞ = 0.2 case, the negative pitch-down moment induced
+by the vortex persists into the pitch-down portion (α˙ < 0) of the cycle so that the aerodynamic
+damping continues to be negative. Positive damping does not begin until ωt = 1.04π, where the
+upper-surface flow field becomes completely separated.
+To summarize these observations, we note the following: Large negative aerodynamic damping
+that could spawn flutter occurs in a portion of the pitching cycle. Additionally, the source of
+negative aerodynamic damping stems from the stall delay that results from the α˙ > 0 pitching
+motion. Negative damping is also augmented by the formation of the dynamic stall vortex. Once
+the dynamic stall vortex convects past the pitching location, its effect is stabilizing. After the
+dynamic stall vortex convects past the trailing edge, the fully separated flow field initiates positive
+aerodynamic damping. Finally, the positive damping reaches a maximum when the flow fully
+reattaches.
+Time-resolved damping analysis of light dynamic stall. (a,c,e) The polar representation of the transient aerodynamic damping. The
+light blue arrows indicate increasing time. (b,d,f ) The transient damping, pitch moment, and position of the dynamic stall vortex.
+(a,b) M∞ = 0.2, k = 0.051, and α = 9.8◦ − 4.9◦ cos ωt. (c,d ) M∞ = 0.3, k = 0.051, and α = 10.7◦ − 4.9◦ cos ωt. (e,f ) M∞ = 0.6, k =
+0.046, and α = 5.4◦ − 5.1◦ cos ωt. Figure adapted with permission from Bowles et al. (2012).
+As evident in Figure 6, the cycle-averaged damping coefficient for the pitching airfoil at
+M∞ = 0.2 is negative. Therefore, it may not be surprising to find the large negative damping
+peak in the time-resolved damping coefficient. However, in this case, the ratio 	min/	cycle is 7.73!
+Thus, there exists a significant possibility for stall-flutter oscillations.
+In contrast to the lower–Mach number case, at higher Mach numbers, the cycle-integrated
+damping is always positive. Therefore, one would not expect these conditions to exhibit stall flutter.
+However, the flight data shown in Figure 2b suggest otherwise. Figure 7c,d for M∞ = 0.3 and
+Figure 7e,f for M∞ = 0.6 each reveal a negative peak in the intracycle damping that accompanies
+the pitch-up motion of the airfoil. The intracycle damping for M∞ = 0.3 has all the same
+characteristics as its M∞ = 0.2 counterpart. However, the magnitude of the negative damping
+peak is not as large, which is attributed to a reduction in the time that the dynamic stall vortex
+resides over the airfoil, as is evident by the x trajectory in Figure 7d.
+At M∞ = 0.6, dynamic stall is triggered by shock waves on the suction surface of the airfoil.
+The dynamic stall vortex in this case forms downstream of the shock front, at x = 0.134. This
+is still upstream of the pitching location and therefore contributes a positive pitch moment that
+results in a negative peak in the aerodynamic damping. The magnitude of the peak negative
+damping coefficient is larger than that at M∞ = 0.3, which is a reversal of the previous trend with
+increasing Mach number.
+The x trajectory of the dynamic stall vortex in Figure 7f reveals a very gradual convection.
+Chandrasekhara et al. (1994) found that the convection of the vortex in this instance is supplanted
+by a near-constant-speed, low-pressure traveling gust that moves downstream. This gust fails to
+induce the same positive aerodynamic damping that the dynamic stall vortex produced when it
+traversed past the pitching location on the airfoil at the lower Mach numbers.
+2.3. min versus cycle
+For helicopter rotor operations, the magnitude of the minimum damping coefficient within the
+pitch cycle, 	min, is potentially a more critical property than is the cycle-averaged damping coefficient,
+	cycle. Local, negative intracycle aerodynamic damping, especially of the magnitude documented
+by Bowles (2012) and Bowles et al. (2012, 2014), can spawn limit-cycle vibration growth
+and possibly account for the stall-flutter-related divergence found during high-speed forward
+flight or high g-force maneuvers (Bousman 1998). Bowles (2012) compared the cycle-averaged
+and minimum intracycle aerodynamic damping coefficients for different dynamic stall regimes
+over a range of Mach numbers from 0.2 to 0.6. For conditions in which the peak angle of attack
+was less than the steady stall angle of attack, αmax < αss, the difference between 	min and 	cycle
+was negligible across the whole Mach number regime. However, when αmax > αss, the minimum
+intracycle damping was always significantly less than the cycle-averaged damping, and negative.
+This was the case for the whole Mach number range.
+2.4. Leading-Edge Turbulent Trip Effects
+As discussed above, the pitch-up motion of the leading edge (α˙ > 0) results in an acceleration
+of the boundary layer flow, which delays separation. In a similar manner, the flow acceleration
+near the leading edge should make the boundary layer more stable to disturbances and therefore
+suppress turbulent transition. McCroskey et al. (1981) noted that the nature of the boundary
+layer separation that precedes vortex development strongly influences dynamic stall, and this is
+particularly true in the light-stall regime. At least at Mach numbers below which dynamic stall is
+influenced by shock waves, the transition state of the boundary layer (i.e., laminar versus turbulent)
+should influence dynamic stall vortex inception and strength.
+Effect of leading-edge trips on (a) cycle-averaged and (b) minimum intracycle damping coefficients for two Mach numbers. Roughness
+consists of masking tape and 320- and 400-grit sandpaper strips. Data adapted from Bowles (2012).
+With this in mind, there have been several studies on the effect of leading-edge turbulent
+trips on dynamic stall (Bowles 2012, Chandrasekhara et al. 1996). Bowles (2012) examined the
+effect of three turbulent trips consisting of strips of masking tape and strips of sandpaper of two
+grit sizes. The turbulent trips were placed so that they overlaid the position of the leading-edge
+flow separation bubble that formed just prior to stall on the static airfoil. This corresponded to
+0.005 ≤ x ≤ 0.030. The surface visualization with the different trips showed that they eliminated
+the separation bubble (Bowles 2012). Figure 8 summarizes the results, documenting the effect on
+the cycle-averaged and intracycle damping coefficients.
+Based on the conventional cycle-averaged damping coefficient, at the lower Mach number,
+M∞ = 0.2, the leading-edge trips weakened the dynamic stall vortex (Bowles 2012), which resulted
+in the cycle-integrated damping becoming positive. The distributed sand grain roughness was
+found most effective. At M∞ = 0.6, dynamic stall vortex formation occurred downstream of the
+shock front, which was at x = 0.134. The turbulent trips were therefore well upstream (x ≤ 0.03)
+and, based on the cycle-averaged damping coefficient, had a minimal effect.
+The minimum intracycle damping coefficients for the distributed roughness trips at M∞ = 0.2
+support the cycle-averaged view, with a significant reduction in the negative damping peak that
+is associated with the dynamic stall vortex formation. The edge roughness trip was found to be
+much less effective. However, at M∞ = 0.6, at which the dynamic stall vortex forms downstream
+of the shock, the distributed roughness trips result in significantly larger negative damping, which
+is not indicated by the conventional cycle-averaged damping coefficient. For the two sandpaper
+trips, for example, 	min ranges from −5 to −9, and 	cycle is nearly neutral. This reverse trend in
+TRANSONIC GLOVE
+Successful control of the detrimental effects associated with dynamic stall was achieved by Martin et al. (2008)
+by use of a transonic leading-edge glove and passive vortex generator combination on a VR-7 airfoil. The vortex
+generators were placed at x = 0.1. It is significant to note that neither the leading-edge glove nor the passive vortex
+generators alone were successful at controlling dynamic stall. Their combination, however, reduced the local Mach
+number, thereby enabling shock-free operation of the passive vortex generators. In the light-stall regime, this had
+the effect of virtually eliminating the adverse pitching moment associated with dynamic stall for Mach numbers
+up to 0.4. In the deep-stall regime, it significantly reduced adverse pitch moments at Mach numbers up to 0.375.
+These results motivate the development of flush, surface-mounted active flow control devices that can mimic the
+effect of passive vortex generators without incurring the adverse effects of shock formation. One recent approach
+involves the plasma vortex generator demonstrated by Schatzman & Thomas (2010).
+aerodynamic damping with turbulent trips at higher Mach numbers associated with the advancing
+rotor merits watching as a possible trigger for stall flutter. In contrast, the edge roughness trip
+had little effect on 	min at M∞ = 0.6.
+3. DYNAMIC STALL CONTROL
+The sensitivity of dynamic stall vortex formation and development to leading-edge turbulent trips
+suggests that passive and active flow control could be an effective approach toward mitigating the
+detrimental effect of dynamic stall. There have been several investigations of dynamic stall control
+by both active and passive means, as described in the survey by Lorber et al. (2000). Candidate
+control schemes include variable rotor geometry, leading-edge blowing (Greenblatt&Wygnanski
+2001, Sun & Sheikh 1999, Weaver et al. 2004), leading-edge plasma actuation (Corke et al. 2011;
+Lombardi 2011; Lombardi et al. 2013; Post & Corke 2006), vortex generators (Heine et al. 2011,
+Martin et al. 2008, Traub et al. 2004), synthetic jets (Ekaterinaris 2002, Florea & Wake 2003,
+Traub et al. 2004), and fixed-wing devices such as slots (Carr et al. 2001), leading-edge droop
+(Chandrasekhara et al. 2004, Joo et al. 2006, Martin et al. 2008), pressure-side tabs (i.e., Gurney
+flaps) (Chandrasekhara et al. 2004, Joo et al. 2006), and trailing-edge flaps (Feszty et al. 2004;
+Gerontakos & Lee 2006, 2007, 2008).
+One particularly notable experiment by Martin et al. (2008) examined passive streamwise vortex
+generators for dynamic stall control at helicopter-relevant conditions. Figure 9 shows a photograph
+of the transonic leading-edge glove and streamwise vortex generator (see the sidebar Transonic
+Glove). Vane-type vortex generators were placed at x = 0.1 on a VR-7 airfoil that was also
+fitted with a transonic leading-edge glove. These experiments were performed at Rec 	 2 × 106
+and M∞ = 0.3−0.4. The experiments showed that vortex generators on the baseline airfoil were
+not effective in dynamic stall control. Instead, they caused shock-induced dynamic stall in the
+locally supersonic flow. Similarly, the transonic glove alone was also ineffective for dynamic stall
+control. However, the combination of the transonic glove, which lowered the local Mach number,
+and the vortex generators was found to be extremely effective at suppressing dynamic stall.
+Measured pitch moment cycles exhibited a significant reduction or elimination of moment stall
+with the transonic glove and streamwise vortex generator combination. However, the effectiveness
+of the transonic glove and passive vortex generator combination still diminished at Mach
+numbers above M∞ = 0.3−0.4, most likely as a result of shocks created by the passive vortex
+generator.
+Figure 9
+Photograph of transonic leading-edge glove with streamwise vortex generator used by Martin et al. (2008)
+for dynamic stall control. Figure courtesy of P.B. Martin.
+At helicopter-relevant conditions, it would appear that any flow control approach that geometrically
+extends above the airfoil surface will be a detriment, at least on the advancing blade,
+where it can generate shock waves in the locally supersonic flow. To avoid this problem, Post
+& Corke (2006) and Post (2004) investigated the use of surface-mounted plasma actuators for
+dynamic stall control on pitching airfoils (see the sidebar Plasma Actuators). A general overview
+of plasma actuators is given by Corke et al. (2010). The plasma actuator was located at the very
+leading edge, where it was found to be most effective in controlling leading-edge flow separation
+and extending stall on stationary airfoils. The actuator spanned the leading edge of the airfoil. It
+was oriented so that when activated, it would produce a two-dimensional body force across the
+span that would accelerate the boundary layer flow in the direction from the leading edge toward
+the suction surface of the airfoil. In this manner, it was designed to augment the separation delay
+PLASMA ACTUATORS
+The term plasma actuator has now been a part of the fluid dynamics flow control vernacular for more than a
+decade. A particular type of plasma actuator that has gained wide use is based on a single dielectric barrier discharge
+mechanism that has desirable features for use in air over a range of static pressures. These plasma actuators most
+generally consist of two electrodes, one uncoated and exposed to the air and the other encapsulated by a dielectric
+material. The electrodes are typically arranged asymmetrically. The electrodes are supplied with an ac voltage that,
+at high-enough levels, causes the air over the covered electrode to weakly ionize. The ionized air appears blue. For
+these flow actuators, the mechanism of flow control is through a generated body force vector field that couples with
+the momentum in the external flow. The body force can be derived from first principles, and the plasma actuator
+effect can be easily incorporated into flow solvers so that their placement and operation can be optimized. They
+have been used in a wide range of internal and external flow applications. Although initially considered to be useful
+only at low speeds, they have been shown to be effective in a number of applications at high subsonic, transonic,
+and supersonic Mach numbers. This has largely come from more optimized actuator designs that were developed
+through better understanding and modeling of the actuator physics. For further information, readers are referred
+to Corke et al. (2010).
+mechanism produced by the pitching motion with α˙ > 0. Post & Corke investigated both steady
+and unsteady open-loop forcing. In both cases, the actuator operated continuously throughout
+the pitching cycle. In the unsteady operation, the plasma actuator was cycled on and off at a frequency,
+f, that was found to be effective in controlling the separated shear layer. This utilized a
+dimensionless frequency, F+ = f c /U∞ = 1, that was found to be most effective in maintaining
+attached leading-edge flow on stationary airfoils (Post & Corke 2006). Assuming a convection
+speed of vortices generated by the actuator pulsing of 0.5 U∞, F+ = 1, results in two vortices
+spaced over the chord of the airfoil. This was verified by flow visualization (Post 2004, Post &
+Corke 2006). For the pitching airfoil, the unsteady plasma actuator frequency was 20 times higher
+than the pitching frequency. For conditions of deep dynamic stall, the steady actuation produced
+a 4.7% improvement in the cycle-integrated lift. The unsteady actuation at F+ = 1 was slightly
+better, with a 5.4% improvement in the cycle-integrated lift. Although the improvement in the
+lift was small between the unsteady and steady actuation, the improvement in the pitch stability
+was substantially better with the unsteady actuation.
+Corke et al. (2011) proposed a method to use an unsteady plasma actuator, along with a highfrequency
+response pressure sensor placed near the leading edge, to detect the onset of dynamic
+stall, and thereby disrupt the development of the dynamic stall vortex. The method relied upon
+the findings of Haddad et al. (2005), who showed that the receptivity of the boundary layer over
+a parabolic leading edge to an unsteady disturbance grows on the order of 100 times prior to the
+formation of a separation bubble. At pitch angles below the static stall angle, αss, the attached
+boundary layer is not receptive to unsteady disturbances produced by a plasma actuator located
+at the leading edge. As the airfoil pitch angle approaches αss, the separation bubble moves toward
+the leading edge. The separation bubble is receptive to the low-amplitude unsteady disturbances
+produced by the plasma actuator. These are transmitted to the pressure sensor when the separation
+bubble extends from the leading-edge site of the disturbances to the pressure sensor location.
+This typically occurs at an angle of attack just below αss. At this angle of attack, the unsteady
+disturbances produced by the plasma actuator are easily detectable by the pressure sensor. The
+unsteady disturbances remain detectable as long as the flow remains separated. However, they are
+no longer detectable if the flow would naturally remain attached (Corke et al. 2011).
+Based on this, Lombardi et al. (2013) devised a close-loop dynamic stall control approach that
+introduced a low-amplitude periodic disturbance at F+ = 1 using a plasma actuator at the leading
+edge that was operated in a low-power sense state. With this approach, the authors sought to detect
+the periodic disturbance with a flush-mounted pressure sensor located on the airfoil that would
+indicate the onset of leading-edge flow separation. If the disturbance was sensed, the plasma actuator
+was changed to a higher-powered control state that would reattach the flow. Figure 10 shows
+an example of the outcome of the closed-loop control for conditions that correspond to light dynamic
+stall. Figure 10a illustrates the flow visualization and corresponding suction-side pressure
+distribution at the maximum angle of attack during pitch-up, and at αmax +4◦ during pitch-down,
+without and with closed-loop flow control. With the closed-loop control, the flow remains attached,
+with a commensurate increase in the suction pressure peak at the leading edge. Figure 10b
+shows the total effect of the closed-loop control on the lift and pitch moment coefficient cycles.
+The closed-loop control logic for the determination of the onset of flow separation utilized a
+threshold on the level of the periodic disturbance sensed by the pressure sensor. For the left pair
+of plots, the threshold was such that the control was operating approximately 47% of the pitching
+cycle, starting during pitch-up at 4.5◦ before αmax and ending during pitch-down at α = 8.0◦. This
+is the same threshold condition for the flow visualization and pressure distributions in Figure 10a.
+As evident by the lift and moment cycles, this resulted in a substantial reduction in the lift and
+moment hysteresis. For the pair of plots on the right, the control operated over only 11.2% of
+Flow visualization and corresponding suction-side pressure distribution for a pitching airfoil without and with closed-loop control cases
+for light dynamic stall with α0 = 10◦, and α1 = 8◦ (a), and lift and moment coefficient cycles for two stall-detection thresholds (b). In
+panel b, the dashed curves correspond to the cycle without flow control, and the solid curve to that with closed-loop control. With the
+closed-loop control, the portion of the cycle over which the actuator was operating to control the flow separation is indicated by the red
+circles that overlay the solid curve lift and moment cycle curves. Figure adapted with permission from Lombardi et al. (2013).
+the pitching cycle starting 2.2◦ before αmax and ending just 0.1◦ past αmax during pitch-down. This
+control was essentially only operating during the formation of the dynamic stall vortex. With even
+that short duration, lift and moment cycles reveal the same fundamental improvement in the stall
+hysteresis that occurred with the significantly longer actuator operation. Quantitatively, the cycleaveraged
+lift increased by 12%, and 	cycle went from slightly negative (−0.007) to positive (0.007)
+as a result of the closed-loop control. From an active flow control input energy perspective, this
+targeted control provided an 88% improvement over the open-loop control by which the actuator
+operated throughout the pitching cycle.
+4. SUMMARY
+This review highlights the rich flow physics that underlies dynamic stall on a pitching airfoil.
+Although it is relevant to many manmade and natural flyers, we emphasize helicopter rotor aerodynamics
+because dynamic stall ultimately limits their maneuverability and agility, as well as speed
+and payload.
+We place particular focus above on aerodynamic damping because of the tendency for dynamic
+stall to lead to flutter, which is an aeroelastic coupling that can result in limit-cycle growth of vibration
+amplitudes and eventual structural failure. The recently introduced intracycle aerodynamic
+damping formulation of Bowles (2012) has provided new insight into this process that was previously
+masked by the traditional cycle-averaged view. Particularly significant is the observation
+that the intracycle damping can exhibit relatively large negative peaks over a wide range of Mach
+numbers, even in cases with positive cycle-averaged damping. In this manner, successive rotations
+of the rotor through negatively damped retreating blade regions can lead to additive limit-cycle
+growth, even though the cycle-averaged damping remains positive.
+The phase relation between the airfoil pitching motion and the aerodynamic pitch moment
+determines the sign of the aerodynamic damping. The intracycle damping analysis makes it clear
+that the initial formation and convection of the organized dynamic stall vortex prior to reaching the
+maximum angle of attack are the sources of strong negative aerodynamic damping. This contrasts
+with earlier interpretations (Liiva 1969) that attributed negative aerodynamic damping to the
+sudden flow separation at stall and the combination of the nose-down pitch moment and α˙ < 0
+at αmax. This has important implications for damping control schemes, which should properly be
+focused on weakening the organized vorticity.
+The dynamic stall process is highly sensitive to surface roughness that can influence turbulent
+transition in the separating boundary layer and to local compressibility effects that occur at freestream
+Mach numbers that are otherwise incompressible for the stationary airfoil. In lieu of shock
+formation at higher Mach numbers, dynamic stall originates with a sudden eruption of vorticity
+from the boundary layer near the leading edge, which leads to a strong viscous/inviscid interaction
+with the outer flow. This gives rise to a well-defined dynamic stall vortex, which then convects aft
+over the airfoil. It is the formation and subsequent evolution of the dynamic stall vortex that causes
+massive excursions of the aerodynamic loads and pitch moment from linear thin airfoil theory.
+Compressibility has been shown to alter the onset mechanism for dynamic stall, promoting
+leading-edge stall through separation bubble bursting. In addition, compressibility effects generally
+weaken the dynamic stall vortex strength. However, if the Mach number is high enough to
+form shocks downstream of the leading edge, the dynamic stall vortex forms downstream of the
+shock front, and its topology differs from that at lower Mach numbers. With such shock-induced
+dynamic stall, any flow separation at the leading edge has little effect on the aerodynamic loads
+and moments.
+Numerous studies cited in this review have provided descriptions of the processes that characterize
+both light and deep dynamic stall regimes, as well as the influence of parameters such as
+airfoil geometry, reduced frequency, stall penetration angle, and Reynolds and Mach numbers.
+However, a unified understanding of the physics surrounding the pitching airfoil flow field still remains
+elusive. In fact, many aspects of dynamic stall inception in even incompressible flow remain
+incomplete. Although compressibility effects have been well characterized, the physical mechanisms
+associated with them are, in many cases, not fully understood. There remains a particular
+need for better understanding regarding the physics of shock-induced dynamic stall that can occur
+at higher subsonic Mach numbers.
+At Mach numbers below which shocks occur, turbulent trips in the form of distributed roughness
+near the leading edge are able to weaken the dynamic stall vortex and, as a result, positively
+increase the aerodynamic damping. However, at higher Mach numbers associated with shockinduced
+dynamic stall, the turbulent trips produced large negative intracycle damping. Because
+helicopter rotor leading-edge surfaces are generally rough, this could be the source of unexpected
+aeroelastic flutter on the advancing rotor. Ultimately, the sensitivity of dynamic stall to leadingedge
+roughness bodes well for the possibility of dynamic stall control with minimal power input.
+Above we cite several studies that have investigated dynamic stall control by both active
+and passive means. Regardless of the approach, the focus is to (a) increase cycle-integrated lift,
+(b) reduce impulsive blade pitching moments, and (c) assure a positive cycle-averaged aerodynamic
+damping and minimize the intracycle negative damping that can occur during portions of the
+pitching cycle. If the dynamic stall boundary can be extended via a suitable control scheme,
+a revolutionary stall-free rotor could become a reality. However, despite the demonstrated
+successes reported in marginalizing some detrimental effects of dynamic stall, few of the flow
+control approaches have been demonstrated at the combination of Rec and M∞ that is applicable
+to the full rotor environment. It is recommended that this be a focus of future dynamic stall flow
+control studies. Of particular interest are smart active control schemes that can sense dynamic
+stall onset and then exploit a shear layer receptivity mechanism in such a manner as to mitigate
+the detrimental effect of dynamic stall with minimal power input. Particularly attractive are flush
+surface actuator designs that can operate at high subsonic Mach numbers without giving rise to
+the detrimental effects associated with shock formation.
+DISCLOSURE STATEMENT
+The authors are not aware of any biases that might be perceived as affecting the objectivity of this
+review.
+ACKNOWLEDGMENTS
+The authors would like to acknowledge Dr. Patrick Bowles, Mr. Anthony Lombardi, and Mr.
+Dustin Coleman at the University of Notre Dame; Dr.Mark Wasikowsi andMr. Thomas Wood
+at Bell Helicopter; and Dr. Preston Martin at NASA Langley Research Center for insightful
+discussions related to this article.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

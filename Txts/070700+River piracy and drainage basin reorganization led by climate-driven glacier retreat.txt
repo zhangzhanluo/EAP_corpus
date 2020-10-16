@@ -1,0 +1,215 @@
+River piracy—the diversion of the headwaters of one stream into another one—can dramatically change the routing of water
+and sediment, with a profound eect on landscape evolution. Stream piracy has been investigated in glacial environments,
+but so far it has mainly been studied over Quaternary or longer timescales. Here we document how retreat of Kaskawulsh
+Glacier—one of Canada’s largest glaciers—abruptly and radically altered the regional drainage pattern in spring 2016.We use
+a combination of hydrological measurements and drone-generated digital elevation models to show that in late May 2016,
+meltwater from the glacier was re-routed from discharge in a northward direction into the Bering Sea, to southward into
+the Pacific Ocean. Based on satellite image analysis and a signal-to-noise ratio as a metric of glacier retreat, we conclude
+that this instance of river piracy was due to post-industrial climate change. Rapid regional drainage reorganizations of this
+type can have profound downstream impacts on ecosystems, sediment and carbon budgets, and downstream communities
+that rely on a stable and sustained discharge. We suggest that the planforms of Slims and Kaskawulsh rivers will adjust
+in response to altered flows, and the future Kaskawulsh watershed will extend into the now-abandoned headwaters of
+Slims River and eventually capture the Kluane Lake drainage.
+River piracy, the diversion of the headwaters of one stream
+into another with a higher gradient1, can alter the location
+of a drainage divide and dramatically change the routing
+of water and sediment, with a profound eect on landscape
+evolution24. Although some researchers have examined stream
+piracy in glacial environments57, relatively little attention has been
+given to proglacial drainage changes. Furthermore, previous studies
+of river piracy have dealt with capture over Quaternary or longer
+timescales, with no one, to our knowledge, having detailed the
+phenomenon in the modern era. Herein, we document rapid river
+piracy at the front of Kaskawulsh Glacier, Yukon (Fig. 1), which
+occurred in May 2016.
+The toe of Kaskawulsh Glacier lies at a drainage divide that
+separates the Alsek River watershed, which drains to the North
+Pacific Ocean, from the Yukon River watershed, which drains to
+the Bering Sea. Prior to May 2016, some of the water flowing
+from the toe of the glacier marked the headwaters of Kaskawulsh
+River, a major tributary of Alsek River. The remainder of the water
+issuing from the glacier flowed via Slims River into Kluane Lake,
+the largest lake in Yukon and part of the Yukon River watershed.
+Ongoing thinning and retreat of the glacier, caused by over a
+century of climate warming812, triggered the river piracy, which was
+geologically instantaneous and is likely to be permanent. Substantial
+long-term hydrological and ecological impacts13,14 may be expected
+as a result, including a reversal in outflow from Kluane Lake,
+diminished outflow at the north end of the lake, and perhaps even
+seasonal closure of the lake basin.
+Recent history of Kaskawulsh Glacier and its terminal lakes
+In the early Holocene, when the climate of southwest Yukon was
+warmer than today, Kluane Lake discharged to the south towards
+the Alsek River15. Kaskawulsh Glacier achieved itsmaximum extent
+between 1717 and the mid-1750s1618. During this Little Ice Age
+advance, sediment fromthe glacier deposited an outwash fan, which
+raised the base level of a river that formerly drained south from
+Kluane Lake (Fig. 1), perhaps through much of the Holocene19. By
+the middle of the eighteenth century, the glacier completely blocked
+this south-flowing river, initiating the north-flowing Slims River,
+which rapidly built a delta and floodplain intoKluane Lake. The lake
+rose about 12m above the 2006 datum and flowed over a debris fan
+at the north end of the lake, rapidly returning the lake to its present
+level15,19. Kaskawulsh Glacier began to retreat in the nineteenth
+century, with retreat accelerating in the late twentieth and early
+twenty-first centuries. Between 1956 and 2007, for example, the
+glacier retreated 655m (ref. 9). Roe et al.12 recently developed
+a method to test a glacier's retreat against the null hypothesis
+that retreat was due to natural climate variability. Applying this
+analysis to theKaskawulshGlacier (seeMethods and Supplementary
+Fig. 1), we find there is only a 0.5% chance that retreat over the
+past centuryand by extension, the observed piracycould have
+happened under a constant climate. We therefore conclude that
+retreat of Kaskawulsh Glacier is attributable to observed warming
+over the industrial era.
+Recent retreat of Kaskawulsh Glacier has been accompanied
+by the growth of terminal lakes, the largest of which we name`Slims Lake' and `Kaskawulsh Lake' (Fig. 2). Outflow from Slims
+Lake has historically been northward into Kluane Lake via Slims
+River, whereas outflow from Kaskawulsh Lake has historically been
+southward to Alsek River via Kaskawulsh River (Fig. 1). A 1956
+aerial photograph9 shows a small Slims Lake on the west side of the
+glacier terminus. Only isolated ponds are visible in 1972 and 1980,
+with no lake at all in 1990 (Fig. 2). However, by 2000, Slims Lake
+had grown to 1.1106 m2, and by 2015 its area had increased more
+than threefold to 3.9106 m2 (Fig. 2b,h). ByAugust 2016 (Fig. 2b,i),
+Slims Lake had partially drained, its area decreasing to 1.0106 m2,
+stranding the outlet of Slims River 17m above the level of the
+remnant water body.
+The earliest Landsat scene (2 September 1972) shows a small
+(1.1106 m2) Kaskawulsh Lake at the east margin of the glacier
+terminus (Fig. 2). The lake expanded to1.9106 m2 by 2010, and
+to2.7106 m2 by 2015. By early July 2016, its size was three times
+that in 1982 (3.3106 m2).
+Drainage reorganization in 2016
+Although the Slims River gauge record has gaps (Fig. 3g), a clear
+reduction in river level is apparent in May 2016. Normal diurnal
+fluctuations ended with an abrupt four-day drop in river level
+commencing on 26 May 2016. Over the remainder of the summer
+of 2016, the level of Slims River was 0.71.0m below the average for
+those days. Our acoustic Doppler current profiler measurements at
+the Slims River bridge on 3 September 2016, indicated a discharge of
+11m3 s􀀀1, less than that reported following the 1970 (21m3 s􀀀1)
+diversion. Although we have no measurements immediately prior
+to the 2016 piracy, pre-diversion flows of 130m3 s􀀀1 have been
+reported for 197020.
+The reduction of Slims River flow has had substantial eects at
+Kluane Lake. The lake had a record minimum water level in early
+May 2016 (Fig. 3ac), about 0.1mbelow its previously recorded low
+inMay 2015. By the time of its normal seasonal peak (early August),
+the lake was 1.7m below its long-term mean level and 1m below
+its lowest recorded level for that time of year. The lowering ofKluane
+Lake in 2016 equates to a volumetric reduction of0.67 km3 relative
+to the historic average.
+Alsek River discharge (Fig. 3df) fluctuated around the historic
+mean until early July 2016, after which it rose sharply and fluctuated
+around the historic maximum level for that time of year, at times
+exceeding it by 1 m. The peak discharge in 2016 occurred on
+20 July (1,470m3 s􀀀1), which is nearly as high as any previously
+recorded peak flow (1,550m3 s􀀀1, 13 July, 1989) and 87% higher
+than the average peak discharge during the 41-yr period of record
+(783m3 s􀀀1). The elevated discharge was probably the result of
+the emptying of the eastern part of Slims Lake and lowering of
+its western part, with the consequent re-routing of water from
+Slims River into Kaskawulsh River. By October 2016, Alsek River
+discharge had dropped to its historic mean, reflecting the reduction
+in discharge from glacier melt at the end of the summer.
+About 15mm of rain fell at Haines Junction on 2 May 2016,
+but there was little other precipitation during the first half of
+2016 (Supplementary Fig. 2). It is therefore unlikely that rainfall
+contributed significantly to the mid-summer increase inAlsek River
+discharge. Meteorological records from Haines Junction and the
+Kaskawulsh Glacier nunatak indicate that mean daily temperatures
+during the period JanuaryApril 2016 were, respectively, 4.3 C
+and 3.6 C warmer than the 20072016 decadal means for the
+same three-month period (Supplementary Fig. 2), which itself was
+probably the warmest decade of the past century21. At Haines
+Junction,which is 300mlower than the glacier terminus,mean daily
+temperatures were above freezing almost continuously after mid-
+March, approximately one month earlier than the decadal mean.
+At the nunatak, which is 1,000m higher than the terminus, the
+main period of above-freezing conditions started in early May,
+1.5 weeks earlier than normal, and air temperatures were
+unusually warm immediately before the drop in the level of Slims
+River (Supplementary Fig. 2). It thus seems likely that Kaskawulsh
+Glacier experienced unusually high surface melt in the spring of
+2016, which lead to development of an ice-walled canyon (Fig. 4
+and Supplementary Fig. 3) and increased flow in Kaskawulsh and
+Alsek rivers.
+The ice-walled channel that was established across dead ice at the
+terminus of Kaskawulsh Glacier (Fig. 4 and Supplementary Fig. 3)
+was rapidly enlarged by meltwater and localized collapse of the
+channel walls in the summer of 2016, resulting in the 17mlowering
+of Slims Lake. Even if the current canyon walls were to collapse and
+temporarily block the flow of meltwater into Kaskawulsh Lake, the
+blockage could not pond water in Slims Lake to the level required
+to re-establish Slims River. For example, at transect AA0 near the
+upstream end of the canyon (Fig. 4), the channel floor is at785m
+a.s.l. For an ice blockage to raise water levels to reconnect to Slims
+River (head at 805m a.s.l.), Slims Lake would need to be >20m
+deep, which is more than the height of the canyon walls (Fig. 4b).
+Only a re-advance of Kaskawulsh Glacier could block the channel
+and refill Slims Lake, but this is very unlikely given recent and
+current climate trends. We therefore conclude that the drainage
+change is permanent.
+Previous workers19 had predicted the capture of Slims River by
+Kaskawulsh River, although they were unable to predict when, or
+how rapidly, that change might happen. These predictions were
+based, in part, on the fact that Kaskawulsh River has amuch steeper
+gradient than Slims Riverthe uppermost reach of Kaskawulsh
+River has a gradient of 6.1mkm􀀀1, almost five times that of
+upper Slims River (1.3mkm􀀀1, Fig. 5). Furthermore, the surface
+of Kaskawulsh Lake is approximately 50m lower than that of
+Slims Lake (755m versus 805m a.s.l. in September 2016), and also
+approximately 25m lower than that of Kluane Lake (780m a.s.l.
+in September 2016).
+Implications of drainage reorganization
+The piracy of Slims River has five important downstream
+implications. First, the level of Kluane Lake has fallen and may
+fall further, potentially below its outlet at the north end of the
+lake (Fig. 1). If this happens, Kluane Lake will become a closed
+basin. Second, the large supply of sediment to Kluane Lake from
+Slims River2224 has ended, with unknown eects on the structure
+and chemistry of the lake and its ecosystems25. For example, in
+summer 2016,massive afternoon dust storms occurred almost daily
+on the nearly abandoned Slims River floodplain (Supplementary
+Fig. 3) due to the lower lake level, possibly altering nutrient fluxes
+to the lake. Third, Slims, Kaskawulsh and Alsek rivers must now
+all adjust to altered discharges. For example, as flow and sediment
+transport in Slims River have decreased greatly, channel stability
+there may increase, resulting in conversion from a braided to a
+wandering or meandering river planform26. Increased flows in
+Kaskawulsh River may increase sediment conveyance and bank
+erosion. Fourth, large-scale changes to drainage basin geometry
+and re-routing of meltwater may introduce considerable changes
+to fish populations and habitat, including eects produced by
+the timing of flows27. Fifth, assuming that Kaskawulsh Glacier
+continues to thin and recede, Kaskawulsh River may advance its
+drainage headward (northward) into the easily erodible Slims River
+valley fill and towards Kluane Lake, thereby capturing the discharge
+of the small mountain streams that previously joined Slims River. It
+is noteworthy that the present head of Kaskawulsh River is 25m
+below the current level of Kluane Lake and, as a consequence,
+there is gravitational potential to drive continued expansion of
+the Kaskawulsh River catchment towards the lake (Fig. 5). Thus,
+over time, headward erosion could result in Kaskawulsh River
+reaching the south end of Kluane Lake and re-establishing its
+former southerly drainage to the Pacific Ocean15,19.
+These eects highlight the consequences of climate-induced
+glacier retreat, and river piracy triggered by such retreat, on the
+routing of water and sediment across a deglaciating landscape. Such
+changes undoubtedly were common, and probably occurred on a
+larger scale, during the decay of ice sheets in North America and
+Eurasia at the close of the Pleistocene, as shown by abandoned
+and buried valleys that are common features of formerly glaciated
+landscapes.We contend that radical reorganizations of drainage can
+occur in a geologic instant, although they may also be driven by
+longer-term climate change. The potential consequences of such
+channel re-routing and environmental change are amplified by
+anthropogenic activity and settlement, and these eects can be
+expected to have significant eects on both ecosystem functioning
+and economic infrastructure, for example hydroelectric power
+generation and water supply, as glacier retreat proceeds in a
+future warming climate. Most studies of the eects of climate
+change on glacial environments deal with enhanced melt or contri-
+butions to sea-level rise. We suggest that the eects can be more
+far reaching.

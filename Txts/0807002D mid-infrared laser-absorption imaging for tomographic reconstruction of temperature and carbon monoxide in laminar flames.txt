@@ -1,0 +1,400 @@
+﻿2D mid-infrared laser-absorption imaging for tomographic reconstruction of temperature and carbon monoxide in laminar flames
+Abstract
+This manuscript presents the design and initial application of a mid-infrared laser-absorption-imaging (LAI) technique for two-dimensional (2D) measurements and tomographic
+reconstruction of gas temperature and CO in laminar flames.  In this technique, the output beam from a quantum-cascade laser (QCL) is expanded, passed through the test gas, and imaged in 2D
+using a high-speed mid-infrared camera.  The wavelength of the QCL is scanned across the P(0,20) and P(1,14) transitions of CO near 4.8 µm at 50 Hz to provide 2D measurements of path-integrated
+gas temperature and CO column density across over 3,300 lines-of-sight simultaneously.  This enabled the first sub-second (0.1 s), high-resolution (140 µm), 2D laser-absorption measurements
+and tomographic reconstruction of flame temperature and CO mole fraction using mid-infrared wavelengths.  Prior to entering the test gas, the beam was reflected off two diffusers spinning at
+90,000 RPM (≈9400 rad/s) to break the laser coherence and prevent diffraction-induced image artifacts.  This technique was validated with measurements of CO in an isothermal jet and then
+demonstrated in laminar, partially premixed, oxygen-ethylene flames despite large background emission from soot and combustion products.
+Introduction
+Laser-absorption spectroscopy (LAS) is widely used to provide quantitative, calibration-free measurements of chemical species and thermodynamic conditions (e.g., temperature, pressure,
+velocity) in a wide range of combustion applications [1].  Typically in LAS, wavelength-tunable laser light with intensity Io is directed through an absorbing gas and the transmitted light intensity
+(It) is measured by a photodetector.  Beer’s Law is used to calculate the spectral absorbance (α = −ln(It/Io)) which is then compared with that predicted by spectroscopic models to provide
+path-integrated measurements of gas properties along a line-of-sight (LOS). While useful,  many combustion applications demand multi-dimensional measurements of
+chemical species and thermodynamic conditions, for example, to resolve the thermochemical structure  of  flames  and/or,  more  generally,  the  spatiotemporal  evolution  of  combustion.   To
+meet this need, LAS diagnostics employing multiple LOS [2–8] or mechanical scanning of the LOS [9–12] have been used with and without tomographic reconstruction algorithms to quantify
+how gas properties vary in space and time.  In the simplest form, this approach is performed to  provide  spatially  resolved,  path-integrated  measurements  of  species  and  thermodynamic
+conditions.  If absorption transitions with appropriate lower-state energy are used, path-averaged properties (e.g., absorbing-species column density, absorbing-species-weighted path-averaged
+temperature) can be obtained despite highly non-uniform conditions along the LOS [13].  For
+example, Goldenstein et al. [9] and Spearrin et al. [10] developed mid-infrared LAS sensors for
+absorbing-species-weighted path-averaged temperature and absorbing-species column density of
+H2O, CO, and CO2  in a model-scramjet combustor.  The authors’ mechanically scanned the LOS
+in two dimensions (x-y) to map out path-averaged gas properties.  While effective and convenient
+to execute in environments with somewhat limited optical access,  this approach can be time
+consuming (often requiring minutes per 2D dataset), provides modest spatial resolution (order
+1-10 mm) and is not spatially resolved along the LOS.
+Alternatively,  numerous  researchers  have  developed  laser-absorption  tomography  (LAT)
+techniques to provide tomographic reconstruction of 2D temperature and species fields within
+the  measurement  plane  [5, 7, 11, 12, 14–19].    This  approach  provides  the  added  benefit  of
+resolving the gas conditions along the line-of-sight; however, it comes at the expense of more
+complicated  data  processing  routines  and  steep  demands  for  many  lines-of-sight  (typically
+10s  to  1000s  of  LOS  depending  on  the  level  of  spatial  resolution  desired  [14]).   For  these
+reasons, LAT techniques developed to date have primarily used near-infrared wavelengths to
+exploit relatively inexpensive telecommunication-grade fiber optics (e.g., fibers, multiplexers,
+splitters)  and  detectors  [5, 7, 11, 12, 14, 15].   Unfortunately,  confinement  to  the  near  infrared
+significantly limits the number of chemical species that can be monitored at combustion-relevant
+concentrations,  conditions,  and  spatial  scales.   As  such,  the  majority  of  prior  LAT  work  in
+combustion applications has focused on detecting H2O via its combination and overtone bands
+near 1.4  µm [5, 8, 11, 12].  Additionally, some work has been done to tomographically image
+hydrocarbons via their overtone C-H stretch absorption band near 1.7  µm [7] and NH3  via its
+overtone and combination bands near 1.5 µm [20].  To overcome this limitation several researchers
+have developed LAT techniques employing mid-infrared wavelengths for tomographic imaging
+of temperature, CO, and CO2  [16–19], however these works have relied on mechanical scanning
+of the line-of-sight, thereby significantly limiting the temporal and spatial resolutions to the order
+of seconds to minutes and mm, respectively.
+That being said, there remains a critical need to develop mid-infrared LAS and LAT techniques
+with  higher  temporal  resolution  and  spatial  resolution  (e.g.,  less  than  1  second  and  1  mm,
+respectively).  Recent work by Wei et al. [21] demonstrated significant progress towards achieving
+this goal through the use of laser-absorption imaging (LAI) with a high-speed mid-IR camera.
+The authors demonstrated the ability to acquire LAS measurements of temperature, CO, CO2, and
+C2H6  along ≈400 lines-of-sight (in a single plane) simultaneously to provide 1D measurements
+and reconstructions of gas temperature and species concentrations.  Diffraction-induced noise
+and image artifacts prevented use of the entire focal plane array and, thus, mechanical scanning
+of the measurement plane (in the axial direction) was required to achieve 2D measurements and
+reconstructions of flame structure.  Using this technique the authors’ were able to acquire LAS
+measurements with a spatial resolution of near 50 and 125  µm in the horizontal and vertical
+directions respectively, and a 2D image of flame properties was acquired in < 10 seconds [21].
+As a result, this approach provided ≈ 10× smaller spatial resolution and ≈ 100× better temporal
+resolution compared to more conventional LAT techniques that rely on translating the LOS in
+both the x- and y-direction.
+Here we present the development and application of the first mid-infrared laser-absorption
+imaging technique capable of providing 2D-measurements and -tomographic reconstruction of
+flame temperature and CO concentration without mechanical scanning of the measurement plane.
+This was achieved by performing high-speed, 2D imaging of scanned-wavelength, mid-infrared
+laser light that was reflected off two ground-glass diffusers spinning at 90,000 RPM prior to
+passing through the flame.  Spinning the diffusers was required to break the optical coherence
+and,  thus,  prevent  diffraction-induced  image  artifacts.   This  approach  enabled  the  following
+advancements in mid-IR LAI: 1) a 8x increase in the number of simultaneous measurement paths
+(≈3,300 LOS here compared to 400 LOS in [21]) and 2) a ≈20x improvement in 2D-measurement
+time (0.1 seconds here compared to ≈2 seconds in [21]) by avoiding the need to mechanically                                                                          
+scan the measurement plane.  We demonstrate that this approach enables 2D measurements of
+thermochemical flame structure on near-cm scales with a projected pixel size of ≈ 140  µm and
+a  time  resolution  as  small  as  0.1  seconds  (i.e.,  10  Hz).   The  remainder  of  this  manuscript  is
+primarily devoted to presenting the design and evaluation of the optical setup and describing how
+this LAI technique was applied to provide 2D-measurements and -tomographic reconstruction of
+flame temperature and carbon monoxide concentration in flames.
+2.    Technical approach and equipment
+Figure  1  illustrates  the  experimental  setup  used  for  LAI  of  temperature  and  CO  in  partially
+premixed,  oxygen-ethylene  flames.   A  continuous-wave  (CW)  quantum-cascade  laser  (QCL)
+providing  30  mW  of  optical  power  at  wavelengths  near  4.8  µm  was  used  to  provide  2D
+measurements of absorbance spectra.  The wavelength of the laser was scanned across the P(0,20)
+and P(1,14) absorption transitions of CO near 2059.9 and 2060.3 cm−1, respectively, at 50 Hz
+via  injection-current  tuning  with  a  700  mV  peak-to-peak  triangle  wave.   The  QCL’s  current
+was  scanned  below  its  threshold  current  to  enable  the  background  and  flame  emission  to  be
+measured in each pixel immediately before each scan.  The wavelength scanning of the QCL was
+characterized using a solid germanium etalon with a free-spectral range near 0.0163 cm−1.  It is
+worth noting that the absorption transitions employed here have recently been used to measure
+gas temperature and CO in several other combustion environments (e.g., scramjet combustor [10],
+pulse-detonation engine [3], and propellant flames [22]).  We refer the reader to [10] for additional
+details regarding why these absorption transitions are well suited for studying combustion gases.
+A custom built optical assembly (see Fig.  1(a)) was used to expand the laser beam and break
+its coherence to prevent diffraction-induced image artifacts (see Section 3) that formed by passing
+coherent laser light through apertures in the beam-shaping optics and camera.  The laser beam
+was immediately expanded by a 12.7 mm diameter, AR-coated, CaF2, concave lens with a focal
+length of -18 mm.  The expanded beam was then directed to a gold-coated, ground-glass diffuser
+(ThorLabs DG10-120-M01) with 120 grits/inch (≈ 50 grit/cm).  The gold coating provides > 97%
+reflectance  at  an  angle-of-incidence  (AOI)  of  12◦  for  wavelengths  near  4.8  µm.   The  diffuse
+reflection was then collimated by a 25.4 mm diameter, AR-coated, silicon lens with a focal length
+of 25.4 mm and the beam was then focused onto a second diffuser using a 25.4 mm diameter,
+AR-coated, CaF2  lens with a focal length of 40 mm.  The AOI for both of these diffusers was
+approximately 20◦.  When aligning the diffusers, the beam was directed to the outer edge of each
+diffuser to concentrate the beam onto regions of each diffuser with the highest velocity (while
+spinning),  thereby providing more rapid scrambling of the laser light’s coherence.  After the
+second diffuser, the laser light was partially collimated by a 50.8 mm diameter, concave mirror
+with a focal length of 100 mm.  Close to the viewing plane, the beam was passed through a final
+25.4 mm diameter lens (CaF2, focal length of 200 mm) to collimate a portion of the beam which
+was directed through the flame and into the high-speed IR camera.
+Both of the diffusers were mounted in 25.4 mm diameter lens tubes which were mounted to
+a custom aluminum adapter (using two set screws) in order to attach each diffuser to a motor
+(Castle Creations 1406 Sensored 4-Pole Brushless Motors, 7700kV). The motors were powered
+by Mamba X sensored motor controllers.  The motors for the first and second diffusers were
+supplied with 26 V DC and 5 and 7 A of current, respectively.  With the diffusers mounted to the
+motors, both motors were capable of spinning at 90,000 RPM (≈9400 rad/s).  Due to the high
+angular velocity, care was taken to balance the diffuser assembly during machining and shim
+stock was used to properly seat the diffuser in the diffuser holder.  Failure to properly balance the
+diffusers can cause extreme mechanical vibration which can misalign the optical setup or, at best,
+introduce unwanted noise and oscillations in the light intensity imaged by a given pixel.
+The laser light was imaged by a Telops Fast-IR 2K high-speed infrared camera which employs
+a  cryogenically  cooled  InSb  focal-plane  array  with  320  x  256  pixels.   At  full  resolution,  the
+camera is capable of operating at nearly 2000 frames-per-second (FPS). However, during all
+LAI experiments the field of view was reduced to 64 x 52 pixels to enable frame rates of 24
+kFPS to be used.  This frame rate was required to sufficiently resolve the absorbance spectrum
+measured in each pixel when employing the scan rates and amplitudes used here.  A bandpass
+filter centered near 2060 cm−1  with a full-width at half-maximum of 40 cm−1  was used to prevent
+pixel saturation from background flame emission which was pronounced in the high-temperature
+and sooting flame studied here.
+Flames were produced by a custom-made coflow burner (see Fig.  1(b)).  The outer body of
+the burner is made from a stainless-steel pipe (330 mm long, 19 mm outer diameter) with weld
+neck flanges on each end.  A smaller tube (3.2 mm (1/8") outer diameter and 2.16 mm (0.085")
+inner diameter) concentric with the outer body of the burner carried a mixture of oxygen and
+ethylene to the flame.  Streams of ethylene (0.045 L/min) and oxygen (0.072 L/in) were mixed
+≈150 diameters upstream of the burner exit via a mixing T-junction that was connected to 1/4"
+diameter gas lines made of 316 stainless steel.  A coflow of air entered the burner orthogonally
+through the main outer body 51 mm above the bottom flange.  The air flowed through the annulus
+between the body wall and central tube and passed through a 6-cm deep bed of 3-mm diameter
+glass beads located 72 mm downstream of the coflow inlet.  The coflow then passed through a
+12.7 mm thick honeycomb flow straightener (0.88 mm cell size) at the exit plane to reduce the
+turbulence level and lateral velocity components.  The exit of the fuel supply line is flush with the
+exit of the honeycomb flow straightener.  To mitigate risk of flashback, the burner was first lit
+without coflow and without premixing to establish a pure-ethylene-air diffusion flame.  Once the
+diffusion flame was established the flow rate of oxygen was gradually increased until the desired
+equivalence ratio was reached.  The C2H4-O2  jet exit velocity and jet Reynolds number were 0.8
+m/s and 61.0, respectively.  The coflow velocity was adjusted until the flame appeared steady,
+resulting in an approximate exit velocity and Reynolds number of 0.5 m/s and 331.6, respectively.
+Figure 1(c) shows the partially premixed (φ=6.43) oxygen-ethylene flame studied here using
+LAI. The image shown in Fig.  1(c) was acquired using high dynamic range (HDR) imaging to
+highlight flame structure and avoid camera saturation.  This was required due to the extreme
+luminosity (too bright to view without eye protection) of this flame.  The HDR images were
+acquired using a Nikon D3200 camera with an AF-S Nikkor 18-55 mm lens.  For each HDR
+image, 4 photos were taken with varying shutter speeds and then combined with Luminance                                                                        
+HDR software to create the final image.  The shutter speed for each image was chosen to be
+optimal for a unique region of the flame.
+3.    Motivation for optical design
+Experiments  were  conducted  without  diffusers  to  illustrate  the  challenges  associated  with
+performing  mid-IR  LAI  with  coherent  laser  light.   Without  diffusers,  pronounced  Airy-disk
+patterns  were  observed  in  images  of  the  QCL’s  laser  beam  (see  Fig.   2(a)).   These  and  other
+diffraction-induced patterns were altered by the presence of the flame and varied in time during
+scanned-wavelength  experiments.   For  example,  Fig.   2(b)  illustrates  the  signal  time  history
+measured in a single pixel while scanning the wavelength and intensity of the QCL. Pronounced
+oscillations  in  signal  intensity  (analogous  to  optical  fringes  formed  by  conventional  etalons)
+were found in pixels located in the vicinity of diffraction patterns.  These oscillations severely
+complicate in situ determination of the non-absorbing light intensity (Io).  This leads to spatially
+dependent errors in the best-fit spectroscopic parameters (e.g., integrated absorbance) obtained
+from the spectral-fitting routine, which leads to spatially correlated errors in the measured gas
+conditions.  For example, Fig.  2(c) shows a single image of the path-integrated temperature field
+(calculated from the two-color ratio of integrated absorbances) that is severely compromised by a
+clear Airy-disk pattern in the middle of the flame.
+One approach to avoiding these diffraction-induced image artifacts is to destroy the coherence
+in the laser light by reflecting the beam off spinning diffusers.  This technique has been used in a
+variety of low-speed visible-imaging applications employing laser backlighting [23–25], most
+similarly, to perform low-speed (<30 frames per second) imaging of soot-volume-fraction in
+flames via 2D imaging of visible (632.8 nm) laser extinction [23].  However, implementing this
+strategy into a high-speed scanned-wavelength laser-absorption-spectroscopy technique has, to
+our knowledge, never been done previously and this presented several challenges.  Most notably,
+high angular velocities (approaching 100,000 RPM) were needed to scramble the speckle pattern
+created by the diffusers (see Figs.   3(a) and 3(b)) and sufficiently homogenize the local light
+field on the timescale of the short camera integration times required here (order of 10  µs).  For
+example, Fig.  3(c) compares single-pixel time histories measured during a scanned-wavelength
+experiment with stationary and spinning diffusers.  When the diffusers are stationary the light
+field  consists of a  speckle  pattern  (see Fig.   3(a))  and large amplitude,  temporally structured
+noise (see Fig.  3(c)) persists in each pixel (albeit with altered characteristics).  The latter likely
+originates from wavelength-dependent optical interference.  However, by spinning the diffusers                                                                              
+the speckle pattern can be sufficiently homogenized on the timescale of the camera integration
+time (see Fig.  3(b)).  This leads to the signal in each pixel consisting of relatively random (i.e.,
+unstructured) and lower amplitude noise (see Fig.  3(c)) which is much less problematic for the
+spectroscopic fitting routine.  It is worth noting that spinning both diffusers provides only a small
+gain in SNR compared to spinning a single diffuser.  However, it was critical to reflect the light
+off two diffusers (e.g., 1 stationary, 1 spinning) to achieve an SNR sufficient for 2D LAI in the
+flames studied here.   Figure 3(d) illustrates that using a longer camera integration time (tint)
+reduces the noise level.  This is because it enables the time-varying speckle pattern to be averaged
+over a longer duration.  The measurement of SNR vs integration time was least-squares fit to a
+power-law function of the form SNR(tint) = atibnt.  The best-fit values of a and b were 4.82 and
+0.51, respectively, and the coefficient of determination (i.e., R2) was 0.999 indicating that the
+model captures the effect of integration time on SNR well.  From this analysis, it is clear that
+using the highest motor speed and longest integration time possible for a given frame rate is
+desirable.
+It is important to note that the results shown in Fig.  3 are dependent on the laser wavelength
+and diffuser grit size.  Gold-coated ground-glass diffusers with 120, 220, and 1500 grits/inch
+were  all  tested.   The  diffusers  with  120  grits/inch  performed  best  (provided  a  diffuse  beam
+and dense speckle pattern) when using laser light near 4.8  µm.  Conversely, the diffusers with
+1500  grits/inch  performed  best  for  laser  light  near  1.4  µm,  but  performed  poorly  (providing
+near-specular reflections with little speckling) for laser light near 4.8  µm.
+4.    2D Laser-absorption measurements
+4.1.    Validation of LAI diagnostic
+The accuracy of the LAI diagnostic was validated by studying a non-reacting, isothermal, laminar
+jet  of  49%  CO, 49%  Ar  and  2%  H2  flowing  into  ambient  air.   The  initial  jet diameter  was  2
+mm and the exit velocity of the jet was 3.32 m/s, yielding a jet Reynolds number of 217.6.  The
+spatial resolution of the LAI diagnostic was estimated by imaging a wire mesh backlit with the
+incoherent mid-infrared laser light (see Fig.  4).  The known spacing between wires was used to
+determine that the projected pixel size was 140  µm.  In all experiments the camera was focused
+onto the central axis of the jet (determined by imaging a wire mesh).  The QCL was scanned
+across the P(0,20) transition at 50 Hz and the laser light was imaged at 24 kFPS with a resolution
+of 64 x 52 pixels.  The QCL’s current was scanned below the threshold current to enable the
+background emission in each pixel to be measured.  The measured background emission was                                                                               
+subtracted  from  each  pixel  and  the  baseline  incident  light  intensity  was  then  determined  for
+each pixel by least-squares fitting a 3rd-order polynomial to the non-absorbing regions of the
+intensity scan.  The absorbance spectrum measured by each pixel (e.g., see Fig.  5(a)) was then
+calculated using Beer’s law.  A Voigt profile was least-squares fit to the measured absorbance
+spectrum in each pixel with the transition linecenter, integrated absorbance (i.e., integrated area)
+and collisional width as free parameters and the Doppler width fixed at the value corresponding
+to the known temperature (296 K). With the temperature and pressure known, the integrated
+absorbance corresponding to the best-fit Voigt profile was then used to calculate the mole fraction
+or column density of CO using Eq.  (1).
+Aproj, j  = Sj(T)P χCO L                                               (1)
+Here  Aproj, j  [cm−1]  is  the  integrated  absorbance  of  transition   j,  Sj(T)  [cm−2/atm]  is  the
+linestrength of transition  j at temperature T, P [atm] is the pressure of the gas,  χCO is the mole
+fraction of CO, and L [cm] is the path length through the absorbing gas.  Figure 5(b) shows that
+the measured CO mole fraction in the jet core (calculated assuming a constant optical path length
+equal to the initial jet diameter) agrees within 3% of the known value (i.e.,  χCO = 0.49) and the
+spatial standard deviation in the jet core is 3.1% of the known value.  The image also reveals the
+expected structure of a laminar jet, with a near constant mole fraction in the core of the jet and
+increasing (in the axial direction) transport of CO into the boundary layer.  Figure 5(c) illustrates
+how the measured column density of CO varies across the jet and how it compares to the value
+predicted assuming a constant  χCO = 0.49 (i.e., no mixing) and the known initial jet geometry.  At
+the jet exit, the measured profile of  χCO L agrees exceptionally well with that predicted assuming
+constant  χCO  and  similar  agreement  exists  further  downstream  (y =  4  mm  and  8.5  mm)  in
+the middle of the jet (i.e., -0.75 mm < r < 0.75 mm), thereby supporting the accuracy of this
+diagnostic.  The 95% confidence interval (obtained from the spectral-fitting routine) of  χCO L
+varied between 1% and 3% across the jet.  The radial profiles indicate increasing transport of CO
+into the boundary layer and this likely results from a combination of diffusion and laboratory
+air  currents,  the  latter  of  which  introduced  an  obvious  asymmetry  in  the  jet  profile  on  other
+occasions.
+4.2.    Path-integrated measurements of 2D flame structure
+2D LAI measurements of path-integrated temperature and CO column density were acquired in
+laminar, partially premixed, oxygen-ethylene flames.  Figures 1(b) and 1(c) illustrate the burner
+and flame studied, respectively.  The LAI measurements were acquired using a 64 x 52 pixel
+window with a frame rate of 24 kFPS and an integration time of 16.4  µs.  Using this exposure
+time and a bandpass filter near 2060 cm−1, the flame produced ≈12,000 counts of background
+emission, which was measured with the laser off before each scan and then subtracted from each
+pixel’s time history prior to calculating the absorbance corresponding to each scan.  Some slight
+instabilities in the flame were observed which introduced additional noise in the signal measured
+by each pixel.  As a result, multiple scans were averaged together (after background subtraction)
+to further improve SNR. Figure 6(a) illustrates how averaging multiple scans together improves
+the SNR. Specifically, the scan-averaged SNR improves from 24.7 to 50.4 for 15- and 50-scan
+averages,  respectively.   Figure  6(b)  shows  the  corresponding  absorbance  spectrum  (15-scan
+average) measured by a single pixel imaging the middle of the flame.  The absorbance spectrum
+exhibits a 1-σ absorbance noise level of 0.008.  For each spectrum, the transition lineshapes were
+modeled by a Voigt profile and the best-fit spectrum was determined using a least-squares fitting
+routine with the transition linecenters, integrated absorbances, and collisional widths as free
+parameters.  The Doppler width of each transition was fixed to the value given by the temperature
+determined from the two-color ratio of integrated absorbance,  R (given by Eq.  (2)), obtained
+from the previous iteration.
+Here,  Aproj,P(0,20)  and  Aproj,P(1,14)  are the integrated absorbance of the P(0,20) and P(1,14)
+absorption  transitions  determined  by  the  spectral-fitting  routine.   With  R and  spectroscopic
+constants known, the path-integrated temperature was determined using Eq.  (3) [26]:
+where h [J · s] is Planck’s constant, c [cm/s] is the speed of light, kB [J/K] is the Boltzmann
+constant, E′′  [cm−1] is the lower-state energy of a given transition (taken from the HITRAN2012
+Database [27]), and To is the reference temperature (296 K). Here subscripts 1 and 2 refer to the
+P(1,14) and P(0,20) transitions, respectively.
+With the pressure and path-integrated temperature known, the integrated absorbance of the
+P(0,20) transition was used to calculate the column density of CO ( χCO L) using Eq.  (1) where the
+linestrength of the P(0,20) transition was evaluated at the measured path-integrated temperature
+using Eq.  (4).
+Here, νo is the transition linecenter frequency [cm−1] and Q is the partition function.  It should
+be noted that this approach is strictly valid in the limit that the linestrength of each transition
+exhibits a linear dependence on temperature across the range of temperatures that exist along the
+line-of-sight [13].
+Figures 7(a) and 7(b) show images of path-integrated flame temperature for a 15- and 50-scan
+average, respectively, and Figures 7(c) and 7(d) show images of CO column density for a 15-
+and 50-scan average, respectively.  The spectral-fitting routine was performed in all pixels where
+the peak absorbance on the P(0,20) transition was greater than 0.05,  thereby ignoring pixels
+with  an  absorbance  SNR  lower  than  6.25.   The  images  illustrate  that  2D  LAI  is  capable  of
+resolving the thermochemical structure of laboratory scale laminar flames.  The images reveal
+that the temperature is lowest in the fuel-rich core near the burner exit and increases in both the
+radial and axial directions, and peaks near the boundary with the air coflow.  These observations
+are  consistent  with  the  expected  structure  of  a  laminar  diffusion  flame.    The  image  of  CO
+column density is more difficult to interpret given that the flame diameter increases in the flow
+direction.  Regardless, these images illustrate that, in general, the amount of CO present along a
+given line-of-sight increases in the flow direction.  All of the images indicate that the flame is
+approximately axisymmetric, thereby enabling a tomographic reconstruction to be performed to
+provide greater detail regarding the 2D flame structure.
+Tomographic reconstruction of 2D flame structure
+Figure 8 shows tomographic reconstructions of gas temperature and CO mole fraction in the
+flame’s radial plane for a 5-scan (Figs.  8(a) and 8(c)) and 50-scan (Figs.  8(b) and 8(d)) average.
+Radial  profiles  of  temperature  and  CO  mole  fraction  are  shown  in  Fig.   8(e)  at  select  axial
+locations to further illustrate the thermochemical flame structure.  These results were obtained
+by applying the  tomographic reconstruction algorithms  developed by Daun et al.  [28] to  the
+path-integrated measurements of integrated absorbance obtained via LAI. These alogrithms have
+previously been applied to numerous flame studies [14, 19, 21].  The results shown in Fig.  8 more
+clearly reveal the flame structure (compared to path-integrated results) and illustrate temperature
+and species profiles that are consistent with that expected in a fuel rich, partially premixed flame.
+The temperature is lowest in the core of the flame and, in general, increases in both the axial and
+radial directions.  In comparison to the images of path-integrated temperature, the tomographic
+reconstruction reveals that the temperature rise in the axial direction within the flame core is
+more modest, increasing from 740 K to 1320 K between 1 mm and 9 mm above the burner exit,
+respectively.  The temperature is highest (reaching a maximum near 2200 K) near the boundary
+between the fuel-rich C2H4/O2  stream and air coflow where oxygen supplied by the coflow can
+reach the unburnt fuel and intermediate species.  The reconstructions illustrate that very little CO
+is present near the burner exit and that the mole fraction of CO increases significantly in both the
+axial and radial directions before falling off in the boundary layer.
+The remainder of this section is devoted to describing the pertinent details of the tomographic
+reconstructions.  Tomographic reconstructions were performed assuming each pixel images a
+unique line-of-sight.  Flame-induced beam steering could cause this assumption to breakdown
+and ultimately reduce the spatial resolution of the diagnostic.  Since tomographic reconstruction
+is sensitive to noise in the input image, a 2×2-pixel average was applied to all images prior to                                                                                 
+averaging 5, or 50 measured spectra together (i.e., prior to performing time averaging).  This
+significantly  reduced  the  noise  induced  by  beam  steering  and  the  rotating  diffusers.    Next,
+the absorbance spectra were processed using a two-line Voigt fit,  as described previously,  to
+determine the integrated absorbance (Aproj) of the P(0,20) and P(1,14) absorption transitions
+corresponding to each pixel.  The tomographic reconstruction algorithm employed here relies on
+assuming that the flame is axisymmetric.  As a result,  Aproj  only needs to be resolved along the
+flame radius.  Since  Aproj  was measured here along both halves of the flame, the results for each
+half were simply averaged together, however it should be noted that this has a small effect on
+image quality (see Fig.  9).  The image (i.e., matrix) of each transition’s integrated absorbance
+was then passed to the tomographic reconstruction algorithm as described next.
+The  tomographic  reconstruction  algorithm  requires  the  assumption  that  the  flame  can  be
+divided into N concentric rings of thickness Δr with a homogeneously distributed field variable,
+k, which is given by Eq.  (5) for a specific absorption transition.
+k = Sj(T)P χCO                                                                 (5)
+k effectively represents the local integrated absorbance per unit path length and the integral of k
+along a line-of-sight represents the back-projected data (i.e., the measured integrated absorbance:
+Aproj).  N is given by the number of pixels that resolve the flame radius and Δr is given by the
+projected pixel size.                                                                                    
+First, a process called onion-peeling deconvolution is used to generate a set of equations of the
+form  Ax = b.  Here,  A is the coefficient matrix which contains the path length of light through
+each annular section (i.e., the absorbing path length of the line-of-sight imaged by a given pixel)
+and is given by Eq.  (6),  x contains the to-be-solved-for field variable (k), and  b contains the
+back-projected data (i.e., the integrated absorbance,  Aproj, measured by each pixel).
+Solving  this  system  with  back  substitution  may  return  a  solution  that  is  sensitive  to  noise  in
+the back-projected data which manifests as errors or noise in the reconstruction of  k.  This is
+because onion-peeling deconvolution yields an ill-conditioned coefficient matrix which makes it
+difficult to find a well defined global minimum [28].  To overcome this, Tikhonov regularization
+is employed to increase the condition of the matrix [28].  In doing so, the equations shown below
+are used to provide a more robust solution.
+Here, k˜∗  is the field variable that yields the global minimum residual after Tikhonov regularization
+(i.e., the solution that is ultimately used to calculate images of gas properties).  For the zeroth
+order regularization used for the data presented in this manuscript,  L0  is given by the  N × N
+matrix shown in Eq.  (10).
+The  parameter  α0  is  called  the  regularization  parameter  and  it  controls  the  balance  between
+solution accuracy and smoothness/stability [28].  This works by approximating solutions to the
+ill-conditioned set of equations with those of a similar well-conditioned set.  A high value of
+α0  will return a solution which is smooth, but less faithful to the original problem, and lower
+values return high-fidelity but often oscillatory solutions.  As α0  → 0, k˜∗  →  k∗  where k∗  is the
+field variable that yields the true minimum residual.  Although methods exist for determining
+an  optimum  value  for  α0  [29],  the  value  is  often  chosen  at  the  user’s  discretion  to  obtain  an
+acceptable balance of accuracy and smoothness [28].  Figure 9 illustrates how increasing α0  from
+0 to 1 improves image quality but reduces spatial resolution.  In addition, Fig.  9 also illustrates                                                                                    
+how averaging both halves of the absorbance data together (prior to reconstruction) and using
+a 2x2 pixel average both slightly improve image quality without significantly altering the final
+images of  χCO.  The images presented in Fig.  8 were obtained using α0  = 0.1 since this produced
+solutions with acceptable stability while preserving the vast majority of flame structure that was
+revealed using α0  = 0.
+The  solution  for  each  individual  transverse  plane  (i.e.,  row  of  pixels)  was  stable,  however
+differences between adjacent planes gave the final 2D images a somewhat noisy appearance.  This
+noise was attenuated by applying a 6-point moving average filter along the axial direction of the
+2D images of k˜∗  for each absorption transition.  Figure 10 illustrates the row-to-row oscillations
+in k˜∗  for both absorption transitions near the flame’s central axis and how the 6-point moving
+average is effective at removing the oscillations while preserving flame structure.
+After reconstructing the 2D image of k˜∗  for each absorption transition, the two-color ratio of
+k˜∗, Rk˜∗ , was calculated using Eq.  (11).
+The final 2D image of temperature was obtained by replacing R with Rk˜∗   in Eq.  (3).  Next, the
+2D image of  χCO was obtained using Eq.  (5) with k replaced by k˜∗P(0,20)  and using the 2D image
+of temperature to calculate the corresponding image of the P(0,20) transition’s linestrength.
+The SNR of the measured absorbance for the P(1,14) transition is low in the center of the flame
+near the exit of the burner since the gas is relatively cool and little CO is present there.  This
+prevented a reliable reconstruction of the 2D temperature field in a 1.7 mm wide region located
+0 to 3 mm above the burner exit.  As a result, 224 pixels of the temperature data in this region
+were replaced with values extrapolated from a 2nd-order polynomial which was obtained via
+least-squares fitting to the remainder of the data set.  A total of 224, or 6.7% of the temperature
+image presents a value that was obtained via extrapolation.
+Conclusion
+This work has demonstrated, for the first time, that mid-infrared LAI is capable of providing 2D
+measurements and tomographic reconstructions of flame temperature and carbon monoxide in
+axisymmetric flames without mechanical translation of the line-of-sight.  This was achieved by
+reflecting scanned-wavelength laser light off two ground-glass diffusers spinning at 90,000 RPM
+prior to the light traversing the flame.  This was done to break the coherence in the laser light
+and, therefore, prevent the formation of diffraction-induced image artifacts which have limited
+previously developed LAI techniques to 1D (simultaneously) imaging.  Ultimately this approach
+enabled  measurements  of  CO’s  absorbance  spectra  to  be  acquired  at  50  Hz  across  ≈3,300
+lines-of-sight simultaneously.  While additional time averaging of spectra was done to improve
+the  final  image  quality,  this  work  demonstrated  that  this  technique  can  provide  high-fidelity
+2D measurements and tomographic reconstructions of temperature and CO mole fraction on
+near-cm scales with a projected pixel size of 140  µm and a time resolution of 0.1 to 1 seconds.
+In comparison to conventional mid-IR LAT techniques employing mechanical translation of the
+line-of-sight, this technique offers a reduction in data collection time of ≈1,000× and potential
+for a ≈10× gain in spatial resolution compared to LAT methods that are limited by the laser beam
+diameter.  In short, the capabilities of this 2D mid-IR LAI technique represent a significant step
+towards achieving high-speed, high-resolution measurements of thermochemical flame structure
+via LAT.
+

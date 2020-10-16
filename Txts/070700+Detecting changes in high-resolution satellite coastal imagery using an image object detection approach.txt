@@ -1,0 +1,371 @@
+Detecting changes in high-resolution satellite
+coastal imagery using an image object detection
+approach
+This article presents a spatial contrast-enhanced image object-based change detection
+approach (SICA) to identify changed areas using shape differences between bi-temporal
+high-resolution satellite images. Each image was segmented and intrinsic image objects
+were extracted from their hierarchic candidates by the proposed image object detection
+approach (IODA). Then, the dominant image object (DIO) presentation was labelled
+from the results of optimal segmentation. Comparing the form and the distribution of
+bi-temporal DIOs by using the raster overlay function, ground objects were recognized
+as being spatially changed where the corresponding image objects were detected as
+merged or split into geometric shapes. The result of typical spectrum-based change
+detection between two images was enhanced by using changed spatial information of
+image objects. The result showed that the change detection accuracies of the pixels
+with both attribute and shape changes were improved from 84% to 94% for the strong
+attribute pixel, and from 36% to 81% for the weak attribute pixel in study area. The
+proposed approach worked well on high-resolution satellite coastal images.
+1. Introduction
+Remote-sensing change detection is the process of identifying differences in the state of an
+object or phenomenon by observing it at different times (Singh 1989). It is one of the most
+important applications for analysing multitemporal remotely sensed images. Change detection
+is also a meaningful tool for monitoring and managing natural resources and urban
+development in a coastal zone because it can quantitatively measure the spatial variation
+of relevant ground objects during a given period (Malthus 2003; Bontemps et al. 2008).
+Furthermore, a shape-based approach has been introduced to change detection (Li and
+Narayanan 2003). However, the most common approach has been to classify each image
+pixel as an independent observation regardless of its spatial context (Marcal et al. 2005).
+Unfortunately, this is fraught with the limitations imposed by pixel-based image analysis.
+With the increasing spatial resolution of remotely sensed imagery, new applications in
+coastal zones require the generation of change detection maps characterized by both a high
+geometric resolution and the capability of properly modelling the complex areas present in
+the scene (Bovolo 2009).
+Remote sensing has made enormous progress over the last few years from what has
+been predominantly a per-pixel, multispectral (MS)-based approach to the development and
+application of multiscale object-based methods (Hay et al. 2005). Blaschke (2010) gave an
+overview of the development of object-based methods. Recently, the development of geographic
+object-based image analysis (GEOBIA or OBIA) has nevertheless provided a new,
+critical bridge between the spatial concepts applied in multiscale landscape analysis. In the
+segmentation process, natural complexity can be effectively explored using spatial analysis
+tools based on the concept that landscapes are process continuums which can be partially
+decomposed into objects or patches (Burnett and Blaschke 2003). Walter (2004) adopted
+object-based classification and a geographical information system (GIS) to improve the
+capability of change detection. Desclée, Bogaert, and Defourny (2006) detected forest landcover
+change using a statistic object-based method. Yu et al. (2006) found that using objects
+as minimum classification units helped overcome the problem of salt-and-pepper effects
+resulting from pixel-based classification methods. Tian and Chen (2007) proposed a framework
+to find optimal segmentations for a given feature type using an image object-based
+method. Object-based applications have been performed for mapping and change analysis
+in mangrove ecosystems (Conchedda, Durieux, and Mayaux 2008) and in urban sprawl
+areas (Durieux, Lagabrielle, and Nelson 2008). Im, Jensen, and Tullist (2008) introduced a
+change detection method based on object/neighbourhood correlation by image analysis and
+image segmentation techniques. Some unsupervised approaches have been presented based
+on the comparison between features computed on homogeneous regions that are obtained
+according to segmentation procedures (Hall and Hay 2003; Bruzzone and Carlin 2006).
+Even if these object-based change detection methods are implicitly suitable to analyse highresolution
+images, they get the final change detection by pixel-to-pixel comparison, which
+is not an effective region descriptor like object-to-object comparison. Partly, this is because
+most of these techniques do not generate explicit object topology, nor even incorporate the
+concept of an object within their analysis (Hay et al. 2003).
+The relatively homogeneous and semantically significant groups of pixels produced
+after multiscale segmentation have been designated ‘object candidates’, which are to be recognized
+by further processing steps and to be transferred into meaningful objects (Burnett
+and Blaschke 2003). Considering the oversegmentation or the undersegmentation problem,
+there exists a large matching gap between the theoretically hierarchical network of image
+object candidates and real-world objects of a landscape. In many cases, the delineation of
+relatively homogeneous areas is the basic method, and the common denominator of various
+realizations of image object-based change detection is the objective to derive meaningful
+objects. Moreover, the dominant landscape objects have their intrinsic scales and are composed
+of structurally connected parts. In this article, the image object detection approach
+(IODA) (Chen, Pan, and Mao 2006, 2009) is adopted to choose appropriate scales and
+produce meaningful image objects from any possible image candidates, and to distinguish
+intrinsic scale from any segmentation scale. The newly developed method is also an update
+to the work presented in Chen, Pan, and Mao (2009) by the same authors.
+2. Materials and methods
+2.1. Related work
+Multiscale segmentation is a procedure by which an image is precisely separated into mutually
+exclusive region sets by computing the defined heterogeneity. The criteria for stopping
+the segmentation procedure are the degree of difference between two regions. These differences
+are optimized in a heuristic process by comparing the attributes of the regions
+(Baatz and Schäpe 2000). Only one segmentation scale was set as the criterion in the segmentation
+procedure. As may be known, there are various optimal segmentation scales
+with respect to diverse intrinsic scales of ground objects in remotely sensed images. So,
+the IODA method chooses the meaningful object candidates as image objects from whole
+multiscale representations (Chen, Pan, and Mao 2009).
+In the IODA, for MS remotely sensed images, the spectral mean distance (SMD) was
+defined commonly to describe the distance of two adjacent candidates using their spectral
+mean values, μd and μ d, for spectral band d:
+The combined standard deviation (CSD) which characterizes the homogeneity for each
+candidate can be defined as follows:
+where wd is the user-defined weight for spectral band d, and σd is its standard deviation of
+candidate a. Here, the difference distinctive feature (DDF) was defined as follows:
+where the DDF of candidate a is determined by the SMD and the standard deviation. The
+minimum DDF (MD) is used in the measurement of the distinguishability of an object
+candidate against its surrounded candidates at one segmentation scale:
+In the segmentation procedure, the pixel p belongs to a series of object candidates, along
+with the increasing of scale s. Each candidate has its minimum distinctive, which makes up
+the MD curve. The maximum distinctive feature (MDF) is defined as the maximum MD
+from the initial scale to a given scale in the MD curve. The scale order is constructed by a
+series of the original scale of ordinal MDF. For a simple object, the original scale at which
+its meaningful image object formed must be in scale order, and this can be adopted as the
+segmentation scale at the intrinsic scale (Chen, Pan, and Mao 2009).
+2.2. Image object-based spatial change detection
+The proposed approach was dependent on the homogeneous image objects yielded from
+the IODA method (see Figure 1), which was based on the multiscale segmentation result;
+scale order sequences for each pixel were then established. Subsequently, the nonsignificant
+candidates were removed and the potential image objects in the MDF object candidate set
+were retrieved from multiscale representations. As described above, the image object identification
+here was making heterogeneity of inter-neighbourhood image objects maximized
+as well as the homogeneity of intra-image object individually.
+According to the provocative question that Blaschke and Strobl (2001) raised, ‘What’s
+wrong with pixels?’, an increasing dissatisfaction was identified with pixel-by-pixel image
+analysis. Under the assumption that the landscape of interest is a finite population of objects
+(Bian 2007), the spatial information about these objects is integrated in the ultimate change
+detection method. Considering the Shannon sampling theorem, we expected that an object
+should be of the order of one-tenth of the dimension of the sampling scheme – the pixel –
+in order to ensure that it would be completely independent of its random position and its
+orientation relative to the sampling scheme (Blaschke 2010). Accordingly, image objects
+larger than twice or three times the minimum needed by Shannon’s sampling theorem and
+the pixels satisfying 3 × 3 pixels distribution were focused mainly in the application. These
+image objects are called dominant image objects (DIOs). Spatial information of these DIOs
+are included in the following image object-based change detection procedure.
+The workflow of the image object-based change detection algorithm is shown in
+Figure 2. Two temporal remotely sensed images were geo-corrected using in image registration
+mutually in image preprocessing. At the second stage, two parallel processes were
+performed for traditional change detection based on spectral information and image objectbased
+spatial contrast-enhanced change detection, respectively. In the latter approach, both
+images were segmented using the IODA. Then, the DIO presentation was identified from
+the product of optimal segmentation and labelled with a unique reference number. Next, two
+DIO sets from bi-temporal images were compared by the raster overlay function by using
+their unique reference numbers. The corresponding image objects were recorded as shape
+changed when they were detected as merged or split in the overlay function. Concurrently
+the typical change detection approach was performed through calculating the image objectbased
+average spectral data. At the third stage, the difference map that was created based
+on object-to-object comparison with the change of shape as a result was integrated into the
+result of traditional detected change using the spectral approach. Finally, the change map
+was produced by enhancement of the spatial information of the image object.
+The overlay function was executed by taking each DIO as a raster zone by using a
+unique reference number. The image objects from two temporal images which merged or
+split were divided into small parts in the overlay function. If the DIO from the former
+image contained or intersected with more than one latter DIO and the intersected parts also
+met the condition of DIO, we considered the situation as the split procedure of the former
+image object.When the image object from the latter image contained or intersected with the
+former DIOs, their intersected parts were taken as the DIO, and the merged state occurred.
+Admittedly, there were both merging and splitting procedures when we compared with the
+image objects from two temporal images. The merged or split state means that the change
+of shape has occurred.
+2.3. Integration of spectral and spatial information
+Shape change means some or all parts of ground objects are changed. Other information
+is also required for identification of the changed parts or for other regions where the
+shape is not changed. Change detection algorithms in the remote-sensing literature can be
+roughly divided into two categories (Yuan and Elvidge 1998; Mas 1999): preclassification
+and postclassification change detection. Image object-based change detection adopting a
+strategy of postclassification takes three steps: segmentation, classification, and comparison.
+Such high-resolution imagery presents a new class of change detection problems to
+which existing remote-sensing techniques are not well suited. Classification techniques for
+thematic labelling, based on spectral and textural attributes, cannot describe within-class
+changes like new construction in cities, since the area is classified as urban before and after
+such changes (Pollard et al. 2010). This meant that most were detected as changed areas
+because of misclassification. In our approach, the segmented results were classified using
+the supervised maximum likelihood classifier (MLC) method. The MLC is the most common
+supervised classification method used with remote-sensing image data and is based
+on the Bayesian probability theory (Richards 1995). Then, the overall accuracy, the kappa
+coefficient, producer’s accuracy, and user’s accuracy were calculated for each class. For
+illustrating the performance of spatial change detection, the classes were divided into two
+groups: high accuracy classes (above the overall accuracy) and low accuracy classes (below
+the overall accuracy) in the case study. Therefore, the former classes were called obvious
+classes and the latter classes were called unobvious classes. When the change happened,
+the change among obvious classes or between obvious classes and unobvious classes was
+assumed as a strong attribute pixel change. Only the change among the unobvious classes
+was assumed as a weak attribute pixel change. Then, the strong or weak attribute pixel
+change was enhanced by a shape changed result derived from DIOs. Therefore, the detected
+results were divided into strong attribute pixel and shape change, strong attribute pixel
+change only, weak attribute pixel and shape change, and weak attribute pixel change only.
+2.4. Study site and data
+Two high-resolution satellite images covering the same area were used in this study, which
+were both 1024 × 1024 pixel subimages of an IKONOS scene (see Figure 3). The area represents
+a portion of the highly fragmented agro-waterfront landscape. IKONOS provides
+16-bit MS data in blue, green, red, and near-infrared (NIR) channels at 4 m spatial resolution
+and a 16-bit panchromatic (PAN) channel at 1 m resolution. The used image resolution
+is generated by fusing MS bands with the PAN band. Herein, the Gram–Schmidt spectral
+sharpen function was utilized supported by sensor type. The auxiliary data include field
+survey data and a topographic map. The study area is located in the Xiejiadao Peninsula,
+Huangdao District, Qingdao City, between latitudes 35◦ 5410 N and 35◦ 5540 N, longitudes
+120◦ 1030 E and 120◦ 1200 E. There are mudflats, aquacultures, boats, seawater
+below the coastline, residential areas (including building and yard), ponds, and agrarian
+fields above the coastline, and the agrarian fields are in different stages of planting. Two
+images were acquired at different years and during the same season. The acquisition of former
+images was at 02:43 GMT, 17 April 2001 and the latter was acquired at 03:00 GMT,
+25 April 2007.
+
+3. Results
+3.1. Result of change detection
+The image registration procedure was carried out in the preprocessing, and the root
+mean square error (RMSE) was 0.54 pixels. As a reference for change detection, the
+land-cover change of the study area was identified in the vector layer (see Figure 4)
+through image interpretation under the support of commercial GIS software (ArcGIS;
+Esri, Redlands, CA, USA). The land-cover classification scheme referred to the standard
+used in Chinese offshore investigation and assessment, which was slightly different
+compared to recent research (Teodoro et al. 2011). About half of the coastline had
+been modified in a short period. Two of the three aquaculture areas also disappeared
+during this period. The proportion of residential areas was increasing and almost simultaneously,
+the small ponds were changed either in part or as a whole. The agrarian
+fields were changed not only into the other types but also changed with respect to
+the planting and farming state. The result indicated that land-cover changed rapidly.
+The change pattern was similar to the closer coastal area in East China (Liu, Liu, and
+Tian 2005). The total area of the Xiejiadao Peninsula is 28.26 km2 and it increased
+10.7% between 2001 and 2007, mainly from the tidal zone. Meanwhile, 11.0% of arable
+land area decreased and the main cause of occupation was built-up and settlement
+land.
+In the postclassification change detection procedure, the segmentation scale was 30 for
+both MS images. The result of segmentation was oversegmentation for most objects. The
+overall accuracy of the 2001 image was 88.65%, and the kappa coefficient was 0.84.
+The overall accuracy of the 2007 image was 84.59%, and the kappa coefficient was
+0.79. Actually, the producer and user accuracies (see Table 1) of waterbody, cropland,
+soil (reaped crop), woodland, and uncovered area were all larger than average. But the
+accuracies of building, yard (area between buildings), road, and silt were less than the
+average accuracy. The total accuracy of postclassification change detection without spatial
+information supported was 73% (see Table 2). The strong attribute pixel change accuracy
+increased to 84% and the weak attribute pixel change accuracy decreased to 36%
+when the changed area was partitioned according to the classes. After integration with
+spatial change information (see Figure 5), the pixels that were of weak attribute pixel
+and shape changed occupied 22,452 pixels and its accuracy was 0.81. And the pixels
+that were only weak attribute pixel changed occupied 101,702 pixels and its accuracy
+was down to 0.26. In contrast, the pixels that are of strong attribute pixel and shape
+changed occupied 256,037 pixels and its accuracy was up to 0.94, and the pixels that
+were only strong attribute pixel changed occupied 161,563 pixels and its accuracy was
+0.68. Furthermore, the result of change detection of the proposed approach has potential
+improvement in case more meticulous works are performed like relative radiometric
+normalization.
+3.2. Traditional change detection enhanced by spatial change information
+The IODA had been applied on the hierarchical network of image object candidates with
+the ultimate scale 800. Here, the DIOs had different segmentation scales with different
+DDFs (see Figure 6). In the vector layer shown in Figure 4, most of the filtered DIOs
+were anthrop-impacted ground objects. The proposed method has produced improved
+results (see Table 2), but not all land covers benefitted equally. The image object detection
+results varied in the ability to reveal different ground objects (see Table 3). The
+exhibitions of image object candidates were perfect, especially in residential areas and
+agrarian fields. The changed inland aquacultures were detected well by the signal that the
+merge and/or split of the corresponding image objects occurred (see Figure 6, below).
+The land covers consisting of those image objects had a larger improvement in accuracy.
+In contrast, the changed aquacultures under the coastline were not detected ideally
+because in the fused image their small or narrow border could not be protected from
+merging with their surroundings because of the same materials. The image objects in
+the areas where land cover was changed from agrarian fields to settlements were acceptable
+although their ground object size was relatively small. However, the built-up areas
+of the settlement could not be identified well because of their size, and they were not
+considered as DIOs. The accuracy for land covers with those image objects improved
+less. Many agrarian fields were detected as changed areas according to their changed
+shape. Such a case meant that the planting and farming state would change the result of
+IODA. The segmentation is relative to the accuracy of the classification (see Table 1).
+The higher accuracy of classification indicated that the ground object could be identified
+from other classes, that also meant they were segmented from the surroundings
+easily.
+As a traditional preclassification method, the spectral change vector approach (CVA)
+helped to determine whether there were any DIOs changed on the whole or whether there
+were parts changed in the merge or split procedure (Johnson and Kasischke 1998). The
+result of the image object-based change vector is clearer than the pixel-based result of the
+CVA method (see Figure 7). On comparison with the pixel-based CVA method, the image
+object-based method avoids the ‘salt-and-pepper’ phenomenon. The false small polygon,
+which usually emerged in the result without accurate geometric registration, did not emerge
+when we used the concept of DIO. Generally, the larger value of the spectral change vector
+indicates the changed region and the lesser value indicates unchanged parts. The result
+of the proposed approach would be more significative in high-resolution remote-sensed
+images, where the DIOs can be obtained. In the study area, the traditional change detection
+method is still important in image object-based change detection. But the image objectbased
+change detection method adds more extra information on spatial information such as
+merge or split.
+4. Discussion
+4.1. Changed shape means changed spectrum
+Changed shape means either a merge or a split or both have occurred. It also indicates the
+spectral difference in the parts of them. For multiscale segmentation, the spectral features
+of two image objects f 1 and f 2 are considered to be similar when they are near to each
+other. For an l-dimensional spectral space, the heterogeneity h is described as follows:
+where d represents bands. These distances of f 1 and f 2 can be further normalized by
+the standard deviation σfd of the spectrum. There are several possibilities for describing
+the heterogeneity change before and after a virtual merge (a detailed discussion
+is described by Baatz and Schäpe (2000)). Given an appropriate definition of heterogeneity,
+the growth in heterogeneity of a merge should be minimized. Obviously,
+the adjacent pixels set belonging to the same class would be segmented together
+before.
+The derived criteria from multiscale segmentation can convey useful information concerning
+the discriminatory capability associated with an adopted spectral space. If one
+candidate can be separable from surrounding candidates, on the classification view it can be
+reflected by the derived criteria of classification such as the maximum inter-class distance
+and the minimum intra-class diversity. For each image candidate, there are three phases
+passed from being a one-pixel object to being an undersegmented object at a relatively
+large segment scale, along with the multiscale segmentation procedure. In the oversegmentation
+phase, for each object candidate in the range of one image object, there must be one
+or more neighbourhood candidates in the same image object. The spectral mean of the candidate
+can be considered as the sample’s mean ¯x and the variance of the candidate is the
+variance of the sample’s standard deviation S. For innate merge, the sample’s means were
+¯x
+1, ¯x2 and standard deviations were S1, S2 before and the same statistics were ¯xm and Sm
+after merge. The DDF of two candidates which came from the same image object, the candidates
+were oversegmented, was relatively small in this phase. The optimal segmentation
+phase followed the ending of the oversegmentation phase; there was a case where both the
+candidate a and the candidate a belonged to the same image object. Apparently, the only
+two bordering candidates would merge together at the optimal scale. This is related to the
+spatial resolution of the image being used. The heterogeneity in the oversegmentation phase
+was less than in the optimal phase. Subsequently, it was in the undersegmentation phase.
+When two candidates included more than one image object, and n and m were the sample
+numbers of these two candidates, the merged candidate had the difference in feature as
+follows:
+However, as is known, the variance of the candidate increased monotonously, so the DDF
+tended to decrease. Two adjacent regions belonging to different classes were obliged to
+merge together in the segmentation procedure. But they were not satisfying the condition
+of optimal segmentation in IODA.
+If DIOs existed and were neighbours together, they were considered to be belonging to
+different classes. When the shape changed, the merge procedure indicated that two DIOs
+separated in early time but did not separate in latter time. That also meant that two DIOs
+did belong to two classes in former time but they belonged to the same class later. The
+split procedure indicated that DIOs need to be classified into one class before but should
+be classified into different classes later. That meant the shape of the image object could be
+used in detection of the spectral change.
+4.2. The meaningful image object is critical in using spatial information
+In image object-based analysis, the pixel entities that are expected in remote-sensing images
+can be related to real entities in the landscape. These regions are later related to geographic
+objects through some object-based classification. To extract meaningful image objects,
+users are required to focus on different intrinsic scales because all attributes of image
+structure are almost highly scale dependent. Spatial information that we want to obtain
+from the overlay function should be derived only from the image objects of intrinsic scales
+but not of any general scales. Otherwise, it will lead to unreasonable results. This is why the
+general result from traditional multiscale analysis cannot be adopted directly. And the optimal
+segmentation and intrinsic scale identification are the predetermination of the image
+object-based change detection.
+Actually, these more important simple meaningful objects are the explicit homogeneous
+objects, which have similar spectral characteristics yet differ from surrounding objects in
+high-resolution remote-sensing imagery. In our study area, these objects included waterbodies,
+residential areas, agrarian fields, and such anthropogenic-impacted ground objects.
+Furthermore, the Shannon sampling theorem should be considered. In fact, if the border of
+two ground objects or the size of the ground object is similar to the pixel size, the spectral
+average of the image candidate will not be a real spectrum of a ground object because of
+the problem of mixed pixels. Therefore, many man-made or anthropogenically influenced
+objects are coincident with the defined term meaningful objects. The basic task of segmentation
+algorithms is to merge image elements based on homogeneity parameters or on the
+differentiation to neighbouring regions (heterogeneity), respectively. In other words, these
+criteria can be explained as follows: in the segmentation procedure, the increased heterogeneity
+can be interpreted as a border between the segments, which has to be overcome for
+merging. The higher this border is for a certain segmentation parameter combination, the
+more stable is the result (Benz et al. 2004). As long as the scale is the best, meaningful
+objects can be obtained. Furthermore, in many cases significant objects appear at different
+scales of analysis of the same image.
+5. Conclusions
+Image object-based change detection can be enhanced by spatial information in change
+identification for both postclassification and preclassification approaches. Obviously, the
+important information for understanding an image is not represented in a single pixel but
+is embodied in meaningful image objects as well as their mutual relationships. The spatial
+information of image objects is also an important cue to identify the change. In this
+study, an image object-based method is presented to identify the changed areas using shape
+difference of an image object between bi-temporal images of a coastal zone. We proposed
+the concept and its definition of DIO. The DIO presentation was identified from
+the results of optimal segmentation through the IODA. By using raster overlay analysis to
+bi-temporal DIOs, the shape of image objects can be used to recognize the change evolution
+by knowing its merge or split procedure. The classes conducted in postclassification
+change detection were divided into a strong attribute pixel group and a weak attribute
+pixel group according to its accuracy. After integration with spatial change information,
+the accuracy of both weak attribute pixel and shape change was 0.81, and the only weak
+attribute pixel that was changed was decreased from 0.36 down to 0.26. In contrast, the
+accuracy of both strong attribute pixel and shape change was increased from 0.84 up to
+0.94, and the accuracy of only the strong attribute pixel change was 0.68. The improved
+accuracy depended on the ability that the obtained DIOs revealed the different ground
+objects. The present method would be more significant in high-resolution remote-sensed
+images. The spatially unchanged information can reduce overdetected areas and the spatially
+changed information can certify the judgement of change. By analysis of the three
+phases of the image segmentation procedure, the IODA was considered as a rational way
+to derive intrinsic image objects from a hierarchic candidate. Thereby, the typical spectral
+difference based change detection between bi-temporal images was instead of spatial
+change detection between ground objects based on the spectral difference which would
+be compared in an optimal segmentation procedure. The latter can be helpful in avoiding
+some spectral reflection corrections caused by many image acquisition conditions in typical
+change detection processes

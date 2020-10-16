@@ -1,0 +1,774 @@
+
+radial-inﬂow turbine through multi-objective optimization algorithm
+a,b,* a a
+Ayad M. Al Jubori , Raya Al-Dadah , Saad Mahmoud
+a
+The University of Birmingham, School of Engineering, Edgbaston, Birmingham, B15 2TT, UK
+b
+University of Technology, Baghdad, Iraq
+article info abstract
+CFX and Design Exploration based on 3D RANS with a k-omega SST turbulence model. The 3D optimi-
+Accepted 4 May 2017
+zation technique combines a design of the experiment, a response surface method and multi-objective
+Available online 8 May 2017
+method. The optimization of the blade geometry was performed using 20 design points for both
+nozzle and rotor blades, based on the B-splines’ technique to represent the blade angles and thickness
+Keywords:
+distribution. The number of blades and rotor tip clearance were included as design parameters. The
+Small-scale radial-inﬂow turbine
+isentropic efﬁciency and power output were introduced as an optimization objective with two organic
+Preliminary mean-line design
+working ﬂuids, namely isopentane and R245fa. The results of the optimized geometry with R245fa
+ORC
+3D CFD optimization showedthattheturbine'sandcycle'sthermalefﬁciencieswerehigherby13.95%and17.38%respectively,
+Multi-objective genetic algorithm
+compared with a base-line design with a maximum power output of 5.415 kW. Such methodology is
+proved to be effective as it allows the enhancing of the turbine's and the ORC's system performance
+throughout to ﬁnd the optimum blade shape of the turbine stage.
+1. Introduction thermodynamic analysis has been conducted in Refs. [8e10].In
+aforementioned studies, the thermodynamic analysis model of
+Oneofthemajorchallengesintheworldtodayistheincreasing ORC's systemwas performed based on the assumption of constant
+energy demand. Therefore, more attention is dedicated to energy turbineisentropicefﬁciencyfordifferentworkingﬂuidandvarious
+saving and reduction of environmental pollution and fossil fuel operating conditions that lead inaccurate ORC performance.
+consumption byexploiting renewable energysources. The Organic In an ORC system, the turbine's efﬁciency has a signiﬁcant in-
+Rankine Cycle (ORC) provides electricity from low-temperature ﬂuence on the ORC system's performance. For small-scale power
+heat sources including renewable energy (i.e. solar and generationusingORC,radial-inﬂowturbineisconsideredasuitable
+geothermal) and low-grade waste heat. In this scenario, the ORC choice as reported in literature. A number of studies using radial-
+systems offer potential for generating electricity for wide range of inﬂow turbine based on various approaches are summarized in
+applications including domestic and remote off-grid communities. Table 1 using the mean-line design approach and CFD analysis for
+ManyresearcheshavebeencarriedoutregardingORCsystemby developing radial-inﬂow turbine.
+focusing on thermodynamic analyses, optimization and the selec- Although there have been a number of recent attempts to
+tion of a suitable working ﬂuid for the cycle for low-temperature develop the turbine's performance using computational ﬂuid dy-
+heat source applications, including solar thermal energy as re- namictechniqueslikeANSYSCFX/Fluent,alimitedamountofwork
+ported in Refs. [1e3]. While, several studies focused on thermo- has involved using optimization techniques to optimize the blade
+economic, and ORC system analysis driven by geothermal energy geometrytoimproveboththeturbine'sandORC'sperformance.Al
+[4e7]. In terms of low-grade waste heat sources, ORC Juborietal.[28]presentedanewmethodologythatcoupled1D,3D
+CFD analysis and optimization of a small-scale axial turbine with
+ORC system modelling, based on a multi-objective genetic algo-
+* Corresponding author. The University of Birmingham, School of Engineering,
+rithm(MOGA)withsixdifferentworkingﬂuids.Theiroptimization
+Edgbaston, Birmingham, B15 2TT, UK.
+results exhibited that the maximum turbine and cycle efﬁciencies
+Table 1
+Number of studies using various investigation approaches for axial and radial-inﬂow turbine.
+Authors Investigation approach Expander type Heat source Workingﬂuids Performance (turbine
+temperature (K) efﬁciency,
+power, cycle efﬁciency)
+Sauret& Rowlands [11] 1D mean-line design Radial-inﬂow 413 R134a, R143a, R236fa, 77%, 338 kW
+R245fa
+Hu et al. [12] 1D mean-line design Radial-inﬂow 363 R245fa 82.3%, 66.9 kW, 5.5%
+Rahbar et al. [13] 1D design and optimization Radial-inﬂow 362.2 8 workingﬂuids 84%, 15 kW
+Fiaschi et al. [14] 1D design Radial-inﬂow 420 6 workingﬂuids 78.8%, 50 kW
+Song et al. [15] 1D design Radial-inﬂow 393.15 7 workingﬂuids 81%, 249.2 kW, 8.7%
+Pan and Wang [16] 1D optimization and analysis Radial-inﬂow 363 14 workingﬂuids 75.75%,8.15 kW, 5.2%
+White and Sayma [17] 1D optimization and analysis Radial-inﬂow 390 15 workingﬂuids 80%, 7.23 kW, 7.26%
+Cho et al. [18] CFD analysis for nozzle only Radial-inﬂow 393 R245fa 53%, 3.8 kW, 6.25%
+Al Jubori et al. [19] 1D and 3D CFD analysis Axial and radial-inﬂow 360 R141b, R1234yf, R245fa, 83.48%, 8.507 kW, 10.60%
+with ORC modelling turbine n-butane and n-pentane
+Nithesh and Chatterjee 1D and 3D CFD analysis Radial-inﬂow 297.5 R134a 70%%, 2 kW
+[20]
+Russell et al. [21] 1D design and 3D CFD Radial-inﬂow 423 R245fa 76%, 7 kW
+simulation for rotor only
+Fiaschi et al. [22] 1D design and 3D CFD Radial-inﬂow 395.9 R134a 68.04%, 4.504 kW
+simulation
+Li& Ren [23] 1D, 3D design and simulation Radial-inﬂow 393 R123 84.33%, 534 kW
+Zheng et al. [24] 1D, 3D design and simulation Radial-inﬂow 360 R134a 81.6%, 643 kW
+Pei et al. [25] Experimental Radial-inﬂow 373 R123 65%, 1.36 kW, 6.8%
+Kang [26] Experimental Radial-inﬂow 358.4 R245fa 78.7%,32.7 kW, 5.22%
+Sung et al. [27] Experimental Radial-inﬂow 413 R245fa 177.4 kW and 9.6%
+and power output with R123 were about 88%, 10.5% and 6.3 kW in the ORC system modelling and performance. According to their
+respectively. Rahbar et al. [29] carried out 3D optimization of the thermo-physical properties, the working ﬂuids have a strong in-
+transonicrotorofatwo-stageradial-inﬂowturbineusingagenetic ﬂuence on the ORC system's efﬁciency, the expander's perfor-
+algorithm (GA) with R245fa as the working ﬂuid. Their optimiza- mance, the components' size, the system's stability, safety and
+tionresultsshowedthatthemaximumturbineisentropicefﬁciency economicfeasibilityandthe environmental concerns[30].Organic
+was of 88% with a maximum power output of 26.35 kWand cycle working ﬂuids have large molecular weights and a low boiling
+efﬁciency about 14.8%, with a pressure ratio of 10 and total inlet temperatureandpressureandareusuallyheavymixtures.Basedon
+temperature of 405.3 K. theirslopes of saturationvapourontheT-s diagram, organicﬂuids
+There is limited literature concerning the design and 3D CFD are categorized into dry, isentropic and wet ﬂuids. For low-
+analysis and optimization of small-scale radial-inﬂow turbine for temperature heat sources, the dry and isentropic working ﬂuids
+ORC's systemwith power output around 5 kW for different power withpositiveandzeroslopes(dT/ds)arefavourablebecauseof the
+generationapplications,suchassmallbuildings,ruralareas,off-grid elimination of the need for the superheating condition after the
+zones and isolated installations. Therefore, three-dimensional CFD expansionprocess, as presented in Fig.1a. Also, the workingﬂuids
+optimization using multi-objective optimization for a small-scale should have lowﬂammability and corrosion features and be envi-
+radial-inﬂow turbine stage (nozzle and rotor) is novel and has ronmentally friendly, with zero ozone depletion potential (ODP)
+only received limited investigation previously. New methodology and low global warming potential (GWP); as clariﬁed in Table 2
+for integrating the mean-line design, 3D CFD analysis, and multi- which illustrates the properties of the selected working ﬂuids.
+objective optimizationwith ORC modelling has beenpresented for Due to the selection of working ﬂuids is a main challenge for ORC
+the small-scale radial-inﬂow turbine (RIT) stage. Furthermore, it turbines designers and it is based on an acceptable balance be-
+seeks to ﬁll the gap by investigating the turbine's performance in tween the aforementioned criteria, environmental concerns, ther-
+both design and off-design conditions for baseline and optimum modynamic performance, commercial availability and cost.
+designcaseswithtwoorganicworkingﬂuids.Themean-linedesign Therefore, isopentane and R245fa are selected based on these
+of the RIT and ORC modelling is developed using the engineering criteria and is recommended in literature as a suitable working
+®17
+equation solver (EES) software; ANSYS -CFX is employed to pre- ﬂuid for low-temperature heat sources application [30,31].
+dict the 3D viscous ﬂow and turbine performance. The real gas The main ﬁve components of a recuperative ORC are the
+formulationoftheworkingﬂuidsisappliedtoperformanaccurate
+prediction of the real behaviour of the workingﬂuids in a turbine/
+ORCmodelusingtheREFPROPdatabase.TheCFDbaselinedesignof
+®17
+the RIT is optimized using the ANSYS -Design Exploration pack-
+age for 3D optimization purposes, based on a multi-objective ge-
+netic algorithm (MOGA). The optimized turbine performance
+(isentropic efﬁciency and power output) for each organic working
+ﬂuid is inserted into the ORC model to determine the best cycle
+efﬁciency. The inclusion of constraints in the optimization tech-
+nique allows for achieving the highest efﬁciency from optimized
+geometry withoutexceedinginputoperating conditions.
+2. Working ﬂuids selection and ORC system modelling
+Fig. 1. Working ﬂuids T-s diagram (a), layout of recuperative ORC system (b)
+The selection of the organic workingﬂuid is an essential aspect organicORC.
+A.M. Al Jubori et al. / Energy 131 (2017) 297e311 299
+Table 2
+Thermodynamic property of sixorganicﬂuids.
+Working Fluid Mol. weight (g/mol) T (K) T (K) P (kPa) ODP GWP (100 yr)
+nbp cr cr
+Isopentane 72.149 300.98 460.35 3378 0 20
+R245fa 134.05 288.14 426.16 3610 0 950
+evaporator, turbine, recuperator, condenser and a pump, as shown nozzleandrotor,asshowninFig.2a;andthevelocitytrianglesand
+in Fig. 1b. In this study, a subcritical ORC cycle is investigated to basic geometry of the rotor as shown in Fig. 2b, which is imple-
+avertthesafetyconcernsofthesystemcomplexityofhigh-pressure mented in accordance with the methodology outlined in
+systems. The losses of heat and pressure through the ORC piping Refs. [33,34]. The ﬂow and loading coefﬁcients (f,j) are required
+system are neglected with assumption of steady state operating and assumed in order to give the best efﬁciency. The rotor inlet
+
+conditions. Heat added from the low-temperature heat source is blade angle (b ) is assumed equal to 70 as recommended by
+4
+given by: Ref.[34].ThepresentmodeloftheRITrotorincludesthelossesdue
+to incidence, passage, trailing edge, tip clearance and windage,
+_
+_
+Q ¼ mðh h Þ (1) which are detailed in Table 4. The number of rotor blades is
+e 1 6
+calculated based on theﬂowing empirical correlation [35]:
+Net power output from the ORC cycle is given by:
+p
+Z ¼ ð110a Þtanða Þ (5)
+_ _ _
+rotor 4 4
+W ¼ Wh h W (2)
+net t p
+mech gen 30
+Based on the literature, the rotor losses are more signiﬁcant in
+where h and h are mechanical efﬁciency and generator
+mech gen
+comparison with nozzle losses. Thus, the isentropic expansion is
+efﬁciency.
+assumedthrough the nozzle.The nozzle geometry was carried out
+ORC thermal efﬁciency is given by:
+for matching dimensions as in the following equation:
+_
+W
+net
+Dr¼ 2b cosða Þ (6)
+h ¼ (3) 3 4
+th
+_
+Q
+e
+where b is the nozzle blade width.
+3
+Thesecondlawefﬁciencycanbedeﬁnedastheproximityofthe
+The number of blades is calculated through the following rela-
+realthermalefﬁciencyofthecycletotheCarnotcycleefﬁciencyas:
+tionship and the nozzle solidity equals to 1.35 as reported in
+Glassman [35]:
+_
+h W
+net
+th
+ 
+h ¼ ¼ (4)
+seceff
+h T
+_ L
+Carnot Q 1 2pr
+e 1
+T
+H
+Z ¼ (7)
+Nozzle
+1:35
+The input parameters values of ORC system modelling are pre-
+The friction loss through the nozzle is calculated as [34]:
+sented in Table 3 in terms of heat source and heat sink tempera-
+tures and massﬂow rate with two workingﬂuids.
+l
+hyd
+Dh ¼ 4$f $C (8)
+friction nozzle
+d
+hyd
+3. Radial-inﬂow turbine (RIT) design
+The performance of the RIT turbine is estimated based on the
+losses of rotor, nozzle and volute in terms of enthalpy drop, which
+Theﬁrstandcrucialstepof thewholeturbinedesignprocedure
+allows the calculation of turbine isentropic efﬁciency within a
+is the preliminary mean-line design (PD) to create the correct
+highlycomprehensiveiterativeprocess.Thetotal-to-totalefﬁciency
+aerodynamicdesignthatdeliversthedesiredoutput.ThePDofthe
+and total-to-static efﬁciency are deﬁned as the following [36]:
+RITis basedonone-dimensional (1D)mean-lineﬂowanalysis. The
+mean-line model refers to the mid-span values of the blades' pas-
+Dh
+actual
+h¼ P (9)
+sage and only focuses on the inlet and outlet condition of each
+Dh þ ðDh Þ
+actual total losses
+blade's passage. Its approach allows fast prediction for ﬂuid-
+dynamic development and thermodynamic process inside the
+blade'spassage.Theaimofmean-linedesignistodelivertheinitial
+3.1. Input/output of RIT preliminary mean-line design
+dimensions of the turbine's and blade's shape such as hub and tip
+diameters,chordlength,bladepitch,numberofblades,thicknessof
+In this paper, the PD code is developed using EES software
+leading edge and thickness of trailing edge [32].
+(engineering equation solver software) [39]. The EES code has the
+TheRITstageconsistsofthreemainparts,whicharethevolute,
+ability to deliver a wide range of RIT conﬁgurations by accom-
+plishing comprehensive studies in terms of different input pa-
+rametersandworkingﬂuids,asofferedinTable5.Theoutputofthe
+Table 3
+PD methodology delivers the turbine layout in terms of turbine
+The input parameters of the ORC model.
+diameters and blade dimensions and shapes and is presented in
+Parameters Unit Value
+Table 6. Theﬂow chart of the PD code is presented in Fig. 3 where
+Heat source temperature K 365
+the PD methodology is a highly iterative procedure.
+Heat sink temperature K 293
+Pump efﬁciency e 0.75
+4. 3D CFD analysis
+Generator efﬁciency e 0.96
+Mechanical efﬁciency e 0.96
+Recuperator effectiveness e 0.8
+The actual conﬁguration of the ﬂow inside the turbine stage is
+Workingﬂuid massﬂow rate kg/s 0.3
+particularlycomplex; so it requires a high-ﬁdelity model based on
+300 A.M. Al Jubori et al. / Energy 131 (2017) 297e311
+Fig. 2. Stage cross section (left), velocity triangles and rotor blade proﬁle (right) [19].
+Table 4
+Losses' modelling of RIT rotor.
+Type of losses Correlation Reference
+2
+w
+Incidence loss [36]
+q4
+Dh ¼
+incidence
+2
+3 2
+K rU r
+Disk friction f [34]
+4 4
+Dh ¼
+disk friction _
+4m
+2 3
+Friction loss   [37]
+w þw
+5tip 5hub
+w þ
+4 l
+2 hyd
+4 5
+Dh ¼ f
+friction curve
+2 d
+hyd
+2
+C $d
+Secondary loss 4 [34]
+4
+Dh ¼
+secondary Z $r
+rotor c
+3 pﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+U $Z
+Tip clearance loss rotor [38]
+4
+Dh ¼ ð0:4$ε $C þ0:75$ε $C 0:3 ε $ε $C $C Þ
+x x r r x r x r
+tip clerance 8p
+3 2
+Windage loss r$U $r [33,36]
+4 4
+Dh ¼ K
+windage f 2
+2$m _$w
+5
+2
+Exit energy loss [37]
+Dh ¼ 0:5C
+exit
+5
+Table 5
+Input parameters of PD for radial-inﬂow turbine and their ranges/values.
+Parameters Values/Ranges
+Loading coefﬁcient (J)() 0.6e1.8
+Flow coefﬁcient (f)() 0.1e0.6
+Nozzle RIT inlet to exit radius ratio (r /r )() 1.2e1.3
+2 3
+Rotor RIT exit hub to inlet radius ratio (r /r )() 0.4e0.6
+5hub 4
+Rotor exit absoluteﬂow angle (a ) (degree) 10
+5
+Blade speed ratio () 0.7
+Rotational speed (rpm) 20000e40000
+Inlet total temperature (k) 365
+Inlet total pressure (bar) Corresponding saturated vapour pressure at inlet temperature
+Massﬂow rate (kg/s) 0.3
+Workingﬂuids isopentane, R245fa
+an adequately complex ﬂow scheme. Therefore, the integrated forthebladepassagebasedonthebladeangle,andthetypeof the
+methodology between the low-ﬁdelity model (i.e. PD model) and leading and the trailing edge. The grid independency study is per-
+the high-ﬁdelity model (i.e. 3D CFD model) is essential to directly formed for the base-line design for each working ﬂuid to ensure
+predictthemostrelevantﬂowfeatures(3D,turbulentandunsteady thattheCFDresultisindependentofthenumberofmeshnodesfor
+ﬂow etc.). Consequently, the main turbine stage's geometric char- each working ﬂuid. Two key decision parameters (i.e. turbine
+þ
+acteristics from the mean-line design (i.e. exit tip and hub radii, isentropic efﬁciency and dimensionless distance from the wall y )
+inlettipdiameter,bladeheightandangles),aslistedinTable6,are areconsideredinthemeshdependencystudy.Themeshisreﬁned
+exportedasinputsintothebladedesignmoduletogeneratethe3D and the CFD simulation is re-run and repeated until the mesh in-
+®17
+geometryofthenozzleandrotorblades,usingANSYS -BladeGen dependence solution is reached, as displayed in Fig. 5. As shown,
+software as shown in Fig. 4. The pressure/suction and angle/thick- the CFD solution becomes independent of the mesh elements
+nessmodesareemployedincreatingthe3Dbladegeometryofthe numberafter950,000elements.The3DRANSequationswiththek-
+®17
+nozzle and rotor respectively. The second phase is the computa- uSSTturbulence model equations are solvedusing ANSYS -CFX.
+tionalgridgenerationthatisautomaticallyconstructedthroughthe The k-u SST has the advantage of using automatic near-wall
+®17
+ANSYS -TurboGrid. The structured grid has hexagonal elements treatment by locating the dimensionless distance (yþ) for the
+based on the OeH grid. Automatic topology and meshing (ATM ﬁrst node after thewall to capture the turbulence closure. The k-u
+optimized)isappliedtoallowthechoiceofanappropriatetopology SST turbulence model is considered for ﬂow separation under an
+A.M. Al Jubori et al. / Energy 131 (2017) 297e311 301
+Table 6
+Output of PD radial-inﬂow turbine mean-line design for each workingﬂuid.
+Parameter Workingﬂuids
+isopentane R245fa
+a (degree) 72.33 66.78
+4
+b (degree) 48.91 9.75
+4
+b (degree) 68.91 59.75
+blade,4
+b 65.47 60.65
+tip,5
+d (mm) 63.47 50.65
+1
+d (mm) 55.23 44.09
+2
+d (mm) 43.81 34.35
+3
+d (mm) 41.31 31.85
+4
+d (mm) 30.27 22.48
+tip,5
+b (mm) 2.84 2.05
+4
+b (mm) 21.72 14.51
+5
+Z 15 11
+rotor
+Nozzle LE beta angle (degree) 20 15
+Nozzle TE beta angle (degree) 68 63
+Nozzle stagger angle (degree) 33 38
+Nozzle throat (mm) 3.481 3.926
+Z 29 33
+nozzle
+adverse pressure gradient, which accounts for the transport of the
+turbulent shear stress. Turbulence intensity at the inlet was
+maintainedat5%astherecommendedvalue,whennoinformation
+was available about the inlet's turbulence as suggested in CFX-
+Solver modelling guide [41]. The k-u transport equations carried
+outtoﬁndtheturbulentkineticenergyandthespeciﬁcdissipation
+rate are:
+ !
+v v v vk
+ðrkÞþ ðrkuÞ¼ G þG Y þS (10)
+i K
+k k k
+vt vx vx vx
+i j j
+ !
+v v v vu
+ðruÞþ ðruuÞ¼ G þG Y þS (11)
+u u u
+i k
+vt vx vx vx
+i j j
+where G and Gu represent the generation of turbulent kinetic
+k
+energyanditsdissipationrate;Y andYurepresenttheﬂuctuating
+k
+dilationincompressibleturbulence;S andSuarethesourceterms
+k
+of the k-u turbulence model.
+The 3D CFD model of the small-scale radial-inﬂow turbines is
+considered as steady state 3D viscous, turbulent and compressible
+and a single phase ﬂow is applied. Also, all the walls are set to be
+smooth, non-slip and with adiabatic conditions. The inlet boundary
+conditionsatthenozzleinletaresetastheinlet'stotalpressureand
+temperature, with static pressure at the rotor outlet. In order to
+deliveraconnectionacrossthestationaryandrotatingblades'rows,a
+Fig. 3. Flow chart of the preliminary mean-line design.
+stage interface (mixing-plane) model is chosen at the nozzle-rotor
+interface and generalized grid interface (GGI) is applied for stage
+(mixing-plane)analysis andthesteadystateﬂow.Inallthe CFDan-
+efﬁciency and power output (i.e. the global performance parame-
+alyses,thehighresolutionadvectionschemewasappliedduetothe
+ters) are ingoodagreement withtheGlassmancase andVistaRTD
+topology and type of mesh, alongside its numerical stability. The
+and the deviations were within the acceptable margin for all
+convergence was achieved; the maximum RMS was normally no
+workingﬂuids as veriﬁed in Fig. 6.
+5
+higher than 10 (i.e. 1e-5) in all simulations for the mass, mo-
+Also,the3DCFDresultsarevalidatedwitharealcase(Jonescase
+mentum, energy, and turbulence model. For the most engineering
+[42]);consideringthatmostoftherange/valuesinTable7aretaken
+applications, the RMS of 1e-5 is considered as a good convergence
+from the above-mentioned reference and allow a fair comparison.
+and sufﬁcient as recommended in CFX-Solver modelling guide [41].
+Fig. 7 presents the comparison results with ref. [42] which only
+®17
+Therealﬂuidproperties'databaseinANSYS -CFXisintegratedwith
+mentions the details of the radial-inﬂow turbine geometry and
+REFPROP software, to obtain an accurate thermodynamic model of
+operating conditions. The maximum deviation in terms of isen-
+theorganicﬂuids'propertiesinthe3DCFDanalysisofORCturbines.
+tropic efﬁciency was about 5.01%.
+The developed preliminary mean-line design (PD) of the RIT
+(detailed in section 3) is validated against a published benchmark
+case, namely the Glassman case (i.e. code) as detailed in Ref. [40] 5. Three-dimensional optimization methodology
+and ANSYS-Vista RTD (1D radial-inﬂow turbine) design software.
+The PD and CFD base-line design results in terms of total-to-total The current optimization technique combines the design of
+302 A.M. Al Jubori et al. / Energy 131 (2017) 297e311
+Rotor
+Nozzle
+Fig. 4. Three-dimensional radial-inﬂow turbine stage (left), meshes generation for nozzle and rotor blade passage (right).
+Table 7
+Details of the radial-inﬂow turbine geometry of a real case (Jones case [42]).
+Parameters Value Parameters Value
+r (m) 0.074 b (degree) 31.8
+2 4
+r (m) 0.0635 b (degree) 57.40
+3 5
+r (m) 0.0582 Z ()19
+4 nozzle
+r (m) 0.0368 Z ()16
+5tip rotor
+r (m) 0.0152 Nozzle chord(m) 0.0229
+5hup
+b (m) 0.00618 Rotor chord (m) 0.0457
+4
+3
+b (m) 0.00635 Radial Clearance (m) 0.23 10
+5
+3
+a (degree) 77.80 Nozzle trailing edge thickness (m) 0.51 10
+3
+3
+a (degree) 76.8 Rotor trailing edge thickness (m) 0.76 10
+4
+a (degree) 0.03
+5
+Fig. 5. The grid independency based on total-to-static turbine efﬁciency with R245fa
+as the working ﬂuid.
+Fig. 6. Comparison: the CFD and PD with Vista RTD and Glassman code in terms of
+turbine isentropic efﬁciency (left) and power output (right).
+Fig. 7. Comparison: the CFD efﬁciency with experimental efﬁciency of ref. [42].
+experiment(DoE)technique,responsesurfacemethod(RSM)anda
+multi-objective genetic algorithm (MOGA) through the ANSYS- construct the database of blade conﬁgurations that were initially
+Design of Exploration (DE) that is integrated with 3D CFD anal-
+tested by CFD. Also, DoE allows the delivery of the required infor-
+ysis. In this methodology, the DoE is used to ﬁll the design space mationabout adesignpoint with aminimum numberof sampling
+throughout to specify the location of sample design points that points. The DoE can be deﬁned as a provider of database informa-
+detects their space distribution for the blade geometry as design tion to a meta-model (surrogate model) that indicates the de-
+parameters in efﬁcient way and then feed the response surface pendencyof turbineperformanceonthevariationinbladeshapes.
+method(RSM).Thedesignofexperiment(DoE)techniqueisusedto To achieve the equal distribution of the design parameters, the
+A.M. Al Jubori et al. / Energy 131 (2017) 297e311 303
+optimal-space-ﬁlling design (OSFD) technique in the DoE method Maximize/Minimize f (x)¼(f (x), f (x), f (x)….F (x)) (M
+1 2 3 M
+wasselectedthroughout the3DCFD optimization.TheOSFDis the functions to be optimized)
+Latin hypercube sampling that is used with post-processing Subject to g(x) 0 (inequality constraints)
+or j(x)¼ 0 (equality constraints)
+throughout the design space within the DoE, aiming to achieve
+maximumvisionwith a small numberof the sample designpoints
+The blade geometry was parameterized as a unique B-spline
+[43]. The surrogate model (i.e. RSM) strongly depends on the
+samplepointswhichareobtainedfromtheDoE.ThereforetheDoE means composed of 20 control points, achieving through the DoE
+techniqueahighdegreeofgeometricﬂexibilityandrobustness.The
+was integrated with the 3D CFD optimization algorithm to deliver
+an efﬁcient design space of the design points (i.e. maximum designpoints are the variables used to deﬁne the blade geometry;
+while the turbine performance (i.e. turbine isentropic efﬁciency
+discernment and minimum number of sample points) [44]. The
+details of the 3D CFD optimization procedure are shown in Fig. 8. andpoweroutput)isdeﬁnedastheobjectivefunction.The3DCFD
+The response surface method (RSM) was constructed as a sur- optimization is aimed to enhance the turbine performance by
+rogate model for each objective function based on the CFD solu- modifying the blade geometry, as shown in Fig. 9, to reduce the
+tions achieved at speciﬁed control design points. The RSM is a passage losses (i.e. entropy generation) and minimize the non-
+methodologyofﬁttingapolynomialfunctionfordiscreteresponses uniformity of ﬂow (i.e. secondary ﬂow). The 3D optimization can
+obtained from DoE. It reveals the association between response be achieved through the following steps: select the design points
+(bladegeometry);deﬁnetheobjectivefunctionthatdeterminesthe
+functions and design parameters. The second-order polynomial
+response can be deﬁned as the following [45]: radial-inﬂow turbine's performance, composed with any con-
+straints; and explore the algorithm to determine the optimum
+objective function (i.e. turbine performance) corresponding to the
+optimum design points of the blade geometry.
+N N N
+X X XX
+Theparameterizationofbladegeometryisacrucialaspectofan
+2
+fðxÞ¼b þ b x þ b x þ b x x (12)
+0 j j jj j ij i j
+efﬁcientoptimizationtechnique;whereitis necessarytocreatean
+j¼1 j¼1 isj
+extensiverangeofaccurategeometrieswithinaminimumgroupof
+designpointssimultaneously,withacarefulselectionofthedesign
+Where, f(x) is a target function of optimization; x represents a
+points of the blade geometry and their ranges. In this 3D CFD
+group of design parameters andb is a coefﬁcient of regression.
+optimization, the parameterization of the blade geometry was
+The multi-objective optimization algorithm is expressed as:
+conducted for the nozzle and rotor (i.e. turbine stage) of a radial-
+inﬂow turbine.
+As shown in Fig.10, B-splines in fourth and third order curves
+are used torepresent the blade angle and thickness distribution in
+meridional direction (M) where M is non-dimensional distance
+from leading edge to trailing edge. In the 3D optimization algo-
+rithm,thecontrolpoints'(CP)coordinateswereemployedandtheir
+possiblechangesintheaxial(i.e.meridional)andradialdirections,
+as presented by the arrows in Fig.10. The blade camber line from
+leading edge (LE) to trailing edge (TE) is deﬁned by blade angle
+distribution and thickness distribution respectively. Starting from
+leading edge to trailing edge (LE to TE), the blade angle (i.e. b)is
+parameterizedusingaB-splinecurvetechniquewithsevencontrol
+point (CP to CP ) as illustrated in Fig. 10 a,b. Also, the blade
+a1 a7
+Design points
+Fig. 8. Flow chart of 3D CFD optimization of radial-inﬂow turbine [28]. Fig. 9. Deﬁnition and parameterization of the blade geometry.
+304 A.M. Al Jubori et al. / Energy 131 (2017) 297e311
+CP
+a1
+CP
+CP
+a2 CP t3
+t2
+CP CP
+t4
+a3
+CP
+a4
+CP
+t5
+CP CP
+a5
+t1
+CP
+t6
+CP
+a6
+CP
+a7
+CP
+t7
+Fig.10. Parameterization of the distribution of blade angle (left), and blade thickness (right).
+Table 8
+thickness distribution is parameterized by seven control points
+The optimum design parameters of the blade geometry for both workingﬂuids.
+(CP to CP ); with two points were ﬁxed at leading edge and
+t1 t7
+trailing edge. As can be seen in Fig. 10, the arrows represent the
+Parameters Workingﬂuids
+movement direction forcontrol points wherethe control points of
+isopentane R245fa
+blade angle can move only in radial direction while the control
+Rotor inlet absoluteﬂow angle,a (degree) 76.25 69.37
+4
+points of thickness distribution can move in both directions (i.e.
+Rotor outlet absoluteﬂow angle,a (degree) 17.36 11.21
+5
+radial direction and meridional direction from LE toTE).
+Rotor inlet relativeﬂow angle,b (degree) 54.75 13.71
+4
+Also, the number of the blades for both the nozzle and rotor
+Rotor blade angle,b (degree) 60.58 65.64
+blade,4
+Rotor outlet relative angleb 55.17 65.34
+was deﬁned as a design parameter in all optimization processes, tip,5
+3 3
+Rotor radial tip clearance (m) 0.325 10 0.345 10
+to allow the optimizer to determine the optimum number of
+Rotor blade chord (m) 0.0386 0.0368
+blades. The turbine performance (i.e. turbine isentropic efﬁciency
+Z 18 14
+rotor
+and power output) was deﬁned as the objective function to be
+Nozzle LE beta angle (degree) 12 10
+maximized in the MOGA optimization technique. While the mass Nozzle TE beta angle (degree) 71 67
+Nozzle stagger angle (degree) 36 40
+ﬂow rate and rotational speed were speciﬁed as two constraints.
+® Nozzle throat (mm) 3.25 3.54
+The 3D CFD optimizations were conducted using an Intel CPU
+Z 33 37
+nozzle
+core i7 - 4820@ 3.70 GHz with 48 GB RAM in parallel run with 4
+Nozzle blade chord (m) 0.0153 0.0147
+CPU cores. Typically, each optimization run takes between 72 and
+96 h.
+the effective distribution of the range of design points to achieve
+5.1. 3D optimization results
+the required number of samples of the design points throughout
+OSFD. As can be seen from Fig. 12, the maximum isentropic efﬁ-
+Toobtaintheoptimumdesignforthebladegeometryofasmall-
+ciency and power output were 87.40% and 5.415 kW respectively
+scale RIT, the 3D optimization is carried out at nominal operating
+for R245fa compared with 84.35% and 4.832 kW for isopentane.
+conditions for both working ﬂuids (Table 5). The blade geometry
+The 3D CFD analyses and optimization exhibited further
+parameterization is conducted for both the nozzle and rotor with
+improvement in the qualitative performance of the turbine stage
+the number of blades. In the optimization process, the mass ﬂow
+(i.e.blade loading (pressuredistribution), velocity vectors,velocity
+rate and rotational speed were deﬁned as two constraints. There-
+stream-lines and entropy generation contours) as shown in
+fore, the values of the optimum design points delivered from 3D
+CFDoptimizationforthebladegeometryofthenozzleandrotorfor Figs.13e16.Thepressuredistributioni.e.bladeloadingthroughout
+the rotor passage in both base-line and optimum design cases is
+each working ﬂuid are presented in Table 8. While, the original
+shape from the base-line design of the nozzle and rotor blades' presented in Fig. 13 for both working ﬂuids; it shows the highest
+the values of the pressure on the pressure side. While the lowest
+shapescomparedtotheoptimumdesignforbothworkingﬂuidsis
+values of pressure are positioned on the suction side, due to the
+illustrated in Fig.11.
+highest values ofﬂow velocity at the throat area of the blade pas-
+The spline curve in fourth and third order form was used to
+sage. The isentropic enthalpy drop (work) is provided by the area
+deﬁne the blade angle and thickness distribution as designpoints/
+circumscribed by such pressure distribution curves. Where, the
+parameters,withtheassumptionoftheuniformdistributionofthe
+enclosed area is indicative of the net torque producing aero-
+bladethickness.IntheDoEmethodandbasedonthenumberofthe
+dynamic force by the rotor turbine shaft.
+design points of the blade geometry and their range, they were
+As can be seen from velocity vectors in Fig. 14aed for both
+divided into 250 sample points throughout the optimal-space-
+ﬁlling design (OSFD) technique and varied continuously over working ﬂuids, the base-line design suffers from ﬂow reversal
+compared with the optimized blade geometry. For both working
+speciﬁed ranges. The number of design points was delivered from
+A.M. Al Jubori et al. / Energy 131 (2017) 297e311 305
+Nozzle of R245fa
+Nozzle of isopentane
+                       Base-line design
+Rotor of R245fa
+Rotor of isopentane
+Fig.11. Nozzle and rotor blade shape at the base-line and optimum design for both working ﬂuids.
+Fig.12. Variation of total-to-total efﬁciency and power output with design point for R245fa (left) and isopentane (right).
+b) R245fa
+a) isopentane
+Fig.13. Effect of optimization on blade loading at baseline design and optimum design.
+ﬂuids, the optimized blade shape has a superior and smooth ﬂow It is evident in Fig.16, at the base-line design for both working
+withnoﬂowreversal,asshownbythevelocityvectorsandvelocity ﬂuids; the ﬂow separation and secondary ﬂows resulted in a
+stream-lines in the blade passage, depicted in Figs. 14 and 15 considerable entropy generation. Where it is propagated down-
+respectively. stream through the turbine stage as shown in Fig.16 in the base-
+306 A.M. Al Jubori et al. / Energy 131 (2017) 297e311
+a) isopentane base-line design 
+b) isopentane at optimum design 
+c) R245fa at base-line design d) R245fa at optimum design
+Fig.14. Velocity vectors at mid-span for base-line and optimum design with two working ﬂuids.
+a) isopentane base-line design 
+b) isopentane at optimum design 
+c) R245fa at base-line design d) R245fa at optimum design
+Fig.15. Velocity streamlines at mid-span for base-line and optimum design with two working ﬂuids.
+A.M. Al Jubori et al. / Energy 131 (2017) 297e311 307
+a) isopentane at base-line design
+b) isopentane at optimum design
+d) R245fa at optimum design 
+c) R245fa at base-line design 
+Fig.16. Entropy contours at mid-span for base-line and optimum design with two working ﬂuids.
+line design passage, the entropy generation occupied the majority 6. ORC analysis results
+that led to substantial losses and hence reduced the turbine isen-
+tropicefﬁciency.Inthesameﬁgure,comparingtheoptimumdesign Using the optimized turbine performance (i.e. isentropic efﬁ-
+withthebase-linedesignshowsthattheentropygenerationinthe ciencyand power output) at the designpoint (Table 3) and setting
+optimized geometry has substantially reduced throughout the these as inputs to the ORC model (section 2) resulted in the sys-
+tem's thermal efﬁciency of 11.27%, compared with 9.56% at base-
+optimizationprocess.Theenhancementsintheﬂowaerodynamics
+throughthebladepassageclarifytheimprovementintheturbine's line design for R245fa as the working ﬂuid, as shown in Fig. 20a.
+performance (i.e. efﬁciency and power). Also, Fig. 20a shows that the optimized ORC system's efﬁciency
+The maximum enhancement in the optimized turbine perfor- with isopentane as the working ﬂuid was 9.69% compared with
+mance (isentropic total-to-total efﬁciency and power output) is 8.07% at base-line design. Such results demonstrate the effec-
+shown in Fig.17a and b with maximum improvement in terms of tiveness of 3D CFD optimization to further improve the ORC's
+efﬁciencyof 13.95%andpoweroutputofabout14%withR245faas performance. The assessment of the ORC system's second law ef-
+the working ﬂuid; while the maximum enhancement with iso- ﬁciencywithbothworkingﬂuidsatbase-lineandoptimumdesign
+pentanewasof10.55%and11.98%intermsofefﬁciencyandpower cases is shown in Fig. 20b. The maximum second law efﬁciency is
+output respectively. This improvementin the turbine performance 71.40% for R245fa, compared with about 64.00% for isopentane at
+reveals the effectiveness of the 3D CFD optimization technique optimum design. As can be seen in Figs. 21 and 22, clearly the
+from modifying the turbine blade's geometry. optimization technique was very effective as it improved the cy-
+It is evident from Figs.18 and 19 that the turbine performance cle's thermal efﬁciency in both design and off-design conditions
+in terms of efﬁciency and power output improved in off-design for various pressure ratios and total inlet temperatures for both
+conditions as well as with in-design conditions for a wide range working ﬂuids.
+of pressure ratios and rotational speeds for both working ﬂuids
+(R245fa and isopentane). The design point was presented in
+7. Conclusions
+Table 5 with a pressure ratio of 3.0 and rotational speed of
+27500 rpm for isopentane and 35000 rpm for R245fa. When the
+In this paper, 3D CFD optimization of the blade's geometry of a
+total pressure ratio is increased, the enthalpy drop increases,
+small-scale radial-inﬂowturbine stage (nozzle androtor) foralow
+leadingtoalargepoweroutput.Whiletheturbineefﬁciencydrops
+power ORC system, driven by a low-temperature heat source has
+with increasing the rotational speed for both workingﬂuids based
+been conducted to enhance the turbine's and the ORC system's
+on the deﬁnition of the loading coefﬁcient, it is explained the
+performance. R245fa and isopentane were selected as working
+variation in enthalpy drop (i.e.speciﬁc work) throughout the radial 
+ﬂuids with a temperature heat source of (z90 C). In multi-
+turbine stage. These ﬁgures reﬂect the highlighted advantages of
+objective optimization algorithm, the turbine performance (isen-
+using 3D CFD optimization techniques in off-design conditions as
+tropic efﬁciency and power output) was selected as an objective
+well.
+function subject to maximization. Two constraints (massﬂow rate
+308 A.M. Al Jubori et al. / Energy 131 (2017) 297e311
+a) 
+b) 
+Fig.17. Total-to-total isentropic efﬁciency (a) and power output (b) at base-line design and optimum design for both working ﬂuids.
+a) b) 
+Fig.18. 3D optimization inﬂuence on the turbine performance with pressure ratio; efﬁciency (left) and power output (right) at design and off-design conditions for both working
+ﬂuids.
+a) b) 
+Fig.19. 3Doptimizationinﬂuenceontheturbineperformancewithrotationalspeed;efﬁciency(left)andpoweroutput(right)atdesignandoff-designconditionsforbothworking
+ﬂuids.
+and rotational speed) were deﬁned to keep the operating condi- Itwasrevealedfromthe3DCFDMOGAoptimizationresultsthat
+tions ﬁxed during the optimization process; this allows the theﬂow aerodynamics was improved signiﬁcantly compared with
+achievement of the highest performance. the base-line design for both working ﬂuids. Also, the results
+A.M. Al Jubori et al. / Energy 131 (2017) 297e311 309
+b) b) ) 
+a) 
+Fig. 20. The cycle's thermal and second law efﬁciencies at base-line design and optimum design for both working ﬂuids.
+exhibited that R245fa has a maximum turbine performance with
+isentropicefﬁciencyof87.40%andpoweroutputof5.415kWwitha
+thermal ORC system efﬁciency of 11.27%. This effective integrated
+methodologyinclusion(mean-linedesign,CFDanalysisandMOGA
+optimization) proved to give a remarkable improvement in the
+performance of the small-scale ORC radial-inﬂow turbine stage
+based on the optimization of the blade's geometry. The 3D CFD
+optimizationshowedthatamoreefﬁcientturbineperformancecan
+be achieved by optimizing the blade's geometry in terms of blade
+angles,thicknessdistributionofthebladeandthenumberofblades
+for both the nozzle and rotor, throughout assessing their quanti-
+tative performance (isentropic efﬁciency and power output) and
+qualitative aerodynamic performance (velocity vectors, velocity
+stream-lines, pressure distribution and entropy generation
+contours).
+Furthermore, such optimization results revealed the potential
+and effectiveness in design and off-design CFD analysis for a wide
+range of rotational speeds and pressure ratios for both working
+ﬂuids.Theseresultshighlightthepotentialandadvantagesofusing
+Fig. 22. The off-design cycle's thermal prediction with inlet total temperature based
+on the optimized turbine performance.
+the 3D MOGA optimization technique to achieve high turbine ef-
+ﬁciency leading to high ORC system thermal efﬁciency.
+Acknowledgement
+Themainauthor(AyadM.AlJubori)gratefullyacknowledgesthe
+Iraqi ministry of higher education and scientiﬁc research for
+funding PhD scholarship at the University of Birmingham, UK
+whichfacilitatescontinuationofresearchonthemodellingand3D
+optimization of small-scale radial-inﬂow turbine.

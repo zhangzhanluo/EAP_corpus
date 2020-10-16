@@ -1,0 +1,278 @@
+﻿Deep neural network inversion for 3D laser absorption imaging of methane in reacting flows
+Abstract
+Mid-infrared laser absorption imaging of methane in flames
+is performed with a learning-based approach to the limited
+view-angle  inversion  problem.  A  deep  neural  network  is
+trained with superimposed Gaussian field distributions of
+spectral absorption coefficients, and the prediction capabil-
+ity is compared to linear tomography methods at a varying
+number of view angles for simulated fields representative
+of a flame pair. Experimental 3D imaging is demonstrated
+on a methane–oxygen laminar flame doublet (<cm) backlit
+with  tunable  radiation  from  an  interband  cascade  laser
+near 3.16 µm. Spectrally resolved data at each pixel provide
+for species-specific projected absorbance. 2D images were
+collected at six projection angles on a high-speed infrared
+camera,  yielding  an  aggregate  of  27,648  unique  lines  of
+sight capturing the scene with a pixel resolution of ∼70 µm.
+Mole fraction measurements are inferred from the predicted
+absorption coefficient images using an estimated tempera-
+ture field, showing consistency with expected values from
+reactant flow rates. To the authors’ knowledge, this work
+represents the first 3D imaging of methane in a reacting
+flow.   
+INTRODUCTION
+Methane  (CH4)  is  an  important  molecule  in  combustion
+chemistry, representing the primary fuel component of natural
+gas  and  a  key  intermediate  in  larger  hydrocarbon  oxidation.
+Accordingly, quantitative imaging of methane in flame envi-
+ronments  is  desired  to  discern  the  competitive  physics  of
+chemical kinetics with mass and heat transport. Some optical
+methods have shown potential for imaging methane in high-
+temperature reacting flows, albeit with somewhat constrained
+applicability. Point and line measurements of CH4  in flames
+have  been  performed  with  Raman  scattering  techniques  [1],
+and 2D tomographic measurements have been performed using
+near-infrared  diode  laser  absorption  in  oscillating  CH4–air
+flames [2] and marine engine cylinders [3]. Here, we present a
+novel mid-infrared optical method for 3D imaging of CH4  in
+high-temperature flame environments.
+Advances  in  midwave  infrared  photonics  have  enabled
+tomographic  absorption  spectroscopy  [4]  at  the  fundamen-
+tal  vibrational  frequencies  of  important  combustion  species,
+providing for sensitive thermochemical measurements in small-
+scale reacting flows using compact low-power light sources [5].
+Laser  absorption  imaging  (LAI)  is  a  complimentary  method
+developed to capture scenes backlit with tunable laser radiation
+at very high spatial resolution using high-speed infrared cameras
+[6–8]. A representative optical arrangement, used in this work,
+is shown in Fig. 1. Recently, LAI has been successfully coupled
+with 1D tomography for quantitative imaging of axisymmetric
+flow-field thermochemistry at sub-100-µm resolution [6,7].
+Tomographic  imaging  of  non-axisymmetric  flows  is  more
+challenging—multiple   projection   angles   are   required   to
+estimate  the  flow-field  scalars,  and  the  inversion  problem  is
+underdetermined  [4,9].  Limited  view  angles  often  result  in
+a blurring effect and artifacts in the reconstructed flow-field,
+complicating  applications  to  flames,  which  have  very  thin
+(∼1 mm) reaction zones. Laser absorption tomography efforts
+in combustion flows have demonstrated different approaches to
+the inversion problem, including both linear [10–13] and non-
+linear [14,15] methods utilizing various optical arrangements.
+Increasingly  complex  and  dense  lines  of  sight  configurations
+require  computationally  efficient  image  processing  methods.
+Recently,  predictive  models  utilizing  neural  networks  have
+shown  promise  to  more  efficiently  solve  the  inversion  prob-
+lem with limited information, and have been applied to both
+simulated flows [16] and emission measurements of real flows
+[17–19]. Here, we combine a deep neural network inversion
+with LAI to achieve high-resolution 3D imaging of CH4  in a
+non-axisymmetric  high-temperature  flow-field.  We  compare
+the deep neural network inversion to linear tomography, assess-
+ing performance with regards to accuracy and computational
+cost, via both simulation and experiment.
+With  any  tomographic  absorption  spectroscopy  method,
+the   analytical   problem   reduces   to   inverting   line-of-sight
+integrated  (or  projected)  absorption  data  [4,9].  For  a  non-
+uniform gas medium, the Beer–Lambert law integrated over
+wavenumber   ν[cm−1]—or   the   projected   absorbance   area
+A j ,proj[cm−1]—can be expressed for each line-of-sight
+where α(ν) is spectral absorbance, I0  is incident light intensity,
+and It  is transmitted light intensity. L [cm] is the aggregate path
+length along the line of sight. Thermochemical properties of
+the nonuniform medium are embedded in the spatially resolved
+absorption coefficient K j [cm−2], where total pressure P  [atm]
+is assumed 1 atm, S j (T)[cm−2/atm] is the line strength of rovi-
+brational transition j at temperature T[K], and X abs is the mole
+fraction. For tomographic LAI, Eq. (1) applies to each camera
+pixel, wherein spectrally resolved absorbance can be integrated
+to yield 2D images of A j ,proj, representative examples of which
+are depicted in the insets of Fig. 1 for different viewing angles.
+With multiple projection angles, each horizontal row of pixels
+in each 2D image can be treated independently for subsequent
+reconstruction of the flow-field scalar K j . For the experimental
+setup depicted in Fig. 1, we target a collection of rovibrational
+transitions comprising the R(15) manifold of the v3  asymmet-
+ric stretch band of CH4  near 3.16 µm. The line strengths for
+these transitions do not vary more than 10% for temperatures
+between 450 and 750 K [20], enabling quantitative inference of
+mole fraction from K j  in the preheat zone.
+METHOD
+In this study, we utilize a deep neural network to perform the
+inversion of line-of-sight integrated absorption measurements
+A j ,proj to solve for K j , and compare its reconstruction perform-
+ance with linear 2D tomography methods. The training dataset
+consists of 2D fields of the methane absorption coefficient K j ,
+represented as superimposed Gaussian distributions as shown
+in the top of Fig. 2. The simulations included 5000 variations in
+intensity, size, and relative locations of the Gaussians. The cor-
+responding projected absorbance areas A j ,proj  are subsequently
+calculated utilizing Radon transforms to represent the measure-
+ment data at each angle with appropriate pixel density reflecting
+the LAI experimental setup. Gaussian noise (3%) was applied
+to the input, enabling the network to learn robust inversion
+from potentially corrupted measurements. The neural network
+architecture is adapted from a unified deep learning framework
+shown to efficiently reconstruct a variety of imaging fields [21].
+As illustrated in Fig. 2, the input layer FC1 takes a measured
+sinogram of  A j ,proj  (6 × 64) of the CH4  rovibrational transi-
+tion, reshapes it into a 1 × 384 vector, and then fully connects it
+to a 1 × 4096 dimensional hidden layer FC2 with a hyperbolic
+tangent activation. This hidden layer FC2 is fully connected to
+another hidden layer FC3 with hyperbolic tangent activation,
+and is reshaped to a 64 × 64 matrix for convolutional process-
+ing. The convolutional layers C1 and C2 convolve 64 filters
+of 5 × 5 with stride 1 followed by rectifier nonlinearities. The
+final output layer deconvolves the C2 layer with 64 filters of
+7 × 7 with stride 1, representing the reconstructed K j  field. The
+loss function minimized during training is an L2  mean squared
+loss  between  the  network  output  and  the  labeled  K j    fields.
+The RMSprop algorithm is used with minibatches of size 50,
+learning rate 0.001, momentum 0.0, and decay 0.9. The net-
+work was trained for 100 epochs (typically 20–30 mins) on the
+Tensorflow deep learning framework using an 8 GB NVIDIA
+RTX 2080 graphics card. Via the training process, an effective
+inversion operator is learned to predict spatially resolved 2D K j .
+This bypasses the numerical inversion of A j ,proj to K j  obtained
+through conventional tomography methods.
+To  assess  the  predictive  accuracy  of  the  deep  learning
+inversion method on a flame pair, the approach is applied to
+reconstruct reference simulations of representative 2D K j  fields
+using various numbers of projection angles, as shown in Fig. 3.
+These  2D  K j    fields  and  their  A j ,proj   projections  are  similar
+to but not part of the original training set, and so serve as an
+independent reconstruction assessment. Tikhonov-regularized
+linear 2D tomography is also applied to the reference fields.
+The regularization parameter λ and the smoothing matrix L are
+chosen to yield a value of λ that pads the small singular values
+but  does  not  overwhelm  the  large  nontrivial  singular  values
+[9]. An aggregate root mean square error (RSME) was used as
+a comparative metric, calculated as the square root of the aver-
+aged squared differences between a reconstructed image and its
+corresponding “ground truth” image.
+As expected, utilizing a greater number of projection angles
+was shown to improve the resolution of peaks and valleys in the
+reconstructed  K j   fields for both methods. The deep learning
+approach is shown to predict the steep spatial gradients with
+equal or greater accuracy (as measured by RMS error) than linear
+tomographic methods while concurrently reducing the required
+number of projections, even in the cases where the  K j   fields
+overlap. Nonphysical absorption artifacts are also observed in
+the linear tomographic reconstructions outside of the simulated
+reaction zones, a common consequence of the underdetermined
+inversion [9]. Notably, the linear tomographic methods show
+increasing reconstruction error when the pixel density per flame
+structure is reduced, as in the smaller flames in the bottom row
+of Fig. 3. The neural network inversion appears less sensitive
+to the pixel density, showing a typical reduction in RMSE by a
+factor of ∼4−6 relative to corresponding linear tomographic
+solutions. We can observe for the experimentally relevant test
+case (bottom row), the learning-based approach utilizing three
+projection angles has a RSME only 10% greater than the linear
+tomographic approach utilizing 12 projection angles.
+RESULT
+With the deep learning approach tested via simulation, the
+neural network inversion was utilized for measurements of the
+flame doublets shown in Fig. 1. A distributed feedback (DFB)
+interband cascade laser (ICL) near 3.16 µm is used to spectrally
+scan across the CH4  R(15) manifold. The beam is expanded
+with a concave lens, and expanded again horizontally with a
+cylindrical  lens.  The  expanding  beam  is  recollimated  with  a
+concave mirror, then pitched through the flow-field comprising
+two  Bunsen-style  flames,  each  with  flame  brushes  approxi-
+mately 3 mm in diameter. The beam is spectrally isolated with
+a bandpass  filter  (Spectrogon, 3160 ± 60 nm),  and  a plano–
+convex lens focuses the expanded beam onto the detector array
+of the camera. The beam is captured in the camera detector
+subwindow of size 64 × 48 with a frame rate of 40 kHz and
+integration time of 5 µs. The laser is injection-current tuned
+using a sawtooth waveform at 400 Hz, resulting in 100 points
+per scan for both I0 and It  for each pixel. The spectrally resolved
+absorbance α(ν) is determined using Eq. (1) and is subsequently
+fitted using the Voigt line shape model to obtain the projected
+absorbance area A j ,proj. For each projection angle measurement,
+data are collected at two heights using a vertical translation stage
+and later combined after deleting overlapping pixels, yielding
+64 × 72 lines of sight to capture the whole flame brush. Each
+projection image is collected and averaged over 1 s (400 scan
+average), an interval over which the flames are assumed steady.
+By imaging a wire mesh with known dimensions backlit with
+laser radiation [7], the pixel resolution was determined to be
+∼ 70 µm per pixel in the horizontal direction.
+The flame pair is mounted on a rotational stage to image
+the flow-field from a variety of angles, as shown in Fig. 1. The
+partially premixed flames were controlled via thermal mass flow
+controllers (MKS MFC GE50A) with combined reactant flow
+rates of 150 sccm CH4  and 100 sccm O2. This corresponds
+to a fuel-rich mixture with a molar fuel–air equivalence ratio
+of φ ≈ 3. After the flows are split to the two burners, one flow
+is  measured  with  a  rotameter  to  ensure  equal  flow  through
+each burner. The exit velocity of each flow is 0.33 m/s, and the
+jet exits of the stainless steel burners are 1.6 mm in diameter,
+providing a laminar jet Reynolds number of ∼36.
+For each horizontal row of pixels in the measured 2D A j ,proj
+images,  the  learning-based  inversion  operator  is  applied  to
+predict  the  K j    field  distribution  for  the  R(15)  manifold  of
+CH4.  Assembling  the  predictions  for  each  horizontal  row,  a
+3D field of K j   is obtained, as shown in Fig. 4. Learning-based
+predictions utilizing six projection angles of 2D A j ,proj  images
+are shown alongside corresponding results obtained using 2D
+linear  tomography.  The  images  are  self-consistent  in  recon-
+struction of the twin flames, exhibiting similar heights, widths,
+and  magnitudes.  However,  the  flames  diverge  in  magnitude
+and  diameter  when  comparing  the  deep  learning  and  linear
+tomography results. Steeper spatial gradients of K j  are resolved
+within the reacting flow utilizing the learning-based approach,
+and this is seen more clearly in the 2D cross sections in the top of
+Fig. 4. As in the simulations, the learning-based approach also
+mitigates  image  artifacts  and  angular  asymmetry  around  the
+flame observed in the results of the linear tomographic method.
+Reconstruction performance of both the linear tomography
+and neural network inversion is examined in further detail with
+1D profiles shown in Fig. 5. The left of Fig. 5 compares 1D
+cross-sectional  profiles  of  K j    reconstructions  obtained  from
+both linear tomography and deep learning in relation to the
+“ground truth” for the simulated K j   field indicated in Fig. 3.
+The  uncertainty  shown  associated  with  each  reconstruction
+is calculated by performing the reconstructions with different
+flow-field orientations [22]. Though a “ground truth” for the
+reconstructed K j  fields determined from the experimental mea-
+surements is unknown, an analogous comparison can be made
+for the experimental K j   fields at the base of the flames nearest
+the burner surface, indicated by Fig. 4. Given an independently
+measured or estimated temperature field, Eq. (1) can be used
+to obtain a mole fraction field for CH4. The right of Fig. 5
+shows the resulting 1D profiles of CH4 mole fraction assuming
+a  uniform  temperature  of  450  K  (based  on  a  thermocouple
+measurement  at  burner  exit).  While  the  temperature  in  this
+plane is certainly not uniform, the CH4 absorption line strength
+exhibits relative insensitivity to temperature—Error bars cap-
+ture  a  possible  temperature  range  between  400  and  750  K.
+This simplified analysis provides clear indication that the mole
+fraction at the core of the flame (X CH4  ≈ 0.59) is more closely
+estimated by the neural network inversion, even with only three
+imaging angles.
+Additionally, the learning-based approach reduces compu-
+tational load compared to linear tomography with Tikhonov
+regularization. The reconstructions are more efficient once the
+networks are established (20–30 min of training): on an Intel(R)
+Core(TM)  i7-9700  K  3.60  GHz  CPU,  the  neural  network
+completed reconstructions in 0.35 s while linear tomography
+took ∼3 s.
+CONCLUSION
+A  deep  learning  approach  to  the  inversion  problem  for
+absorption  tomography  was  coupled  with  a  high-resolution
+LAI for 3D species imaging, and evaluated by simulation and
+experiment. To the authors’ knowledge, the experimental effort
+represents the first 3D imaging of methane in a flame, attaining
+a pixel resolution ∼ 70 µm. Initial results suggest that the neural
+network inversion has potential to more accurately predict flame
+structures with fewer projection angles than linear tomography,
+and reduces computational load. Extension of this method to
+more complex flame structures may require more sophisticated
+simulations to generate appropriate training data. While the fuel
+structures examined here were well-approximated by Gaussian
+distributions  (validated  independently  by  single-flame  Abel
+inversion), turbulent flow structures and intermediate or prod-
+uct fields likely require more physical (and difficult to simulate)
+representations.

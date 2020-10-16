@@ -1,0 +1,595 @@
+Abstract〞We describe the development of feedback control for 
+autonomous underwater gliders. Feedback is introduced to make 
+the glider motion robust to disturbances and uncertainty. Our 
+focus is on buoyancy-propelled, fixed-wing gliders with attitude 
+controlled by means of active internal mass redistribution. We 
+derive a nonlinear dynamic model of a nominal glider complete 
+with hydrodynamic forces and coupling between the vehicle and 
+the movable internal mass. We use this model to study stability 
+and controllability of glide paths and to derive feedback control 
+laws. For our analysis, we restrict to motion in the vertical plane 
+and consider linear control laws. For illustration, we apply our 
+methodology to a model of our own laboratory-scale underwater 
+glider. 
+Index Terms〞Autonomous underwater vehicles, buoyancy control, 
+glider control, glider dynamics, movable mass, underwater 
+gliders.
+I. INTRODUCTION 
+IN RELATION to existing methods of ocean sampling, 
+autonomous underwater gliders offer a host of technical 
+advantages: superior spatial and temporal measurement density, 
+longer duration missions, and greater operational flexibility. 
+These advantages are expected to be greatest when multiple 
+gliders are operated cooperatively in a network. The underwater 
+glider concept, initially conceived by Henry Stommel 
+, has motivated the development of several operational 
+gliders, including the SLOCUM glider, the ※Spray§ glider 
+and the ※Seaglider§. These are all buoyancy-propelled, 
+fixed-winged gliders which shift internal ballast to control 
+attitude. Each has many useful features ranging from low 
+operational and capital costs, and low noise and vibration to 
+high reliability due to simplicity of design, minimal reliance on 
+battery power, and low vulnerability of actuator mechanisms 
+to the harsh effects of seawater. 
+In order for the advantages in ocean sampling using underwater 
+gliders to be fully realized, an accurate and reliable glider 
+control system should be developed. Most importantly, the use 
+of feedback control provides a measure of robustness to uncertainty 
+and disturbances. In this paper, we derive a nonlinear 
+dynamic model and describe the first steps in development of 
+model-based control for a class of underwater gliders, namely 
+those with fixed external surfaces which can control buoyancy 
+and center of gravity (CG). We emphasize an approach that 
+is widely applicable rather than exclusively vehicle-specific; 
+accordingly, this work complements the efforts on SLOCUM, 
+Spray and Seaglider. 
+On SLOCUM, the ballast tanks are configured within the vehicle 
+to provide the proper pitching moment during upwards and 
+downwards glides. A sliding battery mass is used for 
+fine adjustments in pitch and roll. Sensors measure depth, pitch, 
+roll, and compass heading. Vehicle position at the surface is determined 
+through GPS fix. The pitch angle, an assumed angle 
+of attack, and a vertical speed computed from depth measurements 
+are used to estimate the horizontal speed of the glider. The 
+glider control system periodically checks the glider attitude and 
+adjusts the position of the sliding battery mass. The timing of 
+mass position adjustments can be changed depending on glider 
+performance during the glide. Switching between downwards 
+and upwards glides is performed open loop, i.e., the ballast is 
+changed and the sliding mass is moved to a new position. 
+Sensing and control on other gliders is similar. For example, 
+Spray performs active control of pitch and roll every 40 s 
+using measured pitch and heading errors. In the case of pitch, 
+a low-gain proportional control law is used, and in the case of 
+heading, proportional plus integral control is used. 
+Our program initiated in this paper to develop a model-based, 
+feedback control design methodology is intended to improve 
+upon the currently implemented glider control strategies. A systematic 
+design methodology that provides control in the full 
+state-space is expected to make it possible to design glider controllers 
+that require less experimentation and tuning and provide 
+more robustness to fouling, payload changes and other uncertainties 
+as compared to current techniques. Additionally, with 
+a model-based approach, a dynamic observer can be designed 
+to estimate states such as glider velocity. These estimated states 
+could then be used to determine horizontal glider motion instead 
+of the current methods which rely on assumptions of constant 
+angle of attack. A model-based approach may also prove useful 
+in determining optimal glider motions. 
+The dynamic glider model we derive here describes a glider 
+with simple body and wing shape. Control is applied to two point 
+masses inside the vehicle: the first point mass has variable mass 
+but fixed position while the second point mass has fixed mass but 
+variable position relative to the center of buoyancy. One control 
+input changes the mass of the stationary point and another control 
+input vector corresponds to the force applied to the movable 
+mass. The model describes the nonlinear coupling between the 
+vehicle and the shifting and changing mass. Analysis and control 
+law design is performed for the dynamics specialized to the vertical 
+plane. Continuous feedback laws are developed. However, 
+when energy is at a premium, we envision a scenario in which one 
+might occasionally and temporarily turn off the active feedback 
+control routine (including sensors), e.g., during periods of relative 
+calm or when tight control is less critical. 
+The model we derive, although simplified, does capture 
+the essential dynamic features of underwater gliding. The 
+simplicity allows for development of general control design 
+strategies. These strategies along with the insights gained from 
+the development are expected to be relevant to the design of 
+control laws for the more complex operational gliders. Feedback 
+provides robustness to uncertainty, and this uncertainty 
+may include unmodeled dynamics. 
+Specialization of the glider dynamics to the vertical plane 
+constitutes a first step toward a systematic understanding and 
+methodology for complete glider control design. In restricting 
+to the vertical plane, we ignore, for example, challenges associated 
+with currents traveling transverse to the motion of the vehicle. 
+Analysis of tail volume requirements, heading corrections 
+and the capabilities of shifting mass in this context will be next 
+steps in developing methodology to meet these challenges. The 
+successful SLOCUM glider experiments at LEO-15 during the 
+summer of 2000 suggest promise for this program. In these experiments, 
+SLOCUM performed excellent tracking in the presence 
+of strong (transverse) currents. 
+Throughout the paper, we illustrate our results on a model 
+of a small, laboratory-scale underwater glider called ROGUE 
+(Remotely Operated Gliding Underwater Experiment) that we 
+have built and that we operate in a freshwater tank and pool, see 
+Fig. 1. In the first version of this glider, CG position is controlled 
+by shifting a lead weight inside the vehicle. In its most recent 
+incarnation, ROGUE controls buoyancy and CG position 
+by means of a distributed array of independently actuated ballast 
+tanks (syringes). 
+In related and forthcoming work with colleagues, we address 
+issues in optimal path planning for underwater glidersand in 
+coordinating control for multiple autonomous underwater vehicles. 
+There is a great deal of literature on dynamics, stability, and 
+control of airplanes, including [11], [12], [13]每[16], which is 
+clearly of interest in the study of underwater gliders. We note, 
+however, that added mass forces, variable buoyancy and controlled 
+mass redistribution, which play a central role in our study 
+of underwater gliders, are not typically relevant for airplanes and 
+therefore not included in the airplane literature. 
+In Section II, we derive the equations of motion for a 
+buoyancy-driven, fixed-wing underwater glider. Controllability 
+and observability of steady glide paths in the vertical plane are 
+studied in Section III. Linear control laws are developed in 
+Section IV for stabilizing these glide paths in the presence of 
+disturbances. A simulation of the controlled glider modeled to 
+resemble ROGUE is also presented. We give final remarks in 
+Section V. 
+II. GLIDER DYNAMICS 
+The variables used in this paper are defined in Table I. 
+A. Equations of Motion in 3-D 
+We model the underwater glider as a rigid body with fixed 
+wings (and tail) immersed in a fluid with buoyancy control and 
+controlled internal moving mass. We take the hull to be ellipsoidal 
+with wings and tail attached so that the center of buoyancy 
+(CB) is at the center of the ellipsoid. We assign a coordinate 
+frame fixed on the vehicle body to have its origin at the CB and 
+its axes aligned with the principle axes of the ellipsoid. Let body 
+axis 1 lie along the long axis of the vehicle (positive in the direction 
+of the nose of the glider), let body axis 2 lie in the plane 
+of the wings and body axis 3 point in the direction orthogonal 
+to the wings as shown in Fig. 2. 
+The total stationary mass, , (also referred to as body mass) 
+is the sum of three terms: is a fixed mass that is uniformly 
+distributed throughout the ellipsoid, is a fixed point mass that may 
+be offset from the CB, and is the variable ballast point mass which 
+is fixed in location at the CB. The vector from the CB to the point
+mass is . The vector from the CB to the center of mass of the stationary mass is 
+The moving internal point mass is . The vector 
+describes the position of this mass with respect to the CB at time . 
+The total mass of the vehicle is then 
+The mass of the displaced fluid is denoted and we define 
+so that the vehicle is negatively (positively) 
+buoyant if is negative (positive). The different masses and 
+position vectors are illustrated in Fig. 3. 
+ DEFINITION OF VARIABLES 
+Let denote the inertia matrix, with respect to the body 
+frame, for the uniformly distributed mass . Define the operator 
+so that for a vector , 
+Equivalently, for vector i.e., the operator maps a vector to the (skew-symmetric) matrix 
+representation of the vector cross product operator. The inertia 
+matrix for the stationary (body) mass expressed with respect 
+to body frame coordinates is 
+Since the variable ballast mass is a point mass located at 
+the CB, it does not contribute to , and in particular is a 
+constant. 
+The orientation of the glider is given by the rotation matrix 
+. maps vectors expressed with respect to the body frame 
+into inertial frame coordinates. The position of the glider 
+is the vector from the origin of the inertial frame to 
+the origin of the body frame (vehicle CB) as shown in Fig. 4. 
+The vehicle moves through the fluid with translational velocity 
+and angular velocity , expressed with respect to the body frame. [Note that we have 
+diverged from the notation typical of the submarine literature 
+where and . The notation that we use here is taken from texts in classical mechanics such as 
+[17] and is more convenient for the derivation and analysis.] In 
+this notation, the kinematics of the glider are given by 
+Fig. 4. Glider position and orientation variables. 
+Let  represent the total translational momentum of the 
+vehicle-fluid system and  the total angular momentum of 
+the system about the inertial coordinate origin, all expressed 
+with respect to the inertial frame. Let represent the total 
+momentum of the movable point mass with respect to the inertial frame. 
+Then Newton＊s laws state that where is a unit vector pointing in the direction of gravity,
+is an external force applied to the system, and is a pure
+external torque. These external forces and torques include those
+due to gravity and buoyancy; however, gravity is included explicitly
+in the third set of equations as it is the only external
+force acting on the movable point mass. The force is a
+force applied from the vehicle body onto the point mass (a control
+force). All vectors are expressed with respect to the inertial
+frame. The vector locates the point of application of the force
+with respect to the inertial coordinate frame.
+Let be the momentum of the vehicle-fluid system expressed
+with respect to the body frame. Let be the total
+angular momentum about the origin of the body frame. Let
+represent the point mass momentum with respect to the body
+frame. Then
+Differentiating (4)每(6) and using the kinematic expressions (2) 
+and (1) gives (7) 
+Substituting (3) into (7) for the rate of change of inertial momenta 
+gives the following dynamic equations in body coordinates: 
+ where is the internal force acting on the 
+point mass in body coordinates. Let  
+so that 
+To derive expressions for , , and , we determine the
+total kinetic energy of the glider-fluid system. The kinetic energy
+of the rigid body with mass and inertia matrix is
+Let be the absolute velocity of the movable point mass
+expressed in body coordinates. Given that the velocity of
+relative to the body frame is , we compute
+The kinetic energy of the movable point mass is then computed 
+to be 
+Kirchhoff [18] showed that the kinetic energy of an unbounded 
+volume of ideal fluid due to the motion of an immersed 
+rigid body takes the form where is the added mass matrix, is the added inertia 
+matrix, and is the added cross term. These matrices depend 
+upon the external shape of the body and the density of the fluid. 
+This form of kinetic energy comes from a potential flow solution 
+in which the fluid is assumed to be inviscid, incompressible, 
+irrotational and motionless at infinity. We incorporate viscous 
+effects into the model as external forces and torques (lift and 
+drag) below. 
+We assume that at low angle of attack, the contribution of the 
+wings is dominated by lift and drag forces. Thus, we make the 
+simplifying assumption that the added mass and inertia terms 
+can be computed solely from the vehicle hull. These assumptions 
+are not so critical for the analysis in this paper, especially 
+since it is expected that feedback control will provide robustness 
+to unmodeled dynamics. Nonetheless, it may be of interest in 
+future work to consider more detailed modeling of added mass 
+associated with the hull plus wings using methods such as from 
+computational fluid dynamics. 
+The total vehicle fluid kinetic energy is 
+computed to be 
+We can then compute momenta as
+Since the vehicle hull is ellipsoidal (we neglect the wings in this 
+instance), and are diagonal and . Let and . Define 
+Inverting the relationships (13) then gives the body velocities in 
+terms of the body momenta: 
+where is the 3 3 identity matrix. Let and . Furthermore, assume that so that. 
+Then,Inverting the relationships (13) then gives the body velocities in
+terms of the body momenta: 
+To get the equations of motion in terms of body velocities, we 
+differentiate (14) with respect to time. We assume that buoyancy 
+is changed in a symmetric way (e.g., ballast is pumped on and 
+off board in streams with the appropriate symmetry) so that there 
+is negligible associated thrust or moment on the glider. Let the 
+ballast control input be defined as 
+Differentiating (14) then gives 
+where 
+With the substitution into (16) of (8)每(11) for the derivatives 
+, and , (17) for and (13) for the relationship between 
+momenta and velocity, the complete equations of motion 
+for the underwater glider moving in three-dimensional space are  
+Here, 
+refer to external forces and moments, in this case lift and drag, 
+with respect to the body frame. 
+B. Equations of Motion in the Vertical Plane 
+We now specialize the model to the vertical plane, the 每 
+plane in inertial coordinates and the 每 plane in body coordinates. 
+Accordingly, 
+where is pitch angle. 
+The equations of motion (18) for the gliding vehicle restricted 
+to the vertical plane become 
+Here, is the angle of attack, is drag, is lift and is the 
+viscous moment as shown in Fig. 5. These forces and moment 
+are modeled as 
+where the s are constant coefficients. This model is a standard 
+one, derived using airfoil theory and potential flow calculations 
+and then verified using experimental observations, see for example 
+[12]. The method for determination of the coefficients 
+is described in Section III-C. 
+As shown in Fig. 5, we denote the glide path angle by where 
+Fig. 5. Lift and drag on glider. 
+Fig. 6. Planar gliding controlled to a line. 
+We also denote the glider speed by where 
+We also denote the glider speed by where
+We will typically specify a glide path by desired glide path angle 
+and desired speed . We define inertial coordinates 
+such that coincides with the desired path: 
+Then, measures the vehicle＊s perpendicular distance to the 
+desired path. We define two gliding objectives: 
+GO1 
+The objective is to control only the direction and speed 
+of the vehicle＊s glide path. In this case we need not 
+consider and at all. 
+GO2 
+The objective is to control gliding along a prescribed 
+line (see Fig. 6). In this case we will include (but 
+exclude ) in our analysis and we aim to make . 
+The dynamics of the state are 
+In the above model, the movable point mass can be controlled 
+in all directions (2 degrees of freedom in the planar case). However, 
+it may sometimes be the case that control over the CG location 
+is restricted, for example, a battery may be shifted in a 
+limited way. For the planar case, this might translate into a movable 
+point mass with only one degree of freedom. To model this 
+we consider the case in which is fixed ( ), i.e., we 
+can only move the point mass in the direction.then 
+The new equations of motion are (19)每(29) excluding (26) and
+(28). Further, is replaced by (32) and is replaced by
+which is computed by differentiating (32) with respect to time.
+In particular, (22) and (24) are replaced with 
+where 
+III. CONTROLLABILITY OF STEADY GLIDE PATHS 
+In this section, we compute steady glide paths. We then study 
+controllability and observability of these glide paths.  
+A. Gliding Equilibria 
+We prescribe a desired glide path by specifying the desired 
+, we see that we must choose glide path angle and the desired speed 
+. We denote with subscript ※ § the value of all dynamic variables at 
+the glide equilibria. 
+To get the conditions for such planar gliding equilibria, 
+we set the left hand side of (31) and (21)每(29) to zero. This gives 
+or 
+and . Note that 
+which are all dependent on the equilibrium value of the variable
+mass .
+Since the drag model is valid only at small angles of attack, we 
+take 
+Given , (35) and (36) may be solved for . We can then
+compute
+can then be solved again using (35) and (36). Finally, (34)
+gives a one-parameter family of solutions for .
+First, we compute from (35) and (36). Note that these
+equations reduce to
+The first equation of (39) is a quadratic equation in . Provided
+and , we have
+Equation (40) may be solved for a realizable provided
+Evaluating (41) for permissible values of in the range
+, we see that we must choose
+or
+Since the drag model is valid only at small angles of attack, we
+take as the solution of (41) with smaller magnitude,
+If , then we simply have
+For a vehicle which is symmetric about the body 每 plane, 
+which are all dependent on the equilibrium value of the variable 
+. In this case, for equilibria corresponding to vertical . flight ( ), 
+the desired angle of attack is zero. 
+Fig. 7. Family of possible movable mass locations for a steady glide. 
+We may determine from the latter equation in (39) as 
+Finally, we may solve for a one-parameter family of sliding mass locations 
+solutions is which satisfy (34). The family of 
+where 
+and where is a real number. The vector is a particular solution 
+of (34). Since is the direction of gravity in body coordinates, 
+is orthogonal to the direction of gravity and measures the vehicle＊s ※bottom-heaviness§ as 
+shown in Fig. 7.
+ For an experimental vehicle, may be a more physically 
+relevant choice of parameter than . In this case, 
+for a given value of the parameter , provided . 
+If , there is an equilibrium of the desired form if and 
+If (47) is satisfied, 
+is a free parameter. In fact, we should not choose 
+to satisfy condition (47) in general because this 
+will require that be small. Since contributes to the vehicle＊s 
+※bottom-heaviness§ at shallower glide path angles, satisfying 
+condition (47) will affect stability of these other equilibria. 
+[For a vehicle symmetric about the body 每 plane, 
+implies that and . In this case, condition (47) requires that .] 
+B. Linearization 
+We determine the linearization for the planar glider about a 
+steady glide path. 
+Let and let . Define 
+Then the linearized system is 
+(48) where and 
+are defined as shown in (49) and (50), shown at 
+the bottom of the next page. Here, 
+where we have abbreviated as , etc., and
+The notation indicates that the quantity is to be evaluated 
+at the desired equilibrium. 
+This linearization can be used to check features of a given 
+vehicle design, e.g., to check stability or controllability of a desired 
+glide path given a choice of vehicle design parameters. 
+One can also use this linearization to help automate the design 
+procedure. For example, consider a vehicle that has been fully 
+designed but for a choice of the position of the movable mass 
+for a given glide path. Application of the Routh criterion to the 
+characteristic polynomial of the matrix gives conditions for 
+stability of the glide path. These conditions can be written in 
+terms of the free variable. would then be chosen for behavior 
+with desired stability and would then be computed according to (46). 
+C. Controllability and Observability 
+In this section we describe controllability and observability 
+of steady glide paths for a model of our experimental vehicle 
+ROGUE. ROGUE has an ellipsoidal body with axes of length 
+18, 12, and 6 in. The wings are symmetric airfoils from [21] for 
+low Reynolds number. We note that the body and wings have not 
+been designed for optimal gliding performance but rather in consideration 
+of available facilities and other manufacturing constraints. 
+Each wing has span of 28 inches with aspect ratio 9.3. 
+The glider body, wings and tail are all machined from UHMW 
+(ultra-high molecular weight) plastic. Mass and inertia properties 
+were measured directly. Added mass and inertia properties 
+can be found, for example, in [20]. Lift and drag for the body 
+were found experimentally as described in [8]. Lift and drag for 
+the wings were taken from the data in [19]. Lift for the body 
+plus wings was then computed using Schrenk＊s method [21], 
+and drag was computed as the sum of the drag on the wing and 
+the body. The lift moment was approximated by taking into account 
+the tail. The vehicle model parameters are given as follows: 
+The first three masses, , , and were measured with a high 
+degree of accuracy. The other terms have less precision because 
+they are based on look up tables and approximation methods. 
+Four steady glide paths are calculated using the method of 
+Section III-A. The glide paths are at glide angles 30 , 45 , 
+30 and 45 . We compute the glide path at 30 by choosing 
+a desired glide speed m/s and a desired vertical location 
+of the movable mass given by cm. This results 
+in an equilibrium variable mass given by kg. The 
+glide path at 45 is computed for these same values of 
+and . The corresponding equilibrium speed for this glide is 
+computed as m/s. Similarly, we computed the two steady upward glide paths, for 
+the same value of and the same buoyant force magnitude, i.e., the value of is held 
+constant. Recall that is the mass of the vehicle less the mass of the displaced fluid . 
+The full description of each of the four glide paths is given in Table II. 
+Local properties of these steady glide paths can be studied 
+using the linearization of Section III-B. By plugging in the equilibrium 
+values, we can examine the linearization for stability, 
+controllability and observability. The four glide paths listed in 
+Table II all have a relatively slow unstable mode. They are all, 
+however, locally controllable. That is, and as given by (49) 
+and (50), when evaluated at any of the four equilibria, satisfy 
+the controllability rank condition. Note that the linearization includes 
+the state meaning that controllability extends to the 
+variable . Accordingly, we can successfully design a linear 
+controller that will locally accomplish not only glide objective 
+GO1 but also GO2. 
+It is of interest to check the controllability rank condition in 
+the case that the movable mass can only move in one direction 
+(i.e., is fixed). To do this we have linearized the equations of 
+motion for the single degree-of-freedom moving mass described 
+at the very end of Section II. Again the new and matrices 
+for this case, when evaluated at any of the above four glide paths, 
+satisfy the controllability rank condition. Thus, it seems that at 
+least for linear type control action, not much is lost in restricting 
+the degrees of freedom of the movable mass from two to one. 
+On the other hand, for large motions, such as switching from 
+an upward to a downward glide path, care needs to be taken 
+if restricting the degrees of freedom of the movable mass. For 
+instance, while motion of the movable mass restricted to the 
+direction would be sufficient for sawtooth maneuvers, motion 
+restricted to the direction would not allow for both upward 
+and downward glide motions. Because of the glider shape, mass 
+motion restricted to the direction will also typically have 
+more limited travel as compared to motion in the direction. 
+The movable mass for ROGUE is approximately 1/6 of the 
+vehicle displacement . This is of the same relative order as the 
+movable mass in the gliders SLOCUM, Spray and Seaglider. 
+Variations in this mass or its location will not in principle affect 
+local controllability of a feasible glide path. In practice, however, 
+there are clear tradeoffs associated with moving a large 
+mass a short distance versus moving a small mass a large distance. 
+For example, a large mass may be energetically expensive 
+to move and the necessary motion control resolution required 
+may be difficult to achieve. On the other hand, since only short 
+travel would be required, there would be a smaller demand on 
+vehicle volume. Variation in mass and location will also affect 
+the range of feasible glide paths and the nature of the switching 
+between them. The variable mass in ROGUE at the equilibrium 
+described above is larger relative to vehicle displacement 
+as compared to these other gliders. This mass controls glide 
+speed; thus, for example, if significant vehicle load required designing 
+for a smaller variable mass then maximum glide speed 
+would be reduced. 
+Observability of the linearized model about the four glide 
+paths listed in Table II was also investigated. If GO1 is our objective, 
+i.e., if we are interested in controlling only the direction 
+and speed of the vehicle＊s glide path, then we need not measure 
+. The nine-dimensional dynamic model (which excludes ) is completely observable 
+with measurements limited to movable mass position ,and variable mass. In this case, 
+pitch angle , pitch rate , linear velocity components and 
+and the momentum of the movable mass, need not be 
+sensed. Observability means that with the measurements of, 
+and , a dynamic observer could be designed to give an estimate 
+of the unmeasured states , , , , and .of course, is typically already measured and 
+is not so hard to measure, so the real advantage is in the estimation of ,, 
+and which are more difficult to measure. The nine-dimensional 
+dynamic model is also completely observable with measurements 
+limited to , (or ) and . Again this means that using these three measurement signals,
+an observer could be designed to estimate the rest of the states. 
+If GO2 is our objective, i.e., if we want to control the glider to 
+a prescribed line in the plane, then we need a measurement of . 
+Recall from (30) that depends on both depth , which is easily 
+measured, and horizontal position , which is not so easily measured. 
+The measurements , and , together with a measurement of (or alternatively , , and ), 
+do not render observable. This means that without an initial condition measurement 
+, the trajectory can not be computed. However, with an initial measurement of 
+given say from a GPS fix taken when the glider is at the surface, the horizontal motion of 
+the glider can be calculated, for example, by making use of the 
+estimate of linear velocity from the observer. We note that this 
+approach has the potential to improve the accuracy of horizontal 
+motion determination over current methods which are based on 
+assumptions of constant angle of attack, etc. For example, on 
+SLOCUM, the horizontal motion of the glider during the glide 
+is estimated from GPS fixes taken at the surface, measured pitch 
+angle , an assumed angle of attack and vertical speed computed 
+from depth measurements [6]. Similarly, on Spray, horizontal 
+flight distance is calculated based on a constant pitch, heading 
+and angle of attack to which the vehicle is being controlled [4]. 
+IV. CONTROLLED PLANAR GLIDING 
+In this section we demonstrate, in simulation, controlled 
+gliding in the vertical plane by designing and testing a linear 
+controller for the glide path moving 30 downward as described 
+in Table II. Since the controller is linear, we expect that it 
+should take initial conditions nearby to the 30 downward glide 
+path. We demonstrate this result by starting the glider at the 
+45 downward steady glide and using the linear controller to 
+move it to the 30 downward glide solely by feedback. 
+The controller is designed for the linearization about the 30 
+downward glide using the LQR (linear quadratic regulator) 
+method. This is a standard linear optimal control design method 
+which produces a stabilizing control law that minimizes a cost 
+function that is a weighted sum of the squares of the states and 
+input variables. We assume that all of the states are available for 
+feedback. If this were not the case, then, as described above, it 
+is possible to design an estimator to determine the unmeasured 
+states.
+ The cost function to be minimized is defined as 
+where and are state and control penalty matrices. and 
+were chosen to ensure well-behaved dynamics and to prevent 
+large motions in the movable mass position and variable mass 
+that would exceed physical limitations. Taking into account real 
+or desirable maximum state values, the states associated with 
+vehicle and movable mass velocity and variable mass and pitch 
+angle were weighted most heavily. No significant tuning was 
+performed. The weight selections are given by 
+The corresponding control law is where is computed
+using MATLAB as the solution to the Riccati equation
+given .
+ In Figs. 8每10, we show a MATLAB simulation of the glider 
+moving first along the 45 downward glide and then switching 
+to the 30 downward glide path. This was accomplished by 
+turning on the linear controller at seconds. In Fig. 8 we 
+show the glide path, in Fig. 9 we show plots of position, pitch, 
+linear and angular velocity as a function of time and in Fig. 10 
+we show the position of the movable mass, the net buoyant force 
+as well as the control inputs as a function of time. In these latter 
+two figures we show the results of the controller as applied to 
+the linear dynamic model and the results as applied to the nonlinear 
+dynamic model. 
+The figures show that the 45 downward glide path is in the 
+region of attraction of the linear controller designed for the 30 
+downward glide path. Furthermore, the transient is very well 
+behaved. 
+However, we do not expect that the upward equilibria would 
+be in the region of attraction of a linear controller designed for 
+a downward glide (and vice-versa). This means we would not 
+want to use a pure linear feedback solution for switching in a 
+sawtooth glide path. Instead, we could consider complementing 
+the feedback law with a feedforward term which drives the movable 
+mass and the variable mass in a predetermined way from 
+initial to final condition. Alternatively, we can consider a nonlinear 
+control design approach that would include feedback and 
+may or may not include a feedforward term. A feedforward term 
+would make it possible to introduce an optimal path between 
+two different glides. 
+Laboratory experiments of controlled gliding with ROGUE 
+will be described in a future publication. 
+V. FINAL REMARKS 
+We plan to realize the results described in this paper as well 
+as future control design developments on experimental gliders 
+both of our own construction, e.g., ROGUE, and with our colleagues 
+who build sea-worthy gliders, e.g., SLOCUM. 
+Fig. 10. Simulation of movable mass, variable mass, and control inputs. 
+In future work we intend to further develop the gliding control 
+methodology by investigating nonlinear feedback control laws, 
+feedforward control and path planning. We are already working 
+with colleagues on optimal control theory that is applicable to 
+underwater gliders [7] and that may be useful for path planning 
+purposes. 
+Other future directions include extending our work to gliding 
+motion in the horizontal plane, e.g., waypoint following, and to 
+glider network maneuvers. Work is already underway to develop 
+decentralized control laws to produce underwater vehicles that 
+school [9], [10], and these we hope to integrate with control of 
+glider dynamics. In support of this effort, we are building an 
+experimental, underwater test-bed for multiple-vehicle control 
+[22]. Schooling fish function like an integrated sensing system 
+and by emulating their traffic rules, we can hope to produce a 
+network of gliders that can similarly serve as a fast and effective 
+adaptive ocean sensing platform. 

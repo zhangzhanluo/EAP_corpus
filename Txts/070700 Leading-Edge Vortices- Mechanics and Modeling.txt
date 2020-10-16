@@ -1,0 +1,1024 @@
+Leading-Edge Vortices:
+Mechanics and Modeling
+Keywords
+leading-edge vortex, translating, surging, rotating, pitching, LEV, vortex
+model, data-driven, unsteady aerodynamics
+Abstract
+The leading-edge vortex (LEV) is known to produce transient high lift in
+a wide variety of circumstances. The underlying physics of LEV formation,
+growth, and shedding are explored for a set of canonical wing motions including
+wing translation, rotation, and pitching. A review of the literature
+reveals that, while there are many similarities in the LEV physics of these
+motions, the resulting force histories can be dramatically different. In twodimensional
+motions (translation and pitch), the LEV sheds soon after its
+formation; lift drops as the LEV moves away from the wing. Wing rotation,
+in contrast, incites a spanwise flow that, through Coriolis tilting, balances
+the streamwise vorticity fluxes to produce an LEV that remains attached to
+much of the wing and thus sustains high lift. The state of the art of vortexbased
+modeling to capture both the flow field and corresponding forces of
+these motions is reviewed, including closure conditions at the leading edge
+and approaches for data-driven strategies.
+1. INTRODUCTION
+Understanding and achieving high lift is a recurring theme in aerodynamics. Figure 1 gives a
+smattering of airfoil data for the maximum lift coefficient achieved over a wide range of Reynolds
+numbers. At the relatively high Reynolds numbers typical of manned flight, high maximum lift
+coefficients are easily attained as flow remains attached through reasonably severe pressure gradients.
+The maximum lift coefficient falls off quickly in transitional flows but can be recovered by
+installing turbulators to ensure a turbulent boundary layer and encourage attached flow. At lower
+Reynolds numbers, however, boundary layers remain laminar and are more prone to separate in
+adverse pressure gradients; airfoils stall at low angles of attack and low lift values. It is in this
+regime that insects fly, inviting the question of how flight is possible if, in steady flow, their wings
+produce only a quarter of the lift required. In a quest to explain the fundamentals of natural flight,
+biologists performed numerous studies of live insects, mounted dried wings in wind tunnels, and
+built mechanical models of the insect wing stroke (Dickinson et al. 1999, Ellington et al. 1996,
+Usherwood & Ellington 2002, Willmott & Ellington 1997, Willmott et al. 1997). In doing this,
+they discovered a flow structure that arose from unsteady and revolving motions of the wing but
+failed to appear in conventional steady flow over the same wing—the leading-edge vortex, or, its
+briefer sobriquet, the LEV.
+Interest in the LEV grew quickly, due in part to efforts to develop agile small-scale vehicles
+and biomimetic fliers and swimmers. The engineering approach to the high lift problem has been
+Maximum lift coefficient, CLmax , as a function of Reynolds number in steady and unsteady flows. Figure
+adapted with permission from Jones & Babinsky (2010).
+to distill the complex insect wing stroke into canonical motions in which the LEV is a prominent
+feature of the resulting flow. The current review focuses primarily on these canonical flows, largely
+because they are simple enough to allow us to establish the underlying physics of the LEV. As we
+discuss in detail below, the net effect of the LEV is to induce a transient fluid dynamic load on
+the wing. This has benefits (e.g., for dynamic soaring, energy harvesting, or initiating aggressive
+vehicle maneuvers), but can also lead to undesirable fatigue loading and vibrations, and in some
+cases, can induce unwanted vehicle motions (e.g., in a gust encounter or air wake). The timescale
+over which the LEV forms and sheds is fast—only a few convective times. This is within an insect
+wing stroke, thus making natural flight possible at these scales. It is, however, also very fast with
+respect to our ability to effect control, whether that be locally using flow control or more globally
+at the vehicle level. The future development of more maneuverable and gust-tolerant vehicles thus
+depends on our ability to better understand and control leading-edge separation and the resulting
+vortex-dominated flow.
+The significant enhancement of lift attributable to the LEV has motivated several questions
+that have guided most investigations of this topic: What parameters control the growth of the LEV
+and its circulation? What mechanisms govern its eventual shedding, and importantly, under what
+circumstances might it remain attached to the wing? Can the behavior of the LEV—its evolution
+and the force it exerts on the wing—be predicted with a simple mathematical model? Is there
+hope for the control of LEVs, either to mitigate transients in gust encounters and other unsteady
+flows or to enhance high lift on maneuvering wings? The current state of the answers to these
+questions is reviewed here. In the next section, some fundamentals of LEV growth and shedding
+are presented. Following that, a set of canonical problems and their governing parameters are
+discussed, including a review of LEV formation during these motions. We then summarize the
+state of mathematical modeling of these flows and the resulting unsteady loading on the wing.
+The review concludes with a brief discussion of avenues for future work.
+2. FUNDAMENTAL FEATURES OF THE LEADING-EDGE VORTEX
+Many of the general features of incipient leading-edge flow separation—the formation and evolution
+of the LEV and its resulting influence on force—can be observed in the fluid’s response
+to the simplest of unsteady motions on the most basic of aerodynamic surfaces: the impulsive
+rectilinear translation of a two-dimensional (2D) flat plate at large angle of attack. An example
+of this flow is illustrated in Figure 2, which depicts the streamlines and vorticity field
+of the flow developing over a flat plate of chord c and thickness 0.023c traveling at 35◦ incidence
+and Reynolds number Uc/ν = 500, where U is the plate’s speed and ν the kinematic viscosity of
+the fluid. Time is measured in convective units, t∗ = tU/c, with the motion initiated at t∗ = 0.
+The results in Figure 2 were obtained using high-fidelity numerical simulation with the lattice
+Green’s function/immersed boundary projection method (Liska&Colonius 2017). From the start
+of the motion, the thin wing profile ensures a separation point that remains nearly pinned to the
+leading edge. Vorticity generated at the edge forms a shear layer that quickly rolls up into the
+LEV, clearly visible at t∗ = 0.5 (see the sidebar titled Vortex Identification). At early times, the
+stagnation streamline forms a closed recirculation region on the upper side of the plate that occupies
+only the forwardmost fraction of the chord. As the LEV grows, it induces a region of reversed
+flow and secondary vorticity along the surface of the wing under the LEV, evident as early as
+t∗ = 0.5. Together with the base of the feeding shear layer, this develops into a characteristic
+lambda-shaped region of counter-rotating vorticity just upstream of the LEV. As plate motion
+continues, the LEV is fed by the shear layer and grows in both size and strength. The stagnation
+point behind the vortex moves downstream, reaching and eventually passing the trailing edge.
+Vorticity field (color contours) and streamlines (solid gray lines) from a high-fidelity numerical simulation of flow about a two-dimensional
+plate undergoing impulsive translation at angle of incidence α = 35◦ and Reynolds number Re = 500. The stagnation streamline is the
+thick black line. Vorticity contours range from −20U/c to 20U/c, where U is the plate speed and c is the chord length. Time is
+measured in convective units, t∗ = tU/c.
+After three chord-lengths of travel, the LEV shown in Figure 2 breaks away from the plate and
+convects into the wake. The progression of vortex development shown here is similar for other
+wing sections at other Reynolds numbers, motion profiles, and angles of attack, so long as there
+is large-scale flow separation at the leading edge.
+The development and motion of the LEV has a large impact on the fluid dynamic force exerted
+on the wing. The histories of the lift coefficient on the plate at various angles of incidence are
+shown in Figure 3. Each case follows a similar trend: After the infinite force at t∗ = 0 due to
+the inertial reaction of the fluid from the impulsive start, the lift resets to a finite value due to
+the release of the starting vortex at the trailing edge, consistent with the Wagner effect (Wagner
+1925). The lift increases from this initial value, quickly at first and then more gradually, to a peak
+near t∗ = 2 that reaches as high as CL = 2.5, after which it drops rapidly. The rise in lift is stronger
+and faster, and the subsequent drop is earlier, as the angle of incidence increases toward 45◦. All
+of these behaviors are attributable to the dynamics of the LEV, illustrated in Figure 3b. Here,
+the pressure coefficient along the suction side of the wing is shown for the same case of α = 35◦
+presented in Figure 2. Throughout the evolution of the flow, it is clear that there is a region of
+low pressure directly under the LEV. This region grows in both magnitude and size as the LEV
+develops (for t∗
+< 2.2) and then begins to attenuate as the vortex breaks off of the wing and moves
+VORTEX IDENTIFICATION
+In experiments and high-fidelity simulations, the boundaries of the LEV may be defined by various techniques,
+including the 1 and 2 functions (Graftieaux et al. 2001), the Q criterion ( Jeong & Hussain 1995), and Lagrangian
+coherent structure analysis (Haller 2001).
+Figure 3
+(a) Lift coefficient, CL, generated by a two-dimensional flat plate undergoing an impulsive translation at various angles of incidence α at
+Reynolds number 500. Time is measured in convective units, t∗ = tU/c, where U is the plate speed and c is the chord length. The
+purple circles correspond to the snapshots at 35◦ in panel b, showing the surface pressure coefficient, Cp (red line), and vorticity field
+(color contours).
+away, leading to the drop in lift observed at t∗ ≈ 2.5. In the physical world, where the flow is
+not constrained to remain 2D, 3D instabilities generally cause the shed vortex structures to lose
+their coherence; the flow proceeds toward a fully separated state with a concomitant loss of lift
+and increase of drag. In summary, the LEV enhances the lift on the wing to values significantly
+above what can be achieved in a fully developed separated flow at long times, but this enhancement
+survives only as long as the LEV remains near the wing.
+2.1. Control Volume Analysis
+The discussion of LEV growth and evolution in this review is facilitated by definition of a control
+volume suitable for accounting for the various fluxes into the vortex. The control volume depicted
+in Figure 4 is constructed to serve multiple forms of wing geometries and kinematics in either
+two or three dimensions; its contour C encloses the LEV and much of its feeding shear layer
+at some instant. However, rather than evolving dynamically with the LEV, the control volume
+will remain stationary relative to the wing and allow flux through any side. For analysis of the
+spanwise variation of these fluxes, the control volume has infinitesimal width dy in that direction.
+Conservation of mass in this volume is expressed, per unit spanwise length, as
+−
+
+C
+n · v dC = ∂
+∂y
+
+S(y)
+vy dS. 1.
+In words, any net inflow of mass through the side (C) of the control volume must be balanced by
+an increase in spanwise flow. In a strictly 2D flow, which has no such spanwise outlet, the influxes
+must be balanced by an equal outflow. This outflow is initially equal to the rate of spatial growth
+of the LEV as it exceeds the fixed boundary C. Later, when the vortex is no longer fed by the shear
+layer, the outflow is attributable to the convection of the shed LEV.
+The LEV circulation—positive in the configuration depicted in Figure 4—is defined by the
+total spanwise vorticity enclosed by C:
+Figure 4
+Illustration of control volume used for analysis of the leading-edge vortex (LEV). (a) Side (or two-dimensional) view, with convective
+(blue) and diffusive (magenta) fluxes into and out of the control volume. (b) Three-dimensional view on a finite–aspect ratio wing. The
+unit-outward normal vector is n, and S(y) is the cross section of the control volume at spanwise location y, bounded by contour C.
+(c) Schematic of the Coriolis tilting mechanism on a rotating wing. A rear view of the wing is shown, with the control volume shown as
+the red box. Spanwise and vertical vorticity components are denoted by ωy and ωˆ z, respectively, and vy is the spanwise velocity.
+In a 2D flow, this circulation remains invariant along the span by definition, but in three dimensions,
+it is important to remember that vorticity is divergence-free, with the consequence
+that
+−
+
+C
+n ·ωdC = ∂(y, t)
+∂y . 3.
+That is, any spanwise variation of circulation necessitates the emergence of nonspanwise components
+of vorticity to counter this variation, a familiar result from classical lifting-line theory with
+important implications for the LEV.
+To develop an evolution equation for LEV circulation, we find it useful to write the vorticity
+transport equation in the reference frame of the wing—which, to serve the discussion later in this
+review, may be rotating with angular velocity —in a form that will emphasize fluxes:
+∂ωˆ
+∂t
++ ∇ · (vωˆ ) = ∇ · (ωˆ v) + ν∇2ωˆ , 4.
+where ωˆ = ω + 2 is the vorticity in an inertial reference frame and ω and v are the vorticity
+and velocity observed in the frame corotating with the wing, respectively. The Coriolis term is
+contained within the first term on the right-hand side, which also accounts for stretching and
+tilting of the vorticity ω. Integrating the spanwise component of this equation over the control
+volume and then applying the divergence theorem, we obtain an equation for (y, t):
+∂(y, t)
+∂t
+= −
+
+C
+n · vωy dC +
+
+C
+ν
+∂ωy
+∂n
+dC +
+
+C
+n ·ωˆ vy dC. 5.
+This equation is similar to one used by Wojcik & Buchholz (2014b), but by using the fact that
+vorticity is divergence-free, the form used here clarifies the effect of stretching and tilting on the
+LEV circulation. In particular, the terms associated with net spanwise convective flux through
+S(y) and the stretching of the spanwise vorticity in this direction exactly cancel each other and are
+thus absent from this equation. Additionally, the variation in viscous flux in the spanwise direction
+is likely negligible and has thus been omitted. The first two terms on the right-hand side describe
+the convective and diffusive flux through the boundary C of the control volume, respectively, and
+the third term describes the tilting of nonspanwise components of vorticity toward the direction
+of the spanwise flow on C. In a strictly 2D flow, only the first two terms are nonzero. Furthermore,
+the diffusive flux is only prominent along the part of C adjacent to the wing surface, denoted with
+magenta arrows in Figure 4a, where it is likely small compared to the vorticity carried in via
+the shear layer. Equation 5, together with the constraints given in Equations 1 and 3, provide a
+framework in which to analyze LEV growth and stability; in particular, stability requires that the
+right-hand side of Equation 5 is approximately zero.
+2.2. Growth and Shedding in Two Dimensions
+The early development of the LEV is characterized by monotonic growth in both its size, characterized
+by a length, D(t), and its strength, quantified by its circulation, (t). As the control volume
+analysis of the previous section shows, the rate at which the LEV grows spatially in a strictly 2D
+setting is determined by the influx of mass from the shear layer at the leading edge and from the
+flow induced between the vortex and the wing, as illustrated in Figure 4a. The first of these is
+a function of the shear layer’s thickness and is thus entirely attributable to viscosity. The second
+form of influx, in contrast, represents an entrainment of mass into the vortex core and is present
+even if the vortex develops in a purely inviscid context, where the shear layer reduces to a spiraling
+vortex sheet (Kaden 1931, Pullin & Wang 2004). Although this entrainment in a viscous flow
+is somewhat mitigated by the induced boundary layer, it still represents the dominant path for
+mass influx (Huang & Green 2015). As indicated by Equation 5, the growth of LEV circulation
+is primarily determined by the convective fluxes of vorticity into the LEV. The vorticity in the
+shear layer is the primary contributor to this growth, whereas the ingestion of secondary vorticity
+in the boundary layer under the vortex—sometimes called “annihilation” (Wojcik & Buchholz
+2014b)—tends to slow the growth.
+The overall development of the LEV is a complex interplay of viscous and inviscid effects.
+At early times, the vortex development is independent of the chord length and, with no imposed
+length scale, is therefore necessarily self-similar. Xu & Nitsche (2014) have found that, for an
+infinitely thin flat plate moving at normal incidence across a wide range of Reynolds numbers
+(larger than 250), the circulation and centroid position of the vortex emerging from either edge
+are well predicted at early times by the inviscid solution—the self-similar roll-up of a vortex sheet
+from a semi-infinite plate (Pullin 1978). This inviscid solution is an extension of the classical result
+by Kaden (1931) and leads to the conclusions that /(Uc) ∼ t∗1/3 and D/c ∼ t∗2/3. To adapt these
+results to the LEV, the proportionality constant in these relations must depend on the angle of
+incidence (Pullin & Wang 2004).
+As the observations suggest, the dependence of LEV development on viscosity is second order
+and difficult to succinctly describe in scaling arguments. Furthermore, in the latter stages of its
+evolution, various influences appear to be in conflict with each other: At lower Reynolds number,
+the shear layer will be thicker, increasing the flux of mass that this shear layer carries into the
+LEV, but simultaneously, the induced flow ingested into the vortex will be relatively weaker.
+Finally, with viscous influence comes a dependence on the geometry of the leading edge, since the
+shape of this edge—most simply measured by a characteristic dimension, LLE—will determine the
+thickness of the feeding shear layer. Since LEV development remains essentially independent of
+chord length until late in the process, the viscous influence on vortex properties must be through
+a leading-edge Reynolds number, ReLE = ULLE/ν. Through differences in this parameter, two
+With a finite length of chord, the LEV cannot continue to grow indefinitely. Inevitably, the
+supply of circulation from the shear layer is severed, the vortex becomes a topologically distinct
+structure, and it is shed into the wake of the wing. This chord-limiting mechanism for shedding,
+sometimes called “bluff-body shedding” (Rival et al. 2014, Widmann & Tropea 2015) is intuitive
+and is clearly triggered when the extent of the vortex approaches that of the chord, D/c ≈ 1. It
+is identifiable by the bursting of the closed recirculation region, as seen in the results depicted
+in Figure 2. As the example in Figure 3 shows, this process is reflected in a dramatic change
+in lift. Widmann & Tropea (2015) have postulated a second form of vortex shedding called
+“boundary layer eruption”: The ingestion of secondary vorticity accumulates into the lambdashaped
+structure and eventually chokes the feed of vorticity from the shear layer. The appearance
+of this mechanism, which is independent of chord length, would necessarily depend on ReLE.
+A typical vortex shedding event is likely to be a mixture of these mechanisms. Huang & Green
+(2015) have illuminated the kinematics of the vortex shedding process on a pitching flat-plate wing
+with Lagrangian coherent structure (LCS) analysis. They showed that the LCS saddle point at the
+top of the lambda-shaped structure remains nearly stationary as long as the LEV continues to be
+fed by the shear layer. This saddle, however, splits into two at the first break in the feeding shear
+layer, and the subsequent motion of the first saddle point can be used to unambiguously identify
+the instant at which the LEV sheds from the wing. More subtle changes in the vortex dynamics
+(e.g., intermittent vorticity transfer from the shear layer) are indicated by the emergence and
+rapid motion of additional saddle points. This process appears to be consistent with the boundary
+layer eruption mechanism described by Widmann & Tropea (2015), but shedding occurs nearly
+simultaneously with the reattachment point reaching the trailing edge.
+3. KINEMATIC FAMILIES AND PARAMETERS
+While biological flight has motivated some of the recent study of LEVs, the flows generated by
+flapping wings cannot be easily disentangled to isolate the underlying LEV physics. As a result,
+many investigators interested in these physics have decomposed flapping, as well as other complex
+kinematics in which the LEV is a culprit, into a set of more basic wing motions illustrated in
+Figure 5: translation, rotation, and pitch. It is important to stress that the use of the term “decompose”
+does not suggest an underlying superposition principle; it is abundantly clear that no
+such principle can exist in these large-amplitude motions with highly nonlinear fluid dynamics.
+Rather, this decomposition provides a foundation on which further studies of combinations of
+these canonical motions can build. In similar fashion, the geometry of the wing, though assuming
+widely disparate forms across nature and technology, has generally been studied in a simple
+symmetric form: a rigid, rectangular planform, with the profile of a flat plate or a thin NACA
+(National Advisory Committee for Aeronautics) section. Of course, even basic motions can take
+many forms if left to the whims of individual research groups. The canonical motions and geometries
+established in recent years by two consortia of researchers—NATO AVT-202 (North
+Atlantic Treaty Organization Applied Vehicle Technology) and the AIAA (American Institute
+of Aeronautics and Astronautics) Massively Separated Flows Discussion Group (Ol & Babinsky
+2016, Ol et al. 2010)—have aligned many of the LEV-focused investigations and are the target of
+much of this review.
+Wing translation, illustrated in subpanel iii of Figure 5a, is defined as motion in which the
+wing is set at a fixed incidence and either driven in purely rectilinear motion at velocity U(t) or
+subjected to a freestream flow with this velocity. (Note that the forces generated by these two
+Figure 5
+Overview of the canonical wing kinematics. (a) Schematics of the wing motions: (i) pitch and translation, (ii) pitch and rotation,
+(iii) translation, and (iv) rotation. The vertical axis represents reduced pitch rate, K, and the horizontal axis is the inverse of the Rossby
+number, Ro. (b) Position, velocity, and acceleration profiles for the translating and rotating wing. (c) Angle of incidence, pitch rate, and
+angular acceleration for the pitching wing. U is the translational speed,  is the angular velocity of rotation, and α˙ 0 is the rate of
+pitching.
+Aspect ratio: the ratio
+of wing span to chord
+length, AR = b/c
+different configurations will differ by an effective buoyant force, ρU˙ V, where V is the volume of
+the wing.) The most basic form of U(t) is an impulsive start from rest to constant velocity, U.
+A more practical form is obtained by a linear ramp to this constant velocity over some specified
+distance, giving rise to the kinematics depicted in Figure 5b. Since this motion requires a sudden
+change of acceleration at its start and finish, several recent studies have made use of a smoothed
+(continuously differentiable) version of the ramp given by Eldredge et al. (2009). Each smooth
+change in behavior from constant value to linear ramp is generated by the function
+Ga (t) = 1
+2a
+
+log (2 cosh at) + at
+
+, 6.
+which approaches 0 as t → −∞and is approximately t as t → ∞. The parameter a controls
+the degree of smoothing: Its inverse represents the blending time between behaviors. A smooth
+increase in velocity from 0 to U between times t1 and t2, for example, is generated by
+U
+t2 − t1
+[Ga (t − t1) − Ga (t − t2)] . 7.
+In any case, U serves as the characteristic velocity, Uref , of the problem and, together with chord
+length, c, leads to the dimensionless expression of time in convective units, t∗ = tU/c. Since this
+definition equivalently expresses the distance traveled by the wing in units of chord lengths, it is
+easily generalized for accelerating wings (Chen et al. 2010) to
+t∗ = 1
+c
+
+t
+0
+U(τ) dτ. 8.
+In pure translation of a wing of rectangular planform with span b, in a fluid of density ρ and
+dynamic viscosity μ, the flow is characterized by only three dimensionless parameters: the angle
+of incidence, α; the aspect ratio, AR = b/c; and the Reynolds number, Re = Uc/ν. It should
+be noted that applications involving unsteady leading-edge separation are generally at low Mach
+number, so the flow can be considered incompressible. The resulting forces on the wing are
+nondimensionalized to form lift and drag coefficients, CL and CD, with the usual inertial scaling,
+ρU2bc/2.
+In wing rotation, illustrated in subpanel iv of Figure 5a, the wing adopts a fixed angle of
+incidence, α, and rotates in a propeller-like motion. The axis of rotation passes through a point
+that is either at or inboard of the wing root; the distance from the axis to the root is called the root
+cutout, rc. Like translation, wing rotation may start impulsively, although it is usually initiated
+with a linear ramp, often smoothed with Equation 6, toward a constant angular velocity, .
+The rotating wing problem is nondimensionalized by some combination of the collection of
+parameters , c, b, rc, α, and ν. However, in the interest of constructing a physically relevant
+scale for convective and inertial effects, and perhaps facilitating a meaningful comparison with the
+translating wing, a characteristic velocityUref must be formed from among these. Because the local
+incident velocity varies linearly from the axis of rotation, every possibility for the characteristic
+scale, Uref = R, requires a selection of some spanwise location R; the definitions for Reynolds
+number, Re = Rc/ν, and force coefficients [e.g., CL = 2L/(ρ2R2bc )] follow. Within the
+literature, various choices of R have been made, including midspan; three-quarter span; radius of
+gyration, rg; and wing tip, rc+b, so that a comparison between any two rotating wing studies must
+first reconcile their definitions of parameters.
+In addition to Re and α, there are two ratios of length, b/c (i.e., the aspect ratio, AR) and rc/c,
+that potentially influence the fluid dynamics of a rotating rectangular wing. These length ratios can
+be varied independently, and it is useful to note that the translating wing represents the extreme
+where rc/c → ∞. However, collectively, these two parameters have a physical role in assessing
+the ratio of inertial force, ρU2
+ref/c, to Coriolis effects, ρUref , measured by the Rossby number,
+Ro = Uref/(c ). In fact, as the present review shows, the flow generated by a rotating wing is more
+sensitive to this ratio than it is to the ratio of inertial to viscous effects (i.e., Reynolds number).
+The definition of Ro requires the same arbitrary choice of reference location R, so that multiple
+definitions of Rossby number have appeared in the literature, e.g., Ro = (rc + b)/c (Lentink &
+Dickinson 2009) and Ro = rg/c (Wolfinger & Rockwell 2014). The first definition quantifies the
+local inertia at the wing tip, while the second represents a spanwise-average influence. In cases
+where rc = 0, the first definition is equivalent to the wing aspect ratio, AR, and the second differs
+only by a constant factor. However, for wings with root cutout, the difference between these
+definitions is more significant, and AR remains an independent parameter (Schlueter et al. 2014).
+For either definition, a translating wing of finite aspect ratio represents the limit Ro→∞(with
+the constraint that the product U = rc is kept finite in this limit). Thus, rotating wings with root
+cutout fall on a spectrum of 1/Ro between translating and rotating, as depicted in Figure 5a.
+Wing pitch, depicted in subpanel i of Figure 5a, is defined as a motion in which the wing
+undergoes a steady increase in angle of incidence, α(t), from zero to some larger fixed value well
+beyond its static stall angle. As in the other cases, most recent studies have used Equation 6 to
+smooth the change in angle of incidence and avoid the infinite inertial forces due to impulsive
+accelerations at the start and finish of this maneuver. For a wing of chord length c translating at
+constant speedU and pitching at nominal rate α˙ 0, themotion is characterized by three parameters:
+the Reynolds number, generally defined in the same manner as for pure translation motion; the
+reduced pitch rate, K = α˙ 0c/(2U), which is generally explored in the range between 0.01 and 1;
+and the pivot axis position, Xp/c, which typically lies between 0 (pivot about the leading edge) and
+1 (pivot about the trailing edge).
+The combination of rotation and pitch, illustrated in subpanel ii of Figure 5a, is less commonly
+explored in the literature and is only briefly reviewed here. Furthermore, the flows generated by
+other commonly studied kinematics, particularly those comprising oscillatory pitch (Lind&Jones
+2016, Mulleners&Raffel 2012, Ohmi et al. 1991), surge (Granlund et al. 2014, 2016), or transverse
+(Calderon et al. 2013b, Panah et al. 2015, Visbal 2011) motions; or canonical (Baik et al. 2012,
+Choi et al. 2015, Fenercioglu&Cetiner 2012, Ol et al. 2009, Rival&Tropea 2010) or bio-inspired
+(Bomphrey et al. 2009, Hubel & Tropea 2010, Jardin et al. 2012, Krishna et al. 2018, Ozen &
+Rockwell 2010, Phillips et al. 2015) combinations of these often contain important LEV dynamics
+but are omitted from this review for brevity.
+4. THE PHYSICS OF LEADING-EDGE VORTICES
+4.1. Rectilinear Translation
+Arguably the simplest of the canonical kinematics is rectilinear translation, and this is the case
+that was used to present the basic features of the LEV in Section 2. The flow topology, force
+histories, and surface pressure distributions resulting from a 2D version of this motion are given
+in Figures 2 and 3, respectively. From the start of the motion, the force produced by a wing
+rapidly accelerated in translation grows as the LEV forms and falls off when the LEV sheds. The
+mechanism of shedding may vary, but the LEV typically sheds within the first few chord lengths
+of travel, and lift augmentation ceases at this point.
+The fluid dynamic forces on the wing are intimately linked to the strength and position of the
+LEV. Logically, varying the wing velocity will vary the rate at which vorticity is generated, and
+thus the rate at which the LEV gathers circulation, and so will affect the LEV strength, shedding,
+and force history of the wing. Faster wing motions (i.e., greater accelerations) have been found to
+generate more vorticity and a tighter, more coherent LEV; slower accelerations produce weaker
+vortices and lower forces (Chen et al. 2010, Mancini et al. 2015). Once the LEV moves off of
+the wing, however, it follows a very similar trajectory for both cases (Manar et al. 2016, Mancini
+et al. 2015). Despite this, the effect of the startup transient persists in the force history for many
+convective times; in experiments, the fully developed wake and constant force is not established
+until t∗
+> 14 (Mancini et al. 2015).
+In addition to effects from the LEV, force history is a direct function of acceleration due to
+added mass, discussed further in Section 5 (Mancini et al. 2015, Pitt Ford&Babinsky 2013, Pullin
+& Wang 2004). By removing the added mass component of the measured force, it can be shown
+that the remaining circulatory force (i.e., that due to the LEV) is less sensitive to acceleration,
+especially for t∗ ≤ 0.5 (Chen et al. 2010, Mancini et al. 2015). At this early stage, the trailingedge
+vortex is still forming and all of the circulation in the flow is contained in the LEVs and
+trailing-edge vortices (Pitt Ford & Babinsky 2013). Even for 1 ≤ t∗ ≤ 1.5, after the vortices shed,
+the circulation within them is nearly equal and opposite. Bound circulation on the wing remains
+small; the total lift force can be attributed to a combination of added mass and the LEV rather
+than attached flow (Pitt Ford & Babinsky 2014, Pullin & Wang 2004).
+On finite wings, tip vortex development affects both the formation and shedding of the LEV.
+The severity of 3D effects decreases at higher aspect ratios, but all finite wings are susceptible to
+LEV bending (resulting in arch vortices), stall cells, and wake instabilities. Numerical simulations
+and flow visualization experiments have demonstrated that the flow topology remains the same at
+early times for AR = 1, 2, and 4. From the start of the impulsive wing motion, flow separates at
+the leading edge, trailing edge, and wing tips, forming a closed-loop vortex system, as shown in
+Figure 6 (Taira & Colonius 2009, Freymuth et al. 1987). Past the initial transient, however, the
+wake behind the wing becomes more dependent on aspect ratio as the tip vortices gain strength.
+On a wing of aspect ratio 1, the tip vortices grow to affect the entire wing span and the vortex sheet
+emanating from the leading edge remains attached to the wing. At higher aspect ratios, however,
+Vortex structure on rectangular flat-plate wings with aspect ratios AR = 1 and 2 at angle of incidence α = 30◦ and Reynolds number
+Re = 300. Isosurfaces of vorticity are shown in light grey; the vortex cores visualized with the Q criterion are highlighted in green.
+Time is measured in convective units, t∗ = tU/c, where U is the plate speed and c is the chord length. Figure adapted with permission
+from Taira & Colonius (2009).
+the tip vortices are less dominant. At long times, the leading-edge shear layer separates from an
+AR = 2 wing and forms an arch-shaped vortex that is not visible on an AR = 1 wing (Kim &
+Gharib 2010, Taira & Colonius 2009).
+Despite interactions, the LEVs and tip vortices remain distinct structures on rectangular wing
+planforms; the sharp corners of the planform suppress vortex stability by impeding spanwise flow
+and vorticity convection between the structures (Kim & Gharib 2010, Taira & Colonius 2009).
+LEV shedding can be delayed on translating wings with rounder planforms that allow for vorticity
+convection into the tip vortices, but vorticity transport in these 2D kinematics is not sufficient to
+allow the LEV to remain attached for long times (Mancini et al. 2015, Taira & Colonius 2009).
+4.2. Rotational Motion
+The LEV on a rotating wing begins to form in a manner very similar to that of the translating
+wing. Here, however, the spanwise velocity gradient that results from rotational motion produces
+a spatially varying rate of vorticity generation, and thus the LEV that forms is conical, increasing
+in both strength and size with radial distance from the axis of rotation. These radial increases
+of the LEV are clearly visible in both the computations of Garmann & Visbal (2014), shown in
+Figure 7, and in the plot of experimentally measured LEV circulation shown in Figure 8. As the
+Figure 7
+Surface pressure distribution (represented by pressure coefficient Cp ) on the suction side of a rotating wing at angle of incidence
+α = 30◦ and different aspect ratios (AR), with overlaid isosurfaces of relative total pressure highlighting the core of the leading-edge
+vortex. Arrows mark the expansion of the vortex core due to burst. ψ denotes the instantaneous angle of rotation. Figure adapted with
+permission from Garmann & Visbal (2014).
+Figure 8
+Leading-edge vortex (LEV) circulation at spanwise locations y/b = 0.25, 0.50, and 0.60, where b is the span (a), and integrated lift
+coefficient (b), versus angle of rotation ψ, for a rotating aspect ratio AR = 2 flat-plate wing at Reynolds number Re = 2,500 and angle
+of incidence α = 45◦. As the wing accelerates through ψ = 30◦ (shaded region), both LEV circulation and lift increase rapidly. Figure
+adapted with permission from Medina & Jones (2016).
+wing accelerates through ψ = 30◦ (Figure 8b), both LEV circulation and lift increase rapidly.
+Past this point, the wing continues to rotate at a constant velocity and the LEV continues to grow,
+albeit more slowly. In the example of Figure 8, lift reaches a global maximum near ψ = 120◦,
+which in this case corresponds to the point at which the outboard portion of the LEV has grown
+to cover the entire wing chord (see Figure 9b). The LEV remains attached to the wing and
+of a similar size and strength as the wing completes a full rotation, resulting in near-constant
+lift.
+Figure 9
+Discretization of the flow field on an aspect ratio AR = 2 rotating wing at midspan. (a) Schematic of the wing and planar views. (b) Dye
+flow visualization of the leading-edge vortex at rotation angle ψ = 120◦. (c) Chordwise planes of spanwise vorticity (top) and velocity
+(bottom) at ψ = 115◦, centered at k = b/2 and separated by a spanwise increment, dz = 0.012b. Figure adapted with permission from
+Medina & Jones (2016).
+Due to the fundamental difference in LEV structure, the sustained lift values achieved on a
+rotating wing are significantly greater than those on a translating wing (Lentink & Dickinson
+2009, Manar et al. 2016, Usherwood 2008, Usherwood & Ellington 2002). The strength of the
+LEV is highly (nearly linearly) dependent on angle of attack (Ozen & Rockwell 2012, Wojcik &
+Buchholz 2014a), but neither velocity profile nor Reynolds number has a significant effect on the
+nondimensional LEV strength (DeVoria & Ringuette 2012, Ozen & Rockwell 2012, Wojcik &
+Buchholz 2014a) or the forces on the wing (Usherwood 2008). Measurements of the circulation of
+the LEV on the rotating wing at a given spanwise location exceed the bound circulation predicted
+by thin airfoil theory at that local velocity (Wojcik & Buchholz 2014a) but agree well with the
+measured forces ( Jones & Babinsky 2010), supporting claims that lift on the wing is primarily
+a result of the LEV and not bound circulation (Hemati et al. 2014; Pitt Ford & Babinsky 2013,
+2014). Further evidence for this is given in Figure 7,where pressure contours are plotted under the
+LEV, revealing a clear low-pressure region under this structure with higher pressure elsewhere.
+The attached LEV is unique to the rotating wing case. Early hypotheses as to the source of
+LEV stability focused on the convection of vorticity via spanwise flow (Ellington et al. 1996) but
+were confounded by reports that blocking this flow did not result in vortex shedding (Birch &
+Dickinson 2001). Later work demonstrated that, while spanwise flow absent rotational motion can
+allow the LEV to remain attached for short times, it is insufficient for the attached LEV observed
+on rotating wings at long times (Beem et al. 2011, Jardin & David 2014). On a rotating wing,
+spanwise flow from root to tip, vy > 0, is generated by virtue of the linear variation of incident
+flow along the span. It is typically of the same order of magnitude as the wing tip speed (Carr et al.
+2013, Garmann & Visbal 2014, Harbig et al. 2013, Medina & Jones 2016, Wolfinger & Rockwell
+2014) and is enhanced on the underside of the vortex core by the Coriolis term, which induces
+an outboard-oriented “force” on any fluid element moving relatively slower than the incident
+flow (Garmann & Visbal 2014, Jardin 2017). Although some have described this spanwise flow
+as a mechanism for vorticity transport, there is no explicit representation of it in Equation 5; its
+effect is canceled by spanwise vortex stretching. The third term of that equation does, however,
+represent tilting of the nonspanwise components of vorticity toward the spanwise direction. This
+tilting includes the influence usually described as the Coriolis effect ( Jardin 2017, Lentink &
+Dickinson 2009). In canonical rotating motion of a wing at angular velocity  and angle of attack
+α, for which z = cosα > 0, vorticity is generated in the fluid adjacent to the wing of strength
+ωˆ z ≈ 2z > 0 (or ωz ≈ 0 in the corotating frame). On the underside of the control volume, where
+the spanwise flowis strongest andwhere n·ωˆ ≈ −ωˆ z < 0, this flowtilts this component of vorticity
+into a negative spanwise component, opposite that of the LEV. This process, which might be more
+appropriately called Coriolis tilting, is illustrated schematically in Figure 4c. In addition to Coriolis
+tilting, vorticity annihilation can be a significant contributor to the outflux of circulation (Medina&
+Jones 2016, Wojcik&Buchholz 2014b). By careful accounting of the vorticity within the flow, as in
+the control volume analysis of Section 2.1, researchers have shown that LEV stability—equivalent
+to relatively little growth in LEV circulation and persistent attachment to the wing—must be
+achieved through a balance of vorticity transport mechanisms including convection, stretching,
+Coriolis tilting, and annihilation ( Jardin 2017, Wojcik & Buchholz 2014b). These mechanisms,
+however, vary along the span in different manners, so vorticity equilibrium is only achievable along
+some fraction of the wing. In fact, Jardin (2017) found that by artificially modifying the magnitude
+of the Coriolis term and thus the Rossby number of the flow, the spanwise extent of this stability
+can be altered.
+At the point along the wingspan where the balance of vorticity becomes untenable, the LEV
+bursts. Burst typically occurs near or beyond the midspan but moves inboard with increases in
+Rossby number (Carr et al. 2013, Garmann & Visbal 2014, Harbig et al. 2013, Kolluru Venkata
+& Jones 2013). It is visible near the midspan in the bottom row of Figure 7 and in Figure 9b. The
+bottom row of Figure 9c provides measurements of the spanwise flow near the burst point of the
+example from Figure 8. Spanwise flow at the k−1 plane is from the wing root to the wing tip but
+reverses direction at k, and a region of tip-to-root flow is visible at k+1. The top row in Figure 9c
+gives the vorticity field at each of the planes, where the process of negative vorticity entrainment
+and LEV expansion is visible. During this process, the vortex line representing the core of the
+LEV tilts aftward, the outboard portion of the vortex moves off of the leading edge, and the LEV
+lifts off of the wing in a manner not dissimilar from that of the translating wing; measurements
+beyond midspan at relatively high Re do not detect an attached LEV ( Jones & Babinsky 2010).
+4.3. Translational Pitching
+The LEV development on a wing that pitches while in translation is distinct from the previous
+two motions and is governed primarily by the reduced pitch rate, K, the location of the axis of
+rotation, Xp/c, and the wing’s aspect ratio, AR. Before discussing the physics of the flow’s response
+to the pitching maneuver, it is useful to take note of the parameters that, to leading order, are
+essentially unimportant in the flow response. As observed with other maneuvers, the Reynolds
+number does not have a significant role; studies conducted over the range from O(102) to O(105)
+share a common behavior (Ol et al. 2010). Furthermore, the response is not particularly affected by
+the wing’s cross-sectional geometry. Most of the studies of the late 1980s were carried out with a
+NACA 0015 section, generally pitched about its quarter chord, whereas many of the investigations
+of the past decade focused on a flat plate of 2% thickness. Aside from differences in the angles at
+which the milestone events occur, the studies in these respective cohorts reveal the same essential
+physical processes and the same trends in the parameters.
+LEV formation during the pitch-up maneuver, illuminated by experimental flow visualization
+(Granlund et al. 2013, Shih et al. 1992, Stevens & Babinsky 2016, Walker & Chou 1987,
+Yilmaz & Rockwell 2012), numerical simulation (Eldredge et al. 2009, Jantzen et al. 2014, Visbal
+2017, Visbal & Shang 1989), and measurements of surface pressure (Acharya & Metwally 1992,
+Strickland & Graham 1987, Visbal & Shang 1989) and shear stress (Schreck et al. 2002) follows a
+characteristic sequence of events. At low angles, a separation point appears near the trailing edge,
+and a recirculation region develops downstream of this point; as angle increases, the separation
+point moves toward the leading edge. After this point reaches the leading edge, the flow departs
+substantially from the quasi-steady behavior observed if the wing were held at any of these angles.
+A closed separation bubble emerges near the leading edge, inside of which the thickening
+boundary layer rolls up into the LEV. Subsequent behavior is similar to that observed in the other
+maneuvers.
+As pitch rate K increases, all of the same components of this process are observable, but vary in
+two critical respects. First, and perhaps most obvious, is that the LEV is increasingly stronger due
+to the faster flow speeds and larger pressure gradients brought about by more rapid rotation. The
+second aspect, less obvious, is that many of the milestones—the formation of the recirculation
+zone, the initiation of the LEV, and its eventual shedding—are increasingly delayed to larger
+angles of incidence (Buchner et al. 2012, Granlund et al. 2013, Jumper et al. 1987, Schreck et al.
+2002, Strickland & Graham 1987, Visbal & Shang 1989, Walker & Chou 1987).
+These delays are also evident as the pitch axis is moved aftward (Visbal & Shang 1989, Yu &
+Bernal 2016). It is not surprising that increases in K and Xp/c exhibit similar influences on the
+delay. The wall-normal component of velocity at the leading edge, relative to that of the incident
+flow, is U
+
+sin α − 2KXp/c
+
+; hence, increases in either parameter tend to reduce this component.
+However, it is impossible to conflate their influences based solely on this argument, as increases
+Figure 10
+(a) Lift coefficient, CL, from pitch-up maneuvers about the leading edge of a flat plate from 0◦ to 45◦ at various pitch rates and
+Reynolds number 1,000. Vorticity contours (in all cases, between ±30U/c) are depicted on the left for reduced pitch rate K = 1, 0.6,
+and 0.2 (from top to bottom) when the plate is instantaneously at 30◦ incidence, corresponding to the circles on the respective lift
+curves. (b) Lift coefficient versus instantaneous angle of incidence for K = 1 (top) and K = 0.2 (bottom), decomposed into the added
+mass (dotted dashed line) and circulatory (dashed line) components; the quasi-steady result, 2πα (dashed gray line), is shown for reference.
+Figure adapted with permission from Eldredge & Wang (2010).
+in Xp/c do not intensify the LEV strength as K does. Visbal & Shang (1989) found that the
+peak suction exerted by the LEV, a reasonable measure of its strength, increases steadily with K
+but decreases with increasing Xp/c. The initial formation of the LEV cannot be predicted by a
+kinematic parameter such as K or Xp/c. However, the leading-edge suction of the wing, which
+measures the instantaneous state of the flow at the wing’s nose, appears to reach a critical value
+across a variety of motions (Ramesh et al. 2014). This will be discussed further in Section 5.3.
+The force generated by a pitching wing has several notable features that distinguish this maneuver
+from those at fixed angle. Because the wing is simultaneously pitching and translating
+throughout the maneuver, the force exerted on the wing is a mix of the influence from the vortices
+developing at the edges and from the inertial reaction of the fluid (i.e., added mass). Examples of
+this force are shown in Figure 10a, which depicts the histories of the lift generated at various pitch
+rates, obtained from high-fidelity simulation of a flat plate pitched upward about its leading edge
+to 45◦ at Reynolds number 1,000 (Eldredge & Wang 2010). Both the lift and time are displayed in
+their conventional scalings with the translational velocity. Figure 10b shows the lift at two pitch
+rates, K = 0.2 and 1, now plotted versus the instantaneous angle of incidence of the plate; in these
+panels, the lift is decomposed into the added mass and circulatory contributions.
+Each pitch-up begins with a smooth acceleration from α = 0◦ over a fixed time interval that
+starts just before t∗ = 1 and finishes soon afterward; the short-lived peak centered at this instant
+is due to the added mass from acceleration, as Figure 10b confirms. Since the final angle is
+achieved earlier at higher pitch rate, the duration of the history is compressed as K increases.
+This also explains why the added mass peak appears relatively wider at larger K in the plots versus
+angle of incidence. The most significant feature of the lift response to this increase in K is its
+dramatic increase in peak magnitude, from approximately 3 at K = 0.1 to nearly 16 at K = 1.
+Though some of this increase in magnitude is attributable to added mass (proportional to K, as
+Equation 11 confirms below), this part is relatively weak, as Figure 10b shows. Thus, most of the
+lift enhancement is due to the circulatory part of the force, overcoming the negative lift due to the
+decelerating rotation at the end of the maneuver. At angles below static stall, this circulatory lift
+exceeds its quasi-steady value at all pitch rates larger than approximately 0.02 (Yu & Bernal 2016).
+The excess lift is due to the rates of circulation accumulation in the trailing-edge vortex and the
+LEV, which both increase with K; the increased strength of the LEV is apparent in the vorticity
+depicted in Figure 10. Several researchers (Eldredge et al. 2009, Granlund et al. 2013, Strickland
+& Graham 1987) have attempted to develop mathematical expressions for the lift coefficient that
+account for pitch rate and pivot axis location, but these have been only moderately successful due
+to the flow memory encoded in the vortex dynamics. Recent models for the force, discussed in
+Section 5, have had more success by explicitly including these dynamics.
+4.4. Comparisons and Combinations of the Canonical Motions
+There are many similarities in LEV physics between the three canonical motions described above,
+but there are also some key differences. Both of the inherently2Dkinematics (translation and pitch)
+shed their LEV within a few chord-lengths of travel. They produce high lift at early times before
+the LEV sheds, but lift drops off rapidly as the vortex moves off of the wing. The pitching wing
+in particular produces extremely high lift due to a combination of the inertial reaction of the fluid
+and the presence of the LEV. On a rotating wing, however, the spanwise flow that develops is
+strong enough to contribute to LEV stability and so the fully developed flow is fundamentally
+different—the LEV remains of a near-constant strength and in a near-constant position on the
+wing.
+Figure 11 gives a comparison of results from a number of research groups that have performed
+experiments on rectangular flat-plate wings undergoing the four canonical motions given
+in Figure 5. Note that in Figure 11, the x-axis is the convective time based on the constant
+final velocity of the wing, U, so while acceleration (in translation, rotation, or pitch) is performed
+over one chord-length of travel for all motions, the end of the unsteady portion of the maneuver
+appears on the axis at t∗ = 1 for the pitching cases, where U is constant, and at t∗ = 2 for the
+translating and rotating cases, where U varies with t. Note also that the lift coefficient given here
+is the measured lift coefficient, which includes not only the direct effect of the LEV but also
+any inertial effects that arise due to unsteady wing motion. Direct comparison of these results
+highlights the similarities between the force curves of the translation and rotation cases and the
+marked difference that is effected by adding the pitch-up motion in either case. Dynamic pitch
+dramatically increases the buildup and magnitude of the lift transient during the unsteady part of
+the maneuver; fixed-incidence translation and rotation result in much slower lift growth with less
+overshoot. The primary difference between the lift histories of a pitching wing in rotational or
+rectilinear motion is that the forces relax to a steady state much more quickly in rotation than in
+translation.
+In the results shown in Figure 11, the lift coefficient at long times approaches similar values
+for both translational and rotational wing motions (except for the AR = 2 translating wing,
+where the difference can be attributed to aspect ratio effects). However, several other studies
+have reported that, due to the attached LEV, a rotating wing in fully developed flow produces
+greater lift than does a translating one (Manar et al. 2016, Percin & van Oudheusden 2015). This
+Figure 11
+Lift histories from the four canonical wing motions given in Figure 5: translation, rotation, pure pitch, and pitch and rotation. Time is
+measured in convective units, t∗ = tU/c, where U is the plate speed and c is the chord length. Figure adapted with permission from
+Jones et al. (2016). Abbreviations: AFRL, Air Force Research Laboratory; AR, aspect ratio; TUD, Delft University of Technology;
+UMD, University of Maryland.
+Force model: only
+captures the force (and
+moment) response to
+motion
+Flow model: captures
+the flow field response
+as well as the force
+apparent contradiction is attributable to the choice of lift normalization. Recall from Section 3
+that the computation of CL on a rotating wing requires an arbitrary choice of reference velocity,
+affecting the magnitude of the nondimensional lift force. The necessity of this arbitrary choice
+highlights the need for flow models that capture the underlying physics of the LEV rather than
+blindly producing force predictions.
+5. LOW-ORDER MATHEMATICAL MODELING
+There has been significant effort over the past few decades to distill the transient physics of leadingedge
+flow separation into simple dynamical models. The objectives of this modeling effort are
+multifold. First and foremost, one generally seeks a fundamental understanding of the process
+of LEV evolution. Furthermore, by capturing the essential physics of the flow in a mathematical
+model and, particularly, the response of the flow to various forms of external input (e.g., actuation,
+gust encounter, or motion or deformation of the wing or control surface), we can better conceive
+of ways to manage the flow to some desired end.
+Modeling strategies for leading-edge separation can be categorized in different ways. One
+categorization is based on whether the strategy leads to a force model or a flow model. Aflow model
+should have far fewer degrees of freedom than, say, a fully resolved Navier–Stokes simulation,
+since it is meant to be a distillation of the physics into some simplified form. Members of either
+category can be roughly grouped into two approaches: models that build from first principles,
+generally using vortex models from inviscid flow theory, and models that are reductions of the
+full equations of motion. An example of this latter form is the work of Brunton et al. (2013),
+in which they linearized the Navier–Stokes equations about a stable equilibrium at low angle of
+incidence and then used the eigensystem realization algorithm to obtain a reduced-order model.
+The model was then used to successfully predict the lift response to a modest 10◦ pitch-up/pitchdown
+maneuver. Although such model-reduction approaches are a rich area of research, they are
+generally limited in their ability to capture the full range of behaviors of the LEV because they are
+based on linearization about some state or on a decomposition into modes that are only optimal
+for a particular motion. Vortex element models, in contrast, are naturally adaptive to the changing
+flow conditions and embody the essential nonlinearities of the flow through mutual interactions
+between elements. The current review primarily focuses on these models and particularly their
+most recent incarnations, in which they are informed by empirical data.
+5.1. Computing the Force
+A key to the success of unsteady aerodynamics models is to isolate the part of the force due to
+inertial reaction of the fluid, i.e., the added mass terms, so that the model is dedicated to computing
+the remaining circulatory force. Ultimately, a fluid exerts its influence on the wing through surface
+traction: pressure and viscous stress. However, its influence can also be accounted for by the rate
+of change of momentum—or, more specifically, the impulse—in the fluid. The great advantage
+of the impulse perspective is that, whereas the surface pressure depends nonlinearly on the fluid
+velocity field, the impulse depends on it linearly and can thus be decomposed into parts from
+fluid vorticity, wing motion, and uniform flow. The vorticity, or circulatory, portion includes the
+direct influence of the fluid vorticity, as well as an indirect influence from the wing due to the
+no-penetration condition, that is, the impulse of the bound vorticity, which in a viscous setting is
+the vorticity in the boundary layer. The parts of impulse resulting from the wing motion relative
+to the fluid—the noncirculatory components—comprise the inertial reaction of the fluid and
+give rise to the added mass. For example, for a 2D flat plate of length c and infinitesimal thickness,
+the added mass component that gives rise to linear momentum due to translation normal to the
+plate is ρπc2/4.
+The focus in this section is on the application of an inviscid vortex model to flow about a flat
+plate in which fluid vorticity is represented by discrete vortex elements, as depicted in Figure 12.
+Suppose that the plate, instantaneously at angle α(t), is rotating at angular velocity α˙ about a
+pivot point while translating at velocity (−U, ˙h ) relative to the ground frame. The pivot point is a
+distance a = c/2−Xp forward of the plate centroid. The plate is surrounded by a set of Nv vortex
+elements with positions xJ and strengths J = Jez, for J = 1, . . . ,Nv, each of which advects with
+velocity uJ. Any point x in ground coordinates can also be expressed in plate coordinates, ˜x = ( ˜ x, ˜y),
+via x = XC + ˜ xτ + ˜yn, where n = (sin α, cos α) is the plate’s normal vector, τ = (cos α,−sin α) is
+its tangent vector, and XC is the position of the plate’s centroid. The velocity of this centroid, U,
+has tangent and normal components
+Uτ = −U cos α − ˙h sin α, 9.
+Un = −U sin α + ˙h cos α − aα˙ . 10.
+It can be shown, e.g., via conformal mapping from a unit circle (Milne-Thomson 1996), that the
+rate of change of impulse leads to an expression for force on the plate–vortex system given by
+f = −ρ
+π
+4
+c2 ˙Unn − ρ
+π
+4
+c2α˙Unτ + ρ
+d
+dt
+Nv
+J=1
+J × (xJ − XC) + fv; 11.
+the moment can be shown to have an analogous expression. The leading two terms comprise the
+inertial reaction (i.e., the effect of added mass) and depend only on the plate kinematics, including
+Figure 12
+Schematic of a flat plate in general rigid body motion about a pivot point. The ground coordinate system is
+denoted by (x, y) and the plate coordinates by (˜ x, ˜ y). The plate translates with velocity (−U, ˙h) (relative to
+the ground) and rotates with angular velocity α about a pivot point at a distance a forward of the centroid.
+The plate’s centroid and angle of incidence are instantaneously XC and α, respectively. The J-th vortex
+element in the surrounding fluid is located at ˜xJ relative to the plate centroid.
+˙U
+n, the rate of change of the plate centroid’s normal velocity:
+˙U
+n = −˙U sin α + ¨h cos α − a ¨ α − U ˙ α cos α − ˙h α˙ sin α. 12.
+All of the remaining terms are circulatory forces. The third term in Equation 11 constitutes the
+direct effect of all fluid vortex elements on force via their motions and changes in circulation. In
+steady flow at low angle of incidence, this term accounts for the classical Kutta–Joukowsky lift
+through the advection of the starting vortex: The vortex moves away from the plate at the velocity
+of the incident flow on the wing, −U, and its constant strength, 1, is equal and opposite to the
+bound circulation on the plate, 0, so we have f = −ρU × 0.
+The remaining circulatory contributions to force in Equation 11 are contained in the final term,
+fv. It was noted above that the impulse of a vortex contains both its direct contribution as well
+as the indirect contribution from its associated bound vorticity (most easily imagined as the effect
+of the vortex’s potential flow image inside the plate); fv contains this indirect influence from
+each vortex. This force is significant only when the centers of vorticity are near the edges of the
+plate, where the bound vorticity has its greatest influence; it vanishes as these centers move away
+from the edges. Rather than provide a complete derivation of this force here, the reader is referred
+to Li & Wu (2016). For the purposes of developing intuition, it is reasonable to assume that
+fv is zero, so that the circulatory force is well approximated by the third term in Equation 11.
+It remains to describe the means of entry and subsequent evolution of vortex elements in the
+fluid.
+5.2. Vortex Modeling of the Separated Flow
+For more than a century, inviscid flow theory has been our most effective language for describing
+the aerodynamics of the attached flow past a wing, furnishing us with results that remain unsurpassed
+in their brevity and reliability. Much of this success is attributable to the minimal incursion
+of viscosity on the problem. In attached flows, the boundary layer remains thin and on the surface
+of the wing, and thus it can be suitably ignored in favor of a bound vortex sheet. In those parts
+of the problem where viscosity’s role is physically essential—in setting the flux of vorticity into
+the wake—this role can be robustly replaced by a constraint, the Kutta condition, that prohibits
+infinitely large velocities at the trailing edge of the wing.
+A flow that separates before reaching the trailing edge poses obvious challenges to this strictly
+inviscid description. The separated flow, instead of passing immediately into the wake, now has
+many opportunities to interact again with the boundary layer of the wing, and even the point
+(or line) of separation may be in question and determined by subtle viscous mechanisms. But for
+flows that separate near the leading edge, as are the focus of this review, the mechanics remain
+mostly inviscid, and we propose that these flows can also be described with models that are drawn
+from the potential flow toolbox: advecting vortex elements that induce velocity upon each other
+and are subject to the no-penetration condition of the wing. However, it should be recognized
+that, in contrast to the trailing edge, where the vorticity flux is set by the Kutta condition that the
+velocity remain finite, the condition at the leading edge is ambiguous. Indeed, the model might
+be more effective if it is left slightly underdetermined in this respect, so that it can be augmented
+by empirical measurements; this is discussed in the next two sections.
+In previous work, researchers seeking to model the lift on supersonic delta wing aircraft
+used inviscid flow theory to predict the influence of the LEV (Brown & Michael 1954,
+Edwards 1954, Mangler & Smith 1959, Polhamus 1966), extending classical thin airfoil theory
+with some representation of the separated flow. The models differ only in the manner in which
+the LEV is represented: an analytical model of a spiral vortex sheet (Mangler & Smith 1959)
+or a single, variable-strength point vortex representing the rolled-up core (Brown & Michael
+1954, Edwards 1954). Vortex models of separating flows in agile flight or rotorcraft, notably
+those developed by Sarpkaya (1975) and Katz (1981), increasingly relied on emerging computational
+resources to provide greater fidelity than earlier analytical models. These 2D models
+represent the separating flow and wake with discrete point vortices released in short time increments
+from the respective edges of the wing. More recent models developed by Ansari et al.
+(2006), Xia & Mohseni (2013), and Ramesh et al. (2014) have utilized similar approaches, although
+with different leading-edge conditions, as discussed below. Vortex sheet models, such
+as those by Jones (2003) and Shukla & Eldredge (2007), maintain connectivity between shed
+vortex elements, enabling greater authority over the initiation of instabilities and their associated
+length scales. Unfortunately, both the vortex sheet model and the discrete vortex element
+model become progressively more expensive as time proceeds and the number of elements grows.
+Furthermore, as the LEV convects along a wing at modest angle of incidence, these models
+exhibit nonphysical behaviors in lieu of the essentially viscous interactions with the boundary
+layer.
+To avoid these issues, Wang&Eldredge (2013) took a simple approach similar to that of Brown
+& Michael (1954) and used a single, variable-strength vortex element at each edge to capture the
+formation and convection of the edge’s associated flow structure. Variable-strength vortices require
+special care, however, because they necessarily produce a discontinuous pressure along a
+curve between the vortex and the wing. Brown & Michael (1954) addressed this by modifying
+the advection velocity of the vortex so that its altered force cancels the spurious force generated
+by the pressure discontinuity. The velocity modification is proportional to the rate of transfer of
+circulation, ˙ , from the wing to the vortex. Unfortunately, the Brown–Michael approach makes
+it impossible to avoid a clumsy jump in force whenever the strength of a vortex is frozen. To
+avoid this nonphysical result, Wang & Eldredge (2013) calculated the modified velocity to ensure
+that the force on the wing is independent of ˙ through an approach they called “impulse
+matching.”
+As computational resources have become cheaper and more widely available, it has become
+correspondingly faster to achieve high-fidelity simulations of dynamically separated flows. Vortex
+models no longer have a clearly advantageous role as predictive tools. However, because of their
+unique aptitude for capturing inherently nonlinear flow dynamics (vortex–vortex and vortex–body
+interactions) even with a minimal number of elements, vortex models remain powerful for distilling
+the full flow physics into a computationally tractable form.
+5.3. Leading-Edge Conditions, Vorticity Flux, and the Suction Parameter
+Classically, a mathematical model of wing aerodynamics based on 2D inviscid flow theory includes
+three basic ingredients: a transport equation for the vortex elements in the fluid, such as those
+discussed in the previous section; the Kutta condition, which ensures finite velocity and pressure
+at the trailing edge; and Kelvin’s circulation theorem, a constraint that requires that any change
+of circulation in the wake is balanced by an equal and opposite change to the bound circulation.
+Traditionally, the Kutta condition is enforced—at every instant in an unsteady flow—by choosing
+the bound circulation. Kelvin’s theorem, in turn, determines the strength of newly shed wake
+vorticity. At low angles of incidence, the circumstances at the leading edge can be ignored, aside
+from noting that the flow there will generally have large velocity and (suction) pressure. These
+become infinite as the nose radius approaches zero, but the integrated pressure remains finite in
+the limit and is called the leading-edge suction.
+The three basic ingredients can be generalized to model a flow with expected leading-edge
+separation. However, some condition must now be placed on the flow at the leading edge to
+determine the strengths of vortex elements that enter the fluid at that point. A reasonable approach
+is to express the rate at which circulation enters the LEV, which follows directly from the convective
+flux of vorticity via the shear layer, as shown in Equation 5. This can alternatively be written in
+terms of the speed of the flow, vLE, just outside the shear layer at the leading edge of the wing:
+d
+dt
+= −1
+2 v2
+LE. 13.
+Some researchers (e.g., Katz 1981, Sarpkaya 1975) have used this equation to determine the
+strength δ of new vortex elements entering the flow near the leading edge in each time step.
+However, it is considerably challenging to accurately calculate vLE in the vicinity of a discrete
+set of singular vortex elements and a singular leading edge, and since the growth of the LEV
+circulation depends strongly on this velocity, small errors can lead to significant miscalculations
+of the growth.
+For a suitable alternative, it is helpful to revisit the concept of edge suction. Enforcement of
+the Kutta condition at an edge is equivalent to prescribing its suction force to be zero; thus, this
+condition can be expressed as
+σ(δ; S(t)) = 0, 14.
+in which the strength δ of a nascent vortex element is determined by this condition on the scalar
+function σ, which is called the edge’s suction parameter (Ramesh et al. 2014). In addition to δ, this
+parameter depends on the current state, S(t), of the flow: the positions and strengths of all existing
+vortex elements, as well as the current configuration and motion of the wing. The σ parameter has
+two essential properties. First, it has units of velocity, and the edge’s suction force (per unit length)
+is equal to ρσ2c/2. Second, the sign of σ describes the direction in which the flow is traveling
+around the edge. In other words, σ is a measure of the average velocity circumnavigating the edge;
+when the Kutta condition is enforced at that edge, this average is zero.
+Both the leading and trailing edges of an infinitesimally thin representation of a wing have an
+associated edge suction parameter, and each provides an opportunity for generalizing the constraint
+imposed at that edge. It is usually sufficient to leave the suction parameter at the trailing
+edge fixed at zero, as in classical aerodynamics. At the leading edge, however, it is reasonable
+to relax this condition on its suction parameter, σL. Ramesh et al. (2014), for example, postulated
+that the flow around the nose of a wing can tolerate some amount of suction—and the
+associated adverse pressure gradient—without separating. Since σL is defined so that it is generally
+positive, they proposed that no vorticity be released as long as σL is smaller than a critical
+value, σL
+max:
+σL(δ; S(t)) ≤ σL
+max. 15.
+If, instead, the instantaneous σL exceeds the allowable range, then a new vortex element is released
+from the edge, with a strength δ proportional to σL − σL
+max to ensure that σL is brought back
+within bounds. Clearly, the Kutta condition is equivalent to setting σL
+max to zero, and Equation 15
+can be viewed as a generalization of this condition. The Kutta condition leads to a prediction of
+circulation growth that is too strong except at very large angles of incidence (Wang & Eldredge
+2013). Larger values of σL
+max naturally lead to the release of weaker vortex elements from the leading
+edge, and there is necessarily a maximum value of σL
+max that σL never exceeds and that reverts the
+model to shedding from the trailing edge only. It is important to stress that, for any nonzero value
+of σL
+max, the leading edge of a thin airfoil will have singular flow velocity and nonzero leading-edge
+suction.
+To determine the appropriate value of σL
+max, Ramesh et al. (2014) postulated that, for a given
+airfoil section and Reynolds number regime, there is a unique value of σL
+max (when nondimensionalized
+by a characteristic velocity)that holds across a wide variety of airfoil kinematics. They
+obtained this value by carrying out both a high-fidelity simulation and a vortex model of some
+representative motion, noting the value of σL in the vortex model at the instant when the highfidelity
+simulation first exhibits the formation of a vortex at the leading edge. Vortex models of
+other canonical motions, using this same σL
+max, agreed reasonably well with high-fidelity results.
+Although there is evidence from the study of Ramesh et al. (2014) that σL
+max is insensitive
+to the motion of the wing, there is also an advantage in assuming that σL
+max adapts to changing
+conditions. For example, a time-varying value of σL
+max can serve as a trigger for the transient
+aerodynamic response to an incident disturbance or actuation (Darakananda et al. 2018). In fact,
+as is discussed further in Section 5.4, σL
+max provides a natural opportunity for constructing a datadriven
+vortex model that is responsive to empirical measurements: Rather than prescribing the
+value of σL
+max from offline calibration, its time-varying value might be obtained through data
+assimilation.
+5.4. Data-Driven Models
+Because of the ambiguity in succinctly describing the physics of leading-edge flow separation
+in a mathematical model, many investigators have proposed semiempirical approaches in which
+measurements are used to inform some phenomenological model of the flow. The underlying
+model, termed a dynamical template model in this review, captures much of the underlying physics
+but leaves one or more parameters unspecified and to be determined from measurements. These
+approaches represent a form of system identification, familiar in the field of control theory. Such
+a procedure might be carried out as a postprocessing of data from experiments or high-fidelity
+computations in order to obtain a simple closed-form description of the flow and force behavior,
+or, by restricting the measurements to those obtained from onboard sensors and employing tools
+from data assimilation, it might serve as a framework for real-time dynamic estimation of the
+current flow state.
+Inviscid vortex models that are informed from empirical data represent a useful and intuitive
+approach to distilling the flow field. For example, Pitt Ford & Babinsky (2013) constructed a
+basic potential flow template of a 2D flat plate accelerating from rest but left the positions and
+strengths of a general set of point vortices unspecified. Each of these parameters was determined
+by applying vortex identification tools to experimental flow data. This allowed them to deduce
+aspects of the flow field unavailable from the direct measurements, such as the value of bound
+circulation.
+The approach taken by Pitt Ford&Babinsky (2013) omits the vortex dynamics (i.e., the motion
+of point vortices with the local velocity field) from the template model, leaving the instantaneous
+vortex position to be determined empirically along with its strength. Alternatively, the model
+could include these dynamics and rely on measurements only to determine the strengths of vortex
+elements. The aforementioned study of Ramesh et al. (2014) represents a particularly light touch:
+Empirical measurements—from high-fidelity simulation—were used to determine a single static
+parameter, σL
+max, that helped determine the element strengths while the underlying dynamical
+model was otherwise unmodified. Other approaches are more heavily reliant on data. For example,
+Hemati et al. (2014) used the variable-strength vortex model of Wang & Eldredge (2013) as
+a dynamical template but did not specify constraints at the edges of the wing. Instead, the rates of
+change of the two vortex element strengths (i.e., the growth rates of theLEVand trailing-edge vortex
+circulation) were found by minimizing a cost function—the error between the model-predicted
+force and the “true” force obtained from high-fidelity computation over a time window—subject
+to the constraint that the vortices obey their usual dynamics about the wing. This approach successfully
+matched empirical force data for multiple cases of wings in pure translation and pitching,
+except at low angles of incidence, where the drag was primarily due to skin friction and therefore
+impossible to model with vortex dynamics. The constrained minimization approach taken by
+Hemati et al. (2014) requires a full empirical measurement history; an a posteriori phenomenological
+model is iteratively constructed from these historical data. Darakananda et al. (2016) improved
+the efficiency of the technique by building the data-optimized model progressively in short time
+increments. The vortex growth rates in each increment are first predicted from a regression over
+their recent history; these are then refined by minimizing as before, using the new force data in the
+increment.
+The investigations of Hemati et al. (2014) and Darakananda et al. (2016) demonstrated that
+force measurements can provide meaningful information about the unknown rates of vorticity flux
+into theLEVand the wake. However, one drawback was that the underlying model of two variablestrength
+vortex elements was too simple to capture the mechanics of shedding. Furthermore, the
+strategy they used is not of practical value if the objective of the model is to predict force, as is
+typically the case. It is helpful to employ tools from the field of data assimilation, such as the
+Kalman filter (KF), to develop a truly predictive strategy that is assisted by practical—and likely,
+noisy—sensor measurements. The basic premise of the KF is to advance the estimate of a system’s
+state in two steps within each time increment. The state of the flow is first predicted with a
+dynamical model, and then this prediction is updated by incorporating new measurements. The
+ensemble KF (EnKF) is a variant of the KF designed for dealing with high-dimensional nonlinear
+systems, such as fluid flows (Evensen 2009). In the framework of an EnKF, Darakananda et al.
+(2018) employed a discrete vortex element model with the leading-edge suction criterion for the
+predictive step and used surface pressure measurements obtained from a high-fidelity Navier–
+Stokes simulation (the “truth” system) for the update. The state vector comprised the positions
+and strengths of the vortex elements and, crucially, σL
+max. This framework was used to estimate the
+Figure 13
+(a, top row) Snapshots of vorticity fields from the “truth” case (computational fluid dynamics at Re = 500) and (bottom row) snapshots of
+vortex elements from the ensemble Kalman filter (EnKF)-based model (circles) at the same times. The strengths of the vortex elements
+are proportional to the size of the circles, and the colors indicate sign (red is negative). (b, top panel) Normal force coefficient, Cn, versus
+time from the EnKF-based model (blue) and computational fluid dynamics “truth” data (red ). (Bottom panel) EnKF estimate of critical
+leading-edge suction coefficient, σL
+max. Time is measured in convective units, t∗ = tU/c, where U is the plate speed and c is the chord
+length. Figure adapted with permission from Darakananda et al. (2018).
+flow past a translating flat-plate wing at α = 20◦ and Re = 500. As the results in Figure 13 show,
+the estimated vorticity field and normal force agreed well with the truth; the small noise in the
+force estimate is due to the fact that the EnKF uses an ensemble of random instances of the model.
+As Figure 13b shows, the estimate of σL
+max settled to a reasonably constant value, supporting the
+hypothesis of Ramesh et al. (2014).
+SUMMARY POINTS
+1. The leading-edge vortex (LEV) is an essential flow feature of agile flight in nature and
+small-scale vehicles. Its mechanics can be understood by distilling complex wing geometries
+and kinematics into basic canonical forms.
+2. The early development of the LEV and its structure are remarkably common across a
+wide variety of wing kinematics and geometries, in both two and three dimensions, and
+are relatively independent of Reynolds numbers from O(102) to O(104).
+3. The lift generated by the LEV is significantly larger than achievable in steady, attached
+flow, but this enhancement is short lived except on rotating wings.
+4. The LEV inevitably sheds from the wing in nearly all kinematics and geometries, except
+over limited spanwise ranges in rotating wings, where Coriolis tilting and vorticity
+annihilation collectively balance the growth of LEV circulation.
+5. Vortex models can capture the inherent nonlinearities of the LEV flow field with a
+modest number of degrees of freedom. Their accuracy can be systematically improved
+by data assimilation using sensor measurements.
+FUTURE ISSUES
+1. The canonical motions of rigid wings described in this review set only a foundation of
+understanding; ultimately, these motions will be combined and applied to flexible wings to
+form agile maneuvers. These higher-order combinations and the resulting fluid–structure
+interactions will require systematic study, possibly with help from machine learning to
+navigate the large parametric space toward optimal maneuvers.
+2. LEVformation or response in incident gusts and other transient disturbances has only recently
+received systematic attention. We have little understanding of how LEV behavior
+will change in an uncertain environment.
+3. Data-driven vortex modeling of theLEVhas the potential to provide real-time estimation
+of the flow state in a closed-loop control setting. Furthermore, 3D vortex models have
+been largely unexplored but have the potential to capture the essential influences of the
+tip vortices and spanwise flow on low–aspect ratio wings.
+4. Closed-loop control of massively separated flows, effected with pulsed actuators or variations
+in wing geometry, remains a primary objective for achieving agile flight vehicles
+that remain robust to incident gusts. The LEV is likely to play a central role in this
+control.
+DISCLOSURE STATEMENT
+The authors are not aware of any biases that might be perceived as affecting the objectivity of this
+review.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

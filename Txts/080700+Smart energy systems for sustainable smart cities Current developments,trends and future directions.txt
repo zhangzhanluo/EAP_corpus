@@ -1,0 +1,1376 @@
+ABSTRACT
+Within the context of the Smart City, the need for intelligent approaches to manage and coordinate the diverse
+range of supply and conversion technologies and demand applications has been well established. The wide-scale
+proliferation of sensors coupled with the implementation of embedded computational intelligence algorithms
+can help to tackle many of the technical challenges associated with this energy systems integration problem.
+Nonetheless, barriers still exist, as suitable methods are needed to handle complex networks of actors, often with
+competing objectives, while determining design and operational decisions for systems across a wide spectrum of
+features and time-scales. This review looks at the current developments in the smart energy sector, focussing on
+techniques in the main application areas along with relevant implemented examples, while highlighting some of
+the key challenges currently faced and outlining future pathways for the sector. A detailed overview of a fra-
+mework developed for the EU H2020 funded Sharing Cities project is also provided to illustrate the nature of the
+design stages encountered and control hierarchies required. The study aims to summarise the current state of
+computational intelligence in the field of smart energy management, providing insight into the ways in which
+current barriers can be overcome.
+1. Introduction
+Although cities occupy only 3% of the earth’s land area, they con-
+sume 75% of natural resources and produce 60–80% of global green-
+house gas emissions [1]. Their impact on the environment will grow as
+urbanization increases from 54% of the world population today to 66%
+by 2050 [2]. Increasing resource efficiency at city scale would enable a
+more environmentally sustainable solution and help to transition to a
+low carbon economy while meeting the challenges of increasing po-
+pulation in such areas. Multiple UN, EU and US projects have been
+developed in the recent past which are targeted towards solutions for
+such sustainable cities. These include the GI-REC (Global Initiative for
+Resource Efficient Cities) [1] by the United Nations, European In-
+novation Partnership on Smart Cities and Communities (EIP-SCC) [3]
+by the European Union and the Smart Cities Initiative [4] by the United
+States among others.
+Reliable, efficient and low carbon energy supply is one of the key
+requirements for next generation smart cities [5]. The close proximity
+of multiple energy vectors like electric power, heat and gas, introduces
+opportunities for energy systems integration and real time management
+of multiple energy vectors [6]. The vision for the future smart energy
+system is to have automated algorithms which are able to learn user
+demand and usage profiles from historical data [7], leverage on that
+information to optimise, coordinate and control the interconversion
+and distribution of different energy vectors, while simultaneously
+taking into account the engineering constraints of the system and the
+business and policy objectives. As embedded algorithms become more
+pervasive at different levels of the energy network (from smart meters
+[8] at the usage end of customers to real-time phasor measurement
+units along the transmission lines), Computational Intelligence (CI) and
+Machine Learning (ML) would become increasingly important to take
+automated decisions and react to changes in system dynamics [9].
+This review seeks first to provide an overview of many of the main
+areas in which CI and ML strategies are currently implemented in smart
+energy systems. By the nature of the topic, application areas are di-
+verse, however, the push towards system integration necessitates a
+holistic perspective. Firstly, data management challenges are in-
+troduced, followed by applications specific to the built environment
+and transport sectors. The integration of different supplies and demands
+is then covered, with an additional section devoted to the user’s role in
+this technological landscape. After this review of current application
+areas, the focus shifts in Section 3 towards the future potential of CI and
+ML in the smart energy domain, targeting key challenges that can be
+overcome through the further implementation of current techniques. It
+also highlights the challenges and short-comings of the present CI/ML
+tools and presents potential future developments in these fields that
+would be beneficial in the context of smart energy systems. In Section 4,
+implementation considerations are addressed, leading to a specific case
+study in Section 5 in which many of the key smart energy aspects are
+present. The project, an EU Horizon 2020 Smart City project (called
+Sharing Cities) is one the authors are working, which incorporates
+multi-vector energy systems and integration of different energy assets,
+encountering the associated challenges in real time demonstration of
+the same.
+2. Review of existing concepts and applications in smart energy
+management systems
+Intelligent solutions for control and operation of the various in-
+dividual components that comprise an urban energy system have be-
+come increasingly prevalent [10]. Often driven by the goals of reducing
+energy consumption, emissions or cost [11], while maintaining ro-
+bustness to uncertainty [12], such approaches seek to leverage the key
+enablers of increased computational power and data ubiquity, as well as
+artificial intelligence (AI), machine learning and advanced control
+techniques [12]. These approaches need not be solely characterised as
+‘Smart City’ related interventions and are often considered in an iso-
+lated manner. Nonetheless, the overlapping objectives, challenges and
+enablers mean that the application of computational intelligence to the
+challenge of Smart Cities must consider the amalgamation, adaptation
+and integration of these various solutions.
+In this section, some such approaches are summarised, particularly
+focussing on the building and transport sectors as energy demands,
+followed by methods for integrating the disparate sources and sinks.
+2.1. Urban data handling
+The definitions of Smart Cities are varied, with examples to be found
+in [13]. Though a large number of themes and concepts arise under the
+Smart City umbrella, a central and common aspect across almost all
+solutions and domains is the incorporation of Information and Com-
+munications Technology (ICT) [14] and the Internet of Things (IoT)
+[15].
+2.1.1. Big data & the internet of things
+Across all domains, Cisco have estimated that 50 billion devices will
+be connected to the IoT by 2020 [16]. As more objects are connected to
+the IoT, the ability to exploit an ever-expanding volume of data, now
+given the moniker Big Data, has been a key driver behind many new
+approaches [17]. Developments in the management, utilisation and
+analysis of such large data-sets have emerged to facilitate this, with a
+shift away from relational database technologies to distributed Not
+Only SQL (NoSQL) database technologies such as Cassandra and Mon-
+goDB due to increased flexibility and scalability [18]. Many works
+evaluate the characteristics of big data management in terms of the Vs
+of data management, which can include [19] Volume, Variety, Velocity,
+Variability and Value. Others have been referred to, including Veracity,
+Volatility and Validity [20]. A particular challenge in this regard is in
+the use of soft-sensing approaches, whereby data from sensors not as-
+sociated with specific pre-defined tasks (e.g. data from mobile devices)
+is harnessed. In [14], these challenges are explored, with particular
+attention paid to the veracity, volume and velocity of data. ML and
+probability based approaches for data fusion [21] can improve things,
+exploiting the commonalities across multiple data sources.
+Without appropriate strategies, wastefulness is inevitable. With this
+in mind, inefficiencies resulting from improperly managed data is
+covered in [11]. Capturing the data while avoiding inefficiencies re-
+quires appropriate platforms to be developed with the power to process
+and integrate a large number of data streams from different sources,
+potentially with varying time-scales and data formats, while also pro-
+viding the necessary APIs and storage capability. A generic architecture
+incorporating layers for sensing, transmission, data management and
+specific applications is proposed in [22], while, more generally, the
+protocols and architectures suitable for such an application of IoT in a
+Smart City context are surveyed in [23].
+Targeting applications for this data processing capability, a detailed
+overview of the energy saving opportunities of using ICT as an enabling
+technology is provided in [24] in which a framework is developed to
+identify opportunity hotspots for applying ICT to reduce energy use. The
+authors conclude, in agreement with a study in [25], that the installa-
+tion of intelligent heating systems and the use of ICT for production
+process control and supply chain management are areas of particular
+potential. The availability of data coupled with CI and ambient in-
+telligence techniques can allow for more accurate forecasts of future
+loads [26] which is especially useful in the domain of energy systems.
+These can be used to aid in the selection of suitable operational ap-
+proaches and control decisions, automation and visualisation. A review
+of the main CI approaches for this purpose is provided in [27]. The
+accuracy of hybrid approaches (whereby multiple techniques are
+combined) are shown in particular to outperform standalone ap-
+proaches in terms of load forecast accuracy.
+The suitability of any specific method, however, depends on the
+target data-set. Inevitably, reliance on data in complex networks of
+systems can introduce large uncertainties - the importance of which
+should not be underestimated. Effective methods for characterising this
+uncertainty are needed to handle this issue, with a review of possible
+approaches suitable to the integrated energy domain presented in [28].
+The authors allude to the common over-reliance on non-empirical as-
+sumptions in many approaches as well as the often underestimated
+need to consider the interrelation of uncertainties across multiple
+parameters. Furthermore, apart from parametric uncertainty, effective
+exploitation of data in an energy management scheme requires the data
+quality to be suitable for the task-at-hand, with adequate excitation,
+granularity and trustworthiness.
+2.1.2. Communication networks
+The vast increase in sensors and the need for interconnectivity be-
+tween networks of sensors and actuators has lead to an evolution in the
+communication infrastructure used for the implementation of smart
+grids. The traditional state of the power grid is summarised in [29] as a
+one-way pipeline with clear demarcations between generation, trans-
+mission and transformation, where system capacities are often sized for
+worst case scenarios, due to an inability to incorporate DSM. The smart
+grid alternative however, as discussed in [30], can instead be viewed as
+hierarchy of three newtworks: the Home Area Network (HAN), the
+Neighbourhood Area Network (NAN) and the Wide Area Network
+(WAN). The HAN layer typically operates wirelessly over small areas,
+useful for sensors and smart meters in buildings, where low date rate
+technologies (following Zigbee or Z-wave standards for example) are
+well suited due to security, low cost and low power requirement. For
+NAN, spanning groups of buildings or districts in an urban environ-
+ment, Wi-Fi and cellular technologies can be employed. Ethernet net-
+works can be well suited to the WAN layer due to the higher data rate
+requirements. Suitable protocols and standards for implementation of
+these networks are crucial however, with different companies and
+countries approaching the problem separately. Common standards from
+organisations such as the Institute for Electrical and Electronics En-
+gineers (IEEE) (e.g. IEEE P2030) have been developed to counteract
+this.
+2.1.3. Cyber-security
+The reliance of the smart city on communication networks and
+connectivity inevitably leads to significant cyber-security concerns with
+adversarial threats and an increased risk of system misuse (externally or
+internally) impacting a large number of people. The increased digital
+surface in a smart city, as referred to in [31], results in more opportu-
+nities for security breaches. The interrelations between different net-
+works can also introduce the possibility of cascade failures and fault
+propagation. Furthermore, in the energy domain, traditional systems
+are often incorporated within the wider smart city environment, but
+may provide inadequate security protocols. Security issues in Super-
+visory Control and Data Acquisition (SCADA) systems commonly used
+to manage energy systems are detailed in [32] for example. A com-
+prehensive summary of the different threats faced across different smart
+city sectors is provided in [33], including malicious threats and in-
+secure protocols in smart-grids, home automation systems and cloud
+storage. The authors also focus on the forensic data requirements to
+effectively investigate incidents protect against future incidents.
+The volume of data and the vast number of connected devices can
+make effective mitigation of these issues a serious challenge. In [34] for
+example, the difficulty of cryptographic key management for smart
+meters is highlighted in a scenario in which keys are updated periodi-
+cally - an unprecedented need for support staff and time results. To
+understand the threats faced and assess vulnerability, threat modelling
+approaches are developed in [35]. This modelling and assessment is
+generalised further in [36] where the concept of the Safe City is dis-
+cussed, whereby, the effectiveness of safety and healthcare processes
+are improved. In [37], security solutions are discussed for smart grids,
+once again highlighting the need for adaptive key management solu-
+tions in smart meters such as the privacy preserving aggregation
+scheme with adaptive key management (PARK) proposed in [38].
+2.2. The built environment
+The prominence of buildings as significant energy consumers in the
+global energy landscape is well understood, with 40% of global energy
+consumption typically assigned to the general building sector [39].
+Despite including complex heating, cooling and electrical demands,
+traditional rule-based approaches for managing relevant components
+and determining operational decisions dominate, leading to un-
+necessary inefficiencies [40]. In anticipation of the future dec-
+arbonisation of the electricity grid, a desire to move towards electricity-
+based heat sources (primarily through heat pumps) has emerged in
+recent times [41], furthering the case for integrated energy approaches
+[42]. Additionally, more efficient data handling through suitable
+Building Information Modelling (BIM) methods introduces opportunity
+for change [43], with the possibility for improved monitoring and di-
+agnostic techniques, such as the Artificial Neural Network (ANN) al-
+gorithms developed in [44]. Through the use of intelligent modelling
+and control techniques, enabled by the increased access to measured
+data from the buildings and external environment, significant reduc-
+tions in energy consumption have been reported in [45], with potential
+savings of approximately 30% achieved through automation. Some of
+the more common approaches proposed for achieving these savings are
+presented here, with comprehensive reviews available in [46,45].
+2.2.1. Demand-side management in smart cities
+The term Demand Side Management (DSM) can be used to represent
+a wide range of interventions in the built environment, from permanent
+actions (e.g. retrofit) to short-timescale actions like Demand Response
+(DR) [47]. Smart city concepts and intelligent control can have a par-
+ticularly significant impact on the shorter-timescale events, with real-
+time data providing the basis for automated decisions. Key to the
+suitability of the built environment for this is the flexible nature of the
+demand. The slow thermal dynamics and imprecise nature of the
+thermal objectives in buildings (occupants typically require ambient
+temperatures to be within a band, rather than matching a specific single
+set-point) introduces the opportunity for wider system optimisation.
+Without diminishing comfort in the building, loads can be temporally
+shifted [48,49], allowing (with appropriate control) for the satisfaction
+of supply constraints and an improvement in the performance of the
+overall energy system. A multi-objective optimisation approach to do
+just this is introduced in [50] for example.
+Furthermore, with an increased push for the electrification of heat
+[51] and district heating networks [52], coupled with the relative
+cheapness of thermal storage [53], the link between building thermal
+loads and the wider energy system becomes stronger. As such, the
+ability to coordinate and aggregate demand-side thermal loads in an
+urban environment underpins much of the potential benefits of energy
+system integration [46] (discussed further in Section 2.4).
+2.2.2. Advanced control strategies
+For thermal management, advanced control approaches such as
+Model Predictive Control (MPC) have been regularly reported in lit-
+erature to provide improved heating and cooling system control over
+more traditional strategies [45]. In such approaches, the operation of
+the system (typically Heating, Ventilation and Air Conditioning systems
+(HVAC)) is optimised over a receding horizon using predictive dynamic
+models, often to minimise energy consumption subject to comfort
+constraints. Many variations have been proposed, such as a prioritised-
+objective approach in [54] to avoid the need for excessive tuning
+parameter selection and the stochastic approach of [55], formulated to
+better incorporate uncertainty.
+Aside from MPC, other non-traditional approaches can be ad-
+vantageous. Fuzzy-logic controllers (FLCs) are proposed in [56,57] to
+achieve an improved performance with less of a design burden when
+compared to MPC. To incorporate user-behaviour in the automated
+decision process, a multi-agent based approach is proposed in [58] to
+handle the control of the different regions of a multi-zone building, with
+a further incorporation of Particle Swarm Optimisation (PSO) in [59]
+and reinforcement learning in [60]. A more detailed review of such
+approaches can be found in [61]. While performance benefits of more
+advanced approaches are clear, the initial cost and expertise require-
+ment is as yet prohibitive [62]. Within a wider smart city context
+however, in which data platforms and sensor networks become more
+commonplace, such approaches should become more attractive.
+On the electrical side, load shifting through appropriate control of
+heat-pumps and thermal storage is discussed in [49]. Such load shifting
+approaches can reduce required installed capacity as well as reducing
+stress on the wider system though monetising, incentivising and fairly
+distributing the financial gains from this wider system operational
+benefit is an open challenge. In [63], the impact of such DSM strategies
+on comfort levels is assessed, particularly noting the importance of the
+building fabric properties on the load-shifting potential - a better in-
+sulated building has a greater potential to store energy in the building
+fabric. Looking at the wider system behaviour, DR strategies can be
+implemented for active and reactive power balance [64], frequency
+regulation [65] and power factor correction [66]. Appropriate me-
+chanisms for achieving these aims have been proposed [67], with
+success reliant on appropriate pricing models which must achieve
+system flexibility with appropriate compensation for the providers of
+this flexibility, without compromising clarity and transparency. In [68],
+many of the current pricing scheme options are summarised.
+2.2.3. Modelling the thermal behaviour of buildings
+Supporting many of these proposed control strategies is the ability
+to utilise data to develop more accurate models of the thermal and
+electrical behaviour of the buildings [69]. An ANN-based approach
+proposed in [70] is shown to be effective for forecasting electricity
+consumption, while in [71], a Deep Neural Network (DNN) approach is
+similarly applied. Black-box system identification approaches (such as
+the Auto-Regressive Moving Average model with Exogenous input
+(ARMAX)-type approach) are covered in [72,73], whereby standard
+linear relationships between the heat inputs and resulting temperatures
+are assumed. The resulting model formulations are suitable for ad-
+vanced control, while accuracy over the relevant time horizons can be
+achieved, but only with sufficiently excited training data [74]. To
+capture the behaviour and interactions of users with the energy systems
+and thus better predict energy demands, agent-based approaches can be
+implemented, such as in [75]. Time-series approaches for forecasting
+building energy consumption are reviewed in [76], while electrical load
+forecasting techniques reviewed in [77].
+Appropriate methodological choices are case-specific. Black-box
+approaches can reduce the need for deep knowledge of the underlying
+system to be incorporated a priori, however, many design choices (such
+as system order and structure) are still required. While any of the above
+approaches can be integrated into a smart energy management strategy,
+success is very much predicated on sufficient data quality. This requires
+a good degree of excitation and a low-level of unmeasured disturbance -
+as highlighted in [40]. Hybrid approaches that can blend expert
+knowledge with empirical data effectively are an attractive prospect.
+Gray-box [78] and white-box approaches, in which an underlying
+physics-based model structure is assumed, can increase the likelihood
+of sensible outcomes, though the incorporation of this information can
+become intractable as system scale and complexity increases.
+Data availability and quality as well as system complexity are key
+considerations in the selection of a suitable approach. In cases where
+very little data is available (even coarse consumption data, though
+measured, may not be accessible due to privacy concerns), it can still be
+possible to characterise the energy performance of a building. This may
+be insufficient for advanced control, however it can still be useful to
+inform decisions surrounding future interventions and to understand if
+energy consumption is following expected patterns. A benchmarking
+approach for information poor buildings is provided in [79] to identify
+deviations from monthly energy bill data with some additional HVAC
+measurements. In scenarios of little historical data it can also be pos-
+sible to exploit the fact that vast quantities of data may be available for
+similar buildings which may display similar dynamics. A transfer
+learning method for energy prediction is proposed in [80] for example,
+using time-series multi-feature regression with an allowance for sea-
+sonal and trend adjustments. In [81], a Deep Belief Network (DBN) (for
+feature extraction) is incorporated into a reinforcement learning-based
+approach to enable knowledge transfer to buildings without historical
+data. Apart from lacking in historical data, there may also be gaps and
+missing values potentially affecting predictive performance. This is
+acknowledged in [82] in which the authors build an interpolation
+scheme into a wider approach for building energy prediction using deep
+Recurrent Neural Networks (RNN). This is a less researched area and
+more focus needs to be given to developing modelling methodologies
+addressing these issues.
+2.2.4. Fault detection and diagnosis
+As data-driven techniques can be used for prediction of system be-
+haviour, it follows that similar techniques can be employed to detect
+when the energy systems (e.g. HVAC) behave in a manner deviating
+from expected operational bounds in times of component fault or
+failure. Many techniques for Fault Detection and Diagnosis (FDD) have
+been studied, with approaches classified in [83] as process-history
+based (models inferred from measured data), quantitative model based
+(detailed physical models), and qualitative model-based (expert-de-
+signed rules). When detailed models are not available, grey-box or
+black-bock approaches can be attractive. A wide variety of statistical
+and ML techniques have been explored for such data-driven strategies
+with popular approaches including Principal Component Analysis
+(PCA) [84] to detect anomalous divergence between interrelated vari-
+ables, ANNs and Support Vector Machines (SVMs) [85,86] to classify
+faults based trained on historical data and fuzzy logic [87] to more
+easily incorporate human knowledge in the classification procedure. A
+detailed summary of the main approaches can be found in [88].
+Though new opportunities have emerged with more pervasive
+sensing, historical data tends to be lacking in data describing critical
+events or attacks [89]. If a wide range of failure modes are possible,
+corresponding training data may be difficult or impossible to obtain in
+sufficient quantity. To allow for this, suitable probabilistic approaches
+must be considered. A probabilistic neural network method was shown
+in [90] to out-perform more standard back-propagated neural networks
+for fault detection in refrigeration systems for example. Parameter-in-
+variant approaches have been developed for classification in which
+constant false positive rates are obtained regardless of parameter values
+[89]. These approaches have been taken in networked systems [91] and
+for HVAC systems in the building energy domain [92]. Hybrid ap-
+proaches which can combine the benefits of physical knowledge, expert
+knowledge and historical data can be harnessed to better tackle the
+complexity present in a multi-tiered set of urban energy networks [88].
+The ability of Bayesian approaches to incorporate subjective informa-
+tion enable them to fit easily in a hybrid framework. The benefits of
+hybrid approaches have been long understood (a grey-box approach
+that incorporates physical knowledge with Bayesian techniques is
+proposed for example in [93]), however such approaches come with a
+significant design burden and off-the-shelf solutions may not match the
+specific need.
+2.2.5. Zero-energy and nearly-zero-energy buildings
+As reported in [94], Zero-Energy-Buildings (ZEBs) and Near-Zero-
+Energy-Buildings (NZEBs) are expected to play a significant role in
+achieving the goals of the European “Smart Cities & Communities In-
+itiative” [95]. Conceptually, ZEBs should meet all their energy re-
+quirements from nonpolluting renewable sources, however, specific
+definitions vary in strictness [96], typically depending on the allowance
+of off-site renewable generation. The slightly less stringent concept of
+NZEBs has become more common, though inconsistencies in definition
+are present across different countries [97]. Nonetheless, the concept fits
+in with other smart energy approaches, as intelligent coordination is
+required to maximise the utilisation of any renewable energy sources
+through management of the supply and demand. Any successful NZEB
+will tend to require a mix of energy generation and storage technologies
+which must be optimally managed. From an operational perspective,
+advanced control approaches and optimised scheduling play a sig-
+nificant role [98]. In [99] for example, a model is developed to handle
+the stochastic nature of renewable generation while minimising costs
+through optimised scheduling based on Genetic Algorithms (GAs),
+teaching learning-based optimisation (TLBO) and enhanced differential
+evolution (EDE). In [100] game theoretic approaches and adaptive
+fuzzy control strategies are used to manage the demand and supply
+respectively.
+From a design perspective, CI and ML approaches can also be le-
+veraged to approach zero energy. In [101], the need for suitable
+optimisation approaches for evaluating different design options is un-
+derlined (including geometry, fabric construction, ventilation strategies
+and shading, as well as energy system design). Evolutionary algorithms
+are put forward by the authors as an attractive option. Technology
+selection is also crucial. In [102] for example, Monte Carlo simulations
+are used to evaluate hybrid energy system solutions.
+2.3. Transportation energy and mobility
+The potential impact of CI in the transport sector has been well
+reported, often from an infrastructural perspective, with solutions di-
+rected towards challenges such as congestion management [103] and
+space utilisation (e.g. parking) [10]. The energy perspective must also
+be considered.
+2.3.1. Electrification of the sector
+As with the heating sector, the anticipated de-carbonisation of the
+power grid coupled with technological advances in the electric-vehicle
+(EV) sector [104] has led to EVs becoming a lower carbon option for
+personal transport than traditional fossil fuel-based approaches [105].
+Furthermore, e-bike and e-scooter rental schemes may become more
+common in the coming years [106]. This is all likely to lead to increased
+stress on the electricity grid at times of peak load [107], necessitating
+the introduction of more intelligent energy management strategies. In
+[108], the potential to use different CI-based algorithms (including PSO
+and Genetic Algorithms) to achieve this is explored. As with any opti-
+mised approach, suitable definition of the objective or fitness function
+is crucial to achieve a behaviour that suits all involved actors. Apart
+from stressing the grid, on a positive note, EVs can allow for increased
+grid flexibility, particularly if Vehicle-to-grid (V2G) power flow is
+permitted. Estimation of the flexibility introduced through EVs using
+agent-based modelling techniques is discussed in [109]. Once again, the
+need to incentivise and appropriately monetise V2G type power flow,
+considering the longterm impact on the EV batteries (in [110] it is re-
+ported that in an extreme case of full daily battery discharge results in a
+3.2–4.4 year reduction in battery life if used for V2G) is a challenge.
+Aside from V2G, to achieve flexibility, a variable Time-of-Use (ToU)
+cost for charging electric vehicles is proposed in [105]. The purpose is
+to optimise the ToU in such a manner as to discourage EV charging at
+times of high grid-stress to better manage the overall grid load. To
+enable the use of renewable sources with the high loads of fast-charge
+EV stations in an off-grid fashion, a decentralised control formulation
+integrating renewables, storage and fast-chargers is developed in [111].
+Further to this, to manage the introduction of EV charging to a smart-
+grid context while handling the uncertainties of renewable generation
+and the associated system constraints, a hierarchical MPC approach is
+proposed in [112]. For any such scheme, the challenge of predicting
+short-term EV demand profiles is key to success. Markov-chain traffic
+models are proposed to achieve this in [113] using real-time CCTV data.
+Using public vehicle fleets with pre-specified schedules (such as buses
+[114] and waste disposal fleets) could greatly simplify the problem of
+predictable coordination.
+2.3.2. Fuel diversification
+Apart from EVs, the ability to integrate different energy supplies can
+enable alternative fuel sources to be incorporated more easily into the
+transport sector. In [115] for example, ethanol produced for transport
+in a multi-energy system is discussed, with a decrease in transportation
+costs of 30% projected [116]. Similarly, the use of fuel-cells for EVs as
+energy generators and distributors (whereby hydrogen acts as the en-
+ergy carrier) to encourage the transition to 100% renewable energy is
+outlined in [117] with a control methodology for such a scheme out-
+lined in [118]. More generally, this concept of integrating different
+energy sources while simultaneously aggregating, shifting and mana-
+ging energy demands is central to the topic of smart energy manage-
+ment systems and is discussed further in Section 2.4.
+2.4. Integrated systems
+The high population density and correspondingly large demands
+across the different energy vectors found in urban environments leads
+to opportunities for more efficient operation by combining and con-
+verting supplies and temporally redistributing demands through energy
+storage and intelligent control [119]. Renewable energy sources can
+have significant environmental benefits, with technological improve-
+ments and reducing costs (in [120] for example, a drop in installed cost
+of up to 50% was recorded for solar energy between 2010 and 2015
+alone) ensuring that they will play a crucial role in the urban energy
+landscape. Through appropriate energy management, an increased pe-
+netration of renewable and low-carbon sources can be achieved, as well
+as a more efficient consumption of generated power, heating and
+cooling [116].
+2.4.1. Distributed generation
+Smart meters can provide a high degree of granularity for mea-
+surement and control of spatially distributed actors [121]. This, along
+with distributed ledger technologies [122] introduces the potential to
+include a wider array of energy producers in the energy system, leading
+to concepts in which domestic buildings and data-centres can be seen as
+prosumers [123], generating heat and/or power. This changes the urban
+energy sector from a set of centralised supplies and decentralised de-
+mands to an interconnected set of distributed supply and demand net-
+works. The central part to be played by IoT in the future development of
+these interconnected systems and smart grids is emphasised in [124].
+Based on a Malaga use-case, [125] highlights the importance of voltage
+regulation strategies with a large renewable penetration. This is an area
+where demand response [126] and coordination [65] can play a sig-
+nificant role.
+A further benefit to this increasingly diverse, distributed approach is
+system resilience [127], which is a critical concern in an energy dense
+urban environment with limited space. The definition of resilience,
+once again, tends to vary, but it can generally be seen as the ability of a
+system to survive a shock and return to equilibrium [128]. In a system
+reliant on a single centralised energy source, a single shock or un-
+expected change can have a significant system-wide impact when
+compared with a smart integrated system with multiple sources. Some
+of the key factors influencing energy system resilience are highlighted
+in [127], including spatial distribution of generation, collocation of
+supply and demand, diversification of fuel mix and generation type,
+back-up energy stocks, storage and spare generation capacity. Dis-
+tributed generation capacity is insufficient without suitable distributed
+energy trading mechanisms however, such as the approach for trading
+between multiple islanded micro-grids in [129]. A cooperative energy
+trading scheme is developed in [130] in which the two way trade be-
+tween local renewable generation and the grid is optimised to minimise
+the total energy cost subject to quality of service constraints. In con-
+trast, the problem is considered in the form of non-cooperative actors in
+[131], whereby a game theoretic framework is applied to the problem.
+2.4.2. Multi-vector generation
+The close proximity of electrical, heating and cooling demands can
+make the city environment particularly suitable to co-generation and
+tri-generation technologies, utilising heat that would otherwise have
+been wasted [119]. As previously mentioned, the continued de-carbo-
+nisation of the electrical grid has brought increased attention to heat
+pump technologies. Furthermore a push towards renewable technolo-
+gies such as biomass and solar [132] for both heating and cooling has
+resulted in a changing energy landscape. To incorporate different sup-
+plies, emphasising the lower carbon options, storage technologies and
+district energy networks can be implemented as discussed in
+[133–135]. In [136], the introduction of a hydrogen grid to integrate
+with electrical and thermal networks is discussed. This could in turn
+promote the increased adoption of fuel cells for energy storage.
+Appropriate selection of technologies and designs is needed here, with
+data science and modelling techniques once again playing an important
+role. Concepts and evaluation models for such Multi-Energy Systems
+(MES) are reviewed in [116], with methodologies incorporating Mixed
+Integer Linear Programming (MILP) techniques developed in [137],
+further incorporating evolutionary techniques in [138].
+The move towards distributed generation facilitates a greater range
+of technology options. Given the spatial constraints of an urban en-
+vironment, wind energy potential may be limited, however the use of
+small turbines is not uncommon [15]. Similarly, solar energy uptake
+has increased rapidly in recent years [120]. The need for adequate
+storage levels to enable temporal shifting of variable renewable sup-
+plies to match demands is key. Many storage technologies exist, with
+time-scales ranging from milliseconds to seasons [139]. Some less
+conventional options include mechanical flywheels (as reviewed in
+[140]) and supercapacitors [141], while in thermal networks phase
+change materials have a much higher energy density than water (as
+they exploit latent energy storage) [53]. Battery technology has ad-
+vanced in recent years with lithium-ion batteries comparing favourably
+in terms of lifespan, energy density and power with more traditional
+lead-acid batteries [142]. The mix of electrical supplies alone can then
+include baseloads (large-scale nuclear and fossil fuel-based generation),
+co-generation plants, small scale diesel generators, solar PV, wind
+power, run-of-river hydro [143], biofuels, fuel cells and any of the other
+electrical storage options mentioned above. On top of this, the in-
+creasingly common interconnections with the thermal and transport
+networks must also be considered. Numerous possible combinations
+and supply mixes can be chosen from (see for example the flywheel -
+wind turbine - diesel generator approach of [144] or the integration of
+renewables and nuclear in [145]). As such, design and operation stra-
+tegies that can handle this new level of complexity, while delivering on
+environmental, financial and resilience goals must be established [146].
+2.4.3. Coordination, control and operation
+Beyond design and analysis, operating distributed and multi-vector
+energy systems in real-time with optimal decision making requires in-
+novative control structures and software architectures. The energy hub
+concept [147] has emerged with the intention of explicitly accounting
+for the couplings between the different infrastructures. Decentralised
+energy system integration through this concept is discussed in [148],
+with case studies illustrating the benefits of suitable integration ap-
+proaches (e.g. a combination of Photo-voltaic (PV), Solar thermal and
+hydro produced 46% lower emissions than a PV-biomass combination).
+Modelling and optimisation considerations are covered in [149], in
+which economic benefits of 11%–29% and 11% emissions reductions
+are predicted with optimised operation of a network of three energy
+hubs.
+From a control perspective, as with building energy, micro-grids and
+smart-grids can benefit from the application of MPC due to an ability to
+explicitly handle system constraints while incorporating predictions
+and forecasts of system outputs and environmental variables that can
+all impact the optimal decision making process [35]. The application of
+MPC to MES is carried out in [150] with a particular focus on the choice
+of suitable prediction horizon. In [151], active demand response ap-
+proaches in electric heating systems coupled with storage for achieving
+these impacts are introduced, with the authors presenting modelling
+approaches which attempt to reduce computational effort without
+losing validity. With such advanced strategies, the need to manage the
+different actors and their respective objectives makes game theoretic
+frameworks a natural fit. Such approaches are discussed in [152,153],
+with the application to energy hubs illustrated in [154].
+2.4.4. Interaction with the wider environment
+The smart city concept can be seen as the application of ICT to all
+aspects of urban life [155], far beyond energy. Energy networks will
+tend to interact with and impact other aspects of the urban landscape,
+most notably with water [156] and waste management [157]. These
+interactions can be exploited for their potential synergies, with the
+water-energy nexus being a prime example [158]. The high population
+density and correspondingly high water demand in a city mean that
+water systems must be carefully designed to ensure security of supply
+(reflecting the challenges of the energy sector). Strategies that can re-
+duce water demand can also reduce energy consumption. In [159],
+rainwater harvesting and gray-water reuse is studied to this end. Such
+advances will benefit from intelligent approaches [160] and increased
+data acquisition [161]. Waste-water treatment must also be considered
+here, particularly given the push towards resource recovery in the
+sector [162] (fuel diversity can be improved through on-site generation
+of biogas for example [163]). The design and analysis of the benefits of
+such multi-domain schemes requires techniques that can handle the
+system complexity [164], such as the network perspective proposed in
+[165]. Additionally, full life-cycle assessments should be carried out to
+understand the impacts of any interventions across all environmental
+vectors. This involves consideration of the materials used, supply
+chains, operation, waste and emissions from any intervention, such as
+that carried out for EVs in [166].
+2.5. User-centric considerations
+As noted in [31], the success of a smart city depends on the parti-
+cipation of its citizens. Intelligent solutions may often correspond to
+increased automation, while many interventions seeking to improve
+environmental and economic goals on a system-wide perspective may
+not necessarily benefit all users within the system. Given the reliance of
+a smart city on user engagement however, the human perspective must
+be considered in any actions taken.
+2.5.1. Participation and engagement
+User participation can be passive or active. Data can be passively
+gathered from users by soft-sensing or crowd-sensing [167] (using
+sensors in phones for example) to understand the patterns of movement
+around a city. Clearly, all citizens may not desire such a use of personal
+data. To encourage active engagement, a ‘Smart Citizen’ app is pro-
+posed in [168], enabling a smart city to take advantage of distributed
+soft-sensing. Another platform has been developed in [167] to select
+individual participants that can be best combined for effective crowd-
+sensing. To incorporate users more directly in the operational decisions
+of the city, control schemes can be formulated to accept feedback from
+people, particularly useful for subjective measures (e.g. thermal com-
+fort). Such a scheme is proposed for building energy in [169]. Inter-
+active dashboards can be implemented to further encourage participa-
+tion, displaying key metrics and statistics associated with the city’s
+energy systems [170]. Users are central to any strategy [171] and as
+such, all approaches must be carefully developed to ensure that users
+supplying data and partaking in smart energy initiatives (e.g. prosu-
+mers) are appropriately compensated, particularly given the potentially
+conflicting objectives of energy suppliers. The topic of a smart city
+energy marketplace is well explored in [172], considering the per-
+spectives of the energy retailer, the distribution system operator, re-
+sidential and commercial prosumers, market operator and service
+providers. Full participation cannot be assumed however, and scenarios
+in which access to user data is not permitted must still be considered,
+such as energy meter data at an individual dwelling level or electric
+vehicle usage. ML techniques such as transfer learning [173] can exploit
+previously-acquired knowledge from similar problems (e.g. accessible
+data from similar users) to estimate such data gaps.
+2.5.2. Privacy concerns in data-rich landscapes
+Given the data-driven nature of the smart city concept, user privacy
+considerations must be prioritised in any form of participation. Changes
+and improvements beyond the smart city domain such as the EU
+General Data Protection Regulation (GDPR) have recently brought
+these concerns to the fore, however, a greater understanding of the
+challenge faced is needed to attain the benefits of interconnectivity
+without infringing on peoples rights or misusing their trust. In [174] for
+example, the importance of understanding the data types (personal or
+impersonal) and the purpose for which they are collected (e.g. service
+provision is more favourable than surveillance) to the perception of
+privacy violation is underlined. To that end, the authors developed a
+framework to better capture peoples privacy concerns by incorporating
+such classifications. The problem of data over-collection is discussed in
+[175], with the authors highlighting the difficulty of the problem as the
+data collection can be within the permissions authorised by the user yet
+can increase security risks. Active approaches for mitigating the pro-
+blem are also introduced. Approaches for maintaining privacy in energy
+trading schemes is considered in [176], specifically using multi-sig-
+natures, Blockchain and anonymous messaging streams.Future direc-
+tions for research in privacy solutions are detailed in [37], stressing the
+potential for trusted third party monitoring and auditing to detect im-
+proper access to data and the need for collaborative efforts across
+public, private and academic actors to develop adequate policies and
+regulations.
+3. Further integration of CI and ML techniques to different aspects
+of smart energy system design and operation
+The previous section provided an overview of the different concepts
+and application areas relating to energy systems in the smart city en-
+vironment. In this section, the ML and CI perspective is expanded upon,
+detailing suitable techniques for the above applications, while detailing
+some of the key future opportunities and challenges for the field.
+3.1. Key areas of integration of CI/ML tools for design and operation
+The basic premise of smart energy systems is centred on the inter-
+actions among multiple entities (end users, generation and distribution
+companies, energy markets etc.) and multiple energy vectors and the
+use of automated algorithms for control and real time decision making.
+Therefore online real time learning from data (e.g. sensor data from
+electrical transformers, transmission lines etc. to human behaviour data
+like occupancy of buildings from IoT devices) and adaptation of the
+decision making and control strategies accordingly, is one of the key
+pillars in smart energy management where ML/CI algorithms would
+play a significant role. Another broad area where rule-based CI or ex-
+pert system approaches are useful for this is in the context of encoding
+domain knowledge of the engineering operation, expert judgements for
+setting reliable process parameters of adaptive engineering systems.
+They would also be able to facilitate more interpretable rule based
+automated frameworks which can fuse data from multiple sources and
+take actions honouring system constraints and also simultaneously meet
+user set objectives. Meta-heuristic optimisation methods from CI are
+also useful for designing optimal rating and capacity of smart energy
+systems, subject to different system constraints and multiple objectives.
+We elaborate these key points and how they can impact the design of
+smart energy systems in the next sections.
+3.1.1. CI/ML for energy generation/conversion and demand predictions
+Energy generation/conversion and demand depends on multiple
+factors and data driven ML/CI approaches are useful for modelling and
+prediction of these quantities [177,178]. Renewable energy generation
+like wind and solar are highly stochastic and dependent on geo-
+graphical location (e.g. latitude, elevation, distance from sea etc.) and
+temporal aspects of weather (e.g. season of the year, day or night time
+etc.) among other variables [179]. These variables also affect energy
+demand and usage along with other social and economic factors like
+country (developed nations consume more energy per capita than
+poorer nations), family size and income, traditions and culture (e.g.
+festivities generally increase energy usage) etc. Energy demand can not
+only be for heat, gas and electricity usage at homes, it would also be for
+other new applications like charging of electric vehicles, trading with
+the grid or other peers etc. In such situations, other more complex
+variables (say journey plans, congestion in the city etc.) play a sig-
+nificant part in the predictions. The key points from the modelling
+perspective are that multiple diverse factors are involved, historical
+data of many co-variates are available and the inter-dependence of
+these factors to the final energy demand or generation is complex. All
+these make the usage of ML/CI techniques very attractive. Data driven
+learning techniques like neural networks, adaptive neuro fuzzy in-
+ference systems (ANFIS), support vector machines (SVMs) etc. are
+useful for such cases of regression to generate predictions which can be
+integrated in an overall energy management framework. Ensemble
+learning [180] which leverages on multiple weak learners to give better
+predictive performance than each of the individual learners by boot-
+strap aggregating or boosting is also useful in such a context.
+As IoT devices become cheaper, sensing will become more pervasive
+at homes or end use points of energy [181]. Additional data about
+building occupancy, user behaviour etc. would be available in real time
+streaming format which can be incorporated into the energy demand
+prediction models to improve their predictive accuracy. Data from IoT
+enabled home devices like washing machines, microwaves, dish
+washers and fridges would also contribute to richer datasets. Sensor
+data fusion algorithms would be useful for combining data derived from
+diverse sources and CI tools like fuzzy set theory can play a significant
+role in such applications.
+For most of these CI/ML algorithms, there needs to be a mechanism
+for online learning and adaptation to account for the changing patterns
+in user behaviour and the load demand profiles. For example, as more
+and more renewable generation and EV demand get added to the grid,
+both the generation and demand load profiles would look drastically
+different from the present scenario. Depending on how fast these
+changes would occur, the strategy might be to train the models offline
+on past data and update the production level ML/CI models regularly
+(e.g. every week or month). If changes are on a more rapid time-scale,
+the ML/CI algorithms have to be equipped with online learning in real
+time to respond quickly to these changes and have good predictive
+accuracy in their forecasts, noting that in many control approaches
+(including MPC), the system states are continually updated.
+3.1.2. Rule/logic based frameworks for smart energy system operation and
+decision making
+Conventional ML methods have been successful in a data rich en-
+vironment and use cases where the underlying mechanism of the system
+is not well understood [182]. Recommender systems in online shopping
+stores or video/music content based sites where it is important to
+predict what the user might like next based on his current preferences
+are two examples. Note that since our present understanding of beha-
+vioural choices is limited and there is no exact answer for what a person
+would like, it is acceptable for a black box ML/CI algorithm to predict
+something which can approximate the user’s preferences.
+Contrary to these examples, engineering systems are built and de-
+signed in a bottom-up fashion and the working principles are governed
+by laws of physics that are generally well understood. There is almost
+always a well defined objective and a set suite of methods based on
+engineering logic for operating the system under any circumstance. Any
+ML/CI algorithm which tries to make automated decisions for operating
+engineering systems must do so with this engineering judgement built
+into its system. Therefore interpretability regarding the underlying
+workings of the ML/CI algorithms and their behaviour in contingency
+situations is important to gain faith in such systems [183] and their
+consequent uptake and deployment by energy utilities. We therefore
+believe that CI/ML techniques which are based on an interpretable set
+of rules or logic (say Mamdani fuzzy inference systems, Bayesian net-
+works etc.) would be useful in forming the core of a successful energy
+management architecture. These systems might leverage other black
+box ML/CI techniques (e.g. neural networks) by having their predic-
+tions as inputs into the system, but the core decision making system
+should never be a black box ML/CI algorithm. A high level review of the
+short-comings of such black box deep learning methods has been cov-
+ered in [184] and interpretability of the ML methods is one of the key
+issues (along with others like being data hungry, poor incorporation of
+prior knowledge, trust concerns etc.).
+Another way in which CI/ML based control of energy infrastructure
+differs from that of popular ML applications mentioned above, is that of
+reliability and the significant costs/penalty associated with malopera-
+tion of such systems. Reliable supply of energy is an important public
+utility service and shutting down such systems due to some automated
+ML/CI black box algorithm is detrimental to the revenue, consumer
+satisfaction and public confidence in the company. Moreover, if the
+algorithm operates the engineering system in such a way that it induces
+mechanical or thermal stresses into the system (say multiple hot start-
+ups of a power plant within a short interval) it would lead to reduced
+life time of the system and consequent increase in overall power cost.
+Other cases of maloperation, (e.g. running power plant milling equip-
+ment or turbines at high speeds) might actually lead to mechanical
+breakdowns and property damage leading to significant business in-
+terruption.
+Such interpretable rule based systems can also be deployed as em-
+bedded smart solutions for end users which can leverage on smart meter
+data and real time energy pricing from decentralised generation sources
+to take optimal decisions on behalf of the user depending on user
+specified objectives like cost minimisation or comfort maximisation.
+3.1.3. Meta-heuristic optimisation methods for smart energy system
+planning and design
+Evolutionary and swarm based optimisers can be useful over other
+traditional methods (e.g. convex optimisation, mixed integer non-linear
+programming etc.) especially in cases where the function to be opti-
+mised is discontinuous, noisy, multi-modal or cannot be expressed in
+closed mathematical equations and requires simulation based tools.
+Given the stochastic (noisy) renewable generation and load profiles of
+these systems, complex interactions between multiple stakeholders
+(requiring agent based or other simulation based approaches to model)
+and uncertainties in how the interactions and energy system landscape
+would pan out in the future, the use of meta-heuristic optimisers is an
+attractive proposition. These optimisers are useful at the design and
+planning stage for optimal design of smart energy systems given the
+current energy infrastructure, future demand and other objectives like
+cost and reliability of operation [185]. Robust meta-heuristic optimi-
+sation methods are useful in taking into account the model un-
+certainties and ensuring that the designed system gives similar levels of
+performance even if the real system variables are slightly different from
+the simulated system. Evolutionary and swarm based multi-objective
+optimisation methods are also suitable for design of systems with
+multiple contradictory objectives, such as system efficiency, cost, re-
+liability etc. Pareto optimal solutions (whereby no further improvement
+to one objective can be obtained except at the detriment of at least one
+other objective) obtained from these optimisers would help quantify the
+best possible trade-offs under a given set of engineering constraints and
+objectives.
+Such optimisation methods could also be useful in the context of
+real-time decision making and control in an energy management
+system. These might be used as add-ons to a rule-based system with the
+requirement to deliver results in real time. Other applications would be
+the adaptive update of controller parameters based on varying process
+parameters, online system identification etc. However, evolutionary
+algorithms are typically not suited to real time implementation and
+need to be run multiple times as convergence is not guaranteed. If the
+objective function can be written down using a simple set of linear or
+non-linear closed set of form mathematical equations then its best to
+use fast iterative techniques such as convex optimisation or sequential
+quadratic programming. If the objective function can only be expressed
+in the form of computationally expensive simulation code, then surro-
+gate model based optimisation [186] or Bayesian optimisation can be
+useful to obtain optimised values in a short duration. Even then, it
+might not be suitable for real-time update at each time step. These
+techniques might be used to compute the optimal parameters of the
+system offline and then update the online algorithm after specified time
+intervals (e.g. a few hours) using, for example, adaptive look-up tables.
+3.2. Challenges and shortcomings of present CI/ML tools
+Most ML/CI techniques are designed to be trained offline and then
+the trained model is deployed in production mode. There are fewer
+research methods that look into efficient and fast methods for recursive
+online updating of these model parameters for real-time streaming data.
+One way to circumvent this problem is to make near real-time updates
+by batch processing historical data offline to re-train the models and
+deploying the retrained models at regular (e.g. daily or weekly) inter-
+vals. This method would capture medium to long-term trends but might
+miss out on shorter-term trends in energy demand and prediction.
+Consequently, the automated decision making and control algorithms
+might be sub-optimal.
+Most ML models are black boxes and lack interpretability.
+Introducing prior judgement in terms of the model structure or rules
+might make them interpretable but this almost always results in a
+consequent decrease in predictive accuracy of these models as the data
+might not actually conform to the intuition or judgement of the experts
+as encoded in the model structure. Some research has been geared to-
+wards training neural networks and then trying to extract rules algor-
+ithmically from the trained model. In general this tends to produce
+superfluous rules or ones which are not necessarily logically consistent
+or make practical sense. A more comprehensive review of different
+approaches to interpreting such black box models can be found in
+[187]. More research needs to be done on the interpretability aspects if
+CI/ML methods need to be tightly integrated in smart energy systems.
+The recent trend in ML is to move from point predictions of outputs
+(either class labels for classification tasks or real valued predictions for
+regressions etc.) to predictive distributions which explicitly capture the
+uncertainty in the output [188]. This is especially important as part of a
+larger decision making framework where uncertainty propagates across
+multiple levels (as can be the case in the hierarchically structured en-
+ergy domain). Computing uncertainties in predictions as opposed to
+maximum likelihood point estimates is also computationally expensive.
+Numerical methods like Markov Chain Monte Carlo (MCMC) can be
+used in a Bayesian framework to quantify parameter uncertainties for
+models but MCMC is inherently a sequential algorithm and parallelising
+it or scaling it up for high volume of data is difficult. Various approx-
+imate methods like variational inference exist but they might not al-
+ways give realistic estimates of the uncertainties [189]. Other non-
+parametric techniques like Gaussian Processes might be used to have
+good predictive accuracy along with uncertainties, but they do not scale
+very well with large data-sets [190]. Advances in Sequential Monte
+Carlo (SMC) techniques [191] would be especially useful for energy
+management applications due to the nature of the streaming time series
+data in such systems.
+3.3. Future research directions in CI/ML relevant to the context of smart
+energy systems
+One of the key concerns for smart multi-vector energy systems is the
+risks associated with integrating all these different energy networks
+together. There might be cascaded failures where failure of one of the
+energy vector networks might trip the whole system and cause cata-
+strophic damages. Appropriately designed CI/ML tools should be able
+to detect such failures and take corrective action in real time to limit the
+extent of damage, for example, by islanding a particular area or
+network. The energy management system should also be able to suggest
+and operate the network in fall-back option mode in the event of such
+exigencies. The other key desirable functionality of such a system is to
+ensure how to recover fully or restore to a partial state, a working
+energy network after a blackout or failure has occurred. CI/ML algo-
+rithms would play a significant role in detecting when and what failure
+has occurred, what parts of the energy infrastructure has been affected
+and what is the best possible alternative to restore the system.
+Since much of the system dynamics can depend on the actions taken
+by the smart algorithms themselves, the design and planning of such
+smart energy systems should explicitly implement these algorithms in
+simulation and stress test different scenarios to understand the asso-
+ciated risks in the operation of such systems. Game theoretical ap-
+proaches, for example, can then be used to uncover vulnerabilities.
+Another potential hazard in interconnecting energy networks is that
+there would be increased risk of damage due to cyber-attacks and the
+consequent losses would be more severe. This would be aggravated by
+linking up these networks to the internet for essential services, such as
+data sharing platforms (common in smart city applications), cloud
+storage or high performance cloud computing back-ends used for run-
+ning the algorithms in real time. Research also needs to be done to
+ensure that CI/ML algorithms can detect network intrusion, understand
+unauthorised access and can take appropriate actions to mitigate cat-
+astrophic consequences of such attacks.
+As embedded smart energy systems become more and more perva-
+sive, the energy network would become more decentralised with de-
+velopments such as peer-to-peer trading of energy and sale of energy
+from vehicle to grid. CI/ML algorithms must be present at multiple
+levels/scales (building scale, community scale, district scale, nation
+scale etc.) and should be able to ensure stability and reliable operation
+of the grid in spite of such uncertain operating conditions.
+One common push-back against the wide adaptability of such in-
+telligent systems for fully automated real time operation and decision
+making is the reliability and confidence in CI/ML algorithms, especially
+in abnormal situations. Formal verification methods or automated
+model checking for CI/ML systems might be an avenue to explore to
+ensure that smart energy systems designed with CI/ML components
+would not go into unsafe states or modes of operation even in abnormal
+situations. On the other hand, these methods should provide support for
+detecting incipient faults prior to the manifestation of an abnormal si-
+tuation.
+4. Real world implementation cases and considerations for Smart
+Cities
+Though the benefits of exploiting the increased smartness of cities to
+achieve efficient energy system integration have been well established,
+with techniques, applications and opportunities summarised in detail in
+the previous sections, the real-world implementation of such strategies
+requires the navigation of many practical barriers. These include the
+range of stakeholders required from both private and public sectors, the
+level of expertise needed, the conflicting objectives of different actors,
+the capital cost of such large scale interventions and the uncertainty
+surrounding the expected benefits (particularly from a financial per-
+spective). Furthermore, as noted in [192], effective smart cities emerge
+as a result of a variety of interacting components, which can differ
+between cities. A comprehensive overview of the different barriers can
+be found in [193]. Nonetheless, a large number of projects have been
+carried out or are currently in progress that seek to demonstrate the
+potential in the sector - a white paper categorising many of the main
+examples globally was compiled by the UK-based Future Cities Catapult
+for example, in [194]. In this section, considerations for implementing
+smart integrated energy solutions are discussed based on real world
+examples.
+4.1. The replicability challenge
+The holistic nature of Smart Cities has led to a diverse spectrum of
+characterisation approaches. In [195], 181 cities are ranked in terms of
+performance across 10 metrics to provide an impression of overall
+smartness. The rankings show that the current state of progress varies
+significantly with geographical location, with many high-ranking cities
+clustered in Europe. Despite this, global urbanisation trends and the
+consequential need for infrastructural development ensures that growth
+in the sector is not confined to the current European and North
+American centres - the Indian context is outlined for example in [196],
+while the growth of Smart Cities in China is described in [197]. As
+noted in [198] however, the evolution patterns of smart cities highly
+depend on the local context, affected by variables such as population
+density, economic development, cultural priorities, political structures
+and climate to name but a few. Even within individual cities, require-
+ments and barriers can vary across different districts and neighbour-
+hoods depending on building age, infrastructural make-up and demo-
+graphic profiles. As such, district-level interventions are often favoured
+over city-wide approaches [199,200]. A single template or one-size-fits-
+all set of solutions is unlikely to be achievable. Acknowledging this, a
+theoretical framework for analysing business models through the use of
+qualitative indicators is developed in [201]. This can allow adminis-
+trators to avoid potential pitfalls and shape decisions to fit a particular
+context. In [202], the cities of Montreal, London and Stockholm are
+studied to examine the approaches for strategizing smart cities. The
+authors stress the need to integrate many multidisciplinary resources in
+any strategy developed.
+4.2. Data handling & system integration
+One common theme that tends to cut across all contexts is the need
+for appropriate platforms to manage the data streams from the various
+assets. The London data store [203] is an example of such a platform,
+allowing open access to statistics and datasets. An example in which
+such platforms have been leveraged to enable smart management of the
+underlying systems can be found in Padova [23], where an open data
+and ICT platform initially used to measure environmental variables was
+extended to include a smart lighting strategy. In Santander, transpor-
+tation issues such as congestion, parking and driver guidance were
+tackled using this integrated data [204,22]. Similarly, the Smart Brain
+strategy developed by Alibaba [205] was implemented in Hangzhou to
+take various social media and traffic information to reduce average
+travel time by 10%.
+Focussing on consumption, monitoring of water and electricity
+consumption with smart meters in homes enabled guidelines and in-
+centives to be provided to residents in Dubuque [206]. Building further
+on such concepts, a smart solar neighbourhood was developed in Nice
+[207,208,22] to integrate distributed electricity generation and solar
+power forecasts using thermal storage and intelligent demand man-
+agement. In addition to this, the city introduced smart transportation
+and smart waste management strategies as well as smart lighting.
+4.3. Demonstrators and living labs
+Identifying a definitive business case for integrated energy solutions
+has proven to be a challenge, with the involvement of many actors and
+benefactors required. As such, many recent Smart City projects have
+sought to act not solely as technical test-beds, but as starting points for
+wider scale-up. From a technical point of view, this requires quantifi-
+able performance indicators, while also providing guidelines for
+handling the financial and governance challenges involved, as well as
+the wider social impact. In the UK electricity industry, this has led to
+demonstration projects centred on the development of large-scale smart
+grids while piloting innovative consumer services and commercial ar-
+rangements [209–211]. In several European cities such as Helsinki
+[212,213], and Barcelona [214], multi-purpose test-beds have similarly
+been established to implement and evaluate various solutions to over-
+come specific city challenges. Such Living Labs enable a better under-
+standing of the challenges faced prior to full-scale roll-out of a solution,
+as well as providing more concrete performance figures and business
+cases. In [206], the development of similar demonstrators globally
+(including in Seoul and Rio de Janeiro) with IBM is discussed. Given the
+purpose of these living labs as generators of insight, the importance of
+understanding the holistic outcomes of such projects (particularly be-
+yond the technical perspective) where private ownership is involved is
+discussed in [215].
+4.4. EU Smart Cities and Communities call projects
+A number of ambitious projects centred on the development of
+scalable Smart City interventions are currently in progress, as part of
+the EU H2020 call for Smart Cities and Communities. To encourage
+large-scale replication of the demonstrators, interventions in each
+project are first developed and implemented in a different set of light-
+house cities, while the methods and learnings are taken on by a set of
+follower cities with the intention of replicating similar projects. The
+focus of all such projects is on integrated commercial-scale solutions
+with high market potential in the fields of energy, transport and ICT
+[216]. Once again, integrated ICT forms a central part of all these
+projects. Beyond this, wide ranging topics and solutions encompassing
+smart grids, district heating and transport are proposed (as well as
+numerous other branches of the smart city concept). Of particular sig-
+nificance is the focus on implementation and scalability, illustrating the
+current state of the sector, moving from a conceptual phase to one of
+more tangible realisation. The projects in the call are listed in Table 1.
+All of the above give a generic overview of the on-going and recent
+projects and applications in the context of smart energy systems for
+smart cities. To better illustrate the challenges faced in real time im-
+plementation, the following section details the energy management
+strategy development for one of these smart city projects that our group
+is involved in, outlining the current status and vision for the future of
+the work.
+5. Overview of energy management in the ‘Sharing Cities’ project
+and vision for the future
+In this section, an overview is provided of the approach to be taken
+for managing an integrated set of energy networks in the Borough of
+Greenwich, developed as part of the London branch of the “Sharing
+Cities” project. The energy management strategy developed is referred
+to as the Sustainable Energy Management System (SEMS). The over-
+view highlights some of the main control and data handling con-
+siderations and challenges faced in such a project.
+5.1. System overview & architecture
+A number of assets are included in the proposed strategy, with the
+overall scheme encountering many of the key challenges of the domain,
+including the electrification of both heating and transport, the inclusion
+of renewable generation and the provision of storage. It is proposed that
+a set of apartments are to be fed by a low-temperature heat network
+supplied by a combination of water source heat pumps, thermal stores
+and additional boilers (acting as a back-up). Open-access EV charge-
+points are to be installed in the region, as well as an additional e-bike
+scheme. Photovoltaic panels are also to be installed to increase re-
+newable generation in the borough. The apartment block considered in
+the strategy consists of 95 apartments of various shapes, ranging from
+two-person to five-person in size and built of solid brick. The building,
+constructed in 1937, is to be retrofitted with radiators suited to a low
+temperature heating system. The proposed retrofit includes the in-
+stallation of apartment-level smart controllers to which user-specific
+set-point schedules can be applied. These communicate through a Z-
+wave protocol with Thermostatic Radiator Valves (TRVs) to manage the
+radiators. Energy meters, heat meters, sensors associated with the
+supply-side equipment and the smart control gateways are hardwired to
+the central energy centre, with all data passed to the SCADA system.
+The various system components and assets are shown in Fig. 1. The
+increased use of electrical power to satisfy thermal and transport de-
+mands is likely to increase the stress on the local power network, par-
+ticularly if load peaks from the different demands coincide. The un-
+certainty associated with the increased renewable penetration must also
+be handled by the power grid. Coordination of the different supplies
+and demands, in particular, exploiting the energy storage capability
+available in the heat network and the apartments themselves is there-
+fore paramount.
+5.2. Control strategy
+The SEMS seeks to guide the operation of the different individual
+system components in a manner that is, in some sense, optimal (whereby
+optimality is dependent on the definition of the specific objectives
+chosen), while providing intelligent coordination strategies to ensure
+the overarching system constraints are satisfied. The potential exists for
+objectives across different components to conflict at times and so the
+global objective (insofar as a single objective can be identified) may not
+correspond with individual local objectives. Nonetheless, due to the
+desire for optimal operation coupled with the presence of environ-
+mental forecasts and large numbers of inputs, outputs and constraints,
+solutions based on MPC are a natural fit.
+5.2.1. Hierarchical structure
+Allowing for communication latency and computation time, 15min
+time-samples are chosen for the MPC-layer. Such a sample-time is too
+long for robust operation of the lowest control layer, associated with
+proportionalintegralderivative (PID) and rule-based controlled actua-
+tors, valves, pumps etc. In the control hierarchy, the MPC-layer gen-
+erates set-point trajectories which are fed to the autonomous lower-
+layer, which is designed and operated in a standard fashion. Such an
+arrangement is typical in process control to ensure robust operation in
+cases whereby the predictive layer misbehaves [226].
+5.2.2. System constraints
+Each individual component has associated physical operating con-
+straints, while additional constraints are imposed at an overarching
+system-level (for example, the total electrical capacity of the local
+distribution network). In this case, some of the main constraints are:
+•comfort in each apartment is maintained as requested
+•the electricity grid is not over-stressed
+•EV charge-points are operated according to the owners specifica-
+tions
+•all individual assets are operated within specific physical limits
+(including outputs, ramp-up rates, operating time etc.)
+5.2.3. Objectives
+From a whole-system perspective, multiple objectives are present.
+Once again these objectives appear at multiple scales, with each dif-
+ferent actor representing a different purpose. Some of the key objectives
+are as follows:
+•minimise financial operating cost for all actors (building occupants,
+government, EV users, asset owners, etc.)
+•minimise the overall environmental impact of system
+•minimise EV-charger curtailment
+•maximise renewable penetration
+Naturally, these objectives are not mutually exclusive and conflicts
+can exist, necessitating a suitable coordination approach.
+As alluded to, the goal of the control framework is to optimally
+coordinate the different energy assets in the region, operating the in-
+dividual components so as to satisfy the wider system constraints, while
+minimising environmental and economic impacts (by exploiting
+varying energy prices). A challenging feature of the energy sector at this
+scale however, is the diverse range of stakeholders, impacted actors and
+beneficiaries with different objectives. Considering each asset in-
+dependently can lead to higher level system constraint violation, for
+example, if EV charging peaks coincide with those of the heat pump
+heating load, the power network may become over-stressed.
+Furthermore, even if all components and system constraints are han-
+dled within a single centralised framework, the different objectives can
+lead to conflicting requests, for example, maximising the PV panel
+output on the supply-side while minimising power consumption on the
+user-side may lead to an unstable power grid.
+5.2.4. The overall SEMS control architecture
+Bringing together these aspects, the complete architecture of the
+proposed control strategy - the SEMS - is shown in Fig. 2. To ensure
+robust operation, the lowest control layer (the actuation layer) follows a
+typical classical approach based on PID and rule-based controllers. This
+layer includes the Thermostatic Radiator Valves (TRVs) in each apart-
+ment, the pumps and valves used to actuate the heat pumps, boilers and
+stores, and the switches associated with all other electrical assets.
+The set-point trajectories for the actuators are provided by the
+middle, MPC-based layer. In this case, two separate MPC controllers are
+implemented, however additional controllers can be added in a mod-
+ular fashion if further assets are to be included. This modular form
+enables the system scale to be increased without requiring a complete
+reformulation and without excessive complexity. The MPC controllers
+take measurements, weather forecasts, energy prices and user-defined
+set-point schedules at fifteen minute intervals, calculating at each time-
+step an optimal set-point trajectory for the following of 12h. The
+models used by these MPC controllers are typically in a standard linear
+state-space form, with quadratic objectives. The model parameters and
+form can then be chosen to ensure convexity with a reasonable solution
+time - open-source solvers from the CVXOPT package in Python for
+example can be used to solve the optimisation problems. A further
+important consideration here due to the use of historical data to gen-
+erate future predictions is the data storage requirement. While data
+storage is available here (specifically through the London Data Store),
+accumulation of excess data over-time is to be avoided by the use of
+recursive parameter estimation approaches.
+In the top layer of the formulation, the projected heating and
+electricity loads for the different assets are taken from the MPC con-
+trollers. The purpose of this layer is to ensure that the combined loads
+recommended by the multiple MPC controllers do not lead to constraint
+violation at a system-wide level. The challenge of coordinated control
+and the relative merits of centralised and decentralised formulations
+have been well established [227]. Objectives can be balanced through
+an appropriate selection of weights [228] or prioritised frameworks
+[54], while higher-level coordination layers and game theoretic ap-
+proaches [152] can allow for interaction between otherwise isolated
+controllers to ensure all actors are satisfied in a manner that can be
+considered fair. Depending on user-preference, two options are ex-
+plored here. Firstly, an approach can be implemented in which addi-
+tional hard constraints are applied to the MPC layer in the event of
+high-level constraint violation following pre-defined rules. In the
+second approach, an iterative procedure is used in which excessively
+large power requests are penalised in the objectives of the MPC layer in
+an increasing manner until system-wide constraints are fulfilled. The
+former option is more robust, however, the need for pre-defined rules
+inhibits the scalability of the overall scheme.
+5.3. Multi-vector energy system simulation environment
+5.3.1. Pre-implementation control design
+Though the central purpose of the project is to implement the de-
+rived algorithms in the real world, a necessary prior stage in the de-
+velopment of the proposed control strategy is the creation of a simu-
+lation environment or digital twin that can accurately represent the
+temporal dynamics of the real-world systems. This is important for
+several reasons. Firstly, any formulated algorithms must be rigorously
+tested to ensure a smooth transition to the real environment. Given the
+innovative nature of the proposed solutions, the specificity of the
+challenges faced and the potential impact that would arise in the event
+of error in the real system, this testing is paramount. Secondly, the long
+time-scales and high expense associated with the system prohibits any
+excessive periods of reformulation or tuning - preferably this should be
+done in advance of implementation. Additionally, to assess and com-
+pare the performance of different strategies in an unbiased manner, all
+external factors and covariates should be identical from one experiment
+to the next. In an environment such as this, whereby the weather plays
+a conspicuous role, this is only possible in simulation. Finally, to inform
+potential stakeholders of the possibilities and benefits of various control
+strategies in a quantifiable manner, simulated case studies can be car-
+ried out without many of the barriers associated with real-world im-
+plementation. This next section provides detail of the digital twin de-
+veloped for this Sharing Cities project.
+5.3.2. The digital twin
+The purpose of the digital twin is to combine the various generation,
+storage and demand units in a single platform that can communicate
+with an external control framework in the same manner as the real
+system. To allow for different assets to be included in a modular
+fashion, a suitable co-simulation environment is required. In this case,
+the Building Controls Virtual Test Bed (BCVTB) environment is used
+[229], which itself is based on the Ptolemy II environment [230]. In this
+case, the simulated energy systems comprise of a heating network, the
+apartment block it supplies, a set of EV charge stations, a set of PV
+panels, a number of e-bikes and lamp posts, along with the electricity
+grid and the gas grid. Profiles representing external variables such as
+weather (temperature, solar irradiance etc.) and energy prices (gas and
+electricity) are also included.
+To represent the thermal dynamics of the apartment block,
+EnergyPlus building energy simulation software is used. EnergyPlus is a
+whole building simulation package [231], capable of incorporating the
+physical properties of the building as well as the heating system or
+cooling system configurations and settings with weather data and oc-
+cupancy schedules to produce temperatures, heat flows and water flows
+throughout the building envelope. Elaborating on work carried out as
+part of the EU H2020 funded MOEEBIUS project [232], the dimensions
+of the apartment block and an appropriate set of building materials are
+set to enable accurate simulation of the thermal dynamics of the
+building, down to a granularity of 60 s time samples.
+The heating network consists of water-source heat pumps, boilers,
+thermal stores, pumps, valves and the PI-controllers needed to instigate
+all of the above in the same manner as the real system. These are
+modelled in Ptolemy II based on standard heat transfer and mass
+balance equations (including heat losses) with Coefficient of
+Performance (COP) curves taken from manufacturers’ data used to re-
+present the efficiencies of the boilers and heat pumps. The flow tem-
+perature and flow rate of the heat network are passed to the EnergyPlus
+model, which then sends back the return temperature. Other compo-
+nents, such as EV chargers, e-bikes and environmental variables are
+instigated as time-varying profiles, generated based on typical uptake
+values with pseudo-random variations added.
+All sensors present in the real system are represented in simulation,
+with all relevant measurements pushed to the control layer via a web
+application framework (in this case, using Flask [233]). The purpose is
+to directly replace the digital twin with the real system, thus the control
+layer, developed here in Python, is equivalent to that of the real system.
+In the same manner as the real system, it pushes set-point trajectory
+recommendations back to the digital twin. The complete architecture of
+the digital twin and its link with the SEMS is shown in Fig. 3.
+5.4. Additional challenges for the SEMS
+The design and implementation of the outlined scheme in the real
+system introduces number of technical challenges. This section briefly
+summarises some of those that have been encountered or are antici-
+pated.
+The development of suitable Application Programming Interfaces
+(APIs) to enable different actors access and view the behaviour and
+performance of the installed systems is required. This must include
+appropriate methods for visualisation, specifically illustrating the de-
+cisions made by SEMS and the impact of these decisions to any actors
+affected (positively or negatively) by these decisions. Crucially, this
+must be achieved without infringing on the privacy of the individuals
+behind the data (in this case, the occupants of the apartments are an
+important example).
+An issue that arises in the control of multi-vector energy systems is
+the need to consider multiple time-scales. This is largely due to the
+differences present in the thermal behaviour of systems such as build-
+ings and the far higher-frequency dynamics of electrical networks. The
+time-scales needed to provide frequency response services to the elec-
+trical network for example, are clearly different to those needed to
+manage the thermal store. The strategy and its associated functions and
+objectives must be appropriately designed with this in mind, while all
+discrete-time models used must be derived to ensure stability at the
+relevant sample-times.
+Though the potential improvements available through the im-
+plementation of strategies such as this have been enabled by the pro-
+liferation of data (as covered in Section 2 of this paper), the need to
+effectively manage a large number of data streams is in itself a sig-
+nificant challenge (an overview of this area of the smart cities domain is
+provided in [234] as a guide). Data platforms and suitable APIs must be
+developed and implemented to handle the various formats and inter-
+faces associated with each of the assets. Historical data must be stored
+to enable system design, modelling and analysis to be carried out while
+privacy concerns must also be understood and mitigated.
+Suitable KPIs and metrics must be developed to assess the perfor-
+mance of the designed approach. Once again, these must consider the
+various complementary and conflicting objectives present in the multi-
+stakeholder landscape. To provide insight into the real-world perfor-
+mance, extended monitoring periods are required, long enough to
+capture typical seasonal variations while ensuring that temporal
+anomalies do not dominate the results. In addition to monitoring the
+performance of the scheme, a similarly rigorous approach must be
+taken to monitor the system behaviour without coordination to enable
+valid baseline performances to be understood, though a certain amount
+of this burden can be carried by the digital twin.
+Scalability is key to the long-term success of any Smart City solu-
+tions. As referred to in the previous section, the scheme is designed to
+enable modular expansion if additional systems are to be incorporated.
+Despite this, time and expertise are needed to carry out the required
+modelling and control design for any new assets brought in.
+Furthermore, all impacted actors must be considered in any further
+system integration, as well as any spatial changes. In [235] for example,
+the need to consider the impact of regionally varying energy pricing
+when planning energy conservation measure implementation is ex-
+pounded. Such issues can affect any performance metrics determined.
+As system connectivity and complexity increases, ensuring system
+resilience can become more challenging. Cascade failures [236] and
+communication faults must now be mitigated, with suitable failure
+modes designed. As previously discussed, the control architecture is
+founded on a layer of standard controllers, which in the event of a loss
+of communication, can operate the various assets in an isolated manner.
+Aside from this however, measures must be included to prevent in-
+dividual faults (sensor, actuator or model faults) from propagating
+throughout the system [228]. Once again, the digital twin can play a
+role in the required analysis for this.
+6. Conclusion
+This paper surveys the current directions in smart energy systems
+for smart cities and draws on our insights in developing a large scale EU
+pilot project for real time implementation of the same. Current appli-
+cation areas are first addressed, including data handling and
+technological advances in the built environment and transport sectors,
+as well as cooridnation and integration methods for exploiting sym-
+bioses across different energy domains. The potential use of ML and CI
+approaches to tackle specific future challenges in the area is also ex-
+panded upon. Along with theoretical developments, we also look at the
+practical aspects of real time implementation and understanding the
+way the smart city concept is formalised for these real world cases, we
+can envision how and where different CI and ML paradigms can be
+integrated. This would help to inform other researchers working on
+more theoretical aspects and help understand which are the high im-
+pact areas to focus on and also possibly help in guiding the budding
+research community in this area to challenges motivated by real world
+case studies.

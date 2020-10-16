@@ -1,0 +1,913 @@
+ABSTRACT
+This paper provides a systematic review of recent publications on simulation and analysis of integrated multi-
+vector energy networks (rather than energy hubs) and carries this out through the lens of energy trilemma.
+This review is essential for energy research community to move forward in effective manner toward 2050 net
+zero carbon targets. This paper presents a holistic view of state-of-the-art of research in this field and identifies
+gaps in knowledge which should be addressed by future research urgently. Furthermore, this paper introduces a
+taxonomy of energy networks analysis, offering a unified description of findings of relatively large number of
+publications devoted to the subject. Moreover, this work analyses and classifies current research trends in the
+field of analysis of energy networks integration, and also identifies future trends in this field. This review serves
+as a guide to researchers regarding the main findings of energy networks integration evaluated through the lens
+of energy trilemma. The reviewed papers have been classified into three groups: (i) Operational analysis; (ii)
+Optimal dispatch; and (iii) Optimal planning. The focus of the paper is energy networks, since they play
+fundamental role in integrated energy systems and there is a lack of understanding of interactions and in-
+terdependencies between multi-vector networks. Also, focus of this paper has been on key findings of published
+research rather than details of individual energy models. The paper provides useful insights for energy research
+community by presenting several novel ideas for future research and facilitating the path to a decarbonised
+economy, due to the fulfilled comprehensive systematic review.
+1. Introduction
+The international aspiration to reach net zero carbon in energy sys-
+tems by 2050 is growing. In the UK, the government has set a target of
+‘Net Zero’ Greenhouse Gas (GHG) emissions by 2050 in order to reduce
+contribution to global warming [1]. This necessitates performing energy
+evaluation through a system-of-systems approach, in order to under-
+stand the intrinsic properties of the main layer/sections of the Integrated
+Energy Systems (IESs), from natural resources and distribution to the
+final energy user as well as the interactions and interdependencies
+within each layer/section [2]. These interdependencies and interactions
+occur between different energy vectors including natural gas, electricity,
+cooling and heating. Energy networks are key components of the whole
+energy system that transport the energy extracted from the natural re-
+sources to the final energy users. Therefore, there is a growing consensus
+that there is a need for a step change in research and development in
+multi-energy networks and their interdependencies in order to facilitate
+the path to achieving the carbon reduction targets.
+Energy networks (including gas, electricity and district heating/
+cooling networks) are still predominantly planned and operated sepa-
+rately. However, there are several drivers for integrated planning and
+operation of these networks including reduction of the use of primary
+energy, increasing integration of Renewable Energy Sources (RESs) and
+facilitating a low carbon economy [3]. The synergies between energy
+networks [4,5] and the interdependencies and interactions between
+these networks have been shown to have the potential to bring several
+benefits to the integrated planning, optimal dispatch and operation of
+energy networks including increasing energy conversion efficiency,
+maximised utilisation of primary energy sources, improving the energy
+system flexibility, resilience and security and carbon emission reduction
+[3,6,7]. Modelling of IES is crucial for understanding the energy net-
+works and the potential benefits of their integrated operation. Several
+energy system models have been developed, which have been presented
+and reviewed in the literature [3,6,8,9]. Moreover, Information and
+Communication Technologies (ICTs) have a substantial role in IESs since
+they support the coordinated operation of the system by integrating
+different parts of the energy system through information sharing
+frameworks [7]. Consequently, there are several complexities associated
+with planning, management and operation of Integrated Energy Net-
+works (IENs), which needs close collaboration of several fields of
+expertise including computing science and several engineering disci-
+plines to address the challenges of this multi-disciplinary field of
+knowledge.
+An overview of the benefits of integrated operation of energy net-
+works has been carried out in Ref. [3]. However, this does not include a
+significant amount of detail and does not relate the findings to the
+internationally accepted concept of the energy trilemma, i.e. flexibility,
+security and affordability. This greater detail and link to the trilemma is
+required in order to identify gaps and directions for an appropriate
+future research for meeting carbon reduction targets. To the best of the
+knowledge of the authors, no other comprehensive or systematic re-
+views were found, that have linked together and organised the findings
+of the most important literature on the analysis of energy networks in
+relation to the energy trilemma.
+Slightly different definitions of the three elements of the energy tri-
+lemma exist. Based on the frequency of the definitions used by the au-
+thors of the reviewed papers, the following most common definitions of
+the energy trilemma have been used in this paper:
+(i) Flexibility of operation:
+This element of the trilemma denotes how much IENs can respond to
+any change in the coupled network(s), including the increase in demand,
+without violation of the operational conditions or technical limits.
+(ii) Security of supply:
+This element of the trilemma indicates the extent that one network
+vector can support (in terms of meeting the demand) the operation of
+other different but coupled network vectors in the case of a fault
+occurrence in part of those coupled network(s), or a shortage of supply
+in those coupled network(s).
+(iii) Affordability:
+This element of the trilemma denotes the amount of costs associated
+with the operation, dispatch or planning of the IENs. These costs include
+operational and maintenance costs as well as the cost of purchase and
+deployment of new assets.
+It should be noted that although environmental sustainability (as an
+indication of the environmental performance of IENs) has not been
+explicitly considered in this definition of the energy trilemma, any
+changes to the planning or operation of IENs will have impact on the
+environment. In this paper, the environmental impact of any variation in
+the above energy trilemma elements are also investigated and evaluated.
+It should be noted that the aforementioned definition of the energy
+trilemma is in line with the goal number 7 (‘affordable and clean en-
+ergy’) of Sustainable Development Goals. This goal aims to ensure access
+to affordable, reliable, sustainable and modern energy for all.
+Several vectors are incorporated in multi-vector IENs including
+natural gas, electricity, heating, cooling and hydrogen. Table 1 shows
+the possible coupling components between the vectors that were
+frequently investigated in the literature, i.e. gas, electricity and heat. As
+can be seen from the table, almost all these vectors, i.e. gas, electricity
+and heat, can be converted into another vector and vice versa. This also
+shows that these networks can impact the operation of the coupled
+network(s). For example, the electricity network can impact the opera-
+tion of the gas network: (i) either through electricity to gas conversion
+units (Power-to-Gas (P2G), electrolyser and electric driven gas com-
+pressors); or (ii) through gas to electricity conversion units (Combined
+Heat and Power (CHP) and gas turbine). Therefore, these bring both
+benefits and challenges to the operation of the IENs in terms of the el-
+ements of the energy trilemma as follows:
+(i) Flexibility of operation:
+Benefits include, optimal scheduling and planning of the networks for
+minimum costs and carbon emissions, and optimised utilisation of the
+available assets. Challenges include unexpected potentially negative
+impact of networks on one another in case of malfunctioning of the
+coupling components and hence losing some energy and increasing the
+costs and carbon emissions;
+(ii) Security of supply:
+Benefits include, availability of any form of energy in any network to
+meet the unexpected increased demand in the coupled network(s), and
+mutual support between network(s) in case of faults in some part of
+them or shortage of supply from upstream or from limited natural re-
+sources. Challenges include: (a) the optimal placement of the coupling
+components to ensure the security of supply; and (b) networks may not
+be able to support the coupled network(s) in case of malfunctioning of
+the available coupling components;
+(iii) Affordability:
+Benefits include, reduction of costs either through capturing and
+converting renewable energy via different coupling components into
+any of the coupled networks, or through optimised utilisation of avail-
+able assets. Challenges include increase in costs due to load shedding or
+due to malfunctioning of the coupling components.
+There are economic and environmental benefits associated with in-
+tegrated operation of the networks through these coupling components.
+As an example, it was shown that introduction of P2G in the national gas
+and electricity transmission networks of Great Britain had reduced the
+costs by £35 M and reduced the carbon emissions by 250 kton during a
+month [10]. However, it should be noted that these figures cannot be
+generalised since they depend on several factors, including the scale of
+the networks, the load profile condition (summer or winter), the ca-
+pacity and number of available coupling components and storage
+devices.
+In order to integrate the networks, through utilising the coupling
+components listed in Table 1, the following technical interventions are
+required: sizing and operating the coupling components optimally.
+Operating the coupling components also requires data acquisition sys-
+tems, in which the associated data need to be shared with the control
+room(s) of different network vectors. This challenging intervention will
+be discussed in Section 4. Also, among the technologies that are pre-
+sented in Table 1, the ones that are underrepresented in this paper, can
+be considered as potential areas for further work.
+In this paper, the most important findings drawn from the literature,
+on analysis of energy networks, rather than energy hubs, fall in to the
+following three categories:
+(i) Operational analysis:
+This area denotes assessing the operational conditions of the net-
+works and ensuring the networks are meeting the demand without
+violating the operational limits, i.e. ensuring the voltages in the elec-
+tricity network, the pressures in the gas network and pressures and
+temperatures in the District Heating Network (DHN) are all within
+acceptable and operable ranges. Once, this assessment has been carried
+out, a picture of the operation of the network in terms of the power flows
+in the electricity network, gas flows in the gas network, and hot water
+flows in the DHN is obtained. Then, the final step is to evaluate the
+Techno-Economic-Environmental (TEE) performance of the IEN.
+(ii) Optimal dispatch:
+Optimal dispatch denotes the optimal operational scheduling of
+IENs, which is normally performed for the next few hours. This means in
+order to meet the demand with the least operational costs (objective
+function), how much (amount and scheduling) energy from different
+sources needs to be supplied, or how much the amount and scheduling of
+different energy conversion units (coupling components) needs to be.
+Optimal dispatch also considers the operability of the IEN. Additionally,
+the environmental performance is either considered as an element in the
+objective function along with the operational costs, or as a constraint.
+Hence, optimal dispatch performs an optimal TEE operational sched-
+uling of IENs.
+(iii) Optimal planning:
+Optimal planning denotes investment planning of all the assets of
+IENs, including pipes in the gas and district heating networks, cables and
+generation units in the electricity network, and coupling components,
+for a horizon of time, e.g. next 20 years. In this respect, all the capital
+and operational costs (mapped to a base year) will be minimised in order
+for the IEN to meet all the current and future demand subject to being
+operable and optimally dispatched at all the time snap shots. Similar to
+optimal dispatch, the environmental performance is either considered in
+the objective function along with all the costs or as a constraint.
+Therefore, optimal planning carries out the optimal TEE operational
+planning of the IEN for meeting the current and future demand.
+In order to provide guidance for engineers and researchers regarding
+the operational analysis, optimal dispatch and optimal planning of IENs,
+the selected articles in the related field published predominantly in the
+last five years are reviewed. The key findings in these articles are ana-
+lysed and categorised covering a range of different aspects, which are
+linked to the aforementioned energy trilemma elements, i.e. flexibility
+of operation, security of supply, affordability. Additionally, a compre-
+hensive review of the problem formulation and solving algorithms for
+optimal planning and optimal dispatch of IENs has been carried out.
+Consequently, the comprehensive systematic review presented in this
+paper provides a holistic picture of the state-of-the-art of research in this
+extensive field and identifies useful insights, directions, and guidelines
+for valuable future applied research in pursuit of the low carbon
+transition.
+The papers on energy hubs were not considered since hub level
+analysis does not consider the operation of the network to ensure the
+network is physically operable and is able to meet the load without
+violation of operational constraints (see Refs. [11,12] for review of en-
+ergy hubs). Also, the focus of this paper is on findings rather than the
+energy models since the models developed for simulation and analysis of
+IENs have been reviewed in several other literature [3,6,8,9].
+The structure of the paper is as follows: section 2 explains the
+methodology adopted and describes the way the publications summar-
+ised in this paper were identified. Also, key characteristics of published
+research were categorised and key findings are described in this section.
+Section 3 describes the most important findings of the papers around the
+elements of energy trilemma, in three subsections corresponding to the
+three key categories of operational analysis, optimal dispatch and
+optimal planning. Section 4 presents several directions for valuable
+future applied research in optimal planning, optimal dispatch and
+operational analysis of IENs. Finally, section 5 concludes the insights of
+the paper.
+2. Methodology
+This section explains the methodology adopted in this paper to find
+the published research on analysis of IENs. Also, key characteristics of
+published research were categorised and key findings are described. For
+this purpose, databases including IEEEXplore, Sciencedirect and Scopus
+were searched with the following key words in their title or keywords:
+- A combination of two of: ‘gas’, ‘heat’, ‘power’/‘electric’
+- ‘multi-energy’, ‘multi-vector’, ‘integrated energy systems’, or ‘inte-
+grated energy networks’
+- ‘energy system’ or ‘energy network’
+Among the resulting papers, the ones based on a model of energy
+networks, rather than based on a model of energy hubs, were considered
+since energy hubs are already reviewed in Ref. [11,12]. Then, an
+assessment was carried out and hence the papers were filtered further
+and the ones: (i) with reasonable citations; (ii) from influential re-
+searchers in this field; (iii) published in prestigious journals or presented
+in credible conferences; and (iv) that were rigorous, most interesting and
+complete, were selected to be reviewed in this paper. Given the fact that
+English is a universal language, whilst considering only the papers
+written in English, a homogenous cover of the research on analysis of
+IENs, that is carried out in the world, is captured in this paper. Also,
+several papers had performed analysis of a single vector (i.e. gas, elec-
+tricity or heat) as well as the point(s) of connection to the network of
+other vector(s) and the impact of those networks without considering
+the operation of those coupled network(s). Those papers were excluded
+since the scope of this paper is multi-vector energy networks. In this
+way, the authors are confident that the most important and influential
+papers on analysis of energy networks that have been published in the
+well-known databases have been captured and scanned in this review.
+Once the papers were filtered according to the aforementioned
+eligibility criteria, 186 papers were considered to be reviewed in this
+paper. Fig. 1 shows that 115 journal papers and 71 conference papers,
+with majority of 59 IEEE conference papers, were investigated. Fig. 2
+illustrates the share of different journals on publishing the reviewed
+papers on analysis of IENs. These two figures show the majority of the
+reviewed papers are published in prestigious journals and conferences.
+Fig. 3 shows the number of the papers from different countries according
+to the affiliation of the first author of these papers, which indicates the
+importance of this topic for different countries around the world. As can
+be seen, the majority of these papers have been published by the re-
+searchers from China (72), UK (31), United States (17) and Iran (12).
+The rest of the countries have less than 10 publications.
+As shown above, the geographical coverage of the literature review
+was diverse and extensive but not exhaustive. However, it should be
+noted that the three categories listed above deal with issues that are
+applicable to all the energy networks regardless of their vector or
+geographical location and whether they are dealing with legacy net-
+works or new build infrastructure. It is possible that some issues specific
+to developing countries may not have been identified in this review but
+these are likely to be driven by commercial or regulatory aspects which
+are not the focus of this paper. Therefore, it is reasonable to claim that
+the findings from this review have global relevance and value.
+These 186 papers were classified into each of the groups below ac-
+cording to their models, research questions and scenarios:
+- Papers on operational analysis [13–54].
+- Papers on optimal dispatch [10,55–157]
+- Papers on optimal planning [158–200].
+Fig. 4 shows the number of papers found in the above three groups
+published in journals and conferences (denoted by ‘conf.’ in the figure)
+by year for the last five years. As can be seen from Fig. 4, the total
+number of papers published in these three groups has increased in recent
+years especially for optimal dispatch and optimal planning groups. In
+these three groups, 82.9%, 82.5%, and 80.9% of the reviewed papers,
+respectively, are published in the last five years.
+3. Classification of IEN analysis methods and key findings
+In this section, the methods for IEN analysis adopted in the reviewed
+papers for operational analysis, optimal dispatch and optimal planning
+of IENs, the algorithms developed and implemented for formulation and
+solution of the problem and the key findings of these publications
+around the elements of energy trilemma are presented.
+The aspects that were more frequently investigated in the papers are
+shown in diagrams in Fig. 5 for operational analysis, in Fig. 6 for optimal
+dispatch and in Fig. 7 for optimal planning of IENs. These aspects were
+identified based on the keywords of the findings of the papers. All these
+aspects have impact on analysis of the performance of IENs in terms of
+the elements of energy trilemma, i.e. flexibility, security and afford-
+ability. The proximity of any of the aspects to any of the above elements
+of energy trilemma in Figs. 5–7 does not mean that aspect has more
+impact on that element of energy trilemma. Also, the darker the arrow
+connecting the aspect to the whole energy trilemma, the more frequent
+the appearance and discussion of the aspect in the reviewed papers, as
+shown by the legend in these figures.
+Among these aspects, the ones that were discussed more frequently
+than the others in the papers are described below Figs. 5–7 in separate
+paragraphs. It should be noted that ‘Affordability’, is included in almost
+all the paragraphs and hence has not been summarised exclusively in
+one separate paragraph similar to the other elements of energy
+trilemma.
+The references that have validated their developed model by
+comparing the results of their model with reference data, measurements
+or a commercial tool without any scenarios or key findings are not
+explained in the sub-sections of this section, since they have not
+demonstrated the evolving scenarios to address the energy trilemma.
+Also, the results and findings of the papers that are not cited in the ‘Key
+findings’ sections (i.e. sections 3.1.2, 3.2.2 and 3.3.2) were not related to
+the subjects discussed more frequently in majority of the papers.
+Therefore, although some of the papers are scanned and mentioned in
+the ‘Methodology’ section, they are not cited in terms of their results and
+findings, in order to maintain the organisation of the paper. This is due
+to the fact that the purpose of this review is to summarise the most
+important findings of the available publications in relation to the
+elements of energy trilemma. Additionally, the findings presented in this
+section have been taken from the clear statements in the papers and are
+not the personal perception of the authors.
+3.1. Operational analysis
+3.1.1. Problem formulation and solving
+The problem of operational analysis is to calculate the values of state
+parameters in an IEN, i.e. voltages in electricity, pressures in gas and
+mass flow rates and temperatures in heat/cooling networks. Once the
+values of the state parameters are calculated, the values of energy flows
+within the IEN are obtained. In this way, a suitable understanding of the
+performance of the IEN in terms of energy trilemma and operability of
+the IEN without violation of operational constraints is obtained.
+In order to perform operational analysis, the set of equations of
+balance of power/gas flows at the buses/nodes of the electricity/gas
+network are formed. Then, the equations are re-written in terms of the
+state parameters in each network.
+For the heating or cooling networks, the set of equations of balance
+of mass flow rate of hot or cold water at the nodes, the correlation be-
+tween mass flow rate, load, and difference of temperature at the loads
+and the equations for losses of heat in the pipes are formed. These
+equations already contain the state parameters of heating or cooling
+network.
+Regarding the coupling components, since the value of the energy
+flow on one side is known and input to the problem, the value on the
+other side can be calculated and considered as the load or generation in
+the corresponding network.
+In order to solve the set of nonlinear equations most of the papers
+have explicitly mentioned they have used Newton-Raphson method.
+This is due to the fact that this method finds the problem solution with
+local quadratic convergence irrespective of the size of the network
+provided all the state variables are initialised with suitable values and
+the Jacobian matrix is not singular at the solution point [201,202]. Once
+the set of equations is solved, the values of state parameters in all the
+networks and consequently the power/gas/hot or cold water flows in all
+the branches of the IEN are determined.
+In this way, it is possible to examine if the IEN is physically operable.
+Also, it is possible to evaluate the performance of the IEN in terms of the
+energy trilemma.
+A summary of the popular methods used by the research community
+for problem formulation and problem solving for operational analysis of
+IENs is presented in Table 2. It can be seen that the problem can be
+formulated either as: (i) sequential, in which the model of each network
+is solved separately and the impact of coupling components is consid-
+ered as load or source for the other network; or (ii) integrated, in which
+the models of integrated networks with the coupling components are
+considered as one model and solved as a whole.
+3.1.2. Key findings
+3.1.2.1. Flexibility of operation. Flexibility, as one of the elements of
+energy trilemma, has been discussed frequently in the papers. There are
+several options that provide flexibility to the operation of IENs, as
+follows:
+(i) Line pack storage, which is the amount of gas stored in a pipeline,
+is one of the options that provide flexibility to the gas network as
+well as to the other coupled networks. The difference between the
+upper and lower line pack limits of the pipes (ΔLP) and the
+amplitude of the line pack swing, impact the line pack flexibility.
+In a ‘Gas based heating’ scenario studied in Ref. [13] it was found
+that high heat demand levels lead to a reduction in ΔLP, and
+hence to a reduction in the flexibility of the gas network. In this
+scenario, these high heat demands also led to an increase in the
+magnitude of the line pack swing. Therefore, the heat demand
+levels need to be taken into account in order to evaluate the
+flexibility of IEN operation. The method developed in Ref. [13] to
+assess the flexibility may be used in scheduling of operation of
+transmission network. Hence, it is possible to quantify the flexi-
+bility in different regions using weather forecasts of day-ahead.
+(ii) P2G facilities, which provide flexibility to the IEN especially at
+higher levels of wind generation, reduce the power losses and
+fluctuations of gas pressure [14]. These facilities, which are
+alternative to gas network reinforcement, effectively benefit the
+operation of both electricity and gas networks. This is due to the
+fact that they contribute to the reduction of wind curtailment and
+to the relief of congestion in the electricity network as well as in
+the coupled networks to decrease the insecurity risks [15,16].
+(iii) Any form of storage devices offers flexibility to the operation of
+IENs. Different types of energy storage systems that are utilised in
+gas, electricity and district heating networks are summarised in
+Table 3. All these different forms provide support, in terms of
+flexibility of operation, security of supply and affordability, to the
+network that is utilising the storage device directly, as well as to
+all the network(s) coupled to this network through coupling
+components. It is shown in Ref. [17] that the heat networks can
+be considered as thermal storage devices to some extent and
+provide flexibility to other coupled network(s) through the qua-
+si-dynamic 2  interactions, which can be used in security
+enhancement. It is found that in smart energy systems, proper
+control strategies, which have large influences on the
+quasi-dynamic interactions, should be developed to use these
+interactions for increasing IEN flexibility [17].
+(iv) Compressors with dual flow capability can provide flexibility to
+the IEN in order to accommodate the changes in supply in any of
+the networks [18].
+3.1.2.2. Security of supply.Security of supply is another element of
+energy trilemma and is investigated frequently in the papers. It was
+shown that IENs support one another in the case of occurrence of faults,
+however, at a higher cost and emission condition [19]. It was demon-
+strated that these faults can propagate from one network to the other
+coupled networks and cause risks to the IEN operation [20]. Several
+options were proposed in the literature in order to reduce the risk of
+occurrence of faults and improve the security of operation of IENs, as
+follows:
+(i) Electrification: Electrification of heat and especially using hybrid
+heating technologies can result in great reductions in GHG
+emission of electricity and heat sectors and reduce conventional
+generation peaks [21], which in turn contributes to the secure
+operation of the IEN. It was suggested that a mixed combination
+of technologies at district and local levels needs to be considered
+to meet techno-economic and environmental performance targets
+as well as to minimise the influence on the constraints of the local
+network [22].
+(ii) Storage: Adding storage in weak parts of the networks is an
+effective way to decrease operational insecurity and strengthen
+the system [23].
+(iii) Correlations of pipeline parameters: Accurate estimation of dis-
+tributions and correlations of pipeline parameters need to be
+considered in order to reduce potential risks to operation of IENs
+[24].
+(iv) Operation mode of coupling components: The operation mode
+influences the energy flows and IEN operation [25]. For example,
+at the conditions of high heat demand, a CHP unit in the heat load
+following mode may generate great amount of electricity and
+export it to the grid and hence negatively impact the security of
+supply of the IEN [26]. Considering all the above points can avoid
+load contingency, which produces frequency deviation and gen-
+eration re-dispatch that in turn changes the energy flow profiles
+in the IEN that could cause critical operational condition for the
+IEN [27].
+3.1.2.3. Aspects impacting the energy trilemma
+3.1.2.3.1. Interdependencies. Interdependencies and coupling com-
+ponents of IEN allow for IEN to have interactions through these com-
+ponents [28]. Disturbance from one network transmits to the other
+coupled networks through these conversion components [17]. Also, high
+loads in one network influence the energy flows of the coupled networks
+through these coupling components [26]. Additionally, conversion
+technologies at different levels in IEN significantly affect the
+multi-energy flows in all the coupled networks, and subsequently the
+IEN emissions and operational costs [22]. The influence of in-
+terdependencies on the reliability of the IEN has been studied. Imple-
+mentation of gas Demand Response (DR) provided additional resilience
+for the gas network and the IEN, or gas storage increased the IEN reli-
+ability [21]. Increasing the number/capacity of coupling components
+will increase the impacts of failures in the gas network on the electricity
+network in terms of decrease in the reliability of the electricity network
+[29]. Moreover, failures in the electricity network can affect the reli-
+ability of gas network when the power supply of facilities in gas network
+is satisfied by electricity. Also, decrease in generation capacity in the
+electricity network can significantly reduce the reliability of the coupled
+gas network [29]. Failure in the electricity network was shown to
+eventually have an effect on the gas system. However, due to the slow
+dynamics of gas system, the failure in gas system will not be transmitted
+to the coupled electricity network rapidly [30]. The heat generation
+technology mix affects both gas and electricity networks as well as their
+interaction and has impact on the overall IEN operational costs and
+carbon footprint [31]. CHP units reduce the impact of voltage drop on
+electricity networks [28] and CHP units with lower heat to electricity
+ratios have a greater impact on the reduction of IEN losses, due to the
+fact that the reduction in electric losses that CHP units provide out-
+weighs the increase in gas losses [32].
+3.1.2.3.2. Uncertainty. Uncertainty within IENs was another topic
+investigated in the papers. There are several sources of uncertainty
+within IENs including renewable energy output, the random outage of
+generation units, and the random fluctuation of the loads. It was shown
+that increase in the uncertainty range of these factors leads to great
+fluctuation of the state variables of the nearby buses/nodes [33]. One of
+the most important sources of uncertainty is uncertainty of wind, which
+was studied in several papers. It was found that uncertainty of wind
+leads to significant risks to the operational security of natural gas sys-
+tems [34,35] and consequently to the security of real-time operation of
+IENs [36].
+3.1.2.3.3. Integrated modelling. Investigation of modelling aspects of
+IENs in the papers have shown that all the networks need to be simulated
+and analysed in an integrated manner. This is due to the fact that a
+disturbance in one system can influence the other coupled systems.
+Moreover, the disturbance propagates back to the system where it
+initially occurred. Thus, a combined analysis of an IES is required, even
+if the aim is to investigate the influences on the system itself where the
+problem occurred [37]. Therefore, there is a need for integrated IEN
+studies and energy system assessment for the evaluation of system
+resilience [18] or system flexibility [13]. Additionally, it was shown that
+in short term operation, steady-state gas flow models could provide less
+accurate results due to the real-time imbalances of gas flow [36].
+Therefore, dynamic or quasi-dynamic simulation needs to be imple-
+mented especially in order to quantify the process of interactions be-
+tween IENs [17].
+3.2. Optimal dispatch
+3.2.1. Problem formulation and solving
+The problem of optimal dispatch in IENs is normally formulated as a
+classical optimisation problem with the objective of minimisation of
+operational costs or equivalently maximisation of social welfare subject
+to operational constraints as shown in Equations.(1–3).
+A summary of the popular methods used by the research community
+for problem formulation and problem solving for optimal dispatch of
+IENs is presented in Table 4.
+3.2.2. Key findings
+3.2.2.1. Flexibility of operation. Flexibility of operation of IEN was the
+most important and frequent aspect investigated in the references. It was
+shown that co-optimisation of IENs rather than optimisation of indi-
+vidual networks separate from the other network(s) improves the
+economy and flexibility of the IEN [101,104]. Also, different types of
+energy storage devices in IENs contribute to the flexible operation of the
+networks [87]. Inclusion of multi-type storage has also the benefit of
+reducing the operational uncertainty and the operational costs of IENs
+introduced by network constraints [105]. Additionally, comparison of
+impact of P2G and DR in terms of impact on improving the flexibility has
+shown that P2G has a greater impact compared to DR in terms of
+improving the flexibility of IENs [106]. Furthermore, it was observed
+that multi-directional compressors provide additional flexibility to the
+gas network and hence reduce total operational costs and gas load
+curtailment as a result of the network flexibility they offer [77]. One of
+the options for GHG emission reduction that is gaining great attention, is
+electrification of heat. However, it was shown that increasing flexibility
+of the electricity network is necessary for electrification of heating for
+GHG reduction purposes [57]. This flexibility can be provided by inte-
+gration of heating system and gas system with the electricity system in
+order to accommodate fluctuations in the electricity system [74]. The
+dynamic of gas and line pack capabilities in gas networks can provide
+flexibility and reliability for electricity networks in IEN short-term
+operation [59].
+3.2.2.2. Security of supply. Security of supply, and matching the supply
+and demand, are important aspects discussed in the papers. Importance
+of the integration of systems in terms of operation, planning, security
+and reliability was investigated [95]. It was shown that combining gas
+and electricity networks is important to evaluate energy conversion
+between networks to minimise risk, ensure IEN security, and match
+supply with demand whilst minimising cost for transmission [107].
+Also, the security constraints of the gas network place limitations on the
+IEN operation [108]. Additionally, it was found that while dynamic gas
+system control and increased coordination of IEN each provide benefits,
+both are essential for security and reduced operational costs in high
+stress conditions [91]. Furthermore, it was shown that a natural gas
+shortage will limit electricity generation of gas-fired units and increase
+the total operational cost of the electricity network significantly [109].
+Moreover, dual-fuel electricity generation units will consume an alter-
+native and even more expensive fuel such as coal in order not to violate
+the operational security constraints [110].
+3.2.2.3. Aspects impacting the energy trilemma
+3.2.2.3.1. Storage. Storage in IENs was another topic discussed in
+several papers. In addition to provision of flexibility to the IEN, as dis-
+cussed previously, storage in IEN decreases load curtailments and im-
+proves IEN resilience against contingencies [100]. Gas storage in
+particular is more effective in managing congested IEN [70] and could
+greatly reduce shedding and operational costs [85], enhance system
+resilience [71], and support the operation of IEN [85]. Additionally, it
+was shown that gas storage in an IEN heavily dependent on gas imports
+for electricity generation has the ability to hugely reduce the operational
+costs of the coupled electricity network [56]. Furthermore, it was shown
+that thermal storage has the benefits of reduction in total operational
+cost, improving IEN reliability and capability in accommodating more
+renewables [111]. Integrated analysis rather than analysis of individual
+system separate from the other(s) is beneficial since it showed gas
+storage led to decrease in electricity imports in extreme weather con-
+ditions [56]. Also, storage could offer greater and safer use of the
+hydrogen in the gas network [10].
+3.2.2.3.2. Line pack. Line pack was another topic discussed in the
+papers. Apart from being an intrinsic property of gas networks, which
+contributes to the flexibility of gas networks and consequently to IEN as
+discussed previously, it was shown that line pack also plays an important
+role in balancing the production and consumption [90] and contributes
+to reduction of costs and more economical dispatch [112]. The higher
+the line pack of the system, the lower operational costs to meet the
+demand [59]. Additionally, it was demonstrated the lower the line pack,
+the more the gas supplied from other sources and storages, and hence
+the more IEN operational costs [64]. In order to simulate the line pack
+storage and investigate the time evolution of it, dynamic gas flow
+models instead of steady state models need to be implemented [113]. In
+this way, it is possible to assess the amount of line pack storage in each
+single pipe [90]. This also provides the basis for studying security of
+supply [113], which can be carried out by varying the gas supply profile
+over the day and hence controlling and simulating the line pack and
+pressures [114]. Another benefit of application of dynamic gas models is
+in studying coordinated scheduling since steady-state gas models ignore
+gas inertia and line pack. This may result in suboptimal or less accurate
+short-term co-ordinated scheduling of IEN [112].
+3.2.2.3.3. P2G. P2G was the most frequent coupling component
+that was investigated in the papers. It was found that P2G facilities have
+several benefits including mitigating congestion of gas network as well
+as the IEN [10,90], avoiding wind curtailment [115], supplying gas
+demand and improving wind accommodation [74,90], reduction of
+operational costs of gas networks [115,116] and IEN [98,108,117,118],
+reduction of IEN emissions [108,115] and enhancing the capability of
+the IEN in comprehensive utilisation efficiency of energy [98,108]. The
+above benefits allow for additional resilience in ability of the gas
+network to provide the minimum required offtake pressure [10]. The
+location of these P2G facilities has impact on their role [90]. P2G units
+can support more cost-effective unit commitment scheduling by avoid-
+ing the curtailment of surplus wind generation and converting it into
+natural gas [96] and hence decrease revenue deficit at higher P2G ef-
+ficiencies [102]. Furthermore, combined operation of the P2G and gas
+turbine units can effectively weaken the under/over voltage issues
+[102].
+3.2.2.3.4. Renewable  generation. Although  different  types  of
+renewable generation, including wind and PV, have been investigated,
+wind generation has been more frequently explored in the papers
+compared to other types of renewable generation. Wind generation is a
+highly accessible option for decarbonising electricity and heat demands.
+It was shown that the electricity generation costs and eventually IEN
+operational costs reduce as the penetration of wind generation increases
+[89,119]. Also, increased levels of uncertainty of wind generation lead
+to increased levels of uncertainty of operational costs of IEN [60] and
+hence to the higher system generation costs [120]. The disadvantages of
+low wind penetration levels include more supply to gas turbine power
+plants, more import of expensive electricity, less line pack and flexibility
+in the gas network, more compressor power consumption and eventually
+higher IEN operational costs especially in high demand conditions [61].
+Several solutions were suggested for reduction of curtailment of wind
+generation including: (i) P2G units can convert most of the surplus wind
+into gas and heat [74]. However, due to high operational cost of P2G, to
+ensure the benefit for both the wind farm and the IEN, cost-benefit
+trade-off needs to be carried out between wind generation level and
+IEN operational economy [103]. (ii) Producing hydrogen from elec-
+tricity reduces wind curtailment in a high wind case and decreases
+operational costs, GHG emissions and gas flow from gas sources [63]. It
+was suggested to produce hydrogen at high wind regions by locating
+electrolysers in those regions [63]. (iii) Increasing the heat pump ca-
+pacity gradually decreases the rate of wind curtailment [121]. Also,
+analysis of impact of correlation coefficients between different wind
+farms on the operational costs showed that if the correlation coefficients
+between wind farms are larger, the IEN operational costs will be larger
+too [87].
+3.2.2.3.5. Co-ordinated scheduling. Co-ordinated scheduling of inte-
+grated networks was investigated in several papers. Comparison of co-
+ordinated scheduling with co-ordination of networks separate from
+one another showed that the case of co-ordinated scheduling leads to
+lower emission and operational costs [122] and stays within the oper-
+ational constraints especially with higher cost savings at higher load
+levels [67]. A study with DR found that co-ordinated gas-electricity DR
+achieves a better IEN economy than single electricity DR or single nat-
+ural gas DR [60]. Additionally, it was shown that co-ordinated sched-
+uling, which can better handle the inaccuracy of forecasting [73], could
+help the IENs relieve a contingency in one network, which also impacts
+operation of the other coupled networks, with lower operational costs
+compared to non-co-ordinated scheduling [68]. To ensure all the
+aforementioned benefits of co-ordinated scheduling, gas and electricity
+Transmission System Operators (TSOs) need to closely collaborate and
+co-ordinate [113], which is further discussed in section 4.
+3.3. Optimal planning
+3.3.1. Problem formulation and solving
+The mathematical model for optimal planning of IENs is similar to
+traditional planning of gas, electricity or heat networks, which can be
+formulated as a typical optimisation problem. However, compared with
+the traditional approach, there are more decision variables, more
+comprehensive objectives, more complex constraints, and higher
+uncertainty levels in planning models of IENs.
+A problem of optimal planning is formulated with the target of
+minimisation of Net Present Value (NPV) of sum of all the expansion
+costs consisting of investment costs (or capital costs, CAPEX) and
+operational costs (OPEX), or maximisation of NPV of social welfare of
+IEN over the planning horizon subject to operational and investment
+constraints, as follows:
+Elements of the energy trilemma are considered either in the
+objective function or in the constraints to link the models to the analysis
+and scenarios.
+A summary of the popular methods used by the research community
+for problem formulation and problem solving for optimal planning of
+IENs is presented in Table 5.
+3.3.2. Key findings
+3.3.2.1. Flexibility of operation. It was shown that all the energy storage
+systems contribute in the long term to avoid energy deficiency and
+hence to increase economic savings [177]. Among different storage
+types, additional gas storage facilities could enhance gas availability and
+line pack during periods of high gas load levels [165]. Also, gas storage
+devices are effective in mitigating the impact of uncertainty of the de-
+mand on the long-term planning of IENs and in enhancing the security of
+energy supply [169]. It was found that in the co-planning, line pack
+varies and decreases more in high load conditions [167]. Also, P2G units
+can support IENs to benefit from more RESs penetration, delay elec-
+tricity transmission lines construction [190], decrease costs and emis-
+sions, and increase heat profit of IENs [198]. Additionally, compressors
+can postpone building gas pipelines and hence decrease IEN costs [190].
+3.3.2.2. Aspects impacting the energy trilemma. It was found that heat
+demand needs to be considered in operational planning of the flexibility
+of IENs [13]. Also, in order to consider the uncertain future demand and
+generation, stochastic solutions need to be investigated, which present
+the lowest expected cost for this purpose [176], and hence does not
+result in any load curtailment [164]. It was also found that demand
+uncertainty impacts the operational cost and not the investment cost
+[160]. Moreover, the more the reliability of satisfying the stochastic
+demand, the more the investment cost. Especially in IENs where the
+electricity network is highly dependent on the gas system, increasing the
+reliability of the gas system significantly increases the reliability of the
+whole IEN [169]. Also, increase in the level of stress within the IEN
+increases both the cost of operation and investment [184]. It was found
+that N-1 contingency of natural gas transmission network has large
+impact on planning of IENs, especially in the regions with limited nat-
+ural gas resources [170]. Also, it was shown that installation of new
+pipelines or incorporation of fuel switching capabilities are effective
+solutions to relieve fuel supply constraints and reduce the total opera-
+tional costs [191].
+3.3.2.2.1. Co-planning. Co-planning of IENs has been compared
+against sequential or separate planning in several papers and several
+benefits in terms of above aspects around the energy trilemma have been
+investigated. It was found that co-planning of IENs finds a solution with
+the following characteristics compared to sequential or separate plan-
+ning, due to the fact that it considers strategically all the networks and
+their interactions:
+lower total costs (investment and operational) [158,167,168,170,
+171,174,179–183,186,188,190,193,197], or equivalently higher
+social welfare [194–196]. Especially the higher load growth rates,
+the higher benefit to cost ratios [167]. This is due to the fact that IEN
+has an infrastructure capable of levelling the loads in different vec-
+tors and hence it can relieve transmission stress and postpone con-
+struction investment and operational costs [172,174].
+lower carbon emissions [167,189].
+less load curtailment [171,181].
+higher robustness and reliability levels while accommodating
+different uncertainties in the IEN [167,172,179,185,189,195,196].
+Also, if operational constraints are neglected, e.g. power imbalance is
+allowed, then the total cost decreases since certain investments can
+be avoided [190].
+more flexible [196] and enhanced resilience levels [186].
+less transmission and energy losses [181,196] and hence higher ef-
+ficiency of the energy grids and better infrastructure utilisation ef-
+ficiency [162,181,189,195,196] due  to maximised transfer
+capabilities within all the vectors [196].
+3.3.2.2.2. Networks interactions. Natural Gas-fired Power Plants
+(NGPPs) have been investigated more compared to other possible
+coupling components for the operational planning of IENs in the liter-
+ature. It was found that installation of NGPPs reduces investment [158]
+as well as the total operational costs, since this guarantees security of the
+electricity network [170] and NGPPs and system transmission capacity
+are efficiently utilised [167] (despite the growth in operational costs of
+the gas network due to building more infrastructure [192]). Also, it is
+necessary to integrate more NGPPs to increase the reliability over the
+planning horizon [159,179]. Additionally, the sensitivity of the inte-
+grated networks design to the confidence level is dependent on the
+quantised size of the candidate NGPPs and the level of the electricity
+demand [179]. It was found that the constraints of transport of natural
+gas has influence on the planning of the electricity system, especially in
+regions where the candidate NGPPs depend massively on a constant
+supply of natural gas [191].
+4. Research needs, gaps and future research direction
+recommendation
+The systematic review has identified the following gaps for future
+research in operation, dispatch and planning of multi-vector energy
+networks.
+4.1. Smart energy management framework
+There is a need for development of advanced control and manage-
+ment frameworks in order to perform online optimal dispatch of IENs
+based on historical and online data that are further processed by Arti-
+ficial Intelligence (AI) and Machine Learning (ML) techniques. This
+framework needs to be deployed through Internet of Things (IoT)
+framework since there is a growing attraction in online acquisition and
+storage of data in IoT frameworks. Additionally, energy networks are
+becoming more integrated through several coupling components. As a
+result of vector integration using ICT systems and data collection
+through IoT frameworks, cyber attacks are considered as a potential
+threat to the operation of multi-vector energy networks. Therefore, IoT-
+driven control and management frameworks for IENs considering AI, ML
+and cyber security assessment needs to be investigated and deployed on
+multi-vector energy networks with a single owner for test and validation
+purposes (Fig. 8). In this way, the studies that have been carried out on
+security and resilience of future electricity grids [204] can be further
+extended to future IENs.
+4.2. Organisational and regulatory barriers for the future integrated
+control rooms
+The benefits of integrated optimal planning and dispatch of energy
+networks have been investigated in several publications and have been
+summarised in this paper. However, in reality these networks, which are
+coupled at several locations, are planned and operated separate from
+each other in transmission level all the way to medium level distribution
+level since they are owned, operated and governed by different com-
+panies/governments/regulators. As a consequence, if a fault/contin-
+gency occurs in one of the networks, the operator of that network
+attempts to find the solution within that network, whereas, the other
+coupled network(s) might be able to provide some support/service to
+relieve this affected network (Fig. 9). However, integrated control and
+management of coupled networks in one central location has not yet
+been investigated, due to the following facts: (i) each energy network
+has its own control room separate from the control room of the other
+coupled energy network(s); (ii) organisational policies, procedures and
+regulation of each network operator is different from the other one. In
+order to benefit from the advantages of integrated planning, dispatch
+and control of coupled energy networks, the operators of the networks
+need to be in one central location and communicate with each other in
+order to find a practical solution for planning of the networks or for
+fault/contingency relief in case of occurrence of any fault/contingency
+in either network.
+Hence, some relevant questions need to be considered in the phase of
+designing the control rooms of future such as:
+• How well do the tasks and roles in different control rooms
+correspond?
+• Are there different levels of urgency or extent of active intervention
+needed?
+• At what scale of production does gas-for-storage become significant
+on either side?
+• What regulatory, market or institutional factors might affect co-
+operation?
+• How could control room practices be adapted to enable new possi-
+bilities for energy storage?
+4.3. Impact of uncertainties on the trilemma evaluation of performance of
+IENs
+Impact of uncertainty of renewable generation and loads on the
+energy trilemma have been investigated in several publications. How-
+ever, uncertainties of the following have not yet been evaluated:
+(i) The physical characteristics of the energy networks and coupling
+components normally deteriorate over time. No models have yet
+been developed to correlate the impact of aging of the physical
+assets on deterioration of physical characteristics of the networks
+and hence on the operation and energy trilemma;
+(ii) Dynamic behaviour of the networks have been investigated in
+several papers. However, ideal networks with perfect assump-
+tions have always been considered for this purpose. These model
+simplifications and perfect assumptions help a model to run and
+produce results faster. However, this happens at the expense of
+some uncertainty in the results based on which the operator of the
+network wants to make the right decision at the right time.
+To conclude, there is a need to evaluate the extent of impact of these
+modelling uncertainties on the energy trilemma performance evaluation
+of IENs to obtain a tolerance range when reporting the performance of
+IENs. This especially applies to high level integrated networks such as
+transmission or high level distribution networks, where great amounts
+of energy carriers are transmitted over long distances and even minor
+miscalculations can have great consequences on the energy trilemma
+performance evaluation of IENs (Fig. 10).
+4.4. Economics of energy system integration
+Several technical benefits around the elements of energy trilemma
+have been investigated for integrated operational analysis of coupled
+networks by different researchers, which have been summarised in this
+paper. However, networks operate under the constraints of market,
+regulatory, and policy frameworks through price signals, taxes, and
+other incentives [205]. The more integration of the networks, the more
+complexity is introduced in the linkages between the operators of the
+coupled networks. There is, therefore, a need to investigate which level
+(i.e., transmission or distribution) and to what extent is best to have
+more integration in the networks in order to better resolve the energy
+trilemma challenges and to explore whether the economic network
+integration benefits can be improved through amendments to market,
+regulatory and policy constraints. If one of the levels was found as the
+best level to have more integration, then what would be the added value
+of integration of operation in the other level in terms of the marginal
+benefits for the whole energy system.
+4.5. Deployment of smart multi-energy regions
+With increasing linkages between gas, electricity and district heating
+networks, deployment of smart multi-energy in regions rather than
+districts is gaining attention in the energy research community [10,
+105]. The very first challenging step to deploy these regions is devel-
+opment of models for optimal planning , dispatch and operational
+analysis of these regions. However, there are several challenges associ-
+ated with this step, which need further investigation and are summar-
+ised as follows:
+(i) Developing dynamics of the gas and district heating networks [4];
+(ii) Convergence and optimality of the solutions of the models
+without compensation for accuracy [4];
+(iii) TEE impact of renewable energy generation at the building level,
+e.g. PV and solar thermal, on the IENs [28];
+(iv) Development of control strategies that can be used for close-to
+real-time simulation [28];
+(v) TEE impact analysis of the flexibility offered by P2G on operation
+of the IENs [22,57];
+(vi) Forecasting the demand (heat and electricity) and optimum uti-
+lisation of the flexibility of the multi-energy system [13];
+(vii) Quantification and evaluation of the TEE impact of natural di-
+sasters on the resilience of the smart multi-energy IENs [18]; and
+(viii) TEE evaluation of benefits of seasonal storage and the impact on
+the IENs while transporting the gas produced by P2G to the
+seasonal storage facilities [10].
+5. Conclusions
+This paper summarises the most important findings of recent litera-
+ture on analysis of multi-vector energy networks, rather than energy
+hubs, in relation to the elements of energy trilemma: flexibility of oper-
+ation, security of supply and affordability. The reviewed papers have been
+classified into three groups: (i) Operational analysis; (ii) Optimal
+dispatch; and (iii) Optimal planning. The focus of this paper has been on
+energy networks since the main parts of the whole energy system that
+connect the natural resources and import to the final energy user are
+energy networks including gas, electricity and district heating/cooling
+networks along with the couplings and interactions that occur between
+them both at transmission and distribution levels. Also, the focus of this
+paper has been on key findings rather than the energy models since the
+models developed for simulation and analysis of Integrated Energy
+Networks (IENs) have been reviewed in several other literature. The key
+findings of the most recent papers have been explained in relation to the
+elements of energy trilemma. The main driver for this paper was to
+identify the gaps in the state of the art in the area of multi-vector energy
+networks research and to articulate this through the lens of the energy
+trilemma.
+The paper makes recommendations for future research priorities
+including: development and demonstration of cyber resilient smart en-
+ergy management frameworks, ways to overcome organisational and
+regulatory barriers for future increased energy network integration,
+uncertainty analysis of the future performance of IENs, potential eco-
+nomic value of energy systems integration and deployment of smart
+multi-energy regions.
+The paper provides useful insights for the energy research commu-
+nity by presenting several novel ideas for future research and facilitating
+the path to a decarbonised economy, due to the comprehensive sys-
+tematic review that has been carried out.
+
