@@ -1,0 +1,535 @@
+
+
+
+
+
+Solid Electrolyte Interphase Growth to Rank LiIon Cell Performance
+
+
+
+
+ABSTRACT
+
+    		    A non-destructive technique for physically detecting the growth of the solid
+		electrolyte interphase (SEI) during cycling of Li-ion pouch cells is presented.
+		Operando cell-stack pressure measurements performed on constrained pouch
+		cells reveal a correlation between irreversible volume expansion and capacity
+		loss caused by a continually thickening SEI. Several silicon-containing fullcell 
+		chemistries—LCO/graphite:Si-alloy, NCA/graphite:SiO, and NCA/Si:C—as
+		well as a conventional NMC/graphite cell chemistry were investigated. The effect 
+		of FEC consumption on catastrophic failure was also investigated by
+		comparing cells containing 10% FEC and 1% FEC. We show that once FEC is
+		depleted, passivation failure occurs, resulting in massive, irreversible expansion
+		indicating runaway SEI thickening and concomitant cell failure. This work demonstrates 
+		that irreversible volume expansion caused by SEI growth can be detected with
+ 		operando pressure measurements, thus presenting a valuable tool
+		for studying the degradation of Li-ion pouch cells and ranking the performance
+		of different cell chemistries
+
+
+INTRODUCTION
+
+    The solid electrolyte interphase (SEI) has been called the most important but least
+understood part of lithium ion (Li-ion) cells.1 Formed from the insoluble reaction
+products of electrode-electrolyte reactions, the SEI passivates electrodes and
+suppresses these parasitic reactions that consume lithium inventory, enabling the
+Li-ion cells to operate. However, the SEI-forming parasitic reactions are never
+entirely eliminated; therefore, the evolution of the SEI ultimately governs the lifetime
+of Li-ion cells.
+    In this work, focus will be given to the SEI that forms on the negative electrode. The
+negative electrode SEI has been shown to comprise organic and inorganic products
+such as Li2CO3, LiF, Li2O, semicarbonates, and polymers.1–3 However, the exact
+nature and evolution of this passivating film remains elusive due to the inherent
+difficulty of studying it. The negative electrode SEI is initially several nanometers
+thin and can be mechanically unstable. Many experiments to investigate the
+morphology and composition of the SEI must be performed ex situ, exposing it to
+conditions that may damage this highly delicate film.4–6 Additionally, the SEI is sensitive 
+to the cell chemistry it is formed in—the choice of electrolyte composition and
+electrode chemistry influence its composition.1,2,7 Since the formation and growth of
+the negative electrode SEI is the primary source of capacity loss through lithium
+inventory loss for well-engineered cells, methods to probe the evolution and stability of 
+the SEI are critical for developing Li-ion cell chemistries with longer lifetimes
+Increasing the lifetime and energy density of Li-ion cells is required to decrease the
+cost of Li-ion batteries and promote the widespread adoption of electric vehicles.8
+Silicon negative electrodes offer a compromise between these requirements as they
+provide a significant capacity boost compared to conventional graphite negative
+electrodes (3,579 mAhr/g and 2,194 Ahr/L for silicon and Li15Si4 versus 372 mAhr/g
+and 719 Ahr/L for graphite and LiC69,10), but this comes at the expense of lifetime.
+The Li-ion cells that employ silicon-containing electrode materials exhibit relatively
+poor cycle life compared to the Li-ion cells with conventional graphite electrodes,
+which can last for thousands of cycles with a capacity retention over 80%. This
+decreased lifetime of silicon-containing cells is a result of the large 280% volume
+change the Si component experiences during lithiation and delithiation.11 This large
+volume expansion precipitates the deterioration of silicon-containing electrodes by
+causing electrode delamination,12 inducing large mechanical stress that can pulverize 
+electrode particles11,13–15 and accelerating the growth and repair of the negative
+electrode SEI.2,9,16 Each of these processes contributes to capacity loss by
+decreasing the supply of active lithium inventory within a cell.17–19
+    Lithium inventory loss caused by the loss of active electrode material via electrode
+delamination and electrode pulverization has been mitigated in state-of-the-art
+silicon-containing electrode materials by confining the active silicon components
+to nano-sized domains,13,20–22 utilizing active-inactive alloy materials,23,24 and by
+compositing silicon with other volumetrically benign active materials such as
+carbon.21,25–28 Although these efforts have largely helped overcome mechanical
+electrode degradation via active electrode material mass loss, lithium inventory
+loss due to negative electrode SEI growth remains the primary source of capacity
+loss for silicon electrodes.28 The conventional SEI that is formed on silicon-containing
+ particles cannot withstand the mechanical stress induced by the large volume
+expansion and contraction of silicon, resulting in mechanical breakdown of the SEI
+and exposure of active electrode material to the electrolyte. As a result, parasitic
+reactions between the electrolyte and the exposed charged electrode material
+continually reform and repair the damaged SEI. This occurs with every chargedischarge
+ cycle; therefore, lithium inventory is continually consumed by SEI growth,
+resulting in capacity loss and a thickened, porous SEI layer.2 This has motivated the
+development of mechanically flexible, stable SEI chemistries that can withstand
+large mechanical stress and volume expansion.29
+    Electrolytes containing fluoroethylene carbonate (FEC) have proven beneficial for
+the lifetime of Li-ion cells with many silicon-containing negative electrodes.30–32
+As such, FEC has become a common electrolyte component utilized with silicon
+electrodes. FEC has a higher reduction potential compared to typical organic
+solvents such as ethylene carbonate (EC) and ethylmethyl carbonate (EMC).
+Therefore, when FEC is introduced as an additive (<10% wt) in typical organic carbonate-
+based electrolyte, it has been shown that FEC preferentially reacts at the
+negative electrode surface, suppressing the reduction of other electrolyte components.33–35 
+Improved cell performance has been attributed to a less porous, more
+inorganic, LiF-rich SEI formed from FEC reduction that is more stable during
+cycling.30,36 Consequently, it has been shown that sudden cell failure, a rapid capacity loss 
+of >30% over ca. 10 cycles, occurs once FEC in the electrolyte is depleted as
+a result of parasitic reactions and electrolyte consumption due to continual SEI
+growth and repair caused by the mechanical strain of electrode volume expansion.33,34 Such
+sudden failure is catastrophic to the performance of Li-ion cells. In
+this present work, we ascribe this catastrophic failure caused by FEC depletion in
+cells with silicon-composite negative electrodes to passivation failure and thus
+runaway SEI growth as revealed by operando pressure measurements, which, herein
+we demonstrate probes SEI evolution by measuring irreversible volume expansion.
+    Cell-stack volume expansion has previously been measured with thickness evolution
+measurements at a constant load using specialized in-situ force-displacement
+cells37,38 and with in-situ pressure measurements using strain gauges mounted on
+cylindrical-type cells39 to understand electrode swelling during cycling and electrode degradation. 
+Further measurements to probe the reversible expansion of
+insertion electrodes used in Li-ion cells as well as the irreversible expansion concomitant with 
+prolonged cycling have been performed with in-situ atomic force microscopy,11 
+electrochemical dilatometry,16,40–42 3D digital image correlation,43,44 and
+mechanical stress measurements.45–47 In this work, we present operando pressure
+measurements performed on constrained machine-made pouch cells tested under
+commercially relevant conditions as a technique to investigate the degradation of
+Li-ion cells with various electrode-electrolyte chemistries, specifically cells with
+different silicon composite negative electrodes. We have previously employed
+operando pressure measurements to reveal the reversible volume expansion of
+Li-ion pouch cells caused by the net electrode volume change during charge and
+discharge, and we have identified a correlation between irreversible expansion
+and cell performance with prolonged cycling.48 Glazier et al.49 have utilized operando 
+pressure measurements to determine Li-ion cell chemistries with low
+irreversible volume expansion as a figure of merit for ranking long-term cell performance. 
+In this present work, we confirm that operando pressure measurements
+reveal irreversible volume expansion caused by SEI growth and thus correlate to
+cell performance since lithium inventory loss to negative electrode SEI growth
+causes capacity fade. We demonstrate how this technique is useful for ranking
+cell chemistries with superior lifetimes by correlating capacity loss with SEI growth
+revealed by operando pressure measurements.
+    Short-term measurements to characterize the long-term performance of Li-ion cells
+are highly desired to facilitate the development of new cell chemistries. Other techniques 
+such as ultra-high precision coulometry and isothermal microcalorimetry also
+serve to indirectly probe SEI evolution to rank the performance of Li-ion cell chemistries. 
+Although highly successful,49–52 these techniques require costly high precision equipment.53,54
+ In contrast, the operando pressure method presented in this work can be implemented at a fraction
+of the cost and is compatible with any commercial charging system. As such, this technique is readily 
+translatable to any battery testing facility, which should be of interest to the Li-ion cell development
+community
+
+
+METHOD
+
+Cell Preparation
+    Pouch cells werereceived fromreputable manufacturers sealed without electrolyte. Cells
+were opened, dried under vacuum at 100C for 14 hr, and transferred into an argon-filled
+glovebox for electrolyte filling and resealing. Before testing, cells were allowed to stand
+for 24 hr at 1.5 V to allow for the completion of wetting and then were charged-discharged up
+ to 4.2 V and back down to 3.8 V at C/20 at 40C as a formation step. Cells
+were then transferred back into an argon-filled glovebox and opened to remove any
+gas generated during the formation processes and subsequently resealed.
+Pressure Measurements
+    Figure S1B shows the apparatus used for performing operando pressure measurements. Pouch 
+cells were uniaxially constrained in aluminum enclosures such that
+any change in thickness of the cell electrode stack (jelly roll) would result in a change
+of force exerted on the enclosure. The pouch cells have a gas bag connected to the
+jelly roll that protrudes from the aluminum enclosure (see Figures S1A and S1B),
+forcing any gas that was formed during cycling out of the jelly roll into the gas bag.
+Therefore, any gas generated does not contribute to the force on the enclosure;
+only uniaxial swelling of the cell stack is probed. The force within the enclosure was
+measured with subminiature load cells (model LCKD—Omega Engineering) connected to strain 
+gauge panel meters (model DP25B-S-A—Omega Engineering) and
+was converted to pressure in PSI using the area of a pouch cell of 0.93.2 A force distributing plate 
+was fastened between the load cell and the pouch cell. Figure S1C shows a
+schematic of this setup. During cycling, a change in pressure on the order of 100 PSI
+was observed, which corresponds to a change of thickness of tens of micrometers as
+revealed from the measured compressibility curves for each cell type shown in Figure S8. Operando
+ measurements were performed using an E-One Moli Energy Canada battery testing system. Pouch 
+cells were connected to a Moli channel, and the analog 0–10 V output of the strain gauge panel meter 
+was connected to an adjacent Moli slave channel, allowing for simultaneous electrochemical and pressure 
+measurements. Cells were cycled at 40C between 3–4.2 V at C/3, with periodic C/20 characterization cycles
+for differential voltage analysis.
+Differential Voltage Analysis
+    To elucidate the mechanisms of capacity loss during cycling, differential voltage
+(dV/dQ) analysis was performed. Introduced by Bloom et al.,62 dV/dQ analysis can
+be used to deconvolute and quantify the contributions to capacity fade via lithium
+inventory loss due to negative electrode SEI growth and loss of active positive or
+negative electrode material (e.g., via delamination, pulverization or electrical
+disconnection) referred to as electrode mass loss in this work.17–19 This is done by
+carefully fitting cycled full-cell voltage curves with a linear combination of half-cell
+reference voltage curves for each electrode. The parameters derived from this fit
+are the positive and negative electrode active masses and the positive and negative
+electrode shifts. The electrode masses act as scalar multipliers to the half-cell
+voltage curves, and the electrode shifts are translations such that the half-cell curves
+are stretched and shifted relative to each other until a good fit of the full-cell curve
+is achieved. As the electrodes lose active material, their voltage curves will correspondingly 
+shrink in capacity. Degradation due to mass loss is thus tracked by monitoring the 
+capacity of half-cell voltage curves required to fit the full-cell given by the
+electrode mass parameters. When lithium inventory is lost to growth of the negative
+electrode SEI, capacity is lost because completely delithiating the negative electrode can no 
+longer fully lithiate the positive electrode at the discharged state of
+the full cell. As lithium inventory is continually lost to SEI growth, the difference in
+capacity between the fully delithiated negative electrode and the fully lithiated positive
+ electrode becomes larger and larger. Degradation due to SEI growth is thus
+tracked by monitoring the translations of the half-cell voltage curves required to
+achieve a good fit. Some previous works have called this slippage17,58; here, this
+is referred to as shift, and the capacity loss due to growing relative shifts between
+the half-cell voltage curves is called shift loss.
+    Figure S9 shows examples of how the half-cell and full-cell voltage curves are
+affected by capacity loss due to mass loss and negative electrode SEI growth (shift
+loss). Since Li-ion cell voltage versus capacity curves generally do not exhibit
+pronounced features, it is the differential voltage versus capacity curves that are
+used to increase the ease and accuracy of fitting.
+    2325-type coin cells were prepared as half-cells for each electrode material as reference
+ data for dV/dQ analysis for type A, B, and D cells. The positive and negative
+electrodes were retrieved from fresh type A, B, and D pouch cells and punched
+into 1.28-cm diameter disks. Two Celgard 2,320 thin polypropylene microporous
+films were used as separators. A 150-mm-thick lithium metal foil (Chemetall,
+>99.99%) was punched into 1.4-cm diameter disks as the reference electrode. 1M
+LiPF6 EC:DEC (1:2 by volume) was used as electrolyte, fully wetting the electrodes
+and separators. Coin cells were assembled in an argon-filled glove box. Cells
+were cycled at 40C on an E-One Moli Energy Canada battery testing system at a
+slow C/20 rate to minimize kinetic effects on cell performance, as required to obtain
+quality dV/dQ data for fitting. Fitting was performed on full-cell data during periodic
+C/20 characterization cycles, which occurred throughout the life of the cells. This
+analysis was performed using software developed by Asher Wright, which performed
+ the fits and determined the positive and negative electrode mass and shift
+parameters, similar to earlier freeware released by Dahn et al.58
+X-Ray Photoelectron Spectroscopy
+    To investigate the SEI evolution for type A and B pouch cells, X-ray photoelectron spectroscopy
+ (XPS) measurements were performed. Cells after formation (cycle 0) and after
+40 cycles were fully discharged and transferred to an Ar-filled glove box for disassembly
+and sample retrieval. The negative electrodes were dissected and rinsed several times
+with EMC to remove dried LiPF6 and EC. Removal of these species is essential for the underlying SEI 
+components to be observed by XPS and for maintaining low pressures in the
+XPS system. Rinsingwith EMC isnotexpected to dissolve anySEI components, as EMC is
+a major component of the electrolyte in which the SEI was formed. Once the rinsed
+samples were dried, they were mounted onto a molybdenum sample holder using double-sided, 
+ultra-high vacuum-compatible copper tape. The sample holder was then
+transferred into the XPS system, without exposure to air, using a specially designed
+air-tight apparatus that could be evacuated to low pressures. Electrodes were left under
+ultra-high vacuum overnight to allow for off-gassing of any remaining volatile components. The
+ samples were then transferred to the analysis chamber of the XPS, which
+has a base pressure of 1 3 1010 mbar and was maintained below 2 3 109 mbar during
+the experiments. Analysis was performed with a SPECS spectrometer equipped with a
+Phoibos 150 hemispherical analyser, using unmonochromatized Mg Ka radiation with
+a beam spot width of 5 mm and a pass energy of 20 eV. Preliminary and final survey scans
+were compared to ensure that no photochemical degradation was induced during analysis. Data 
+analysis was performed using CasaXPS software (v. 2.3.18). Charge correction
+was performed by fitting the adventitious carbon peak, and shifting the x axis such that
+this peak fell at 285.0 eV. XPS spectra were fit with a non-linear Shirley-type background.
+This background was subtracted from the signal to allow for qualitative comparison of
+atomic concentrations between samples using relative peak areas. Peaks were fit with
+a mixed Gaussian (70%)/Lorentzian (30%) line shape
+
+
+RESULT
+
+    402035-size pouch cells (40 mm long 3 20 mm wide 3 3.5 mm thick) with a rolled
+electrode design, pictured in Figure S1A, were tested in this work. Table 1 lists
+the five different cell types that were investigated. The positive electrodes used in
+these cells represent typical choices used by industry in products on the market
+today: LiCoO2 is most commonly used in portable electronics, while NMC and
+NCA positive electrodes are favored for electric vehicles due to their higher energy
+density and decreased reliance on expensive cobalt.55 Four out of five chemistries
+tested here employ a silicon composite negative electrode, and one chemistry
+uses a conventional graphite negative electrode for comparison. Each cell type
+exhibits a different electrode chemistry except for type D and E cells, which use
+the same electrode materials but differ in loading; type E cells have thicker electrodes.
+ The solvents used for the electrolyte in this work were ethylene carbonate
+(EC), ethylmethyl carbonate (EMC), and dimethyl carbonate (DMC) (BASF 99.99%).
+The additives used were vinylene carbonate (VC, BASF 99.97%), 1,3,2-dioxathiolane-2,
+2-dioxide (ethylene sulfate, DTD, Sigma-Aldrich 98%), and fluoroethylene
+carbonate (FEC, BASF 99.94%). All electrolytes contained 1.2 M LiPF6. The electrolyte 
+formulations used for each cell chemistry are listed in Table 1. The specific
+combinations of solvents and additives were chosen based on previous experience
+with what performed well with each electrode chemistry.
+
+
+DISCUSSION
+
+Reversible Volume Expansion
+    Figure 1 shows operando pressure data for type A NMC/graphite (A–C) and type B
+LCO/graphite:Si-alloy (D–E) cells for one cycle. Figures 1A and 1D show the voltage
+versus capacity of these cells during charge and discharge. Figures 1B and 1E show
+the pressure profiles. The reversible pressure evolution is caused by the reversible
+net volume expansion of the constituent electrodes. This behavior is thoroughly
+explained in our previous work.48 In brief, when the full cell is charged, the negative
+electrode is lithiated resulting in a volume expansion (e.g., 10% for graphite, 280%
+for silicon), and the positive electrode is delithiated, generally resulting in a
+small volume change (e.g., a contraction of 3% and 5% for NMC and NCA and an
+expansion of 1% for LCO). The opposite occurs during discharge. The relatively
+large negative electrode expansion thus dominates the total volume change, resulting in a 
+net increase in volume during charge and a net decrease in volume during
+discharge, generating a reversible pressure evolution for one cycle.
+    Figures 1C and 1F show the negative electrode voltage (dark teal) and differential
+voltage (teal) versus capacity curves fit to the full cell determined by differential
+voltage (dV/dQ) analysis. Such analysis allows the full-cell voltage curve to be deconvoluted
+ into its constituent positive and negative electrode voltage curves; the latter
+is shown in Figures 1C and 1F. This allows the two-phase coexistence regions and
+the single-phase regions—which appear as plateaus and peaks, respectively, in
+the differential voltage curves of the negative electrode—to be identified to elucidate 
+the volume expansion profile. In Figure 1C, the plateau observed at 0.1 V
+in the graphite voltage curve corresponds to the 2L/2 and the 2/2L staging transition 
+during lithiation (charge of the full cell) and de-lithiation (discharge of the full
+cell), respectively.56 Previous studies have shown how graphite does not change in
+volume during this phase transition.57 This is in excellent agreement with the operando
+ pressure data, wherein, over the 2L/2 and 2/2L transitions highlighted, the
+cell does not experience any change in volume. Furthermore, Figure 1B shows that
+the type A graphite negative cell exhibits a very symmetric volume expansion.
+    In contrast, the operando pressure data for the type B cell with a graphite:Si-alloy
+negative cell shown in Figure 1E reveal a highly asymmetric expansion profile.
+This is caused by the charge-discharge hysteresis exhibited by silicon electrode
+materials.9,48 Figure 1E also displays the graphite 2L42 phase transition plateau;
+however, here it is not completely flat due to the expansion (during charge) and
+contraction (during discharge) that the silicon component of the electrode
+experiences during the graphite plateau resulting in a net slope.
+Irreversible Volume Expansion
+    Figure 2A compares the capacity retention of type A and B cells. The type A cell with
+a graphite negative exhibits no capacity loss, whereas the type B cell with a graphite:
+Si-alloy negative experiences a 15% capacity loss after 100 cycles. Figure 2B
+shows the operando pressure data versus time. During each cycle, there is a reversible 
+pressure evolution caused by electrode expansion and contraction. Over several
+cycles, an irreversible pressure evolution caused by an irreversible volume expansion
+begins to develop. This can be more clearly tracked with the average discharge
+pressure for each cycle as a function of time shown in purple triangles and pink
+diamonds for type A and type B cells, respectively. The irreversible pressure growth
+mirrors the capacity retention data, demonstrating an inverse correlation between
+capacity loss and pressure growth. The average discharge pressure data show
+that type A cells exhibit minimal irreversible expansion, whereas type B cells experience 
+significant irreversible expansion. It should be noted here that gas evolution
+cannot be the cause of the irreversible pressure growth because of how the pouch
+cells are constrained during measurement, as shown in Figure S1B. Pouch cells are
+uniaxially constrained with a pressure sensor positioned to measure the uniaxial
+pressure on the jelly roll (the cell electrode stack) such that only thickening of the jelly
+roll affects measured pressure. Any gas evolved is pushed in to the adjoining ‘‘pouch
+bag and does not contribute to the pressure signal measured. Therefore, the
+irreversible pressure growth is caused by thickening of the jelly roll.
+    Figure 2C shows the shift loss as a function of cycle number derived from differential
+voltage (dV/dQ) analysis, which elucidates the mechanisms of lithium inventory loss
+as discussed in the Experimental Procedures section. This analysis yields parameters
+for the electrode masses and electrode shifts determined by fitting full-cell voltage
+curves with linear combinations of half-cell reference curves. If the electrode mass
+parameters are found to decrease as a function of cycle number, at least some
+lithium inventory is lost to electrode degradation. If the half-cell voltage curves
+are found to shift relative to each other, at least some lithium inventory is lost is
+due to SEI growth17—this mode of capacity loss is referred to as shift loss. The
+dV/dQ fits for Figure 2C are shown in Figure S2. The positive and negative electrode
+mass and shift parameters as a function of cycle number are shown in Figure S3, and
+a table of these parameters is shown in Table S1. Figures S3A and S3B show that
+there is negligible electrode mass loss that occurs during cycling for both cell chemistries.
+The shift loss, calculated as the difference in positive and negative electrode
+shifts, quantifies the capacity lost due to negative electrode SEI growth and
+repair.17,58 With no significant mass loss, the increasing shift loss shown in Figure 2C
+indicates that the primary source of capacity loss in these cells is negative electrode
+SEI growth. Figure 2C shows that type A graphite negative cells show minimal
+growth of shift loss, whereas type B graphite:Si-alloy cells exhibit a significant increase
+of shift loss and thus exhibit significant negative electrode SEI growth
+Type B cells have an initial capacity of 230 mAhr, so the 35 mAhr shift loss accounts
+for the entirety of the 15% loss of capacity observed in Figure 2A. The trends
+observed in irreversible pressure growth shown in Figure 2B are in good agreement
+with the shift loss measurements presented in Figure 2C, indicating that negative
+electrode SEI growth is the cause of irreversible volume expansion probed with 
+operando pressure measurements.
+    To further elucidate the cause of the irreversible pressure growth, X-ray photoelectron 
+spectroscopy measurements were performed on the negative electrodes of
+type A and B cells before and after cycle testing. Figure 3 shows the C1s XPS spectra
+of negative electrodes taken from type A and B cells after formation (cycle 0, A,
+and C) and after 40 cycles (B, D). After formation, the XPS spectra for both negative
+electrode chemistries exhibited peaks at 284 eV (shaded) corresponding to the
+underlying graphite component of the electrodes. This suggests that before cycling,
+the SEI layers on both electrode chemistries are thinner than the maximum XPS
+penetration depth of ca. 10 nm such that the electrode particles beneath the SEI
+surface contribute to the signal. After 40 cycles, this graphite peak remains visible
+and is of approximately the same area for the type A graphite electrode sample,
+which indicates that the thickness of the SEI has not changed significantly during
+cycling for this cell. In contrast, the type B graphite:Si-alloy electrode sample does
+not exhibit the graphite peak after 40 cycles, indicating the graphite has become
+obstructed after cycling. The SEI on the graphite component of type B cells is not
+expected to grow significantly; it should be as stable as in the type A negative
+electrode. Therefore, these results suggest that the SEI on the silicon component
+has grown significantly such that the thickened silicon SEI obstructs the graphite
+component of the electrode from the XPS beam. These results are in agreement
+with the hypothesis that the irreversible pressure measurements shown in Figure 2B
+are a result of significant SEI growth in type B graphite:Si-alloy negative cells and the
+relative stability of the SEI in type A graphite negative cells.
+    The proposed mechanism illustrating the inverse correlation between irreversible
+volume expansion and capacity loss due to negative electrode SEI growth is
+depicted in Figure 4. Figure 4A shows a schematic of a generic negative electrode,
+consisting of electrode active material particles coated on a current collector. Each
+particle is passivated with an SEI layer. When the negative electrode is lithiated, 
+during a full-cell charge, the particles will expand based on the active material used
+(e.g., 10% expansion for graphite; 280% expansion for silicon). This expansion is
+shown in Figure 4B. Unable to fully accommodate large volume expansion, the
+SEI layer will be damaged, leaving areas of the charged particles exposed to electrolyte,
+ inducing new parasitic reactions that will form new SEI causing further lithium
+inventory loss. This results in a thicker SEI after one cycle, as depicted in Figure 4C,
+and this effect will scale with the magnitude of electrode expansion. Another
+possible degradation mechanism caused by large volume expansion is fracture of
+electrode particles resulting in lithium inventory loss due to electrode mass loss,
+as illustrated in Figures 4B and 4C. However, the cells investigated in this work do
+not exhibit significant electrode mass loss, as evidenced by Figure S3. Therefore,
+the primary mechanism of capacity fade for cells studied in this work is lithium 
+inventory loss due to negative electrode SEI growth and repair. After repeating this process, 
+A through C, for many cycles, a much thickened SEI evolves,2 as depicted in
+Figure 4D. This results in a thickened electrode stack and irreversible volume expansion,
+ which is detected with operando pressure measurements. Previous works by
+Chae et al.28 and Wetjen et al.59 have reported silicon-composite electrode materials,
+ which develop fractures and cracks that increase particle surface area but do
+not precipitate loss of active material. As a result, a nano-porous structure develops,
+and SEI is formed within this porous structure. This situation is analogous to the
+scheme presented in Figure 4D, but SEI is formed within the particle in addition to
+on the particle surface, resulting in an observable irreversible volume expansion.28,59
+    Figure 5 shows conventional electrochemical cycling results often used to rank the
+performance of Li-ion cells along with operando pressure measurements. Figure 5A
+shows capacity versus cycle number data for each cell type investigated in this work.
+Results for type A cells are shown with purple triangles. Type A cells are the only
+chemistry investigated here without a silicon-containing negative electrode, and
+these cells clearly exhibit the best performance. Type D and E cells, shown with
+blue triangles and orange circles, respectively (different shades of each represent
+repeat experiments), exhibit similar short-term performance; however, the type E
+cells seem to show better performance after ca. 100 cycles. This is difficult to confirm
+with short-term cycling results; long-term cycling performed for these cells shown in
+Figure S4 indeed shows that type E cells perform better than type D cells. This may
+be explained by type D cells containing a slightly larger proportion of silicon than
+type E cells, as evidenced by the half-cell data for both cell types presented in Figure S5. 
+A larger silicon content would amplify lithium inventory loss due to SEI
+growth and repair as illustrated in Figure 4. Type C cells, shown with green squares,
+experience poor short-term capacity retention. However, long-term cycling data
+presented in Figure S4 show that type C cells experience better long-term capacity
+retention compared to type D and E cells. Type B cells shown with pink diamonds
+exhibit the worst capacity retention. From the cycling data presented in Figure 5A
+and the long-term cycling data presented in Figure S4, a ranking of the performance
+of these cells can be made, from best to worst: type A > type C > type E > type D >
+type B. Figure 5B shows the change in average discharge pressure versus cycle number 
+Type A cells (purple triangles) show the least irreversible volume expansion. In
+order of increasing expansion, type C cells (green squares) exhibit the second smallest 
+expansion, then type E cells (orange circles), and type D cells (blue triangles), with
+type B cells (pink diamonds) exhibiting the largest irreversible volume expansion.
+This ranking of irreversible expansion is in good agreement with the ranking of
+capacity retention versus cycle number. Figure 5C shows polarization growth (DV)
+versus cycle number The rate of polarization growth for each cell chemistry is consistent
+ with the rankings of irreversible expansion and capacity retention. This is more
+clearly demonstrated in Figures 5D–5F, which show the rate of capacity growth
+versus cycle number (Figure 5D), the rate of pressure growth versus cycle number
+(Figure 5E) and the rate of polarization growth versus cycle number (Figure 5F),
+calculated for the last 10 cycles of testing. The error bars in Figures 5D–5F correspond to
+ the range between repeat tests. The rate of pressure growth at the end
+of testing shown in Figure 5E exhibits the clearest ranking of the five cell chemistries
+tested here. Ranking performance based on short-term measurements of capacity
+retention or DV is not as clear, exemplifying the benefit of operando 
+pressure measurements beyond short-term electrochemical measurements.
+Effect of FEC Consumption
+    To determine the effect of FEC consumption on catastrophic cell failure and irreversible
+volume expansion, type B LCO/graphite:Si-alloy and type D NCA/Si:C cells
+were tested with electrolytes containing 10% and 1% FEC. It has previously been
+shown that FEC in electrolyte used in Si-containing cells is gradually consumed as
+a result of continual parasitic reactions and reformation of mechanically damaged
+negative electrode SEI and that this consumption eventually causes cell failure
+once FEC is entirely depleted.33,34 This is in good agreement with Figure 6A which
+shows capacity versus cycle number for type B and D cells containing 10% and 1%
+FEC, respectively. Type B cells with 1% FEC, shown with full red diamonds, exhibit
+dramatic failure after ca. 50 cycles, whereas type B cells with 10% FEC, shown with
+empty pink diamonds, run for over 100 cycles without dramatic failure. Type D cells
+with 1% FEC, shown with full teal triangles (repeat experiments shown with different
+shades), exhibit dramatic failure after ca. 250 cycles, whereas type D cells with 10%
+FEC, shown with empty blue triangles (repeat experiments shown with different
+shades), run for over 300 cycles without failure. Operando pressure data were only
+available for type B cells with 10% FEC up until 130 cycles; conventional cycling
+data for type D cells with 10% FEC cycles are included in Figure 6A (purple triangles,
+labeled ‘‘No P’’ in the legend) to demonstrate catastrophic failure does not occur up
+to 300 cycles.
+    Figure 6B shows the average discharge pressure versus cycle number for these cells.
+The cells with 10% FEC content exhibit constant pressure growth, mirroring their capacity
+loss. The cells with 1% FEC content show massive inflections in pressure
+growth corresponding to where catastrophic failure begins. Figure 6C shows the
+change in relative slippage for type B and D cells containing 1% FEC derived from
+dV/dQ fitting every 50th cycle. The dV/dQ fits for these cells are shown in Figure S6
+The negative and positive electrode mass and slippage parameters derived from
+this analysis are shown in Figure S7, and a table of these parameters is shown in
+Table S1. Figures S7A and S7B show that the electrode masses remain relatively unchanged 
+throughout cycling. Therefore, the significant growth of shift loss shown in
+Figure 6C indicates the primary mechanism for capacity loss is attributed to negative
+electrode SEI growth. Figure 6C shows the relative slippage exhibits an inflection in
+accordance to where type B and D cells with 1% FEC exhibit catastrophic failure and
+inflections in pressure growth. We conclude that once FEC is consumed, cell failure
+occurs due to passivation failure, resulting in rapidly consumed lithium inventory
+causing runaway negative electrode SEI growth and sudden cell death.
+    It is also observed that type D cells with 10% FEC exhibit a larger rate of irreversible
+pressure growth compared to cells containing 1% FEC. This is consistent with the
+capacity retention data that shows cells with 10% FEC initially perform slightly worse
+than cells with 1% FEC prior to FEC depletion and catastrophic failure. It may seem
+counterintuitive that higher FEC content initially results in worse performance;
+however, this behavior is consistent with other literature reports. Jaumann et al.60
+have shown results for cells with SiC negative electrodes that contain electrolyte
+with 20% FEC exhibit a lower CE than cells with 10% FEC; Jung et al.34 have also
+shown that increasing FEC content from 5% to 10% to 20% slightly decreases the
+initial capacity retention prior to FEC consumption. Nguyen and Lucht61 have shown
+that non-composite silicon electrodes exhibit larger impedance with increasing FEC
+content, and that the SEI correspondingly is comprised of increased concentrations
+of fluorinated species such as LiF and poly(FEC). Our results suggest that cells with
+10% FEC exhibit a larger irreversible expansion than cells with 1% FEC, indicating a
+thicker evolved SEI. We speculate that higher FEC content results in a thicker, more
+resistive, less compliant, and more brittle SEI, which is less capable of adapting to
+the large volume expansion of silicon-containing electrodes resulting in higher rates
+of SEI repair and lithium inventory loss. Further work studying the effect of varying
+FEC content on the evolution of the SEI and the short-term performance of silicon-
+containing Li-ion cells is required to elucidate this behavior more completely.
+Correlation between Capacity Loss and Pressure Growth
+    To further exemplify the inverse correlation between capacity retention and irreversible
+pressure growth, Figure 7 shows the rate of capacity loss versus rate of pressure
+growth per cycle calculated for the final 10 cycles of testing. A linear trend is found
+between the rate of capacity loss and the rate of pressure growth; cells that exhibit
+more rapid capacity loss exhibit larger rates of pressure growth. This inverse correlation 
+between capacity retention and irreversible expansion is in good agreement
+with previous works, which monitored the swelling of Li-ion cells, e.g., the works by
+Wilkinson and Wainwright,38 Cannarella and Arnold,46 and Wetjen et al.
+
+
+CONCLUSION
+
+    In this work, we utilized operando pressure measurements to reveal the reversible and
+irreversible volume expansion of Li-ion pouch cells. Mechanically constrained pouch
+cells fit with pressure sensors exhibited a reversible pressure evolution because of
+the net expansion and contraction of electrode materials during charge and discharge,
+as well as an irreversible pressure growth concomitant with cycling. Irreversible pressure
+growth was shown to be inversely correlated to cell performance based on capacity
+retention and polarization growth measurements for a variety of different electrodee-
+lectrolyte chemistries. We attributed this correlation to negative electrode SEI growth,
+which causes the irreversible volume expansion of the electrode stack observed with
+operando pressure measurements, and consequently results in capacity fade due to
+lithium inventory loss. Cell chemistries with silicon-containing negative electrodes
+exhibited worse performance and larger irreversible pressure growth compared to a
+cell chemistry with a graphite negative electrode due to a less stable negative electrode
+SEI resulting from the larger expansion of silicon materials. This was supported with
+X-ray photoelectron spectroscopy measurements and differential voltage analysis,
+which showed negative electrode SEI growth was the primary degradation mechanism
+for all cell chemistries tested here. Furthermore, we attributed the catastrophic failure of
+silicon-containing cell chemistries that exhibit FEC depletion to passivation failure and
+runaway negative electrode SEI growth. This work has demonstrated that operando
+pressure measurements can be used to probe the evolution of the negative electrode
+SEI, and thus the benefit of these measurements as a tool for investigating the degradation
+and ranking the performance of different Li-ion cell chemistries. Future work
+optimizing electrolyte chemistries with new additive combinations to stabilize the SEI
+evolution of Li-ion cells with silicon-containing negative electrodes using operando
+pressure measurements is encouraged.

@@ -1,0 +1,385 @@
+Manufacturing paradigm-oriented PHM methodologies for cyber-physical systems 
+Tangbin Xia1 ﹞ Lifeng Xi1 
+
+Received: 25 May 2016 / Accepted: 2 July 2017 / Published online: 1 August 2017 . Springer Science+Business Media, LLC 2017 
+Abstract In today＊s competitive environment of Indus-try 4.0, cyber-physical systems (CPS) of various advanced manufacturing paradigms have brought new challenges to maintenance managements. Effcient prognostics and health management (PHM) policies, which can integrate both indi-vidual machine deteriorations and different manufacturing paradigms, are urgently needed. Newly proposed PHM methodologies are systematically reviewed in this paper: as the decision basis, an operating load based forecast-ing algorithm is proposed for machine health prognosis; at the machine level, a dynamic multi-attribute mainte-nance model is studied for diverse machines in CPS; at the system level, novel opportunistic maintenance poli-cies are developed for complex fow-line production, mass customization and reconfgurable manufacturing systems, respectively. This framework of PHM methodologies has been validated in industrial implementations. 
+Keywords Maintenance ﹞ Dynamic programming ﹞ Manufacturing paradigms ﹞ Cyber-physical system 
+
+
+Introduction 
+In the global competition and technique innovation, many manufacturing enterprises are pursuing a shift to cyber-physical systems (CPS) of advanced manufacturing para-digms (Lee et al. 2014a). In practice, complex fow-line 
+B Lifeng Xi lfxi@sjtu.edu.cn 
+State Key Laboratory of Mechanical System and Vibration, Department of Industrial Engineering, School of Mechanical Engineering, Shanghai Jiao Tong University, Shanghai 200240, China 
+production, mass customization and reconfgurable manu-facturing paradigms have been applied to satisfy changeable customer demands and keep enterprise core competitive-ness (Al-Zaher and ElMaraghy 2013; Lin et al. 2015; Jardim-Goncalves et al. 2016). However, these CPS systems, machines and accessorial sensors have also become techno-logically more advanced, and more diffcult to manage. This transformation provides motivation for improving mainte-nance methodologies. It is important to effciently predict machine health statuses, eliminate unnecessary production breaks, achieve maintenance cost reduction and decrease systemic decision-making complexity (Rafee et al. 2014; Benkedjouh et al. 2015). 
+In the recent decades, numerous valuable studies have been devoted to the maintenance scheduling (Arab et al. 2013; Mirabi et al. 2013; Zied et al. 2014). Prognostics and health management (PHM) has been crucial to keep CPS systems and their machines in good condition (Liu et al. 2013). Cyber-physical systems usually consist of diverse machines, which have different degrading processes that will fnally lead to failures and interrupt the normal pro-duction (Sheikhalishahi et al. 2014; Chouikhi et al. 2014; Ebrahimipour et al. 2015). Considering CPS characters of integrated computational and physical capabilities such as actuation, sensing and communication to physical world, PHM should provide a systematical view of the machine health prognosis, the machine-level maintenance scheduling and the system-level maintenance optimization. To develop proper PHM methodologies for advanced manufacturing paradigms, it is necessaryto comprehensively consider main-tenance opportunities and manufacturing characters to make maintenance schedules in a cost-effective manner. However, classical opportunistic maintenance policies are insuffcient to provide feasible solutions because of complex series-parallel structures, changeable batch orders and open-ended 
+123 
+
+system reconfgurations (Chang et al. 2007; Derigent et al. 2009; Zhou et al. 2009; Lee et al. 2013). Thus, PHM poli-cies that can decrease decision-making complexity, avoid breakdowns of batch production, and adapt to diverse recon-fgurations are urgently needed. 
+PHM methodologies for advanced manufacturing para-digms are complex due to the hierarchical levels of system-atical maintenance decision-making: (a) accurate machine health prediction at the physical level; (b) dynamic mainte-nance scheduling at the machine level; (c) effective oppor-tunistic maintenance policies at the system level. In a CPS system, recent advances in sensing and information tech-nologies enable enterprises to on-line collect, store and process information that characterizes machine health sta-tuses (Lee et al. 2014b). Thus, these statuses are utilized to predict machine deteriorations for supporting PHM decision-making.Furthermore,designedinformationtransferbetween the machine level and the system level should not be a ※push§ process, but a ※pull§ process. By pulling machine-level outputs, this interactive scheduling mode promotes opportunistic maintenance policies to dynamically optimize system-level schedules by integrating maintenance opportu-nities and manufacturing paradigms. 
+The remainder of this paper is organized as follows: ※A systematical framework of PHM methodologies§ sec-tion presents a systematical PHM framework for advanced manufacturing paradigms. ※WFRGM algorithm for machine health prognosis§ section proposes the W-variable fore-casted-state rolling grey model (WFRGM) by considering the effect of operating loads. ※MAM method for machine-level maintenance scheduling§ section develops the multi-attribute model (MAM) by utilizing the multiple attribute value theory and imperfect maintenance. ※Opportunistic maintenance for various cyber-physical systems§ section dis-cusses the maintenance time window (MTW) for complex fow-line production, the advance-postpone balancing (APB) for mass customization, and the reconfgurable maintenance time window (RMTW) for reconfgurable manufacturing, respectively. Finally, conclusions and perspectives are drawn in ※Case study of PHM methodologies§ section. 
+
+
+A systematical framework of PHM methodologies 
+Cyber-physical systems (CPS) are defned as transformative technologies for managing interconnected systems between its physical assets and computational capabilities (Lee et al. 2015). Recent advances in manufacturing industry have paved way for a systematical deployment of CPS, within which information from all related perspectives is closely monitored and synchronized between the physical factory foor and the cyber computational space. Moreover, by uti-lizing advanced information analytics, networked machines will be able to perform more effciently, collaboratively and resiliently. Cyber-physical systems are ubiquitous in power systems, transportation networks, industrial control processes, and critical infrastructures. These systems need to operate reliably in the face of unforeseen failures (Pasqualetti et al. 2013). 
+For understanding the impact of CPS and the relation to the manufacturing feld, Monostori et al. (2016) compre-hensively studied cyber-physical systems in manufacturing. This important survey can help us: (1) to identify potentially impactful articles that are related to CPS and (2) to fnd out how CPS has evolved with respect to problems, appli-cations and techniques. Wang et al. (2015) presented the current status and advancement of cyber-physical systems and their future research directions when applied to manu-facturing. The characteristics of CPS were outlined together with those of Systems of Systems (SoS), Internet of Things (IoT), Big Data and Cloud technology. Like cloud-enabled prognosis can leverage advanced manufacturing by using data and information from across the manufacturing hierar-chy(Gaoetal.2015),PHMmethodologiesforCPShavebeen designed to improve effciency, productivity, and proftabil-ity by integrating monitored information, failure prediction, system structure and manufacturing characteristics. 
+In industry, modern manufacturing systems with CPS technologies could be widely used in advanced manufactur-ing paradigms, such as complex fow-line production, mass customization and reconfgurable manufacturing paradigms. Since machine statuses are available from sensors within the cyber computational space, PHM decisions to optimize maintenance arrangements should be made in the physical factory foor by considering different manufacturing char-acters. Without properly integrating the special characters of advanced manufacturing paradigms, valuable information collected by CPS technologies can achieve rapid respon-siveness and cost effectiveness for modern manufacturing systems. At this point, several key issues need to be addressed in the developed PHM methodologies for CPS: 
+(1) Based on monitored and synchronized information, it will improves forecast accuracy by incorporating real-time infuencing factors (i.e., operating load) for machine health prognosis; (2) with failure frequency predictions, it is important to accurately describe hazard rate evolutions of individual machines and model machine-level maintenance operations with multiple objectives; (3) by pulling machine-level outputs, cost-effective system schedules should be studied to avoid decision-making complexity caused by series-parallel structures for complex fow-line paradigm; (4) for mass customization paradigm, an opportunistic mainte-nance strategy is required to handle changeable batch orders due to customer demands and eliminate unnecessary produc-tion breaks; (5) for reconfgurable manufacturing paradigm, real-time maintenance schedules should be made to respond 
+123 
+
+
+Fig. 1 Scheme of hierarchical PHM decision-making for CPS 
+rapidly to diverse open-ended reconfgurations and fexible system structures. 
+The designed PHM framework consists of three levels, where CPS maintenance decisions are dynamically made through the machine health prognosis, the machine-level maintenance scheduling and the system-level maintenance optimization. The hierarchical scheme is shown in Fig. 1. 
+. 
+Physical level Cyber-physical systems of advanced man-ufacturing paradigms are defned as the decision objects. With rapid innovations of monitoring techniques and sen-soring tools, effcient prognostic algorithm is developed to forecast accurate machine health trends for supporting the PHM decision-making process in real time, rather than over time. 
+
+. 
+Machine level For each individual machine, preventive maintenance (PM) intervals are dynamically scheduled by considering multiple attribute value theory, imperfect maintenance assessment and sequential PM scheduling mode. If a machine fails between successive PM actions, 
+
+
+minimal repair recovers it to the failure rate that it had when it failed. 
+. System level By pulling PM intervals, novel opportunistic maintenancepoliciesarepresentedtoutilizemaintenance opportunities and manufacturing characters to make dynamic maintenance schedules in a cost-effective man-ner. The manufacturing characters of CPS are thoroughly investigated. Thus, the proposed PHM methodologies can adapt to advanced manufacturing paradigms and achieve signifcant reduction of maintenance cost, pro-duction downtime and decision-making complexity. 
+The notation used in this paper is listed in Table 1. 
+
+
+WFRGM algorithm for machine health prognosis 
+Machine health prognosis plays an important role in PHM methodologies. For complex CPS consisting of multiple machines, it is necessary to utilize maintenance opportunities 
+123 
+
+1662  J Intell Manuf (2019) 30:1659每1672  
+Table 1 Notation  
+W : Generating coeffcient of grey model  L : Operating load change rate  
+x(0) : Actual status of machine  .x(0) : Forecasted status of machine  
+i : Index of PM cycles at machine level  j : Index of machine M j  
+Aij : Availability of the ith PM cycle for M j  crij : Cost rate of the ith PM cycle for M j  
+Tpij : Time duration of PM action  Tfij : Time duration of minimal repair  
+Cpij : Cost of PM action  Cfij : Cost of minimal repair  
+竹ij(t): Hazard rate function prior to the ithPM  Toij : PM interval of machine level  
+aij : Age reduction factor  bij : Hazard increase factor  
+Tw : Maintenance time window  k : Index of PM cycles at system level  
+tjk : PM time point of M j at system level  tk : PM execution point at system level  
+ETC : Excepted total system maintenance cost  cd j : Downtime cost rate  
+u : Index of batch Bu  T Bu : Time duration of batch Bu  
+tij : Time point of PM from machine level  tbu : Set-up time point after Bu at system level  
+(j,tbu) : Maintenance decision at tbu  Gu : PM combination set after Bu  
+SCAj(u+1) : Saved cost of PM advancement  SCPj(u+1) : Saved cost of PM postponement  
+APBj(u+1) : Advance-postpone balancing  cs j : Set-up cost rate  
+Tpu max : Maximum duration for PM actions  h : Index of manufacturing stage MSh  
+TRh : Time duration of the hth reconfguration  tRh : Time point of the hth reconfguration  
+TWh : Time width of RMTW in MSh  (j,tk) : Maintenance decision for M j at tk  
+
+and avoid production losses by forecasting machine degrada-tions. Conventional forecasting methods can be categorized into quantitative forecasting and qualitative forecasting, including Delphi method, time series, exponential smooth-ing, linear regression, expert systems and neural networks (Wang and Hsu 2008; Yu and Xi 2008; Tian 2012). Gen-erally, large amounts of machine statuses are required to construct prognosis models, which limit their practical uses for CPS. In recent decades, grey model (GM) forecasting has achieved good prognosis accuracy with limited statuses by using approximate differential equations to describe future tendencies for a time series (Akay and Atak 2007; Xia et al. 2015b). The GM method, which was frst proposed by Deng(1982),focusesoninformationinsuffciencyandmodel uncertaintyin analyzing future trends through studies on con-ditional analysis, prediction and decision making based on scarce and fuzzy information. This forecasting model is suit-able for real-time prediction with limited data available. 
+To further increase GM accuracy, the novel philosophy comprising of utilizing practical industrial infuencing fac-tors, besides the time series itself, is needed. This study tries to achieve the following GM improvements: (1) incorporat-ing real-time infuencing factors (such as operating loads) that affect machine health trends; (2) taking new statuses into consideration and avoiding too old ones that cannot refect current machine degradations; (3) dynamically eval-uating the generating coeffcient W values to overcome the shortage of static W = 0.5 in original GM(1,1). Thus, a W-variable Forecasted-state rolling grey model (WFRGM) is proposed to increase the accuracy of CPS health prognosis. This WFRGM algorithm includes the following steps: 
+(1) 
+Health data acquisition With sensing technology of CPS, health statuses of machine failure frequency at sequential time d are collected online as the in-sample testing data x(0) = (x(0)(1),x(0)(2),...,x(0)(d),..., x(0)(p)), p ≡ 4. 
+
+(2) 
+Dynamic W .tting In grey model, enumerate W val-ues and select optimal ones (W1,W2,W3,...,Wp) at time d = 1,2,3,..., p. Evaluate the correlation coef-fcient (CR)of W values and corresponding operating load change rate Lvalues (L1,L2,L3,...,Lp). Then construct the relationship of W = f (L). 
+
+
+p  Ld . L
+d=1 Wd . W 
+CRWL =  (1) 
+p 2 p 2Wd . W Ld . L
+d=1 d=1 
+(3) 
+WFRGM reconstruction With forecasted W (Wp+1, Wp+2,Wp+3,...,Wp+q )related to real-time L(Lp+1, Lp+2,Lp+3,...,Lp+q ), WFRGM is reconstructed by taking advantages of forecasted-state rolling and gener-ated values calculating with dynamic W in Accumulat-ing Generation Operation (AGO). 
+
+(4) 
+Health trend prediction Then WFRGM is used to forecast the out-of-sample predictive data (x.(0)(p + 1),x.(0)(p+2),x.(0)(p+3),...,x.(0)(p+q)).Forecasted-state rolling process and dynamic W values ensure a high-precision prediction, which is essential for support-ing PHM scheduling. The rolling process reconstructs the grey model whenever a new status rolls in. It takes newer information into consideration and eliminates older statuses that cannot show the new machine health trend. Furthermore, in original rolling GM, the generat-
+
+
+123 
+
+ing coeffcient W is customarily given as 0.5. The static W value does not consider real-time infuencing fac-tors. Therefore, by analyzing the relationship between dynamic W values and variable L data, WFRGM can generate better forecasts. 
+(5) Performance evaluation and application To evaluate the predicting performance, different error criteria are intro-duced and used, such as the mean absolute percentage error (MAPE) and the mean absolute error (MAE). 
+
+
+MAM method for machine-level maintenance scheduling 
+Based on the machine health prognosis, decision makers can make maintenance schedules. With age and usage, each machine undergoes increasing wear, which fnally leads to a failure and breaks the normal production. Conventional maintenance models usually suffer from a critical problem of setting periodic intervals to perform PM actions. However, it has been noticed that insuffcient maintenance inevitably leads to unnecessary downtime and huge cost; on the other hand, plethoric maintenance will increase maintenance cost and decrease manufacturing proft (Dekker et al. 1997). The innovative idea of this research is to incorporate the multiple attribute value theory, the imperfect maintenance assessment and the sequential PM scheduling mode. Proper machine-level PM intervals of diverse machines will be the solid base for the opportunistic maintenance policies at the system level (Xia et al. 2013). 
+This research focuses on three crucial questions for optimally scheduling PM intervals: frstly, the traditional assumption of perfect PM that covers a machine to the ※as good as new§ status is plausible (Wang and Tsai 2014). For most machines, even though some components are replaced, the cumulative wear on adjacent components may deteriorate unnoticed. This leads to the imperfect effects of mainte-nance activities. In practice, a machine after PM is not as good as brand new one, that is, the hazard rate value is decreased while always greater than zero. Simultaneously, each machine tends to have more frequent maintenance since the hazard rate increases more quickly than it did in the pre-vious PM interval. To sum up, PM not only decreases the hazard rate to a certain value but also changes the slope of the hazard rate function. Secondly, most existing maintenance models were concerning cost. In fact, it should consider other machine-level PM objectives according to practical require-ments. Thus, this study utilizes the multiple attribute value theory in building the PM model. Last but by no means the least, for responding quickly to system-level PHM pulling, a dynamic model-iteration mode is proposed to output PM intervals cycle by cycle. Since conventional static long-time planning focuses on the maintenance modelling and analysis for the whole designed lifetime and arranges PM actions in advance without considering the real-time machine degrada-tion, which is usually not applicable in a practical factory. In our dynamic model-iteration mode, sequential PM intervals are obtained according to the real-time hazard rate evolution of the current cycles, not being relative to the whole lifetime. 
+The multi-attribute model (MAM), which is illustrated in Fig. 2, provides real-time PM intervals Toij , even if there are L objectives (O1ij,O2ij,...,OLij). The comprehensive objective function is minimized to schedule optimal PM intervals. If a smaller Oli j (such as the maintenance cost crij )is preferred, l =0; if a larger Olij (such as the machine availability Aij)is preferred, then k =1. 
+(.1)1 O1ij (.1)2 O2ijVij = w1ij +w2ij
+O. O. 
+1ij 2ij 
+(.1)L OLij
++﹞﹞﹞+wLij (2)
+O. 
+Lij 
+In this model, the machine availability Aij and the main-tenance cost rate crij may be considered as two objectives related to the effciency and the economy, respectively: 
+Aij =  Taij  (3) 
+ Taij
+Taij + Tpij +Tfij 0 竹ij (t)dt 
+ Tcij
+Cpij +Cfij 0 竹ij (t)dt 
+crij =  (4) 
+ Tcij
+Tcij + Tpij +Tfij 0 竹ij(t)dt 
+For each next PM cycle, with the actual interval Tij from the system-level feedback, the relationship between hazard rates of consecutive cycles can be defned as: 
+竹(i+1)j (t) =bij 竹ij (t +aijTij ),t ﹋(0,T(i+1)j ) (5) 
+In imperfect maintenance effects, the age reduction fac-tor aij, aij ﹋ (0,1)indicates that imperfect PM causes the machine＊s initial failure rate to become 竹ij(aijTij); mean-while, the hazard increase factor bij > 1 refects that PM increases the failure rate bij竹ij(t). 
+
+
+Opportunistic maintenance for various cyber-physical systems 
+Nowadays,therehasbeenagrowinginterestinPHMmethod-ologies of multi-unit systems for leading enterprises. It is essential to investigate and model the complicated machine interactions and the diverse manufacturing characters, which provide maintenance opportunities for CPS of advanced manufacturing paradigms. Opportunistic maintenance refers 
+123 
+
+
+Fig. 2 Illustration of machine-level MAM method 
+to the scheme where PM can be performed at opportuni-ties with the advantages of combining individual PM actions and saving much group maintenance cost (Xia et al. 2012; Gu et al. 2015). To overcome the exponential decision-making complexity with machine number increasing and apply the system-level PHM methods to advanced manufac-turing paradigms, novel opportunistic maintenance policies will be presented in detail. 
+
+
+MTW policy for complex .ow-line system 
+Complex series-parallel cyber-physical systems have been widely used to satisfy fow-line productions. In this article, a general PHM decision-making policy is proposed by consid-ering both machine degradation and system structure. This maintenance time window (MTW) policy can help enterprise managers to make dynamic maintenance schedules based on not only single-machine plans, but also the whole-system global programming. MTW programming is applied by pulling real-time machine-level PM intervals. A breakdown 
+.
+. cdj ﹞ Tpk max ETCkj = . Toij ..(tjk .tk )
+
+Cpij + Cfij 0 竹ij (t)dt + cdj ﹞ Tpk max 
+.
+. 
+0 
+caused by one machine is utilized to carry out PM actions on non-failed ones, thus unnecessary breakdown of CPS could be avoided. This maintenance-driven opportunistic main-tenance policy aims to systematically obtain system-level maintenance schedules in a cost effective manner: 
+
+(1) 
+MTW-separation in parallel subsystem According to machine-level PM intervals, the MTW value Tw pro-vides a criterion to separate PM actions in subsystems. MTW-separations can avoid the unnecessary downtime of upstream and downstream machines. 
+
+(2) 
+MTW-combination in series subsystem Pulling the out-puts from MAM and MTW-separations cycle by cycle, MTW is defned as the criterion to combine PM actions within [tk, tk+Tw].Thetimepoint tk iswhenonemachine is preformed PM, which also means maintenance oppor-tunities for other machines in series. 
+
+(3) 
+System performance evaluation The total system mainte-nance cost (ETC) by using MAM policy can be evaluated based on system-level maintenance schedules. The total maintenance cost of the kth cycle for machine j can be evaluated by: 
+
+
+( j, tk) = 0 ( j, tk) = 1 (6) ( j, tk) = 2 
+123 
+
+
+where ( j, tk) = 0 means no maintenance action is ini-tiated on M jat the time point tk, but this machine will be down; ( j, tk) = 1 means the PM action is combined to be performed in advance; ( j, tk) = 2 means no maintenance action is initiated and the machine continues to operate. Thus, the total system maintenance cost for the CPS in its mission lifetime can be obtained by: 
+..
+KJ ETC = . ETCkj.. (7) k=1 j=1 
+
+
+APB policy for mass customization system 
+As one of advanced manufacturing paradigms, mass cus-tomization is widely used to response quickly to changeable customer demands. In mass customization, batch orders are processed through CPS with following production charac-teristics: (1) batch orders are independent with diverse lot size; (2) batches are sequentially ordered only a transient time beforehand; (3) one set-up work happens when a batch switches to another; (4) it prefers no interruptions in each batch cycle to ensure product quality. To meet the require-ments of mass customization, there has been a great need to propose a new type of opportunistic maintenance that consid-ers machine degradations and manufacturing characteristics (Xia et al. 2015a). 
+In this study, a production-driven opportunistic mainte-nance policy is presented to eliminate unnecessary produc-tion breaks and achieve signifcant cost reduction. According to sequential batch orders and machine-level PM intervals, the advance-postpone balancing (APB) policy utilizes the set-up works and analyzes the cost savings to schedule real-time PM adjustments. Each set-up time between successive batches is used to perform PM actions, thus unnecessary breakdown during batch productions can be avoided. We apply APB programming to analyze the cost savings of PM advancement and PM postponement, and then choose the better PM adjustment to ensure no-disruptions and reduce maintenance cost. 
+This production-driven APB policy has the advantages for the mass customization paradigm: (1) APB satisfes no-disruption requirements during changeable batch orders, other than traditional constant production assumption; (2) it utilizes planned production downtimes as maintenance opportunities to advance or postpone PM actions, which signifcantly reduces the complexity of system-level schedul-ing; (3) by choosing the greater cost savings between PM advancement and PM postponement at each set-up opportu-nity, APB ensures that the maximization of ETC-saving can be achieved. The procedure of APB programming is illus-trated in Fig. 3. 
+When each batch Bu has been fnished, and the next batch Bu+1 has not started, this moment tbu is utilized as the deci-sion time to schedule APB. On the one hand, if machineMj is prevented maintained now, the saved cost by advancing PM in batch Bu+1 can be evaluated as: 
+SCAj(u+1) = SCAdj(u+1) + SCAjf (u+1) . SCApj(u+1) 
+= Tpij (cdj . cs j ) 
+
+ T .  T . 
+oij oij .(tij .tbu ) 
++ 竹ij (t)dt . 竹ij (t)dt 
+00 
+123 
+
+tij . tbuCfij . CpijT . oij . (tij . tbu)  (8)  
+where SCAd  is the downtime cost saving, SCA f  is 
+
+j(u+1) j(u+1) the minimal repair cost saving, SCAp is the PM cost
+j(u+1) 
+saving of PM advancement: 
+On the other hand, if PM of machine Mj is postponed to the next set-up time point tbu+1, the minimal repair cost sav-ing will be a negative value (prolonged PM interval leads to increasing cumulative failure risk and more minimal repair cost) and the PM cost saving will be a positive value (longer intervals mean that less PM actions would be needed in the same scheduling horizon). Therefore, the saved cost by post-poning PM in batch Bu+1 can be evaluated as: 
+SCPj(u+1) = SCPdj(u+1) . SCPjf (u+1) + SCPpj(u+1) 
+= Tpij (cdj . cs j ) 
+
+ T .  T . 
+oij+(tbu+1.tij ) oij
+. 竹ij (t)dt . 竹ij (t)dt 
+00 
+tbu+1 . tijCfij + Cpij (9)
+T . 
+oij + (tbu+1 . tij ) 
+where SCPd is the downtime cost saving, SCP f is
+j(u+1) j(u+1) the minimal repair cost saving and SCPp is the PM cost 
+j(u+1) saving of PM postponement: According to the values of SCA and SCP, APBj(u+1) could be defned as the criterion to decide weather to advance or postpone this PM action: 
+APBj(u+1) = SCAj(u+1) . SCPj(u+1). (10) 
+
+
+RMTW policy for recon.gurable manufacturing system 
+The system structure of reconfgurable manufacturing CPS can be adjusted to meet various future products and change-able market demands (Koren and Shpitalni 2010; Ni and Jin 2012). In other words, the main advantage of reconfgurable manufacturing is the adaptability to the uncertainties of the open system architecture with reconfgurable system struc-tures. For the entire system, those different reconfgurations are caused by the changing needs in terms of capacity and functionality, while the production process will be separated into sequential manufacturing stages. Each manufacturing stage (MSh) has its own system structure designed for its current production requirements. If the system-level main-tenance policy has to be rebuilt according to each different structure, its responsiveness and fexibility will be obviously weakened (Xia et al. 2016). 
+By extending the previous research from both recon-fgurable structure and manufacturing paradigm aspects, this study presents a reconfguration-oriented opportunistic maintenance policy to achieve rapid responsiveness and cost effectiveness for future reconfgurable manufacturing. Other than rebuilding new system-level policies for different sta-tionary structures, the developed reconfgurable maintenance time window (RMTW) focuses on the structure analysis to extract reconfgured parallel subsystems and series sub-systems in each manufacturing stage. Faced with different system structures, the RMTW policy utilizes reconfgura-tion characters and maintenance opportunities to constantly redefne reconfguring scheduling criteria within a uniform method. This manner is more suitable for rapidly adapting to new system structures in reconfgurable manufacturing sys-tems (RMS). 
+The production scenarios in Fig. 4 can be taken as an example to illustrate the RMTW scheduling for system-level reconfgurations. After the original design, the RMS enters service at time t = tR1 = 0 with its initial system structure (5 machines). In the frst manufacturing stage MS1, the time width value of RMTW TW1 is defned as a criteria to separate PM actions in parallel subsystems and combine PM actions in series subsystems based on machine-level PM intervals. 
+At the reconfguration time tR2, the structure is redesigned for the second manufacturing stage MS2. In the time dura-tion of this reconfguration TR2, M1 is replaced with a new M6, and M7 is added in parallel with M5. Then, the RMS continues production with a new structure, while a rede-fned time width of RMTW TW2 is applied for reconfgured parallel/series subsystems to minimize the total system main-tenance cost. 
+Similarly, in the next reconfguration before MS3,M3 is removed, while M8 is added in parallel with M2 and M4. In contrasted to the traditional manner of rebuilding new system-level policies for different structures, RMTW scheduling focuses on reconfguring scheduling criteria TWh within a uniform method for rapidly adapting to new struc-tures.Abovestructureanalysisofeachmanufacturingstageis essential for RMTW scheduling. Then, the process fowchart of the proposed RMTW programming is shown in Fig. 5. 
+
+
+Case study of PHM methodologies 
+Effectiveness of WFRGM algorithm 
+To prove the prognosis accuracy of the proposed WFRGM algorithm, the increasing health statuses of a monitored machine＊s deterioration during a maintenance interval are collected. The twelve status data points of failure frequency from monitoring points 1每12 are regarded as the in-sample test data, which refects the increasing failure risk. The 
+123 
+
+
+
+Fig. 5 Flowchart of RMTW policy for reconfgurable manufacturing CPS 
+remaining six states from cycles 13每18 are used for out-of-sample forecasting. Results of the linear regression model (LRM) with x.(0)(d) = 0.0362d + 0.0211, the original GM(1,1) model 
+ 
+.0.147 (0)(1) + 0.0951 0.147(d.1)
+with x.(0)(d) = 1 . ex e ,
+0.147 the actual-state rolling grey model (ARGM), the forecasted-
+state rolling grey model (FRGM) and the proposed WFRGM algorithm have been presented in Table 2. The plot of actual versus forecasted machine states from above fve models is shown in Fig. 6. 
+From the result comparisons in Table 2, it can found that the MAPE (5.19%) and MAE (0.0395) of WFRGM are all lower than LRM (MAPE = 21.26%; MAE = 0.1608), GM (MAPE = 17.74%; MAE = 0.1415), FRGM (MAPE = 15.73%; MAE = 0.1263) and ARGM (MAPE = 9.80%; MAE = 0.0729), indicating the highly accurate forecast-ing ability. Thus, WFRGM algorithm can provide real-time machine health information to dynamic PHM decision-making. 
+
+
+Effectiveness of MAM method 
+A 5-unit series-parallel system with the initial system structure in Fig. 4 is selected as an example for numeri-cal experiments using the proposed MTW policy. In this manufacturing system, PM intervals of each machine are dynamically scheduled by the MAM method according to individual machine degradation. The reliability of each machine is formulated by a Weibull failure probability function: 竹1 j (t) = (mj /灰 j )(t/灰 j )mj .1, which has been widely used to ft repairable equipment in electronic and mechanical engineering. Machine e parameters are shown in Table 3. 
+From the results of industrial implementations (Xia et al. 2012),theproposedmachine-level MAM method reveals fol-lowing conclusions: (1) the PM interval decreases while PM cycle increases, since the underlying hazard rate evolution 
+123 
+
+1668  J Intell Manuf (2019) 30:1659每1672  
+Table 2 Forecasting results of different methods  Monitoring point Actual status LRM 1 0.0837 0.0573 2 0.0864 0.0935 3 0.1705 0.1297 4 0.1732 0.1659 5 0.2110 0.2021 6 0.2122 0.2383 7 0.2388 0.2745 8 0.2448 0.3107 9 0.2856 0.3469 10 0.4144 0.3831 11 0.4219 0.4193 12 0.5318 0.4555 In-sample testing statuses (1每12) 13 0.6316 0.4917 14 0.6401 0.5279 15 0.6812 0.5641 16 0.7483 0.6003 17 0.8540 0.6365 18 0.9026 0.6727 Out-of-sample forecasting statuses (13每18) MAPE (%) 21.26 MAE 0.1608  GM 0.0837 0.1157 0.1340 0.1552 0.1798 0.2082 0.2412 0.2794 0.3236 0.3749 0.4342 0.5030 0.5827 0.6749 0.7818 0.9056 1.0490 1.2151 17.74 0.1415  FRGM ARGM WFRGM 0.0837 0.0837 0.0837 0.1157 0.1157 0.1157 0.1340 0.1340 0.1340 0.1552 0.1552 0.1552 0.1798 0.1798 0.1798 0.2082 0.2082 0.2082 0.2412 0.2412 0.2412 0.2794 0.2794 0.2794 0.3236 0.3236 0.3236 0.3749 0.3749 0.3749 0.4342 0.4342 0.4342 0.5030 0.5030 0.5030 0.5827 0.5827 0.6207 0.6586 0.6857 0.6743 0.7649 0.7762 0.7074 0.8849 0.8421 0.8285 1.0315 0.9130 0.8589 1.1953 0.9976 0.9830 15.73 9.80 5.19 0.1263 0.0729 0.0395  
+
+
+Table 3 Machine parameters 
+effects; (3) ignoring the effects of a maintenance activity will lead to less availability and extra cost, and MAM contributes to more practicality of PM intervals. 
+
+
+Effectiveness of MTW policy 
+To validate the MTW policy for complex fow-line systems, we program the system-level maintenance schedule with machine parameters in Table 3. Taken Tw = 800 h for the MTW programming as an example, the CPS mission lifetime is 25,000 h. Table 4 provides the system-level maintenance schedule results. 
+The infuence of MTW-value and the effectiveness of MTW programming is shown in Fig. 7.Itisproventhat MAM policy can reduce ETC up to 27% comparing with Individual maintenancemode(IMM)of Tw = 0andSimulta-neous maintenance mode (SMM) of Tw = 25,000. Besides, 
+
+j  m j  灰 j  Tpij  Tfij  Cpij  Cfij  cdij  aij  bij  
+1  3.0  8000  140  600  5000  35,000  80  i/(15i+5)  (17i+1)/(16i+1)  
+2  2.0  7000  120  200  6000  18,000  40  0.03  1.04  
+3  1.5  12,000  200  350  2000  15,000  30  i/(20i+20)  1.03  
+4  3.0  13,000  80  300  7500  22,000  45  0.025  (16i+3)/(15i+3)  
+5  2.5  16,000  300  800  2500  25,000  75  i/(16i+14)  1.05  
+
+123 
+
+Table 4 System-level maintenance schedule based on MTW 
+j Time point of PM activity (h) 
+
+1  3319  6911  10,020  13,121  15,134  17,940  20,212  22,789  
+2  3319  6911  10,020  15,134  19,105  22,789  
+3  5108  10,020  15,134  20,212  
+4  6911  14,455  21,984  
+5  5108  10,020  15,134  20,212  
+
+Fig. 7 ETC of the fow-line 
+1,100,000
+CPS with various MTW 
+1,000,000 900,000 800,000 700,000 600,000 
+0 
+400 ETC($) 1007149 886153 
+
+
+ETC ($) 
+it can be concluded that larger MTW value enables more machines to take advantage of maintenance opportunities, but too large MTW causes extra maintenance and more ETC will be needed for CPS. 
+Moreover, traditional opportunistic maintenance policies calculatethecost-savingsofallpossiblecombinationsateach cycle with the exponential decision-making complexity of O(2(J.1)). For example, Zhou et al. (2009) took a 3-unit system to illustrate the opportunistic PM scheduling algo-rithm, while the cost savings for 4 possible combinations were calculated at each opportunity. For our presented MTW policy, since the numbers of parallel/series subsystems and their respective machines are all smaller than J, the maxi-mal decision-making complexity at each opportunity is less than 2J2. Thus, the MTW complexity is just polynomial with total machine number J, which means even a complex 
+Table 5 APB results in 
+
+500 
+600 
+700 
+800 
+900 
+1000 
+1100 
+1200 
+1300 
+25000 
+
+881590 875455 
+815673 
+734736 
+794904 
+826257 
+829011 
+832444 
+850728 
+921532 
+fow-line CPS with a large number of machines can be han-dled. 
+
+
+Effectiveness of APB policy 
+Facedwithsequentialbatchorders,APBdynamicallyutilizes set-up works and analyzes the cost savings to reduce the total system maintenance cost. PM intervals and various batch orders are pulled to make opportunistic maintenances cycle by cycle. For a 7-unit mass customization CPS, results of production-driven opportunistic maintenance are presented in Table 5. 
+The results from mass customization CPS (Fig. 8) reveal that the mechanism of APB policy can ensure the low-est ETC. On the one hand, huge downtime cost saving ensures that ETC of APB policy is lower than those of 
+
+APB (cost) B1 B2 B3 B4 B5 B6 B7 B8 B9 B10 
+sequential batch cycles M1 .9204 .3269 .2725 4022 M2 2262 33 1865 1746 2790 M3 392 .6332 105 .902 M4 .110 4033 4555 M5 .78 5762 5934 3687 1758 .1640 M6 526 .2332 336 151 M7 6490 1951 2250 
+123 
+
+
+Fig. 8 Results comparison of opportunistic maintenance policies 
+maintenance-driven opportunistic maintenance policies (e.g. IMM, SMM and MTW). On the other hand, APB dynami-cally compares cost savings and chooses PM adjustment with 
+
+Max SCAju, SC Pju , which is thus a more cost-effective policy than Advanced maintenance mode (AMM) and Post-poned maintenance mode (PMM). Therefore, APB policy achievessignifcant costreduction byconsideringbatch char-acteristics and making PM adjustment based on maximum cost saving for each machine at each set-up time. 
+
+
+Effectiveness of RMTW policy 
+The RMTW policy is performed on a reconfgurable manu-facturing CPS with changeable system structures shown in Fig. 4. In the frst manufacturing stage (MS1), TW1 = 800 is applied for the RMTW programming as an example, while 
+= 600 and TW3 = 1000 are taken for MS2 and MS3
+TW2 separately. Table 6 shows the RMTW scheduling results for reconfgured system structures. At each system-level PM execution point tk, ( j, tk) = 0 means no PM action but this machine will be down according to the system structure; ( j, tk) = 1 indicates a PM action is combined to be per-formed; while ( j, tk) = 2 evinces no PM and this machine 
+Table 6 RMTW results for reconfgurable manufacturing CPS Fig. 9 ETC-saving rate comparison with various methods 
+
+continues working. Newly added or removed machines are considered in each manufacturing stage. 
+From the results of reconfgurable manufacturing CPS, we can fnd that different CPS structures with various machine reliabilities and changeable system-level reconfgurations would lead to different ETC-saving rates. However, RMTW policy is exactly designed to redefne the time width of TWh for minimizing the ETC in each manufacturing stage. Therefore, this optimization mechanism ensures that RMTW policy can not only be rapidly adapt to new diverse sys-tem structures, but also achieve cost effectiveness for the whole-CPS maintenance scheduling. In Fig. 9, results indi-cate that theETC-saving rate (28.105% comparing to IMM) achieved by RMTW scheduling is much higher than tradi-tional opportunistic maintenance policies (IMM, SMM and static MTW). It can be concluded that proposed RMTW policy is a viable and effective policy to achieve rapid responsiveness and cost reduction for future reconfgurable manufacturing. 
+
+
+Conclusions and perspectives 
+In this paper, we have presented systematic PHM method-ologies for cyber-physical systems of three advanced man-
+
+( j, tk)  MS1  MS2  MS3  
+tk  4587  6042  9033  10251  12563  16012  18437  19147  19978  21955  24188  27538  
+M1  1  2  1  0  每  每  每  每  每  每  每  每  
+M2  1  0  0  1  0  1  2  0  0  1  0  1  
+M3  0  1  0  0  1  0  2  1  0  每  每  每  
+M4  0  2  1  0  2  0  1  2  0  2  0  1  
+M5  1  2  0  1  2  1  2  2  0  1  0  1  
+M6  每  每  每  每  2  1  2  2  1  2  1  1  
+M7  每  每  每  每  2  0  2  2  1  2  0  1  
+M8  每  每  每  每  每  每  每  每  每  2  0  1  
+
+123 
+
+ufacturing paradigms. With monitored and synchronized information from the cyber computational space, PHM methodologies integrating manufacturing characters in the physical factory foor can improve the health management. These developed prognosis algorithm, scheduling model and opportunistic maintenance policies achieve signifcant improvements in following aspects: (1) WFRGM algorithm provides real-time and accurate health predictions by incor-porating updated information and infuencing factors; (2) MAM method can output sequential PM intervals based on individual machine health for supporting the system-level opportunistic maintenance; (3) MTW policy schedules PM separations/combinations according to series-parallel struc-tures for reducing maintenance cost and decision-making complexity; (4) APB policy achieves huge cost savings by utilizing set-up times to makes real-time PM optimizations and handle variable batch orders; (5) RMTW policy eff-ciently achieve rapid responsiveness and cost effectiveness for diverse open-ended reconfgurations and fexible system structures. 
+In sum, both cyber factors (information technologies) and physical factors (manufacturing paradigms) are essential for the health management of future CPS. Some industrial enter-prises (i.e., port machinery manufacturers and automobile manufacturing companies) have already benefted from these novel PHM methodologies. Future work is needed to extend-ing this hierarchical PHM framework to other burgeoning manufacturing paradigms, such as sustainable manufactur-ing, green production and cloud manufacturing. 
+Acknowledgements The research is funded partially by National Natural Science Foundation of China (51505288, 51535007), the Pro-gramme of Introducing Talents of Discipline to Universities (B06012) and Foundation for Innovative Research Groups of the National Natural Science Foundation of China (51421092). 
+
+
+References 
+Akay, D., & Atak, M. (2007). Grey prediction with rolling mechanism for electricity demand forecasting of Turkey. Energy, 32(9), 1670每 1675. 
+Al-Zaher, A., & ElMaraghy, W. (2013). Design of reconfgurable auto-motive framing system. Journal of Manufacturing Systems, 32(3), 436每448. 
+Arab, A., Ismail, N., & Lee, L. S. (2013). Maintenance scheduling incorporating dynamics of production system and real-time infor-mation from workstations. Journal of Intelligent Manufacturing, 24(4), 695每705. 
+Benkedjouh, T., Medjaher, K., Zerhouni, N., & Rechak, S. (2015). Health assessment and life prediction of cutting tools based on support vector regression. Journal of Intelligent Manufacturing, 26(2), 213每223. 
+Chang, Q., Ni, J., Bandyopadhyay, P., Biller, S., & Xiao, G. (2007). Maintenance opportunity planning system. Journal of Manufac-turing Science and Engineering, 129(3), 661每668. 
+Chouikhi, H., Khatab, A., & Rezg, N. (2014). A condition-based maintenance policy for a production system under excessive environmental degradation. Journal of Intelligent Manufacturing, 25(4), 727每737. 
+Dekker, R., Wildeman, R. E., & van der Duyn Schouten, F. A. (1997). A review of multi-component maintenance models with economic dependence. Mathematical Methods of Operational Research, 45(3), 411每435. 
+Deng, J. L. (1982). Control problems of grey system. Systems and Con-trol Letters, 1(5), 288每294. 
+Derigent, W., Thomas, E., Levrat, E., & lung, B. (2009). Opportunistic maintenance based on fuzzy modelling of component proximity. CIRP Annals-Manufacturing Technology, 58(1), 29每32. 
+Ebrahimipour, V., Najjarbashi, A., & Sheikhalishahi, M. (2015). Multi-objective modeling for preventive maintenance scheduling in a multiple production line. Journal of Intelligent Manufacturing, 26(1), 111每122. 
+Gao, R., Wang, L., Teti, R., Dornfeld, D., Kumara, S., Mori, M., et al. (2015).Cloud-enabledprognosisformanufacturing. CIRPAnnals-Manufacturing Technology, 64(2), 749每772. 
+Gu, X., Jin, X., & Ni, J. (2015). Prediction of passive mainte-nance opportunity windows on bottleneck machines in complex manufacturing systems. Journal of Manufacturing Science and Engineering, 137(3), 31017每31024. 
+Jardim-Goncalves, R., Grilo, A., & Popplewell, K. (2016). Novel strate-gies for global manufacturing systems interoperability. Journal of Intelligent Manufacturing, 27(1), 1每9. 
+Koren,Y., &Shpitalni, M.(2010).Designofreconfgurablemanufactur-ing systems. Journal of Manufacturing Systems, 29(4), 130每141. 
+Lee, J., Bagheri, B., & Kao, H. A. (2015). A cyber-physical systems architecture for industry 4.0-based manufacturing systems. Man-ufacturing Letters, 3, 18每23. 
+Lee, J., Kao, H. A., & Yang, S. (2014a). Service innovation and smart analytics for Industry 4.0 and big data environment. Procedia CIRP, 16, 3每8. 
+Lee, J., Wu, F., Zhao, W., Ghaffari, M., Liao, L., & Siegel, D. (2014b). Prognostics and health management design for rotary machin-ery systems〞reviews, methodology and applications. Mechanical Systems and Signal Processing, 42(1每2), 314每334. 
+Lee, S., Gu, X., & Ni, J. (2013). Stochastic maintenance opportunity windows for unreliable two-machine one-buffer system. Expert Systems with Applications, 40(13), 5385每5394. 
+Lin, Q. L., Liu, H. C., Wang, D. J., & Liu, L. (2015). Integrating sys-tematic layout planning with fuzzy constraint theory to design and optimize the facility layout for operating theatre in hospitals. Jour-nal of Intelligent Manufacturing, 26(1), 87每95. 
+Liu, X., Li, J., Al-Khalifa, K. N., Hamouda, A. S., Coit, D. W., & Elsayed, E. A. (2013). Condition-based maintenance for continu-ously monitored degrading systems with multiple failure modes. IIE Transactions, 45(4), 422每435. 
+Mirabi, M., Fatemi Ghomi, S. M. T., & Jolai, F. (2013). A two-stage hybrid fowshop scheduling problem in machine breakdown con-dition. Journal of Intelligent Manufacturing, 24(1), 193每199. 
+Monostori, L., K芍d芍r, B., Bauernhansl, T., Kondoh, S., Kumara, S., Reinhart, G., et al. (2016). Cyber-physical systems in manufactur-ing. CIRP Annals-Manufacturing Technology, 65(2), 621每641. 
+Ni, J., & Jin, X. (2012). Decision support systems for effective mainte-nance operations. CIRP Annals-Manufacturing Technology, 61(1), 411每414. 
+Pasqualetti, F., Dfer, F., & Bullo, F. (2013). Attack detection and identifcation in cyber-physical systems. IEEE Transactions on Automatic Control, 58(11), 2715每2729. 
+Rafee, K., Feng, Q., & Coit, D. W. (2014). Reliability modeling for dependent competing failure processes with changing degradation rate. IIE Transactions, 46(5), 483每496. 
+123 
+
+Sheikhalishahi, M., Ebrahimipour, V., & Hosseinabadi Farahani, M. (2014). An integrated GA-DEA algorithm for determining the most effective maintenance policy for a k-out-of-n problem. Jour-nal of Intelligent Manufacturing, 25(6), 1455每1462. 
+Tian, Z. G. (2012). An artifcial neural network method for remaining usefullifepredictionofequipmentsubjecttoconditionmonitoring. Journal of Intelligent Manufacturing, 23(2), 227每237. 
+Wang, C. H., & Hsu, L. C. (2008). Using genetic algorithms grey theory to forecast high technology industrialoutput. Applied Mathematics and Computation, 195(1), 256每263. 
+Wang, C. H., & Tsai, S. W. (2014). Optimizing bi-objective imper-fect preventive maintenance model for series-parallel system using established hybrid genetic algorithm. Journal of Intelligent Man-ufacturing, 25(3), 603每616. 
+Wang, L., Tngren, M., & Onori, M. (2015). Current status and advancement of cyber-physical systems in manufacturing. Journal of Intelligent Manufacturing. doi:10.1016/j.jmsy.2015.04.008. 
+Xia, T., Jin, X., Xi, L., & Ni, J. (2015a). Production-driven opportunistic maintenance for batch production based on MAM每APB schedul-ing. European Journal of Operational Research, 240(3), 781每790. 
+Xia, T., Jin, X., Xi, L., Zhang, Y., & Ni, J. (2015b). Operating load based real-time rolling grey forecasting for machine health prognosis in dynamic maintenance schedule. Journal of Intelligent Manufac-turing, 26(2), 269每280. 
+Xia, T., Xi, L., Pan, E., & Ni, J. (2016). Reconfguration-oriented opportunistic maintenance policy for reconfgurable manufactur-ing systems. Reliability Engineering & System Safety,. doi:10. 1016/j.ress.2016.09.001. 
+Xia, T., Xi, L., Zhou, X., & Lee, J. (2012). Dynamic maintenance decision-making for series-parallel manufacturing system based on MAM每MTW methodology. European Journal of Operational Research, 221(1), 231每240. 
+Xia, T., Xi, L., Zhou, X., & Lee, J. (2013).Condition-based maintenance for intelligent monitored series system with independent machine failure modes. International Journal of Production Research, 51(15), 4585每4596. 
+Yu, J., & Xi, L. (2008). Intelligent monitoring and diagnosis of manu-facturing process using an integrated approach of neural network ensemble and genetic algorithm. International Journal of Com-puter Applications in Technology, 33(2每3), 109每119. 
+Zhou, X., Xi, L., & Lee, J. (2009). Opportunistic preventive mainte-nance scheduling for a multi-unit series system based on dynamic programming. International Journal of Production Economics, 118(2), 361每366. 
+Zied, H., Sofene, D., & Nidhal, R. (2014). Joint optimisation of main-tenance and production policies with subcontracting and product returns. Journal of Intelligent Manufacturing, 25(3), 589每602. 
+123 
+
+
+

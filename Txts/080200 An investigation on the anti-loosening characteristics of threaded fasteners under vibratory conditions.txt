@@ -1,0 +1,336 @@
+
+
+
+
+
+An investigation on the anti-loosening characteristics of threaded fasteners
+under vibratory conditions
+
+
+
+
+ABSTRACT
+
+                                    A signiﬁcant advantage of the screw fastener is its capability of being mantled and dismantled
+                              using simple tools. However, threaded fasteners have inherent and inevitable limitations that
+                they loosen eventually under vibrating environment leading to higher frequency of routine
+                                                         maintenance of the components, the absence of which may result in fatal accidents. In the
+                                                         present work, an attempt has been made to test the anti-loosening ability of various locking
+                                                         screw fasteners, such as nylock nut, aerotight nut, chemical lock, cleveloc nut, ﬂat washer,
+                                           nylon washer, serrated washer and spring washer with bolts of different materials, sizes and
+                                                         types with different initial clamping forces under the accelerated vibrating conditions obtained
+                                                         in an indigenously made testing rig. The loss of clamping force gives an indication of the extent
+                                                         of loosening. Their anti-loosening characteristics are compared with respect to initial clamping
+                                                         forces. On the basis of the test results, chemical locking has been found to show best anti-
+                                                         loosening characteristics followed by nylock and aerotight nut. Loosening is found to be
+                                                         considerably less, when the initial clamping force is more than 1.1 ton for metric threaded
+                                                         bolts, and the same for BSW bolts is found at a force above 0.8 ton, when the bolts are fastened
+                                                         with conventional nuts.
+
+INTRODUCTION
+
+    The history [1] of screw fasteners is believed to have begun in Tigris–Euphrates (Shatt-al-Arab) region almost 3000 years ago.
+At the initial stages, the cross section of screw threads was plate-like and they were used for irrigation purposes. According to an
+Encyclopedia, in ancient Greece people started applying screw to press olives. If this is true, then they are the ﬁrst people to realize
+great potential of screw. The next application that followed was the usage as feeders [1]. Leonardo da Vinci [2] is credited with the
+mooting and implementation of this important usage of screw threads. He was the man who started the era of development of this
+fastener by making sketches of them showing his ideas concerning application of screws.
+    Within half a century after Leonardo died, drastic and revolutionary changes were made. The most drastic change came in its
+shape—from square to triangle. This invention was made by gunsmiths somewhere in Europe. Although this assumption has not
+been conﬁrmed yet, it is certain that a bolt at the end of a gun barrel in the early 1940s had a triangular shape. The potential of
+screw fasteners was slowly realized by people who ﬁnally accepted it by 1779 with the ﬁrst implementation made exclusively
+during the construction of “Iron Bridge” in Telford, England. After this, there evolved wide ranges of screw fasteners and they
+began to be used in various applications.
+    The numerous advantages realized by the use of threaded fasteners are — ability to generate high clamping forces and retention of
+the same for very long duration, easy assembly and disassembly without damage of the components, wide range of applications of
+
+threaded coupling, standardization leading to cheap production and easy availability for replacement etc. Such unique advantage
+makes possible usage of screw threads in numerous engineering applications like holding the components together—parts of large
+machines that must be made in small units for ease in manufacturing, assembling or shipping, for production and transmission of
+powers e.g. in lead screws of lathes; screw or press, for adjusting and obtaining accurate movements as in micrometers, pumping,
+pulling, sealing, etc.
+   However, prolonged and sustained vibration in some typical mode can result in loosening of screw fasteners very easily in
+several cases—heralding the major drawback of screw fasteners.
+
+
+METHOD
+
+    In the year 1945, Goodier and Sweeny [3] tested only a dynamically loaded bolted joint. In spite of their failure to obtain a
+complete self-loosening of threaded fasteners, they offered an explanation of partial loosening of threaded fasteners. They pointed
+out that for axially loaded joint, pulsating tension of a clamped bolted connection creates radial sliding motions between the
+thread ﬂanks of the bolt and nut or the interface of the clamped bearing surfaces. The reasons for this are the contraction of the bolt
+according to Poisson's ratio and dilation of the nut walls caused by axial tension.
+    In the year 1964, Hongo [4] conducted some experiments on axial loading of nut and bolt assemblies. He varied the axial tensile
+force of a bolt and nut fastening having JIS M20 coarse screw threads 100 times in the range of 250 to 3000 kg in a reciprocal
+fashion. He examined whether there was any relative rotation between the bolt and nut by observing the oscillation of a beam of
+light projected on to a mirror pasted on the bolt. The results showed that the bolt did not continue to rotate in a direction that
+would loosen the nut. Goodier and Sweeny [3] in a similar way had reported detecting a relative rotation of 6.28 × 10− 3 radian by
+varying the axial tensile force of the bolt 100 times. Hongo [4] could not accept this conclusion of Goodier and Sweeny [3] that “…
+the bolt and nut undergo relative rotation in the direction that would loosen the fastening as long as there is variation in the axial
+tensile force of the bolt” [3].
+    In the year 1966, Paland [5] tested various types of threaded fasteners for axial loading and gave the rule of loosening
+arithmetically and by measuring the tangential strain on the surface of the nut. He came to the conclusion that a loaded nut widens
+elastically in a radial direction at the area near the bearing surfaces and contracts in upper part.
+    This very small amount of radial displacement by expansion of the nut would explain why Paland, in spite of heavy impact
+loading in an axial direction of the bolt, still needed a small external off-torque to turn the nut so as to loosen completely.
+    In the year 1969, Junker [6] described the mechanism of loosening on the basis of friction between the ﬂank surfaces. According
+to him, the theory of mechanism of self-loosening of nut and bolt is based on the well-known law of physics that deﬁnes the effect
+of friction on two interacting solid bodies. As soon as the friction force between two solid bodies is overcome by an external force
+working in one direction, an additional movement in any other direction can be caused by the action of forces that can be
+essentially smaller than the friction force.
+    He tested cap screws, spring washers and free spinning locking screws with respect to its anti-loosening characteristics. Since
+transversely loaded joints tend more to self-loosening, the test procedure suggested imitates these actual conditions. The ﬁrst
+attempt was made with a device consisting of two parts clamped together by the specimen, with load cell and displacement pickup
+to record transverse load, preload and displacement. He also reported that maximum values of vibration energy (transverse force x
+displacement) were signiﬁcantly different for various locking elements.
+    Sase et al. [7,8] tested the effectiveness of screw threads, spring washers, nylon inserted nuts, double nuts and eccentric nuts of
+few sizes to resist loosening. Test results showed that the popularly known anti-loosening fasteners did not possess much
+resistance to loosening.
+    In the year 1998, Sase et al. [8] introduced and evaluated the Step Lock Bolt (SLB) with regard to its anti-loosening performance
+using a displacement based loosening device. They found the presence of desirable anti-loosening characteristics of SLB. The
+displacement and turning angle of the bolts and the nuts were examined in loosening tests.
+    Following the experimental procedure and conclusions drawn by Sase et al. [7], a testing rig was designed and fabricated by a
+group lead by Das and co-workers [9,10], where a constant vibrating force of constant frequency and amplitude is applied at the
+right angle of the bolt axis. In this set-up, several tests were carried out with BSW and metric bolts of different materials, sizes
+with various types of nut and washer arrangements to conclude that nyloc nuts give substantial resistance to loosening compared
+to other fasteners.
+
+
+2.1. Deﬁnition of screw loosening
+
+    Materials fastened using screws are held together by the tensile force generated by the elongation of the bolt shaft (the bolt axis
+force) and by the force of compression generated in the objects being tightened (the tightening force) [1]. These two forces remain
+in balance as long as no external forces are applied to the objects being fastened by the screws. The general term for the forces
+involved in pulling or fastening the two materials together is the pretension force.
+    In some situations, such as in the course of using machinery, the pretension force applied at the time that the materials forming
+the machinery were originally fastened may decrease for a variety of reasons. This spontaneous decrease in the pretension force is
+what is described in general terms as screw loosening.
+
+
+2.2. Loosening without relative rotation between bolt and nut
+
+   In this case, some residual plastic deformation, such as stretching of bolt, shrinking of an intermediate piece, or smoothening of
+the contact surface like the sides of the thread ridges and the bearing surface of the nut, invariably exists. Those problems can be
+solved by selection of proper material for bolt and nut [1,3,4].
+
+2.3. Loosening caused by relative motion of the bolt and nut
+
+   There are two types of relative motion which occur in threaded fasteners. One is the relative motion between the nut and the
+bolt. And the other is the relative motion between the nut/bolt and clamping surfaces.
+   There are three common causes of the relative motion occurring in the threads [1,6]:
+
+1. Bending of parts, which result in forces being induced at the friction surface. If slip occurs, the head and threads will slip which
+   can lead to loosening.
+2. Differential thermal effects caused as a result of either differences in temperature or differences in clamped materials.
+3. Applied forces on the joint can lead to shifting of the joint surfaces leading to bolt loosening.
+
+
+2.4. Vibration loosening of nut and bolt
+
+    When nut is subjected to vibrating force, a cycle of alternative tensile and compressive forces starts acting on mating surface
+between the nut and bolt. But since the mating surface has two angles namely, the lead angle and ﬂank angle, the force gets split
+into three mutually perpendicular components. One of these components acts along the axis of the bolt, the other act in a radial
+direction and the remaining one act tangentially to mating surface.
+    So the force that acts along the axis tries to stretch the bolt and deforms it. The radial force acts to deform the thread proﬁle and
+tangential force generates a moment in the reverse direction that favours loosening.
+    If relative motion occurs between the threaded surfaces and/or other contact surfaces of the clamped and clamping parts
+because of an external force, the direction of which is either tangential or radial, the bolted connection will become free of friction
+in the circumferential direction. This means that the preload acting on the thread creates a force in a circumferential direction and
+results in the rotational loosening of the bolt or nut.
+    For axially loaded joint, pulsating tension of a clamped bolted connection creates radial sliding motions between the thread
+ﬂanks of the bolt and nut or the interface of the clamped bearing surfaces. The reasons for this are the contraction of the bolt
+according to Poisson ratio and dilation of the nut walls caused by axial tension. Thus axially loaded nut widens elastically in radial
+direction at the area near the bearing surfaces and contracts in upper part. These create a relative motion between the nut and bolt
+which favours loosening of the fastener.
+    For dynamically loaded joints, the relative motion between thread ﬂanks and other contact surfaces of the bearing areas can
+occur in magnitudes up to the maximum allowance of the thread. These large effects appear when transverse loading, which has to
+be transmitted by grip friction, exceed the friction force between the clamped parts. The resultant transverse slippage between the
+clamped parts forces the bolt to assume a pendulum movement, which leads to relative motion in the thread hole and thus in the
+thread ﬂanks.
+    If the amplitude of such transverse slippage of the bolt is large enough, slippage of nut or bolt head bearing surface will ﬁnally
+occur and make the join totally free of friction in a circumferential direction. It can be easily realized too that, contrary to the
+conditions to the axial loading, relative motion between the ﬂanks will occur in all parts of the nut threads when the joint slips
+under transverse force. Thus, the internal off-torque force becomes sufﬁcient to turn the bolt or nut completely loose as soon as the
+friction is eliminated from the bearing area as well as from the thread area. Such transverse slippages are more common in practice
+than usually accepted. Experience shows that these joints most frequently fail by self-loosening [1,4,6–8].
+
+2.5. Prevention of loosening by means of design
+
+   From the above discussion it can be declared that loosening caused by relative rotation can be minimized if [1],
+
+➢ The lead angle is reduced:
+  Relative slip depends on lead angle. With the increase of lead angle relative slip also increases and vice versa. If helix angle
+  becomes greater than friction angle then thread becomes overhaul. If lead angle reduces to zero then thread will not be able to
+  transfer torque.
+➢ The ﬂank angle is made as small as possible—almost zero:
+  A very small ﬂank angle results in increased fastening torque as well as due to vibration when it tries to rotate in the loosening
+  direction it needs more torque. So a very small ﬂank angle increases the anti-loosening property of thread.
+➢ Reducing relative slip between bearing surface nut and the fastened material by introducing a taper between these two
+  surfaces:
+  In this case contact area as well as friction force increases. But assembly becomes difﬁcult. Intermediate part must have proper
+  counter proﬁle.
+
+
+2.6. Locking fasteners
+
+   A variety of locking fasteners are used nowadays offered by major companies. For example, conventional spring lock washers
+are no longer speciﬁed, because it has been shown that they actually aid self-loosening rather than prevent it. There are a
+multitude of thread locking devices available. Through the efforts of the American National Standards Subcommittee B18:20 on
+locking fasteners, three basic locking fastener categories have been established. They are [1] free spinning, friction locking, and
+chemical locking.
+a. Free Spinning Type: The free spinning type is plain bolts with a circumferential row of teeth under the washer head. These are
+   ramped, allowing the bolt to rotate in the clamping direction, but lock into the bearing surface when rotated in the loosening
+   direction. The ‘Whizlock’ is in this category.
+b. Friction Locking: Friction locking categories can be sub-divided into two groupings, metallic and non-metallic. The metallic
+   friction locking fastener usually has a distorted thread which provides a prevailing torque; an example of this category is the
+   ‘Philidas’ nut. Non-metallic friction locking devices have plastic inserts which provide a thread locking effect; an example being
+   the ‘Nyloc’ nut.
+c. Chemical Locking: The chemical locking category is adhesives which ﬁll the gaps between the male and female threads and
+   bond them together; ‘Loctite’ is an example. Such adhesives are now available in micro-encapsulated form and can be pre-
+   applied to the thread.
+
+2.7. Some anti-loosening fasteners
+
+    Many new threaded fasteners have been introduced to claim to have considerable anti-loosening ability. One of such attempts
+has provided a wedge ramp which can draw the crest of the bolt tightly. ‘Step lock bolt’ has been reported [1,7,8] to show anti-
+loosening property by putting ‘step parts’ having no lead angle at certain positions on to the bolt. Combinations of two nuts with
+small eccentricity in the sliding part of the convex top of the lower nut have also been tried for self-locking of the fasteners under
+vibratory conditions. In Aero-tight nut, a torque prevailing nut of all metal construction, the nut is slotted in two places which,
+after the nut has been tapped, are bent slightly inwards and downwards. When the nut is screwed onto the bolt thread the two
+slotted parts are forced back to their original position [1]. In Cleveloc nut, the collar of the nut is elliptical in cross section and it is
+this that provides the ﬂexible locking element. The nut is pre-lubricated to reduce the tightening torque [1].
+
+
+RESULT
+
+3.1. The set up
+
+   From previous works it is seen that the loosening mechanism becomes most pronounced when the direction of vibration is
+perpendicular to the longitudinal axis of the bolt.
+
+   The testing rig has thus been designed to obtain the following:
+
+1. A repeated oscillatory motion to achieve vibration of ﬁxed frequency and amplitude.
+2. Measurement of clamping force at any instant.
+3. Any desired number of oscillations.
+
+   To obtain the above requirements the following machines and/or mechanisms have been made use if:
+
+1. A motor provides the basic rotary motion and the motion is transferred to another shaft by a belt–pulley arrangement.
+2. A cam mounted on the rotating shaft incorporates rotating motion to the oscillatory motion onto a rocking plate at a ﬁxed
+   frequency.
+3. A load cell measures the clamping force between the two plates clamped by the bolt to be tested, at any instant.
+4. A proximity switch measures the number of oscillation by measuring the rotation of the shaft.
+
+    The rocking plate transmits this vibration to another plate which is clamped to a ﬁxed structure with the help of the nut and
+bolt assembly under test. By this way, the nut and bolt assembles the two plates out of which one is ﬁxed and the vibration is
+transferred to the other plate via the rocking plate. The vibration provided is of repeated hammering nature. Due to this vibration,
+the fasteners will begin to loosen and the corresponding clamping force will decrease. The schematic diagram of the testing device
+is shown in Fig. 1, as also referred in Ref. [10]. Fig. 2 shows the pictorial view of the testing rig.
+    This continuous decrement in clamping force with the number of revolutions will be a measure of loosening. The above
+proposition is the key behind the designing and fabrication of the test rig.
+    The eccentricity of the cam is so designed that at the end of the rocking plate, where the bolts is clamped, the amplitude
+becomes 0.175 mm and the plate rocks at a ﬁxed frequency of 3 Hz. The frequency of the vibration can be changed by changing the
+pulley step.
+    The indigenously made testing machine consists of a motor, a belt–pulley drive, a rotating cam, a rocking plate, a testing area
+for fastening and a load cell (compression type, Make–Sushma, Bengaluru, India, Model SLC-302) along with the indicator.
+
+
+
+3.2. Experimental conditions
+
+    For carrying out the experiments and to judge the anti-loosening ability of the screwed fasteners the bolts used were Metric
+type (M16 and M10, both of High Tension Steel (HTS), having 2 mm and 1.5 mm pitch respectively and 5/8 in. BSW HTS threaded
+bolts and Low Carbon Steel (LCS) bolt, having 11 TPI; 3/8 in. HTS, LCS and Stainless Steel (SS) bolt having 16 TPI. The initial
+tightening torque was 1.5 ton for M16 HTS bolt, 0.8 ton for M10 HTS bolt and 3/8 in BSW HTS, SS, LCS bolts, 1.3 ton for 5/8 in. BSW
+HTS, SS bolts. The number of oscillations up to which the constant decrease in clamping force measured was 10,200. The different
+types of nuts and washers used for the clamping of the fasteners were Conventional Nuts, Flat Washer, Spring Washer, Inside
+Serrated, Outside Serrated washers, Double nuts, Nylock nut, Nylon washer, Cleveloc Nut, Chemical lock (Locktite) and Aerotight
+nut. All the experiments were repeated for three times.
+
+
+
+DISCUSSION
+
+   Fig. 3 shows the comparison of loosening for metric (M 16) High Tension Steel Bolt with different nuts. The plot shows that the
+use of ﬂat washer can reduce the loss of clamping force to a little extent. The double nut can also effectively reduce loosening.
+Chemical locking is found to be a comparatively good anti-loosening fastener under vibration, following nylock nut. On the other
+hand, the inside serrated washer shows a better anti-loosening ability than outside serrated washer.
+       Loosening tendency of metric (M 10) High Tension Steel Bolts with different nuts is compared in Fig. 4. Here the use of ﬂat
+washer and nylon washer can reduce the loosening of conventional nut to some extent. Nylon washer has better anti-loosening
+
+ability than ﬂat washer if properly used between two ﬂat washers. Chemical lock has the better anti-loosening property than
+others. Nylock nut also has considerable ability to resist loosening under vibration. Double nut, if properly tightened, can provide
+good resistance to loosening. Outside serrated washer and spring washer lies in the middle on the basis of anti-loosening property.
+The loosening with conventional nut and ﬂat washer is always faster than all other nuts. If the threaded fasteners are categorized
+according to their anti-loosening property, then conventional nut, ﬂat washer shows very little effect on anti-loosening; spring
+washer, nylon washer and serrated washers exhibit moderate anti-loosening ability, whereas double nut, nylock nut, and chemical
+lock provide the best anti-loosening ability under vibratory conditions.
+   Fig. 5 and Fig. 6 show the variation of loosening torque with number of oscillations for a 5/8 in. BSW bolt of high tension steel
+and stainless steel bolts respectively. In Fig. 5, it is seen that the nylock nut and chemical locking nut have comparatively good anti-
+loosening property. Cleveloc nut cannot prevent loosening effectively. Spring washer and serrated washer (both inside and
+
+outside), can reduce loosening to some extent, whereas Fig. 6 shows that Chemical lock nut has comparatively high resistance to
+loosening followed by nylock nut. Inside and outside serrated washer have also enough ability to resist loosening under vibration.
+Spring washer has considerable anti-loosening effect compare to ﬂat washer.
+    Figs. 7, 8 and 9 provide the variation of loosening torque with number of oscillations for a 3/8 in. BSW bolt of high tension steel,
+stainless steel and low carbon steel bolts, respectively. Among the three types of fastening materials, low carbon steel being a
+ductile material, can deform easily under high tightening torque resulting in high contact friction between the fastening elements
+and hence, tends to resist loosening. However, high tension steel and stainless steel are commonly harder materials than low
+carbon steels, and do not deform easily making it suitable for repetitive use. Due to high surface ﬁnish of stainless steels, actual
+contact area between the fastening elements becomes large leading to high contact friction reducing the tendency for possible
+loosening under vibration. According to Fig. 7, very little improvement has been found using Flat washer over conventional nut,
+nylon washer has better resistance to loosening than a ﬂat washer, if properly used between two ﬂat washers. On the other hand,
+cleveloc nut does not have enough anti-loosening property like aerotight nut. Double nut has good anti-loosening ability if
+
+
+properly tightened. Chemical lock shows comparatively better method of reducing loosening under vibration followed by nylock
+nut. Fig. 8 shows that chemical locking has better anti-loosening property compared to the others. The nylock nut shows
+considerable resistance to loosening followed by outside serrated washer. Spring washer and double nut can also reduce the
+tendency to loosening under vibration to some extent. However, double nut does not show (Fig. 9) good results consistently. Flat
+washer can reduce the loosening to some extent. Spring washer and outside serrated washer are found to reduce loosening
+considerably. Chemical locking is the best method of preventing loosening followed by nylock nut.
+    Fig. 10 shows the comparison of loosening for 3/8″ BSW low carbon steel bolt with conventional nut when tested with different
+initial clamping forces. The plot shows that for every initial clamping force, the nature of loosening is almost the same, i.e. for ﬁrst
+few oscillations, the loosening is higher and after certain number of oscillations the rate of loosening becomes slower. The
+percentages of loosening after 5000 oscillations corresponding to the different initial clamping forces are shown in Table 1.
+
+
+
+
+    From the Table 1, it can be said that for higher initial clamping force, total loosening is lower for BSW low carbon steel bolt. But
+for extensively higher clamping force, the thread as well as the bolt may be deformed and the loosening is lower when the initial
+clamping force is higher than 0.8 ton.
+    Fig. 11 shows the comparison of loosening for M16 High Tension Steel Bolt with conventional nut when tested with different
+initial clamping force. Here, it is seen that for all initial clamping force, the loosening trends are almost the same. The initial
+loosening rate is quite high. The total loss of clamping force for different initial clamping forces is shown in Table 2.
+
+
+    In the case of M16 high tension steel bolt, the percentage of loosening was calculated after 10,200 oscillations and it was found
+(Table 2) that the loosening is minimum when the initial clamping force is more than 1.1 ton. The reason behind this may be that,
+for higher initial clamping force, the fastener may undergo higher deformation at the contact points leading to more frictional
+resistance to loosening. However, very high force may damage the fastener. Hence, appropriate initial tightening torque is to be
+applied on a threaded fastener that can restrict loosening.
+
+CONCLUSION
+
+    From the results obtained of repetitive experiments with different combinations of fastening elements, the following
+conclusions may be drawn.
+    (i) Not only the bolt material, but other fastening elements such as nuts or washers also play a key role behind the anti-
+        loosening property of the fasteners; the initial tightening torque also plays a signiﬁcant role behind the self-locking
+        property of fasteners.
+   (ii) Possibly because of high surface ﬁnish, the stainless steel bolts show better resistance to loosening than that of high tension
+        steel and low carbon steel bolts.
+ (iii) Out of several anti-loosening fasteners tested, chemical locking provides the best anti-loosening ability followed by nylock
+        nut and aerotight nut. Aerotight and nylock nuts have less possibility to loose under hostile vibrating conditions, but the
+        effect decreases considerably with repetitive use.
+  (iv) Spring washer, inside serrated and outside serrated washers also provide considerable anti-loosening property, but gets
+        damaged after single use.
+   (v) It is found that ﬂat washers and nylon washers do not prevent loosening, but spring washers and double nuts show
+        considerable resistance against loosening.
+  (vi) For metric as well as BSW threaded bolts, with the increase in clamping force, the percentage of loosening shows an overall
+        decrease because of possible deformation and/or larger contact area between fastening elements.
+
+
+
+

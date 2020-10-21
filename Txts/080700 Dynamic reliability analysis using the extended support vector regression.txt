@@ -1,0 +1,478 @@
+﻿                    Dynamic reliability analysis using the extended support vector regression (X-SVR) 
+ABSTRACT
+                For engineering applications, the dynamic system responses can be signiﬁcantly affected 
+                by  uncertainties  in  the  system  parameters  including  material  and  geometric  properties 
+               as well as by uncertainties in the excitations. The reliability of dynamic systems is widely 
+                evaluated based on the ﬁrst-passage theory. To improve the computational efﬁciency, sur- 
+                 rogate models are widely used to approximate the relationship between the system inputs 
+                 and outputs. In this paper, a new machine learning based metamodel, namely the extended 
+                 support  vector  regression  (X-SVR),  is  proposed  for  the  reliability  analysis  of  dynamic  sys
+                 tems   via  utilizing  the   ﬁrst-passage    theory.   Furthermore,     the  capability   of  X-SVR    is 
+                 enhanced by a new kernel function developed from the vectorized Gegenbauer polynomial, 
+                  especially for solving complex engineering problems. Through the proposed approach, the 
+                  relationship  between  the  extremum  of  the  dynamic  responses  and  the  input  uncertain 
+                   parameters is approximated by training the X-SVR model such that the probability of fail- 
+                    ure  can  be  efﬁciently  predicted  without  using  other  computational  tools  for  numerical 
+                   analysis,  such  as  the  ﬁnite  element  analysis  (FEM).  The  feasibility  and  performance  of 
+                   the proposed surrogate model in dynamic reliability analysis is investigated by comparing 
+                   it with the conventional e-insensitive support vector regression (e-SVR) with Gaussian ker- 
+                    nel and Monte Carlo simulation (MSC). Four numerical examples are adopted to evidently 
+                   demonstrate the practicability and efﬁciency of the proposed X-SVR method.                                                                                                               
+1. Introduction 
+    The uncertain parameters, such as material properties, dimensions of the engineering product, and loading regimes, are 
+inherently  associated  with  the  practical  engineering  systems  and  may  lead  to  considerable  ﬂuctuations  in  the  dynamic 
+responses. The dynamic reliability of engineering systems is essential and important to be investigated so that the effects 
+of the uncertain variables can be thoroughly evaluated in the analyses and designs [1–4]. Generally, stochastic approaches 
+are applied in the reliability analysis by modeling the uncertainties as random variables/ﬁelds with statistical information 
+(i.e.  mean    and    standard    deviation)     [5–9].   As   a  matter    of  fact,  the   corresponding       stochastic    response     in  dynamics      is 
+time-dependent  and  should  therefore  be  represented  by  a  stochastic  process,  which  increases  the  computational  cost  in 
+comparison with the static reliability analysis. 
+    In the past decades, there are numerous methods that have been developed for estimating the dynamic reliability of engi- 
+neering systems, which focus on estimating the ﬁrst-passage probability by evaluating the mean out-crossing rate [10]. The 
+integration  of  the  out-crossing  rate  is  usually  based  on  considering  the  out-crossing  events  either  individually  (Poisson 
+model) or in a group (Markov model) [11]. In addition to the stochastic approaches, a non-probabilistic alternative convex 
+process model is introduced in [12] to solve the ﬁrst-passage reliability analysis. The most efﬁcient stochastic approaches in 
+this regard are based on approximately determining the probability density function (PDF) of the extreme system perfor- 
+mance, which allows for a direct evaluation and estimation of the failure probability. The extreme system performance is 
+quantiﬁed     with   an  extreme     value  distribution    (EVD)   for  the   ﬁrst-passage    reliability  computation [11,13].   In  the  EVD 
+approach, the time-dependent reliability analysis is beneﬁcially converted into the time-independent reliability evaluation. 
+For  the  problems  with  small  variations  of  coefﬁcients,  an  envelope  function  method  was  introduced  with  the  ﬁrst-order 
+approximation of the motion error function [14]. Concepts of stochastic averaging/linearization [15], of dimension reduction 
+[16], and of numerical path integral solutions [17] provide currently the most efﬁcient pathways to solve the ﬁrst passage 
+problem. Nevertheless, the derivation of a closed-form equation for the extreme values is technically difﬁcult for generalized 
+dynamic responses  [18]. Despite of the comprehensively established theory, the ﬁrst-passage probability of failure can be 
+analytically obtained only in limited cases and is mostly restricted to single degree of freedom (SDOF) problems  [19]. The 
+consideration of nonlinearities and the expansion to several degrees of freedom are topics of current research [20]. 
+    As an alternative pathway, the probability distribution of extreme system performance can be obtained via sampling- 
+based approaches. Within the framework of EVD, the probability density evolution method [21] and the equivalent extreme 
+value approach [22] are developed for estimating the probability density function of the extreme values in the responses of 
+the dynamic systems numerically. However, the numerical integration for evaluation of the PDF using these approaches still 
+requires a large number of deterministic dynamic analyses with respect to selected representative points of input random 
+variables. To increase the computational efﬁciency, the numerical integration can be replaced by using the ﬁrst-order reli- 
+ability method (FORM) in association with some speciﬁc adjustments such as PHI2 method [23] or discretized stochastic pro- 
+cesses   [11].   Although    useful   for  small    practical   cases,  FORM     is  associated    with   its  known     limitations    (only   weak 
+nonlinearities, small dimensionality etc.). Also, the advanced sampling schemes have been proven powerful in enhancing 
+the efﬁciency of the generally applicable Monte Carlo simulation techniques  [24]. 
+    Surrogate models have been widely employed as computationally highly efﬁcient approach for reliability assessments 
+and  uncertainty quantiﬁcations.  The  relationship  between the  input  variables  and  structural  outputs  is  approximated  by 
+the metamodeling approach, which is an explicit formulation. This leads to the efﬁcient evaluation of the limit state function. 
+Via utilizing the Kriging technique, or so-called Gaussian process model, a nested extreme response surface (NERS) method 
+was developed to efﬁciently identify the extreme time responses as the dynamic reliability analysis can be conducted using 
+static reliability analysis methods [25]. Other Kriging-based reliability analysis approaches for dynamics are also developed 
+for various engineering applications [26,27]. Recently, a Chebyshev method was proposed for the dynamic uncertainty anal- 
+ysis of multibody mechanical systems and extended for analyzing the dynamic responses of structures with uncertain vari- 
+ables  [28,29].  In  the  past  decades,  machine  learning  techniques,  such  as  the  support  vector  machine  (SVM),  have  been 
+extensively studied in the structural reliability assessments. For example, the least squares support vector machine has been 
+utilized for the dynamic reliability analysis of turbomachinery in [30]. Unlike the surrogate models based on the polynomial 
+chaos expansion (PCE), the SVM is capable to bypass the curse of dimensionality and can also handle nonlinear problems 
+effectively. 
+    In this paper, a novel surrogate model, namely the extended support vector regression (X-SVR) is proposed for the dynamic 
+reliability analysis. The underpinned analysis framework is based on the ﬁrst-passage failure theorem. Comparing with the 
+classical SVM approach, the satisfaction of the Mercer’s condition is not prerequisite for the kernel functions employed in the 
+nonlinear  X-SVR.  To  further  enhance  the  capability  of  the  kernelized  X-SVR  in  approximating  complex  functions,  a  new 
+orthogonal polynomial kernel function, namely the generalized Gegenbauer kernel  (GGK), is proposed. The introduced GGK 
+is an admissible Mercer kernel, and it can be applied to other kernel learning methods which strictly require the satisfaction 
+of the Mercer’s condition. As a mixed kernel function, the proposed GGK consists of both orthogonal polynomial and Gaus- 
+sian kernel function. Therefore, the advantages of both global and local kernels are included. Instead of using the conven- 
+tional   grid   search   technique,     the   hyperparameters       of   the  X-SVR     model    are   efﬁciently    selected    by  the   Bayesian 
+optimization  algorithm.  After  the  establishment  of  the  X-SVR  surrogate  model  with  GGK,  the  limit  state  function  based 
+on the ﬁrst-passage principle can be explicitly approximated from the obtained X-SVR regression function. Subsequently, 
+the  probability  of  failure  can  be  evaluated  by  Monte-Carlo  Simulation  (MCS)  method  with  the  constructed  metamodel 
+instead of  using  the actual  computationally  expensive numerical  models  (e.g.,  ﬁnite element analysis) with high-ﬁdelity. 
+This leads to a tremendous reduction of the computational cost. 
+    The  rest  of  the  paper  is  organized  as  follows.  Section  2  presents  a  brief  review  on  the  theoretical  background  of  the 
+dynamic  reliability  analysis  using  the  ﬁrst-passage  probability.  Then,  Section  3  demonstrates  the  detailed  derivations  of 
+the proposed extended support vector machine and the generalized Gegenbauer kernel  (GGK) function. Next, the procedures 
+for applying the proposed X-SVR on dynamic reliability analysis are introduced in Section 4. The capability of the X-SVR with 
+GGK is veriﬁed against two benchmark problems and two reliability analysis problems in Section 5. Finally, some concluding 
+remarks are presented in Section 6. 
+2. The dynamic reliability analysis 
+2.1. Stochastic dynamic response of structure 
+    The global equations of motion for a linear engineering structure with multi-degrees of freedom (MDOF) can be expressed 
+as: 
+excitation vector which is time-dependent; uðtÞ, uðtÞ and uðtÞ are the time dependent acceleration, velocity and displace- 
+ment  vectors,  respectively.  Due  to  the  existence  of  uncertain  parameters,  the  mass,  damping,  stiffness  matrices  and  the 
+external excitation are non-deterministic  [31–33]. In this study, the uncertainties are considered as independent random 
+variables and Ms , Cs      and Ks    can be expressed as functions of the random parameters. Without loss of generality, the random 
+vector x 2 Rn      is adopted as the collection of uncertainties included in both parameters in the dynamic system and the exter- 
+nal excitation. Thus, the non-deterministic dynamic responses can be calculated by the following global equation: 
+    The stochastic dynamic response for a non-defect system is a stochastic process which is dependent on the random vector 
+x. Thus, the solution of Eq. (2) can be conveniently expressed as: 
+where H denotes a deterministic operator. Despite of the existence of Eq. (4), the explicit formulation of Hðx ; tÞ is usually 
+available for some special cases rather than practical engineering problems with MDOF [10,21]. Subsequently, the determi- 
+nation of an explicit tractable expression for the joint probability density function (PDF) of uðtÞ becomes computationally 
+infeasible.    Among      the   numerical      approaches       developed      for  approximately        evaluating     the   statistical    characteristics     of 
+stochastic  dynamic  response  of  structures,  the  Monte  Carlo  method  is  considered  as  the  versatile  strategy  and  widely 
+adopted due to the straightforward implementation process [34,35]. 
+2.2. The ﬁrst-passage failure theorem 
+    The reliability of a system is typically evaluated by calculating the probability of failure which is commonly measured by 
+the responses, such as the stresses, strains or displacements of the speciﬁed critical element or control point in structural 
+dynamics. The systems are considered as unsafe if the concerned responses exceed the safety threshold for the ﬁrst time. 
+Mathematically, the computation of the probability of failure (pf  ) is expressed as 
+where Prfg denotes the probability; x 2 Rn  is the input random vector;  is the indicator function which equals to 1 if  is 
+‘‘true” and 0 when is false”;f PDF ðxÞ denotes the joint PDF for x and g ðxÞ represents the limit state function, which deﬁnes a 
+structural failure when g ðxÞ 6 0. Within the context of structural dynamic reliability, the structural outputs including dis- 
+placement and stress become time-variant uncertainties. Thus, the limit state function can be explicitly expressed as a func- 
+tion of random variable x and time t. For a given time interval  ½0; T, the probability of failure can be described as 
+    Thus, an efﬁcient and accurate evaluation of pf   is the key task in the structural dynamic reliability analysis. 
+    Conventionally,  for  structural dynamic reliability,   the   probability of  failure    is  widely computed       by   adopting      the 
+ﬁrst-passage theory which is developed based on stochastic process [36]. In general, the security margin for the ﬁrst passage 
+theory can be categorized into single-sided barrier, two-sided barrier and enveloping barrier [37,38]. Among them, the single- 
+sided barrier can be regarded as a special case of the two-sided barrier problems. In this work, the two-sided barrier circum- 
+stance is studied for demonstrating the capability of the proposed X-SVR meta-model. The safe domain for two-sided barrier 
+problem in a given time interval ½0; T, as shown in Fig. 1, is deﬁned as b2                  < uðx ; tÞ < b1  which is equivalent to g ðx ; tÞ > 0, where 
+uðx ; tÞ is the stochastic structural dynamic response; b1                and b2   are the upper and lower threshold, respectively. 
+    For  a  structural  system  with  input  uncertain variable x,  the  probability  of  failure  based  on  the  ﬁrst-passage  theory  is 
+obtained by evaluating the probability of the ﬁrst occurrence of an excursion of the performance function (stress or displace- 
+ment) exceeds the safe domain. In this context, probability of failure in time interval  ½0; T can be expressed as 
+    By implementing the out-crossing rate-based approach, the ﬁrst-passage failure probability is approximated according to 
+the out-crossing rate   
+    Among the existing hypothetical models for computing the cumulative probability of failure based on the out-crossing 
+rate, the Poisson and Markov models are the two widely adopted  [11]. The Poisson model assumes that the out-crossing 
+events are mutually independent and the occurrence follows Poisson distribution. The Markov approach adopts an alterna- 
+tive path by assuming that the out-crossing events tend to occur in independent groups. Accordingly, the probability of fail- 
+ure  in  a  given  time  interval  ½0; T  evaluated  by  the  Poisson  and  Markov  models  can  be  expressed  in  Eqs.  (10)  and  (11), 
+respectively: 
+where pf ;ins ðtÞ ¼ Prfg ðx ; tÞ 6 0g denotes the instantaneous probability of failure at time t. It can be observed from Eqs. (10) 
+and (11) that both approaches require the integration of the out-crossing rate which is difﬁcult to be obtained for the general 
+stochastic process  [19]. Thus, the closed-form solutions for Eqs. (6)–(8) are usually available for rather simple and special 
+problems. 
+    In this context, the Monte Carlo simulation (MCS) is commonly employed for computing the estimated probability of fail- 
+ure pf  by generating a large number of samples [12,34]. Given m samples xi  (i ¼ 1; 2; :::; m) for input variables, the probability 
+of failure can be approximated by Eq. (12): 
+where m is the number of samples that result in the failure of the structure. In Eq. (8), the limit state function can represent 
+either internal force or structural deformation, which leads the ﬁrst-passage failure mode to either the strength failure or 
+deformation failure criterion  [12]. Despite the fact that the ﬁrst-passage theorem is conceptually simple through the MCS 
+approach,  the determination of  the  ﬁrst-passage  probability  requires the  computation  of  the  whole dynamic response  in 
+the  given  time  interval  ½0; T  recursively.  Thus,  the  majority  of  the  computational  cost  is  spent  on  repeatedly  evaluating 
+the  limit  state  functions  not  to  mention  that  the  ﬁnite  element  analysis  for  complex  structures  in  each  simulative  cycle 
+can  be  computationally  intensive[39,40].  Alternatively,  the  meta-modelling  techniques  are  introduced  to  approximate 
+the relationship between inputs and outputs by an explicit function (i.e. polynomial). The meta-models are generally much 
+less complicated than the original structural models, and it is expected that the computing effort will be reduced by approx- 
+imating the limit state function by using surrogate models. 
+3. The extended support vector regression (X-SVR) with generalized Gegenbauer kernel (GGK) 
+     In this section, a new surrogate model, namely the extended support vector regression (X-SVR), is proposed for reducing the 
+computational  cost  of  the  conventional  MCS  approach.  Furthermore,  a  new  orthogonal  polynomial  kernel  based  on  the 
+Gegenbauer  polynomial  is  introduced  and  adopted  in  the  kernelized  X-SVR.  As  a  statistical  learning  method,  the  X-SVR 
+model  is  developed  as  an  extension  of  the  doubly  regularized  support  vector  machine  (DrSVM)  which  will  be  brieﬂy 
+described in Section 3.1. Then, the detailed formulation of the X-SVR and proposed orthogonal polynomial kernel will be 
+presented. 
+3.1. The doubly regularized support vector machine (DrSVM) 
+    The aim of the SVM is to ﬁnd a hyperplane which has the maximum distance to the closest data points located on each 
+side.    [41]   Given     the    training     dataset     with    input           
+where m is the number of training samples; n denotes the number of input variables; x 2 Rn  is the input random vector; 
+w 2 Rn     denotes the normal to the hyperplane and c 2 R denotes the bias. In the case of applying the Support Vector theory 
+to regression estimation, namely Support Vector Regression (SVR) [42], the Eq. (13) is the regression function to be obtained 
+and yi  2 R is the output of the true function f ðx Þ. The linear SVR can be extended to nonlinear regression analysis by 
+implicitly  mapping  the  input  data xi  from  the  low-dimension  origin  space  Rn  into  a  higher-dimensional  Euclidian  space 
+or even inﬁnite dimensional Hilbert feature space F by using an appropriate mapping function Uðxi Þ. Thus, the feature space 
+F is also named as intrinsic vector space [43] and the mapping can be illustrated as: 
+where the dimension C is referred as the intrinsic degree, which can be either ﬁnite or inﬁnite. 
+    The coefﬁcients w and c can be obtained by solving the following quadratic programming problem: 
+where  C > 0 is the penalty constant which is deﬁned for maintain a proper balance between the ﬂatness of f ðxÞ and the 
+empirical error;  k  k         denotes the  l2       norm of  ; n and  n are the slack variables introduced for  respectively allowing some 
+excess positive and negative deviations for the prediction function f ðxÞ; e represents the tolerable deviation between y train 
+     Due  to  the  employment  of  the  e-insensitive  loss  function,  the  regression  method  expressed  by  Eq.  (15)  is  commonly 
+referred as e-SVR. Such error tolerance can be demonstrated in Fig. 2 by using a one-dimensional linear SVR model. 
+    Then, the regression function in Eq. (13) is now expressed as Eq. (17): 
+where the a  and a  are the Lagrange multipliers used for solving the optimization problem expressed in Eq. (15). The kernel 
+functions used for support vector machine/regression should satisfy the Mercer’s theorem which requires K ðx ;x Þ to be pos- 
+itive semi-deﬁnite [43]. This property is also a guarantee that the optimization problem expressed by Eq. (15) can be solved 
+as a convex quadratic programming problem. 
+    As an extension of the theory of support vector machine (SVM), the doubly regularized support vector machine (DrSVM) 
+was proposed by [44] such that the classiﬁcation and feature selection can be conducted simultaneously. Theoretically, the 
+DrSVM is a combination of elastic net penalty which contains both l1  norm and l2                                   norm penalty with the hinge loss function 
+for reducing the effect of noise and outliers in the training dataset [45]. Accordingly, the DrSVM can be expressed as follows: 
+    Due  to  the  additional  capability  in  feature  selection,  the  DrSVM  is  attracting  increasing  attention  since  it  was  ﬁrstly 
+emerged. Recently, a new DrSVM, namely the pq-SVM was proposed by [46] as an alternative approach for solving the opti- 
+mization problem deﬁned in Eq. (18). In the pq-SVM model, two non-negative variables p; q 2 Rn  are introduced such that 
+    By using the Lagrange method, the pq-SVM can be reformulated into a quadratic programming problem [46], which indi- 
+cates the advantage of the introduction of variables p and q for decomposing the l1                   norm of coefﬁcient w. In addition to the 
+conventional classiﬁcation problem, the pq-SVM is modiﬁed as knowledge-based SVM by incorporating the prior knowledge 
+in the form of uncertain linear constraints [48]. Despite of the successful implementation of DrSVM and pq-SVM in classiﬁ- 
+cation problem, according to the authors’ best knowledge, a doubly regularized support vector regression model has not yet 
+been developed. 
+3.2. The proposed extended support vector regression (X-SVR) 
+    Inspired by the success of pq-SVM in classiﬁcation, a new support vector regression (SVR) model, namely the extended 
+support vector regression (X-SVR) is developed in this study by adopting the concept of DrSVM and extended from binary clas- 
+siﬁcation to the regression estimation. In the proposed regression model, the decomposition method applied in the pq-SVM 
+is adopted such that the l1  norm computation k w  k1  is eliminated. Additionally, instead of using the widely adopted linear e- 
+insensitive loss function expressed in Eq. (16), the proposed X-SVR incorporated the quadratic e-insensitive loss function 
+which is deﬁned in Eq. (25)      
+    By using the non-negative slack variables n; n 2 R, the X-SVR can be derived by solving the constrained optimization 
+problem formulated as Eq. (26): 
+where C > 0 is the penalty constant (so-called box constraint) which controls the emphasis on the error minimization. As 
+pointed out in  [49], the introduction of quadratic e-insensitive loss function leads to the redundancy of the non-negative 
+constraint for the slack variables n and n. Furthermore, c  (the square of bias parameter) is added to the objective function, 
+which enables the simultaneous optimizing the orientation and location of the regression model [46,50]. For the sake of sim- 
+plicity, Eq. (26) can be further modiﬁed as the following optimization problem: 
+and the vectors b, e, d and z are deﬁned as:                           
+    The non-negative constraint on the variables p and q has been included in Eq. (27b). It can be observed from matric C that 
+there would be zero elements along the diagonal if the linear e-insensitive loss function is utilized. Thus, the adoption of 
+quadratic e-insensitive loss function can enhance the numerical stability in solving optimization problem. 
+    The optimization problem expressed in Eq. (27) can be equivalently solved in the dual formulation. Thus, the Lagrange 
+function L ðz; c; uÞ is shown as Eq. (30): 
+where u 2 R2mþ2n      denotes  the  vector  contains all  Lagrange  multipliers.  Then,  by  applying  the  Karush-Kuhn-Tucker (KKT) 
+conditions for the dual problem, Eq. (30) can be then written as: 
+    In order to demonstrate that proposed X-SVR has the global minimum solution, we can equivalently prove that the dual 
+problem is a convex optimization problem as the following Proposition 1. The details of the proof are demonstrated in Appen- 
+dix A. 
+Proposition  1.    Given  the  training  dataset  with  input xtrain   2 Rm n  and  output ytrain   2 Rm ,  with  pre-deﬁning  the  positive 
+tuning   parameters     for X-SVR    as  k1 ; k2 ; C ; e 2 Rþ , the optimization  problem    deﬁned    in Eq.  (32)  is  a convex    quadratic programming problem. 
+    Subsequently, the global optimum solution for the proposed X-SVR can be obtained by solving the associated dual prob- 
+lem by either gradient based method or available quadratic programming solvers. Let u                   2 R2mþ2n  be the obtained solution 
+for the X-SVR, then the variables z and c can be respectively computed as: 
+    Similar as the classic support vector regression, the proposed X-SVR can be further modiﬁed into a nonlinear regression 
+method (using kernel method) such that the introduced approach can be applied on the more complex problems. Despite of 
+the convenience of the kernel method used in the e-SVR, mapping to the intrinsic vector space can only applied as a replace- 
+ment of xT x      in order to avoiding the explicit calculation of Uðx Þ and Uðx Þ. In the proposed X-SVR, such implicit kernel map 
+included in the dual formulation expressed as Eq. (32) To extend the linear X-SVR to a kernelized learning method, an alter- 
+native approach, namely the empirical kernel map [43,51], is utilized in the proposed surrogate model. The adopted empirical 
+kernelization can be expressed in Eq. (38): 
+where the kernel-induced vector kðx Þ is known as the empirical feature vector with the  empirical degree m deﬁned as the 
+number of training samples [43]. Such m-dimensional vector space is named as the empirical feature space. Then, the empir- 
+ical feature vector kðxi Þ is regarded as the training sample for constructing the learning model. Comparing with the implicit 
+kernel map approach used in e-SVR, the empirical feature space is ﬁnite-dimensional and jointly deﬁned by the employed 
+kernel function and training samples [51]. Such kernel map approach has also been effectively applied on the other kernel- 
+ized learning method, including kernelized LASSO (Least Absolute Selection and Shrinkage Operator) [52], kernelized elastic 
+net [53] and linear programming SVR [54]. The architecture of the nonlinear X-SVR is shown in Fig. 3. 
+    Thus, given the training dataset x                                                             
+    Then, the kernel matrix Ktrain is used as the training dataset and the nonlinear X-SVR problem is now formulated as Eq. 
+(39): 
+where p  ; q      2 Rm    and have the same function as p and q for linear X-SVR; the subscript k is for indicating that this is a ker- 
+nelized learning model. Then, by adopting the same concept as expressed in Eq. (27), the kernelized X-SVR shown in Eq. (39) 
+can be modiﬁed into: 
+    The  optimization  problem  demonstrated  in  Eq.  (40)  can  also  be  equivalently  solved  in  its  dual  formulation  by  using 
+Lagrange method with KKT conditions. Thus, by introducing the non-negative Lagrange multiplier uk 2 R4m , the kernelized 
+X-SVR will be solved as the quadratic programming problem shown in Eq. (43): 
+    It can  be easily  observed that the  only  difference  between the linear and nonlinear  X-SVR is  that the  input dataset  is 
+mapped into the empirical space by using speciﬁed kernel function. Thus, the kernelized X-SVR can be regarded as a linear 
+X-SVR with a manipulated input samples and therefore the convex property is still promised regardless of the type of kernel 
+function. In this context, the selected kernel function is not restricted to the category that satisﬁes the Mercer’s theorem [53]. 
+3.3. Generalized Gegenbauer kernel – a new orthogonal polynomial kernel function 
+    For both nonlinear classiﬁcation and regression applications, the performance of support vector machine is signiﬁcantly 
+affected by the employed kernel functions [55]. Despite that Gaussian and polynomial kernels are commonly adopted, it is 
+pointed out that these kernels can lead to unsatisﬁed results in approximating some complex function [54,55]. Speciﬁcally, 
+Gaussian  and  polynomial  kernels  are  not  complete  orthonormal  base,  which  result  in  that  they  cannot  approach  to  the 
+curves in quadratic continuous integral space  [56]. To overcome such drawback, the wavelet kernel function is proposed 
+and receives favorable results for both classiﬁcation and regression [54–56]. Motivated by the properties of orthogonal poly- 
+nomials which have been effectively used for functions approximation, the development of orthogonal polynomial kernels 
+for SVM/SVR models receives increasingly attention from researchers [57–60]. 
+    Among  the  family  of  orthogonal  polynomials,  the  Gegenbauer  polynomial  has  been  widely  adopted  for  uncertainty 
+quantiﬁcation  and  function  approximation  by  using  the  Gegenbauer  series  expansion [61].  The  univariate  Gegenbauer 
+polynomials,  denoted  by  Pak  ðxÞ,  with  degree  d 2 Z  and  polynomial  parameter  ak> 0  can  be  deﬁned  by  the  recurrence 
+relations as Eq. (48): 
+    In Eq. (50b), CðÞ denotes the Gamma function. As the particular solutions of the Gegenbauer differential equation, such 
+polynomial is the generalization of Chebyshev and Legendre polynomials by substituting various value for ak [62]. 
+    Considering generalization ability of Gegenbauer polynomial, Padierna et al. [63] proposed a new orthogonal polynomial 
+kernel based on the Gegenbauer polynomial and implemented on binary classiﬁcation problems. Similar as the Legendre and 
+Hermite polynomial kernels, the Gegenbauer polynomial kernel is constructed as the tensor product of the inner product of 
+univariate  polynomials,  which  is  conceptually  identical  with  the  method  for  extending  one-dimensional  polynomials  to 
+multi-dimensional. As pointed out by [57], the kernel constructed by the tensor product approach may yield either an extre- 
+mely small and larger value which will signiﬁcantly impact the performance the corresponding kernelized learning models. 
+Such phenomenon is avoided in the Gegenbauer polynomial kernel by multiplying weight and scaling functions to the pro- 
+duct univariate polynomials and limiting the variation range of the polynomial parameter [63] However, it is point out by 
+Ozer et al. [57] that such type of kernel construction approach may force the learning along each input variable rather than 
+the input vectors. Thus, it is suggested that the orthogonal polynomial kernel functions should be applied directly onto the 
+input vectors rather than each pair of input elements. 
+    Inspired by the pioneering work by Ozer et al [57] and Padierna et al. [63], we developed a new orthogonal polynomial 
+kernel  function  for  the  proposed  kernelized  X-SVR.  Different  from  the  kernel  function  introduced  by  [63],  the  proposed 
+orthogonal polynomial kernel is constructed by using the partial sum of the inner product of generalized Gegenbauer poly- 
+nomials, namely the generalized Gegenbauer kernel (GGK). By adopting the strategy utilized for deﬁning the generalized Che- 
+byshev polynomial for vector inputs  [57], the generalized Gegenbauer polynomials are deﬁned recursively as following:    
+where x 2 Rndenotes the column vector of input variables. It can be revealed from Eq. (51) that the generalized Gegenbauer 
+polynomial Pak  ðxÞ yields a scalar value when the polynomial order d is an even number, otherwise it will yield a column vec- 
+tor. Considering that an exponential function, such as Gaussian kernel function, has better capability in capturing local infor- 
+mation than the originally employed square root function [57], the Gaussian kernel function is adopted here as the weighting 
+function for the proposed GGK. Thus, the proposed nth order generalized Gegenbauer Kernel function K ðx ;x Þ of two arbi- 
+trary input vectors x  and x is deﬁned as Eq. (52): 
+the so-called decaying parameters of the proposed kernel function. 
+    It is worthy to addressing that the proposed GGK satisﬁes the Mercer Theorem which is a prerequisite for implementing 
+the kernel function in SVM/SVR. Thus, not just in the proposed X-SVR model, the generalized Gegenbauer kernel introduced 
+in this study can be also employed in the other kernelized learning models which require the Mercer condition to be satis- 
+ﬁed. The property that the proposed GGK is a valid Mercer kernel can be systematically demonstrated by the Proposition 2. 
+The proof of the Proposition 2 is demonstrated in the Appendix B. It can be observed from Eq. (52), the novel GGK possesses 
+three kernel parameters: the polynomial order d and two positive kernel scale parameters ak and r. 
+Proposition 2.  The proposed generalized Gegenbauer kernel (GGK) expressed in Eq. (52) is a valid Mercer kernel. 
+    It can be observed from the proof of Proposition 2 that the proposed GGK is a mixed kernel function which combines one 
+local kernel K 1 ðx ;x Þ ¼ expðrk x         x   k Þ (Gaussian kernel) and one global kernel K 2 ðx ;x Þ ¼                  P   ðx Þ  P  ðx Þ (a gener- 
+alized polynomial kernel) [58]. Subsequently, by integrating the proposed generalized Gegenbauer kernel, the nonlinear X- 
+SVR can be also regarded as a multiple kernel learning algorithm using ﬁxed rules approach [64]. 
+3.4. Hyperparameter optimization for X-SVR with generalized Gegenbauer kernel 
+    In the proposed X-SVR with the generalized Gegenbauer kernel (GGK), there are seven hyperparameters including the 
+two  regularization  parameters  k  and  k  ,  the  penalty  parameter  C,  the  insensitive  tube  width  e,  the  polynomial  order  d 
+and two positive kernel scale parameters ak  and r. Similar as the conventional SVR model, the prediction accuracy of the 
+proposed X-SVR with GGK is strongly dependent on the selection of these parameters. For machine learning approaches, 
+the k-fold cross-validation (CV) over the training samples is an effective approach to ensure the regression model has the 
+generalized ability in accurately predicting the training dataset while checking if the selected parameters will result in over- 
+ﬁtting [65]. Practically, k is commonly set to 5–10 as a trade-off of computational cost and prediction accuracy [66]. In pre- 
+sent  work,  the  5-fold  CV  error  which  denoted  by  Err5CV  is  employed  as  the  training  error  measure  for  X-SVR,  which  is 
+formulated as following: 
+    Since that the selected hyperparameters will lead to the minimization of Err5CV , the hyperparameter tuning can be con- 
+sidered as an optimization problem. Recently, Bayesian optimization is becoming increasingly popular in tuning learning 
+parameters for complex machine learning algorithm such as deep neural network [67]. Typically, Bayesian optimization con- 
+struct a probabilistic approximation of the objective function by using Gaussian process and then determines the next esti- 
+mation point which results in the maximum of the acquisition function [68]. Instead of using the local gradient or Hessian 
+approximations,  Bayesian  optimization  relies  on  all  the  available  information  from  previous  evaluations  of  the  objective 
+function. Subsequently, the minimum of the objective function can be efﬁciently obtained with relative less number of iter- 
+ation [68]. Considering that more hyperparameters are included in proposed X-SVR model with generalized Gegenbauer ker- 
+nel in comparison with the classic nonlinear e-SVR, Bayesian optimization method is integrated in the proposed meta-model 
+for automatically selecting the suitable learning parameters. In the presented work, the Bayesian optimization is conducted 
+by using the MATLAB Statistical and Machine Leaning toolbox [69]. The searching range for the hyperparameters are sum- 
+marized in Table 1. 
+4. Structural dynamic reliability analysis by using X-SVR 
+    This paper offers a metamodel-based Monte Carlo Simulation method for structural dynamic reliability analysis by adopt- 
+ing the proposed X-SVR with the generalized Gegenbauer kernel. In this proposed reliability analysis strategy, the true struc- 
+tural  limit  state  function  is  approximated  by  using  the  X-SVR  metamodel  to  replace  the  precise  FEM  model.  Then,  the 
+probability of failure is evaluated by conducting the Monte Carlo simulation based on the constructed surrogate model. Thus, 
+the  performance  of  the  proposed  method is  signiﬁcantly affected  by  the  quality  of  the  trained  X-SVR  model.  In  practice, 
+metamodels are trained by limit number of running the original models based on the Design of Experiments (DoEs) and 
+expected to have good predictions over the entire domain of input variables, which is commonly achieved by employing uni- 
+form sampling techniques [70,71]. In this study, the training samples are generated by quasi-Monte Carlo sampling method 
+with  Sobol’s  sequence  [72].  Such  low-discrepancy  sampling  technique  can  generate  samples  evenly  distributed  over  the 
+design space. Then, the X-SVR surrogate model will be trained by using the DoE and subsequently used for analyzing the 
+probability of failure (pf  ). 
+    In the presented study, the ﬁrst passage problem with equal barriers (b1                        ¼ b2    ¼ b) is investigated for demonstrating the 
+capability of the proposed metamodel-based reliability analysis approach. The procedure for this reliability analysis is sum- 
+marized as follows: 
+5. Numerical examples 
+    To  demonstrate  the  capability and  accuracy of  the  proposed approach,  four numerical examples are  presented  in  this 
+study. The ﬁrst two analytical examples are benchmark functions which are adopted here for illustrating the performance 
+of the proposed approach. Then, the proposed approach is further tested by one structural dynamic problem and one acous- 
+tic problem for demonstrating its reliability and versatility. The results are compared with the classical e – support vector 
+regression  (e-SVR)  model  with  widely  used  Gaussian  kernel.  Moreover,  the  direct  Monte-Carlo  simulation  (MCS)  is  con- 
+ducted for each example as a reference for comparing the accuracy of the two methods. In all the considered examples, both 
+the proposed method and e-SVR model are trained by samples generated by Quasi MCS with Sobol sequence  [72]. In this 
+work, the e-SVR integrated in the MATLAB Statistical and Machine Leaning toolbox [69] is adopted. The presented numerical 
+results are obtained by using a workstation with CPU of Intel Core i7-4770, 32 GB of memory, and 1 TB of hard drive. 
+5.1. First analytical example: Borehole function 
+    The ﬁrst example employed for demonstrating the performance of the proposed method is called the Borehole function 
+which is commonly used as a benchmark example for emulation and prediction tests [73]. This function, as expressed in Eq. 
+(58), was originally derived for modelling the water ﬂow through a borehole. There are totally 8 input parameters which are 
+all modeled as independent and uniformly distributed variables. The details of the variation range are presented in Table 2. 
+    The performance of the proposed model is tested with a variety number of training samples (Ntrain ). In this example, the 
+initial design of experiment (DoE) consists 25 sampling points and then augmented to 50, 100 until 200 samples. Moreover, 
+the classical e-SVR model with Gaussian kernel is applied with the same DoEs for comparison purpose. The accuracy of the 
+metamodels is assessed by evaluating two types of relative error: the root mean squared error (RMSE) and the coefﬁcient of 
+determination (R2 ) which are described as in Table 3, where f ðx Þ denotes the output of the actual model at the sampling 
+point x ;f ðx Þ denotes the output of the constructed surrogate model at the sampling point x ; and l  denotes the estimated 
+mean of the outputs of all the NMCS sampling points for the actual model. The RMSE is scale-dependent to the magnitude of a to be predicted and a lower RMSE value indicates a higher accuracy of the surrogate model. The R2 offers a statistical 
+measure of the goodness of regression predictions in approximating the real data points. Surrogate models are indicated to 
+have better capability in prediction if R2 is closer to 1. The two validation errors are computed for each surrogate model with 
+different numbers of training samples by using the MCS with 
+    To statistically assess the predicting performance of the surrogate models, the analysis is replicated 50 times at each DoE 
+for both methods and boxplots of the RMSE and R2  of predicted results are shown in Figs. 5 and 6, respectively. In the ﬁgures, 
+the median error, the quantile error values and the extreme error values of the 50 independently repeated simulations are 
+demonstrated. As shown in Fig. 5, the proposed X-SVR method has a better predicting performance than the conventional 
+e-SVR in terms of median value. It is also noticed from Fig. 5 that, for Ntrain ¼ 25, more outliers are shown in the boxplot of 
+RMSE of  the  simulation results  obtained by  e-SVR  than the  proposed  approach. Additionally,  both  the  median value  and 
+variation range for the RMSE of the X-SVR prediction decrease with the increase of training sample size. This phenomenon 
+is not clearly demonstrated from Fig. 5 for the e-SVR. Similarly, it is shown in Fig. 6 that the proposed surrogate model has 
+the less scattered R2  value than the conventional SVR method. Thus, it can be concluded that the proposed model has a better 
+performance in this example. 
+5.2. Second analytical example: 50-D function 
+    For testing the capability of the proposed X-SVR method for high-dimensional problems, an analytical example with 50 
+input parameters is utilized. Such 50-D function [74] has been widely used in evaluating the performance of optimization 
+algorithm in high dimensional space. The considered function is expressed in Eq. (56). In this example, the input variables 
+are assumed to be independent and uniformly distributed within the range  ½0; 1. 
+    Similar as in the Example 1, the performance of the proposed X-SVR with generalized Gegenbauer kernel is investigated 
+by comparing the e-SVR with widely used Gaussian kernel against various numbers of training samples (Ntrain ). Considering 
+of the relatively large number of input variables, the initial DoE is selected as 50 and increased gradually to 400. The vali- 
+dation errors RMSE and R2 for both surrogate models trained with different Ntrain are computed using NMCS ¼ 5  104    MCS 
+samples and are plotted in Fig. 7. It can be observed from simulation results that, the RMSE for X-SVR is less than that for 
+e-SVR while the R2for X-SVR is larger than that for e-SVR with any adopted Ntrain , which indicates that the X-SVR with gen- 
+eralized Gegenbauer kernel outperforms the e-SVR with Gaussian kernel in this example. Despite of that the validation errors 
+reduce with the increase of Ntrain  for both methods, the RMSE and R2  for the proposed e-SVR converge faster than that for the 
+classic e-SVR. Under the circumstance of small number of training samples (Ntrain 6 150), it is shown in Fig. 7(a) that the X- 
+SVR has much less RMSE than the e-SVR. 
+    In order to offer a visible demonstration, the scatter plots of prediction results (predicted response in Fig. 8) obtained by 
+both  X-SVR  and  e-SVR  trained  with  relatively  small  number  of  DoEs  are  shown  in  Fig.  8.  It  can  be  visualized  that,  with 
+Ntrain ¼ 50  and  75,  the  prediction  obtained by X-SVR  is less  variant  from  the  true  value (actual  response  in  Fig.  8)  of  the 
+50D  function  obtained  by  direct  MCS.  In  the  context  that Ntrain  ¼ 100  and  150,  the  function  value  predicted  by  X-SVR  is 
+almost identical to the MCS results by observation. Thus, the proposed X-SVR with generalized Gegenbauer kernel has supe- 
+rior capability in approximating the 50D function than the e-SVR with Gaussian kernel. 
+5.3. Spring-mass-damper system with three degrees of freedom 
+    In this example, a spring-mass-damper system with three degrees of freedom (DOFs) modiﬁed from [75] is used for test- 
+ing  the  capability  of  the  proposed  X-SVR  based  structural  dynamic  reliability  analysis.  The  detailed  conﬁguration  of  the 
+vibration system is shown in Fig. 9. The dynamic equations of this spring-mass-damper system can be expressed 
+as Eq. (57): 
+    The  amplitude  F 0        of  the  harmonic  excitation  is  considered  as  a  random  variable  with  normal  distribution  while  the 
+masses,  stiffness  and  dampers  of  the  system  are  considered  as  random  variables  with  lognormal  distribution.  Moreover, 
+three different coefﬁcients of variation (COVs) ranging from 2.5% to 10% are studied in this example. The details of the sta- 
+tistical information of the considered 12 random variables are listed in Table 4. For the investigation, the displacement of m1 
+is assumed to be critical for the safety of the system. According to the ﬁrst-passage failure theory, the limit state function of 
+the spring-mass-damper system is deﬁned by 
+The COV is deﬁned as Eq. (59): 
+where linput     and rinput   denote the mean and standard deviation of the input random variable, respectively. 
+    The ‘‘exact” probability of failure (pf  ) for the considered three cases is obtained by using direct Monte Carlo simulation 
+with NMCS     ¼ 106   samplings. For demonstrating the capability of the proposed surrogate model, the X-SVR models are respec- 
+tively constructed with various training samples (N                                                                                               ^ 
+culated accordingly. Meanwhile, the conventional e-SVR model with Gaussian kernel is trained and tested with the same 
+datasets. The accuracy of the proposed surrogate model is measured by calculating the relative difference epf between pf 
+    The simulated probability of failure by using the proposed method and  e-SVR model for Cases 1–3 are summarised in 
+Table  5–7,  respectively.  By  reviewing  the  simulation results,  the  proposed  method surpasses  the  classical support vector 
+regression  model  by  offering  less  relative  difference  in  predicting  the  probability  of  failure  of  the  investigated  spring- 
+mass-damping system under various uncertainty levels. Additionally, it is indicated by the results that the probability of fail-                                                               ^ 
+ure estimated by the proposed X-SVR approaches to pf  with increasing number of samples for training, while such trend is 
+not obvious based on the simulation results obtained from e-SVR. 
+5.4. Acoustic wave radiation from a 3D open structure 
+    The effectiveness and capability of the proposed X-SVR based reliability analysis approach is further applied to acoustic 
+problem in this section. The 3D acoustic analysis of an open structure submerged in an inﬁnite acoustic space is investigated. 
+As shown in  Fig. 10, the open structure is assumed to be a rigid hollow sphere with one quarter cut-off, where r0 and r1 
+(r1  ¼ 1:2r0 ) denote the inner and outer radii of the open hollow sphere, respectively. The inner surface of the open sphere 
+is uniformly subjected to a transient acoustic ﬂux f s ðtÞ, which is deﬁned in a dimensionless manner in Fig. 11. In Fig. 11 
+where c denotes the nominal value of sound speed c. The Fourier transform of the ﬂux f s ðtÞ is also shown in Fig. 11(b) with 
+the dimensionless amplitude
+interest is estimated to be xd;max 
+    In this example, the time-dependent acoustic pressure pO ðtÞ at point Oð0; 0; 0Þ marked in Fig. 10 is considered for relia- 
+bility analysis. The commercial software ANSYS is employed for the acoustic analysis. Due to the inﬁnitely large acoustic 
+ﬁeld, the acoustic ﬁeld is ﬁrstly truncated to a bounded and an unbounded acoustic domain by the translucent spherical shell 
+in Fig. 10 with the radius of r2 . In the ANSYS model, the bounded acoustic domain is modelled by FLUID30 elements (4-node 
+tetrahedral elements).  The unbounded acoustic domain is represented by the  FLUID130 elements (3-node triangular ele- 
+ments) attached to the outer surface (spherical surface) of the bounded domain. According to Fig. 11(b), the minimum wave- 
+length can be calculated as  . In order to guarantee the accuracy, the element edge length is set to be 
+0:1r0   in  ANSYS.  This  can  provide  approximately  11  nodes  per  minimum  wavelength.  From  the  ANSYS  manual  [76],  the 
+FLUID130  element  is  recommended  to  be  placed  at  0:2 2p r0 away  from  the  source  of  excitation.  Therefore,  the 
+radius if the truncated spherical boundary r2   is set to be 3r1  in this model for accuracy.The total number of elements and 
+containing all nodal pressures pðtÞ; and rG ðtÞ denotes the global ﬂux vector which relates to f s ðtÞ. It should be noticed that 
+the existence of damping matrix in Eq.(61) is due to the unbounded acoustic domain. The initial condition of the system is 
+    The sound speed c and the peak ﬂux magnitude Fst are considered as random variables following Gaussian distribution 
+with COV ¼ 10%. For the purpose of demonstrating the effectiveness of the proposed method, the input parameters are con- 
+sidered as dimensionless [77] while c and the nominal value of Fst are both deﬁned as unitary such thatand. 
+The uncertainties in c and Fst  results in the ﬂuctuation in the pressure response, which can be demonstrated in Fig. 13. The 
+limit state of the acoustic system is deﬁned as the dimensionless pressure pO ðtÞ at point Oð0; 0; 0Þ shall not exceed the ultimate 
+capacity which is assumed as in this example. Thus, the limit state function for this example can be expressed as in 
+Eq. (62). 
+    The X-SVR is employed for approximating the relationship between the input variables and extremum of the dimension- 
+less pressure at point O. The probability of failure will be computed by using the constructed X-SVR surrogate model, which 
+requires  signiﬁcantly  less  computational  efforts  than  using  the  original  ANSYS  model.  Similar  to  Example  3,  the  results 
+obtained by the X-SVR model are comparing with the results obtained using e-SVR with Gaussian kernel and the conven- 
+tional MCS. Due to the excessive complexity of the model, the MCS is conducted with 1000 samples , which 
+takes approximately                                                                                                 
+the ‘exact’ probability of failure (pf  ) obtained by the MCS are summarized in Table 8. Moreover, the training 
+time (tcom ) for constructing both the e-SVR and X-SVR surrogate models is shown in Table 8, which indicates that the two 
+relative difference with pf  in comparison with the e-SVR. Furthermore, the probability density functions (PDFs) and cumu- 
+lative distribution functions (CDFs) predicted by both X-SVR and e-SVR are shown in Fig. 14 with the PDFs and CDFs obtained 
+by the MCS. The kernel density estimation (KDE) is a non-parametric approach to represent the PDFs and CDFs of random 
+variables  based  on  the  available  samples.  Similar  as  the  predicted  probability  of  failure,  the  PDFs  and  CDFs  obtained  by 
+the proposed X-SVR have relatively less variation to the ones obtained by the MCS, which is more visible in the PDF plots 
+in  Fig.  14(a)  and  (c).  This  study  indicates  that  the  proposed  X-SVR  model  shows  high  efﬁciency  and  accuracy  for  the 
+reliability analysis of 3D acoustic application with unbounded domain. 
+6. Conclusion 
+    In this paper, a metamodel-based MCS strategy is proposed for the dynamic analysis with random input variables by eval- 
+uating the ﬁrst-passage failure probability of systems. Within the proposed framework, the extended support vector regres- 
+sion (X-SVR) is introduced based on the theory of doubly regularized support vector machine. Since the proposed model can 
+be formulated as convex quadratic programming problem, the global optimal solution for the given training dataset is pro- 
+mised.  The  suitable  X-SVR  parameters  can  be  automatically  selected  by  adopting  the  Bayesian  optimization  method.  To 
+enhance the capability of the introduced X-SVR approach, a new orthogonal polynomial kernel function satisfying the Mer- 
+cer’s condition is proposed by vectorizing the Gegenbauer polynomial. By implementing the proposed approach, an explicit 
+function is constructed by training the X-SVR model to approximate the relationship between the input uncertain parame- 
+ters and the extremum dynamic response of the system within a given time interval. Subsequently, the limit state function of 
+the system can be efﬁciently evaluated such that the computational efﬁciency for obtaining the probability of failure using 
+the MCS can be increased. The feasibility, efﬁciency and capability of the proposed method are systematically investigated by 
+utilizing two benchmark examples and two engineering problems. by Comparing the results obtained by proposed X-SVR 
+model, the e-SVR with Gaussian kernel and conventional MCS, the superior performance of the proposed method is evidently 
+demonstrated. 
+    A further extension of the proposed X-SVR based dynamic reliability analysis approach is to combine it with the advanced 
+sample methods. Therefore, an adaptive X-SVR model can be constructed. Additionally, increasing the efﬁciency in solving 
+the optimization problem will also be included in the future work. 

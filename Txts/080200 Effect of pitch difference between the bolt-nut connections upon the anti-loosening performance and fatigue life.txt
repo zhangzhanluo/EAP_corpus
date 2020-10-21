@@ -1,0 +1,747 @@
+﻿
+
+ Effect of Pitch Difference between the Bolt-Nut Connections upon the  
+
+               Anti-Loosening Performance and Fatigue Life  
+
+
+                                              
+Abstract                               
+
+  In this paper, the effect of a slight pitch difference between a bolt and nut is studied. Firstly,  
+
+by varying the pitch difference, the prevailing torque required for the nut rotation, before the nut  
+
+                                          
+touches  the  clamped  body,  is  measured  experimentally.  Secondly,  the  tightening  torque  is  
+
+determined as a function of the axial force of the bolt after the nut touches the clamped body.  
+
+The results show that a large value of pitch difference may provide large prevailing torque that  
+
+
+causes an anti-loosening effect although a very large pitch difference  may deteriorate the bolt  
+
+
+axial force under a certain tightening torque. Thirdly, a suitable pitch difference  is  determined  
+
+taking into account the anti-loosening and clamping abilities. Fourthly, fatigue experiments  are  
+
+conducted  using  three  different  values  of  pitch  difference  for  various  stress  amplitudes.  It  is  
+found  that  the  fatigue  life  could  be  extended  when  a  suitable  pitch  difference  is  considered  
+
+Furthermore, the chamfered corners at nut ends  are considered,  and it is  found that  the finite  
+
+element  analysis  with  considering  the  chamfered  nut  threads  has  a  good  agreement  with  the  
+
+experimental  observation.  Finally,  the  most  desirable  pitch  difference  required  for  improving  
+
+both anti-loosening and fatigue life is proposed.    
+
+  
+1 Introduction  
+
+  The  bolt-nut  connections  are  important  joining  elements  and  are  widely  used  to  
+
+connect  and  disconnect  members  conveniently  at  a  low  cost.  Reference  [1]  fully  
+
+  
+reviewed  the  history  as  well  as  the  evolution  of  the  screw  fasteners.  To  ensure  that  
+structures are safety joined, good anti-loosening performance and high fatigue strength  
+are  required.  Most  previous  studies  have  been  mainly  focusing  on  anti-loosening  
+
+performance  [2-7],  and  few  studies  have  contributed  to  improvements  in  the  fatigue  
+strength [8-17]. This is because a high stress concentration factor, e.g. K =3-5, appears  
+
+at the No.1 bolt thread and it is not easy to reduce it. Moreover, usually for special bolt- 
+
+nut  connections  the  anti-loosening  ability  affects  the  fatigue  strength  and  the  cost  
+
+
+significantly.   In   other   words,   anti-loosening   bolt-nut   connections   have   not   been  
+     
+                                   
+developed until now without a reduction in fatigue strength and a raising in the cost.    
+
+
+  This paper, therefore, focuses on the effect of pitch difference in a connection on the  
+
+anti-loosing performance and fatigue life. As shown in Fig. 1, if the nut pitch is larger  
+
+than the bolt pitch, the thread No. 1 at the left-hand side is in contact before the loading  
+
+and becomes in no-contact  status after the loading as shown in Fig. 1  (a). However, if  
+
+
+the nut pitch is smaller than the bolt pitch, the thread No.1 at the  right-hand  side is in  
+contact before the loading and remains in contact after loading,  also  the contact force  
+
+becomes  larger  after  the  loading  as  shown  in  Fig.  1  (b).  Therefore,  the  largest  stress  
+
+concentration at thread No.1 can be reduced only by a larger nut pitch.    
+
+  The concept of differential pitch was first suggested by Stromeyer [ 18] in 1918. He  
+
+suggested that the load distribution in a threaded connection thread could be  optimized  
+
+by  varying  the  relative  pitches.  Then,  the  theoretical  load  distribution  in  bolt-nut  has  
+
+been  developed  by  Sopwith  [19],  who  also  used  his  formula  to  discuss  the  load  
+
+distribution improvement along the bolt threads by varing pitch. He found that a smaller  
+
+
+pitch in the bolt than in the nut would improve the load distribution. Sparling [20] found  
+
+that the fatigue strength of the bolt can be improved by increasing the clearance between  
+
+the  first  few  engaged  threads  at  the  load  bearing  face  of  the  nut  by  tapering  the  nut  
+
+thread,   which   produces   an   effective   difference   in   pitch.   This   modification   was  
+
+
+investigated  by  Kenny  and  Patterson  [2 1,  22]  by  applying  the  frozen  stress  three- 
+dimensional photoelasticity. Maruyama [23] analyzed the influence of pitch error and  
+
+the  loaded  flank  angle  error  of  the  bolt  thread  upon  the  stress  at  the  root  of  the  bolt  
+thread   by   copper-electroplating   method   with   the   finite   element   method.   It   was  
+
+considered that the pitch adjustment has a larger effect than the flank angle adjustment  
+for improving the fatigue strength of the bolt thread.  
+  However,  the  previous  studies  on  pitch  difference  were  limited  to  fatigue  strength  
+                                  
+improvement, and the effect of pitch difference on the anti-loosening performance has  
+
+not been investigated  yet. There is no systematic experimental data are available, e.g.   
+the S-N curves for specimens of different pitch differences have not been obtained.  
+
+  Table 1 shows a comparison of some special bolt-nut connections. Most of the special  
+
+bolt-nuts have either more  components  or very special geometry, leading to a complex  
+
+manufacture process and a high cost which is usually more than 3 times of the normal  
+
+bolt-nut.  The suggested nut in this study can be manufactured as the same way as the  
+
+
+normal nut, and the cost is predicted to be about 1.5 times of the normal nut considering  
+
+the modification of thread tap as well as the checking procedure on the pitch difference.  
+
+  Our  previous  experimental  work  clarified  that  the  fatigue  life  is  improved  by  
+
+introducing a suitable pitch difference under a certain level of stress amplitude [24, 25].  
+
+In this study,  at first,  the effect of pitch difference on the anti-loosening performance  
+
+will be studied experimentally, and the most desirable pitch difference will be proposed  
+
+taking into account the effect on clamping ability. Furthermore, the fatigue experiments  
+will be carried out to investigate the effect of pitch difference on the improvement of  
+
+fatigue life. The finite element analysis will also be applied to discuss the stress status at  
+
+bolt  thread.  Taking  the  anti-loosening  performance  and  the  fatigue  life  improvement  
+
+into account, the most desirable pitch difference will be proposed.  
+2 Effect of the Pitch Difference on the Nut Rotation    
+
+2.1 Bolt-Nut Specimens                            
+
+  Japanese Industrial Standard (JIS) M16 bolt-nut connections were employed to study  
+
+the  effect  of  a  slight  pitch  difference.  Figure  2  shows  the  dimensions  of  bolt-nut  
+specimen  used  in  this  study.  Figure  3  shows  a  schematic  illustration  of  bolt-nut  
+
+connection  having  pitch  differences.  Usually,  standard  M16  bolts  and  nuts  have  the  
+ 
+                                        
+same pitch of 2  mm, but herein the nut pitch is slightly larger than the bolt pitch.  The  
+
+clearance  between  the  bolt-nut  threads  is  equal  to  125  μm.  The  bolt  material  was  
+
+chromium-molybdenum steel SCM435 (JIS), and the nut material was medium carbon  
+
+steel S45C (JIS) quenched and tempered, whose properties are indicated in Table 2, and  
+whose stress-strain curves are shown in Fig. 4, respectively.    
+
+  Figure  3  (a)  also  shows  a  contact  status  between  bolt  and  nut  threads  during  the  
+
+
+tightening  process.  As  the  nut  is  screwed  onto  the  bolt,  the  pitch  difference  is  
+
+accumulated.  Finally,  the  first  and  sixth  nut  threads  become  in  contact  with  the  bolt  
+
+threads as shown in Fig.  3  (a). The distance,  δ , where the contact takes place, can be  
+
+obtained geometrically using Equations (1) and (2).          
+
+  
+
+and C  are the horizontal and vertical clearances between bolt and nut as shown in Fig. 3  
+
+(b). The specimens in this study had five different levels of pitch difference  α, namely  
+
+α=0  (for  standard  connection),  αsmall ,  αmiddle,  αlarge  and  αverylarge,  Herein,  it  should  be  
+
+noted that the nut has 8 threads and therefore Equation (1) is valid when  n  is less than  
+
+
+8. Table 3  shows the distance, δ , and nut thread number  in contact, n , obtained from  
+Equations (1) and (2). The distance,  δ , can be predicted for α , α   and  α    ,  
+although no thread contact may be expected for α  , because n  is larger than the total  
+
+number of threads number 8 for the nut.        
+
+2.2 Prevailing Torque                   
+                                     
+  After the nut threads become in contact over distance δ  as shown in Fig. 3 (a), the so- 
+
+                                       
+called  prevailing  torque  is  required  for  the  nut  rotation  even  though  the  nut  does  not  
+
+
+touch  the  clamped  body  yet.  Table  3  also  lists  the  prevailing  torque  T   measured  by  
+
+using an electric torque wrench.    
+  For  α=α    ,  the  value  of  n   is  larger  than  8,  and  therefore  all  threads  are  in  non- 
+
+contact  status  and  the  prevailing  torque  was  zero  experimentally.  For  α=αmiddle,  since  
+
+
+value  n   is smaller than 8, the threads are in contact and prevailing torque was  T =25  
+
+
+N∙m.  For  α=α   ,  prevailing  torque  was  T =50  N∙m,  and  for  α=α   the  threads  
+deformed  largely  and  the  nut  was  locked  before  touching  the  clamped  body  since  it  
+
+cannot be rotated anymore.  
+
+2.3 Prevailing Torque vs Clamping Force    
+
+  Since the bolt and nut are used for connecting components or structures, the clamping  
+
+ability to produce enough bolt-axial force is essential. Therefore, after the nut touches  
+
+the clamped body, the relationship between the tightening torque and the clamping force  
+
+was investigated. Note that tightening  torque  T  is different from prevailing torque  T ,  
+
+  
+
+which  is  defined  only  before  the  nut  touches  the  clamped  body.  To  obtain  the  
+
+relationship between torque and clamping force,  the torque was controlled by using an  
+
+electric torque wrench,  and the clamping force was measured by using the strain gauge  
+
+attached to the clamped body surface as shown in Fig. 5 (a).  The uniaxial strain gauge  
+
+
+with a length of 2 mm KFG-2 (Kyowa Electronic  Instruments Co.,  Ltd.)  was used in  
+this   measurement.   Before   the   experiments,   calibration   tests   were   performed   by  
+
+compressing  the  clamped  body  to  obtain  the  relationship  between  the  clamping  force  
+and  surface strain as shown in Fig. 5 (a).  Similar tests  were performed  to calibrate  the  
+
+torque wrench  as shown in Fig. 5 (b).  In order to compare anti-loosening performance  
+for  different  pitch  differences,  the  same  tightening  torque  was  applied.  When  the  
+tightening torque of 70 N·m was applied to the standard bolt-nut (α=0), the bolt-axial  
+
+                                  
+force  became  24  kN.  The  bolt  axial  force  24  kN  is  rather  smaller  compared  to  the  
+normal bolt-axial force as the standard bolt-axial force 59.3 kN recommended in [26].  
+However,  if  a  larger  bolt-axial  force  is  used,  the  effect  of  α  on  the  anti-loosening  
+performance cannot be clearly demonstrated because the bolt-nut seizure occurs. In fact,  
+
+when a torque of 150 N·m was applied in our preliminary experiments, bolt-nut seizure  
+was  sometimes  observed  even  for  α ＝0  and  α ＝αsmall .  This  is  because  in  this  study,  
+
+
+turning was used for manufacturing nuts, which leads to the bolt-nut seizure occurring  
+more  easily  than  tapping,  which  is  usually  used  for  manufacturing  nuts.  The  tapping  
+
+was not used in this study because of the high cost. However, in the further research, the  
+
+tapping  nut  can  be  used  to  prevent  the  bolt-nut  seizure.  In  this  study,  therefore,  the  
+
+smaller  tightening  torque  of  70  N·m  is  used  to  compare  the  anti-loosening  ability  
+
+conveniently.  
+
+  Figure 6 shows the tightening torque vs. clamping force as experimentally obtained.  
+
+When  α=αsmall , the torque-clamping force relationship was same  with  the one of  α=0. 
+  
+
+When α=αmiddle, the prevailing torque of 25 N∙m was required before the nut touches the  
+
+clamped  plate.  Under  the  same  tightening  torque  of  70  N∙m,  the  clamping  force  was  
+
+reduced to 20 kN. When  α=αlarge, under a torque of 70 N∙m the axial force decreased  
+
+significantly to 8 kN, which was only 1/3 of the axial force of α=0.  
+3 Loosening Experiment                           
+3.1 Device                                 
+
+  Based  on  the  torque-axial  force  relationship  obtained  above,  the  loosening  
+
+experiments  were  performed  to  investigate  the  effect  of  pitch  difference  on  the  anti- 
+
+loosening  performance.  For  each  pitch  difference  α,  two  specimens  were  tested.  As  
+
+
+shown in Fig. 7, the experimental device was an impact-vibration testing machine based  
+
+                                  
+on NAS3350 (National Aerospace Standard), whose vibration frequency was  about 30  
+Hz, and vibration acceleration is 20 g. The maximum vibration cycle of NAS3350 is 30  
+
+000,  therefore,  if  the  number  of  vibration  cycles  was  over  30  000,  the  anti-loosening  
+performance  may  be  considered  to  be  good  enough.  A  counter  connected  with  the  
+experimental device shows the number of cycles of vibrations. As states in Section 2.3,  
+the   bolt-axial   force   24   kN   was   considered   for   the   standard   bolt-nut,   and   the  
+corresponding  tightening  torque  was  70  N∙m.  In  order  to  compare  the  anti-loosening  
+
+performance under the same condition, in this paper, the nuts were tightened to the same  
+
+torque of 70 N∙m for all the specimens.  
+
+3.2 Results    
+
+  Table 4 lists the number of cycles for the start loosening and the nut dropping. Table  
+
+4  also  lists  the  prevailing  torque  measured  in  the  loosening  experiments  and  the  bolt  
+
+axial forces estimated from Fig. 6. For α=0 and α=αsmall , the nuts dropped at about 1,000  
+
+cycles. For  α=αmiddle,  the nuts did not drop until 30  000 cycles, but the loosening was  
+
+observed for one specimen. For α=αlarge, no loosening was observed until 30 000 cycles  
+
+although the axial force was estimated to be only 8 kN. It may be concluded that if α is  
+
+too  small,  the  anti-loosening  cannot  be  expected  and  if  α  is  too  large,  the  clamping  
+
+ability  is  not  good  enough.  By  considering  both  the  anti-loosening  and  clamping  
+abilities,  α=αmiddle  can  be  selected  as  the  most  suitable  pitch  difference.  It  should  be  
+
+noted that the most desirable pitch difference of α=αmiddle was obtained with a clearance  
+
+of C =125 μm.                             
+4 Finite Element Analysis           
+
+  The previous discussion shows that  α=αlarge  has a good  anti-loosening performance  
+                                   
+but  insufficient  clamping  ability.  This  is  due  to  the  large  deformation  of  the  threads  
+
+during the tightening process. To confirm this, an axisymmetric model of the bolt-nut  
+
+connection  was  constructed  by  using  the  FEM  code  MSC.Marc/Mentat  2012.  The  
+
+material of the bolt was SCM435 and the material of the nut was S45C to match the  
+
+experimental conditions. These stress-strain curves are indicated in Fig. 4. Herein, bolt,  
+
+nut and clamped body are modeled as three bodies in contact. In the tightening process,  
+
+the  accumulated  pitch  difference  causes  the  axial  force  between  the  bolt  threads  
+
+engaged with the nut thread. In this modelling, the bolt head is fixed in the horizontal  
+
+direction,  and  the  tightening  process  is  expressed  by  shifting  the  nut  threads  position  
+
+discontinuously, one by one, at the pitch interval. As the nut is moving towards the bolt  
+
+head, the accumulation of the pitch difference leads to a slight overlap between the bolt  
+
+threads and the nut threads. The direct constraints method is invoked in the detection of  
+
+contact in MSC. Marc  [27], then, the nut is compressed while the bolt is stretched in the  
+
+simulation. In this way, the axial force between the bolt threads can be investigated step  
+
+by  step  as  the  nut  is  shifted  onto  the  bolt.  It  should  be  noted  that  this  axisymmetric  
+
+
+simulation may include some numerical errors but the real axial force between the bolt  
+
+threads  is  difficult  to  be  measured  experimentally  because  the  nut  is  engaged  at  this  
+
+position.  The  multifrontal  sparse  solver  was  used.  The  isotropic  hardening  law  was  
+
+assumed  with  von  Mises  yield  criterion.  Friction  coefficient  of  0.3  was  assumed  and  
+
+Coulomb  friction  was  used.  In  the  next  sub-section,  the  results  for  α=αmiddle  and  
+α=αverylarge will be compared.                  
+
+4.1 Bolt Axial Force                       
+
+  Since  the  nut  pitch  is  larger  than  the  bolt  pitch,  a  bolt  axial  force,  F  ,  in  tension  
+appears between the bolt  threads. F   corresponds to prevailing torque  T . It should be  
+
+noted that Fα is different from the bolt axial force  (clamping force) obtained  in Fig.  6.  
+                                     
+Here,  the  axial  force  Fα  between  bolt  threads  arising  from  the  accumulation  of  pitch  
+
+
+difference in the tightening process. Figure 8 (a) indicates F   for α=α  before the nut  
+
+touches  the  clamped  body  from  Position  A  to  Position  G.  Position  A  is  where  the  
+
+prevailing  torque  appears,  and  Position  B  is  where  the  nut  thread  shifted  at  the  pitch  
+interval from Position A and so on. Finally, Position G is where the nut starts contacting  
+the clamped body.  From Position A to Positions B, C, the  whole nut is  being shifted  
+onto the bolt, and therefore the accumulated pitch difference affects the results. From  
+Position  C  to  Positions  D,  E,  F,  G,  the  pitch  difference  is  not  accumulated  since  the  
+
+whole nut is already in contact with the bolt.    
+
+where the prevailing torque appears, and Position H is where the nut starts contacting  
+
+the clamped body. In contrast to the case of α=αmiddle, as the nut is being shifted onto the  
+
+bolt, the bolt axial forces corresponding to nut threads No.1 and No.8 become smaller  
+
+than that in the middle part. This result is due to nut threads No.2 and No.7, which are  
+also in contact as well as threads No.1 and No.8. Under α=αmiddle only nut threads No.1  
+
+and No.8 are in contact with bolt threads.  
+
+4.2 Plastic Deformation  
+
+  Figure 9 (a)  shows the equivalent plastic strain of threads for α=αmiddle  at Position G.  
+Similarly,  Fig.  9  (b)  shows  the  equivalent  plastic  strain  of  threads  for  α=αverylarge  at  
+Position H. It may be concluded that too large pitch difference α=αverylarge may cause the  
+large  deformation  at  nut  threads  resulting  in  deterioration  of  bolt  clamping  ability.  A  
+
+suitable pitch difference may cause the reasonable deformation and may not reduce the  
+
+clamping force.           
+
+5 Effect of the Pitch Difference on the Fatigue Strength  
+5.1 Results and Discussion    D  
+  Our previous experiments clarified that the fatigue life was improved by introducing  
+a pitch difference  α=αsmall under a certain level of stress amplitude [24-25]. According  
+to the loosening experiments, it was found that  α=αmiddle  was the most desirable pitch  
+difference to realize the anti-loosening performance. To improve the fatigue life as well  
+as the anti-loosening performance, fatigue experiments were conducted  systematically  
+
+for three types of specimens, i.e. α=0, α=αsmall and α=αmiddle with various levels of stress  
+
+amplitude.  
+
+  The 392 kN Servo Fatigue Testing Machine with a frequency of 8 Hz was used in this  
+
+study. The pulsating tension fatigue experiments with a stress ratio of R=0.14-0.56 were  
+
+conducted under a fixed average stress of σ  = 213  MPa. Figure 10  shows the obtained  
+
+S-N curves. Independent of α, it was found that the fatigue limit at N=2×10  cycles was  
+
+60 MPa.    
+
+
+  
+
+  The  fractured  specimens  were  first  investigated.  As  an  example,  Fig.  1 1  shows  
+
+longitudinal sections for  α=0,  α=α and  α=α , when the stress amplitude σ =100  
+
+MPa. For α=0, the initial crack may occur at thread No.2, and final fracture happened at  
+
+thread No.1. For  α=αsmall  and α=αmiddle, long cracks were observed at threads No.5 and  
+
+
+No.6, and therefore initial crack may occur at threads No.5 or No.6 extending towards  
+
+thread  No.1.  Moreover,  when  the  stress  amplitude  was  σ =60  MPa,  the  fractured  
+
+specimens of α=αsmall  and α=αmiddle  also showed more than 1 mm long cracks initiating  
+from the thread surface  although no long crack  was observed  for  α=0.  Therefore, the  
+actual  fatigue  limit  of  the  bolt  specimen  may  be  lower  than  60  MPa  for  α=αsmall  and  
+
+α=αmiddle .                        
+
+  Figure  12  shows  the  crack  initiation  and  extension  mechanism  for  α=αsmall  and  
+
+α=αmiddle .  As  shown  in  Fig.12  (a),  crack  initiated  at  thread  No.6.  After  the  crack  
+extended at No.6, the distributed load F  became smaller and F became larger as shown  
+
+in Fig. 12 (b),        . Then, a new crack initiated at thread No.5 as show in Fig.12 (c).  
+
+By extending new cracks from No.6 toward No.1, the finial fracture happened nearby  
+No.1.  In this way,  since many cracks initiated and propagated one by one,  the fatigue  
+
+
+life of α=αsmall and α=αmiddle can be extended compared with the one of α=0.  
+
+  The experimental observation in Fig.11 shows that the crack initiated around the root  
+
+of bolt thread ψ=-60 ～60 , instead of the nut thread contact region. Therefore, in this  
+
+study, the contact fatigue concept was not considered.  
+
+  When the stress amplitude was larger than 80 MPa,  as shown in Fig. 10, the fatigue  
+
+life for  α=αsmall  was about 1.5 times larger than that of  α=0. Also, the fatigue life for  
+
+α=αmiddle was about 1.2 times larger than that of  α=0. The results showed that the most  
+
+desirable pitch difference  α=αsmall  for fatigue performance was different from the most  
+
+desirable pitch difference of α=αmiddle for anti-loosening performance.  
+
+  In Fig.10, there are different fatigue data between α=αsmall and α=0 because the stress  
+
+status at bolt thread changed when α=αsmall was introduced. On the other hand, as shown  
+
+in  Fig.6,  since  there  was  no  prevailing  torque  appears  in  the  tightening  process  for  
+
+α=αsmall , it has the  same torque-axial force relationship with the normal specimen  α=0.  
+
+The effect of pitch difference on the fatigue life is different from the effect on tightening  
+process.  This  is  because  that  the  fatigue  damage  is  mainly  controlled  by  the  stress  
+
+amplitude produced by the axial loading at the bolt threads.  
+5.2 Strength Analysis                 
+  To  clarify  the  effect  of  the  pitch  difference  on  the  stress  at  the  bolt  threads,  the  
+
+elastic-plastic FE analyses were performed for  α=0 and  α=αsmall under load F=30±14.1  
+kN. The  axisymmetric finite element model of bolt-nut connection is  shown in Fig. 13.  
+A  cylindrical  clamped  plate  was  modeled  with  an  inner  diameter  of  17.5  mm,  outer  
+diameter of 50 mm and thickness of 35 mm. The material of the bolt and clamped body  
+
+was  SCM435  and  the  material  of  the  nut  was  S45C  to  match  the  experimental  
+
+conditions. These stress-strain curves are indicated in Fig. 4. The bolt, nut and clamped  
+
+body were modeled as three contact bodies. A fine mesh was  created at the root of bolt  
+thread  with  the  size  of  0.015mm ×0.01mm,  and  4-noded,  axisymmetric  solid,  full  
+
+
+integration element was used. The isotropic hardening law was assumed with von Mises  
+
+yield  criterion.  Friction  coefficient  of  0.3  with  Coulomb  friction  was  used  for  the  
+
+analysis.  The  clamped  body  was  fixed  in  the  horizontal  direction,  and  cyclic  load  
+
+F=30±14.1 kN was applied on the bolt head as shown in Fig.  13. Then, the stress status  
+
+under  the  maximum  load  F=30+ 14.1  kN  and  the  minimum  load  F=30-14.1  kN  was  
+
+considered to obtain the endurance limit diagrams. Figure 14 defines the angle  ψ  at the  
+
+bolt thread. In the FE analysis σψmax was the stress σψ at each thread under the maximum  
+
+  
+
+load,  and  σ   was  the  stress  σ    at  each  thread  under  the  minimum  load.  The  stress  
+
+
+amplitude and mean  stress were  investigated at the same angle  ψ where the maximum  
+
+stress amplitude appears,  since the stress amplitude is the most important parameter for  
+
+fatigue analysis. The mean stress σ   and stress amplitude σ at each thread are defined as  
+
+follows:                                            
+
+
+Fig.  15  and  compared  with  Soderberg  line  representing  the  endurance  limit  for  plain  
+
+specimen.  Figure  15  indicates  that  the  stress  amplitude  at  thread  No.1  for  α=αsmall  is  
+
+much smaller than that of  α=0 although the stress amplitudes of threads No.4 to No.8  
+
+are much larger than those of  α=0. Therefore, the cracks may appear faster at No.4 to  
+
+No.8  for  α=αsmall ,  but  the  fatigue  life  time  is  extended  as  shown  in  Fig.  10  since  the  
+
+crack propagation from threads No.8 to No.1 needs longer time.    
+6 Effect of incomplete nut thread  
+
+  In the above discussion, the complete thread model of 8-thread-nuts were  considered  
+by FE analyses, but usually as shown in Fig. 16 (a) both ends of nuts have chamfered  
+
+corners,  which  are  required  to  make  bolt  inserted  smoothly.  This  types  of  nuts  were  
+
+used in the fatigue experiments. Therefore, the chamfered corner was modeled  first by  
+
+an incomplete thread model A as shown in Fig. 16 (b). Figure 17  shows FE mesh for  
+
+model A and  the  endurance limit diagram, when  α=α   and  σ =  100 MPa. From Fig.  
+                                              small   a 
+
+17 (b), it can be seen that the stress in thread No.8 decreases and the stress in thread  
+
+No.6 increases. However, the stress in thread No.6 is not the most dangerous because  
+
+thread No.8 is still in contact with a nut thread.    
+
+
+  Therefore,  thread  model  B  as  shown  in  Fig.   16  (c)  is  considered,  where  the  
+
+incomplete nut thread does not contact bolt thread anymore due to the chamfered nut- 
+
+ends.  Figure  18  (a)  shows  the  FE  mesh  for  model  B.  Figure  18  (b)  (c)  show  the  
+
+maximum and minimum stresses in each thread when the maximum and minimum load  
+
+F=30±14.1 kN are applied. When α=0, the maximum stress amplitude appears at thread  
+No.2. Therefore, the analytical result coincides with the experimental result in Fig. 1 1  
+
+
+(a).  When  α=αsmall ,  the  maximum  stress  amplitude  appears  at  thread  No.6,  which  is  
+
+close to the crack location in Fig. 1 1 (b).        
+
+  Figure   18  (d)  (e)  show  the  endurance  limit  diagrams  for  α=0  and  α=αsmall .  By  
+changing  8-thread-model  to  6-thread-model  B,  the  most  dangerous  thread  for  α=0  is  
+changed from thread No.1 to thread No.2. For  α=αsmall , thread No.6 becomes the most  
+                                  
+dangerous, corresponding to Fig. 1 1 (b). It is seen that the 6-thread-model B is useful to  
+consider  the  chamfered  nut  threads  at  both  ends  in  order  to  explain  the  experimental  
+results.            
+  One may think that replicating the actual geometry of chamfered threads in Fig. 16  
+
+(a)  should be used  in the  FE model. However, the chamfered angle is not always the  
+same.  And  the  difference  between  the  results  for  model  B  and  the  chamfered  model  
+
+with actual geometry  is not very large for  α ＝αsmall because threads No.1 and No.8 are  
+
+
+not in contact. Only the largest difference appears at thread No. 1 for  α ＝0 because for  
+
+model B there are no threads in contact  at No.1 thread.  In this study, therefore, simple  
+
+incomplete  thread  model  B  has  been  used  because  our  main  target  is  to  analyze  the  
+
+model having pitch difference  α. The results of the chamfered model for standard bolt- 
+
+nut α ＝0 are indicated in appendix A.    
+7 Suitable Pitch Difference    
+
+  The  main  goal  of  this  study  is  to  find  out  a  suitable  pitch  difference  in  order  to  
+
+improve  both  anti-loosening  effect  and  fatigue  life.  Figure  19  shows  a  schematic  
+
+illustration of the fatigue life improvement and anti-loosening improvement by varying  
+
+the pitch difference when the results of α=0 are regarded as the reference level. On one  
+
+hand, to improve the fatigue life, the most desirable pitch difference may  be close to  
+
+αsmall   as   shown   in   Fig.   10.   On   the   other   hand,   to   improve   the   anti-loosening  
+performance, the most desirable pitch difference should be larger than  αmiddle  and close  
+
+to αlarge  as shown in Table 4, although the nut locking phenomenon may happen if α is  
+
+
+over αverylarge . Therefore, a suitable range for α can be indicated as shown in Fig. 19.  
+
+  In  this  study,  the  bolt  material  SCM435  and  nut  material  S45C  are  assumed.  The  
+                                  
+stress-strain  curves  are  indicated  in  Fig.  4.  This  design  can  be  applied  to  bolt-nut  
+
+
+connections made in other materials which have suitable elastic-plastic properties since  
+
+the plastic deformation is required in order to realize the anti-loosening performance.  
+
+8 Conclusions   
+
+  In  this  study,  a  slight  pitch  difference  α  was  considered  for  the  M16  bolt-nut  
+
+
+connections.  The  loosening  experiments  as  well  as  the  fatigue  experiments  were  
+
+conducted  under  different  pitch  differences.  Finite  element  analysis  was  used  to  
+
+investigate the stress and deformation at the bolt threads and the fatigue strength. The  
+
+conclusions can be summarized as follows:  
+
+(1) Considering both the anti-loosening performance and the clamping ability, α=αmiddle  
+
+is found to be the most desirable pitch difference. This is because the nuts did not drop  
+
+for α=αmiddle without losing clamping ability.  
+
+(2)  The  anti-loosening  experiments  show  that  the  nuts  did  not  drop  for  α=αlarge,  but  
+
+  
+
+clamping  ability  is  deteriorated.  FEA  shows  that  for  α=αverylarge,  the  large  plastic  
+
+deformation happens at threads of nut.    
+
+(3) It is found that  α=αsmall  is the most desirable pitch difference to extend the fatigue  
+
+life  of  the  bolt-nut  connection.  Compared  with  the  standard  bolt-nut  connection,  the  
+
+fatigue life for α=αsmall can be extended to about 1.5 times.  
+
+(4) The 6-thread-model  as shown in Fig. 18  is useful for analyzing 8-thread-nut model  
+
+
+because nuts always have chamfered threads at both ends. Then, the results are  in good  
+agreement with the experimental results.   
+
+(5)  A  suitable  pitch  difference  to  improve  both anti-loosening  and  fatigue  life  can  be  
+                                     
+illustrated as shown in Fig. 19.   
+
+  The  errors  and  uncertainties  associated  with  the  measurements  or  predictions  are  
+
+                                    
+always of concern in a study of this nature. In the loosening experiment, two specimens  
+
+with the same pitch difference were tested together in  order to avoid the uncertainties.  
+
+In the fatigue experiment in Fig. 10, the S-N  curves may have variations but they are  
+
+distinct depending on the pitch difference. In the  axisymmetric FE modelling may have  
+
+some errors but  previously one of the authors have compared the load distributions in  
+bolt threads between the axisymmetric modelling and the three-dimensional modelling.  
+
+Then, the relative errors between the two models are found to be less than 12% [28].  
+
+
+    
+
+Appendix A: The results for chamfered model  
+
+    Figure A1 shows the chamfered model replicating the actual geometry in Fig. 16 (a).  
+
+Figure A2 shows the results of the chamfered model in comparison with the results of  
+
+the complete thread model in Fig. 13 when α=0. It is seen that because of no contact at  
+
+thread  No.8 in the chamfered model,  mean  stress  σ    and stress amplitude  σ   increase  
+
+
+except at thread No.1. Since the rigidity of nut thread No.1 decreases in the chamfered  
+
+  
+
+model, the stress at bolt thread No.1 does not change very much.  
+
+Acknowledgments  
+
+  The authors wish to express their thanks to the member of their group, Mr. Yu-Ichiro  
+
+Akaishi and Mr. Yang Yu for their assistance in this study. The authors acknowledge  
+
+the international collaboration grant funded by Commissie Wetenschappelijk Onderzoek  
+
+(CWO),  Faculty  of  Engineering  and  Architecture,  Ghent  University.  The  research  for  
+this  paper  was  financially  supported  by  the  Japanese  Ministry  of  Education  research  
+
+
+expenses [grant number 23560164]; and Kitakyushu Foundation for the Advancement  
+
+of Industry Science and Technology.  
+
+

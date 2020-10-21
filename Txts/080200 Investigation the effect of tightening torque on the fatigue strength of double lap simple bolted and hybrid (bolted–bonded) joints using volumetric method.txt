@@ -1,0 +1,467 @@
+
+
+Investigation the effect of tightening torque on the fatigue strength of double lap simple bolted and hybrid (bolted–bonded) joints using volumetric method
+
+
+
+
+           a b s t r a c t
+
+                            In this research, the effect of the tightening torque on the fatigue strength of 2024-T3 double lap simple
+                              bolted and hybrid (bolted–bonded) joints have been investigated experimentally by conducting fatigue
+                        tests and numerically by implementing ﬁnite element analysis. To do so, three sets of specimens were
+                                                        prepared and each of them subjected to tightening torque of 1, 2.5 and 5 Nm and then fatigue tests were
+                                                         carried out under different cyclic longitudinal load levels. In the numerical method, the effect of the tight-
+                                         ening torque on the fatigue strength of the considered joints has been studied by means of volumetric
+                                                         method. To obtain stress distribution around the notch (bolt hole) which is required for the volumetric
+                                                         method, nonlinear ﬁnite element simulations were carried out. In order to estimate the fatigue life, the
+                                      available smooth S–N curve of Al2024-T3 and the fatigue notch factors obtained from the volumetric
+                                        method were used. The estimated fatigue life was compared with the available experimental test results.
+                                                         The investigation shows that there is a good agreement between the life predicted by the volumetric
+                                                         method and the experimental results for different specimens with a various amount of tightening tor-
+                                                         ques. The results obtained from the experimental analysis showed that the hybrid joints have a better
+                                                         fatigue strength compared to the simple bolted joints. In addition, the volumetric method and experi-
+                                                         mental results revealed that the fatigue life of both kinds of the joints were improved by increasing
+                                                         the clamping force resulting from the torque tightening due to compressive stresses which appeared
+                                                         around the bolt hole.
+                                                                                                                            
+
+
+
+
+1. Introduction                                                                               the two kinds of lap joints. First, in a mechanical joint, the overlap-
+                                                                                              ping areas are attached to one another at discrete points only, i.e.
+    Among the mechanical removable joints, including, riveted,                                by the fasteners. Clearly, severe stress concentrations occur. How-
+pined or bolted joints, the bolted joint are the most essential com-                          ever, if the connection is made continuously in the full overlapping
+ponents in aerospace structures. However, the existence of geo-                               area by adhesive bonding, these stress concentrations do not occur.
+metrical discontinuity in these joints due to essential hole                                  Because, the adhesive bonded joints do not need to the fasteners
+drilling process causes stress concentration and thus increases                               and the fastening holes. Therefore, the stress distributions in the
+the tendency of early fatigue crack initiation and growth under                               joint are relatively uniform compared to those in the mechanical
+cyclic loading [1–3]. Therefore, it is of great importance to reduce                          joint. Secondly, metallic direct contact between the two sheets
+the effect of the stress concentration and attain enhanced fatigue                            does not happen in the adhesively bonded joints.
+life. According to the results of previous studies, bolted joints have                            In order to overcome the potential weaknesses of the adhe-
+higher tensile and fatigue strengths than welded, riveted and pin-                            sive bonding, and the mechanical joints, and therefore, to obtain
+ned joints [4–6].                                                                             very effective joints, a combination of the mechanical joints
+    An alternative method to mechanical fastening is adhesively                               (riveted, bolted, etc.) and an adhesive, namely hybrid joints,
+bonded joint. In order to identify the advantages of adhesive bond-                           are used [7–10]. Hybrid joints are used in many engineering
+ing in fatigue, two fundamental differences are important between                             application such as aerospace, automotive, and naval industries
+                                                                                              because of their better performance in comparison with the sim-
+                                                                                              ple joints such as adhesively bonded, riveted and bolted joints
+
+
+
+
+    Several researchers [13–17] investigated the hybrid joints.                  iment dependent coefﬁcients, which have been obtained for mate-
+Pirondi and Moroni [18] compared the hybrid weld-bonded,                         rials used in many years ago. Nowadays, since varieties of
+rivet-bonded, clinch-bonded, and simple joints under various con-                materials in industry are ever increasing and new materials and
+ditions, by means of experimental analysis. The effect of the mate-              alloys have been produced, using these coefﬁcients is not very
+rial, geometrical factors, and environment on static strength and                appropriate.
+energy absorption were evaluated through the analysis of variance.                   Differences between these relations are high and the accuracy
+A similar investigation conducted by Schvechkov [19] on the                      of these relations is not clear and the effects of the net stress and
+effects of adhesive mechanical properties on the fatigue strength                stress gradient in these relations have been neglected. Two com-
+of hybrid (riveted-bonded) joints by means of experimental analy-                monly used equations, among the relations that have been pro-
+sis. In separate investigations, Kelly [14,20] studied the static and            posed to describe the notch sensitivity factor, are Peterson [30]
+fatigue strength of the hybrid (bonded–bolted) single lap joints                 and Neuber [31] equations.
+using different modulus adhesives. The results of studies, revealed                  Peterson assumed that the fatigue failure occurs when the
+that, the hybrid joints with lower modulus adhesives allowed for                 stress at one point which has a critical distance from the notch root
+load sharing between the adhesive and the bolts. In a similar inves-             (ap) is equal to the fatigue strength of the smooth specimen.
+tigation conducted by Fu and Mallick [8], they experimentally                    Assuming that the stress near the notch root is decreasing linearly,
+showed that the hybrid (bolted–bonded) single lap joints have a                  Peterson proposed the following experimental relation:
+higher static and fatigue strength in comparison with only adhe-
+                                                                                      
+sively bonded joints.                                                            a                                                   
+    When a nut and bolt are used to join mechanical members
+                                                                                    
+together, the nut or bolt can be pre-tensioned by applying tighten-              where r is notch radius and ap is material constant, which depends
+ing torque using a torque wrench and then the bolt and nut are                   on the grain size and loading. A widely used empirical expression
+pulled toward each other. Pre-tension or clamping force is the                   for Kf for different notch geometries was proposed by Neuber
+technical term for the tension caused by tightening the nut that                 [31]. By considering the stress distribution ahead of a notch with
+holds the assembled part together [21–25].                                       a given notch root radius, he arrived at an expression for q based
+    Previous works revealed that the clamping force can reduce the               on the average stress up to some distance ahead of the notch as
+stress concentration at the bolted hole region, and therefore                    follows:
+improve the strength of the joint considerably [6,21].
+    As mentioned, fatigue fractures usually occur at notches such as                  
+                                                                                                                       
+holes and grooves. Since virtually all engineering structures                                
+                                                                                 
+include notches in one form or another, the treatment of this in
+fatigue life prediction has received considerable attention over                 where aN is the material parameter with a unit of length and r is the
+the years. The geometry of notch and other notch properties affect               notch root radius constant which depends on the grain size. In addi-
+the fatigue life. The stress rise will of course be very harmful with            tion, on the basis of a model taking into account how inherent
+respect to fatigue strength, but in fatigue tests of the notched                 material ﬂaws like cavities, inclusion, defects alter the stress ﬁeld
+geometries, the effect of kt appears to have less inﬂuence than                  at the notch root, Heywood [32] suggested a different empirical
+under static loading, which has led to the deﬁnition of a separate               expression of the notch-fatigue. Heywood’s representation of exten-
+fatigue notch factor, kf [26–28].                                                sive fatigue is somewhat different from Neuber’s and Peterson’s.
+    The fatigue notch factor relates the unnotched fatigue to the                Heywood’s proposed expression for the fatigue notch factor is illus-
+notched, nominal fatigue strength in the same numbers of cycles                  trated as follows:
+and the same experimental test conditions.
+                                                                                       
+    There is not a general experimental method with low cost to                                 
+determine the kf values, and this is because of the micro-mechan-                
+                                                                                         
+
+ical complications and uncertainties of the plastic zone at the
+notch root. In general trend, kf is equal to or less than kt. A general          where a0 corresponds to the length of equivalent material ﬂaws. As
+deﬁnition of the fatigue notch factor is the ratio of fatigue strength           mentioned previous, the accuracy of these formulas is not speciﬁed
+of the smooth specimen to fatigue strength of the notched speci-                 and requires to be checked by numerous, costly and time consum-
+men in the same numbers of cycles and the same experimental test                 ing fatigue tests.
+conditions [29]:                                                                    Based on a large amount of empirical data, Siebel and Stieler
+                                                                                 [33] expressed kf by the relative stress gradient:
+       unnotched fatigue limit                                                       
+                                                  
+        notched fatigue limit                                                    
+   The difference between the fatigue notch factor kf and the                    where, for loading in the z direction using cylindrical coordinates
+elastic stress concentration factor kt, is expressed by the notch                (z, h, r), the relative stress gradient is deﬁned from the axial stress
+sensitivity factor, q, as follows:                                             
+     
+   There are several relations to express the notch sensitivity                      In this study, the effect of tightening torque on the fatigue
+factor in terms of the notch radius. However, the experimental                   strength of 2024-T3 double lap simple bolted and hybrid (bolted/
+accuracy of these relations is not very clear, and it is essential to            bonded) joints have been investigated both experimentally and
+conduct more experimental tests. Notch sensitivity factor for                    numerically. Therefore, two kinds of joints, i.e. double lap simple
+describing the notch effects of the high-cycle fatigue problems                  and hybrid (bolted–bonded) joints were considered. For each kind
+have some disadvantages in deﬁnition of the relations between kf                 of the joint, three sets of specimens were prepared and subjected
+and kt, as follows:The empirical relation between the kf and kt                  to the tightening torque of 1, 2.5 and 5 Nm and then fatigue tests
+are established only for the endurance limit. There are some exper-              were carried out on them under different cyclic longitudinal load
+                                                   
+
+
+levels. In the numerical section, the inﬂuences of tightening torque                       where Xeff is the effective distance, rn is the net stress, ryy is the
+on the fatigue life of simple and hybrid joints have been studied                          crack opening stress, and v is the relative stress gradient which is
+using the volumetric method. To obtain the stress distribution                             deﬁned as follows:
+around the notch (bolt hole) which is required for the volumetric
+method, nonlinear ﬁnite element simulations were carried out.                                   
+                                                                                    
+2. Theoretical aspects of the volumetric method                                                In this method, the fatigue notch factor calculated from Eq. (8)
+                                                                                           and the use of reference curve of smooth specimen lead to notched
+    From the physical point of view, the volumetric method is an                           curve in fatigue according to Eq. (1). In this method fatigue notch
+innovative technique, in order to estimate the fatigue strength of                         factor is calculated by application of the specimen material proper-
+notched components. In this method, the fatigue failure needs a                            ties and its geometrical features via ﬁnite element analysis.
+physical volume to take place, which is called the fatigue process-                            The volumetric method can also be used in the cases that
+ing volume.                                                                                smooth specimen results are not available but another notched
+    The fatigue strength of materials is mainly affected by the spec-                      specimen with the same material, specimen geometry and differ-
+imen size and the relative stress gradient, which are dimensional                          ent notch features exist.
+parameters. This method leads to a two-parameter fatigue initia-
+tion criterion, i.e. the effective distance and the effective stress.
+The effective distance is the diameter of the fatigue processing vol-                      3. Materials and experimental methods
+ume. The shape and size of the volume generally depends on the
+specimen geometry, loading mode and material properties. This                                 The specimens employed in this investigation were made from
+volume is supposed to be the site where the fatigue damage takes                           2024-T3 aluminium alloy with thickness of 2 mm. Table 1 lists the
+place. The effective stress corresponds to an average value over this                      mechanical properties of the aluminium alloy obtained from ten-
+distance of the stress distribution weighted by the distance and the                       sion (static) tests, while Table 2 presents the chemical composi-
+relative stress gradient [27,29]. It is determined by a nonlinear                          tions of the used aluminium alloy.
+stress distribution near the notch tip. Therefore, it is a function                           Two different kinds of joints i.e. double lap simple and hybrid
+of the stress ﬁeld and, depends, as the effective distance, on the                         (bolted–bonded) joints were prepared. Test specimens’ conﬁgura-
+part geometry, loading and material. So, for a given geometry,                             tions and dimensions for both kinds of the joints are illustrated
+material and loading, the effective stress is, in principal, a function                    schematically in Fig. 2.
+of net stress. A typical elastic–plastic stress distribution near a                           The hybrid joints were manufactured by means of the structural
+notch has been shown in Fig. 1.                                                            two component epoxy adhesive (Loctite 3421) [34], prepared by
+    Three different regions can be recognized from Fig. 1. The max-                        mechanical mixing of the resin and hardener in equal amount by
+imum stress and its distance can be clariﬁed in zone I. The impor-                         weight. In order to obtain the tensile stress–strain curve of the
+tant characteristic of this zone is the existing of the maximum                            adhesive, several dog-bone specimens were prepared according
+stress in the elastic–plastic stress distribution, which has been                          to ASTM: D638-10. The adhesives were injected into a mold, as
+obtained from the ﬁnite element analysis. The elastic FE analysis                          shown in Fig. 3, and left to be cured at the room temperature for
+in the notch root for the crack opening stress reveals that stress                         24 h. Finally, the prepared specimens were tested on a 100 kN
+value is decreasing from the notch root toward the outside [29].                           Zwick/Z100 static testing machine with a crosshead speed of
+In zone II, the stress value is decreasing and its value reaches to                        5 mm/min. The engineering stress–strain curve of the adhesive is
+the effective stress reff. According to the volumetric method, the                         shown in Fig. 4.
+fatigue notch factor is given by the following formula:                                       In order to eliminate any possible surface scratches, the surface
+            
+                                                                                           of the plates (specimens) were polished using different grinding
+                                                                         (sand) papers with grits of 400, 600 and 1000 at ﬁrst. To prepare
+
+                                                                the specimens, fastener holes with diameter of 5 mm, were drilled
+                                                                                           and reamed in the joint plates. A hex head M5 (class 10.9) steel bolt
+                                                                                           was used for the mechanical fastening and suitable types of steel
+                                                                                           washers and nuts were used to prepare the joint as illustrated in
+                                                                                           Fig. 2. Finally, the nut is tightened by applying torque using a
+                                                                                           torque-wrench up to required amounts of torques, i.e. 1 Nm,
+                                                                                           2.5 Nm and 5 Nm.
+
+
+
+
+
+
+   As mentioned, aluminium alloy 2024-T3 sheet was used as an                       same amounts of torques as the simple bolted joints, i.e. 1 Nm,
+adherend to prepare the hybrid joints in this investigation. The                    2.5 Nm and 5 Nm.
+preparation of the hybrid joints has been implemented in two
+main steps. Firstly, a double lap bonded joint was constructed. In                  3.1. Clamping force measurement
+order to obtain high strength joint, the joint plates were cleaned
+with acetone and then they were let dry, prior to using the adhe-                      In order to measure the clamping force or bolt pre-tension
+sive layer. In order to achieve the constant thickness of adhesive                  resulting from the torque tightening, at different applied torques,
+layer, 0.5 mm thick sheets were used between adherends. The pre-
+pared bonded joints were left in ambient temperature for 72 h, in
+accordance with the adhesive manufacturer suggestion.                                            
+   In the second step of preparing the hybrid joints, the double lap
+bonded specimens with the adhesive were bolt tightened using the                              
+                                                                                       
+
+
+
+
+
+
+                                                                                 
+sectional area at hand and the axial stress, the axial force in the                                               
+                                                                                                                            
+bush and therefore the clamp force has been determined. The used             
+method and the bush dimensions were shown in Fig. 5.                                                              
+
+   To calibrate the applied torque and clamping force, torques                                                    
+were applied in 1 Nm increments from 1 to 7 Nm to the nut using
+                                                                                                                           
+a torque wrench, and then the axial strains were recorded for each
+value of the torques. This test was repeated three times for each                                                         
+case to obtain the mean value of the compressive strains (em),                                                            
+and determine the corresponding clamping forces using Eq. (10).                                                                 
+The relation between the applied tightening torque and the mean                                                                                
+value of compressive strains for both types of joints, are given in
+Fig. 6. The elastic modulus for the bush material (Ebush) was also                     
+                                                                                        compressive strains.
+experimentally determined in order to obtain the accurate values
+for the mean axial clamping force.
+                                
+
+
+In the above equation, Abush is the area of the bush cross section. The                                             
+relation between the calculated clamping forces and the applied
+                                                                                                                  
+torques for the specimen is shown in Fig. 7. As the ﬁgure shows,
+there is a linear relation between the clamping force and the                                                      
+applied torque. This conﬁrms that the bush material is still in its                                             
+elastic region, even under the maximum applied torque.
+                                                                                                                       
+
+                                                                                                                      
+3.2. Fatigue tests                                                                                                       
+                                                                                                                                               
+   In the next step, the prepared specimens for each kind of the
+joints were tested in this investigation to study the effect of the                                                         
+tightening torque on the fatigue lives of the both kinds of the join-
+ing method.
+   Fatigue tests have been carried out using constant amplitude                         (fracture) occurred in the main plate. The fatigue test results for
+loads in a servo-hydraulic 250 kN Zwick/Roell fatigue testing                           double lap simple bolted specimens have been shown in Fig. 8 in
+machine with a frequency of 10 Hz and stress ratio (load ratio) of                      terms of the number of cycles to failure. In addition, in the case
+0.1. The fatigue tests have been performed on the double lap sim-                       of double lap hybrid specimens, fatigue tests have been performed
+ple bolted specimens with three different amounts of tightening                         with the same amounts of the tightening torques, as simple bolted
+torques, i.e. 1 Nm, 2.5 Nm and 5 Nm which created clamping forces                       specimens, i.e. 1 Nm, 2.5 Nm and 5 Nm which created clamping
+equal to Fcl = 976, 2440 and 4880 N respectively, according to the                      forces equal to Fcl = 840, 2100 and 4200 N respectively, according
+linear equation obtained from Fig. 7. In each case, six fatigue tests                   to the linear equation obtained from Fig. 7. The fatigue test results
+were performed with different maximum remote longitudinal                               for the double lap hybrid specimens have been shown in Fig. 9 in
+loads to ﬁnal failure. The fatigue tests were run until the failure                     terms of the number of cycles to failure. It is important to mention
+
+
+
+
+
+                                                     
+
+
+that, failure in all of the specimens occurred in the main plate near                                                  located at the left end of the FE model were considered to have
+the bolt hole edge.                                                                                                    all their degrees of freedom constrained.
+                                                                                                                           In order to transfer the pressure between the contacting sur-
+                                                                                                                       faces, ﬂexible-to-ﬂexible contact state was used. Each contact pair
+4. Numerical analysis                                                                                                  consisted of target element and contact element. TARGET 170 was
+                                                                                                                       used as a target element and CONTACT 174 was used as a contact
+    In order to obtain the effective distance, the effective stress val-                                               element. The friction effect between the surfaces of the washer
+ues and the fatigue notch factors in the volumetric method, the                                                        (bolt head) and Al-alloy plate was included in the FE model using
+ﬁnite element analysis has been employed by ANSYS 9.0 general
+ﬁnite element code [35]. In the present investigation, to estimate
+the fatigue lives of the joint plates for both kinds of the joints with
+                                                                                                                                                          
+different amounts of the tightening torque, three dimensional
+models of the specimens have been simulated using Ansys FE code.                                                                                    
+All of the adherends, adhesive layer and bolt have been meshed
+                                                                                                                                            
+
+
+
+                                                                                                                                                        
+with 20-node SOLID95 structural elements. In addition, due to
+double symmetry condition, only a quarter of the plates, and bolt                                                                                        
+were needed to be modelled. Symmetric displacement boundary
+                                                                                                                                                          
+conditions were deﬁned for the nodes on the planes of symmetry.
+To extract more accurate results, mapped mesh with sufﬁciently                                                                                             
+ﬁne mesh around the hole of the plates has been used in FE anal-
+                                                                                                                                                           
+yses. The bottom face of the bolt shank was used to implement
+                                                                                                                                                               
+the bolt clamping force. The ﬁnite element mesh of the double
+                                                                                                                                                                                          
+lap hybrid joint specimens is presented in Fig. 10, together with
+its corresponding loading and boundary conditions. The nodes                                                                                                  
+
+
+
+
+
+
+Elastic Coulomb model with friction coefﬁcient of l = 0.29 which                       tests and shown in Fig. 11. The elastic modulus and Poisson’s ratio
+was obtained from experimental tests based on sliding of the                           were measured to be E = 72 GPa and m = 0.33 respectively. Also, for
+washer under its own weight on the sloped surface from Al-alloy                        adhesive layer the multi-linear isotropic material model was used
+plate. Also based on the similar experiments, the friction coefﬁ-                      and the Poisson’s ratio was considered equal to 0.35. Furthermore,
+cient was found to be l = 0.4 for the contact between the plates.                      for the steel bolt a linear elastic material relation was assumed
+   In order to characterize the aluminium alloy 2024-T3 stress–                        with Young’s modulus of 207 GPa and Poisson’s ratio of 0.30 as it
+strain behaviour, an elastic–plastic multi-linear kinematic harden-                    was observed that the bolt material remained in elastic when
+ing material model with Von Mises criterion was used. This                             it was subjected to maximum applied torque (8 Nm). As the bolt
+behaviour of the material was obtained from the simple tensile                         and its washer have approximately the same material properties,
+
+
+
+
+the geometrical model of the washer was added to the bolt head in                     be seen, the most compressive stresses are observed near the edge
+order to minimize the contact element use (with ignoring contact                      of the hole for simple bolted specimens, which increased from À20
+elements between the bolt head and the washer).                                       to À101 MPa when the tightening torque increased from 1 to
+   Numerical analyses were carried out in two main steps includ-                      5 Nm. In addition for the hybrid specimens the compressive stres-
+ing the application of the clamping force which was followed by a                     ses increased from À13 to À49 MPa when the tightening torque
+longitudinal load to the aluminium alloy. In the ﬁrst step of load-                   increased from 1 to 5 Nm.
+ing, axial displacement was applied to the bottom face of the bolt                        In the second load step, in accordance with the experimental
+shank to simulate the clamping force. In order to apply clamping                      test process, a tensile remote stress was applied to the FE models
+force in the bolt, a displacement boundary condition (using a trial                   to simulate the tensile loading of the specimens. Therefore, a
+and error method) was used instead of applying force on the bolt                      remote tensile stress equal to the applied cyclic load range was
+shank. This is necessary to have an accurate simulation and con-                      applied on the right end of the main plate while the displacement
+sider the bolt pre-tension relaxation during applying tensile load                    of the left end of the connector plates was constrained. After the
+to the far end of the plate. As the tensile load is applied to the                    application of clamping force which was followed by a longitudinal
+far end of the plate, a part of initial clamping force in the bolt is                 load, the solution of the numerical analysis has been implemented.
+reduced due to contraction of the holed plate thickness as a result                   Then the crack opening stress and the relative stress gradient dis-
+of Poisson’s ratio. This process was completed for three initial                      tributions versus distance from the hole edge which are important
+clamping forces resulting from the different amounts of tightening                    to calculate the fatigue notch factor, can be obtained. To realize and
+torques for both kinds of the joints using a trial and error method.                  recognize the volumetric method concept, the elastic–plastic crack
+Then the solution was restarted for each state and in the second                      opening stress, and its integration direction should be noticed. In
+step, the value of the maximum force in each cyclic loading (as                       this study, the cracks propagate at root of the plate hole and the
+in the experimental tests) was applied to the end of the plate in                     crack opening stress is perpendicular to crack face and parallel to
+the model as a longitudinal static load.                                              longitudinal applied load at the free end of the plate. The typical
+                                                                                      fractured specimens for simple and hybrid joints under fatigue
+5. Results and discussion                                                             tests with tightening torque of T = 1 Nm that subjected to maxi-
+                                                                                      mum remote longitudinal load equal to 7.2 kN is shown in
+    In the current study, the effect of the tightening torque on the                  Fig. 13. Figs. 14 and 15 show the typical crack opening stress and
+fatigue strength of 2024-T3 double lap simple bolted and hybrid                       the relative stress gradient distributions versus distance from the
+(bolted–bonded) joints subjected to the longitudinal cyclic loading                   hole edge toward the plate edge with different amounts of the
+has been studied by means of the volumetric method. As it has                         tightening torque under the applied maximum remote longitudi-
+been discussed, the fatigue life estimation based on the volumetric                   nal load equal to 192 MPa for the simple and hybrid specimens,
+method needs the stress distribution near the notch roots which                       respectively. As shown in Fig. 14, in the simple bolted specimens
+can be obtained by the nonlinear elastic–plastic ﬁnite element                        the maximum stress values occurred at a distance away from the
+analysis and the smooth or reference fatigue curve of the material.                   edge of the hole and their values decreased from 402 to 378 MPa
+    As it was mentioned previously, three different tightening tor-                   when the tightening torque increased from 1 to 5 Nm. According
+que values were selected to be applied. To do so, the corresponding                   to Fig. 15 for hybrid specimens the maximum stress values
+clamping force, i.e. Fcl = 976, 2440 and 4880 N for simple bolted                     occurred at the edge of the hole and their values decreased from
+joints, and Fcl = 840, 2100 and 4200 N for hybrid joints were to                      278 to 252 MPa when the tightening torque increased from 1 to
+be applied on the plates. Therefore, a displacement boundary con-                     5 Nm. This is due to elastic stress distribution in main plate for
+dition in the Z direction was applied on the lower face of the bolt                   the hybrid specimens. In addition, as it is clear in the ﬁgures,
+shank to achieve the desired clamping forces equal to experimental                    increasing the clamping force of the bolts, decreases the magni-
+test results. The magnitude of the required displacement was                          tudes of maximum and effective stresses, and also decreases the
+found after a few trial and error processes to achieve the desired                    effective distance. Consequently the increase in the clamping force
+reaction forces or the clamping forces resulting from tightening                      decreases the amounts of the fatigue notch factors, results in
+torques.                                                                              improved fatigue lives of the joints.
+    According to the results of the ﬁrst load step solution of the                        In this section, to investigate the validity and accuracy of the
+ﬁnite element analysis, some beneﬁcial compressive stresses were                      volumetric method, the fatigue lives predicted with this method
+observed near the hole of the plates. The compressive stress con-                     have been compared with the experimental test results. Fig. 16
+tours around the bolt hole of the main plate, created due to 1,                       shows the fatigue strength versus the number of cycles to fracture
+2.5 and 5 Nm tightening torques are shown in Fig. 12. As it can                       for different specimens on the volumetric method and experimen-
+                                                
+
+
+tal test results. As it can be seen in this ﬁgure, the volumetric                           The volumetric fatigue life prediction is not similar to the other
+method has a good agreement with the experimental test results                           recognized methods such as Neuber and Peterson [30,31]. The vol-
+and presents very good and reasonable results. It must be men-                           umetric approach uses the fatigue curve of smooth specimen, and
+tioned that, among the technical literature and surveys which are                        the stress distribution near notch tip which obtained by means of
+available in the ﬁeld of the fatigue life estimating, a few researches                   the ﬁnite element analysis. Using the ﬁnite element analysis, load-
+can be found regarding to the application of the volumetric                              ing mode, relative stress gradient and geometrical effects are con-
+approach, in order to obtain the fatigue life of the different types                     sidered and it is clear that this method provides better results. The
+of specimens [6,26–28]. According to the Ref. [28], the volumetric                       predicted fatigue life using the volumetric approach, have very
+approach has been successfully employed for fatigue life assess-                         good agreement with the experimental results such as different
+ment of the multi resistance spot welded joints. As mentioned pre-                       notched specimens, spot welded joints and simple bolted plates
+viously, although the essential parameters of the volumetric                             [6,26–28]. The results of this work and other researches [6,26–
+approach are ﬁnite element analysis and the values of fatigue                            28] indicates that this approach gives a relative good description
+strength reduction factor and fatigue life of smooth specimens,                          of notch effect.
+the important prerequisite of this procedure is to recognize the
+direction of the fatigue crack path of the notched specimens.
+
+                                                                                             
+
+
+                                                                                                                          means of the available smooth S–N curve of Al2024-T3 and the
+                   
+                               
+                                                                                                                          fatigue notch factor was used. The estimated fatigue life was com-
+                                                                                                                          pared with the available experimental test results. The investiga-
+                     
+                                                                                                                          tion revealed that the fatigue life estimated by the volumetric
+                                                                       method has a good agreement with the experimental results for
+                  
+                                                                                                                          various specimens under the different amounts of the tightening
+                                                       
+                                                                                                                          torque. The obtained results showed that the fatigue lives of spec-
+                                      imens were improved by increasing the tightening torque due to
+                        
+                                                                                                                          compressive stresses which appeared around the hole. The
+                                                                                      improvement in fatigue life can be attributed to the method that
+Fig. 16. Fatigue strength versus the number of cycles to failure for different                                            the joint transmits the applied load. Furthermore, in the hybrid
+specimens based on the volumetric method and comparison with experimental                                                 joints, direct metallic contact between the plates does not occur;
+results.                                                                                                                  therefore, the possible fretting fatigue is eliminated.
+
+    The advantages of the volumetric method include the possibil-
+ity of predicting fatigue life for many loading cases using notched                                                     
+geometry, the absence of the empirical and ambiguous coefﬁcients
+used in traditional methods and the opportunity to obtain rapid                                                           
+and cost-effective results using a ﬁnite element method.                                                                
+                                                                                                                         
+    Based on this investigation, in the lightly fastened joints, there                                                  
+are only very small compressive stresses around the hole due to                                                              
+the small clamping force resulting from torque tightening. Conse-                                                       
+                                                                                                                              
+quently in such cases, bolts and nuts play only a small role in                                                       
+delaying the fatigue crack initiation and propagation.                                                                     
+    The results obtained from the experimental tests, revealed that                                                        
+                                                                                                                         
+the fatigue life of the joints were improved by increasing the
+                                                                                                                               
+tightening torque due to the compressive stresses which                                                                     
+appeared around the hole. The improvement in fatigue life can                                                        
+                                                                                                                             
+be attributed to the method that the joint transmit the applied
+                                                                                                                          
+load. As the tightening torque is increased, a large portion of                                                                
+the load is transmitted by friction. The remaining portion of the                                                          
+load is transmitted by the bearing (through the bolt hole surface).                                                           
+                                                                                                                               
+The improvement in fatigue life can also be related to compres-                                                       
+sion around the hole caused by the compression of the plates                                                                  
+by the bolt pre-tension. Such negative stresses can reduce the                                                          
+                                                                                                                              
+total amount of resultant stresses that cause fatigue crack initia-                                                        
+tion and propagation in the plate due to the applied tensile exter-                                              
+nal loads. This is in complete agreement with available results of                                                 
+                                                                                                                          
+fatigue life in simple bolted plate and double shear lap bolted                                                             
+joints clamped with tightening torques [2,3,6,11].                                                                      
+    In addition, in the hybrid joints, the stress concentration around                                                        
+                                                                                                                            
+the hole is reduced signiﬁcantly. Therefore, the local stress at the
+                                                                                                                         
+edge of the hole is lower, since some portion of the total load is                                                          
+transmitted by adhesive layer.                                                                                          
+                                                                                                                               
+    Finally, the comparison of the obtained results from the exper-
+                                                                                                                         
+imental tests, conﬁrms that the hybrid joints have better fatigue                                                            
+performance than simple joints for all levels of the tightening tor-                                                          
+que. In addition, it should be noted that, in the hybrid joints, direct                                               
+                                                                                                                               
+metallic contact between the plates does not occur (due to the                                                          
+adhesive layer presence); therefore, the possible fretting fatigue                                                         
+(that causes an early fatigue crack initiation) is eliminated. This                                               
+                                                                                                                             
+is in appropriate agreement with some of the previous results                                                                  
+reported in the literature, which discussed in introduction such                                                          
+as [8,18,20].                                                                                                                  
+                                                                                                                         
+                                                                                                                               
+6. Conclusions                                                                                                        
+                                                                                                                              
+   In this research, the effects of the torque tightening on the fati-                                                
+                                                                                                                        
+gue strength of the double lap simple bolted and hybrid joints have                                                        
+been investigated via experimental and numerical analysis.                                                                  
+                                          

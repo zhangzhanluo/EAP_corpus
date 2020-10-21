@@ -1,0 +1,388 @@
+﻿                                  Deep learning for high-dimensional reliability analysis 
+ABSTRACT
+        High-dimensional reliability analysis remains a grand challenge since most of the existing
+         methods  suffer  from  the  curse  of  dimensionality.  This  paper  introduces  a  novel  high- 
+         dimensional  data  abstraction  (HDDA)  framework  for  dimension  reduction  in  reliability 
+          analysis.  It  ﬁrst  involves  training  of  a  failure-informed  autoencoder  network  to  reduce 
+             the dimensionality of the high-dimensional input space, aiming at creating a distinguish- 
+        able failure surface in a low-dimensional latent space. Then a deep feedforward neural net- 
+         work  is  constructed   to  connect   the  high-dimensional      input  parameters    with  the   low- 
+             dimensional latent variables. With the HDDA framework, the high-dimensional reliability 
+         can be estimated by capturing the limit state function in the latent space using Gaussian 
+       process  regression.  To  manage  the  uncertainty  due  to  lack  of  training  data,  a  distance- 
+             based sampling strategy is developed for  iteratively identifying critical  training samples, 
+          which improves the accuracy of the high-dimensional reliability estimations. Three high- 
+         dimensional examples are used to demonstrate the effectiveness of the proposed approach. 
+1. Introduction 
+    In engineering applications, reliability is deﬁned as the probability that a system will perform its functionalities under 
+various types of uncertainties. Accurate reliability analysis is of critical importance for assessing the system performances 
+in practice. In the literature, analytical-based methods such as ﬁrst- and second-order reliability methods (FORM and SORM) 
+[1–3] have been extensively studied for carrying out reliability analyses of various engineering problems, where the limit 
+state  function  is  approximated  through  Taylor  expansions  and  the  reliability  estimation  is  calculated  based  on  the  most 
+probable point (MPP). For practical engineering problems with nonlinear performance functions, the MPP-based approaches 
+may suffer non-convergence issues while sampling-based methods such as Monte Carlo simulation (MCS), importance sam- 
+pling, and line sampling [4,5] have been developed for robust reliability analysis without making any assumptions about the 
+limit state function . Moreover, subset simulation [6,7] has been extensively studied for dealing with rare events, where the 
+probability  of  failure  is  usually  less  than  1e6.  Unfortunately,  directly  employing  such  sampling  methods  often  requires 
+extensive computational resources to evaluate the limit state function for a large number of samples, which hinders their 
+practical applications. 
+    To alleviate the computational costs, surrogate models have been utilized as substitutes for computationally expensive 
+simulations. Surrogates are easy-to-evaluate models that approximately describe the relationship between the system input 
+and  output.  Different  surrogate  modeling  techniques  such  as  support  vector  machines  (SVM)  [8–11],  Kriging [12–16], 
+artiﬁcial  neural  networks [17–21],  and  response  surface  methods  (RSM) [22–24]  have  been  developed  and  applied  to 
+engineering problems. Given a set of training data, surrogate models can be constructed and then MCS can be directly carried 
+out for reliability analysis. To enhance the ﬁdelity of surrogate models, research efforts have been devoted to developing 
+adaptive sampling strategies  [25–28], which aim at improving the ﬁdelity of surrogate models using the least number of 
+training  samples.  For  adaptive  Kriging-based  methods,  an  initial  surrogate  model  of  the  limit  state  function  is  ﬁrst  con- 
+structed based on  a set  of training data, and then additional samples are  identiﬁed via  sampling criterions and added to 
+the training data set for reﬁning the surrogate model. Wang and Wang [29] developed a maximum conﬁdence enhancement 
+method to iteratively search for the most useful sample that can maximize the accuracy improvement of reliabilty predic- 
+tions from the Kriging model. Echard et al. [30] and Zhao et al. [31] considered the Kriging prediction variance in their sam- 
+pling criterion to selecte additional training data for surrogate model updating. Dubourg et al. [32] developed an adaptive 
+reﬁnement technique to reduce prediction errors, where the Kriging model can be updated by simultaneously adding mul- 
+tiple samples. However, most of the aforementioned methods are not scalable for high-dimensional reliability analysis. 
+    To alleviate the curse of dimensionality, various methods  [33,34] such as Karhunen-Loeve expansion [35], t-Distributed 
+Stochastic Neighbor Embedding (t-SNE)  [36], and high-dimensional model representation (HDMR) methods  [37–39] have 
+been developed for dimension reduction. Speciﬁcally, the HDMR methods have been utilized to improve the performance 
+of reliability analysis for high-dimensional problems by decomposing a high-dimensional limit state function into multiple 
+low-dimensional functions. The low-dimensional functions are then approximated through interpolation techniques such as 
+Gaussian quadrature. Based on the summation of the approximated low-dimensional functions, a global surrogate model of 
+the limit state function can be constructed accordingly. As a result, the number of function evaluations can be signiﬁcantly 
+reduced. Acar et al.  [40] employed the univariate dimension reduction method to decompose the multi-dimensional limit 
+state  function,  and  then  the  estimated  statistical  moments  of  system  responses  can  be  used  to  ﬁt  the  parameters  of  an 
+extended  generalized  lambda  distribution  for  calculating  the  reliability.  Recently,  Li  et  al.  [41]  integrated  the  expected 
+improvement sampling strategy with the dimension reduction method to reduce the estimation error of surrogate models. 
+By  increasing  the  order  of  component  functions  in  dimsnional  reduction,  the  accuracy  of  reliability  assessment  can  be 
+improved, however, the number of function evaluations may increase dramatically. Though the HDMR method is a feasible 
+solution for high dimensional problems, how to balance the prediction accuracy and computational costs still remains a chal- 
+lenge. Moreover, most dimension reduction models are developed for unsupervised learning problems instead of handling 
+regression tasks [42]. 
+    In the ﬁeld of high-dimensional data analysis, deep learning [43–45] have gain lots of attention due to its capability of 
+extracting critical features from high-dimensional space. Deep learning such as deep feedforward network and convolutional 
+neural network are known as machine learning methods for learning data representations, and these techniques have been 
+successfully applied in the ﬁelds of image processing  [46], natural language understanding  [47], robotic control  [48], and 
+high-energy physics [49]. In deep feedforward networks, a multivariate function can be modeled using a hierarchy of fea- 
+tures,  where  a  series  of  nonlinear  projections  of  the  input  is  used  to  tackle  the  curse  of  dimensionality.  However,  large- 
+scale data is usually required to properly train a deep network, which may result in unaffordable costs in handling practical 
+engineering problems. 
+    The goal of this paper is to propose a general approach that can be used to effectively assess the system reliability for 
+high-dimensional problems. By employing deep learning techniques, a high-dimensional data abstraction (HDDA) frame- 
+work  is  ﬁrst  developed  by  training  two  deep  neural  networks:  1)  a  failure-informed  autoencoder  neural  network  is  ﬁrst 
+trained to learn the high-dimensional system performance function implicitly, resulting in a low-dimensional latent space 
+with distinguishable limit state, then 2) a deep feedforward network (DFN) is trained to directly map the high-dimensional 
+system input parameters to the variables in the low-dimensional latent space, referred to as latent variables. Then a Gaussian 
+process (GP) model is constructed to build the connection between the latent variables and the system output for reliability 
+analysis. To balance the accuracy and efﬁciency, an iterative sampling strategy is proposed to enhance the ﬁdelity of the deep 
+feedforward network and the GP model. The remainder of this paper is organized as follows. Section 2 introduces the high- 
+dimensional data abstraction framework. In Section 3, the GP modeling technique is integrated with HDDA framework to 
+learn the reliability information in an adaptive manner. The effectiveness of the proposed approach is demonstrated using 
+two mathematical examples and one engineering case study in Section 4, while the discussions and concluding remarks will 
+be provided in Section 5. 
+2. High dimensional data abstraction framework 
+    In this paper, the performance of an engineering system is modeled by a limit state function G(x ), where x 2 Rnr  denotes 
+the high-dimensional system input, and each input variable is considered as an independent random variable. As shown in 
+Fig. 1, the proposed HDDA framework consists of training two deep networks, including 1) an autoencoder to introduce a 
+latent   space   for  dimension     reduction,    and   2)  a  deep    feedforward     network    to  bridge    the  gap   betwwen      the   high- 
+dimensional system input space and the latent variables. Based on a set of training data, the high-dimensional system input 
+and  their  corresponding  output  are  fused  as  training  pairs  to  train  an  autoencoder  neural  network,  leading  to  a  low- 
+dimensional abstraction of the  original high-dimensional  limit state function. As a result, a set  of latent variables can  be 
+obtained in the low-dimensional latent space, and the original limit state function G(x ) can be transformed into the latent 
+space via the autoencoder. Then, a deep feedforward network is trained based on the high-dimensional system input and the 
+corresponding  latent  variables  that  obtained  from  the  autoencoder.  Therefore,  the  DFN  is  served  as  a  link  function  that 
+directly connects the system input and latent variables. For any system input, the DFN can be utilized for estimating the cor- 
+responding latent variables without knowing the actual system output. The implementation of the two critical neural net- 
+works is explained in the following subsections. 
+2.1. Failure-informed dimension reduction using autoencoder 
+    An  autoencoder  neural  network  aims  at  recovering  a  low  dimensional  representation  from  a  high-dimensional  space, 
+which consists of an encoder and a decoder. As shown in  Fig. 2, the encoder maps a high-dimensional vector to a latent 
+representation, then the decoder reconstructs the vector from the latent representation. By restricting that the number of 
+nodes in latent layer is less than the number of nodes in input layer, a compressed representation can be achieved in the 
+latent layer, referred to as latent variables. 
+     Let X= [x  , x  ,  . . ., x ] represents n system inputs and Y= [y   , y ,  . . ., y ] denotes the evaluated limit state values that 
+y  = G(x ), the fused data set D = [X , Y  ] is considered as the training data for the autoencoder, which is expressed as 
+where D is a n matrix, x(j)  denotes the j th variable of the ith system input. Thus, the dimensionality of both the 
+input and output layer of the autoencoder is (nr + 1). To train the autoencoder, the number of layers and the number of neu- 
+rons in each layer need to be predeﬁned. Assuming an autoencoder is constructed using T layers while the dimensionality of 
+the latent space is nz, the computation of the nuerons in the j th hidden layer in the encoder can be expressed as, 
+where the Lth  layer is the latent layer (L < T), m(j )  represents the variables in the j th  hidden layer, Wen  represents the corre- 
+sponding weight matrix, ben  is a vector of bias, andf act-en  is an element-wise activation function for the encoder. To be speci- 
+ﬁc,  m( 1)  represents  the  fused  training  data  D  while  m(L)              stands  for  the  latent  variables h .  In  general,  there  are  different 
+options for the activation function f act-en(.), including the hyperbolic tangent function, the rectiﬁed linear unit (ReLU), and 
+the logistic function. In this paper, the logistic sigmoid function is selected as the nonlinear functionf act-en for the latent layer, 
+which can be written as 
+    As a result, the obtained ht  from Eq. (2) will be always located within the region [0, 1]. In the decoding stage, the latent 
+variables ht will be further utilized for producing a high-dimensional vector D0= m(T), where the computation of the neurons 
+can be expressed as 
+    Note the network architecture of the decoder can be different from the encoder. In this paper, the sigmoid function in 
+Eq. (3) is adopted for both the encoder and decoder. By providing the training data D and the target dimensionality nz of 
+the latent space, an autoencoder can be obtained by minimizing the loss function as 
+    As shown in Eq. (5), the mean squared error between the original training data D and the reconstruction D0 needs to be 
+minimized during the training process. As a result, the parameters involved in the weight matrix and bias vectors can be 
+determined. Once the autoencoder is trained, the achieved latent variables ht will be treated as a compressed representation 
+of the fused high-dimensional data D. Therefore, the dimensionality of the problem is reduced from (nr + 1) to (nz). In this 
+paper, only the encoder part of the autoencoder is utilized for the purpose of dimension reduction. 
+2.2. Deep feedforward network for latent space reconstruction 
+    With the autoencoder, one can always transform the original high dimensional fused data into the latten space as long as 
+the system inputs and outputs are provided. However, the link between the system inputs to the latent variables is missing. 
+Therefore, a deep feedforward network that links the system inputs to the latent variables needs to be constructed, which 
+can be used for estimating the latent variables without knowing the actual system responses. 
+    A feedforward network consists of the input, intermediate, output layers, where the intermediate layers are also known 
+as hidden layers. Fig. 3 shows a feedforward network with two hidden layers, where the input and output dimensionality are 
+nr and nz, respectively. In this case, the training inputs for the DFN are given as the n system inputs X= [x  , x  , . . ., x ], while 
+the training outputs are set as the latent variables h = [h  , h  , . . ., h ]. Therefore, the DFN is served as a link function nn(.) that 
+projects the high-dimensional system inputs into the low-dimensional latent space, expressed as 
+where he represents the projected or estimated latent variables corresponding to the original system input x. In the deep 
+feedforward network, the computation of a single neuron in the j th layer that is connected with p  inputs can be illustrated 
+in Fig. 4. With the consideration of the bias b , the artiﬁcial neuron multiplies each of these inputs by a weight w , and then                                       
+the summation is passed to an activation function. In this paper, the sigmoid function is used as the activation function for all 
+the layers in the DFN for maintaining consistency with the autoencoder. All the weights and biases are treated as the param- 
+eters that fully characterize the structure of the network. Generally, a loss function needs to be minimized to estimate these 
+parameters. In this paper, the mean squared error that captures the mismatch between the actual latent variables ht  and the 
+estimated latent variables he  is considered as the loss function, which is expressed as 
+    Once the weights and biases are estimated, the deep feedforward network can be utilized for estimating the latent vari- 
+ables for any system input x. 
+    In the HDDA framework, the autoencoder is ﬁrst utilized for dimension reduction, and the beneﬁt of constructing the 
+deep feedforward networks lies in that it creates a direct connection between the system input and latent variables. With 
+the capability of estimating the latent variables for any system input, the DFN can be used for reconstructing the latent space 
+without incurring extra evaluations of the system responses. With the HDDA framework, different methods can be utilized to 
+approximate the limit state in the reconstructed latent space, such as support vector machine, Gaussian process modeling, 
+simple neural network, and etc. In the next section, the Gaussian process modeling technique is integrated with the HDDA 
+framework for high-dimensional reliability analysis. 
+3. High-dimensional reliability analysis 
+    Reliability analysis aims at evaluating the probability that engineering system successfully performs its functionalities 
+under uncertainty. The system failure occurs when the limit state function value is less than zero. Therefore, the probability 
+of failure P  is generally expressed as           
+where f x(x ) represents the joint probability density function of the input variables. It is challenging to calculate the proba- 
+bility of failure using Eq. (8) due to multi-dimensional integral, especially for high-dimensional problems. To overcome the 
+challenge due to the high dimensionality, we utilize the autoencoder for reducing the dimensionality of reliability problems, 
+and a deep feedforward network is built for estimating latent variables based on the system input. With the training pairs 
+including input locations X and the performances Y , we introduce a low-dimensional latent space and build an approxima- 
+tion g(he) of the original limite state function G(x ), which can be expressed as                                                                                                                                                                       
+where nn(.) is the constructed DFN, which is used as a link function that maps the original input x to the latent variables h  , 
+and g(he) is the limit state function in the latent space. Though the usage of the autoencoder is not directly shown in the 
+equation, it plays a critical role in constructing the deep feedforward network as introduced in Section 2. According to Eq. 
+(9), the dimensionality of the original problem is reduced, where the original limit state function G(x ) can be approximated 
+by the limit state function g(he) in the latent space. Therefore, the probability of failure P can be estimated as                                                                                                                     
+     Sampling-based methods such as Monte Carlo simulation (MCS) can be used to approximate the probability of failure as 
+where X  represents the failure region in the latent space, E[.] is the expectation operator, and the indicator function I (h  ) is 
+     As shown in Eqs. (9)–(12), the system reliability can be approximated based on the limit state function g(h  ) in the latent 
+space. A set of training data is ﬁrst collected for constructing the autoencoder and DFN in the HDDA framework, and then the 
+Gaussian process modeling technique is adopted for building a surrogate model to predict system responses based on the 
+latent variables. By employing the MCS method, a large number of MCS samples are generated according to the statistical 
+information of the original high-dimensional system input x. Then the DFN is utilized for achieving the estimated latent vari- 
+ables corresponding to each MCS sample. The GP model is used for classifying the estimated latent variables based on Eq. 
+(12). As a result, an estimation of the probability of failure P  can be obtained as the ratio between the number of failure sam-               
+ples and the the total number of MCS samples. The integration of HDDA and GP model is denoted as HDDA-GP in this paper, 
+which will be introduced in subsection 3.1. To improve the accuracy of reliability assessment, a new distance-based sam- 
+pling strategy will be introduced in subsection 3.2, while the overall numerical procedure of employing HDDA-GP frame- 
+work for high-dimensional reliability analysis is covered in subsection 3.3. 
+3.1. GP modeling in latent space 
+     Gaussian process (GP) modeling is known as a typical nonparametric regression technique, and it has been widely applied 
+in engineering applications due to its robustness and efﬁciency. In this paper, the GP modeling technique is employed to con- 
+struct a surrogate model for the limit state function in the latent space. For the GP model, the training data set is given as ht 
+and Y , where h= [h  , h  , . . .,h ] represents the actual latent variables that directly obtained from the autoencoder, and Y                                          is 
+the corresponding actual system responses with white noise. The noise is considered as a normally distributed random vari- 
+able with zero mean and standard deviation r . Therefore, the limit state function in the latent space g(h ) can be modeled as 
+a Gaussian process, which is expressed as 
+     As shown in Eq. (13), a Gaussian process model is completely deﬁned by its mean function l(h ) and covariance function R                   
+(h , h ) that characterizes the correlation between the responses at points h and h . In this paper, the mean function is set to 
+zero while the squared exponential covariance function is adopted and formulated as 
+where  P  is a diagonal matrix of an unknown parameter x . Therefore, two hyperparameters are involved in the squared 
+exponential covariance function as shown in Eq. (14), where a represents the signal standard deviation, and x represents 
+the  length-scale.  With  the  consideration  of  the  noise  r ,  one  can  write  the  joint  distribution  of  the  training  output  and 
+the response prediction at any input he0 as 
+where R(.,.) represents the covariance matrix obtained based on Eq. (14). By providing the training data, the Gaussian like- 
+lihood function can be maximized to estimate the hyperparameters. After evaluating all the hyperparameters, the GP model 
+is capable of predicting the system response given any latent variable he. The response prediction follows a normal distribu- 
+tion, where the prediction mean and variance are given as 
+where r is the correlation vector between the existing training points and the input h  , In this paper, the Gaussian Process for 
+Machine Learning (GPML) toolbox [50] is utilized for building the GP model. 
+     With the capability of estimating the system responses for any estimated latent variables, the system reliability can be 
+approximated by employing the Monte Carlo simulation method. Assuming N random realizations of the original input vari-                                    
+able x  have  been  generated  according  to  the  input  randomness,  denoted  as Xm = [xm,1, xm,2,  . . ., xm,N ],  the  corresponding 
+latent   variables  hem = [h1em,  h2em,        . . .,  hNem ] can  be   approximated    by   utilizing   the   HDDA      framework.  Then    the   system 
+responses that correspond to Xm can be estimated by providing the estimated latent variables hem  to the constructed GP 
+model, where the safe and failure samples can be classiﬁed by                
+    After predicting the responses for all the latent variables in  hem  the system reliability can be easily obtained in MCS, 
+which is expressed as          
+    Note that no additional function evaluations are required since the GP model can be constructed based on the initial train- 
+ing data and the HDDA framework. In the next subsection, a new adaptive learning scheme will be introduced to iteratively 
+indentify new sample points for updating the reliability approximations. 
+3.2. Iterative sampling strategy 
+    In  the  HDDA  framework,  the  latent  variables  for  any  realization  of  the  origin  high-dimensional  system  input  can  be 
+approximated by using the constructed deep feedforward network. However, these estimated latent variables may be inac- 
+curate due to the lack of training data. As a result, signiﬁcant errors can be introduced when assessing the system reliability 
+using  the  estimated  latent  variables  for  response  predictions.  To  ensure  the  accuracy  of  reliability  estimation,  additional 
+samples are required for both deep feedforward network and the GP model as 1) the ﬁdelity of the DFN needs to be enhanced 
+for  accurately  estimating  the  latent  variables,  and  2)  the  GP  model  needs  to  be  updated  for  improving  the  accuracy  of 
+response prediction given the latent variables. To smartly allocate the computational recourses, a new sampling approach 
+is developed to iteratively identify critical samples and update both the DFN and GP models. 
+    Given the initial training data set, the autoencoder will be ﬁrst trained to transform the high-dimensional data [X , Y  ] into 
+the latent space for obtaining the latent variables. The resultant latent variables are then utlized to build the deep feedfor- 
+ward network for estimating the latent variables of any system input. To enhance the ﬁdelity of the DFN and GP models for 
+reliabiltiy learning, a distance-based sampling criterion is proposed to iteratively identify critical training samples for model 
+updating. As shown in Fig. 5, the new additional sample can be located based on the distance between the new sample point 
+and existing training samples in the latent space, which is expressed as 
+where hiem  represents the ith estimated latent variable that corresponds to the MCS sample xm,i, and d(.) is a function that 
+calculates the minimum distance between hiem  and all the existing training sample points, expresses as 
+where h  represents thej th actual latent variables that obtained from the autoencoder, n represents the total number of train-       
+ing samples. For each sample point in latent space, Eq. (21) is utilized to calculate the minimum distance, and then the h* 
+with the maximum d value will be selected as the critical sample according to Eq. (20). After determining the h*, the corre- 
+sponding MCS sample x* can be identiﬁed, and the system response y * will be evaluated for updating the current training 
+data set. Then the actual latent variable h * that corresponding to [x* y *] can be obtained by using the autoencoder. Conse- 
+quently, the deep feedforward network and GP model will be updated by using the new training data set. By iteratively per- 
+forming the updating process, the additional sample points are ensured to be sparsely located, which can effectively capture 
+the shape of the actual latent pattern and thus improve the accuracy of the reliability approximations. The iterative updating 
+process will be repeated until the maximum distance uc = d(h*) meets a user-deﬁned criteria, which makes sure that addi- 
+tional samples will not be located near to the existing samples as they may provide less information for improving the accu- 
+racy  of  the  DFN  model.  At  each  iteration,  a  smooth  distance  measure  u  is  calculated  based  on  the  iterative  maximum 
+distances uc  for compensating the noise, and the stopping criterion at the kth  iteration is proposed as 
+    The adatpive learning process will be terminiated once the stoping criterion is satisﬁed. The reliability inforamtion can be 
+obtained from MCS based on the updated DFN and GP models. 
+3.3. Numerical procedure 
+    The procedure of employing the proposed HDDA-GP approach for high-dimensional reliability analysis is summarized in 
+Fig. 6. According to the randomness of the original high-dimensional input variable x, N MCS samples are generated as Xm = 
+[x    , . . ., x  ], and n training samples are generated as X = [x  , . . ., x ]. The system responses of the training samples are 
+evaluated as Yt = [y 1, . . ., y n ], then the fused training data D including both the training inputs Xt  and the responses Yt  is uti- 
+lized to train the failure-informed autoencoder as introduced in Section 2. As a result, the dataset D is transformed into the 
+latent space, and the corresponding latent variables h = [h  , . . ., h ] can be obtained as the output of the encoder. By treating 
+Xt  as the input and ht  as the output, a deep feedforward neural network can be constructed accordingly, and a GP model can 
+be built for predicting system responses as introduced in subsection 3.1. To predict the system reliability, the MCS samples 
+are ﬁrst provided to the DFN, and the estimated latent variables hem  can be obtained consequently. Based on the estimated 
+latent variables, the GP model is utilized for predicting the system responses, and then the system reliability can be approx- 
+imated by using Eq. (19). For each MCS sample, the value of the minimum distance in Eq. (21) is evaluated, and the sample 
+point with the maximum value will be selected as the critical sample point. After evaluating the system response at the crit- 
+ical sample point, the new data will be added into the training data set and the corresponding new training latent variable 
+can be obtained by using the autoencoder. Based on the updated training data set X , Y and h , the deep feedforward neural 
+network     and    the  GP   model     will  be   reconstructed,      respectively,    and   then    reliability   approximation  can   be   updated 
+accordingly. By employing the proposed sampling approach, the HDDA-GP method will be iteratively performed until the 
+stopping criterion is satisﬁed. 
+4. Case studies 
+    In  this  section,  three  high-dimensional  problems  will  be  utilized  to  test  the  performance  of  the  proposed  HDDA-GP 
+approach. For the antoencoder, the dimension of the latent layer is set to two without hidden layers while the deep feedfor- 
+ward network contains two hidden layers with 20 neurons per layer. 
+4.1. Case study I: A 20D Mathematical Example 
+    In the ﬁrst case study, a 20D mathematical problem is formulated as 
+where all the random variables are assumed to follow a normal distribution with mean 3.41 and standard deviation 0.2. 
+Starting with 100 initial training samples, the HDDA-GP approach is employed for estimating the reliability. As introduced 
+in subsection 3.3, the autoencoder is ﬁrst trained by integrating both the system inputs and responses as training pairs, and 
+then the latent variables that correspond to the training pairs can be obtained through the encoder. Fig. 7 shows the 100 
+training  points  in  the  latent  space.  Moreover,  Fig.  7  depicts  the  actual  latent  pattern  that  obtained  by  directly  providing 
+the MCS samples and their corresponding actual responses into the autoencoder. It shows that the safe and failure samples 
+are separately located within the [0, 1] domain, and a clear failure surface can be observed. After constructing the autoen- 
+coder, a deep feedforward neural network with two hidden layers can be constructed based on the original system input and 
+the obtained latent variables. By using the MCS method, 105 samples are generated according to the randomness of the input 
+variables, and the DFN is utilized for estimating the latent variables. To approximate the limit state function in the latent 
+space, a GP model is built to predict the system response of any latent variables. At each iteration, the best training sample 
+that identiﬁed by Eq. (20) is selected for updating the DFN and GP models. The iterative updating process stops after 57 iter- 
+ations  to  approximate  the  reliability  as  0.9569.  Compared  with  the  accurate  reliability  0.9658  evaluated  by  direct  MCS 
+method, the error of the reliability estimation is computed as 0.922%. 
+    The iterative history of reliability estimation is depicted in Fig. 8, where the accurate reliability assessment that obtained 
+using direct MCS is represented by the red dashed line. Initially, the reliability estimation lacks accuracy due to the lack of 
+training data. By iteratively adding critical training samples for updating both the DFN and the GP models, the reliability esti- 
+mations tend to converge to the accurate value, which demonstrates the effectiveness of the proposed distance-based sam- 
+pling strategy. As shown in Fig. 9, the smooth distance u converges during the iterative updating process. The results clearly 
+indicate that the minimum distance between the critical sample and the existing samples decreases along with the updating 
+process. The 20D problem is also solved by using FORM, where 126 function evaluations are requried and the estimated reli- 
+ability is given as 0.9862. The relative error between reliability estimation using FORM and accurate reliability is computed 
+as 2.111%. The result shows that HDDA-GP method can provide a more accurate reliability estimation compared to the FORM 
+while  maintaining  the        relative   same   level   of  efﬁciency.  To    visualize  the    effectiveness     of  the  distance-based      sampling 
+strategy, Fig. 10 shows the comparison of the reconstructed latent pattern at the 1st and last iteration. When the DFN is 
+constructed using the 100 initial training data, huge differences between the actual (Fig. 7) and reconstructed latent patterns 
+can be observed, which reveals that the initial deep feedforward neural network is not capable of providing accurate esti- 
+mations of the latent variables. After adding 57 critical training samples, the reconstructed latent pattern obtained at the last 
+iteration is very close to the true one. As a result, the accuracy of reliability estimation is gradually improved due to the iter- 
+atively updating process. 
+4.2. Case Study II: A 40D Mathematical Example 
+   In this case study, a limit state function that consists of 40 independent random variables is considered for testing the 
+performance of the proposed approach, which is given as 
+where all the random variables are assumed to follow normal distributions with mean 1.4 and standard deviation 0.8. To 
+solve this problem, 200 initial samples are ﬁrstly generated according to the statistical information of the random variables, 
+and the corresponding responses are directly evaluated using Eq. (24). Based on the 200 initial training data, an autoencoder 
+and a deep feedforward neural network are constructed as introduced in Section 2. Then the GP model is built based on the 
+latent variables and the evaluated responses. By employing the HDDA-GP approach, 60 additional samples have been iden- 
+tiﬁed during the iterative updating process. As a result, the reliability approximation is achieved as 0.9841 while the total 
+number of function evaluations is 260. 
+    By  evaluating  the  actual  responses  of  the  105      MCS  samples,  the  corresponding  actual  latent  variables  can  be  directly 
+obtained by using the autoencoder. A 3D plot of the actual latent space is depicted in Fig. 11, where the z-axis represents 
+the evaluated system responses. With the failure-informed autoencoder, the actual latent variables with positive and neg- 
+ative responses can be clearly distinguished, and a failure surface is obviously observed. Thus, the results demonstrate the 
+beneﬁt of adopting the failure related information for dimension reduction. To illustrate the effectiveness of 1) using the DFN 
+for reconstructing the latent space, and 2) the distance-based sampling strategy, Fig. 12 compares the actual and estimated 
+latent patterns at the 1st iteration, including the 2D plots of the latent variables versus the estimated responses. After adding 
+60  critical  training  samples,  the  estimated  latent  variables  as  well  as  their  corresponding  predicted  responses  have  con- 
+verged to the actual one as shown in Fig. 13. 
+    For comparison purpose, the AK-MCS approach [30] and FORM are adopted for solving the same reliability analysis prob- 
+lem. For the AK-MCS, 200 initial training samples are used to train the Kriging model, and the ﬁnal reliability approximation 
+0.9851 is obtained after 316 iterations. By using the FORM algorithm, the reliability estimation is provided as 0.9999 with 
+287 function evaluations. The accurate reliability that obtained by directly using 105 MCS samples is given as 0.9852. There- 
+fore,  the  relative  errors  for  the  reliability  approximation  using  HDDA-GP,  AK-MCS  method  and  FORM  are  calculated  as 
+0.112%,  0.01%,  and  1.492%,  respectively.  Though  the  AK-MCS  approach  can  provide  very  accurate  reliability  estimation, 
+the number of function evaluations is nearly doubled compared to the proposed approach. Moreover, due to the increased 
+number of training data, the Cholesky decomposition of the covariance matrix in AK-MCS may fail. Compared to FORM, the 
+proposed approach can provide much more accurate results with the similar level of computational costs. 
+    To demonstrate the robustness of the proposed approach, the performance has been tested for different reliability levels. 
+By changing the mean value of the input variables 1.55, the reliability is evaluated by direct MCS as 0.8584. By employing the 
+HDDA-GP approach with 200 initial training samples, a reliability estimation 0.8678 is achieved after 54 iterations, where 
+the convergence of the maximum distance u is shown in Fig. 14. In Fig. 15, the locations of all the 54 critical training samples 
+that identiﬁed by the distance-based sampling strategy are presented using the ‘‘star” symbol, where all the estimated latent 
+variables hem  are marked as black cross. 
+4.3. Case study III: A truss structure 
+    In this case study, the proposed approach is applied for estimating the reliability of a truss structure. As shown in Fig. 16, 
+the truss consists of 16 bars while each bar has the identical length 30 cm. Three external load F  , F  , and F  has been applied       
+on the 2nd, 7th and 8th nodes along the horizontal direction, respectively, while the 1st, 3rd, and 5th nodes are ﬁxed on the 
+ground. In this example, the cross-section area and the Young’s modulus for each bar are independent random variables. 
+Therefore, 35 normally distributed random variables are involved and the associated statistical information is provided in 
+Table  1.  A  ﬁnite  element  model  is  developed  for  the  truss  structure  to  compute  the  displacement  along  the  horizontal 
+and vertical direction for all the nodes. The limit state function for this problem is then formulated as 
+    where x represents the vector of the 35 random variables, and the function dFEA_max(.) represents the maximum displace- 
+ment that evaluated by the ﬁnite element analysis. According to Eq. (25), the system failure occurs if the maximum displace- 
+ment is larger than a threshold, which is predeﬁned as 0.0175 cm in this study. 
+    For reliability analysis, 105  MCS samples are generated according to the randomness of the input variables, and accurate 
+reliability that directly evaluated based on the ﬁnite element method is calculated as 0.9784. By using the proposed HDDA- 
+GP  approach,  175  initial  training  data  is  utilized  for  this  35D  problem,  where  the  corresponding  responses  of  Eq.  (25)  is 
+directly evaluated using the ﬁnite element model. During the updating process, the distance-based sampling strategy iden- 
+tiﬁed 66 critical samples for reﬁning the DFN and the GP models. Therefore, the total number of function evaluations is 241 
+and the ﬁnal reliability estimation is given as 0.9800. 
+    The position of the 66 critical samples in the latent space is shown in Fig. 17. Due to the distance-based sampling crite- 
+rion, the additional critical samples are sparsely located around the boundary of the pattern, which helps the deep feedfor- 
+ward network to provide more accurate estimations of the latent variables. By evaluating the actual responses of the 105 
+MCS samples, the actual latent variables can be obtained by providing both the system input and output to the autoencoder. 
+The comparison of the actual and estimated latent space at the last iteration is shown in  Fig. 18. Note the safe and failure 
+samples in the estimated latent space are classiﬁed using the predicted responses from the GP model. The results show that 
+the pattern of the estimated latent variables is close to the actual one. 
+5. Conclusion 
+    In  reliability  assessment  of  large  scale  engineering  applications,  the  limit  state  functions  are  often  speciﬁed  in  high- 
+dimensional forms. This paper presents a new approach of utilizing deep learning techniques to tackle the curse of dimen- 
+sionality  in  reliability  analysis,  where  the  autoencoder,  deep  feedforward  network,  and  Gaussian  process  modeling  have 
+been actively integrated into a HDDA-GP framework. With the failure-informed autoencoder, the high-dimensional prob- 
+lems can be ﬁrst converted into a low-dimensional latent space, and then the accuracy of the reconstructed latent pattern 
+and the reliability estimations will be iteratively improved by utilizing the proposed distance-based sampling strategy. This 
+work  is  an  early  step  towards  utilizing  deep  learning  techniques  for  reliability  analysis  and  design  optimization  of  high 
+dimensional engineering applications. Future studies will be focused on the optimization of the architecture of the deep net- 
+works, which may improve the accuracy of reliability estimations as well as reduce the computational costs. 
+6. Replication of results 
+    In this section, the implementation details of the proposed approach will be provided for the ﬁrst case study. The proce- 
+dure of employing the HDDA framework is summarized in Algorithm 1, where two stages are used to describe the overall 
+process.  In  stage  I,  100  initial  training  samples  are  ﬁrst  generated  according  to  the  randomness  of  the  input  variables 
+x1 ~ x20. Then the corresponding system response data Yt  is collected based on the limit state function G(x ). A partial data 
+of the initial training dataset D  is recorded in Table 2. For the architecture of the autoencoder, the number of neurons in 
+the  latent  layer  is  set  to  2  without  involving  any  hidden  layers.  There  are  four  layers  in  the  deep  feedforward  network, 
+including one input layer, two hidden layers, and one output layer, and the size of each layer is given as [20, 20, 20, 2]. In 
+case study I, the number of MCS samples N is set to 105. At the end of stage I, the autoencoder is trained for dimension reduc- 
+tion, where the mean squared error function with L2 regularization is adopted as the loss function. The scaled conjugate gra- 
+dient descent algorithm is used to train the autoencoder, where the minimum performance gradient is set to 1e6. Though 
+there are multiple choices for the activation function, the ‘‘sigmoid” function is adopted in both the autoencoder and feed- 
+forward neural network. 
+    In stage II, the algorithm will enter into a loop, where the feedforward network will be iteratively updated by additional 
+training samples. First, the current training data D is provided to the trained autoencoder for generating the corresponding 
+latent variables ht. Then the training input Xt and the latent variables ht are used to train the deep feedforward network, 
+where the Levenberg-Marquardt backpropagation is selected as the training algorithm and the mean squared error is set 
+as the loss function. At last, a GP model is trained based on the input h and output Y . To conduct the reliability analysis, 
+each MCS sample will be provided to the DFN for obtaining the estimated latent variables hem, which will be further utilized 
+in the GP model to compute the response approximation  mGP(.). Then the MCS sample will be classiﬁed as failure or safe 
+based on Eq. (18), and this procedure will be repeated until all the MCS samples have been classiﬁed. As a result, the system 
+reliability can be estimated by using Eq. (19). Based on Eqs. (21) and (20), the critical sample point x* can be identiﬁed within 
+the MCS sample pool. The stopping criterion in Eq. (22) determines if the loop should be stopped. If not, a new training data 
+will be used to update the data set X and Y , respectively, and the algorithm in stage II will be repeated until the stopping 
+criterion is satisﬁed. 

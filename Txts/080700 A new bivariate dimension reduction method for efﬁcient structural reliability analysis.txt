@@ -1,0 +1,349 @@
+﻿                 A new bivariate dimension reduction method for efﬁcient structural reliability analysis 
+ABSTRACT 
+           This  paper  presents  a  new  bivariate  dimension  reduction  method  (BDRM)  for  statistical 
+            moments  evaluation  and  structural  reliability  analysis  with  accuracy  and  efﬁciency.  A 
+          high-order unscented  transformation (HUT)  is introduced  to   evaluate     the   two- 
+          dimensional integrals involved in BDRM, and the free parameter involved in HUT is sug- 
+         gested.  In  this  regard,  the  proposed  BDRM  can  be  formulated  accordingly  for  statistical 
+         moments  assessment.  Then, the performance function’s probability density function         (PDF) is reconstructed by the shifted generalized lognormal distribution (SGLD) with the 
+         available statistical moments as constraints. Thus, the failure probability can be straight- 
+         forwardly  obtained  by  a  simple  integral  over  the  PDF.  The  proposed  method  is  veriﬁed 
+         by ﬁve numerical examples, including linear and non-linear, explicit and implicit perfor- 
+         mance functions. Besides, some other existing methods are also employed to demonstrate 
+          the advantages of the proposed method. It is found that the proposed method can keep the 
+           trade-off of accuracy and efﬁciency for structural reliability analysis. 
+1. Introduction 
+    The    primary  problem in structural reliability analysis is  to evaluate the failure probability, which is essentially a 
+multi-dimensional integral deﬁned by [1,2] 
+where Pf denotes the failure probability; X ¼ ½X 1 ;X 2 ; ;X n is the vector collecting all n basic random variables involved in 
+structural  properties  and  loading  conditions,  such  as  material  properties,  sectional  dimensions  and  external  loads,  etc.; 
+ is the performance function or the limited state function; denotes the failure domain in the basic                                                                                
+random-variate space; and pX ðx Þ is the joint probability density function (PDF) of X. Although this deﬁnition is quite simple, 
+difﬁculty still arises since the analytical solution of Z  ¼ G X   is usually unavailable except for some special cases due to the 
+high nonlinearity and a large number of random variables involved in practical problems. This difﬁculty has motivated var- 
+ious approximation techniques proposed and developed for structural reliability assessment over the past several decades. 
+Generally, three categories of methods could be found. 
+    Sampling-based simulation methods are widely used for evaluating the failure probability, which can be classiﬁed under 
+the ﬁrst category. It is well-known that the crude Monte Carlo simulation (MCS) [3] can provide accurate results if sufﬁcient 
+number of samples are employed. However, the computational effort could be prohibitively large when the small failure 
+probability (i.e. Pf  6 103 ) is of concern and a time-consuming model evaluation is involved. In this regard, it is merely used 
+as a benchmark method to check the accuracy of newly developed methods. Although various improvements such as the 
+Importance Sampling [4–6], Directional Sampling [7,8], Subset Simulation [9], Line Sampling [10,11] and Asymptotic Sam- 
+pling [12] etc. have been developed to further enhance the efﬁciency of the crude MCS, these methods may still require con- 
+siderably large computational time to obtain results with reasonable accuracy. 
+    To  decrease  the  computation  burden,  another  route  named  surrogate  model  based  methods  has  attracted  increasing 
+attention for structural reliability analysis. They aim at building a simpliﬁed explicit mathematical form in place of the orig- 
+inal performance function,  thus the computational effort could  be  greatly reduced. Some  representative  surrogate model 
+based methods, e.g. response surface method [13–15], polynomial chaos expansion[16–18], Kriging methods [19–21], arti- 
+ﬁcial neural networks [22–24], support vector machines [25–27], have been widely applied in structural reliability analysis. 
+Nevertheless, it is usually quite difﬁcult to quantify the error of using a surrogate model to substitute the original perfor- 
+mance function [28]. 
+    Moment methods can be classiﬁed under the third category for structural reliability analysis. Among them, the ﬁrst-order 
+reliability method (FORM) and second-order reliability method (SORM) [2] are regarded as the most popular methods in the 
+past several decades. The FORM or SORM is based on the ﬁrst- or second-order Taylor expansions of the performance func- 
+tion at the most probable point (MPP). Thus, a derivative-based iterative search process is required to locate the MPP. Though 
+the FORM or SORM can give reasonably accurate results for some practical problems, numerical difﬁculties in the MPP search 
+and inaccuracies could be encountered when the nonlinear implicit performance function is considered [29]. The derivative- 
+based moment methods also include the perturbation method [30–33], Neumann expansion [34,35] and so on. On the other 
+hand, the derivative-free moment methods are of great interest for structural reliability analysis, where a ﬁnite number of 
+statistical moments are ﬁrst evaluated and then the reliability can be derived based on these moments. In this regard, the 
+evaluation of statistical moments, which involves multi-dimensional integrations, plays an important role to the accuracy 
+and  efﬁciency  for  reliability  considerations.  Although,  several  methods,  e.g.,  the  tensor  product  method  [36],  sparse  grid 
+method [37], cubature formulation [38,39], and quasi-symmetric point method [40–42] have been developed for this pro- 
+pose, the method which can keep the trade-off of accuracy and efﬁciency for moments evaluation, is still of great interest. 
+    The dimension reduction method (DRM) [43,44] is another attractive method for moments evaluation, since it transforms 
+a multiple-dimensional integration to be several low-dimensional integrations for moments evaluation. Therefore, the dif- 
+ﬁculty of computing a multi-dimensional integration can be avoided to some extent. The present study is speciﬁcally inter- 
+ested in the DRM. The univariate dimension method (UDRM) [43] and the eigenvector UDRM [45] could be the most popular 
+ones,  which    require   considerably     few   performance     function   calls  since   only  several   one-dimensional      integrations    are 
+involved.  However,  for  the  high-order  moments  evaluation  of  strongly  nonlinear  performance  functions,  it  is  found  that 
+those  UDRMs  may  be  inadequate  due  to  two-  and  other-higher  dimensional  integrations  contained  in  the  residual  error 
+[38,44].  Alternatively,  a  multiplicative-univariate  dimensional  reduction  method  (M-UDRM)  is  proposed  in  [46] for  frac- 
+tional raw moments estimation, which is proved to be quite efﬁcient and accurate for moderate nonlinear performance func- 
+tions.  Nevertheless,  it  still  may  not  be  adequate  for  the  high-order  central  moments  evaluation  of  a  highly  nonlinear 
+performance function since this method is UDRM in essence. To improve the accuracy, the bivariate dimension reduction 
+method (BDRM) can be employed [44,47,48], which only includes several two-dimensional and one-dimensional integrals. 
+It is known that, some transformations, e.g., the Rosenblatt or Nataf transformation, can be used to transform the original 
+random  variables  into  independent  standard  normal  variables.  In  this  regard,  only  Gaussian-weighted  integrals  need  to 
+be  considered.  In  literatures,  the  Gauss-Hermite  integration  (GHI)  scheme  is  widely  adopted  to  deal  with  the  one-  and 
+two-dimensional integrals involved in BDRM [44,49–51]. However, a large number of points are actually required in BDRM 
+to achieve a satisfactory accuracy. For example, if the ﬁve-point GHI scheme is applied, a total of 25 points are involved in 
+one two-dimensional integral due to the tensor product rule, which may result in computationally expensive efforts for a 
+performance  function including multiple  variables. Hereafter, this  BDRM  is  referred to  as  the  original BDRM. In  contrast, 
+the  three-point  GHI  scheme,  which  is  denoted  as  GHI2,  may  be  efﬁcient  since  only  9  points  are  needed  in  one  two- 
+dimensional     integral.  Unfortunately,     it may    lead  to  much    larger  errors   than   the  ﬁve-point    GHI   scheme    for  the  two- 
+dimensional integrals involved in BDRM. In this regard, the improvements on the efﬁciency of the original BDRM or the accu- 
+racy of the BDRM with GHI2 could be of great necessity. In the present paper, a new BDRM, which can keep the tradeoff of 
+accuracy and efﬁciency, is  established  based on  employing a  high-order unscented transformation (HUT)  scheme  [52] to
+evaluate the two-dimensional integrals involved in BDRM. It will be found that the proposed method is as efﬁcient as the 
+BDRM  with  GHI2,  however,  it  is  much  more  accurate  and  robust  than  that.  Besides,  compared  with  the  original  BDRM, 
+the proposed method is able to capture almost the same accuracy for moments estimation with much fewer deterministic 
+calculations. 
+    Once the ﬁrst-four moments of the performance function are calculated by the proposed BDRM, a versatile distribution 
+model named the shifted generalized lognormal distribution (SGLD)  [53], which has a rich ﬂexibility in shape and nearly 
+encompasses the entire skewness-kurtosis permissible for unimodal densities, is ﬁtted to recover the performance function’s 
+PDF. Then, the failure probability can be obtained by a simple integral over the PDF. The rest of the paper is organized as 
+follows. In Section 2, the proposed BDRM for statistical moments evaluation of the performance function is detailed. The per- 
+formance function’s PDF is reconstructed by the SGLD based on the ﬁrst-four moments in Section 3. Section 4 gives the fail- 
+ure  probability  by  a  simple  integral  over  the  PDF.  Various  numerical  examples  are  investigated  to  verify  the  proposed 
+method  for  moments  evaluation  and  failure  probability  assessment  in  Section  5.  Concluding  remarks  and  the  problems 
+needed to be further studied are summarized in the ﬁnal Section. 
+2. Proposed bivariate dimension reduction method 
+2.1. Problem formulation 
+    The ﬁrst-four central moments, i.e., the mean l , standard deviation r , skewness c  and kurtosis j , of the performance 
+function Z  ¼ G X are  usually  concerned  for  the  derivate-free  moments  method  based  reliability  analysis,  which  can  be 
+deﬁned as 
+where pX ðx Þ is the joint PDF of input random vector X. 
+    Since the analytical solutions to Eqs. (2)–(5) above are practically impossible, the numerical approximation methods are 
+of great necessity. For simplicity, the following multi-dimensional expectation integrals (raw moments of Z ) could be eval- 
+uated ﬁrst         
+where E ½ denotes the expectation. 
+    It is known that the integration in Eq. (6) can be transformed from the original random variate space into the standard 
+normal space such that 
+where T ðÞ denotes the Rosenblatt transformation or Nataf transformation, which transforms the non-normal random vector 
+X    to   be    independent        standard       normal      one    H ¼ ½H  ; H  ;    ; H      (n   is   the    number       of   random       variables); 
+    The bivariate dimension reduction method (BDRM) can be used to approximate the above raw moments of Z  such that [44] 
+    It  should    be   mentioned      that   the   BDRM      can   additively    decompose       the   multi-dimensional         integrals    in  Eq.  (7)   into 
+C2  ¼ ðn1Þðn2Þ  two-dimensional integrals and n one-dimensional integrals, thus alleviates the difﬁculty of direct calculating 
+the   multi-dimensional  integrals    to   some    degree.     In  this   regard,   the   computations        of  the   following     two-    and    one- 
+dimensional integrals involved in Eq. (8) are of main concern, i.e. 
+actually of great interest. The total number of deterministic performance function evaluations is [54] 
+where D and d denote the number of integration points for each two- and one-dimensional integral, respectively. If the origin 
+is contained in both two- and one-dimensional integrations, the number of function evaluations is reduced to be 
+    Originally, the ﬁve-point Gauss-Hermite integration (GHI) scheme can be employed to deal with the integrals involved in 
+Eqs. (9) and (10). However, it is noted that a large number of points could be necessary in the original BDRM. For example, 
+when n ¼ 10 is considered, a total of 1121 deterministic function evaluations are needed to be carried out by the original 
+BDRM  (d ¼ 5; D ¼ 25).  Although  the  accuracy  of  the  original  BDRM  is  quite  satisfactory  in  many  practical  problems,  the 
+expensive  computational  effort  may  prohibit  its  applications.  On  the  contrary,  the  BDRM  with  three-point  GHI  (GHI2) 
+scheme  [44,49–51] could  be  efﬁcient  since  only  3  integration  points  and  9  integration  points  are  involved  in  each  one- 
+and  two-dimensional  integration,  respectively.  Likewise,  when  n ¼ 10,  only  381  function  evaluations  are  required  to  be 
+implemented for  the  same  problem  (d ¼ 3; D ¼ 9).  Nevertheless,  the  BDRM  with  GHI2  scheme may  produce  results  with 
+much less accuracy compared with the original BDRM. To circumvent the paradox, a high-order unscented transformation 
+(HUT) [52] will be introduced to evaluate the two-dimensional integrals involved in BDRM. 
+2.2. High-order unscented transformation     A high-order unscented transformation (HUT) [52] which can capture the high-order moments of input random variables, 
+was developed for the purpose of nonlinear estimation in Kalman ﬁlter. In other words, the HUT can be used to estimate the 
+high-order moments of output variables [55]. The basic idea of HUT is to carefully choose a set of points (called the sigma 
+points) and the corresponding weights to match the high-order moments of input variables, then, the moments of output 
+variables can be estimated by the weights and nonlinear transformation of the sigma points [56]. Thus, the HUT could pro- 
+vide a new insight to evaluate the integrals in BDRM. 
+    Consider the independent standard normal vector H  Nð0; IÞ, three types of symmetrically located sigma points and their 
+weights  are  involved  in  HUT  to  match  the  ﬁrst-four  principal  moments  at  least.  The  ﬁrst  type  consists  of  a  single  point 
+located on the origin with the weight X  . The second type contains 2n points lying on the coordinate axis with the same dis-           
+sigma points and weights are not presented herein. The interested readers can refer to Ref. [52] for details. The three types of 
+sigma points and their weights are given as follows [52]: 
+    It is seen that a free parameter b  is involved in Eqs. (13)–(15), which is related to the accuracy of HUT to capture the 
+moments of input variables. Speciﬁcally, the HUT scheme can match the ﬁrst-four principal moments at least, and it can even 
+reach the sixth principal moments by special choosing the free parameter b for 2 6 n 6 3. 
+    It is noted  that   the  aforementioned      HUT    scheme  is   quite   simple   to  implement     to  evaluate  the   multi-dimensional 
+Gaussian-weighted  integrals.  In  this  study,  the  one-  and  two-dimensional  integrals  are  of  great  concern  for  enchancing 
+the conventional BDRM. When n ¼ 1, the above scheme is coincidentally reduced to be the GHI2, in which only 3 integration 
+points are contained. When n ¼ 2, the HUT contains 9 sigma points, which are different from the integration points in GHI2 
+for a two dimensional case. Speciﬁcally, when b ¼ 4, the HUT can reduce to be the GHI2 scheme. This reveals that the HUT in 
+two  dimension  is  much  more  ﬂexible  and  extensive  than  the  two-dimensional  GHI2  by  assigning  different  values  for  b. 
+Although the two-dimensional HUT can theoretically capture the ﬁrst-six principal marginal moments of input random vari- 
+ables when b ¼ 0:835 or b ¼ 19:165 [52], the practical performance of these values in HUT for two-dimensional integrals is 
+not quite well. It is well-known that the high-order moments could be related to the distribution tail to some extent. In this 
+regard, some of the points may need to be arranged around the distribution tail to achieve good results. According to com- 
+putational  experiences, b ¼ 7:2  is  recommended  in  HUT  to  evaluate  the  two-dimensional  integrals  in  the  present  paper. 
+Then, the sigma points and weights for the two-dimensional HUT read, 
+    Fig. 1 pictures the sigma points of HUT (b ¼ 7:2) and the integration points of GHI2 in a two dimensional case. It is seen 
+that some sigma points in HUT (b ¼ 7:2) have much larger distances to the origin than those of GHI2, which indicates the tail 
+information may be captured sufﬁciently by the advocated HUT. In this regard, the two-dimensional integral with an arbi- 
+trary integrand may be numerically evaluated with accuracy. Besides, since only 9 points are involved, the two-dimensional 
+integral can be obtained very efﬁciently. 
+2.3. High-order unscented transformation based bivariate dimension reduction method 
+    Since the two-dimensional HUT (b ¼ 7:2) could be able to capture the two-dimensional integrals with accuracy and efﬁ- 
+ciency, this method can be then incorporated into the BDRM to formulate a new BDRM for evaluating the statistical moments 
+of the performance function. As is mentioned, the critical point in BDRM is to numerically evaluate the involved two- and 
+one-dimensional integrals in Eqs. 9,10, which could be evaluated by the advocated HUT such that 
+It is noted that the computational effort of the proposed BDRM is identical to that of the BDRM with GHI2. It’s anticipated 
+that the accuracy of the proposed BDRM for estimating the high-order moments could be much better since the sigma points 
+are arranged near the tail region. Besides, the proposed BDRM can signiﬁcantly reduce the required number of points com- 
+pared with that of the original BDRM. 
+    Once the ﬁrst-four statistical moments are available, a PDF model needs to be ﬁtted to recover the entire distribution of 
+the performance function based on those moments. 
+3. PDF evaluation of the performance function 
+    In order to recover the performance function’s PDF with the available ﬁrst-four moments, a four-parameter PDF model 
+named the shifted generalized lognormal distribution (SGLD), which has been developed recently in Ref.  [53], is adopted. 
+The SGLD model with an explicit analytical expression reads  [53] 
+    It should be emphasized that the reasons why the SGLD model is a proper choice to recover the performance function PDF 
+are that [53]: (1) it has a rich ﬂexibility in shape and nearly encompasses the entire skewnees-kurtosis permissible for uni- 
+modal densities (see Fig. 2); (2) it can reduce to several common distributions, including the important normal and lognor- 
+mal distributions; (3) the involved parameters can be easily computed from the moments. 
+    To obtain the four parameters in SGLD with the ﬁrst-four moments evaluated by the proposed BDRM, the raw moments of 
+Y ¼ ðZ  bÞ=tshould be given ﬁrstly [57] 
+from which the central moments of Y, i.e., the mean l  , the standard deviation r , the skewness c and the kurtosis j  , can 
+be obtained without difﬁculty. 
+    Once  the  shape  parameters  d  and  r  are  ﬁxed,  the  scale  and  location  parameters  can  be  computed  as  t ¼ r =r  and 
+b ¼ lZ    tlY   [53]. In this regard, only the shape parameters d and r need to be determined, which can be given by a nonlinear 
+system of equations such that [53] 
+where u ¼ ½d; r   . The absolute value of cZ       should be used when solving the equations, and the PDF for cZ  < 0 should be mir- 
+rored about z ¼ l . In fact, the mirroring can be equivalently performed through replacing z by 2l  z  on the right-hand- 
+side of Eq. (28) [53]. Many well-developed algorithms can be applied to solve the above equations due to its simplicity, for 
+instance, the Levenberg-Marquardt algorithm, where the initial values take 
+as a guess [53]. Then, the parameters in SGLD can be speciﬁed with the ﬁrst-four moments calculated by the proposed BDRM 
+and the PDF of the performance function can be obtained accordingly. 
+4. Failure probability calculation 
+    Finally, the failure probability can be calculated by a simple integral over the failure domain, i.e. 
+    The steps of the proposed method for structural reliability analysis are outlined as follows: 
+    Step 1: Generate the integration points and weights for the one- and two-dimensional integrals with GHI2 scheme and 
+HUT (b ¼ 7:2) in the independent standard normal random-variate space. 
+    Step 2: Employ the points and weights in Step 1 to formulate a new BDRM to calculate the ﬁrst-four moments, i.e. the 
+mean, standard deviation, skewness and kurtosis, of the performance function by Eqs. (23)–(26). 
+    Step 3: Once the ﬁrst-four moments are available, solve the nonlinear system of equations in Eq. (30) and obtain the per- 
+formance function’s PDF represented by the SGLD model. 
+    Step 4: Finally, calculate the failure probability by Eq. (32). 
+5. Numerical examples 
+    To validate the proposed method, ﬁve numerical examples will be investigated. In each example, the results obtained 
+from  the  proposed  method  are  compared  with  those  of  MCS,  UDRM  (see  Appendix  A),  M-UDRM  (see  Appendix  B),  and 
+the original BDRM, where the integration points and weights for one- and two-dimensional integrations are listed in Table 12 
+and 13. 
+5.1. Example 1 
+    A linear performance function, which represents one plastic collapse mechanism of a one-bay frame  [58] (Fig. 3), is ﬁrst 
+considered 
+where all the random variables X 1   X 6 are statistically independent, lognormally distributed. The statistical information of 
+each variable is listed in Table 1. 
+    The statistical moments of the performance function are calculated by the proposed BDRM. Besides, the aforementioned 
+methods, i.e. UDRM, M-UDRM, original BDRM and BDRM with GHI2 scheme, are also employed to compute the statistical 
+moments. Simultaneously, the crude MCS (107 runs) is carried out to provide the ”exact” values for comparisons. Since the 
+M-UDRM needs to  be performed over a positive  random variable, a translation is made such that Z0                                  ¼ Z þ 800.  From the 
+probability theory, it is known that the translation only changes the position of the distribution, where the mean of Z is chan- 
+ged. The other central moments of Z are the same as those of Z 0 . In Table 2, it is seen that the UDRM and M-UDRM require the 
+same fewer number of function evaluations, however, they provide quite different results for evaluating the moments. The 
+UDRM can give very accurate results, where the maximum relative error is 0.18%. On the other hand, the M-UDRM results in 
+the largest relative error for the high-order moments among these methods, where the relative error of the skewness is up to 
+30.98%.  The  original  BDRM  also  yields  quite  accurate  results,  however  the  computational  burden,  e.g.  385  performance 
+function calls, is also the largest. The proposed BDRM and BDRM with GHI2 scheme need the same number of function eval- 
+uations, say only 133, however, the accuracy of the proposed BDRM is much better. The maximum relative error of the pro- 
+posed method is just 2.38%, whereas the maximum relative error of the BDRM with GHI2 scheme is as large as 13.91%. It 
+seems that the UDRM could be the best choice in this example due to its high efﬁciency and accuracy. That is because in 
+this case the performance function is in a simple linear form, hence the UDRM could be sufﬁcient to capture the moments. 
+In the following examples, it will be found that the UDRM and even other methods are not always stable to provide satis- 
+factory results. In contrast, the proposed BDRM is always able to keep the trade-off of accuracy and efﬁciency for estimating 
+the statistical moments. 
+    When the ﬁrst-four moments are available, the SGLD model is applied to recover the performance function’s PDF. The PDF 
+and cumulative density function (CDF) in logarithmic scale are plotted in Fig. 4, where the distribution histogram and CDF 
+curve by MCS are also plotted as benchmark results. It is seen that the PDF and CDF in logarithmic scale by the proposed 
+method are in fairly close agreements with those obtained by MCS, which indicates the proposed method is capable of cap- 
+turing the entire range of the performance function’s PDF, especially for the distribution tail. The failure probability com- 
+puted    by  the   proposed     method     and   MCS    are   0.0123    and   0.0122,    respectively.    This  result   further   demonstrates       the 
+proposed method can provide very accurate result with low computational effort for structural reliability assessment. 
+5.2. Example 2     The second example considers a sufﬁciently slender column subject to axial compressive load [49] shown in Fig. 5, which 
+may fail due to buckling. The non-linear performance function can be written as 
+where the descriptions and statistical information of involved random variables are listed in Table 3. 
+    The ﬁrst-four moments of the nonlinear performance function calculated by different methods are listed in Table 4. Like- 
+wise, a translation Z0     ¼ Z þ 2000 is ﬁrst executed for M-UDRM. Even though the mean and standard deviation accord quite 
+well with those by MCS (107          runs), the signiﬁcant relative errors of the high-order moments, i.e. the skewness and kurtosis 
+still occur when the UDRM and M-UDRM are employed to evaluate the moments. The maximum relative error of UDRM is up 
+to 53.47%, while the maximum relative error of M-UDRM is 28.06%. If these results are incorporated into SGLD model for 
+reliability analysis, spurious PDF of the performance function could be derived. The original BDRM with maximum number 
+of  function evaluations gives  rather accurate  results for  all  the ﬁrst-four moments, where  the maximum relative  error is 
+3.62%. The proposed BDRM can still give acceptable results, where the maximum relative error is 4.78%. However, the BDRM 
+with GHI2 scheme which uses the same number of function evaluations as that of the proposed BDRM, gives moments with 
+less accuracy, where the maximum relative error is 7.57%. The computational results indicate that the proposed BDRM is 
+accurate and efﬁcient for the moments estimation, especially for the high-order moments. 
+    Then, the SGLD model with the available moments as constraints can be employed to reconstruct the PDF of the perfor- 
+mance function. If the moments evaluated by the proposed BDRM are applied, it is observed in Fig. 6 that the PDF and CDF in 
+logarithmic scale  still  accord  quite well  with  the  histogram and CDF  curve  by MCS,  especially for  the  distribution  tail  as 
+shown in Fig. 6(b). The failure probabilities calculated by the proposed method and MCS are 0.0026 and 0.0019, respectively. 
+Further, if the moments given by BDRM with GHI2 scheme are employed in SGLD, a large deviation between the CDF curves 
+could be observed, which is shown in Fig. 7. The corresponding failure probability is 0.000833. It is revealed that the errors of 
+statistical moments will creep into the derivation of the PDF of the performance function and signiﬁcantly affect the relia- 
+bility  assessment.  Again,  the  computational  results  demonstrate  the  efﬁciency  and  accuracy  of  the  proposed  method  for 
+structural reliability assessment. h pinned ends. 
+5.3. Example 3 
+    Third, a performance function for a reinforced concrete section  [59] (Fig. 8), is given by a nonlinear explicit from 
+where descriptions and distributions of involved random variables are listed in Table 5. 
+     The ﬁrst-four moments of the performance function by different methods are listed in Table 6. Likewise, Z0  ¼ Z þ 500 is 
+conducted  in  M-UDRM.  In  this  example,  the  UDRM  and  M-UDRM  still  produce  large  errors  for  the  high-order  moments, 
+where the maximum relative errors are 68.11% and 33.28%, respectively, although they only require several tens of deter- 
+ministic performance function computations. The original BDRM are computationally expensive, in which 533 deterministic 
+analyses are needed. Besides, the relative error of kurtosis, which is 7.14%, may be slightly large. Although the BDRM with 
+GHI2 drastically reduces the computational effort compared with the original BDRM, the relative error of kurtosis by this 
+method is also quite large, say 9.57%. It is noted that the maximum relative error of the proposed BDRM is 5.10%, which out- 
+performs those by other DRMs, especially even better than that by the original BDRM. The results demonstrate the robust- 
+ness, accuracy and efﬁciency of the proposed BDRM for moments estimation. 
+    Then, the SGLD model can be adopted to recover the performance function’s PDF based on the ﬁrst-four moments. The 
+PDF and CDF in logarithmic scale are plotted in Fig. 9, in which those by MCS are also pictured for comparisons. It is clear 
+that  the  proposed  method  can  provide  highly  accurate  approximation  in  the  entire  range  of  the  distribution.  The  failure 
+probability  calculated  by  the  proposed  method  is  3:8578  104 ,  which  is  fairly  close  to  that  obtained  from  MCS,  say 
+3:5960  104 . Furthermore, if the moments computed by the original BDRM are employed in SGLD, the CDF in logarithmic scale   is  shown     in  Fig.  10,  which     severely    deviates    from    the  result   by   MCS.    The   corresponding       failure   probability     is 
+5:2065  105 . This indicates that the proposed method is indeed accurate and efﬁcient for structural reliability analysis. 
+5.4. Example 4 
+    A thirteen-bar truss structure shown in Fig. 11 is considered as the fourth example for illustrating the applicability of the 
+proposed method for implicit performance functions. Random variables associated with this problem are listed in Table 7. 
+Linear ﬁnite-element analysis is performed for deterministic analysis of the performance function, which is deﬁned by 
+where Vb  is the maximum allowable displacement and V is the displacement of node 4 in the vertical direction. Alternatively, 
+the failure probability can be evaluated by 
+here f V ðvÞ denotes the PDF of V. In this regard, the statistical moments of V are of great concern to reconstruct the PDF f V ðvÞ 
+for reliability analysis. 
+    The statistical moments of V calculated by different approaches are listed in Table 8. Similarly, the UDRM and M-UDRM 
+are not capable of estimating the high-order moments with accuracy. The maximum relative error of moments by UDRM is 
+up to 71.02%, while the maximum relative error by M-UDRM is 7.57%. The original BDRM and BDRM with GHI2 scheme pro- 
+duce much larger errors than those of the proposed BDRM, which again manifests the proposed BDRM is robust and accurate 
+for statistical moments evaluation. 
+    The PDF and the probability of exceedance (POE) curve in logarithmic scale by the proposed method are shown in Fig. 12, 
+in which those by MCS (106  runs) are also plotted. Clearly, the results by the proposed method accord well with those by 
+MCS in the entire range of the distribution. If the maximum allowable displacement of node 4 is set to be 20 mm, the failure 
+probability       calculated      by    the   proposed       method       is   3:9248  104 ,       which      is  fairly    close    to  that    given     by   MCS,     say 
+5.5. Example 5 
+    Finally,  a  three-bay,  three-story  steel  frame  structure  [60] (Fig.  13(a))  is  investigated  to  further  validate  the  proposed 
+method. Displacement-based ﬁnite element is used for each member to consider the spread of plasticity along the element. 
+The wide-ﬂange steel cross-sections (Fig. 13(b)) of the frame members are discretized into several ﬁbers. The stress-strain 
+behavior of each steel ﬁber is represented by the uniaxial material model shown in Fig. 13(c). Besides, the P-Delta effect is 
+also considered in this case. The details of random variables involved in this problem are listed in Table 9. The dimensions 
+b  ; d; tw and  t   of  the  cross  section  are  treated  as  deterministic  values,  which  are  250 mm,  250 mm,  20 mm  and  20 mm, 
+respectively. Nonlinear ﬁnite-element analyses are carried out. In this example, the performance function is deﬁned as 
+where     Ub  is  the  allowable  displacement  and  U  is  the  inter-story  drift  of  the  third  ﬂoor.  Like  Example  4,  the  statistical 
+moments of U can be employed to obtain the PDF and evaluate the failure probabilities. 
+    The ﬁrst-four moments of U are calculated accordingly. The results are shown in Table 10. It is noted that the high-order 
+moments evaluated by UDRM and M-UDRM are still far away from those by MCS. The original BDRM gives the desirable 
+results  for  all  four  moments,  but  it  also  costs  the  largest  computational  time  among  these  DRMs.  The  BDRM  with  GHI2                                                                 
+results in large errors of the high-order moments, whereas the proposed BDRM can provide pretty accurate results. Obvi- 
+ously, the proposed BDRM is accurate, efﬁcient and robust for moments estimation. 
+    The SGLD with moments obtained by the proposed BDRM is then used to recover the PDF f U ðuÞ. As depicted in Fig. 14, the 
+PDF and POE curve in logarithmic scale are quite close to those by MCS. If the threshold Ub                       is adopted as 80 mm, the failure 
+probability calculated by the proposed method is 2:16  104 , which is fairly close to that given by MCS, say 2:36  104 . 
+6. Discussion 
+    The proposed method is actually a non-intrusive method for structural reliability analysis. The key point of the proposed 
+method is to accurately and efﬁciently evaluate the statistical moments of the performance function, which requires neither 
+iteration nor the computation of derivatives of the performance function. It is known that the computation of derivatives of 
+the  implicit  performance  functions  (Examples  4  and  5)  could  be  very  difﬁcult.  Besides,  the  iteration  may  consume  pro- 
+hibitively  large  computational  effort  if  one  ﬁnite-element  based  structural  analysis  is  time-consuming.  Since  only  one- 
+and two-dimensional integrations are involved, it is very convenient to implement the proposed method for structural reli- 
+ability analysis. Once the statistical moments are available, the PDF of the performance function can be readily reconstructed 
+by the SGLD model and the reliability can be straightforwardly evaluated. 
+    Although FORM/SORM is very simple, efﬁcient and accurate for many engineering problems, it may require a large num- 
+ber of numerical computations for complicated nonlinear structures, e.g. Example 5, since the ﬁnite difference algorithms are 
+usually  employed  to  approximate  the  gradients/derivatives  of  implicit  performance  functions.  Furthermore,  it  may  not 
+always  provide  desired  accuracy,  particularly  when  the  levels  of  uncertainty  in  the  parameters  are  relatively  large[14]. 
+On the other hand, MCS is intuitive but expensive for structural reliability analysis, even with some enhanced sampling tech- 
+niques, e.g. importance sampling (IS) and subset sampling (SS), etc. Table 11 compares the reliabilities evaluated by IS, SS, 
+the proposed method and MCS, respectively for Example 3. It is noted that thousands of points are required in IS and SS to 
+obtain the accurate reliability indices. If we assume that 10 min is necessary for one deterministic model evaluation for a 
+practical case, a total of 176 h (7.3 days) and 616 h (25.7 days) are required to perform structural reliability analysis by IS 
+and SS, respectively, which are  almost intractable. On the contrary, the proposed method only needs 30.5 h (1.3 days) to 
+achieve the comparable accuracy. These facts demonstrate that the proposed method is convenient, accurate and efﬁcient 
+for structural reliability analysis. 
+7. Concluding remarks 
+    The paper presents a new bivariate dimension reduction method (BDRM) for estimating the statistical moments of the 
+performance  function  and  performing structural  reliability  analysis  with  efﬁciency and  accuracy.  In  this  method, a  high- 
+order unscented transformation (HUT) is ﬁrst proposed to evaluate the two-dimensional integrals involved in BDRM, which 
+can further enhance the robustness, efﬁciency and accuracy of BDRM for evaluating the ﬁrst-four moments of the perfor- 
+mance function. Then, the shifted generalized lognormal distribution (SGLD), which has a rich ﬂexibility in shape and nearly 
+encompasses the entire skewnees-kurtosis permissible for unimodal densities, is ﬁtted to recover the performance function’s 
+PDF. Finally, the failure probability can be obtained by a simple integral over the PDF. Five examples, including linear and 
+nonlinear, explicit and implicit performance functions, are investigated to illustrate the efﬁciency and accuracy of the pro- 
+posed method. Moreover, some other dimension reduction methods (DRMs) are also carried out for comparisons, and Monte 
+Carlo simulation (MCS) is applied for providing the benchmark results. The following conclusions can be achieved: 
+   (1)  The univariate dimension reduction (UDRM) and multiplicative univariate dimensional reduction method (M-UDRM) 
+        are not capable of evaluating the high-order statistical moments of nonlinear performance functions with accuracy, 
+        although they are very efﬁcient; 
+     In summary, the proposed method is fairly accurate and efﬁcient for structural reliability analysis. In this paper, the free 
+parameter b  in  the high-order unscented transformation (HUT) is empirically chosen for evaluating the two-dimensional 
+integrals involved in BDRM. In this regard, a more rational rule could be necessary to choose b. Future investigations will 
+deal with this problem. 
+Acknowledgments 
+     The  research  reported  in  this  paper  is  supported  by  the  National  Natural  Science  Foundation  of  China  (Grant  No.: 
+51608186), the Natural Science Foundation of Hunan Province (No.2017JJ3016) and the Fundamental Research Funds for 
+the Central Universities (No.531107040890). The support is gratefully appreciated. 

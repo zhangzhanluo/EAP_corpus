@@ -1,0 +1,465 @@
+Imbalanced fault diagnosis of rotating machinery via multi-domain feature extraction and cost-sensitive learning 
+Qifa Xu1,2 ¡¤ Shixiang Lu1 ¡¤ Weiyin Jia3 ¡¤ Cuixia Jiang1 
+
+Received: 2 August 2019 / Accepted: 7 December 2019 / Published online: 14 December 2019 . Springer Science+Business Media, LLC, part of Springer Nature 2019 
+Abstract 
+
+Fault diagnosis plays an essential role in rotating machinery manufacturing systems to reduce their maintenance costs. How to improve diagnosis accuracy remains an open issue. To this end, we develop a novel framework through combined use of multi-domain vibration feature extraction, feature selection and cost-sensitive learning method. First, we extract time-domain, frequency-domain, and time-frequency-domain features to make full use of vibration signals. Second, a feature selection technique is employed to obtain a feature subset with good generalization properties, by simultaneously measuring the relevance and redundancy of features. Third, a cost-sensitive learning method is designed for a classi.er to effectively learn the discriminating boundaries, with an extremely imbalanced distribution of fault instances. For illustration, a real-world dataset of rotating machinery collected from an oil re.nery in China is utilized. The extensive experiments have demonstrated that our multi-domain feature extraction and feature selection can signi.cantly improve the diagnosis accuracy. Meanwhile, our cost-sensitive learning method consistently outperforms the traditional classi.ers such as support vector machine (SVM), gradient boosting decision tree (GBDT), etc., and even better than the classi.cation method calibrated by six popular imbalanced data resampling algorithms, such as the Synthetic Minority Over-sampling Technique (SMOTE) and the Adaptive Synthetic sampling method (ADASYN), in terms of decreasing missed alarms and reducing the average cost. Owing to its high evaluation scores and low average misclassi.cation cost, cost-sensitive GBDT (CS-GBDT) is preferred for imbalanced fault diagnosis in practice. 
+Keywords Rotating machinery ¡¤ Fault diagnosis ¡¤ Imbalanced classi.cation ¡¤ Feature extraction ¡¤ Cost-sensitive learning 
+B Cuixia Jiang jiangcuixia@hfut.edu.cn 
+Qifa Xu 
+xuqifa@hfut.edu.cn 
+Shixiang Lu lushixiang@mail.hfut.edu.cn 
+Weiyin Jia weiyin.jia@ronds.com.cn 
+1 School of Management, Hefei University of Technology, Hefei 230009, Anhui, People¡¯s Republic of China 
+2 Key Laboratory of Process Optimization and Intelligent Decision-making, Ministry of Education, Hefei 230009, Anhui, People¡¯s Republic of China 
+3 Anhui Ronds Science & Technology Incorporated Company, Hefei 230088, People¡¯s Republic of China 
+
+
+
+Introduction 
+The breakthrough development of AI technology and mil-lions of machineries equipped with smart sensors are accel-erating the transformation from traditional manufacturing industry towards smart manufacturing (Dou et al. 2018;Liu et al. 2018b). Rotating machinery fault diagnosis plays an indispensable role in smart manufacturing, and the demand for effective diagnosis of its operation condition is increas-ing rapidly. With a large number of high quality and reliable real-time equipment operation data collected, it enables to construct an automatic monitoring, intelligent diagnosis and prognosis system of rotating machinery, which can reduce the maintenance cost signi.cantly (Tao et al. 2018;Wuetal. 2019a; S¨¢nchez et al. 2018). 
+There are numerous useful data acquisition techniques adopted in the fault diagnosis of rotating machinery, includ-ingvibrationanalysis,oilanalysis,acousticemissionmethod, temperature monitoring, and microwave .aw detection. In 
+123 
+
+practice, vibration analysis is popular for its solid theoreti-cal foundation and mature measurement tool (Ben Ali et al. 2018;ZhaoandLin 2018;Ganetal. 2018).However,thehigh frequency dynamic signal of rotating machinery is usually a superposition of multiple components of different ampli-tudes, and presents non-stationarity and non-linearity (Zhao et al. 2019; Amrhein et al. 2016). Thus, it calls for more effective and robust methods to extract features from vibra-tion signals. 
+Apart from feature extraction, designing an irreplaceable fault diagnosis method is another crucial step in rotating machinery diagnosis. Fault diagnosis methods can be gener-ally categorized into two types: mechanism-based methods and data-driven methods (Ren et al. 2018; Han et al. 2019a). Mechanism-based methods are employed only when accu-rate mathematical models of the failure can be built (Wu et al. 2019b). In fact, they have been greatly limited in the diagnosis of rotating machinery, owing to the complexity of their internal structure and the diversity of the external oper-ating environment. On the other hand, data-driven methods are especially powerful for the complex industrial processes, since they directly use condition monitoring data to infer mechanical failure without any assumption on the underly-ing failure mechanism (Kang 2018; Tidriri et al. 2016; Wang et al. 2019). Although data-driven methods are effective in fault diagnosis, most studies are far from the actual operat-ing conditions of rotating machinery, because the balanced datasets they used are too few to get (Santos et al. 2015). 
+In practical industrial applications, the machinery works in a normal condition throughout the whole operation cycle, and there are seldom faults happening in its operating phases (Jia et al. 2018), which means that fault instances are seriously insuf.cient (Han et al. 2019a; Liu et al. 2018a; Jiang et al. 2019; Sun et al. 2007). The .rst China Indus-trial Big Data Innovation Competition in 2017 (http://www. industrial-bigdata.com) makes them more speci.c, e.g., the open access data contains 300,000 instances and the ratio of fault/normal is about 1/10, which is a typical imbalanced classi.cation problem. Under the assumption of equal mis-classi.cation cost or balanced class distribution, traditional classi.ers lose their ability to deal with rare classes (Jia et al. 2018; Zhang et al. 2019;Lietal. 2020). In the fault diagno-sis of rotating machinery, missing the detection of a failure condition, a rare class in mechanical operation may cause a catastrophic accident, whereas misclassifying a normal con-dition as a failure can be veri.ed by manual checking easily (Zhangetal. 2018).Thisremindsusthemisclassi.cationcost differs signi.cantly between two different types of errors. Much more attention should be paid to missed alarm for its greater cost of misclassi.cation than false alarm (Kuo et al. 2018; Han et al. 2019b; Zan et al. 2019). 
+In this paper, we propose a novel data-driven framework for rotating machinery diagnosis, comprising comprehen-sively extracting and selecting of a series of features from collected vibration signals, and effectively diagnosing the imbalanced operating condition of rotating machinery via cost-sensitive learning. For this purpose, multiple features are extracted through the combination of time-domain, frequency-domain, and time-frequency-domain methods to discover useful information from vibration signals. Then, feature selection reduces the extracted feature set to a more compact one. Additionally, the cost-sensitive learn-ing method takes misclassi.cation costs into consideration to calibrate the classi.cation results, which aims to minimize the average cost. To illustrate the ef.cacy of our method, extensive experiments are conducted on a real-world dataset of rotating machinery collected from an oil re.nery in China. With the same feature selection technique, our multi-domain feature extraction method is compared with several previ-ous feature extraction studies and it has been proved that our method can signi.cantly improve the accuracy of fault diagnosis. Meanwhile, our cost-sensitive learning shows its great advantages in reducing average misclassi.cation cost, compared with the cost-insensitive learning (classi.ers treat each type misclassi.cation cost equally) and the classi.-cation methods calibrated by imbalanced data resampling. Moreover, a sensitivity experiment shows that the classi.ca-tion performance of our cost-sensitive learning method will be affected by different cost matrices. It is noteworthy that CS-GBDT (cost-sensitive gradient boosting decision tree) is preferred in imbalanced fault diagnosis of rotating machin-ery, for its relatively high evaluation scores and low average misclassi.cation cost across different cost matrices. 
+
+The remainder of this paper proceeds as follows. ¡°Related works¡± section brie.y reviews some related works. ¡°The framework¡±sectionpresentstheproposedframeworkinclud-ing multi-domain feature extraction, feature selection and cost-sensitive learning method. In ¡°The real-world applica-tion¡± section, we apply the novel framework to a real-world application and illustrate its superiority through extensive comparisons. ¡°Conclusions¡± section summarizes and con-cludes the paper. 
+
+Related works 
+The fault diagnosis procedure can be roughly divided into two steps: extracting robust features and diagnosing the con-dition of the machine (Song et al. 2018). In the step of feature extraction, after the properties of the vibration sig-nals being well-understood, researchers could employ their domain knowledge in signal processing to design suitable features. In the second step, some new classi.cation tech-niques have been developed to effectively diagnose the fault type of rotating machinery with imbalanced data. 
+123 
+
+Feature extraction from vibration signals 
+Vibration signals are an important information source for feature extraction in fault diagnosis because they contain high frequency and time-varying information. Speci.cally, feature extraction from vibration signals can be character-ized into three domains: time-domain, frequency-domain, and time-frequency-domain. 
+First, in the time-domain, different statistical features are extracted to represent how signal amplitude varies with respect to time. However, vibration signals produced by a machine contain many components and are often dif.-cult to be observed in the time-domain. Therefore, it is unlikely that a fault will be detected by a simple visual inspection. Second, frequency-domain analysis is to extract features in a given frequency band, and fast Fourier trans-form (FFT) is considered as one of the most commonly used feature extraction technique (Seera et al. 2014). In addition, amplitude spectrum (Larsson et al. 2002), power spectrum (Jiang et al. 2018) and cepstrum (Hwang et al. 2009) are often used in some frequency-domain scenarios as well. Unfortunately, the transition from time-domain to frequency-domain is based on the hypothesis of stationarity, which is often violated in the stage of mechanical failure (Tao et al. 2018). Third, time-frequency-domain analysis jointly representing the information from both time-domain andfrequency-domain,isgoodatdealingwithnon-stationary signals. The two most powerful and extensively used tech-niques are wavelet transform (WT) (Wang et al. 2017) and empirical mode decomposition (EMD) (Georgoulas et al. 2013).The remarkablemerit of WT is that it has a good local-ization property in both time-domain and frequency-domain. It can automatically adjust the scale of the frequency compo-nents, so as to observe and analyze the arbitrary details of the signals. EDM depicts the oscillation structure and frequency component of each part of the signals by decomposing the signal into a set of orthogonal complete intrinsic mode func-tions (IMFs). However, their common drawback is the lack of a translation-invariant property in the vibration signal pro-cessing, thus generating some false components (Ciabattoni et al. 2018). 
+Moreover, considering that different domains have their own advantages and disadvantages, one starts to combine multiple domain features for effective fault diagnosis. For example, Zhang et al. (2018) and Ragab et al. (2019) utilize time-domain and time-frequency-domain features to clas-sify multiple failure modes of rotating machinery. Zhang et al. (2012) extracts time-domain and frequency-domain features to diagnose different failure stages of a wind tur-bine gearbox. However, the combination only involves two domains and is relatively subjective without any convincing explanation (Ben Ali et al. 2018). Seldom literatures extract features from three domains to make full use of the mean-ingful information contained in vibration signals (Wu et al. 2019b). 
+
+
+Classification for imbalanced data 
+Accordingtothedifferentstagesofintroducingdatahandling techniques, the methods for imbalanced data classi.cation can be grouped into three categories: prior training, during training, and after training methods. 
+The .rst type of methods deal with imbalanced data though changing the distribution of training sample, such as manually rebalancing training sample by over-sampling minority instances or under-sampling majority instances (Zhang et al. 2019; Xie et al. 2019), and adjusting the train-ing sample by the misclassi.cation cost of the instances. These methods are often used to convert the arbitrary cost-insensitive classi.ers into a cost-sensitive equivalence, without modifying theunderlying learningalgorithm. Unlike the .rst type, the second one directly modi.es the learning procedure to improve the sensitivity of the classi.er toward minority classes (Mathew et al. 2018; Correa Bahnsen et al. 2015). However, this type of methods designing different algorithms according to different classi.ers are neither ef.-cient nor .exible in practice (Lee et al. 2012). The third type concerns only the estimating membership class probabili-ties generated by cost-insensitive classi.ers, assigning each instance to its lowest risk class based on Bayes risk theory, such as MetaCost (Domingos 1999) and Bayes minimum risk (Khan et al. 2018). Although these methods have been applied to many classi.ers achieving the bias towards the minority but costly classes, they are restricted and require the cost-insensitive classi.ers that can produce accurate pos-teriori probability estimations of the training instances (Lee et al. 2012). 
+To sum up, owing to their .exibility and not limited by the posterior probability of the classi.er, the .rst type of methods are more suitable for industrial equipment fault diagnosis (Zhang et al. 2018). There are two different strategies for changing the distribution of training sam-ple: (1) converting the original imbalanced training sample into a balanced one. The random under-sampling, ran-dom over-sampling, synthetic minority over-sampling tech-nique (SMOTE) (Chawla et al. 2002), SMOTE-borderline1, SMOTE-borderline2 (Mathew et al. 2018; Han et al. 2005) and the adaptive synthetic sampling method (ADASYN) (Haibo et al. 2008) are classical resampling methods. How-ever, these methods do not take into account the unequal costs imposed by the imbalanced distributions and may have dif.culty in achieving unbiased results (Castro and Braga 2013). (2) Generating new training sample according to the unequal misclassi.cation costs of instances. Zadrozny et al. (2003) designs two different sampling methods: sampling-with-replacement and cost-proportionate rejection sampling. 
+123 
+
+However, the proportional sampling-with-replacement pro-duces duplicated instances in the training process, resulting in over-.tting in model building. On the contrary, ¡°rejec-tion sampling¡± is able to avoid duplication. Despite cost-proportionate rejection sampling has shown its strength in product recommendations (Lee et al. 2012), credit card fraud detection (Correa Bahnsen et al. 2015), and biomedical engi-neering (Gardner and Xiong 2009), its application is very rare or absent in the manufacturing domain to the best of our knowledge. 
+
+
+
+The framework 
+The purpose of this paper is to develop a new framework for fault diagnosis of rotating machinery. As shown in Fig. 1, the whole framework involves three parts: (1) multi-domain feature extraction for maximizing the information value of vibration data,(2) feature selection foreliminating redundant features and identifying effective ones, and (3) cost-sensitive learning for minimizing misclassi.cation costs. All of them play an indispensable role in actual fault diagnosis. 
+
+Feature extraction 
+To make full use of the information in the raw vibration signals, we decompose the high-frequency dynamic signals into time-domain, frequency-domain, and time-frequency-domain features, respectively. 
+Time-domain feature extraction 
+Time-domain analysis characterizes the vibration change of rotating machinery when a fault occurs by directly construct-ing statistics from the vibration waveform. In this paper, we produce .ve widely used statistical features, namely, mean value (MV), root-mean-square value (RMSV), skew-ness coef.cient (SC), kurtosis coef.cient (KC), and shape factor (SF). The detailed calculations are shown in Table 1, where z(t) is the signal at time t and Nz is the sample size. 
+Table 1 Time-domain statistical features 
+Statistical feature De.nition 
+1 Nz
+MV MVz = t=1 z(t)
+Nz 
+ 
+1 Nz
+RMSV RMSVz = Nz t=1 z2(t) Nz
+SC SCz = 1 t=1 (z(t) . MVz)3 
+RMSV3 
+z 1 Nz 4
+KC KCz = t=1 (z(t) . MVz)
+RMSV4 
+z RMSVz
+SF SFz = 1 Nz Nz 
+t=1 |z(t)| 
+
+
+Frequency-domain feature extraction 
+In frequency-domain analysis, spectrum analysis and enve-lope spectrum analysis are two widely used methods. Spec-trum analysis is to transform the vibration signals of rotating machinery from time-domain to frequency-domain, so that it can detect the corresponding fault characteristic of fre-quency components. FFT technique plays an important role in extracting spectral features, which is de.ned as 
+ +¡Þ 
+
+z( f) = z(t)e. j2¦Ð ftdt, (1) 
+.¡Þ 
+
+where z(t) denotes time-domain signal at time t, z( f) denotes frequency-domain signal at frequency f. 
+Envelope spectrum is a curve formed by connecting the peak points of amplitudes at different frequencies during a time period. As acclaimed in Jiang et al. (2016), when the local damages or defects of the rotating machinery happen, the process of the load will produce mutational decaying shockpulseforceand high frequency natural vibration. Thus, the .nal vibration waveform of rotating machinery is repre-sented as a complex amplitude modulation wave. Envelope demodulation can be realized by Hilbert transform (HT) and then FFT. The HT of a signal is de.ned as 
+ +¡Þ
+1 z(¦Ó ) 
+H[z(t)]= d¦Ó. (2)
+¦Ð t . ¦Ó
+.¡Þ 
+
+We combine z(t) and H[z(t)] to form a new analytic signal 
+g(t) = z(t) + jH[z(t)]. (3) 
+The amplitude A(t) of g(t) is then obtained by 
+A(t) = z(t)2 + H[z(t)]2 . (4) 
+
+After HT, envelope spectra could be obtained by FFT to extract the feature of defect frequencies. 
+Through the above spectrum analysis and envelope spec-trumanalysis,weextract56frequency-domainfeatures,such as root-mean-square frequency (RMSF), root variance fre-quency (RVF), spectral kurtosis (SK). We do not present all of them here to save limited space. 
+
+Time-frequency-domain feature extraction 
+In time-frequency-domain, EMD is considered as one of the most powerful techniques to extract features of rotating machinery. It decomposes the original non-stationary signals into a series of stationary signals indicating the natural oscil-latory mode, which is termed as intrinsic mode functions 
+123 
+
+
+Fig. 1 Framework for fault diagnosis of rotating machinery 
+(IMFs). The procedure of intrinsic energy feature extraction from IMFs is described below. 
+Step 1, identify all local maxima and minima of the signal z(t) separately, and then connect all the local maxima by a cubic spline line to form the upper envelope. Repeat the same procedure for the local minima points to form the lower envelope. 
+Step 2, denote the mean of the upper and lower envelope value as ¦Ì1, and calculate the difference between the signal z(t) and ¦Ì1 as 
+¦Ç1(t) = z(t) . ¦Ì1. (5) 
+Step 3, determine whether ¦Ç1(t) satis.es: (1) the number of extrema and the number of zero crossings are the same or at most one difference; and (2) its upper and lower envelopes are locally symmetric with respect to zero. If the two require-ments satis.ed, ¦Ç1(t) becomes the .rst IMF component of signal z(t) as 
+IMF1(t) = ¦Ç1(t). (6) 
+Otherwise, ¦Ç1(t) will be regarded as the raw signal z(t), and return to step 1. Step 4, calculate the residual r1(t) with the form 
+r1(t) = z(t) . IMF1(t). (7) 
+Stop decomposition if r1(t) is a monotone function. Other-wise, r1(t) is treated as the raw signal z(t). 
+Step 5, repeat steps 1 to 4 and obtain all IMFs: IMF1(t), IMF2(t),..., IMFM(t), as well as the .nal residual rM(t). In this regard, the raw signal can be expressed as 
+M 
+
+
+z(t) = IMFj + rM(t), (8) j=1 
+where Mdenotes the number of IMFs. 
+Step 6, de.ne the intrinsic energy features of rotating machinery as 
+L
+1  2
+Ej = IMFj (ti), (9)
+L 
+i=1 
+
+where Lrepresents the number of instances in each IMF. 
+In general, the fault information of rotating machinery is mainly in high frequency band. As a result, the fault charac-teristic information can be represented by the .rst few IMF components. In this paper, we extract the .rst four IMFs¡¯ energy to represent time-frequency-domain features. 
+
+
+Feature selection 
+From apractical fault diagnosis point of view, some extracted features are redundant or non-signi.cant (Ragab et al. 2019). Directlyusingalltheextractedfeaturesinthemodelmaylead to computation inef.ciency, over-.tting, high maintenance workload, and dif.culty of model interpretation. To address these issues, an effective subset that contains informative features should be selected. 
+There are quantities of feature selection methods that can reduce the original feature set to a more compact one. Such methods can be generally categorized into three types: .lter methods, wrapper methods, and embedded methods (Han et al. 2019a; Ding and Peng 2005). In this paper, a .lter method called min-redundancy and max-relevance (mRMR) (Peng etal. 2005) is employed.The advantagesofthe mRMR over the other feature selection methods can be illustrated from two aspects. First, as a .ltering method, mRMR has 
+123 
+
+the advantage of computational ef.ciency and the ability to generalize different machine learning models. Out of .l-ter nature, the motivation to adopt mRMR is that it can effectively reduce the redundant features while keeping the relevant features in the model, not perturbing or hiding the physicalmeaningofthefeatures.Therefore,itkeepstheinter-pretability of the proposed diagnosis model, which is very important for the decision maker. 
+Actually, mRMR is a mutual-information-based feature selection method that simultaneously measures the relevance and redundancy of features, to obtain a feature subset with good generalization properties. The mutual information used to measure the dependency between two discrete random variables X(1) and X(2), can be expressed as 
+(1)(2) 
+ p(x ,x )
+(1)(2) ij
+I(X(1),X(2)) = p(x ,x )log , (10) 
+ij (1)(2)
+p(x )p(x )
+i,j ij 
+(1)(2)
+where p(x ,x ) denotes the joint probability density of 
+ij 
+(1)(2)
+two random variables X(1) and X(2). p(xi ) and p(xj ) denote the marginal probability density of X(1) and X(2), respectively. 
+For features variables, mutual information is used to mea-sure the level of ¡°similarity¡± between the extracted features. The principle of minimum redundancy is to select the fea-tures so that they are mutually maximally dissimilar. The minimum redundancy function can be expressed as 
+1 
+min WI = I gi ,gj , (11)
+|S|2 
+(gi ,gj ¡ÊS) 
+where S denotes the feature subset we are seeking, |S| is the number of features in S, gi is the ith feature in S. In addition, mutual information is also used to measure the discriminant ability of features to target variable y. I (y,gi )quanti.es the relevance of gi for classi.cation tasks. Thus the maximum relevance function can be expressed as 
+
+1 
+max VI = I (y,gi ). (12)
+|S| 
+(gi ¡ÊS) 
+In this paper, we adopt the strategy to combine the two functions into a single criterion one, named the mutual information quotient (MIQ), which maximizes the func-tion max (VI /WI ). Based on this criterion, a small subset is selected from the extracted features using the vibration signal. As we will see later, the 21 selected features show better diagnostic performance. 
+
+
+Imbalanced cost-sensitive classification 
+This subsection designs a cost-sensitive learning method for fault diagnosis of rotating machinery. It consists of a cost matrix that de.nes the cost of misclassi.cation, and a cost-sensitive classi.cation construction that calibrates imbalanced classi.cation results. 
+Cost matrix determination 
+The effectiveness of cost-sensitive learning method depends strongly on the given cost matrix. Improperly initializing costs are not conducive to the learning process (Zhang and Hu 2014). In other words, too low costs are not enough to adjust the classi.cation boundary, while too high costs may lead to poor generalization capacity of the classi.er on other classes. In this paper, a handcrafted cost matrix based on expert knowledge is recommended to the trade-off. 
+In practice, the costs caused by misclassi.cation of differ-ent fault conditions of rotating machinery are heterogeneous. For example, the cost of misclassi.cation of fault condition into normal condition is much greater than a false alarm. Moreover, the misclassi.cation faults of different compo-nents are also different. This usually requires access to industryexpertswhohavetheabilitytoassessthemostrealis-tic cost values. The cost of misclassi.cation given by experts may differ under different fault-tolerant criteria. In order to popularize our methodology, we abstract two basic rules for the cost matrix. 
+Rule 1: all costs are nonnegative. The entry of cost matrix C is described as 
+Cp,q = 0, p = q
+
+C = (13)
+Cp,q ¡Ê N+ , p = q 
+
+where Cp,q represents the cost of misclassifying the class p into the class q. In practice, there are four different situations. 
+. 
+For Cp,q (p = q), it stands for correct classi.cation. In this paper, we de.ne Cp,q = 0 (p = q). 
+
+. 
+For Cp,q (p = 0,q = 1,2,...k), it represents a false alarm, which means classifying a normal condition as a fault condition. 
+
+. 
+For Cp,q (p = 1,2,...k,q = 0), it represents a missed alarm, which means classifying a fault condition as a normal condition. 
+
+. 
+For Cp,q (p = q, p = 0,q = 0), it means classifying one fault condition as another one. 
+
+
+Rule 2: the cost of misclassi.cation satis.es 
+
+C0,q < Cp,q < Cp,0, (14) 
+123 
+
+where p = q = 0, and the subscript 0 stands for a nor-mal condition. This rule presents the idea that the costs of different misclassi.cations are signi.cantly different from each other, i.e., the cost of false alarm or type I error (C0,q ) is small, as only a con.rmation is required by operator. The cost of missed alarm or type II error (Cp,0) is large, as it may lead to serious damage to equipment or even catastrophe. In addition, misclassifying one fault condition as another one can alert the operator with a failure signal, but it is dif.cult to make an accurate diagnosis. Therefore, Cp,q is between C0,q and Cp,0. 
+
+
+Cost-sensitive learning by cost-proportionate rejection sampling 
+Cost-proportionate rejection sampling processes the training sample through proportional sampling and adjusts the out-come class distribution of the sampling instances. Then a cost-insensitive learning algorithm can be directly applied to the sampled instances. Here we¡¯re just going to give a brief overview of cost-proportionate rejection sampling, and the full details about this algorithm are well presented in Zadrozny et al. (2003). 
+In cost-sensitive learning phase, the objective is to learn a classi.er s : X ¡ú Y to minimize the expected cost, 
+Ex,y,c¡«D[c ¡¤ I(s(x) = y)], (15) 
+where (x, y, c) is the form of given training data, D denotes the distribution with domain X ¡Á Y ¡Á C, X denotes the input space, Y denotes the output space, C denotes the misclassi-.cation costs and I(¡¤) is the indicator function. 
+Assuming that there exists a constant Nc = Ex,y,c¡«Dc, the goal of minimizing the expected cost can be transformed into minimizing the ratio of errors under D. , 
+Ex,y,c¡«D[c ¡¤ I(s(x) = y)]
+
+= D(x, y, c) ¡¤ c ¡¤ I(s(x) = y) 
+x,y,c  , (16) = Nc ¡¤ D. (x, y, c) ¡¤ I(s(x) = y) x,y,c 
+= Nc ¡¤ Ex,y,c¡«D.[I(s(x) = y)] 
+c
+where D. (x, y, c) = Nc D(x, y, c). Speci.cally, the transla-tion theorem in Eq. (16) indicates that each instance in the original training sample (S) is drawn independently once, and accepted into the sample S with the probability c/Zc, where Zc is a prede.ned constant. In this paper, the con-stant Zc is chosen as the maximal misclassi.cation cost. To determine whether to keep an instance, the algorithm .rst generates a random number rv from the uniform distribu-tion U(0, 1), and compares it with the acceptance probability ci /Zc of the instance under evaluation. The instance i is accepted when rv doesn¡¯t exceed its acceptance probabil-ity and rejected otherwise. Eventually, we obtain a new set 
+
+S which is generally smaller than (S). 
+
+This method is very suitable for industrial practice owing to its two distinguished advantages: (1) it comes with a theo-retical guarantee. The use of the sampled set S guarantees a cost-minimizing classi.er, assuming the underlying learn-ing algorithm can achieve an approximate minimization of classi.cation errors (Zadrozny et al. 2003). (2) It is general and .exible in practice. Instances are selected from the origi-nal training sample according to their misclassi.cation costs, and then used to construct a classi.er with an adequate clas-si.cation learning technique, which results in cost-sensitive learning (Lee et al. 2012). 
+We should note that cost proportionate rejection sampling is designed especially for binary cost-sensitive classi.ca-tion. However, our task is to distinguish multi-class data. The one-against-rest approach is adopted to solve our multi-classi.cationproblem(Beygelzimeretal.2005).Meanwhile, cost-sensitive learning by cost-proportionate rejection sam-pling only concerns adjusting the distribution of training sample by misclassi.cation costs, which implies that it fol-lows the same procedure of training model and .ne-tuning parameters as traditional cost-insensitive learning methods. 
+As mentioned above, this cost-sensitive learning is a gen-eral method, which can improve classi.cation performance through combined use with traditional or cost-insensitive classi.ers. In this paper, we consider .ve classical classi-.ers, logistic regression (LR), naive Bayes (NB), support vector machine (SVM), random forest (RF), and gradient boost decision tree (GBDT), to identify the operational status of rotating machinery. Moreover, we combine them with the cost proportional rejection sampling method to construct .ve cost-sensitive learning models: cost-sensitive logistic regres-sion (CS-LR), cost-sensitive naive Bayes (CS-NB), cost-sensitive support vector machine (CS-SVM), cost-sensitive random forest (RF), and cost-sensitive gradient boost deci-sion tree (CS-GBDT). 
+
+
+
+The real-world application 
+In this section, we apply the proposed framework to the fault diagnosis of rotating machinery by using the acquired vibra-tiondatafromanoilre.ninginChina.Itssuperiorityhasbeen demonstrated from two aspects. First, our multi-domain fea-ture extraction has shown its advantages in vibration signal analysis when compared with some previous works. Second, the cost-sensitive learning method can effectively reduce the average cost of misclassi.cation and performs well in fault diagnosis with imbalanced data. Meanwhile, a sensitivity analysis is conducted under different misclassi.cation costs, 
+123 
+
+1474  Journal of Intelligent Manufacturing (2020) 31:1467¨C1481  
+Table 2 type  Description of the fault  No.  Fault type  Number of fault instances  Imbalanced ratio (normal/fault)  
+1 2 3 4 5 6 7  Bearing cage fault Bearing inner race fault Bearing outer race fault Bearing rolling element fault Coupling fault Component loosening Other working conditions with faults (e.g., insuf.cient lubrication, seal leakage, etc.)  36 35 27 25 24 54 35  8.25 8.49 11.00 11.88 12.38 5.50 8.49  
+
+k 
+
+and CS-GBDT is recommended for its better performance 1 True PositiveiMA-R =
+and more robust results. 
+,
+k + 1 
+True Positivei + False Negativei
+i=0 
+(19) 
+
+Data description 2 
+MA-F = , (20) 
+1/MA-P + 1/MA-R 
+The raw vibration data used here is collected from an oil 
+k 
+True Positiveire.nery in Zibo, Shandong Province, China. We conduct 
+feature extraction from vibration signals using time-domain, MA-G = 
+
+k+1 
+
+
+, (21)True Positivei + False Negativei
+i=0 
+frequency-domainandtime-frequency-domainanalyses,and obtain 65 features eventually. In monitoring the pump with vibration signals for up to two years, we have gathered 7 fault types including bearing cage fault, bearing inner race fault, bearing outer race fault, bearing rolling element fault, coupling fault, component loosening and other working con-ditions with faults, as shown in Table 2. The imbalanced ratio (IR) in Table 2 is de.ned as the ratio of the number of nor-mal condition (297) to the number of each fault type. It is obvious that we have to face a multi-classi.cation problem with imbalanced data. 
+
+where k + 1 denotes the total number of classes. MA-A, MA-P, MA-R, MA-F, and MA-G denote macro-averaging accuracy, precision, recall, F1 and G-mean, respectively. 
+Although the above .ve metrics are widely used to evalu-atetheclassi.cationperformance,theactualcostofeachtype of misclassi.cation is not taken into account. To address this issue, the average cost (A-cost), joint consideration for the number and cost of misclassi.cation error in different con-ditions, is the highlight of imbalanced classi.cation metric (Zhou and Liu 2006). In general, it is de.ned as 
+kk 
+
+
+Multiclass performance metrics A-cost = 1
+
+Cp,q ¡¤ Np,q , (22)
+Ns 
+p=0 q=0 
+The main purpose of this paper is to pursue the minimum cost of misclassi.cation without reducing the classi.cation performance of minority and majority classes. The widely used evaluation metrics in binary classi.cation settings are accuracy, precision, recall, F1-score, and G-mean. Here, these evaluation metrics should be extended to meet the multi-classi.cation need. Macro-averaging, generalizes the concept of these evaluation metrics to multiple dimensions, by averaging the metric values of each pair of classes (Santos et al. 2015). The speci.c metrics are expanded to: 
+k 
+=0 True Positive i
+i
+MA-A = k , (17) =0 ( True Positive i + False Positive i )
+i k
+1 
+
+where Np,q represents the number of misclassifying the class p intotheclassq, Ns representsthetotalnumberofinstances. 
+
+Comparison with other feature extraction methods 
+To illustrate the effectiveness of our multi-domain feature extraction, it is necessary to compare the extracted features withthose usedinpreviousworks.We introducethree feature sets widely used in fault diagnosis of rotating machinery: feature set 1 (FS1), feature set 2 (FS2), and feature set 3 (FS3), and then compare them with our proposed feature set (PFS). 
+(1) FS1: Time-domain and time-frequency-domain fea-
+True Positivei 
+tures.
+
+
+MA-P = 
+, (18)
+k + 1 
+True Positivei + False Positivei 
+(2) FS2: Time-domain and frequency-domain features. 
+i=0 
+123 
+
+Journal of Intelligent Manufacturing (2020) 31:1467¨C1481  1475  
+Table 3 The speci.ed subset of the hyper-parameter space  Model  Hyperparameter  Search area  
+LR  L2-norm parameter  [0.1,0.2,0.3,...,0.8,0.9,1.0]  
+NB  Smoothing parameter  [0,0.1,0.2,...,1.8,1.9,2.0]  
+SVM  Penalty parameter  10.4 ,10.3 ,10.2 ,...,102 ,103 ,104  
+Kernel parameter  [0.1,0.2,0.3,...,1.8,1.9,2.0]  
+RF  Number of estimators  [10,20,30,...,80,90,100]  
+Maximum depth  [None,2,4,...,16,18,20]  
+GBDT  Number of estimators  [20,30,40,...,70,80,90]  
+Maximum depth  [2,4,6,...,12,14,16]  
+Minimum samples in the leaf node  [10,20,30,...,80,90,100]  
+
+(3) 
+FS3: Frequency-domain and time-frequency-domain features. 
+
+(4) 
+PFS: Time-domain, frequency-domain, and time-frequency-domain features. 
+
+
+As mentioned in ¡°Feature selection¡± section, directly using each group of all features may lead to over-.tting and affect its classi.cation performance. To overcome the interference of redundancy and irrelevant features, we use mRMR to select important features in each group and feed them into the .ve classical classi.ers introduced in ¡°Cost-sensitive learning by cost-proportionate rejection sampling¡± section. To better show the role of our feature selection, we investigate the impact of different numbers of features on the experimental results. In each group of experiments, the sample data is randomly partitioned into training set and test set by 6:4. Based on the training set, the parameters of each classi.er are tuned by .ve-fold cross-validation (80 % for training and 20% for testing at each CV iteration) indepen-dently. We adopt the grid search approach, an exhaustive searching through a manually speci.ed subset of the hyper-parameter space of a learning algorithm, to select the optimal hyper-parameters. The main hyper-parameter search space for each model is listed in Table 3. 
+The diagnosis performance results are shown in Fig. 2, where the x-axis represents the number of important fea-tures selected using mRMR. It is clear that as the number of important features increases, the classi.cation perfor-mance improves signi.cantly in the early stage, and then tends to be stable. In addition, we should note that when too many features are added, the performance of some classi.ers beginstodeclinegradually.Forexample,whenthenumberof selected features in PFS exceeds 31, there is an obvious over-.tting phenomenon in SVM, which veri.es the importance of feature selection. Based on the overall classi.cation per-formance of each classi.er, 21 important features are .nally selected from the extracted features using the vibration sig-nals for later use. 
+
+By comparing four different feature sets, we observe that all the classi.ers have achieved relatively good prediction performance using PFS in terms of higher scores. In other words, PFS extracted from three different domains can bet-ter represent the operational status of rotating machinery. Meanwhile, GBDT has higher scores on all .ve metrics of each feature set and is less likely to be disturbed by noise or irrelevant features, compared with the other four classi-cal classi.ers. It illustrates the accuracy and robustness of GBDT in this practical classi.cation. 
+
+Comparison with traditional data-driven methods 
+To verify that our proposed cost-sensitive learning method is superior to the classical cost-insensitive learning and other imbalanced learning methods in fault diagnosis, two com-parative experiments are conducted. The important features selected by mRMR are chosen as input variables, whose effectiveness has been well demonstrated by the experiments in ¡°Comparison with other feature extraction methods¡± sec-tion. 
+Comparison with classical cost-insensitive learning methods 
+Weinvestigatetheclassi.cationperformanceofcost-sensitive learning based on a given cost matrix. Speci.cally, we use the .ve cost-sensitive models proposed in ¡°Cost-sensitive learning by cost-proportionate rejection sampling¡± section, namely, CS-LR, CS-NB, CS-SVM, CS-RF, and CS-GBDT. Accordingly, to illustrate the calibration effect of cost-sensitive learning based on misclassi.cation costs, the .ve classical cost-insensitive classi.cation models (LR, NB, SVM, RF, and GBDT) are selected as a benchmark. Addi-tionally, based on the determination rules of cost matrix in ¡°Cost matrix determination¡± section, we de.ne a cost matrix with entries 
+Ci0 = 10w, C0 j = w, and Cij = 3w for i = j = 0, (23) 
+123 
+
+
+Fig. 2 The comparison of classi.cation performance on different feature sets 
+where w denotes the minimum misclassi.cation cost unit. This de.nition indicates that the cost of missed alarm is ten times higher than that of false alarm, while the cost of misclassifying one fault as another one is much smaller. It highlights the dangers and seriousness of missed alarm in fault diagnosis. 
+In this experiment, the sample data is randomly divided into training set and test set by 6:4. Based on training set, grid search and .ve-fold cross-validation are used for each model to select the optimal hyper-parameters. The speci.c hyper-parameter spaces of each model are listed in Table 3. The average results with standard deviations in parentheses on test set across 50 independent experiments are listed in Table 4. 
+From the results in Table 4, some interesting .ndings emerge. First, cost-sensitive learning method outperforms cost-insensitive learning one, which validates the need for cost-sensitive learning in fault diagnosis. Taking LR for example, cost-sensitive learning method increases the MA-A metric from 0.8326 to 0.8458, the MA-R metric from 0.6736 to 0.7602, the MA-F metric from 0.6959 to 0.7321, and the MA-Gmetricfrom0.8063to0.8618.Meanwhile,theaverage misclassi.cation cost (A-cost) is halved. Second, CS-GBDT is superior to the other cost-sensitive methods in terms of highest gains and lowest loss. As for A-cost, CS-GBDT reduces it to 0.0266, which is only 1/17 to 1/3 of those results from CS-LR, CS-NB, CS-SVM, and CS-RF. Third, we .nd that GBDT without cost-sensitive learning calibration also performs much better than CS-LR, CS-NB, CS-SVM and CS-RF. 
+
+The results show that the fault diagnosis with imbalanced data are not only highly dependent on cost-sensitive learn-ing, but also vary with different classi.ers. Thus, it calls for a framework with .exibility and strong generalization ability, to choose the best cost-sensitive model from different classi-.ersinpracticalapplications.Ourdesignedframeworkmeets the demand quite well, since it is convenient for operators of industrial equipment diagnosis to calibrate the classi.cation results given on a cost matrix, without spending a lot of time and resources in reconstructing the training and .ne-tuning procedures of classi.ers. 
+In addition to reporting the average misclassi.cation cost across 50 experiments in Table 4, we further test the signi.-cant improvement in prediction ability of each model under cost-sensitive calibration. To this end, we use the Diebold-Mariano (DM) test (Diebold and Mariano 1995) to compare the average misclassi.cation cost of cost-insensitive learning (model 1) with cost-sensitive learning (model 2). It is note-
+123 
+
+Table 4 Experimental results of cost-insensitive learning and cost-sensitive learning 
+Metrics  Cost-insensitive  Cost-sensitive  
+LR  NB  SVM  RF  GBDT  CS-LR  CS-NB  CS-SVM  CS-RF  CS-GBDT  
+MA-A  0.8326  0.9672  0.8541  0.9378  0.9901  0.8458  0.9677  0.8505  0.9695  0.9921  
+MA-P  (.0230) 0.7756  (.0138) 0.9536  (.0223) 0.8021  (.0242) 0.9056  (.0087) 0.9965  (.0206) 0.7394  (.0131) 0.9600  (.0220) 0.7578  (.0168) 0.9649  (.0090) 0.9907  
+MA-R  (.0502) 0.6736  (.0206) 0.9375  (.0280) 0.7069  (.0366) 0.8840  (.0040) 0.9791  (.0362) 0.7602  (.0120) 0.9412  (.0378) 0.7467  (.0237) 0.9433  (.0108) 0.9837  
+MA-F MA-G  (.0420) 0.6959 (.0405) 0.8063  (.0251) 0.9423 (.0231) 0.9655  (.0405) 0.7175 (.0389) 0.8309  (.0459) 0.8869 (.0436) 0.9352  (.0170) 0.9868 (.0109) 0.9881  (.0334) 0.7321 (.0344) 0.8618  (.0243) 0.9437 (.0217) 0.9680  (.0378) 0.7271 (.0380) 0.8546  (.0318) 0.9511 (.0278) 0.9682  (.0172) 0.9860 (.0152) 0.9912  
+A-cost  (.0270) 1.0412  (.0140) 0.1508  (.0254) 0.5720  (.0261) 0.2610  (.0098) 0.0932  (.0200) 0.4863  (.0133) 0.0908  (.0230) 0.4566  (.0180) 0.1746  (.0093) 0.0266  
+(.2000)  (.0725)  (.1311)  (.1270)  (.0848)  (.0852)  (.0399)  (.0788)  (.1139)  (.0337)  
+
+Boldface indicates the performance of cost-sensitive learning over the corresponding cost-insensitive learning, i.e., LR versus CS-LR, NB versus CS-NB, SVM versus CS-SVM, RF versus CS-RF, GBDT versus CS-GBDT 
+Table 5 DM signi.cance test of misclassi.cation cost (A-cost) 
+Model comparison  DM test  
+(Model 2 vs. model 1)  Statistic  p-value  
+CS-LR versus LR  15.6150  2.2e.16***  
+CS-NB versus NB  6.4440  4.823e.08***  
+CS-SVM versus SVM  5.7616  5.44e.07***  
+CS-RF versus RF  3.0786  0.0034***  
+CS-GBDT versus GBDT  4.7952  1.556e.05***  
+
+***Statistical signi.cance at the 1% level 
+worthy that the argument ¡®alternative¡¯ in R function ¡®dm.test¡¯ issettobe¡®two.sided¡¯.Inotherwords,thealternativehypoth-esis is that the average misclassi.cation cost of model 1 is not equivalent to that of model 2. If p-value is less than 1%, we accept the alternative hypothesis and deem that model 2 is statistically superior to model 1 when the DM statistic is positive, while model 1 is statistically superior to model 2 when the DM statistic is negative. Otherwise, we have to accept the null hypothesis that there is no difference between model 1 and model 2. 
+We report in Table 5 the DM test results and .nd that all statistics are positive and signi.cant at the level of 1%. This con.rms thatthe feasibilityofour cost-sensitive method to reducing the misclassi.cation cost in fault diagnosis of rotating machinery. 
+
+
+Comparison with other imbalanced learning methods 
+We have proved the advantages of cost-sensitive learn-ing methods in fault diagnosis over the traditional cost-insensitive classi.cation methods through the above exper-iments. In order to further verify the superiority of our cost-sensitive method in dealing with imbalanced data, we conduct another experiment by comparing our cost-sensitive method with a series of rebalancing methods. To this end, we select six commonly used rebalancing methods, including random under-sampling, random over-sampling, SMOTE, SMOTE-borderline1, SMOTE-borderline2, and ADASYN. They are applied to convert an imbalanced data into a balanced one, which will be used to train the .ve basic clas-si.ers. For fair comparisons, each classi.er takes the same procedure using grid search and .ve-fold cross-validation to select the optimal hyper-parameters, and repeats 50 inde-pendent experiments. The speci.c hyper-parameter spaces of each classi.er are listed in Table 3. 
+
+We use the cost-sensitive learning method as the bench-mark and report in Table 6 the classi.cation results of each classi.er with different rebalancing methods. The results show that the overall performance of each classi.er based on cost-sensitive calibration is better than the six rebalanc-ing methods, except for only a few metrics. For example, SVM with Random over-sampling can obtain the maxi-mum average precision. Taking a closer look at the results of SMOTE-borderline2, we .nd that each classi.er trained using the synthesized data has poor performance, especially forNB. Thepossiblereasonisthat thegenerationofsynthetic instances in SMOTE-borderline2 will be hampered by the skewed distribution of the ¡°danger instance¡±. Meanwhile, the poor performance of random under-sampling may be caused by losing quantities of instances information. 
+123 
+123 
+Table 6 Experimental results of other imbalanced learning methods 
+Metrics Models Cost-sensitive Random under-sampling Random over-sampling SMOTE SMOTE-borderline1 SMOTE-borderline2 ADASYN 
+MA-A LR 0.8458¡À .0206 0.7911¡À .0419 0.8328¡À .0270 0.8354¡À .0235 0.8342¡À .0250 0.8120¡À .0287 0.8293¡À .0228 NB 0.9677¡À .0131 0.9349¡À .0196 0.9678 ¡À .0140 0.9663¡À .0134 0.9668¡À .0138 0.5783¡À .1769 0.9660¡À .0158 SVM 0.8505¡À .0220 0.7390¡À .0410 0.8293¡À .0237 0.8173¡À .0249 0.8133¡À .0240 0.8165¡À .0250 0.8154¡À .0253 RF 0.9695¡À .0168 0.8412¡À .0525 0.9450¡À .0211 0.9473¡À .0196 0.9393¡À .0226 0.9409¡À .0200 0.9495¡À .0176 GBDT 0.9921¡À .0090 0.9307¡À .0511 0.9919¡À .0074 0.9900¡À .0108 0.9913¡À .0088 0.9803¡À .0167 0.9908¡À .0081 
+MA-P LR 0.7394¡À .0362 0.6921¡À .0341 0.7408 ¡À .0368 0.7391¡À .0348 0.7375¡À .0402 0.6912¡À .0451 0.7269¡À .0335 NB 0.9600¡À .0120 0.9021¡À .0312 0.9553¡À .0199 0.9538¡À .0196 0.9547¡À .0200 0.6314¡À .0716 0.9533¡À .0202 SVM 0.7578¡À .0378 0.6473¡À .0443 0.7536¡À .0456 0.7498¡À .0467 0.7447¡À .0430 0.7198¡À .0463 0.7484¡À .0432 RF 0.9649¡À .0237 0.7828¡À .0523 0.9348¡À .0304 0.9285¡À .0276 0.9203¡À .0337 0.9015¡À .0362 0.9374¡À .0268 GBDT 0.9907¡À .0108 0.9231¡À .0464 0.9863¡À .0122 0.9844¡À .0173 0.9863¡À .0138 0.9672¡À .0252 0.9855¡À .0135 
+
+MA-R LR 0.7602¡À .0334 0.7432¡À .0379 0.7907¡À .0398 0.7739¡À .0373 0.7630¡À .0417 0.7503¡À .0454 0.7675¡À .0377 NB 0.9412¡À .0243 0.9127¡À .0321 0.9385¡À .0297 0.9359¡À .0292 0.9368¡À .0298 0.6579¡À .0722 0.9354¡À .0293 SVM 0.7467¡À .0378 0.6836¡À .0438 0.7700 ¡À .0462 0.7386¡À .0478 0.7271¡À .0472 0.7417¡À .0444 0.7370¡À .0491 RF 0.9433¡À .0318 0.8530¡À .0445 0.8987¡À .0394 0.9074¡À .0391 0.8941¡À .0392 0.8912¡À .0385 0.9125¡À .0348 GBDT 0.9837¡À .0172 0.9582¡À .0281 0.9809¡À .0181 0.9773¡À .0261 0.9809¡À .0170 0.9662¡À .0264 0.9789¡À .0196 
+MA-F LR 0.7321¡À .0344 0.6903¡À .0330 0.7490 ¡À .0389 0.7410¡À .0356 0.7340¡À .0405 0.7030¡À .0449 0.7329¡À .0344 NB 0.9437¡À .0217 0.8987¡À .0341 0.9427¡À .0275 0.9406¡À .0270 0.9414¡À .0277 0.5570¡À .0960 0.9400¡À .0273 SVM 0.7271¡À .0380 0.6629¡À .0443 0.7386 ¡À .0456 0.7174¡À .0475 0.7054¡À .0457 0.7069¡À .0447 0.7149¡À .0475 RF 0.9511¡À .0278 0.7972¡À .0510 0.9111¡À .0357 0.9122¡À .0342 0.9001¡À .0376 0.8883¡À .0381 0.9199¡À .0313 GBDT 0.9860¡À .0152 0.9287¡À .0448 0.9819¡À .0170 0.9791¡À .0227 0.9820¡À .0172 0.9640¡À .0290 0.9803¡À .0185 
+MA-G LR 0.8618¡À .0200 0.8488¡À .0234 0.8781¡À .0238 0.8687¡À .0223 0.8621¡À .0252 0.8542¡À .0275 0.8648¡À .0226 NB 0.9680¡À .0133 0.9507¡À .0178 0.9661¡À .0164 0.9646¡À .0162 0.9651¡À .0165 0.7873¡À .0518 0.9644¡À .0162 SVM 0.8546¡À .0230 0.8112¡À .0276 0.8665¡À .0272 0.8477¡À .0284 0.8408¡À .0283 0.8496¡À .0268 0.8468¡À .0292 RF 0.9682¡À .0180 0.9125¡À .0267 0.9428¡À .0226 0.9480¡À .0222 0.9401¡À .0227 0.9397¡À .0215 0.9505¡À .0197 GBDT 0.9912¡À .0093 0.9741¡À .0171 0.9898¡À .0097 0.9879¡À .0141 0.9897¡À .0092 0.9816¡À .0146 0.9887¡À .0105 
+A-cost LR 0.4863¡À .0853 0.5833¡À .1283 0.5081¡À .1071 0.5231¡À .1055 0.5619¡À .1246 0.5257¡À .1050 0.5253¡À .1084 NB 0.0908¡À .0399 0.1875¡À .0556 0.1414¡À .0664 0.1450¡À .0652 0.1436¡À .0653 0.7206¡À .2071 0.1456¡À .0651 SVM 0.4566¡À .0788 0.6378¡À .1215 0.4596¡À .0914 0.5028¡À .0937 0.5322¡À .0994 0.4939¡À .0838 0.4993¡À .1031 RF 0.1746¡À .1139 0.4021¡À .1573 0.3121¡À .1292 0.2511¡À .1270 0.3171¡À .1475 0.2075¡À .0867 0.2749¡À .1169 GBDT 0.0266¡À .0337 0.1284¡À .0918 0.0451¡À .0304 0.0350¡À .0254 0.0465¡À .0322 0.0703¡À .0449 0.0467¡À .0304 
+Boldface (1) indicates the best performance on each row. (2) The.gure following ¡°¡À¡± is the standard deviation across 50 experiments 
+
+
+
+Sensitivity analysis of cost-sensitive learning with different cost matrices 
+In this subsection, we do sensitivity analysis of our cost-sensitive learning method in fault diagnosis. To this end, we consider three groups of cost matrices: 
+Group 1: Ci0 = 10w, C0 j = w, and Cij = 3w for i = 0, j = 0, and i = j. 
+Group 2: Ci0 = 15w, C0 j = w, and Cij = 2w for i = 0, j = 0, and i = j. 
+Group 3: Ci0 = 7w, C0 j = w, and Cij = 4w for i = 0, j = 0, and i = j. 
+The details of group 1 have been covered in ¡°Comparison with classical cost-insensitive learning methods¡± section and serves as a benchmark. In group 2, we increase the cost of missed alarm and reduce the cost of misjudging one fault for another one. In contrast, the costof missed alarm in group 3 is reduced, whereas the cost of misjudging one fault as another one is increased. Taking the same procedure as ¡°Compari-sonwithclassical cost-insensitivelearningmethods¡±section, we show the experimental results for three groups in Fig. 3, where the error bars represent the standard deviations. 
+From the results in Fig. 3, an intuitive conclusion is that different misclassi.cation costs will lead to different classi.-cation performances of each model. First, by comparing the sensitivity of classi.cation performance in different groups, there are certain .uctuations in CS-GBDT and CS-NB. Con-versely, CS-SVM .uctuates signi.cantly with the change of misclassi.cation costs. Second, by comparing the sensitivity of classi.cation performance in the same group, the stan-dard deviation of CS-RF classi.cation performance in 50 independent experiments is greater than those of CS-GBDT and CS-NB. 
+
+Apart from the above two points, we also notice that the higher evaluation scores are not necessarily accompanied by lower misclassi.cation costs. For example, in terms of eval-uation scores, CS-NB, CS-RF and CS-GBDT are superior to CS-LR and CS-SVM for all cost settings, while the aver-age misclassi.cation cost of CS-RF is greater than that of CS-SVM in group 2. This result validates the necessity of introducing A-cost metric, which is also one of the distinc-tive contributions in this paper. Fortunately, CS-GBDT can achieve better performance and more robust results than the other four models in terms of higher evaluation scores and lower misclassi.cation costs across different cost matrices. Thus, we recommend it as a suitable method for practical use. 
+
+
+
+Conclusions 
+The purpose of this paper is to develop a novel frame-work to diagnose the imbalanced operation condition of rotating machinery through combined use of multi-domain feature extraction, feature selection and cost-sensitive learn-ing method. We .rst extract 65 features from the perspectives of time-domain, frequency-domain and time-frequency-domain. The multi-domain features can comprehensively re.ect the operational status of a rotating machinery. Second, the mRMR feature selection technique is used to reduce the entire feature set to a more compact one. Third, we design the 
+123 
+
+cost-sensitivelearningmethodtoimprovetheperformanceof fault diagnosis with imbalanced data. This is done by impos-ingdifferentmisclassi.cationcostsonfalsealarmandmissed alarm respectively. 
+Our framework is evaluated on the acquired vibration data of rotating machinery from an oil re.nery in Zibo, Shandong Province, China. From extensive experimental comparisons, the results illustrate that our multi-domain fea-ture extraction is valuable and the extracted features have the ability to achieve a higher classi.cation performance than previous works. By comparison with traditional cost-insensitive methods as well as other imbalanced learning methods, our cost-sensitive learning method performs better in imbalanced fault classi.cation. Meanwhile, a sensitiv-ity experiment demonstrates that different misclassi.cation costs will lead to different classi.cation performance. How-ever, it is worth mentioning that CS-GBDT is more robust and is preferredforitshighevaluationscoresand low average misclassi.cation cost. 
+In the future, this research can be further promoted in two directions. First, we can consider multi-source data fusion in faultdiagnosis.Owingtothelimitationofthedataacquiredin this paper, the features are only extracted from the vibration signals, while the effects of other signals, such as electrical signals and temperature, on the diagnostic results of rotating machinery are ignored. With the new paradigm of Indus-try 4.0, more and more multimode sensors make it possible to fuse multi-source data and conduct more comprehensive fault diagnosis. Second, we could consider the severity of each fault condition. We have roughly set the cost matrix for different fault conditions without considering the severity of each fault condition. It is very useful to divide different levels of severity and specify the cost accordingly. In this regard, the cost-sensitive learning method can play a greater role in fault diagnose and produce more accurate results for scien-ti.c decision-making. We leave this topic for future research. 
+Acknowledgements The authors are grateful to the Editor-in-Chief, the Associate Editor, and two anonymous referees for their helpful comments and constructive guidance. This work is supported by the National Natural Science Foundation of China (71671056), the Human-ity andSocial Science Foundationof the Ministry of Education of China (19YJA790035), and the National Statistical Science Research Projects of China (2019LD05). Special thanks to data support from the industrial partner RONDS. 
+Compliance with ethical standards 
+Con.ict of interest The authors declare that they have no con.ict of interest. 
+
+
+
+References 
+Amrhein, W., Gruber, W., Bauer, W., & Reisinger, M. (2016). Magnetic levitation systems for cost-sensitive applications-some design 
+aspects. IEEE Transactions on Industry Applications, 52(5),3739¨C 3752. 
+
+Ben Ali, J., Saidi, L., Harrath, S., Bechhoefer, E., & Benbouzid, M. (2018). Online automatic diagnosis of wind turbine bearings pro-gressive degradations under real experimental conditions based on unsupervised machine learning. Applied Acoustics, 132, 167¨C181. 
+Beygelzimer, A., Dani, V., Hayes, T., Langford, J., & Zadrozny, B. (2005). Error limiting reductions between classi.cation tasks. In Proceedings of the 22nd international conference on machine learning (pp. 49¨C56). 
+Castro, C. L., & Braga, A. P. (2013). Novel cost-sensitive approach to improve the multilayer perceptron performance on imbalanced data. IEEE Transactions on Neural Networks and Learning Sys-tems, 24(6), 888¨C899. 
+Chawla, N. V., Bowyer, K. W., Hall, L. O., & Kegelmeyer, W. P. (2002). SMOTE: Synthetic minority over-sampling technique. Journal of Arti.cial Intelligence Research, 16, 321¨C357. 
+Ciabattoni, L., Ferracuti, F., Freddi, A., & Monteri¨², A. (2018). Sta-tistical spectral analysis for fault diagnosis of rotating machines. IEEE Transactions on Industrial Electronics, 65(5), 4301¨C4310. 
+Correa Bahnsen, A., Aouada, D., & Ottersten, B. (2015). Example-dependent cost-sensitive decision trees. Expert Systems with Applications, 42(19), 6609¨C6619. 
+Diebold,F.X.,&Mariano,R.S.(1995).Comparingpredictiveaccuracy. Journal of Business and Economic Statistics, 13(3), 253¨C263. 
+Ding, C., & Peng, H. (2005). Minmum redundancy feature selection from microarray gene expression data. Journal of Bioinformatics and Computational Biology, 3(2), 185¨C205. 
+Domingos, P. (1999). MetaCost: A general method for making clas-si.ers cost-sensitive. In Proceedings of the .fth ACM SIGKDD international conference on knowledge discovery and data mining (pp. 155¨C164). 
+Dou, R., He, Z., & Hsu, C. (2018). Foreword: Smart manufacturing, innovative product and service design to empower industry 4.0. Computers & Industrial Engineering, 125, 514¨C516. 
+Gan, M., Wang, C., & Zhu, C. (2018). Fault feature enhancement for rotating machinery based on quality factor analysis and manifold learning. Journal of Intelligent Manufacturing, 29(2), 463¨C480. 
+Gardner, J., & Xiong, L. (2009). An integrated framework for de-identifying unstructured medical data. Data & Knowledge Engi-neering, 68(12), 1441¨C1451. 
+Georgoulas, G., Loutas, T., Stylios, C. D., & Kostopoulos, V. (2013). Bearing fault detection based on hybrid ensemble detector and empirical mode decomposition. Mechanical Systems and Signal Processing, 41(1¨C2), 510¨C525. 
+Haibo, H., Yang, B., Garcia, E. A., & Shutao, L. (2008). ADASYN: Adaptive synthetic sampling approach for imbalanced learning. In Proceedings of the .fth ACM SIGKDD international conference on knowledge discovery and data mining (pp. 155¨C164). 
+Han,H.,Wang,W.,&Mao,B.(2005).Borderline-SMOTE:Anewover-sampling method in imbalanced data sets learning. In Proceedings of advances in intelligent computing (pp. 878¨C887). 
+Han,S.,Choi,H.,Choi,S.,&Oh,J.(2019a).Faultdiagnosisofplanetary gear carrier packs: A class imbalance and multiclass classi.ca-tion problem. International Journal of Precision Engineering and Manufacturing, 20(2), 167¨C179. 
+Han, T., Liu, C., Yang, W., & Jiang, D. (2019b). Deep transfer network with joint distribution adaptation: A new intelligent fault diagnosis framework for industry application. ISA Transactions, In press. 
+Hwang, Y., Jen, K., & Shen, Y. (2009). Application of cepstrum and neural network to bearing fault detection. Journal of Mechanical Science and Technology, 23(10), 2730¨C2737. 
+Jia,F.,Lei,Y.,Lu,N.,&Xing,S.(2018).Deepnormalizedconvolutional neural network for imbalanced fault classi.cation of machinery and its understanding via visualization. Mechanical Systems and Signal Processing, 110, 349¨C367. 
+123 
+
+Jiang, G., He, H., Yan, J., & Xie, P. (2019). Multiscale convolutional neural networks for fault diagnosis of wind turbine gearbox. IEEE Transactions on Industrial Electronics, 66(4), 3196¨C3207. 
+Jiang, Q., Shen, Y., Li, H., & Xu, F. (2018). New fault recognition method for rotary machinery based on information entropy and a probabilistic neural network. Sensors, 18(2), 337¨C349. 
+Jiang, W., Spurgeon, S. K., Twiddle, J. A., Schlindwein, F. S., Feng, Y., & Thanagasundram, S. (2016). A wavelet cluster-based band-pass .ltering and envelope demodulation approach with application to fault diagnosis in a dry vacuum pump. Proceedings of the Insti-tution of Mechanical Engineers, Part C: Journal of Mechanical Engineering Science, 221(11), 1279¨C1286. 
+Kang, S. (2018). Joint modeling of classi.cation and regression for improving faultywaferdetectioninsemiconductormanufacturing. Journal of Intelligent Manufacturing,. https://doi.org/10.1007/ s10845-018-1447-2. 
+Khan, S. H., Hayat, M., Bennamoun, M., Sohel, F. A., & Togneri, 
+R. (2018). Cost-sensitive learning of deep feature representations fromimbalanceddata. IEEE Transactions on Neural Networks and Learning Systems, 29(8), 3573¨C3587. 
+Kuo, R. J., Su, P. Y., Zulvia, Ferani E., & Lin, C. C. (2018). Integrat-ing cluster analysis with granular computing for imbalanced data classi.cation problem¡ªa case study on prostate cancer prognosis. Computers & Industrial Engineering, 125, 319¨C332. 
+Larsson, E. G., Stoica, P., & Jian, L. (2002). Amplitude spectrum esti-mation for two-dimensional gapped data. IEEE Transactions on Signal Processing, 50(6), 1343¨C1354. 
+Lee, Y., Hu, P. J., Cheng, T., & Hsieh, Y. (2012). A cost-sensitive technique for positive-example learning supporting content-based product recommendations in B-to-C e-commerce. Decision Sup-port Systems, 53(1), 245¨C256. 
+Li, P., Hu, W., Hu, R., & Chen, Z. (2020). Imbalance fault detection based on the integrated analysis strategy for variable-speed wind turbines. International Journal of Electrical Power & Energy Sys-tems,116, In press. 
+Liu, J., An, Y., Dou, R., Ji, H., & Liu, Y. (2018a). Helical fault diagnosis model based on data-driven incremental mergence. Computers & Industrial Engineering, 125, 517¨C532. 
+Liu, R., Yang, B., Zio, E., & Chen, X. (2018b). Arti.cial intelligence for fault diagnosis of rotating machinery: A review. Mechanical Systems and Signal Processing, 108, 33¨C47. 
+Mathew, J., Pang, C. K., Luo, M., & Leong, W. H. (2018). Classi-.cation of imbalanced data by oversampling in kernel space of support vector machines. IEEE Transactions on Neural Networks and Learning Systems, 29(9), 4065¨C4076. 
+Peng, H., Long, F., & Ding, C. (2005). Feature selection based on mutual information: Criteria of max-dependency, max-relevance, and min-redundancy. IEEE Transactions on Pattern Analysis and Machine Intelligence, 27(8), 1226¨C1238. 
+Ragab, A., Yacout, S., Ouali, M., & Osman, H. (2019). Prognostics of multiple failure modes in rotating machinery using a pattern-based classi.er and cumulative incidence functions. Journal of Intelligent Manufacturing, 30(1), 255¨C274. 
+Ren, L., Sun, Y., Cui, J., & Zhang, L. (2018). Bearing remaining useful life prediction based on deep autoencoder and deep neural net-works. Journal of Manufacturing Systems, 48, 71¨C77. 
+S¨¢nchez, R., Lucero, P., V¨¢squez, R. E., Cerrada, M., Macancela, J., & Cabrera, D. (2018). Feature ranking for multi-fault diagnosis of rotating machinery by using random forest and KNN. Journal of Intelligent & Fuzzy Systems, 34(6), 3463¨C3473. 
+Santos, P., Maudes, J., & Bustillo, A. (2015). Identifying maximum imbalance in datasets for fault diagnosis of gearboxes. Journal of Intelligent Manufacturing, 29(2), 333¨C351. 
+Seera, M., Lim, C. P., & Loo, C. K. (2014). Motor fault detection and diagnosis using a hybrid FMM-CART model with online learning. Journal of Intelligent Manufacturing, 27(6), 1273¨C1285. 
+
+Song, L., Wang, H., & Chen, P. (2018). Vibration-based intelligent fault diagnosis for roller bearings in low-speed rotating machinery. IEEE Transactions on Instrumentation and Measurement, 67(8), 1887¨C1899. 
+Sun, Y., Kamel, M. S., Wong, A. K. C., & Wang, Y. (2007). Cost-sensitive boosting for classi.cation of imbalanced data. Pattern Recognition, 40(12), 3358¨C3378. 
+Tao, F., Qi, Q., Liu, A., & Kusiak, A. (2018). Data-driven smart manu-facturing. Journal of Manufacturing Systems, 48, 157¨C169. 
+Tidriri, K., Chatti, N., Verron, S., & Tiplica, T. (2016). Bridging data-drivenand model-basedapproachesforprocessfault diagnosis and health monitoring: A review of researches and future challenges. Annual Reviews in Control, 42, 63¨C81. 
+Wang, P., Ananya, Yan, R., & Gao, R. X. (2017). Virtualization and deep recognition for system fault classi.cation. Journal of Manu-facturing Systems,44, 310¨C316. 
+Wang, X., Zhang, X., Li, Z., & Wu, J. (2019). Ensemble extreme learn-ing machines for compound-fault diagnosis of rotating machinery. Knowledge-Based Systems, In press. 
+Wu, C., Jiang, P., Ding, C., Feng, F., & Chen, T. (2019a). Intelligent fault diagnosis of rotating machinery based on one-dimensional convolutional neural network. Computers in Industry, 108, 53¨C61. 
+Wu, J., Wu, C., Cao, S., Or, S. W., Deng, C., & Shao, X. (2019b). Degradation data-driven time-to-failure prognostics approach for rollingelementbearingsinelectricalmachines. IEEE Transactions on Industrial Electronics, 66(1), 529¨C539. 
+Xie, Y., Peng, L., Chen, Z., Yang, B., Zhang, H., & Zhang, H. (2019). Generative learning for imbalanced data using the gaussian mixed model. Applied Soft Computing, 79, 439¨C451. 
+Zadrozny, B. Langford, J., & Abe, N. (2003). Cost-sensitive learning by cost-proportionate example weighting. In Proceedings¡ªIEEE international conference on data mining (pp. 435¨C442). 
+Zan, T., Liu, Z., Wang, H., Wang, M., & Gao, X. (2019). Control chart pattern recognition using the convolutional neural network. Jour-nal of Intelligent Manufacturing, In press. 
+Zhang, X., & Hu, B. (2014). A new strategy of cost-free learning in the class imbalance problem. IEEE Transactions on Knowledge and Data Engineering, 26(12), 2872¨C2885. 
+Zhang, Y., Li, X., Gao, L., Wang, L., & Wen, L. (2018). Imbalanced data fault diagnosis ofrotatingmachineryusing syntheticoversampling and feature learning. Journal of Manufacturing Systems, 48, 34¨C 50. 
+Zhang, C., Tan, K. C., Li, H., & Hong, G. S. (2019). A cost-sensitive deep belief network for imbalanced classi.cation. IEEE Transac-tions on Neural Networks and Learning Systems, 30(1), 109¨C122. 
+Zhang, Z., Verma, A., & Kusiak, A. (2012). Fault analysis and condition monitoring of the wind turbine gearbox. IEEE Transactions on Energy Conversion, 27(2), 526¨C535. 
+Zhao, M., Jiao, J., & Lin, J. (2019). A data-driven monitoring scheme for rotating machinery via self-comparison approach. IEEE Trans-actions on Industrial Informatics, 15(4), 2435¨C2445. 
+Zhao, M., & Lin, J. (2018). Health assessment of rotating machinery using a rotary encoder. IEEE Transactions on Industrial Electron-ics, 65(3), 2548¨C2556. 
+Zhou,Z.,&Liu,X.(2006).Training cost-sensitiveneural networkswith methods addressing the class imbalance problem. IEEE Transac-tions on Knowledge and Data Engineering, 18(1), 63¨C77. 
+Publisher¡¯s Note Springer Nature remains neutral with regard to juris-dictional claims in published maps and institutional af.liations. 
+123 
+
+
+

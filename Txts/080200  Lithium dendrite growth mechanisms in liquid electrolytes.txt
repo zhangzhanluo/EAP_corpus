@@ -1,0 +1,603 @@
+
+
+
+
+
+Lithium dendrite growth mechanisms in liquid electrolytes
+
+
+
+
+ABSTRACT
+
+		    A unified theoretical framework of dendrite growth kinetics has been developed to account for the coupled
+		effects of electrodeposition, surface tension, and elastic and plastic deformation. The contribution of each
+		driving force is assessed to identify five regimes of lithium growth: thermodynamic suppression regime, incubation
+		regime, tip-controlled growth regime, base-controlled growth regime, and mixed growth regime, in agreement with the
+		experimental scientific literature. Tip-controlled growth shows a linear time-dependence, while base-controlled
+		growth shows an exponential time-dependence. A minimum in the growth rate, as a result of the reaction energy
+		barrier increase imposed on the interface by the local elastic energy, is identified in the mixed growth regime.
+		Further, two characteristic times are identified: the characteristic deposition time, t∘, which defines the critical
+		time scale necessary to overcome the electrochemical energy barrier for nucleation, and the characteristic
+		plasticity time, tσ, which corresponds to the time scale necessary for plastic flow to occur, given a local shear
+		stress. Examples of experimentally reported transitions between tip-controlled growth and base-controlled growth
+		are readily captured through the proposed framework. While one or more mechanisms may dominate the growth
+		of the electrodeposit, the proposed formulation defines a road map to design dendrite-free, lithium-based anodes
+		as a stepping stone to identify alternate dendrite-free chemistries
+
+
+INTRODUCTION
+
+    The growth of metallic lithium deposits, broadly referred to as
+"dendrites," is a major roadblock in the commercialization of high
+power and energy lithium-ion batteries [1,2], as well as the emergence
+of lithium anode-based and lithium-air batteries [3,4]. For currently
+used commercial graphitic anodes in lithium-ion batteries, dendrites
+pose a serious safety concern and have resulted in catastrophic failures,
+particularly at high current densities [5]. In all cases, the safety and
+performance of existing and emergent rechargeable batteries will determine
+their success tied to the survival of nascent markets of electricity-
+based technologies, such as of electric vehicles [6], which would
+greatly benefit from lithium metal anodes, and the possibility to reduce
+the charging time from the present 4 and 36 h to 10 min [7,8]. While
+there has been significant progress in the fast-charging infrastructure,
+the dendrite growth problem remains the primary bottleneck to implement 
+high energy, fast charging batteries. In this context, thin film
+(3 µm) lithium anode batteries have been developed; however, to make
+them dendrite-free, alternate approaches are required to bring this
+technology to the main stream [9–11].
+    Fundamentally, the problem of dendrite growth remains largely
+unsolved due to the fact that, unlike copper or zinc electrodeposition,
+lithium grows at current densities one hundred times lower than the
+limiting current density, and shifts between, what appears to be, multiple 
+growth mechanisms reported over a wide variety of time and
+length scales [12]. The inherent electrochemical instability of lithium
+metal in organic liquid electrolytes, combined with the underlying
+multiphysical and microstructural complexity of the local environment
+that each dendrite is subjected to, contributes a great deal of complexities
+that demand a basic science identification of the individual
+mechanisms that control its stability and kinetics. These mechanisms
+result in different lithium morphologies that determine whether the
+sandwiched separator will be able to arrest the dendrite, or if the
+dendrite will dissolve back into the electrolyte.
+    Fig. 1 shows a catalog of electrodeposition experiments where the
+dendrite was reported to grow either as tip-controlled or base-controlled.
+For example, Brissot and Chazalviel reported two regimes of lithium
+growth, (see in Fig. 1): needle-like at low current densities
+(0.05 mA/cm2) after 38 h [13], and “arborescent” for high current
+densities (0.7 mA/cm2) after 2300 s [14]. Dollé et al. (see and in
+Fig. 1) reported that a single charge cycle at 0.22 mA/cm2 produced
+mossy deposits, while a single charge cycle at 0.5 mA/cm2 resulted in
+elongated dendrite-like microstructures [15]. Orsini et al. demonstrated
+the growth of lithium microstructures on lithium, copper, and graphite
+substrates [16]. It was reported that on both lithium and copper, mossy
+growth was observed for low C-rates (C/5, 0.45 mA/cm2), while
+dendritic growth was observed at high C-rates (1C, 2.2 mA/cm2).
+However, for graphite anodes, high C-rates (2C, 0.1 mA/cm2) only
+roughened the anode surface. Arakawa et al. were the first to propose
+that lithium “extrudes” from the base [17]. Experimentally, it was
+observed that lithium pushes out towards the counter electrode from the
+base, where the morphology of the tip remains largely unchanged. The
+authors predicted different morphologies as a function of the Laplace
+pressure on the electrodeposit and its surface tension. Hollenkamp et al.
+used Raman spectroscopy to distinguish growth at the tip and from the
+base and demonstrated that the tip morphology remains unchanged
+during base-controlled growth [18]. Seminal experiments by Crowther
+and West (see ▵ in Fig. 1) showed the transition from tip-controlled to
+base-controlled in a single galvanostatic recharge cycle [19], where the
+growth rate was shown to be proportional to the Butler-Volmer current
+density, consistent with Monroe and Newman [20]. Recent experiments
+by Cui et al. [21] (see ◊ in Fig. 1) confirmed the observations as well as
+predictions by Ely [22], and most recently by Bazant, Li et al. [12,23]
+(see and □ in Fig. 1). Transitions between experimentally reported
+growth mechanisms from base-controlled to tip-controlled [12] or from
+tip-controlled to base-controlled [19], clearly outline that the mechanisms
+for growth are a function of the underlying time-dependent conditions
+that dendrites are subjected to. Also, additional driving forces are at
+play during dendrite growth due to the lightning rod-like shielding
+effects of a highly conductive elongated metallic electrodeposit [24,27].
+    The first dendrite growth model was developed by Barton and
+Bockris, who proposed that ion transport in front of the dendrite tip is
+limited by diffusion. The authors demonstrated the existence of a critical
+overpotential and described the growth of silver dendrites in liquid
+electrolytes. Diggle and Bockris further extended the model for higher
+overpotentials and showed transitions between spongy and dendritic
+morphologies as the overpotential increased [28]. Aogaki and Makino
+followed a Mullins-Sekerka type description to show dendrite growth
+due to the electrochemical instability at the electrode interface for
+diffusion-limited electrodeposition [29,30]. Chazalviel, Fleury, and
+Rosso demonstrated that dendrites formed due to deviations from
+electroneutrality at the electrochemical interface [31–33]. Dendrite
+propagation velocity was shown to be equal to the anion velocity and
+proportional to the electric field in the electroneutral region of the
+electrolyte. Dendritic growth was attributed to depletion of ions near
+the anode interface at current densities higher than the limiting current
+density. At lower and battery-relevant current densities, Monroe and
+Newman predicted the dendrite tip velocity and extended the ButlerVolmer
+relation to incorporate elastic deformation to assess the separator 
+stiffness necessary to block dendrite penetration [20,34].
+Newman also demonstrated the effect of elastic energy on the electrochemical 
+interface to hinder dendrite growth. Ferrese and Newman
+further incorporated the effects of plastic deformation of lithium and
+examined lithium movement on the anode during charge-discharge
+cycles [35–37]. Ely and García rationalized the contributions from
+these apparently disconnected mechanisms and unified its description
+into a generalized electrochemical analytical framework that identified
+three regimes of dendrite stability and growth [22]. Srinivasan et al.
+recently resolved tensile and compressive stresses and assessed the
+propensity of dendrite penetration under elastic deformation [38].
+    In spite of the great deal of experimental evidence highlighting the
+unequivocal existence of tip- and base-controlled growth of lithium, there
+is no fundamental framework that explains clearly the observations. In
+this context, a generalized electrochemical and chemomechanical
+theory of dendrite growth kinetics is presented herein that quantitatively identifies 
+the different regimes of lithium growth. Predicted regimes and time-
+dependent growth behavior are in excellent agreement with experiments 
+that have reported tip-controlled and base-controlled growth, and the 
+conditions that lead an isolated dendrite to switch from one mechanism 
+to the other one are explained
+
+
+METHOD
+
+    Define the total Gibbs free energy of transformation of a hemispherical 
+electrodeposit that forms on an electrically charged mechanically stressed 
+substrate, with a contact angle of 90° as shown in
+the bottom right inset in Fig. 1. Here, the chemical, electrical, and
+mechanical contributions to the bulk free energy of transformation are
+embodied by the expression:
+    Used symbols are summarized in Table 1. The state of stress of such an
+electrodeposit is described by a symmetric rank two tensor, which for a
+hemispherically symmetric cap is simplified in the diagonalized reference system as,
+a defines the stress anisotropy and together with the principal (eigen-
+stress) direction(s) uniquely quantifies the mechanical state of the
+dendrite. In general, the electrodeposit is subjected to multiple sources
+of stress: those induced by the SEI, whose stiffness induces an inhomogene-
+ous compressive effect [39], the adjoining electrodeposits,
+whose differential molar volume expansion contributions induce shear
+stresses [40], the separator, which pushes down the dendrite as a means
+to suppress its growth into the counter electrode [37], and the metallic
+casing of the battery, which hydrostatically compresses the battery
+stack [41,42].
+    For σ < 0, and a < 0, Eq. (2) shows that the electrodeposit is pushed
+laterally inwards while extruded upwards, and thus promotes the
+growth of the electrodeposit. For lithium, σ∘ = ±732 MPa, in agreement with [45].
+The electrodeposition dynamics for a stressed dendrite are formulated through
+ a modified Butler-Volmer relation, in agreement with
+Newman et al. [34,37,46]: upon substituting Eq. (2). Here, j∘ = i z ∘/ F is the molar 
+exchange current density and α is the transfer coefficient.
+    In the absence of stresses, Eq. (7) reduces to the classical ButlerVolmer 
+relation for a planar deposit, Γ j α z η RT = − ∘ (exp[(1 ) / ] F
+− − exp[ / ] αz η RT F ), in agreement with the existing scientific literature
+[20,22].For a symmetric electrodeposition reaction, i.e., α = 1/2, Eq. (7)
+reduces to: The elastic energy term contributes an additional energy barrier for
+electrodeposition, in agreement with [46,47]. Thus, the state of stress,
+dictated by the stress anisotropy, a, will determine the extent of suppression 
+of the Butler-Volmer electrodeposition kinetics. In addition,
+the elastic energy induces a shift in the critical overpotential required
+for electrodeposition, i.e., for stressed dendrites, higher overpotentials
+are required to start electrodeposition, and in the absence of curvature
+or overpotential contributions, the stress will induce dendrite electrodissolution.
+Plastic deformation of lithium, a well known phenomenon
+[23,35,36,40,41,48–50], is described herein by a power law creep
+model [51,52], as denoted by ε Aσ ˙s = sn. The von Mises stress is
+σs = ⎡ ⎣1 2 (( ) ( ) ( ) ) ( 1) σ σ σ aσ aσ σ a σ − + − + − 2 2 2 ⎤ ⎦1/2 = − . a = 
+1 indicates a pure hydrostatic state, and will suppress plastic deformation.
+A A Dμ b kT 1−n / , where A∘ is Dorn's constant, D D Q RT = − ∘ exp( / ) is
+the lithium diffusion coefficient, and b is the Burgers vector [52]. Dorn's
+constant is a phenomenological parameter, and has been reported to
+scale with the power law creep exponent, n [52]. The diffusion coefficient, 
+D, accounts for the microstructurally averaged contributions from
+point defects, dislocations, and grain boundaries to the stress induced
+transport of lithium [53]. Thus, the plastic deformation rate is given by
+dr dt rAσ / = sn, and corresponds to the non-elastic vertical elongation of
+the dendrite as a result of an arbitrarily imposed state of stress.
+    For an isolated hemispherical nucleus, the growth rate is denoted as
+dr dt ΓΩ / = , thus the combined vertical growth rate due to electrode-
+position and plastic deformation is defined as:
+The function, sign(x), is defined as sign( ) x = 1 for x ≥ 0, and
+sign( ) x = −1 for x < 0. Used material parameters are listed in Table 2.
+    For small deviations from equilibrium, i.e.,
+Dividing both sides by j∘Ω ΔG R 2 f/ T, and using
+sign( ) sign( )sign( ab a b = ), the resultant dimensionless growth rate is:
+̂dr dt ^ = − (1 ) Π σ η σ 1 2 2 ̂ ̂ ⎡ ⎣ ̂− − r1̂⎤ ⎦ + − sign( ) aσ̂ ̂ ΠΠ122 rσ̂ n (11)
+=t t t ^ / ∘, where t∘ = −2 / γRT j Ω ΔG ∘ 2 f2, denotes the characteristic deposition
+time, in agreement with Ely [22]. For dendrites whose size are in the
+vicinity of the critical size for thermodynamic stability, coarsening kinetics
+ govern the growth of the electrodeposit. High interfacial energies
+and low Gibbs free energies of transformation will delay the onset of
+dendritic growth. For lithium, t∘ = 1.514 s, in agreement with previous
+work [22]. The two resultant dimensionless numbers are defined as
+In this context, the tip-controlled growth regime corresponds to the
+combination of equilibrium and kinetic parameters where the contribution 
+from the growth rate from the applied overpotential, concentrated 
+at the dendrite tip, is at least ten times greater than the
+growth rate due to plastic flow. Similarly, base-controlled growth regime
+is identified herein whenever the time-dependent morphological
+changes induced by the dendrite's plastic deformation is at least ten
+times higher than contributions from electrodeposition. The mixed
+growth regime is thus defined when tip-controlled growth and base-
+controlled growth contributions are both active. The growth rate is defined
+to reach a minimum as a function of the applied stress when
+
+
+RESULT
+
+    Fig. 2 summarizes five regimes of growth behavior as a function of
+electrodeposit size and local overpotential, for a fixed stress tensor. The
+blue curve denotes the limit of thermodynamic stability, as defined in
+Eq. (5). Lithium dendrites that are larger than the critical thermodynamic 
+size are energetically favorable (above the blue curve). Similarly, 
+lithium embryos in the thermodynamic suppression regime (below
+the blue curve) are energetically unfavorable, and will dissolve back
+into the electrolyte. Thus, dendritic growth will safely be avoided by
+choosing overpotentials and sizes that are in the thermodynamic suppression
+regime, as reported in earlier work [22], and experimentally
+verified by Cui [21]. The incubation regime, between the blue and the
+black curves, is where thermodynamically stable electrodeposits grow
+through coarsening, following incubation kinetics [21,22]. The black
+line embodies the kinetic limit, where thermally stable isolated nuclei
+will grow. Three additional growth regimes are identified: the tip-
+controlled growth regime, to the right of the green line, where electrode-
+posits subjected to large overpotentials grow into whisker-like
+structures; the base-controlled growth regime, to the left of the red line,
+where hemispherical electrodeposits subjected to small overpotentials
+deform into elongated structures, in agreement with the numerical
+work by Arakawa et al. [56]; and the mixed growth regime, between the
+tip-controlled and the base-controlled growth regimes, where lithium 
+kinetics is governed by the contributions of plastic deformation and
+surface energy, dendrite growth is possible, both through the base and
+the tip, in agreement with Steiger et al. [25,26].
+    Results show no appreciable base-controlled growth for
+− σ < 0.1 MPa, thus this stress value corresponds to the worst case
+scenario to observe tip-controlled growth. Similarly, − σ ∼ 5 MPa was
+the stress value that delivered the best match between the experimental
+results and the performed calculations. In addition, if the stress on the
+electrodeposit increases, e.g., from − σ = 0.1 to 5 MPa (see Figs. 2(a)
+and (b)), the extent of the incubation regime shrinks, while the extent of
+the base-controlled growth regime expands. For dendrites in this regime,
+the stress that accumulates at the base induces an outwardly directed
+push of the dendrite towards the counter electrode. A direct comparison
+against electrodeposit size as a function of overpotential experimental
+data [14–16,19,21,23] (see example micrographs in Fig. 1), shows that
+for a stress, − σ = 0.1 MPa, lower than the yield stress, dendrites grow
+according to the tip-controlled growth regime (see Fig. 2(a)). Electrodep-
+osits at the onset of tip-controlled growth regime lie just above the
+black line, in agreement with experiments performed by Cui et al. [21].
+    Dendritic or whisker like growth, in the tip-controlled growth regime, at
+high current densities are in agreement with experiments by Orsini
+et al. (2.2 mA/cm2) [16], Brissot et al. (1.3 mA/cm2) [14], and Dollé
+et al. (0.5 mA/cm2) [15]. The present analysis further asserts that early
+stages of lithium growth are in agreement with experimental observations
+of tip-controlled growth by Crowther and West [19]. Potentiostatic
+lithium electrodeposition experiments under high applied voltages
+(−4.5 V) as reported by Li et al. [23] are also captured in the tip-controlled 
+growth regime. For a stress above the yield point, e.g.,
+− σ = 5 MPa, a comparison against experiments [14,15,19,21,23],
+shows that, in general, dendrite growth occurs as a combination of
+electrodeposition and plasticity-induced growth, i.e., in the mixed
+growth regime. Only a subset of experiments by Orsini et al. [16] at a low
+current density (0.45 mA/cm2) are found to lie in the predicted baseco-
+ntrolled growth regime. Calculations further show that for stresses
+much larger than the yield stress, the black line shifts downward. For
+example, at − σ = 14 MPa, the kinetic (black) and thermodynamic
+(blue) line overlap, thus completely altering the coarsening dynamics.
+Thus, the dendrite incubation mechanism changes from electrochemically-
+controlled to plasticity-controlled. For − σ > 14 MPa, the
+kinetic line shifts below the thermodynamic line; therefore, the 
+thermodynamic stability of a lithium nucleus becomes dominated by elastic
+energy, and becomes kinetically dominated by plastic flow. For these
+conditions, large hydrostatic elastic energy contributions will fully
+suppress the dendrite nucleation and growth process, in agreement with
+experiments [41,42,57]. 
+    However, large deviatoric stresses will enable
+the plastic flow along directions specified by the principal directions of
+the local stress tensor. Overall, the growth direction of the electrodeposit 
+will be determined by the combined contributions of the local
+electrochemical gradients (tip-controlled), and the principal directions
+(eigenvectors) of the local stress tensor (base-controlled). The growth
+direction will be additionally influenced by the formation of kinks in
+the electrodeposit [23], or by convective flow in the liquid electrolyte
+[19] (See Supplemental information).
+
+
+DISCUSSION
+
+    Results show that a minimum in the growth rate (gray dashed line in
+Fig. 2) exists just below the yield stress, − σ σ < = y 0.56 MPa. Physically, 
+as the stress increases in a lithium deposit, the energy barrier for
+electrodeposition increases exponentially, thus suppressing growth;
+however, as non-hydrostatic stress accumulates on the dendrite, the
+nuclei will plastically yield, favoring growth. The contribution of plastic
+deformation to base-controlled growth is proportional to the dimensionless 
+number, Π2, which in turn is a direct function of the anisotropy of 
+the stress tensor, see Fig. 3. Calculations show that for σ < 0,
+if a < 0, dendrites will be promoted to grow towards the counter
+electrode in a manner analogous to toothpaste being squeezed out of its
+tube. This effect is maximal for a = −2, which favors vertical basecontrolled 
+growth. Deviations from this maximum value will favor dendrite 
+growth at an angle determined by the principal directions of the
+stress tensor and qualitatively in agreement with experimental 
+observations that detail the change of dendrite growth direction
+[15,19,23]. Here, the time evolution of the local anisotropy of the stress
+tensor (a a t = < ( ) 0), will lead to the formation of nanostructures that
+curl on themselves [15], and eventually slow down or change growth
+mechanism [12,14,19], as a result of stress relaxation and dendritedendrite 
+electrochemical and chemomechanical interactions. In contrast,
+ if a > 0, the dendrite will be pushed downwards, kinetically
+canceling base-controlled growth, in the limit of a = 1. Values much
+greater than unity will plastically smear the nucleus on the plating
+substrate.
+    Overall, because the mixed growth regime defines a region where
+both, electrodeposition and plasticity, contribute to dendrite growth in
+comparable amounts, the development of electrochemical or mechanical 
+heterogeneities can locally induce the formation of dendrite
+morphologies not accounted for in the current theory. For example,
+Steiger et al. [25,26], experimentally observed lithium growth from the
+tip, the base, and between kinks, and as a result a whole new set of
+morphologies was identified. In general, the strength of each of the
+contributions to growth will locally impact some regions, and can easily
+leave other regions completely isolated [25,26].
+    Fig. 4 shows the time-dependent growth behavior for zero or low
+stresses, − σ = 0.1 MPa for the case a = −2, the worst case scenario
+(i.e., highest lithium growth rate) for selected values of initial dendrite
+sizes and applied overpotentials. Results demonstrate that in the limit
+of small overpotentials, the forming nucleus must spend 10 to 105 times
+the dendrite characteristic deposition time, t∘ = 1.514 s, in order to
+appreciably grow, and is thus dominated by coarsening kinetics [22].
+    However, those dendrites whose size is smaller than the kinetic critical
+radius, r r < k̂, will shrink and dissolve back into the electrolyte
+[22,23,58]. In addition, calculations show that applied overpotentials
+that are comparable to or higher than η∘ are necessary to experimentally
+observe time-dependent linear growth in time scales that are comparable 
+to t∘, in agreement with experiments [19,43,58]. Finally, for large
+overpotentials, stress-free dendrites will develop quickly, in agreement
+with [6], and will deviate from the spherical approximation after a few
+instants, [24,59].
+    Fig. 5 shows the time-dependent dendrite size for stress values that
+are comparable or larger than the yield stress, e.g., − σ = 5 MPa. For
+small overpotentials (see Fig. 5(a)), plasticity dominates the
+morphological evolution of the electrodeposit, as highlighted by its
+exponential growth for those nuclei that are larger than the critical
+kinetic radius. The structure is dominated by base-controlled growth after
+a characteristic time, tσ = 323t∘. Note that the larger the initial dendrite
+size the sooner plastic deformation will become evident, in agreement
+with base-controlled growth experiments as reported by Orsini et al. [16].
+    For those dendrites that are comparable in size with the kinetic
+radius, if the overpotential is comparable in magnitude to the critical
+value (see Fig. 5(b)), the growth rate will be dominated by surface
+energy contributions. As dendrites become larger, growth shifts to be
+dominated by the base-controlled mechanism after the nucleus has
+evolved for tσ ∼ 3000 s. Fig. 5(b) also demonstrates that dendrites will
+undergo transitions in growth modes as they shift into and out of the
+mixed growth regime, and accelerate its growth, even for cases where
+stress and overpotential remain constant, in qualitative agreement with
+Crowther and West [19] and Brissot et al. [13]. Fig. 5(c) further demons-
+trates that individual dendrites will transition between multiple
+growth mechanisms. Thus, dendrites start its growth dominated by the
+tip-controlled mechanism, but are slowed down by surface energy forces.
+    As they become bigger in size, dendrites grow in accordance to the tipcon-
+trolled growth mechanism, but will ultimately grow through the basecontrolled 
+mechanism, as the electrodeposit overcomes the characteristic
+plasticity time, tσ. Such transitions in growth regimes explain the switch
+from tip-controlled to base-controlled, at the same applied current density, 
+as observed in the experiments reported by Crowther and West
+[19].
+    Fig. 6 summarizes the five regimes of growth as a function of local
+overpotential and stress and depicts the shift in growth regimes as the
+electrodeposit size increases. In agreement with Fig. 2, below the blue
+curve you will find the thermodynamic suppression regime where an
+hemispherical electrodeposit is thermodynamically unstable due to
+surface energy, low overpotentials, or large stresses; between the blue
+and the black curve you will find the incubation regime, where growth is
+thermodynamically favored, but dominated by local dendrite-dendrite
+electrochemical and chemomechanical interactions. Above the black
+and the blue curves you will find three growth regimes: (i) to the right
+of the red curve you will find the base-controlled growth regime, (ii) to the
+left of the green curve you will find the tip-controlled growth regime, and
+(iii) between the red and the green curves you will find the mixed growth
+regime. Isolated hemispherical nuclei that are comparable in size to the
+kinetic critical radius (see Fig. 6(a)), will require overpotentials that are
+greater than the critical overpotential to grow through the tip-controlled
+mechanism, and on the order of a tenth of the yield stress to grow
+through the base-controlled mechanism. For low overpotentials
+(10 0.0 −5 < < η̂ 1, i.e., 4.4 10 mV 0.44 mV) × < − < −4 η , high elastic
+energies corresponding to large stresses (10 0. −3 < < σ̂ 1, i.e.,
+0.73 MPa 73 MP < − < σ a), will fully suppress lithium growth (right of
+the black line and below the blue line in Fig. 6(a)). For interacting
+populations of lithium nuclei, those dendrites below the black line and
+above the blue line will be dominated by electrochemical driving forces
+and the Gibbs-Thomson effect that lead to electrochemically-induced
+coarsening kinetics [22]; however, calculations demonstrate that for
+large stresses, plasticity will dominate the coarsening process, when the
+kinetic line shifts below the thermodynamic stability line.
+    Dendrites that have reached much larger sizes (e.g., see Fig. 6(b)),
+will be dominated by the base-controlled growth mechanism across a
+much wider range of overpotentials and applied stresses. Also, for
+electrodeposits whose radius of curvature contributions are negligible
+compared to the applied overpotential and mechanical stresses (see
+Fig. 6(c)), such as those experimentally observed in lithium-only anodes, 
+dendrite growth will be dominated by base-controlled growth, thus
+suggesting that the growth of flat layers will be morphologically unstable.
+In this context, the present analysis suggests that a great deal of
+electrochemical and mechanical constraints will be necessary to suppress 
+dendrite growth in practical designs (see Supplemental information).
+    Fig. 7 shows the time-dependent growth behavior for a = −2 and
+very small electrodeposits, as compared to the characteristic electrodeposit 
+size, r∘̂= 1 (0.01 μm). For large overpotentials, a hundred times
+the critical value (see Fig. 7(a)) and stresses up to yield point, there is a
+higher contribution from the tip in the early stages of growth, as depicted
+by the linearity of the gray and green curves. At later stages,
+growth is either in the mixed growth regime, or entirely in the basecontrolled 
+growth regime. For overpotentials close to the critical value
+(see Fig. 7(b)), the dendrite grows from the tip for a short amount of
+time, and starts to grow from the base after t ∼ tσ. For overpotentials
+ten times smaller than the critical value (see Fig. 7(c)), small lithium
+electrodeposits (r r ̂ ̂ < k) dissolve back to the electrolyte. However, calculations 
+predict that for very large shear stresses, − σ ∼ 50 MPa (red
+curve in Fig. 7(c)), lithium electrodeposits will deform and will push the
+electrodeposit towards the counter electrode, even in the absence of
+overpotentials. Predicted growth behavior is in agreement with early
+stage lithium nucleation and growth experiments as performed by Cui
+et al. [21].
+    Fig. 8 demonstrates the time-dependent growth behavior for an
+initial electrodeposit size of ∼ 1 μm, i.e., a hundred times the characteristic 
+electrodeposit size. Electrodeposits under large
+overpotentials, at about ten times the critical value (see Fig. 8(a)) and
+low stresses (− < σ σy) grow from the tip for a very long time. For
+electrodeposits under moderate overpotentials on the order of the critical 
+value (see Fig. 8(b)), there is a very short time where growth is
+either in the tip-controlled or in the mixed growth regime, and switches to
+base-controlled growth regime, in agreement with the work from Li et al.
+[23], and from Crowther and West [19]. For smaller overpotentials,
+e.g., on the order of 1/100th of the critical overpotential (see Fig. 8(c)),
+moderately sized electrodeposits will undergo base-controlled growth
+under moderate to high stresses (5 to 50 MPa).
+    Fig. 9 shows the time-dependent growth behavior for very large
+initial electrodeposit sizes, about 104 times the kinetic characteristic
+size. For high overpotentials, on the order of a hundred times the critical 
+overpotential value (see Fig. 9(a)) and under low stresses
+(− ∼ σ 0.1 MPa), growth is tip-controlled for a very long time. For stresses
+at the yield point (− ∼ σ 0.56 MPa), growth is base-controlled. For moderate 
+overpotentials, on the order of the critical value (see Fig. 9(b)),
+and moderate stresses, the tip-controlled contribution is negligible, in
+agreement with experiments from Brissot et al. [14]. For very small
+overpotentials, on the order of 10−5 times the critical overpotential (see
+Fig. 9(c)), and moderate to high stresses (− > σ σy), growth is entirely
+base-controlled. However, electrodeposits under smaller stresses
+(− ∼ σ 0.1 MPa) will shrink back to the electrolyte (see gray curve).
+    Fig. 10 describes the growth regimes as a function of electrodeposit
+size and stress, for a fixed overpotential. Below the blue curve you will
+find the thermodynamic suppression regime, where dendrites are therm-
+odynamically unstable. Above the blue line and below the black line you
+will find the incubation regime. Above the blue and the black lines are
+three growth regimes: (i) to the left of the green curve and above the
+black curve you will find the tip-controlled growth regime, where growth is
+dominated by electrodeposition, (ii) above the blue and the black curves
+and to the right of the red curve you will find the base-controlled growth
+regime, where irreversible mechanical deformation, i.e., plastic deformation 
+of lithium, dominates the growth dynamics; and finally (iii),
+between the red and the green curves you will find the mixed growth
+regime, where both electrodeposition and plastic deformation have
+comparable contributions to dendrite growth. To the right of the black
+line and below the blue line, very large stresses will mechanically suppress 
+dendritic growth. The dashed gray line indicates a minimum in the
+total growth rate as a result of the contributions from electrochemical,
+chemomechanical and surface energy contributions. Calculations demonstrate 
+that for small overpotentials (see Fig. 10(a)), the tip-controlled
+mechanism dominates the microstructural evolution of dendrites, only in
+a very narrow range of thermodynamic parameters that includes very
+small and compressive stresses, and very large sizes. For larger stresses
+− σ σ >y, calculations predict that base-controlled growth dominates the
+kinetics, in agreement with experiments under low current densities
+(0.45 mA/cm2) as reported by Orsini et al. [16].
+For overpotentials that are comparable to the critical value (see
+    Fig. 10(b)), the edge of the base-controlled growth regime shifts by an
+order of magnitude. Thus, dendrites that are subjected to mechanical
+stresses smaller than the yield point will grow through the tip-controlled
+mechanism and will eventually shift to the mixed growth regime. Experimentally 
+reported results [13,15,19,23] are found to lie within the
+mixed growth regime, except those by Orsini et al. [16]. Finally, for very
+large overpotentials (see Fig. 10(c)), calculations show that the
+electrodeposit will grow mostly by adding lithium at the tip, in agreement 
+with experiments from Li et al. [23]. Overall, these calculations
+demonstrate that as the overpotential increases, dendrites are more
+likely to transition from tip-controlled to base-controlled growth regimes,
+and to spend a significant window of time in the mixed growth regime.
+    Fig. 11(a) highlights the effect of stress on the time-dependent
+growth rate, for fixed initial size and applied overpotential. Note that
+for small stresses, large dendrites require to overcome a long characteristic 
+deposition time, t∘. As the stress increases, the characteristic
+deposition time is dominated by power law creep. Dendrites that start
+at a size one hundred times smaller, display the same characteristic
+deposition time when subjected to the same stresses (see Fig. 11(b)).
+Finally, for dendrites that are marginally above the critical kinetic radius, 
+the effect of stresses become much more pronounced as they
+transition directly from tip-controlled to base-controlled growth, without
+displaying appreciable mixed growth regime behavior (see Fig. 11(c)).
+    Fig. 12 demonstrates the growth behavior for fixed initial dendrite
+sizes and constant overpotentials that are comparable to the critical
+value, η̂= 0.5 (−22.1 mV). For large initial dendrite sizes, growth is
+either tip-controlled or mixed (see Fig. 12(a)). For dendrites that start
+one hundred times smaller, display the same characteristic deposition
+time when subjected to large stresses, but display a transition from tipco-
+ntrolled to base-controlled growth for small stress values (see
+    Fig. 12(b)). Finally, dendrites whose initial size is on the same order of
+magnitude as the critical kinetic size will prefer to shrink in the absence
+of local electrochemical interactions, unless their growth rate is solely
+promoted by the base-controlled growth mechanism (see Fig. 12(c)).
+Calculations show that under the application of very large stresses
+(− ∼ σ 36 MPa), even small electrodeposits will grow through the basecontrolled 
+mechanism, in the absence of any charging overpotential.
+    Fig. 13 shows the growth behavior for fixed initial dendrite sizes
+and constant applied overpotentials that are fifty times the critical kinetic value. 
+For very large initial dendrite sizes, the growth of the
+electrodeposit has contributions from both tip and base-controlled growth
+mechanisms, thus the system evolves in the mixed growth regime for very
+long periods of time (see Fig. 13(a)). For dendrites that are only 2000
+times the critical kinetic radius, the effect of electrodeposition becomes
+more evident, and the lithium nuclei take a long time to transition from
+tip-controlled to base-controlled growth (see Fig. 13(b)). Finally, for
+dendrites that are on the order of ten times the kinetic radius, calculations 
+show that a very large amount of stress, or a large characteristic
+plasticity time is necessary to bring the dendrite into the base-controlled
+growth regime
+
+
+CONCLUSION
+
+    An analytical framework has been developed to rationalize the
+major experimentally identified mechanisms for dendrite growth in a
+liquid electrolyte. Contributions from electrodeposition, surface energy,
+and elastic and plastic deformation are assessed through a thermodynamically 
+consistent growth theory in order to understand the
+driving forces controlling its dynamics. Specifically, five regimes of
+dendrite growth behavior have been identified: (i) thermodynamic suppression 
+regime, (ii) incubation regime, (iii) tip-controlled growth regime,
+(iv) base-controlled growth regime, and (v) mixed growth regime. For a
+single, isolated hemispherical lithium electrodeposit, linear growth
+signals tip-controlled growth, and exponential growth signals base-
+controlled growth. Further, the necessary electrochemical and chemo-
+mechanical conditions to minimize growth have been identified,
+namely by maximizing the hydrostatic contribution to stresses, and
+minimizing the deviatoric contribution. The predicted regimes of
+growth are in excellent agreement with experimental reports of tipcontrolled 
+growth and base-controlled growth, and suggest the additional
+existence of a mixed growth regime. The theory readily explains the 
+timedependent transition between one growth regime to another, as 
+reported in the experimental scientific literature [12–15,19,23]. Two
+characteristic times have been identified: the characteristic deposition
+time, t∘, corresponding to overpotential driven growth, and the characteristic 
+plasticity time, tσ, corresponding to plastic flow induced
+growth. For very large overpotentials, electrodeposits spend a short
+amount of time on coarsening, before tip-controlled growth starts. After
+the accumulation of stresses for a long time, ( ) ∼tσ in the mixed growth
+regime, growth transitions to the base-controlled mechanism, where
+plasticity dominates. Two key dimensionless numbers are identified: Π1,
+the ratio of the chemical free energy of transformation to the thermal
+energy of an isolated lithium electrodeposit, and Π2 the weighted ratio
+of the deposition time to the plasticity time.
+    The present theory provides an additional degree of freedom to the
+interface dendrite suppression strategy proposed by Zhang et al.
+Following Ely et al. [22], and by using the Gibbs-Duhem equation,
+SdT Ndμ Adγ qdη ε dσ c · , for an isothermal system with
+fixed applied overpotential and stress, γ γ χdμ = − ∘ ∫0μe e, where γ∘ is the
+surfactant-free, nucleus-electrolyte interfacial free energy; χ is the
+surface concentration; μe c = + + μ z η Ω σ E F / /2 2 , the electrochemic-
+omechanical potential; and μc the traditional chemical potential
+of the interface. Thus, the addition of a surfactant on a mechanically
+stressed interface can be used to suppress the nucleation of lithium
+embryos.
+    Results suggest that mechanical stresses can both suppress or promote 
+dendrite growth. Specifically, the performed analysis suggests
+that through the use of existing technology such as pulse charging
+[60–63], dendrites can be suppressed by minimizing the possibility of
+nucleation and growth, as suggested by Ely [22]; however, for already
+existing dendrites, the period of the pulses, τ, should be shorter than t∘
+to minimize tip-controlled growth, and simultaneously shorter than tσ to
+minimize base-controlled growth. Historically, it is well known that the
+application of large compressive hydrostatic stresses has resulted in the
+full suppression of dendrites [34,37,38,42,45,46]. This analysis suggests an
+additional dendrite suppression design variable through the
+application of compressive stresses, σ > σ∘, such that a a t = ≥ ( ) 1 for
+t⪢tσ.
