@@ -49,7 +49,8 @@ all_files['学院代码'] = all_files['学院代码'].apply(lambda x: '020' if x
 all_files['学院代码'] = all_files['学院代码'].apply(lambda x: '440' if x == 440 else x)
 grouper = all_files.groupby('所属一级学科（代码）')
 for subject_id, group in grouper:
-    group.index = ['RA'+str(x) for x in range(1, group.shape[0]+1)]
-    group.to_excel('Results/documentation of the RAs (in corpus for subject {}).xlsx'.format(subject_id), encoding='utf-8-sig')
-all_files.index = ['RA'+str(x) for x in range(1, all_files.shape[0]+1)]
+    group.index = ['RA' + str(x) for x in range(1, group.shape[0] + 1)]
+    group.to_excel('Results/documentation of the RAs (in corpus for subject {}).xlsx'.format(subject_id),
+                   encoding='utf-8-sig')
+all_files.index = ['RA' + str(x) for x in range(1, all_files.shape[0] + 1)]
 all_files.to_excel('Results/documentation of the RAs (in corpus for all subject).xlsx', encoding='utf-8-sig')
